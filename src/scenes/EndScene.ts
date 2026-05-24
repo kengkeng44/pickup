@@ -76,21 +76,7 @@ export class EndScene extends Phaser.Scene {
         ? SCENARIO_META[state.scenario]
         : FREE_PRACTICE_META;
 
-    // Mount mascot first (DOM-positioned, fixed) — the overlay reserves a
-    // mascot-spacer block to make room for it.
-    this.mascot = new Mascot();
-    this.mascot.setMascot(meta.mascotId);
-    this.mascot.setScenarioStripVisible(false);
-    this.mascot.setAnim('happy');
-    // Scale the mascot up 1.8× via the shared CSS variable, then restart
-    // the happy loop periodically so it keeps celebrating.
-    this.mascot.setExtraScale(1.8);
-    // Re-pulse happy every 2.4s while EndScene is mounted.
-    const happyTimer = window.setInterval(() => {
-      this.mascot?.setAnim('happy');
-    }, 2400);
-
-    // Mount overlay
+    // Mount overlay first so we can attach the mascot into its slot.
     this.overlay = new EndOverlay({
       dead,
       score: state.score,
@@ -116,6 +102,17 @@ export class EndScene extends Phaser.Scene {
         this.scene.start('MenuScene');
       },
     });
+
+    // Mount celebration mascot inside the overlay's mascot slot.
+    this.mascot = new Mascot({ parent: this.overlay.mascotSlot() });
+    this.mascot.setMascot(meta.mascotId);
+    this.mascot.setAnim('happy');
+    // Scale the mascot up 1.8× via the shared CSS variable, then restart
+    // the happy loop periodically so it keeps celebrating.
+    this.mascot.setExtraScale(1.8);
+    const happyTimer = window.setInterval(() => {
+      this.mascot?.setAnim('happy');
+    }, 2400);
 
     // Confetti — only fires when player set a new best score AND didn't die.
     if (newBest && !dead && state.score > 0) {

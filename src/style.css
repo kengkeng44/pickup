@@ -1,12 +1,9 @@
-/* WordWar — global styles + animations (v0.4 Duolingo aesthetic).
+/* WordWar — global styles + animations (v0.6 flex-column layout fix).
  *
- * Inline-DOM overlay UI (ClozeUI, ModeMenu, Mascot, GameHUD, EndScene,
- * BootScene) sets most of its own styles via JS. This file holds:
- *   - global resets + Duolingo palette
- *   - phone-aspect container scaffolding for #app
- *   - keyframes that aren't expressible inline
- *   - mascot CSS state machine (idle/happy/sad)
- */
+ * v0.6: replaced absolute-positioning soup with a proper flex-column
+ * layout for #app. PlayScene's HUD/Mascot/ClozeUI are now flex-flow
+ * children inside #app. Phaser canvas is hidden (display:none) — the
+ * game uses zero Phaser-rendered visuals, only state + tween/time. */
 
 :root {
   /* Duolingo-flavored brand stack: Nunito if installed, else Inter,
@@ -41,17 +38,35 @@ body {
   background: #ffffff;
 }
 
+/* ─── #app: flex column ──────────────────────────────────────────────────
+ *
+ * Everything visible lives inside #app as flex-flow children. Padding +
+ * gap give consistent spacing between sections — no more overlapping
+ * absolutely-positioned blocks. `100dvh` uses the dynamic viewport so
+ * Safari's address-bar pop doesn't clip the bottom button row.
+ */
 #app {
   width: 100vw;
   max-width: 480px;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
-  display: grid;
-  place-items: stretch;
   background: #ffffff;
   position: relative;
-  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px max(16px, env(safe-area-inset-bottom));
+  padding-top: max(12px, env(safe-area-inset-top));
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+/* Phaser canvas — kept off the visual flow. The Phaser game is now a
+ * pure state machine driving scene lifecycle; we don't render its
+ * pixels. */
+#app canvas {
+  display: none !important;
 }
 
 @media (min-width: 520px) {
@@ -66,6 +81,35 @@ body {
     min-height: calc(100dvh - 24px);
     box-shadow: 0 8px 36px rgba(0, 0, 0, 0.08);
   }
+}
+
+/* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */
+@keyframes wordwar-shake {
+  0%, 100% { transform: translate(0, 0); }
+  15% { transform: translate(-3px, 1px); }
+  30% { transform: translate(3px, -1px); }
+  45% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, -2px); }
+  75% { transform: translate(-1px, 1px); }
+  90% { transform: translate(1px, 0); }
+}
+.wordwar-shake {
+  animation: wordwar-shake 200ms ease-in-out;
+}
+
+#wordwar-flash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 25;
+}
+@keyframes wordwar-flash-anim {
+  0% { opacity: var(--flash-peak, 0.18); }
+  100% { opacity: 0; }
+}
+#wordwar-flash.wordwar-flash-on {
+  animation: wordwar-flash-anim 320ms ease-out;
 }
 
 /* ─── Boot screen "Tap to start" blink ────────────────────────────────── */
@@ -208,5 +252,11 @@ body {
   }
   #boot-overlay * {
     animation: none !important;
+  }
+  .wordwar-shake {
+    animation: none;
+  }
+  #wordwar-flash.wordwar-flash-on {
+    animation: none;
   }
 }

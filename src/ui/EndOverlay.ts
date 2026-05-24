@@ -54,6 +54,7 @@ const COLOR_BORDER_DARK = '#d4d4d4';
 export class EndOverlay {
   private root: HTMLDivElement;
   private content: HTMLDivElement;
+  private mascotSlotEl!: HTMLDivElement;
   private scoreEl!: HTMLDivElement;
   private opts: EndOverlayOptions;
 
@@ -100,6 +101,11 @@ export class EndOverlay {
     return this.scoreEl;
   }
 
+  /** Slot for the celebration mascot — EndScene mounts a Mascot here. */
+  mascotSlot(): HTMLElement {
+    return this.mascotSlotEl;
+  }
+
   destroy(): void {
     this.root.remove();
   }
@@ -109,16 +115,18 @@ export class EndOverlay {
   private build(): void {
     this.content.appendChild(this.makeBanner());
 
-    // Spacer reserved for the mascot — Mascot.ts is positioned fixed
-    // (top:80px-ish) and overlays this region. We reserve vertical real
-    // estate so the rest of the layout doesn't collide with the mascot.
-    const mascotSpacer = document.createElement('div');
-    applyStyle(mascotSpacer, {
-      height: 'calc(160px * var(--mascot-scale, 1) + 12px)',
+    // Mascot slot — in-flow flex child. EndScene mounts a Mascot here
+    // after construction. v0.6: replaces the fixed-position+spacer
+    // hack that caused overlap on short viewports.
+    this.mascotSlotEl = document.createElement('div');
+    applyStyle(this.mascotSlotEl, {
       width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       flex: '0 0 auto',
     });
-    this.content.appendChild(mascotSpacer);
+    this.content.appendChild(this.mascotSlotEl);
 
     if (this.opts.isScenario && this.opts.scenarioId) {
       this.content.appendChild(this.makeScenarioCard());

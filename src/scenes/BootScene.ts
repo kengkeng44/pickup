@@ -28,7 +28,10 @@ export class BootScene extends Phaser.Scene {
     };
 
     this.time.delayedCall(1500, advance);
-    this.input.once('pointerdown', advance);
+    // Phaser canvas is hidden in v0.6 — listen on the overlay itself.
+    this.overlay?.addEventListener('pointerdown', () => advance(), {
+      once: true,
+    });
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.overlay?.remove();

@@ -1,15 +1,15 @@
 /**
- * Mascot — DOM overlay that renders the current NPC SVG and switches
+ * Mascot — DOM element that renders the current NPC SVG and switches
  * between idle / happy / sad animation states via CSS classes.
  *
- * v0.4: positioning re-anchored to sit centered horizontally and
- * vertically aligned to where GameHUD draws the colored halo circle.
+ * v0.6: now a normal in-flow DOM element. The caller passes the parent
+ * container (a flex-flow slot inside #app). No more `position: fixed`
+ * stacked on top of other UI — the parent layout decides where the
+ * mascot sits, and the mascot just fills its slot at the responsive
+ * scale.
  *
- * v0.5: responsive scale-down on short viewports. On phones with
- * limited vertical space (iPhone SE ~600px effective, address bar
- * visible) the 180px mascot was overlapping the sentence card. A
- * shared ResizeObserver watches the document body and writes a CSS
- * variable --mascot-scale that the mascot's width/height reference.
+ * Responsive scale (CSS variable `--mascot-scale` on each instance's
+ * root) still applies. A shared ResizeObserver watches the viewport:
  *
  *   innerHeight >= 720   → scale 1.00 (160 × 180)
  *   innerHeight >= 620   → scale 0.75 (120 × 135)
@@ -80,6 +80,12 @@ function subscribeScale(cb: ScaleListener): () => void {
 
 // ─── Mascot ─────────────────────────────────────────────────────────────────
 
+export interface MascotOptions {
+  /** Parent container the mascot is appended into. Defaults to <body>
+   *  (legacy behaviour) but real usage passes a flex slot in #app. */
+  parent?: HTMLElement;
+}
+
 export class Mascot {
   private root: HTMLDivElement;
   private inner: HTMLDivElement;
@@ -91,30 +97,20 @@ export class Mascot {
   /** Last responsive scale seen (cached for re-application on extraScale changes). */
   private viewportScale = currentScale;
 
-  constructor() {
+  constructor(opts: MascotOptions = {}) {
     this.root = document.createElement('div');
     this.root.id = 'wordwar-mascot';
-    // Position over the GameHUD halo. The HUD has, from top:
-    //   header (~56px tall + ~12px top margin)
-    //   chip (only in scenario mode, ~28px tall + ~4px gap)
-    //   halo (180px tall + ~14px top margin)
-    // We center the mascot vertically within the halo. With safe-area
-    // and either header height, ~120px from top is a good baseline; the
-    // setScenarioStripVisible adjusts for the chip's extra ~36px.
+    // In-flow flex child. Width/height inherit from CSS var so changes
+    // flow through; `margin: 0 auto` centers within the parent slot.
     applyStyle(this.root, {
-      position: 'fixed',
-      top: 'calc(80px + max(0px, env(safe-area-inset-top)))',
-      left: '50%',
-      // Width/height inherit from CSS var so changes flow through.
       width: 'calc(160px * var(--mascot-scale, 1))',
       height: 'calc(180px * var(--mascot-scale, 1))',
-      // Center horizontally — translateX(-50%) compensates for fixed width.
-      transform: 'translateX(-50%)',
+      margin: '0 auto',
       pointerEvents: 'none',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      zIndex: '11',
+      flex: '0 0 auto',
       transition: 'width 200ms ease-out, height 200ms ease-out',
     });
 
@@ -129,22 +125,21 @@ export class Mascot {
     });
     this.root.appendChild(this.inner);
 
-    document.body.appendChild(this.root);
+    (opts.parent ?? document.body).appendChild(this.root);
 
-    // Subscribe to viewport scale changes — recompute the CSS variable
-    // on the document root so other consumers (EndOverlay scaled mascot)
-    // can opt-in too via the same var.
     this.unsubScale = subscribeScale((s) => {
       this.viewportScale = s;
       this.applyScale();
     });
   }
 
-  setScenarioStripVisible(visible: boolean): void {
-    // When scenario chip is present, push mascot down by ~36px.
-    this.root.style.top = visible
-      ? 'calc(116px + max(0px, env(safe-area-inset-top)))'
-      : 'calc(80px + max(0px, env(safe-area-inset-top)))';
+  /**
+   * v0.5 API kept for compatibility — in the v0.6 flex layout the
+   * scenario chip is a sibling, so the mascot doesn't need to offset
+   * itself any more. No-op.
+   */
+  setScenarioStripVisible(_visible: boolean): void {
+    // No-op in v0.6: flex layout handles spacing.
   }
 
   setMascot(mascotId: string): void {

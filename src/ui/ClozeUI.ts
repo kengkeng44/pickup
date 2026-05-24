@@ -1,17 +1,18 @@
 /**
- * ClozeUI — DOM overlay rendering the 4 cloze answer buttons + reveal
- * panel, positioned in the bottom half of the portrait phone layout.
+ * ClozeUI — DOM-only 4-choice answer buttons + reveal panel (v0.6).
  *
- * v0.4 — Duolingo aesthetic.
- *   - White button bg, 2px gray border, 4px darker bottom border
- *     (Duolingo's signature "3D depth" press treatment).
- *   - A/B/C/D circle indicator on the left, letter in gray on white.
- *   - On press: translateY(2px), bottom-border shortens to 2px.
- *   - On reveal: correct button flips to green-active state (bg #58cc02,
- *     dark-green bottom border, white text). Wrong selection turns red.
- *   - Reveal panel: full-width sheet, slides up from bottom of viewport.
- *     Header row ("Correct!" / "Wrong") with icon, explanation body,
- *     then a green CTA "CONTINUE" button (3D depth).
+ * v0.6: buttons and reveal panel are now ordinary flex-flow children
+ * mounted into slots provided by GameHUD. No more `position: fixed`
+ * stacked over everything. Reveal panel toggles `display: none` ↔
+ * `block` in place of the buttons (so they don't compete for the same
+ * vertical space).
+ *
+ *   Buttons: 4 stacked answer choices (A/B/C/D), Duolingo 3D depth
+ *   Reveal:  Correct/Wrong header + explanation + green CTA "CONTINUE"
+ *
+ * Aesthetic unchanged from v0.4: white button bg, 2px gray border,
+ * 4px darker bottom border (Duolingo press treatment), green-active
+ * for the correct answer, red-active for wrong selection.
  */
 
 import { useRunStore } from '../store/runStore';
@@ -28,6 +29,10 @@ export interface ClozeUIOptions {
    *  Duolingo aesthetic uses global green for correct, red for wrong,
    *  scenario tint is reflected via the HUD chip instead). */
   accent: string;
+  /** Flex slot for the 4 answer buttons. */
+  buttonsSlot: HTMLElement;
+  /** Flex slot for the reveal panel. */
+  revealSlot: HTMLElement;
 }
 
 interface BtnRefs {
@@ -51,8 +56,8 @@ const COLOR_TEXT_DARK = '#3c3c3c';
 const COLOR_TEXT_MUTED = '#777777';
 
 export class ClozeUI {
-  private root: HTMLDivElement;
-  private btnCol: HTMLDivElement;
+  private buttonsSlot: HTMLElement;
+  private revealSlot: HTMLElement;
   private buttons: BtnRefs[] = [];
   private revealPanel: HTMLDivElement;
   private revealHeader: HTMLDivElement;
@@ -65,50 +70,26 @@ export class ClozeUI {
   private currentQuestion: ClozeQuestion | null = null;
   private locked = false;
 
-  constructor(handlers: ClozeUIHandlers, _opts: ClozeUIOptions) {
+  constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
+    this.buttonsSlot = opts.buttonsSlot;
+    this.revealSlot = opts.revealSlot;
 
-    this.root = document.createElement('div');
-    this.root.id = 'cloze-overlay';
-    applyStyle(this.root, {
-      position: 'fixed',
-      inset: '0',
-      pointerEvents: 'none',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
-      zIndex: '10',
-      fontFamily:
-        '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
-    });
-
-    // Vertical button column.
-    this.btnCol = document.createElement('div');
-    applyStyle(this.btnCol, {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '12px',
-      width: 'min(420px, calc(100vw - 24px))',
-      pointerEvents: 'none',
-      marginBottom: '8px',
-    });
-
+    // Build 4 stacked answer buttons directly into the buttonsSlot.
     for (let i = 0; i < 4; i++) {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.setAttribute('data-cloze-idx', String(i));
       applyStyle(btn, {
-        pointerEvents: 'auto',
-        minHeight: '62px',
+        width: '100%',
+        minHeight: '56px',
         padding: '12px 16px',
         borderRadius: '14px',
         border: `2px solid ${COLOR_BORDER}`,
         borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
         background: '#ffffff',
         color: COLOR_TEXT_DARK,
-        fontSize: '18px',
+        fontSize: '17px',
         fontWeight: '700',
         fontFamily: 'inherit',
         cursor: 'pointer',
@@ -121,6 +102,7 @@ export class ClozeUI {
         alignItems: 'center',
         gap: '14px',
         textAlign: 'left',
+        boxSizing: 'border-box',
       });
 
       const letter = document.createElement('span');
@@ -153,8 +135,6 @@ export class ClozeUI {
       });
       btn.addEventListener('pointerdown', () => {
         if (this.locked) return;
-        // Duolingo "press in" effect: translateY 2px down,
-        // bottom border shortens by 2px so total height stays consistent.
         btn.style.transform = 'translateY(2px)';
         btn.style.borderBottomWidth = '2px';
       });
@@ -167,17 +147,14 @@ export class ClozeUI {
       btn.addEventListener('pointercancel', releasePress);
 
       this.buttons.push({ el: btn, label, letter });
-      this.btnCol.appendChild(btn);
+      this.buttonsSlot.appendChild(btn);
     }
-    this.root.appendChild(this.btnCol);
 
-    // Reveal panel
+    // Reveal panel — built into revealSlot, hidden until revealAnswer().
     this.revealPanel = document.createElement('div');
     applyStyle(this.revealPanel, {
-      pointerEvents: 'auto',
-      width: 'min(420px, calc(100vw - 24px))',
-      marginTop: '4px',
-      padding: '16px 18px 16px 18px',
+      width: '100%',
+      padding: '14px 16px',
       borderRadius: '16px',
       background: COLOR_GREEN_TINT,
       color: COLOR_TEXT_DARK,
@@ -189,6 +166,7 @@ export class ClozeUI {
       opacity: '0',
       transition: 'transform 240ms ease-out, opacity 240ms ease-out',
       display: 'none',
+      boxSizing: 'border-box',
     });
 
     this.revealHeader = document.createElement('div');
@@ -196,19 +174,19 @@ export class ClozeUI {
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
-      marginBottom: '8px',
-      fontSize: '20px',
+      marginBottom: '6px',
+      fontSize: '18px',
       fontWeight: '800',
     });
     this.revealHeaderIcon = document.createElement('span');
     applyStyle(this.revealHeaderIcon, {
-      width: '30px',
-      height: '30px',
+      width: '28px',
+      height: '28px',
       borderRadius: '50%',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '18px',
+      fontSize: '16px',
       fontWeight: '900',
       lineHeight: '1',
     });
@@ -219,7 +197,7 @@ export class ClozeUI {
 
     this.revealText = document.createElement('div');
     applyStyle(this.revealText, {
-      fontSize: '15px',
+      fontSize: '14px',
       fontWeight: '600',
       lineHeight: '1.55',
       color: COLOR_TEXT_DARK,
@@ -230,14 +208,14 @@ export class ClozeUI {
     this.revealContinue.type = 'button';
     this.revealContinue.textContent = 'CONTINUE';
     applyStyle(this.revealContinue, {
-      marginTop: '14px',
-      padding: '14px 22px',
+      marginTop: '12px',
+      padding: '13px 22px',
       borderRadius: '14px',
       border: 'none',
       borderBottom: `4px solid ${COLOR_GREEN_DARK}`,
       background: COLOR_GREEN,
       color: '#ffffff',
-      fontSize: '17px',
+      fontSize: '16px',
       fontWeight: '800',
       letterSpacing: '0.8px',
       fontFamily: 'inherit',
@@ -264,9 +242,7 @@ export class ClozeUI {
     });
     this.revealPanel.appendChild(this.revealContinue);
 
-    this.root.appendChild(this.revealPanel);
-
-    document.body.appendChild(this.root);
+    this.revealSlot.appendChild(this.revealPanel);
 
     this.unsub = useRunStore.subscribe((state) => {
       this.syncFromState(state.round);
@@ -276,22 +252,25 @@ export class ClozeUI {
   }
 
   show(): void {
-    this.root.style.display = 'flex';
+    for (const { el } of this.buttons) el.style.display = 'flex';
   }
 
   hide(): void {
-    this.root.style.display = 'none';
+    for (const { el } of this.buttons) el.style.display = 'none';
+    this.revealPanel.style.display = 'none';
   }
 
   destroy(): void {
     this.unsub?.();
-    this.root.remove();
+    for (const { el } of this.buttons) el.remove();
+    this.revealPanel.remove();
   }
 
   resetForRound(): void {
     this.locked = false;
     for (const { el, letter } of this.buttons) {
       el.disabled = false;
+      el.style.display = 'flex';
       el.style.background = '#ffffff';
       el.style.borderColor = COLOR_BORDER;
       el.style.borderBottomColor = COLOR_BORDER_DARK;
@@ -321,7 +300,6 @@ export class ClozeUI {
       el.disabled = true;
       el.style.cursor = 'default';
       if (i === correctIndex) {
-        // Green-active style.
         el.style.background = COLOR_GREEN;
         el.style.borderColor = COLOR_GREEN_DARK;
         el.style.borderBottomColor = COLOR_GREEN_DARK;
@@ -330,7 +308,6 @@ export class ClozeUI {
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
       } else if (i === selectedIndex && selectedIndex !== correctIndex) {
-        // Wrong selection: red active style.
         el.style.background = COLOR_RED_TINT;
         el.style.borderColor = COLOR_RED;
         el.style.borderBottomColor = COLOR_RED_DARK;
@@ -343,7 +320,6 @@ export class ClozeUI {
       }
     }
 
-    // Reveal panel content.
     const correct =
       typeof isCorrect === 'boolean'
         ? isCorrect

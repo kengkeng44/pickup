@@ -13,7 +13,6 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { Mascot } from '../ui/Mascot';
 import { GameHUD } from '../ui/GameHUD';
 import { SCENARIO_META, FREE_PRACTICE_META } from '../data/scenarios';
-import { PHASER_WIDTH, PHASER_HEIGHT } from '../main';
 
 const ROUND_TIME_MS = 15_000;
 const HP_MAX = 3;
@@ -23,19 +22,15 @@ const ADVANCE_TIMEOUT_MS = 8_000;
 const TIMER_LOW_THRESHOLD_MS = 5_000;
 
 /**
- * PlayScene (v0.4 — Duolingo aesthetic + DOM-only text).
+ * PlayScene (v0.6 — flex-column DOM layout).
  *
- * Architecture: the Phaser canvas is now a thin backdrop layer. It draws
- * only solid background color and the screen-flash overlay rectangle.
- * Camera shake stays in Phaser. EVERY piece of text in the play view —
- * header (streak / progress / HP), scenario chip, sentence body, timer
- * numeric, mute button, change-mode link, answer buttons, reveal panel —
- * lives in DOM via GameHUD / ClozeUI / Mascot. This fixes the high-DPR
- * blur (Phaser bitmap text was being upscaled without re-rasterisation).
+ * v0.6 architecture: the Phaser canvas is hidden via CSS. The scene
+ * still runs (timers + tweens drive round progression + count-ups) but
+ * renders no visible pixels. GameHUD owns the flex-column layout
+ * inside #app and exposes slots that Mascot + ClozeUI mount into.
+ * Camera shake + screen flash run as CSS animations driven by GameHUD.
  */
 export class PlayScene extends Phaser.Scene {
-  private flashOverlay!: Phaser.GameObjects.Rectangle;
-
   private hud?: GameHUD;
   private clozeUI?: ClozeUI;
   private mascot?: Mascot;
@@ -57,16 +52,8 @@ export class PlayScene extends Phaser.Scene {
   }
 
   create(): void {
-    const W = PHASER_WIDTH;
-    const H = PHASER_HEIGHT;
-    // Duolingo default background: pure white. Scenario tint shows
-    // through the HUD halo / chip, not the body.
+    // Phaser canvas is hidden via CSS — no Phaser-side rendering needed.
     this.cameras.main.setBackgroundColor('#ffffff');
-
-    // Screen-flash overlay (Phaser-side FX layer).
-    this.flashOverlay = this.add
-      .rectangle(W / 2, H / 2, W, H, 0x58cc02, 0)
-      .setDepth(1000);
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.cleanupOverlay();
@@ -144,10 +131,13 @@ export class PlayScene extends Phaser.Scene {
         onAnswer: (idx) => this.handleAnswer(idx),
         onContinue: () => this.handleContinue(),
       },
-      { accent: meta.accent }
+      {
+        accent: meta.accent,
+        buttonsSlot: this.hud.buttonsSlot(),
+        revealSlot: this.hud.revealSlot(),
+      }
     );
-    this.mascot = new Mascot();
-    this.mascot.setScenarioStripVisible(isScenario);
+    this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
     this.mascot.setMascot(meta.mascotId);
 
     this.nextRound();
@@ -348,7 +338,7 @@ export class PlayScene extends Phaser.Scene {
 
     if (result.correct) {
       this.mascot?.setAnim('happy');
-      this.playScreenFlash(0x58cc02, 0.15);
+      this.hud?.flash('#58cc02', 0.15);
       sfxCorrect();
       audio.vibrate(30);
       if (result.streak > prevStreak && result.streak >= 2) {
@@ -358,8 +348,8 @@ export class PlayScene extends Phaser.Scene {
     } else {
       this.mascot?.setAnim('sad');
       this.hud?.shakeHp();
-      this.playScreenFlash(0xff4b4b, 0.13);
-      this.cameras.main.shake(180, 0.004);
+      this.hud?.flash('#ff4b4b', 0.13);
+      this.hud?.shake();
       sfxWrong();
       sfxHpLoss();
       audio.vibrate([50, 30, 50]);
@@ -438,8 +428,8 @@ export class PlayScene extends Phaser.Scene {
     this.clozeUI?.revealTimeout(result.correctIndex, result.explanationZh);
     this.mascot?.setAnim('sad');
     this.hud?.shakeHp();
-    this.playScreenFlash(0xff4b4b, 0.13);
-    this.cameras.main.shake(180, 0.004);
+    this.hud?.flash('#ff4b4b', 0.13);
+    this.hud?.shake();
     sfxHpLoss();
     audio.vibrate([80, 40, 80]);
     this.renderHud();
@@ -459,18 +449,6 @@ export class PlayScene extends Phaser.Scene {
     this.hud?.updateTimer(15, false);
   }
 
-  // ─── FX ─────────────────────────────────────────────────────────────────────
-
-  private playScreenFlash(color: number, peakAlpha: number): void {
-    this.flashOverlay.setFillStyle(color);
-    this.flashOverlay.setAlpha(0);
-    this.tweens.add({
-      targets: this.flashOverlay,
-      alpha: { from: peakAlpha, to: 0 },
-      duration: 280,
-      ease: 'Quad.easeOut',
-    });
-  }
 }
 
 function formatSentence(raw: string): string {

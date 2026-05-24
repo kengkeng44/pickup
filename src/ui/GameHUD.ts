@@ -1,17 +1,24 @@
 /**
- * GameHUD — DOM overlay that owns ALL text rendering for PlayScene.
+ * GameHUD — owns the PlayScene DOM layout (v0.6 flex-column rework).
  *
- * v0.4: Phaser canvas no longer draws text. The canvas only renders
- * solid backdrops + camera FX. Every visible string in PlayScene
- * (header HP, streak, progress bar, scenario chip, sentence body,
- * timer numeric, change-mode link, mute button) lives in the DOM
- * here so the browser renders crisp text at any device-pixel-ratio.
+ * v0.6 mounts the entire play-view layout into #app as flex-flow
+ * children. The tree:
  *
- * Aesthetic: Duolingo. White card surface, bold rounded sans-serif,
+ *   #app (flex column, padding+gap, full dvh)
+ *     ├── header        (streak / progress / HP / mute)
+ *     ├── chip          (scenario mode only)
+ *     ├── mascotSlot    ← Mascot mounts here
+ *     ├── sentenceCard  (sentence + timer pill)
+ *     ├── buttonsSlot   ← ClozeUI mounts answer buttons here
+ *     ├── revealSlot    ← ClozeUI mounts reveal panel here
+ *     └── changeLink    ("← change")
+ *
+ * Other components (Mascot, ClozeUI) ask GameHUD for their slot via
+ * `mascotSlot()`, `buttonsSlot()`, `revealSlot()` and mount themselves
+ * into it. No more competing fixed positioning.
+ *
+ * Aesthetic: Duolingo — white card surface, bold rounded sans-serif,
  * green (#58cc02) primary accent, red (#ff4b4b) hearts.
- *
- * Mount/unmount lifecycle is owned by PlayScene; see PlayScene.bootstrap
- * for the create() call and SHUTDOWN handler for the destroy() call.
  */
 
 import { applyStyle } from './domUtil';
@@ -52,6 +59,7 @@ export interface GameHUDState {
 }
 
 export class GameHUD {
+  private appRoot: HTMLElement;
   private root: HTMLDivElement;
   private header!: HTMLDivElement;
   private streakEl!: HTMLDivElement;
@@ -64,26 +72,38 @@ export class GameHUD {
   private chipEl?: HTMLDivElement;
   private chipText!: HTMLSpanElement;
   private mascotHalo!: HTMLDivElement;
+  /** Inner container inside the halo where Mascot mounts itself. */
+  private mascotMount!: HTMLDivElement;
   private card!: HTMLDivElement;
   private sentenceEl!: HTMLDivElement;
   private timerEl!: HTMLDivElement;
   private timerNum!: HTMLSpanElement;
+  private buttonsSlotEl!: HTMLDivElement;
+  private revealSlotEl!: HTMLDivElement;
   private changeLink!: HTMLButtonElement;
+  /** Flash overlay div (replaces Phaser flash overlay). */
+  private flashEl!: HTMLDivElement;
   private unsubAudio?: () => void;
   private opts: GameHUDOptions;
 
   constructor(opts: GameHUDOptions) {
     this.opts = opts;
+    const app = document.getElementById('app');
+    if (!app) {
+      throw new Error('GameHUD: #app element not found');
+    }
+    this.appRoot = app;
+
     this.root = document.createElement('div');
     this.root.id = 'wordwar-hud';
     applyStyle(this.root, {
-      position: 'fixed',
-      inset: '0',
-      pointerEvents: 'none',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
-      zIndex: '9',
+      alignItems: 'stretch',
+      gap: '10px',
+      width: '100%',
+      flex: '1 1 auto',
+      minHeight: '0',
       fontFamily:
         '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
       color: '#3c3c3c',
@@ -91,11 +111,14 @@ export class GameHUD {
 
     this.buildHeader();
     this.buildChip();
-    this.buildMascotHalo();
+    this.buildMascotSlot();
     this.buildSentenceCard();
+    this.buildButtonsSlot();
+    this.buildRevealSlot();
     this.buildChangeLink();
+    this.buildFlashOverlay();
 
-    document.body.appendChild(this.root);
+    this.appRoot.appendChild(this.root);
 
     this.unsubAudio = audio.subscribe(() => this.refreshMute());
     this.refreshMute();
@@ -104,6 +127,44 @@ export class GameHUD {
   destroy(): void {
     this.unsubAudio?.();
     this.root.remove();
+    this.flashEl?.remove();
+    // Reset any shake class that may have been applied.
+    this.appRoot.classList.remove('wordwar-shake');
+  }
+
+  /** Slot the Mascot component mounts into. */
+  mascotSlot(): HTMLElement {
+    return this.mascotMount;
+  }
+
+  /** Slot for the 4 answer buttons (vertical stack). */
+  buttonsSlot(): HTMLElement {
+    return this.buttonsSlotEl;
+  }
+
+  /** Slot for the reveal panel (initially display:none). */
+  revealSlot(): HTMLElement {
+    return this.revealSlotEl;
+  }
+
+  /** Trigger a CSS shake on #app (replaces Phaser camera shake). */
+  shake(): void {
+    this.appRoot.classList.remove('wordwar-shake');
+    // Force reflow so the animation restarts.
+    void this.appRoot.offsetWidth;
+    this.appRoot.classList.add('wordwar-shake');
+    window.setTimeout(() => {
+      this.appRoot.classList.remove('wordwar-shake');
+    }, 220);
+  }
+
+  /** Trigger a CSS-driven screen flash (replaces Phaser screen flash). */
+  flash(color: string, peakAlpha: number): void {
+    this.flashEl.style.background = color;
+    this.flashEl.style.setProperty('--flash-peak', String(peakAlpha));
+    this.flashEl.classList.remove('wordwar-flash-on');
+    void this.flashEl.offsetWidth;
+    this.flashEl.classList.add('wordwar-flash-on');
   }
 
   // ─── Build ────────────────────────────────────────────────────────────────
@@ -111,13 +172,12 @@ export class GameHUD {
   private buildHeader(): void {
     this.header = document.createElement('div');
     applyStyle(this.header, {
-      pointerEvents: 'auto',
-      width: 'min(420px, calc(100vw - 24px))',
-      marginTop: 'max(12px, env(safe-area-inset-top))',
-      padding: '10px 12px',
+      width: '100%',
+      padding: '6px 0 0 0',
       display: 'flex',
       alignItems: 'center',
       gap: '12px',
+      flex: '0 0 auto',
     });
 
     // Streak (left): 🔥 + number
@@ -157,7 +217,6 @@ export class GameHUD {
       background: '#58cc02',
       borderRadius: '7px',
       transition: 'width 240ms ease-out',
-      // Light shine on top half
       boxShadow: 'inset 0 -3px 0 rgba(0,0,0,0.08)',
     });
     this.progressTrack.appendChild(this.progressFill);
@@ -176,7 +235,6 @@ export class GameHUD {
       minWidth: '40px',
       justifyContent: 'flex-end',
     });
-    // Lazy: rebuild on first render() to honor hpMax. Start with a single heart icon + count.
     const heart = document.createElement('span');
     heart.textContent = '❤';
     applyStyle(heart, { fontSize: '22px' });
@@ -198,7 +256,6 @@ export class GameHUD {
     this.muteBtn.type = 'button';
     this.muteBtn.setAttribute('aria-label', 'Toggle mute');
     applyStyle(this.muteBtn, {
-      pointerEvents: 'auto',
       width: '34px',
       height: '34px',
       borderRadius: '10px',
@@ -215,6 +272,7 @@ export class GameHUD {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       fontFamily: 'inherit',
+      flex: '0 0 auto',
     });
     this.muteBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -230,8 +288,7 @@ export class GameHUD {
     if (!this.opts.scenarioLabel) return;
     this.chipEl = document.createElement('div');
     applyStyle(this.chipEl, {
-      pointerEvents: 'none',
-      marginTop: '4px',
+      alignSelf: 'center',
       padding: '5px 12px',
       borderRadius: '999px',
       background: this.opts.accent,
@@ -244,6 +301,7 @@ export class GameHUD {
       alignItems: 'center',
       gap: '6px',
       boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+      flex: '0 0 auto',
     });
     this.chipText = document.createElement('span');
     this.chipText.textContent = this.opts.scenarioLabel;
@@ -251,60 +309,69 @@ export class GameHUD {
     this.root.appendChild(this.chipEl);
   }
 
-  private buildMascotHalo(): void {
-    // Light circular tint behind the Mascot SVG. Sits at fixed Y; mascot
-    // floats above on top of it via z-index.
+  private buildMascotSlot(): void {
+    // The halo is the colored circle that sits behind the mascot.
+    // It scales together with the mascot via --mascot-scale.
     this.mascotHalo = document.createElement('div');
     applyStyle(this.mascotHalo, {
-      pointerEvents: 'none',
-      marginTop: '14px',
-      width: '180px',
-      height: '180px',
+      alignSelf: 'center',
+      width: 'calc(180px * var(--mascot-scale, 1))',
+      height: 'calc(180px * var(--mascot-scale, 1))',
       borderRadius: '50%',
       background: this.opts.tint || '#e0f5d0',
-      // Sits behind the Mascot DOM (mascot z=8, hud z=9 but halo is empty).
-      // We render the halo above to provide the colored circle; mascot uses
-      // its own fixed positioning and floats above via its z-index trick
-      // — keep this halo at a sentinel so it visually sits where mascot is.
       flex: '0 0 auto',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      transition: 'width 200ms ease-out, height 200ms ease-out',
     });
+    // The mascot DOM lives inside the halo, centered on it.
+    this.mascotMount = document.createElement('div');
+    applyStyle(this.mascotMount, {
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    });
+    this.mascotHalo.appendChild(this.mascotMount);
     this.root.appendChild(this.mascotHalo);
   }
 
   private buildSentenceCard(): void {
     this.card = document.createElement('div');
     applyStyle(this.card, {
-      pointerEvents: 'none',
-      width: 'min(420px, calc(100vw - 24px))',
-      marginTop: '18px',
+      width: '100%',
       background: '#ffffff',
       borderRadius: '16px',
       border: '2px solid #e5e5e5',
-      padding: '20px 18px 16px 18px',
+      padding: '18px 18px 14px 18px',
       boxShadow: '0 4px 10px rgba(0,0,0,0.06)',
       position: 'relative',
-      minHeight: '110px',
       display: 'flex',
       flexDirection: 'column',
       gap: '8px',
+      boxSizing: 'border-box',
+      flex: '0 0 auto',
     });
 
     this.sentenceEl = document.createElement('div');
     applyStyle(this.sentenceEl, {
-      fontSize: '22px',
+      fontSize: '20px',
       fontWeight: '700',
       lineHeight: '1.45',
       color: '#3c3c3c',
       textAlign: 'center',
-      flex: '1 1 auto',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      minHeight: '60px',
       transition: 'opacity 220ms ease-out, transform 220ms ease-out',
     });
     this.card.appendChild(this.sentenceEl);
 
-    // Timer (bottom-right corner of card)
+    // Timer pill — visually anchored to top-right corner of the card.
     this.timerEl = document.createElement('div');
     applyStyle(this.timerEl, {
       position: 'absolute',
@@ -334,13 +401,34 @@ export class GameHUD {
     this.root.appendChild(this.card);
   }
 
+  private buildButtonsSlot(): void {
+    this.buttonsSlotEl = document.createElement('div');
+    applyStyle(this.buttonsSlotEl, {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+      width: '100%',
+      flex: '0 0 auto',
+    });
+    this.root.appendChild(this.buttonsSlotEl);
+  }
+
+  private buildRevealSlot(): void {
+    this.revealSlotEl = document.createElement('div');
+    applyStyle(this.revealSlotEl, {
+      width: '100%',
+      flex: '0 0 auto',
+    });
+    this.root.appendChild(this.revealSlotEl);
+  }
+
   private buildChangeLink(): void {
     this.changeLink = document.createElement('button');
     this.changeLink.type = 'button';
     this.changeLink.textContent = '← change';
     applyStyle(this.changeLink, {
-      pointerEvents: 'auto',
-      marginTop: '10px',
+      alignSelf: 'center',
+      marginTop: 'auto',
       background: 'transparent',
       border: 'none',
       padding: '6px 10px',
@@ -351,12 +439,19 @@ export class GameHUD {
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
+      flex: '0 0 auto',
     });
     this.changeLink.addEventListener('click', (e) => {
       e.preventDefault();
       this.opts.onChange();
     });
     this.root.appendChild(this.changeLink);
+  }
+
+  private buildFlashOverlay(): void {
+    this.flashEl = document.createElement('div');
+    this.flashEl.id = 'wordwar-flash';
+    document.body.appendChild(this.flashEl);
   }
 
   private refreshMute(): void {
@@ -369,8 +464,6 @@ export class GameHUD {
 
   /** Render full state (per-round). */
   render(state: GameHUDState): void {
-    // Header HP — number style: a single big red heart + count to avoid
-    // drift between hpMax sizes; visually consistent with Duolingo.
     this.hpHearts[1].textContent = String(Math.max(0, state.hp));
 
     // Streak: hide when < 2 (consistent with v0.3 behaviour)
@@ -382,15 +475,12 @@ export class GameHUD {
       this.streakNum.textContent = '0';
     }
 
-    // Progress: ratio = (currentRound - 1) / total (so first question
-    // shows empty bar). Clamp to [0, 1].
     const r = Math.max(
       0,
       Math.min(1, (state.currentRound - 1) / Math.max(1, state.totalRounds))
     );
     this.progressFill.style.width = `${Math.round(r * 100)}%`;
 
-    // Chip
     if (this.chipEl && state.scenarioLabel) {
       this.chipText.textContent = state.scenarioLabel;
       this.chipEl.style.display = 'inline-flex';
@@ -398,10 +488,8 @@ export class GameHUD {
       this.chipEl.style.display = 'none';
     }
 
-    // Sentence
     this.sentenceEl.innerHTML = renderSentence(state.sentence);
 
-    // Timer numeric
     this.timerNum.textContent = String(state.timerSeconds);
     const low = state.timerLow;
     this.timerEl.style.color = low ? '#ff4b4b' : '#3c3c3c';
@@ -421,7 +509,6 @@ export class GameHUD {
   animateSentenceIn(): void {
     this.sentenceEl.style.opacity = '0';
     this.sentenceEl.style.transform = 'translateY(-6px)';
-    // Trigger reflow then animate.
     void this.sentenceEl.offsetHeight;
     this.sentenceEl.style.opacity = '1';
     this.sentenceEl.style.transform = 'translateY(0)';
