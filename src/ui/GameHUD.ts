@@ -22,7 +22,7 @@
  */
 
 import { applyStyle } from './domUtil';
-import { audio } from '../audio/AudioManager';
+// audio import removed — audio managed by PlayScene/AudioManager directly, not the HUD
 
 export interface GameHUDOptions {
   /** Hex accent color used for chip + sentence underline + timer ring. */
@@ -68,7 +68,7 @@ export class GameHUD {
   private progressFill!: HTMLDivElement;
   private hpEl!: HTMLDivElement;
   private hpHearts: HTMLSpanElement[] = [];
-  private muteBtn!: HTMLButtonElement;
+  // muteBtn removed — audio always on (user controls via phone volume)
   private chipEl?: HTMLDivElement;
   private chipText!: HTMLSpanElement;
   private mascotHalo!: HTMLDivElement;
@@ -83,7 +83,7 @@ export class GameHUD {
   private changeLink!: HTMLButtonElement;
   /** Flash overlay div (replaces Phaser flash overlay). */
   private flashEl!: HTMLDivElement;
-  private unsubAudio?: () => void;
+  // unsubAudio removed — no audio subscription needed in HUD
   private opts: GameHUDOptions;
 
   constructor(opts: GameHUDOptions) {
@@ -119,13 +119,9 @@ export class GameHUD {
     this.buildFlashOverlay();
 
     this.appRoot.appendChild(this.root);
-
-    this.unsubAudio = audio.subscribe(() => this.refreshMute());
-    this.refreshMute();
   }
 
   destroy(): void {
-    this.unsubAudio?.();
     this.root.remove();
     this.flashEl?.remove();
     // Reset any shake class that may have been applied.
@@ -251,35 +247,31 @@ export class GameHUD {
     this.hpHearts = [heart, hpCount];
     this.header.appendChild(this.hpEl);
 
-    // Mute btn (right of HP)
-    this.muteBtn = document.createElement('button');
-    this.muteBtn.type = 'button';
-    this.muteBtn.setAttribute('aria-label', 'Toggle mute');
-    applyStyle(this.muteBtn, {
-      width: '34px',
+    // Timer pill — right of HP (replaces former mute button; user controls audio via phone volume)
+    this.timerEl = document.createElement('div');
+    applyStyle(this.timerEl, {
+      minWidth: '38px',
       height: '34px',
+      padding: '0 10px',
       borderRadius: '10px',
       background: '#ffffff',
       border: '2px solid #e5e5e5',
       borderBottom: '3px solid #d4d4d4',
-      cursor: 'pointer',
-      padding: '0',
-      fontSize: '16px',
-      lineHeight: '1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      touchAction: 'manipulation',
-      WebkitTapHighlightColor: 'transparent',
       fontFamily: 'inherit',
+      fontWeight: '800',
+      fontSize: '15px',
+      color: '#3c3c3c',
+      pointerEvents: 'none',
       flex: '0 0 auto',
+      transition: 'color 200ms ease, border-color 200ms ease',
     });
-    this.muteBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      audio.ensureContext();
-      audio.toggleAudioMuted();
-    });
-    this.header.appendChild(this.muteBtn);
+    this.timerNum = document.createElement('span');
+    this.timerNum.textContent = '15';
+    this.timerEl.appendChild(this.timerNum);
+    this.header.appendChild(this.timerEl);
 
     this.root.appendChild(this.header);
   }
@@ -360,43 +352,16 @@ export class GameHUD {
     applyStyle(this.sentenceEl, {
       fontSize: '20px',
       fontWeight: '700',
-      lineHeight: '1.45',
+      lineHeight: '1.55',
       color: '#3c3c3c',
       textAlign: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      display: 'block',
       minHeight: '60px',
       transition: 'opacity 220ms ease-out, transform 220ms ease-out',
     });
     this.card.appendChild(this.sentenceEl);
 
-    // Timer pill — visually anchored to top-right corner of the card.
-    this.timerEl = document.createElement('div');
-    applyStyle(this.timerEl, {
-      position: 'absolute',
-      top: '-14px',
-      right: '14px',
-      width: '40px',
-      height: '40px',
-      borderRadius: '50%',
-      background: '#ffffff',
-      border: '3px solid #e5e5e5',
-      borderBottom: '5px solid #d4d4d4',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontFamily: 'inherit',
-      fontWeight: '800',
-      fontSize: '16px',
-      color: '#3c3c3c',
-      pointerEvents: 'none',
-      transition: 'color 200ms ease, border-color 200ms ease',
-    });
-    this.timerNum = document.createElement('span');
-    this.timerNum.textContent = '15';
-    this.timerEl.appendChild(this.timerNum);
-    this.card.appendChild(this.timerEl);
+    // Timer lives in the header row — see buildHeader. No element here.
 
     this.root.appendChild(this.card);
   }
@@ -454,11 +419,7 @@ export class GameHUD {
     document.body.appendChild(this.flashEl);
   }
 
-  private refreshMute(): void {
-    const muted = audio.audioMuted;
-    this.muteBtn.textContent = muted ? '\u{1F507}' : '\u{1F50A}';
-    this.muteBtn.style.color = muted ? '#ff4b4b' : '#777777';
-  }
+  // refreshMute removed — audio always on (user controls via phone volume)
 
   // ─── State update ─────────────────────────────────────────────────────────
 
