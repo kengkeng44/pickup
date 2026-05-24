@@ -1,17 +1,20 @@
 import Phaser from 'phaser';
-import { LevelMenu } from '../ui/LevelMenu';
+import { ModeMenu } from '../ui/ModeMenu';
 import { useRunStore } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 
 /**
- * MenuScene — first interactive scene.
+ * MenuScene — v0.3 entry point.
  *
- * Phaser side: just renders a brand title (the menu UI proper is DOM-overlay
- * driven for accessibility + touch reliability). We use a scene only so we
- * can scene.start('PlayScene') with the standard transition.
+ * Phaser side: dim brand backdrop. The actual menu UI is a DOM overlay
+ * (ModeMenu) for the same accessibility / touch reasons ClozeUI uses DOM.
+ *
+ * ModeMenu handles two flows:
+ *   - Free practice → start with mode='free', level='A2'
+ *   - Scenario     → pick scenario, then start with mode='scenario'
  */
 export class MenuScene extends Phaser.Scene {
-  private levelMenu?: LevelMenu;
+  private modeMenu?: ModeMenu;
 
   constructor() {
     super({ key: 'MenuScene' });
@@ -20,36 +23,43 @@ export class MenuScene extends Phaser.Scene {
   create(): void {
     const { width, height } = this.cameras.main;
 
+    // Faint brand text behind the overlay — only visible if the overlay
+    // ever fails to mount. Mostly invisible in practice.
     this.add
-      .text(width / 2, height / 2 - 80, 'WordWar', {
+      .text(width / 2, height / 2, 'WordWar', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '64px',
+        fontSize: '40px',
         fontStyle: 'bold',
-        color: '#2a2730',
-      })
-      .setOrigin(0.5);
-    this.add
-      .text(width / 2, height / 2, 'CEFR cloze · 填空挑戰', {
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '18px',
-        color: '#6b6375',
+        color: '#e7e2d4',
       })
       .setOrigin(0.5);
 
-    this.levelMenu = new LevelMenu({
-      onSelect: (level) => {
-        // First user gesture — ensure AudioContext is created.
+    this.modeMenu = new ModeMenu({
+      onStartFree: () => {
         audio.ensureContext();
-        useRunStore.getState().setLevel(level);
-        this.levelMenu?.destroy();
-        this.levelMenu = undefined;
+        const store = useRunStore.getState();
+        store.setMode('free');
+        store.setScenario(null);
+        store.setLevel('A2');
+        this.modeMenu?.destroy();
+        this.modeMenu = undefined;
+        this.scene.start('PlayScene');
+      },
+      onStartScenario: (id) => {
+        audio.ensureContext();
+        const store = useRunStore.getState();
+        store.setMode('scenario');
+        store.setScenario(id);
+        store.setLevel('A2');
+        this.modeMenu?.destroy();
+        this.modeMenu = undefined;
         this.scene.start('PlayScene');
       },
     });
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-      this.levelMenu?.destroy();
-      this.levelMenu = undefined;
+      this.modeMenu?.destroy();
+      this.modeMenu = undefined;
     });
   }
 }

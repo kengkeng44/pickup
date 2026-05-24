@@ -1,19 +1,12 @@
 /**
- * ClozeUI — DOM overlay that renders the 4 cloze answer buttons + reveal
- * panel on top of the Phaser canvas.
+ * ClozeUI — DOM overlay rendering the 4 cloze answer buttons + reveal
+ * panel, positioned in the bottom half of the portrait phone layout.
  *
- * Why DOM, not Phaser? Phaser's hit-detection on touch has been the source
- * of repeated tap-drop bugs (M3 polish attempts didn't conclusively fix it).
- * HTML <button> elements get rock-solid mobile touch handling for free — no
- * hitbox math, no pointer routing through the Phaser input plugin.
- *
- * Mount model:
- *   - One root <div id="cloze-overlay"> created as a sibling to #app.
- *   - Positioned fixed, inset:0, pointer-events:none — so canvas drag/
- *     input below still works.
- *   - The button row inside gets pointer-events:auto.
- *   - Subscribes to runStore + a couple of imperative show/hide methods
- *     called from PlayScene.
+ * v0.3 changes vs M4:
+ *   - Buttons are vertical-stacked, not 2×2 — thumb-friendly on phone.
+ *   - Buttons span ~max-width 400px to stay inside the phone container.
+ *   - Optional scenario accent color (passed in via constructor opts)
+ *     tints the "Continue" CTA + the reveal panel border.
  */
 
 import { useRunStore } from '../store/runStore';
@@ -25,25 +18,35 @@ export interface ClozeUIHandlers {
   onContinue: () => void;
 }
 
+export interface ClozeUIOptions {
+  /** Hex accent color used for the Continue button + reveal panel border. */
+  accent: string;
+}
+
 interface BtnRefs {
   el: HTMLButtonElement;
   label: HTMLSpanElement;
+  letter: HTMLSpanElement;
 }
+
+const LETTERS = ['A', 'B', 'C', 'D'];
 
 export class ClozeUI {
   private root: HTMLDivElement;
-  private btnRow: HTMLDivElement;
+  private btnCol: HTMLDivElement;
   private buttons: BtnRefs[] = [];
   private revealPanel: HTMLDivElement;
   private revealText: HTMLDivElement;
   private revealContinue: HTMLButtonElement;
   private unsub?: () => void;
   private handlers: ClozeUIHandlers;
+  private accent: string;
   private currentQuestion: ClozeQuestion | null = null;
   private locked = false;
 
-  constructor(handlers: ClozeUIHandlers) {
+  constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
+    this.accent = opts.accent;
 
     this.root = document.createElement('div');
     this.root.id = 'cloze-overlay';
@@ -59,13 +62,13 @@ export class ClozeUI {
       zIndex: '10',
     });
 
-    // Button row.
-    this.btnRow = document.createElement('div');
-    applyStyle(this.btnRow, {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '12px',
-      width: 'min(560px, calc(100vw - 32px))',
+    // Vertical button column.
+    this.btnCol = document.createElement('div');
+    applyStyle(this.btnCol, {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+      width: 'min(400px, calc(100vw - 32px))',
       pointerEvents: 'none',
     });
 
@@ -75,15 +78,16 @@ export class ClozeUI {
       btn.setAttribute('data-cloze-idx', String(i));
       applyStyle(btn, {
         pointerEvents: 'auto',
-        minHeight: '64px',
-        padding: '14px 18px',
-        borderRadius: '12px',
+        minHeight: '54px',
+        padding: '10px 16px',
+        borderRadius: '14px',
         border: '2px solid #e7e2d4',
         background: '#ffffff',
         color: '#2a2730',
-        fontSize: '18px',
+        fontSize: '17px',
         fontWeight: '600',
-        fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+        fontFamily:
+          'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
         cursor: 'pointer',
         boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
         transition:
@@ -91,9 +95,33 @@ export class ClozeUI {
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
         userSelect: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        textAlign: 'left',
       });
+
+      const letter = document.createElement('span');
+      letter.textContent = LETTERS[i];
+      applyStyle(letter, {
+        width: '26px',
+        height: '26px',
+        borderRadius: '8px',
+        background: '#f0eadc',
+        color: '#6b6375',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '13px',
+        fontWeight: '700',
+        flex: '0 0 auto',
+      });
+      btn.appendChild(letter);
+
       const label = document.createElement('span');
+      applyStyle(label, { flex: '1 1 auto' });
       btn.appendChild(label);
+
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         if (this.locked) return;
@@ -110,25 +138,27 @@ export class ClozeUI {
       btn.addEventListener('pointerup', releasePress);
       btn.addEventListener('pointerleave', releasePress);
       btn.addEventListener('pointercancel', releasePress);
-      this.buttons.push({ el: btn, label });
-      this.btnRow.appendChild(btn);
-    }
-    this.root.appendChild(this.btnRow);
 
-    // Reveal panel.
+      this.buttons.push({ el: btn, label, letter });
+      this.btnCol.appendChild(btn);
+    }
+    this.root.appendChild(this.btnCol);
+
+    // Reveal panel
     this.revealPanel = document.createElement('div');
     applyStyle(this.revealPanel, {
       pointerEvents: 'auto',
-      width: 'min(560px, calc(100vw - 32px))',
-      marginTop: '14px',
-      padding: '16px 18px',
+      width: 'min(400px, calc(100vw - 32px))',
+      marginTop: '12px',
+      padding: '14px 16px',
       borderRadius: '14px',
       background: '#fff8e8',
-      border: '1px solid #f0e3bf',
+      border: `1px solid ${this.accent}55`,
       color: '#3d3328',
-      fontSize: '15px',
+      fontSize: '14px',
       lineHeight: '1.55',
-      fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+      fontFamily:
+        'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
       boxShadow: '0 6px 20px rgba(0,0,0,0.08)',
       transform: 'translateY(20px)',
       opacity: '0',
@@ -141,13 +171,13 @@ export class ClozeUI {
 
     this.revealContinue = document.createElement('button');
     this.revealContinue.type = 'button';
-    this.revealContinue.textContent = 'Continue';
+    this.revealContinue.textContent = 'Continue →';
     applyStyle(this.revealContinue, {
       marginTop: '12px',
       padding: '10px 22px',
       borderRadius: '10px',
       border: 'none',
-      background: '#ff7a59',
+      background: this.accent,
       color: '#ffffff',
       fontSize: '15px',
       fontWeight: '700',
@@ -155,6 +185,7 @@ export class ClozeUI {
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
+      width: '100%',
     });
     this.revealContinue.addEventListener('click', (e) => {
       e.preventDefault();
@@ -166,11 +197,9 @@ export class ClozeUI {
 
     document.body.appendChild(this.root);
 
-    // Subscribe to store — re-render whenever round/lastResult changes.
     this.unsub = useRunStore.subscribe((state) => {
       this.syncFromState(state.round);
     });
-    // Prime from current state.
     const init = useRunStore.getState();
     this.syncFromState(init.round);
   }
@@ -188,10 +217,9 @@ export class ClozeUI {
     this.root.remove();
   }
 
-  /** Imperative reset — called by PlayScene at the start of each round. */
   resetForRound(): void {
     this.locked = false;
-    for (const { el } of this.buttons) {
+    for (const { el, letter } of this.buttons) {
       el.disabled = false;
       el.style.background = '#ffffff';
       el.style.borderColor = '#e7e2d4';
@@ -199,13 +227,14 @@ export class ClozeUI {
       el.style.transform = '';
       el.style.cursor = 'pointer';
       el.style.opacity = '1';
+      letter.style.background = '#f0eadc';
+      letter.style.color = '#6b6375';
     }
     this.revealPanel.style.display = 'none';
     this.revealPanel.style.opacity = '0';
     this.revealPanel.style.transform = 'translateY(20px)';
   }
 
-  /** Render buttons disabled + colored after answer. */
   revealAnswer(
     selectedIndex: number,
     correctIndex: number,
@@ -213,30 +242,32 @@ export class ClozeUI {
   ): void {
     this.locked = true;
     for (let i = 0; i < this.buttons.length; i++) {
-      const { el } = this.buttons[i];
+      const { el, letter } = this.buttons[i];
       el.disabled = true;
       el.style.cursor = 'default';
       if (i === correctIndex) {
         el.style.background = '#d6f3e0';
         el.style.borderColor = '#2fb380';
         el.style.color = '#1f7d57';
+        letter.style.background = '#2fb380';
+        letter.style.color = '#ffffff';
       } else if (i === selectedIndex && selectedIndex !== correctIndex) {
         el.style.background = '#fbdcd8';
         el.style.borderColor = '#e25c4d';
         el.style.color = '#a73a2e';
+        letter.style.background = '#e25c4d';
+        letter.style.color = '#ffffff';
       } else {
         el.style.opacity = '0.55';
       }
     }
     this.revealText.textContent = explanationZh;
     this.revealPanel.style.display = 'block';
-    // Force layout, then transition in.
     void this.revealPanel.offsetHeight;
     this.revealPanel.style.opacity = '1';
     this.revealPanel.style.transform = 'translateY(0)';
   }
 
-  /** For timeout: no selection, just show correct + explanation. */
   revealTimeout(correctIndex: number, explanationZh: string): void {
     this.revealAnswer(-1, correctIndex, explanationZh);
   }

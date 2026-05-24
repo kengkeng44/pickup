@@ -5,21 +5,29 @@ import { PlayScene } from './scenes/PlayScene';
 import { EndScene } from './scenes/EndScene';
 import './style.css';
 
+/**
+ * Portrait phone-app layout (v0.3 rework).
+ *
+ * 400 × 800 reference resolution, FIT scaled so the canvas centers in the
+ * #app container (which is itself capped at 480px wide). On desktop the
+ * surrounding cream bezel shows the "phone" framing; on mobile the canvas
+ * fills the screen edge-to-edge.
+ */
+export const PHASER_WIDTH = 400;
+export const PHASER_HEIGHT = 800;
+
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: 'app',
-  width: 900,
-  height: 600,
+  width: PHASER_WIDTH,
+  height: PHASER_HEIGHT,
   backgroundColor: '#fdfaf2',
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
   input: {
-    // Explicit single-touch tap registration. Multi-finger taps were
-    // confusing Phaser's pointer routing on some Android devices, occasionally
-    // dropping the second tap on a card. One pointer is all we need.
-    activePointers: 2, // 1 active + 1 mouse fallback for hybrid devices
+    activePointers: 2,
     touch: {
       capture: true,
     },

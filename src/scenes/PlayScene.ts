@@ -11,48 +11,66 @@ import {
 } from '../audio/sfx';
 import { MuteButton } from '../ui/MuteButton';
 import { ClozeUI } from '../ui/ClozeUI';
+import { Mascot } from '../ui/Mascot';
+import { SCENARIO_META, FREE_PRACTICE_META } from '../data/scenarios';
+import { PHASER_WIDTH, PHASER_HEIGHT } from '../main';
 
 const ROUND_TIME_MS = 15_000;
 const HP_MAX = 3;
 const ADVANCE_CORRECT_MS = 4_000;
 const ADVANCE_WRONG_MS = 8_000;
 const ADVANCE_TIMEOUT_MS = 8_000;
-// Threshold (ms remaining) at which the timer enters "low" state.
 const TIMER_LOW_THRESHOLD_MS = 5_000;
 
 /**
- * PlayScene (cloze rewrite).
+ * PlayScene (portrait v0.3).
  *
- * Phaser is responsible for:
- *   - Sentence (with blank) display
- *   - HUD (HP hearts, score, round counter, streak)
- *   - Timer ring + countdown text
- *   - Mute button, "change level" link
- *   - Visual juice (screen flash on correct, shake on wrong)
+ * Layout (top → bottom, 400×800 reference):
+ *   0–60     Header strip (logo, HP, score, mute)
+ *  60–100    Scenario context strip (scenario mode only)
+ * 100–270    Mascot area (DOM overlay; Phaser draws a tinted bg circle)
+ * 270–400    Sentence card
+ * 400–660    Answer buttons (ClozeUI DOM overlay, vertical stack)
+ * 660–740    Timer ring + Continue button area
+ * 740–800    Safe area
  *
- * Phaser is NOT responsible for:
- *   - The 4 answer buttons (they live in ClozeUI as DOM overlay — see ClozeUI.ts)
- *   - The reveal panel (also in ClozeUI)
+ * Phaser owns: header text, HP hearts, score, scenario strip,
+ * mascot background tint, sentence card bg, sentence text, timer ring,
+ * fx (screen flash, shake).
  *
- * This division is deliberate: HTML buttons get rock-solid touch handling
- * out of the box, which Phaser hit-testing did not on certain Android devices.
+ * DOM (overlay) owns: mascot SVG, 4 vertical buttons, reveal panel.
  */
 export class PlayScene extends Phaser.Scene {
-  private sentenceText!: Phaser.GameObjects.Text;
+  // Header
+  private headerBg!: Phaser.GameObjects.Graphics;
   private hearts: Phaser.GameObjects.Text[] = [];
   private scoreText!: Phaser.GameObjects.Text;
-  private roundText!: Phaser.GameObjects.Text;
+
+  // Scenario strip
+  private scenarioStrip?: Phaser.GameObjects.Container;
+  private scenarioStripBg?: Phaser.GameObjects.Graphics;
+  private scenarioStripText?: Phaser.GameObjects.Text;
+
+  // Mascot bg + sentence card
+  private mascotBg!: Phaser.GameObjects.Graphics;
+  private sentenceCard!: Phaser.GameObjects.Graphics;
+  private sentenceText!: Phaser.GameObjects.Text;
   private streakText!: Phaser.GameObjects.Text;
-  private levelBadge!: Phaser.GameObjects.Text;
-  private changeLevelLink!: Phaser.GameObjects.Text;
+
+  // Timer
   private timerArcBg!: Phaser.GameObjects.Graphics;
   private timerArc!: Phaser.GameObjects.Graphics;
   private timerText!: Phaser.GameObjects.Text;
+
+  // Misc
+  private changeModeLink!: Phaser.GameObjects.Text;
   private loadingText?: Phaser.GameObjects.Text;
   private retryBtn?: Phaser.GameObjects.Container;
   private flashOverlay!: Phaser.GameObjects.Rectangle;
 
   private clozeUI?: ClozeUI;
+  private mascot?: Mascot;
+
   private roundEndsAt = 0;
   private timerEvent?: Phaser.Time.TimerEvent;
   private timerLowPulseTween?: Phaser.Tweens.Tween;
@@ -69,22 +87,105 @@ export class PlayScene extends Phaser.Scene {
   }
 
   create(): void {
-    const { width, height } = this.cameras.main;
+    const W = PHASER_WIDTH;
+    const H = PHASER_HEIGHT;
+    const meta = this.activeMeta();
 
-    // ── Level badge (top-left) ────────────────────────────────────────────────
-    this.levelBadge = this.add
-      .text(40, 32, '', {
-        fontFamily: 'ui-monospace, Consolas, monospace',
-        fontSize: '13px',
+    // Background tint based on scenario accent.
+    this.cameras.main.setBackgroundColor(meta.tint);
+
+    // ── Header strip ──────────────────────────────────────────────────────────
+    this.headerBg = this.add.graphics();
+    this.headerBg.fillStyle(0xffffff, 1);
+    this.headerBg.fillRect(0, 0, W, 60);
+    this.headerBg.lineStyle(1, 0xe7e2d4, 1);
+    this.headerBg.lineBetween(0, 60, W, 60);
+
+    this.add
+      .text(20, 30, 'WordWar', {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '18px',
         fontStyle: 'bold',
-        color: '#a86a2a',
-        backgroundColor: '#fff0db',
-        padding: { left: 10, right: 10, top: 4, bottom: 4 },
+        color: '#2a2730',
       })
       .setOrigin(0, 0.5);
 
-    this.changeLevelLink = this.add
-      .text(40 + 60, 32, 'change', {
+    // HP hearts under logo line
+    this.hearts = [];
+    for (let i = 0; i < HP_MAX; i++) {
+      const heart = this.add
+        .text(110 + i * 22, 30, '♥', {
+          fontFamily: 'system-ui, sans-serif',
+          fontSize: '20px',
+          color: '#e25c4d',
+          fontStyle: 'bold',
+        })
+        .setOrigin(0, 0.5);
+      this.hearts.push(heart);
+    }
+
+    // Score (centered-ish right of hearts)
+    this.scoreText = this.add
+      .text(W - 60, 30, '0', {
+        fontFamily: 'ui-monospace, monospace',
+        fontSize: '20px',
+        fontStyle: 'bold',
+        color: '#2fb380',
+      })
+      .setOrigin(1, 0.5);
+
+    // Mute button top-right corner
+    new MuteButton(this, W - 24, 30);
+
+    // ── Scenario context strip ────────────────────────────────────────────────
+    this.buildScenarioStrip();
+
+    // ── Mascot background (tint + circle) ─────────────────────────────────────
+    this.mascotBg = this.add.graphics();
+    this.drawMascotBg();
+
+    // ── Sentence card ─────────────────────────────────────────────────────────
+    this.sentenceCard = this.add.graphics();
+    this.drawSentenceCard();
+
+    this.sentenceText = this.add
+      .text(W / 2, 335, '', {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '20px',
+        fontStyle: 'bold',
+        color: '#2a2730',
+        align: 'center',
+        wordWrap: { width: W - 48, useAdvancedWrap: true },
+      })
+      .setOrigin(0.5);
+
+    this.streakText = this.add
+      .text(W / 2, 397, '', {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '12px',
+        color: '#ff7a59',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5);
+
+    // ── Timer arc (small, bottom of sentence card) ────────────────────────────
+    const timerCx = W - 36;
+    const timerCy = 90;
+    this.timerArcBg = this.add.graphics();
+    this.timerArc = this.add.graphics();
+    this.drawTimerRing(timerCx, timerCy, 1);
+    this.timerText = this.add
+      .text(timerCx, timerCy, '15', {
+        fontFamily: 'ui-monospace, monospace',
+        fontSize: '15px',
+        fontStyle: 'bold',
+        color: '#2a2730',
+      })
+      .setOrigin(0.5);
+
+    // Change-mode link (small, top of mascot area)
+    this.changeModeLink = this.add
+      .text(20, 90, '← change', {
         fontFamily: 'system-ui, sans-serif',
         fontSize: '11px',
         color: '#a8a2b3',
@@ -92,96 +193,25 @@ export class PlayScene extends Phaser.Scene {
       })
       .setOrigin(0, 0.5)
       .setInteractive({ useHandCursor: true });
-    this.changeLevelLink.on('pointerup', () => {
-      this.clozeUI?.destroy();
-      this.clozeUI = undefined;
+    this.changeModeLink.on('pointerup', () => {
+      this.cleanupOverlay();
       this.stopTimer();
       this.scene.start('MenuScene');
     });
 
-    // ── Sentence — the hero element ───────────────────────────────────────────
-    this.sentenceText = this.add
-      .text(width / 2, height / 2 - 40, '', {
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '30px',
-        fontStyle: 'bold',
-        color: '#2a2730',
-        align: 'center',
-        wordWrap: { width: width - 60, useAdvancedWrap: true },
-      })
-      .setOrigin(0.5);
-
-    // ── HUD middle row: hearts (HP), score, round counter ─────────────────────
-    this.hearts = [];
-    for (let i = 0; i < HP_MAX; i++) {
-      const heart = this.add.text(40 + i * 24, 64, '♥', {
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '22px',
-        color: '#e25c4d',
-        fontStyle: 'bold',
-      });
-      this.hearts.push(heart);
-    }
-
-    this.scoreText = this.add
-      .text(width / 2, 72, 'Score 0', {
-        fontFamily: 'ui-monospace, monospace',
-        fontSize: '20px',
-        fontStyle: 'bold',
-        color: '#2fb380',
-      })
-      .setOrigin(0.5, 0);
-
-    this.streakText = this.add
-      .text(width / 2, 96, '', {
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '13px',
-        color: '#ff7a59',
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5, 0);
-
-    this.roundText = this.add
-      .text(width - 76, 72, `Round 1 / ${RUN_CONFIG.QUESTIONS_PER_RUN}`, {
-        fontFamily: 'ui-monospace, monospace',
-        fontSize: '14px',
-        color: '#6b6375',
-        fontStyle: 'bold',
-      })
-      .setOrigin(1, 0);
-
-    // ── Timer: circular arc at top-right ──────────────────────────────────────
-    const timerCx = width - 40;
-    const timerCy = 130;
-    this.timerArcBg = this.add.graphics();
-    this.timerArc = this.add.graphics();
-    this.drawTimerRing(timerCx, timerCy, 1);
-    this.timerText = this.add
-      .text(timerCx, timerCy, '15', {
-        fontFamily: 'ui-monospace, monospace',
-        fontSize: '20px',
-        fontStyle: 'bold',
-        color: '#2a2730',
-      })
-      .setOrigin(0.5);
-
-    // Mute button (top-right corner)
-    new MuteButton(this, width - 28, 32);
-
     // Screen-flash overlay
     this.flashOverlay = this.add
-      .rectangle(width / 2, height / 2, width, height, 0x2fb380, 0)
+      .rectangle(W / 2, H / 2, W, H, 0x2fb380, 0)
       .setDepth(1000);
 
     this.loadingText = this.add
-      .text(width / 2, height / 2, 'Loading sentences…', {
+      .text(W / 2, H / 2, 'Loading…', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '22px',
+        fontSize: '18px',
         color: '#6b6375',
       })
       .setOrigin(0.5);
 
-    // Clean up the DOM overlay if scene shuts down (e.g., navigating to End).
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.cleanupOverlay();
     });
@@ -189,13 +219,111 @@ export class PlayScene extends Phaser.Scene {
     this.bootstrap();
   }
 
+  // ─── Scenario meta accessors ───────────────────────────────────────────────
+
+  private activeMeta(): {
+    accent: string;
+    tint: string;
+    mascotId: string;
+    emoji: string;
+    labelZh: string;
+    labelEn: string;
+  } {
+    const { mode, scenario } = useRunStore.getState();
+    if (mode === 'scenario' && scenario) {
+      return SCENARIO_META[scenario];
+    }
+    return FREE_PRACTICE_META;
+  }
+
+  private buildScenarioStrip(): void {
+    const W = PHASER_WIDTH;
+    const meta = this.activeMeta();
+    const { mode } = useRunStore.getState();
+    if (mode !== 'scenario') return;
+
+    this.scenarioStrip = this.add.container(0, 60);
+    this.scenarioStripBg = this.add.graphics();
+    this.scenarioStripBg.fillStyle(parseHex(meta.accent), 1);
+    this.scenarioStripBg.fillRect(0, 0, W, 40);
+    this.scenarioStrip.add(this.scenarioStripBg);
+
+    this.scenarioStripText = this.add
+      .text(W / 2, 20, '', {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '14px',
+        fontStyle: 'bold',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
+    this.scenarioStrip.add(this.scenarioStripText);
+  }
+
+  private updateScenarioStripText(): void {
+    const { mode, scenario, history } = useRunStore.getState();
+    if (mode !== 'scenario' || !scenario || !this.scenarioStripText) return;
+    const meta = SCENARIO_META[scenario];
+    const qNum = Math.min(history.length + 1, RUN_CONFIG.QUESTIONS_PER_RUN);
+    this.scenarioStripText.setText(
+      `${meta.emoji} ${meta.labelEn} — Question ${qNum} of ${RUN_CONFIG.QUESTIONS_PER_RUN}`
+    );
+  }
+
+  private drawMascotBg(): void {
+    const W = PHASER_WIDTH;
+    const meta = this.activeMeta();
+    const { mode } = useRunStore.getState();
+    const stripOffset = mode === 'scenario' ? 40 : 0;
+    const top = 60 + stripOffset;
+    const bottom = 270;
+    this.mascotBg.clear();
+    // Soft gradient-ish using two filled rects with slight alpha diff.
+    this.mascotBg.fillStyle(parseHex(meta.tint), 1);
+    this.mascotBg.fillRect(0, top, W, bottom - top);
+    // Decorative center circle behind mascot
+    this.mascotBg.fillStyle(0xffffff, 0.55);
+    this.mascotBg.fillCircle(W / 2, (top + bottom) / 2 + 6, 78);
+  }
+
+  private drawSentenceCard(): void {
+    const W = PHASER_WIDTH;
+    const meta = this.activeMeta();
+    const x = 16;
+    const y = 286;
+    const w = W - 32;
+    const h = 130;
+
+    this.sentenceCard.clear();
+    // Subtle shadow
+    this.sentenceCard.fillStyle(0x000000, 0.06);
+    this.sentenceCard.fillRoundedRect(x, y + 3, w, h, 16);
+    // Card body
+    this.sentenceCard.fillStyle(0xffffff, 1);
+    this.sentenceCard.fillRoundedRect(x, y, w, h, 16);
+    // Accent left bar
+    this.sentenceCard.fillStyle(parseHex(meta.accent), 1);
+    this.sentenceCard.fillRoundedRect(x, y, 4, h, 4);
+  }
+
   // ─── Bootstrap & loading ────────────────────────────────────────────────────
 
   private async bootstrap(): Promise<void> {
     const store = useRunStore.getState();
-    await store.loadSentences();
+    try {
+      if (store.mode === 'scenario') {
+        await store.loadScenarios();
+      } else {
+        await store.loadSentences();
+      }
+    } catch {
+      // setError already happened inside the loader
+    }
     const after = useRunStore.getState();
-    if (after.error || !after.questions) {
+    const ready =
+      after.mode === 'scenario'
+        ? !!after.scenarioQuestions
+        : !!after.questions;
+    if (after.error || !ready) {
       this.showLoadFailure(after.error ?? 'unknown');
       return;
     }
@@ -204,26 +332,35 @@ export class PlayScene extends Phaser.Scene {
 
     store.reset();
     this.displayedScore = 0;
-    this.scoreText.setText('Score 0');
+    this.scoreText.setText('0');
 
-    // Mount the DOM overlay once per scene lifetime.
-    this.clozeUI = new ClozeUI({
-      onAnswer: (idx) => this.handleAnswer(idx),
-      onContinue: () => this.handleContinue(),
-    });
+    // Mount DOM overlays.
+    this.clozeUI = new ClozeUI(
+      {
+        onAnswer: (idx) => this.handleAnswer(idx),
+        onContinue: () => this.handleContinue(),
+      },
+      { accent: this.activeMeta().accent }
+    );
+    this.mascot = new Mascot();
+    this.mascot.setScenarioStripVisible(
+      useRunStore.getState().mode === 'scenario'
+    );
+    this.mascot.setMascot(this.activeMeta().mascotId);
 
     this.nextRound();
   }
 
   private showLoadFailure(reason: string): void {
+    const W = PHASER_WIDTH;
+    const H = PHASER_HEIGHT;
     if (this.loadingText) {
-      this.loadingText.setText(`Failed to load sentences\n${reason}`);
+      this.loadingText.setText(`Failed to load\n${reason}`);
       this.loadingText.setColor('#e25c4d');
       this.loadingText.setAlign('center');
     }
     if (this.retryBtn) return;
-    const { width, height } = this.cameras.main;
-    const c = this.add.container(width / 2, height / 2 + 80);
+    const c = this.add.container(W / 2, H / 2 + 60);
     const bg = this.add.graphics();
     bg.fillStyle(0xff7a59, 1);
     bg.fillRoundedRect(-70, -22, 140, 44, 10);
@@ -244,7 +381,7 @@ export class PlayScene extends Phaser.Scene {
     c.on('pointerup', () => {
       c.destroy();
       this.retryBtn = undefined;
-      if (this.loadingText) this.loadingText.setText('Loading sentences…');
+      if (this.loadingText) this.loadingText.setText('Loading…');
       this.bootstrap();
     });
     this.retryBtn = c;
@@ -259,7 +396,6 @@ export class PlayScene extends Phaser.Scene {
     this.stopWarning();
 
     const store = useRunStore.getState();
-    if (!store.questions) return;
 
     const rounds = store.history.length;
     if (rounds >= RUN_CONFIG.QUESTIONS_PER_RUN || store.hp <= 0) {
@@ -270,12 +406,12 @@ export class PlayScene extends Phaser.Scene {
     store.startRound();
     const after = useRunStore.getState();
     if (!after.round) {
-      // Out of questions — finish run.
       this.toEnd();
       return;
     }
 
     this.clozeUI?.resetForRound();
+    this.mascot?.setAnim('idle');
     this.timerExpired = false;
     this.lastTickSecond = -1;
     this.renderHud();
@@ -295,6 +431,8 @@ export class PlayScene extends Phaser.Scene {
   private cleanupOverlay(): void {
     this.clozeUI?.destroy();
     this.clozeUI = undefined;
+    this.mascot?.destroy();
+    this.mascot = undefined;
     this.stopWarning();
   }
 
@@ -311,17 +449,8 @@ export class PlayScene extends Phaser.Scene {
     const round = state.round;
     if (!round) return;
 
-    this.levelBadge.setText(state.level);
-    // Position the change-level link right after the badge.
-    this.changeLevelLink.x = this.levelBadge.x + this.levelBadge.width + 8;
-
-    // Sentence with stylized blank.
     this.sentenceText.setText(formatSentence(round.sentence));
-
     this.animateScoreTo(state.score);
-    this.roundText.setText(
-      `Round ${state.history.length + 1} / ${RUN_CONFIG.QUESTIONS_PER_RUN}`
-    );
 
     for (let i = 0; i < this.hearts.length; i++) {
       const filled = i < state.hp;
@@ -334,17 +463,18 @@ export class PlayScene extends Phaser.Scene {
     } else {
       this.streakText.setText('');
     }
+
+    this.updateScenarioStripText();
   }
 
   private animateSentenceIn(): void {
-    const { height } = this.cameras.main;
-    const targetY = height / 2 - 40;
-    this.sentenceText.y = targetY - 18;
+    const baseY = 335;
+    this.sentenceText.y = baseY - 12;
     this.sentenceText.alpha = 0;
     this.sentenceText.setScale(0.96);
     this.tweens.add({
       targets: this.sentenceText,
-      y: targetY,
+      y: baseY,
       alpha: 1,
       scale: 1,
       duration: 220,
@@ -367,11 +497,13 @@ export class PlayScene extends Phaser.Scene {
     this.clozeUI?.revealAnswer(idx, result.correctIndex, result.explanationZh);
 
     if (result.correct) {
+      this.mascot?.setAnim('happy');
       this.playScreenFlash(0x2fb380, 0.18);
       sfxCorrect();
       audio.vibrate(30);
       this.scheduleAdvance(ADVANCE_CORRECT_MS);
     } else {
+      this.mascot?.setAnim('sad');
       this.shakeHearts();
       sfxWrong();
       sfxHpLoss();
@@ -383,7 +515,6 @@ export class PlayScene extends Phaser.Scene {
   }
 
   private handleContinue(): void {
-    // Player tapped Continue before auto-advance fired.
     if (!this.locked && !this.timerExpired) return;
     this.cancelAdvanceTimer();
     this.nextRound();
@@ -417,9 +548,9 @@ export class PlayScene extends Phaser.Scene {
     const remaining = Math.max(0, this.roundEndsAt - this.time.now);
     const ratio = remaining / ROUND_TIME_MS;
     const seconds = Math.ceil(remaining / 1000);
-    const { width } = this.cameras.main;
-    const timerCx = width - 40;
-    const timerCy = 130;
+    const W = PHASER_WIDTH;
+    const timerCx = W - 36;
+    const timerCy = 90;
 
     const low = remaining <= TIMER_LOW_THRESHOLD_MS && remaining > 0;
     this.timerText.setText(String(seconds));
@@ -442,7 +573,6 @@ export class PlayScene extends Phaser.Scene {
       this.timerLowPulseTween = undefined;
     }
 
-    // Warning layer triggers at 5s, mutes on answer/round change.
     if (low && !this.warningPlaying && !this.locked) {
       audio.playWarningLayer();
       this.warningPlaying = true;
@@ -468,16 +598,22 @@ export class PlayScene extends Phaser.Scene {
     }
   }
 
-  private drawTimerRing(cx: number, cy: number, ratio: number, low = false): void {
-    const r = 22;
+  private drawTimerRing(
+    cx: number,
+    cy: number,
+    ratio: number,
+    low = false
+  ): void {
+    const r = 18;
+    const meta = this.activeMeta();
     this.timerArcBg.clear();
-    this.timerArcBg.lineStyle(4, 0xf0eadc, 1);
+    this.timerArcBg.lineStyle(3, 0xf0eadc, 1);
     this.timerArcBg.strokeCircle(cx, cy, r);
 
     this.timerArc.clear();
     if (ratio <= 0) return;
-    const color = low ? 0xe25c4d : 0xff7a59;
-    this.timerArc.lineStyle(7, color, 1);
+    const color = low ? 0xe25c4d : parseHex(meta.accent);
+    this.timerArc.lineStyle(5, color, 1);
     const start = -Math.PI / 2;
     const end = start + Math.PI * 2 * ratio;
     this.timerArc.beginPath();
@@ -490,6 +626,7 @@ export class PlayScene extends Phaser.Scene {
     this.stopTimer();
     const result = useRunStore.getState().timeoutRound();
     this.clozeUI?.revealTimeout(result.correctIndex, result.explanationZh);
+    this.mascot?.setAnim('sad');
     this.shakeHearts();
     sfxHpLoss();
     audio.vibrate([80, 40, 80]);
@@ -512,8 +649,8 @@ export class PlayScene extends Phaser.Scene {
 
   private clearTimer(): void {
     this.stopTimer();
-    const { width } = this.cameras.main;
-    this.drawTimerRing(width - 40, 130, 1);
+    const W = PHASER_WIDTH;
+    this.drawTimerRing(W - 36, 90, 1);
     this.timerText.setText('15');
     this.timerText.setColor('#2a2730');
   }
@@ -534,11 +671,11 @@ export class PlayScene extends Phaser.Scene {
       duration: 360,
       ease: 'Quad.easeOut',
       onUpdate: () => {
-        this.scoreText.setText(`Score ${Math.round(counter.v)}`);
+        this.scoreText.setText(`${Math.round(counter.v)}`);
       },
       onComplete: () => {
         this.displayedScore = target;
-        this.scoreText.setText(`Score ${target}`);
+        this.scoreText.setText(`${target}`);
         this.scoreTween = undefined;
       },
     });
@@ -569,7 +706,7 @@ export class PlayScene extends Phaser.Scene {
     const baseXs = targets.map((h) => h.x);
     this.tweens.add({
       targets,
-      x: '+=6',
+      x: '+=4',
       yoyo: true,
       duration: 60,
       repeat: 2,
@@ -588,14 +725,13 @@ export class PlayScene extends Phaser.Scene {
   }
 }
 
-/**
- * Replace ___ with a styled blank in the rendered sentence.
- *
- * We can't apply rich text styling in a single Phaser.Text easily, so we
- * just substitute the underscores with a visible underline character
- * sequence. The cloze UX is clear from context (4 buttons below).
- */
 function formatSentence(raw: string): string {
-  // Replace the literal ___ marker with a wider visual blank.
-  return raw.replace(/_{3,}/g, '  _____  ');
+  return raw.replace(/_{3,}/g, '  _____  ');
+}
+
+/** "#ff7a59" → 0xff7a59. Returns 0xff7a59 fallback on parse failure. */
+function parseHex(hex: string): number {
+  if (!hex.startsWith('#')) return 0xff7a59;
+  const n = parseInt(hex.slice(1), 16);
+  return Number.isFinite(n) ? n : 0xff7a59;
 }

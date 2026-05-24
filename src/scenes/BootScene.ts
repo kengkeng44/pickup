@@ -9,40 +9,39 @@ export class BootScene extends Phaser.Scene {
     const { width, height } = this.cameras.main;
 
     this.add
-      .text(width / 2, height / 2 - 50, 'WordWar', {
+      .text(width / 2, height / 2 - 60, 'WordWar', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '64px',
+        fontSize: '48px',
         fontStyle: 'bold',
         color: '#2a2730',
       })
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height / 2 + 20, 'CEFR cloze · 10 rounds, 15 sec each', {
+      .text(width / 2, height / 2, 'CEFR cloze · 填空挑戰', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '20px',
+        fontSize: '16px',
         color: '#6b6375',
       })
       .setOrigin(0.5);
 
     const tap = this.add
-      .text(width / 2, height / 2 + 70, 'Tap anywhere to play', {
+      .text(width / 2, height / 2 + 60, 'Tap to start', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '16px',
+        fontSize: '14px',
         color: '#ff7a59',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height - 30, 'v0.1.0 · Phaser ' + Phaser.VERSION, {
+      .text(width / 2, height - 30, 'v0.3.0 · Phaser ' + Phaser.VERSION, {
         fontFamily: 'ui-monospace, monospace',
-        fontSize: '12px',
+        fontSize: '11px',
         color: '#a8a2b3',
       })
       .setOrigin(0.5);
 
-    // Pulse the "tap" hint so the affordance reads.
     this.tweens.add({
       targets: tap,
       alpha: { from: 1, to: 0.4 },
@@ -58,7 +57,6 @@ export class BootScene extends Phaser.Scene {
       this.scene.start('MenuScene');
     };
 
-    // Auto-advance after 1.5s, or on any click/tap.
     this.time.delayedCall(1500, advance);
     this.input.once('pointerdown', advance);
   }

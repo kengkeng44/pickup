@@ -5,21 +5,28 @@ import {
   type ClozeLevel,
   type ClozeQuestion,
 } from '../data/sentences';
+import {
+  loadScenarios,
+  questionsForScenario,
+  toClozeQuestion,
+  type ScenarioId,
+  type ScenarioQuestion,
+} from '../data/scenarios';
 
 /**
  * runStore — cloze run state.
  *
- * Game loop (cloze v0):
- *   - Player picks level (gated to A2 for v0).
- *   - Each round = one ClozeQuestion: sentence + 4 options.
- *   - Tap option → answered. Correct adds points, wrong loses HP.
- *   - 10 rounds, or until HP runs out.
- *   - Timer: 15s/round; timeout = wrong + HP loss.
+ * v0.3 adds scenario mode on top of free practice:
+ *   - mode === 'free'      → 10 random A2 questions from sentences.json
+ *   - mode === 'scenario'  → 10 fixed-order questions from one scenario in
+ *                            scenarios.json
  *
- * Reveal phase: between answer and next round, both PlayScene + ClozeUI need
- * to know which option was tapped, whether it was correct, and surface the
- * explanation. We store this in `lastResult` and clear on startRound().
+ * Same scoring + HP + reveal flow either way. The mode only changes how the
+ * pool is built (random shuffle vs. fixed sequence) and what the UI shows
+ * around the question (mascot, scenario strip, achievement on EndScene).
  */
+
+export type RunMode = 'free' | 'scenario';
 
 export interface PlayResult {
   correct: boolean;
@@ -37,9 +44,12 @@ export interface HistoryEntry {
 }
 
 export interface RunState {
-  // Content
+  // Content — free practice pool
   questions: ClozeQuestion[] | null;
-  pool: ClozeQuestion[]; // shuffled remaining queue for current run
+  // Content — scenario pool (all scenarios, filtered at run-start)
+  scenarioQuestions: ScenarioQuestion[] | null;
+
+  pool: ClozeQuestion[]; // remaining queue for the current run
   round: ClozeQuestion | null;
 
   // Score / lives
@@ -49,11 +59,12 @@ export interface RunState {
   bestStreak: number;
   history: HistoryEntry[];
 
-  // Reveal state — non-null between tap-answer and next round
   lastResult: PlayResult | null;
   answered: boolean;
 
-  // Level
+  // Mode + level
+  mode: RunMode;
+  scenario: ScenarioId | null;
   level: ClozeLevel;
 
   // Loading
@@ -62,7 +73,10 @@ export interface RunState {
 
   // Actions
   loadSentences: () => Promise<void>;
+  loadScenarios: () => Promise<void>;
   setLevel: (level: ClozeLevel) => void;
+  setMode: (mode: RunMode) => void;
+  setScenario: (scenario: ScenarioId | null) => void;
   startRound: () => void;
   answer: (selectedIndex: number) => PlayResult;
   timeoutRound: () => PlayResult;
@@ -108,6 +122,7 @@ function writeLevel(level: ClozeLevel): void {
 
 export const useRunStore = create<RunState>((set, get) => ({
   questions: null,
+  scenarioQuestions: null,
   pool: [],
   round: null,
   score: 0,
@@ -117,6 +132,8 @@ export const useRunStore = create<RunState>((set, get) => ({
   history: [],
   lastResult: null,
   answered: false,
+  mode: 'free',
+  scenario: null,
   level: readLevel(),
   loading: false,
   error: null,
@@ -135,21 +152,49 @@ export const useRunStore = create<RunState>((set, get) => ({
     }
   },
 
+  loadScenarios: async () => {
+    if (get().scenarioQuestions || get().loading) return;
+    set({ loading: true, error: null });
+    try {
+      const v = await loadScenarios();
+      set({ scenarioQuestions: v, loading: false });
+    } catch (e) {
+      set({
+        loading: false,
+        error: e instanceof Error ? e.message : String(e),
+      });
+    }
+  },
+
   setLevel: (level: ClozeLevel) => {
     writeLevel(level);
     set({ level });
   },
 
+  setMode: (mode: RunMode) => {
+    set({ mode });
+  },
+
+  setScenario: (scenario: ScenarioId | null) => {
+    set({ scenario });
+  },
+
   startRound: () => {
-    const { questions, level, pool } = get();
-    if (!questions) return;
+    const { questions, scenarioQuestions, level, pool, mode, scenario } = get();
+
     let nextPool = pool;
     if (nextPool.length === 0) {
-      nextPool = pickByLevel(questions, level, QUESTIONS_PER_RUN);
+      if (mode === 'scenario' && scenario && scenarioQuestions) {
+        // Scenario mode: fixed order, 10 questions.
+        nextPool = questionsForScenario(scenarioQuestions, scenario).map(
+          toClozeQuestion
+        );
+      } else if (questions) {
+        // Free practice: random shuffle by level.
+        nextPool = pickByLevel(questions, level, QUESTIONS_PER_RUN);
+      }
     }
     if (nextPool.length === 0) {
-      // No questions at this level — bail out silently; PlayScene will see
-      // null round and route to end. (Shouldn't happen for A2 in v0.)
       set({ round: null });
       return;
     }
