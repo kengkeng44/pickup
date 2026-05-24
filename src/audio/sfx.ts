@@ -94,35 +94,111 @@ export function sfxCardPress(): void {
   tone({ freq: 880, type: 'triangle', duration: 0.05, attack: 0.002, gain: 0.18 });
 }
 
-/** Ascending warm arpeggio for correct answer (~320ms). */
-export function sfxCorrect(): void {
-  audio.ensureContext();
-  // C5 → E5 → G5 → C6, triangle wave for chiptune-warm character
-  const notes = [523.25, 659.25, 783.99, 1046.5];
-  notes.forEach((f, i) => {
-    tone(
-      {
-        freq: f,
-        type: 'triangle',
-        duration: 0.18,
-        attack: 0.005,
-        gain: 0.32,
-      },
-      i * 0.06
+/**
+ * Bell-like tone — fundamental + harmonics with slow attack and
+ * exponential release. Sounds chime-y, not buzzy. Used by sfxCorrect.
+ */
+function bellTone(
+  fundamental: number,
+  duration: number,
+  peak: number,
+  startAt = 0
+): void {
+  const ctx = audio.ctx;
+  const dest = audio.getSfxDestination();
+  if (!ctx || !dest) return;
+  const now = ctx.currentTime + startAt;
+  // Harmonic series with decreasing amplitude — bell timbre.
+  const harmonics: Array<{ mult: number; amp: number }> = [
+    { mult: 1, amp: 1.0 },
+    { mult: 2, amp: 0.35 },
+    { mult: 3, amp: 0.18 },
+    { mult: 4.2, amp: 0.08 }, // slightly inharmonic — adds shimmer
+  ];
+  const attack = 0.04;
+  const sustain = Math.max(0.04, duration * 0.25);
+  const end = now + duration;
+  for (const h of harmonics) {
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(fundamental * h.mult, now);
+    const p = peak * h.amp;
+    env.gain.setValueAtTime(0, now);
+    env.gain.linearRampToValueAtTime(p, now + attack);
+    env.gain.exponentialRampToValueAtTime(
+      Math.max(0.0001, p * 0.5),
+      now + attack + sustain
     );
-  });
+    env.gain.exponentialRampToValueAtTime(0.0001, end);
+    osc.connect(env);
+    env.connect(dest);
+    osc.start(now);
+    osc.stop(end + 0.02);
+  }
 }
 
-/** Gentle descending tone + soft thud for wrong (~280ms). */
+/**
+ * Ascending bell chime for correct answer (~520ms).
+ * Layered: two-note rising bell (E5, B5) + a soft major triad pad
+ * (C5/E5/G5) struck under it for warmth. Slow attack so it feels
+ * "encouraging" not "video-gamey."
+ */
+export function sfxCorrect(): void {
+  audio.ensureContext();
+  // Two bright bell strikes — E5 then B5, classic "lesson complete" feel.
+  bellTone(659.25, 0.5, 0.26, 0);
+  bellTone(987.77, 0.46, 0.22, 0.09);
+  // Soft C major triad pad underneath (low gain, sine for warmth).
+  tone({ freq: 523.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.1 }, 0.02);
+  tone({ freq: 659.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.08 }, 0.02);
+  tone({ freq: 783.99, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.07 }, 0.02);
+}
+
+/**
+ * Gentle descending minor-third for wrong (~300ms).
+ * Two sine tones (A4 → F4) with cosine-shaped envelope so the
+ * release is smooth, no clicks, no noise. Sounds "aw, missed" not
+ * "BUZZ WRONG."
+ */
 export function sfxWrong(): void {
   audio.ensureContext();
   const ctx = audio.ctx;
-  if (!ctx) return;
-  // Two-note descent A4 → F4
-  tone({ freq: 440, type: 'sine', duration: 0.12, gain: 0.28 });
-  tone({ freq: 349.23, type: 'sine', duration: 0.18, gain: 0.3 }, 0.1);
-  // Soft thud under it
-  noiseBurst({ duration: 0.12, cutoff: 280, gain: 0.2 });
+  const dest = audio.getSfxDestination();
+  if (!ctx || !dest) return;
+  const now = ctx.currentTime;
+
+  // Helper: smooth cosine-shaped envelope (no harsh clicks).
+  const playSoft = (
+    freq: number,
+    startAt: number,
+    duration: number,
+    peak: number
+  ): void => {
+    const t0 = now + startAt;
+    const osc = ctx.createOscillator();
+    const env = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, t0);
+    // Subtle downward glide for a "deflating" feel.
+    osc.frequency.exponentialRampToValueAtTime(
+      Math.max(20, freq * 0.94),
+      t0 + duration
+    );
+    // Cosine attack/release ≈ raised-cosine for smoothness.
+    env.gain.setValueAtTime(0, t0);
+    env.gain.linearRampToValueAtTime(peak, t0 + 0.025);
+    env.gain.setValueAtTime(peak, t0 + duration * 0.35);
+    env.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
+    osc.connect(env);
+    env.connect(dest);
+    osc.start(t0);
+    osc.stop(t0 + duration + 0.02);
+  };
+
+  // A4 → F4 = descending minor third. Gentle, classic "wrong" cue.
+  playSoft(440, 0, 0.16, 0.22);
+  playSoft(349.23, 0.11, 0.22, 0.24);
 }
 
 /** Subtle 'tic' for low-timer warning (~80ms). */

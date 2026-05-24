@@ -243,12 +243,193 @@ body {
   transform-box: fill-box;
 }
 
+/* ─── Mascot blink (eyes briefly close) ───────────────────────────────────
+ * Targets <ellipse|circle> elements with class `mascot-eye` inside any
+ * mascot SVG. Scales the Y axis to 0 for a few frames to simulate a
+ * blink. Staggers every 3.5s with a small random-feel offset.
+ */
+.mascot-wrap .mascot-eye {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: mascot-blink 4.2s ease-in-out infinite;
+}
+.mascot-wrap .mascot-eye-right {
+  /* slight phase offset so eyes blink almost-but-not-quite together */
+  animation-delay: 0.04s;
+}
+@keyframes mascot-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  94%, 97% { transform: scaleY(0.1); }
+}
+
+/* ─── Sentence card subtle breathing ─────────────────────────────────────
+ * Almost imperceptible scale pulse — adds life to an otherwise static
+ * card during answering. Applied via class on the GameHUD sentence card.
+ */
+.wordwar-breathing {
+  animation: wordwar-breathing 3.2s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes wordwar-breathing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.006); }
+}
+
+/* ─── Ambient background drift shapes ────────────────────────────────────
+ * 2-3 floating low-opacity shapes between header and mascot. Pure CSS
+ * keyframe drift — no JS animation loop.
+ */
+.wordwar-ambient {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+  z-index: 0;
+}
+/* Ensure the HUD flex content sits above the ambient shapes. */
+#wordwar-hud {
+  position: relative;
+  z-index: 1;
+}
+.wordwar-ambient-1 {
+  width: 44px;
+  height: 44px;
+  background: #c8eba0;
+  top: 18%;
+  left: 8%;
+  animation: wordwar-drift-a 9s ease-in-out infinite;
+}
+.wordwar-ambient-2 {
+  width: 28px;
+  height: 28px;
+  background: #ffe48a;
+  top: 26%;
+  right: 10%;
+  animation: wordwar-drift-b 11s ease-in-out infinite;
+  animation-delay: -3s;
+}
+.wordwar-ambient-3 {
+  width: 36px;
+  height: 36px;
+  background: #b8e0ff;
+  top: 12%;
+  right: 32%;
+  border-radius: 8px;
+  transform: rotate(12deg);
+  animation: wordwar-drift-c 13s ease-in-out infinite;
+  animation-delay: -6s;
+}
+@keyframes wordwar-drift-a {
+  0%, 100% { transform: translate(0, 0); opacity: 0.16; }
+  50% { transform: translate(14px, -10px); opacity: 0.22; }
+}
+@keyframes wordwar-drift-b {
+  0%, 100% { transform: translate(0, 0); opacity: 0.14; }
+  50% { transform: translate(-12px, 8px); opacity: 0.2; }
+}
+@keyframes wordwar-drift-c {
+  0%, 100% { transform: rotate(12deg) translate(0, 0); opacity: 0.12; }
+  50% { transform: rotate(-6deg) translate(10px, 14px); opacity: 0.18; }
+}
+
+/* ─── Splash overlay (v0.7 cover page) ───────────────────────────────────
+ * White-canvas, centered column with big mascot + bold green wordmark +
+ * 3D-depth CTA button. Fade-in on mount.
+ */
+#wordwar-splash {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 15;
+  font-family: 'Nunito', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #3c3c3c;
+  padding: 24px;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: wordwar-splash-in 360ms ease-out forwards;
+}
+@keyframes wordwar-splash-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.wordwar-splash-tagline {
+  font-size: 15px;
+  font-weight: 700;
+  color: #777777;
+  letter-spacing: 0.3px;
+}
+.wordwar-splash-mascot {
+  width: 240px;
+  height: 270px;
+  animation: mascot-idle-bob 2.6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wordwar-splash-mascot svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 8px 14px rgba(88, 204, 2, 0.25));
+}
+.wordwar-splash-title {
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: #58cc02;
+  margin-top: 4px;
+  text-shadow: 0 2px 0 rgba(88, 167, 0, 0.35);
+}
+.wordwar-splash-cta {
+  margin-top: 12px;
+  width: min(320px, 80%);
+  padding: 16px 28px;
+  background: #58cc02;
+  color: #ffffff;
+  border: none;
+  border-bottom: 5px solid #58a700;
+  border-radius: 16px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 80ms ease-out, border-bottom-width 80ms ease-out;
+  box-shadow: 0 4px 12px rgba(88, 204, 2, 0.25);
+}
+.wordwar-splash-cta:active {
+  transform: translateY(3px);
+  border-bottom-width: 2px;
+}
+.wordwar-splash-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a8a2b3;
+  margin-top: 2px;
+}
+
 /* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
   .mascot-idle,
   .mascot-happy,
-  .mascot-sad {
-    animation: none;
+  .mascot-sad,
+  .mascot-wrap .mascot-eye,
+  .wordwar-breathing,
+  .wordwar-ambient,
+  .wordwar-splash-mascot,
+  #wordwar-splash {
+    animation: none !important;
   }
   #boot-overlay * {
     animation: none !important;

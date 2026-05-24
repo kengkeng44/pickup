@@ -1,11 +1,13 @@
 import Phaser from 'phaser';
-import { applyStyle } from '../ui/domUtil';
+import { getMascotSvg } from '../ui/mascots';
 
 /**
- * BootScene — splash screen (v0.4 Duolingo aesthetic).
+ * BootScene — v0.7 splash / cover page.
  *
- * All text is DOM-rendered so it stays crisp at high DPR. Phaser only
- * owns the background color and the auto-advance timer.
+ * Duolingo-style intro: white canvas, tagline, BIG mascot, bold green
+ * wordmark, full-width 3D CTA button, fine-print meta. No auto-advance —
+ * the user taps the green button (or anywhere on the splash, for
+ * backward compatibility) to enter the menu.
  */
 export class BootScene extends Phaser.Scene {
   private overlay?: HTMLDivElement;
@@ -27,11 +29,24 @@ export class BootScene extends Phaser.Scene {
       this.scene.start('MenuScene');
     };
 
-    this.time.delayedCall(1500, advance);
-    // Phaser canvas is hidden in v0.6 — listen on the overlay itself.
-    this.overlay?.addEventListener('pointerdown', () => advance(), {
-      once: true,
+    // Wire up the CTA button + anywhere-tap fallback.
+    const cta = this.overlay?.querySelector<HTMLButtonElement>(
+      '.wordwar-splash-cta'
+    );
+    cta?.addEventListener('click', (e) => {
+      e.preventDefault();
+      advance();
     });
+    this.overlay?.addEventListener(
+      'pointerdown',
+      (e) => {
+        // Don't fire the anywhere-tap if the CTA's own handler will run.
+        const t = e.target as HTMLElement | null;
+        if (t && t.closest('.wordwar-splash-cta')) return;
+        advance();
+      },
+      { once: false }
+    );
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.overlay?.remove();
@@ -41,65 +56,50 @@ export class BootScene extends Phaser.Scene {
 
   private mountOverlay(): void {
     const root = document.createElement('div');
-    root.id = 'boot-overlay';
-    applyStyle(root, {
-      position: 'fixed',
-      inset: '0',
-      background: '#ffffff',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '14px',
-      zIndex: '15',
-      fontFamily:
-        '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
-      color: '#3c3c3c',
-      cursor: 'pointer',
-    });
+    root.id = 'wordwar-splash';
 
+    // Tagline (top)
+    const tagline = document.createElement('div');
+    tagline.className = 'wordwar-splash-tagline';
+    tagline.textContent = '學英文,贏對戰';
+    root.appendChild(tagline);
+
+    // Mascot (middle, big)
+    const mascot = document.createElement('div');
+    mascot.className = 'wordwar-splash-mascot';
+    mascot.innerHTML = getMascotSvg('owl');
+    root.appendChild(mascot);
+
+    // Title (big bold green)
     const title = document.createElement('div');
-    title.textContent = 'WordWar';
-    applyStyle(title, {
-      fontSize: '52px',
-      fontWeight: '900',
-      letterSpacing: '-1px',
-      color: '#58cc02',
-    });
+    title.className = 'wordwar-splash-title';
+    title.textContent = 'WORDWAR';
     root.appendChild(title);
 
-    const sub = document.createElement('div');
-    sub.textContent = 'CEFR cloze · 填空挑戰';
-    applyStyle(sub, {
-      fontSize: '16px',
-      fontWeight: '600',
-      color: '#777777',
-    });
-    root.appendChild(sub);
+    // CTA
+    const cta = document.createElement('button');
+    cta.type = 'button';
+    cta.className = 'wordwar-splash-cta';
+    cta.textContent = '開始';
+    root.appendChild(cta);
 
-    const tap = document.createElement('div');
-    tap.textContent = 'Tap to start';
-    applyStyle(tap, {
-      marginTop: '28px',
-      fontSize: '14px',
-      fontWeight: '800',
-      color: '#1cb0f6',
-      letterSpacing: '0.5px',
-      textTransform: 'uppercase',
-      animation: 'wordwar-blink 0.9s ease-in-out infinite alternate',
-    });
-    root.appendChild(tap);
+    // Meta
+    const meta = document.createElement('div');
+    meta.className = 'wordwar-splash-meta';
+    meta.textContent = '1361 個 A2 單字 · 5 個情境模式';
+    root.appendChild(meta);
 
+    // Tiny version footer
     const footer = document.createElement('div');
-    footer.textContent = `v0.4.0 · Phaser ${Phaser.VERSION}`;
-    applyStyle(footer, {
+    footer.textContent = `v0.7.0 · Phaser ${Phaser.VERSION}`;
+    Object.assign(footer.style, {
       position: 'absolute',
       bottom: 'max(20px, env(safe-area-inset-bottom))',
       fontSize: '11px',
       color: '#a8a2b3',
       fontFamily:
         'ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace',
-    });
+    } as CSSStyleDeclaration);
     root.appendChild(footer);
 
     document.body.appendChild(root);

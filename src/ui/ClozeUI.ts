@@ -350,6 +350,19 @@ export class ClozeUI {
     void this.revealPanel.offsetHeight;
     this.revealPanel.style.opacity = '1';
     this.revealPanel.style.transform = 'translateY(0)';
+
+    // Auto-scroll: ensure the Continue button is visible on short viewports.
+    // Use 'end' so the bottom of the panel (CTA) is brought to the bottom
+    // of the viewport. Delay slightly so the slide-up animation can start
+    // first — feels less jarring than scrolling instantly.
+    window.setTimeout(() => {
+      try {
+        this.revealPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      } catch {
+        // Older browsers without smooth scroll options — fall back silently.
+        this.revealPanel.scrollIntoView(false);
+      }
+    }, 120);
   }
 
   revealTimeout(correctIndex: number, explanationZh: string): void {

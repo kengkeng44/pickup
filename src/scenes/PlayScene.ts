@@ -306,7 +306,7 @@ export class PlayScene extends Phaser.Scene {
       currentRound: qNum,
       totalRounds: RUN_CONFIG.QUESTIONS_PER_RUN,
       scenarioLabel: isScenario
-        ? `${meta.emoji} ${meta.labelEn} · ${qNum}/${RUN_CONFIG.QUESTIONS_PER_RUN}`
+        ? `${meta.emoji} ${meta.labelEn}`
         : '',
       sentence: formatSentence(round.sentence),
       timerSeconds: seconds,

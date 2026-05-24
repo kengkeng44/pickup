@@ -83,6 +83,8 @@ export class GameHUD {
   private changeLink!: HTMLButtonElement;
   /** Flash overlay div (replaces Phaser flash overlay). */
   private flashEl!: HTMLDivElement;
+  /** Ambient drifting shapes between header and mascot. */
+  private ambientEls: HTMLDivElement[] = [];
   // unsubAudio removed — no audio subscription needed in HUD
   private opts: GameHUDOptions;
 
@@ -111,6 +113,7 @@ export class GameHUD {
 
     this.buildHeader();
     this.buildChip();
+    this.buildAmbient();
     this.buildMascotSlot();
     this.buildSentenceCard();
     this.buildButtonsSlot();
@@ -124,6 +127,8 @@ export class GameHUD {
   destroy(): void {
     this.root.remove();
     this.flashEl?.remove();
+    for (const el of this.ambientEls) el.remove();
+    this.ambientEls = [];
     // Reset any shake class that may have been applied.
     this.appRoot.classList.remove('wordwar-shake');
   }
@@ -301,6 +306,18 @@ export class GameHUD {
     this.root.appendChild(this.chipEl);
   }
 
+  private buildAmbient(): void {
+    // Three ambient drifting shapes — mounted on #app, absolutely
+    // positioned so they don't affect the flex flow. They sit BEHIND
+    // everything (z-index 0; flex children default to auto / above).
+    for (let i = 1; i <= 3; i++) {
+      const el = document.createElement('div');
+      el.classList.add('wordwar-ambient', `wordwar-ambient-${i}`);
+      this.appRoot.appendChild(el);
+      this.ambientEls.push(el);
+    }
+  }
+
   private buildMascotSlot(): void {
     // The halo is the colored circle that sits behind the mascot.
     // It scales together with the mascot via --mascot-scale.
@@ -333,6 +350,7 @@ export class GameHUD {
 
   private buildSentenceCard(): void {
     this.card = document.createElement('div');
+    this.card.classList.add('wordwar-breathing');
     applyStyle(this.card, {
       width: '100%',
       background: '#ffffff',

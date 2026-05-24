@@ -32,46 +32,66 @@ function head(skin = '#fde0c2', stroke = '#2a2730'): string {
 }
 
 // ─── Owl (default / free practice) ─────────────────────────────────────────
-// Inspired by language-app owl mascots (rounded body, big eyes).
+// v0.7 redesign — cleaner Duo-style owl: vivid green, big sparkly eyes,
+// white belly, orange triangle beak, tiny feet, soft ground shadow.
 const owl = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true">
+  <!-- Soft ground shadow -->
+  <ellipse cx="50" cy="128" rx="26" ry="4" fill="#000000" opacity="0.12"/>
   <g class="mascot-body">
-    <!-- Body -->
-    <ellipse cx="50" cy="78" rx="34" ry="38" fill="#7fbf6a" stroke="#2a2730" stroke-width="1.5"/>
-    <!-- Belly -->
-    <ellipse cx="50" cy="88" rx="22" ry="24" fill="#e8f5d6"/>
-    <!-- Eyes -->
-    <circle cx="38" cy="68" r="10" fill="#ffffff" stroke="#2a2730" stroke-width="1.2"/>
-    <circle cx="62" cy="68" r="10" fill="#ffffff" stroke="#2a2730" stroke-width="1.2"/>
-    <circle cx="38" cy="69" r="4" fill="#2a2730" class="mascot-pupil"/>
-    <circle cx="62" cy="69" r="4" fill="#2a2730" class="mascot-pupil"/>
-    <!-- Beak -->
-    <polygon points="50,76 45,82 55,82" fill="#f0a040" stroke="#2a2730" stroke-width="0.8"/>
-    <!-- Tufts -->
-    <polygon points="26,46 30,38 36,46" fill="#7fbf6a" stroke="#2a2730" stroke-width="1.2"/>
-    <polygon points="64,46 70,38 74,46" fill="#7fbf6a" stroke="#2a2730" stroke-width="1.2"/>
-    <!-- Wing -->
-    <ellipse cx="22" cy="86" rx="8" ry="16" fill="#6aa358" stroke="#2a2730" stroke-width="1.2" class="mascot-wing"/>
-    <ellipse cx="78" cy="86" rx="8" ry="16" fill="#6aa358" stroke="#2a2730" stroke-width="1.2" class="mascot-wing-right"/>
+    <!-- Tufts (behind body) -->
+    <path d="M22 50 Q26 36 34 44 Q30 50 26 54 Z" fill="#43a302"/>
+    <path d="M78 50 Q74 36 66 44 Q70 50 74 54 Z" fill="#43a302"/>
+    <!-- Body (vivid Duolingo green, rounded teardrop) -->
+    <path d="M50 38 C30 38 20 56 20 80 C20 106 32 122 50 122 C68 122 80 106 80 80 C80 56 70 38 50 38 Z"
+          fill="#58cc02"/>
+    <!-- Belly highlight (white) -->
+    <ellipse cx="50" cy="92" rx="22" ry="24" fill="#ffffff"/>
+    <!-- Wings -->
+    <path d="M22 76 Q14 80 18 100 Q24 104 30 96 Z" fill="#43a302"/>
+    <path d="M78 76 Q86 80 82 100 Q76 104 70 96 Z" fill="#43a302"/>
+    <!-- Eye whites (big) -->
+    <circle cx="39" cy="68" r="13" fill="#ffffff"/>
+    <circle cx="61" cy="68" r="13" fill="#ffffff"/>
+    <!-- Pupils with sparkle highlights -->
+    <circle cx="40" cy="69" r="6" fill="#2a2730" class="mascot-pupil mascot-eye"/>
+    <circle cx="60" cy="69" r="6" fill="#2a2730" class="mascot-pupil mascot-eye mascot-eye-right"/>
+    <circle cx="42" cy="66" r="2" fill="#ffffff"/>
+    <circle cx="62" cy="66" r="2" fill="#ffffff"/>
+    <!-- Beak (orange triangle) -->
+    <path d="M50 80 L44 86 L56 86 Z" fill="#ff9600"/>
+    <!-- Feet (tiny orange) -->
+    <ellipse cx="42" cy="122" rx="5" ry="3" fill="#ff9600"/>
+    <ellipse cx="58" cy="122" rx="5" ry="3" fill="#ff9600"/>
   </g>
 </svg>`;
 
 // ─── Waiter (restaurant) ───────────────────────────────────────────────────
+// v0.7 redesign — cleaner shapes, drawn-on cute face (no emoji),
+// soft ground shadow.
 const waiter = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true">
+  <ellipse cx="50" cy="128" rx="26" ry="4" fill="#000000" opacity="0.12"/>
   <g class="mascot-body">
     <!-- Apron back / body -->
-    <rect x="22" y="68" width="56" height="62" rx="6" fill="#3a3a44" stroke="#2a2730" stroke-width="1.5"/>
+    <path d="M22 70 Q50 64 78 70 L80 128 L20 128 Z" fill="#3a3a44"/>
     <!-- Apron front (white) -->
-    <rect x="30" y="78" width="40" height="50" rx="4" fill="#ffffff" stroke="#2a2730" stroke-width="1.2"/>
+    <path d="M32 78 Q50 74 68 78 L68 128 L32 128 Z" fill="#ffffff"/>
     <!-- Bow tie -->
-    <polygon points="44,72 56,72 52,76 48,76" fill="#e25c4d"/>
-    <!-- Head -->
-    ${head('#fde0c2')}
-    <!-- Hair -->
-    <path d="M30 30 Q50 18 70 30 L68 38 Q50 30 32 38 Z" fill="#3a2a1a"/>
-    <!-- Tray (held to the side) -->
-    <rect x="76" y="86" width="20" height="4" rx="2" fill="#c08040" stroke="#2a2730" stroke-width="1"/>
-    <circle cx="86" cy="82" r="3" fill="#fff8e8" stroke="#2a2730" stroke-width="0.8"/>
-    ${face('🙂')}
+    <path d="M44 70 L40 76 L44 80 L50 76 L56 80 L60 76 L56 70 Z" fill="#e25c4d"/>
+    <!-- Head (rounded) -->
+    <ellipse cx="50" cy="40" rx="22" ry="24" fill="#fde0c2"/>
+    <!-- Hair (smooth swoop) -->
+    <path d="M28 32 Q50 18 72 32 Q70 28 66 26 Q50 22 34 26 Q30 28 28 32 Z" fill="#3a2a1a"/>
+    <!-- Eyes -->
+    <circle cx="42" cy="42" r="2.4" fill="#2a2730" class="mascot-pupil mascot-eye"/>
+    <circle cx="58" cy="42" r="2.4" fill="#2a2730" class="mascot-pupil mascot-eye mascot-eye-right"/>
+    <!-- Smile -->
+    <path d="M44 50 Q50 54 56 50" fill="none" stroke="#2a2730" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- Cheek blush -->
+    <circle cx="36" cy="48" r="2.5" fill="#ff9b9b" opacity="0.55"/>
+    <circle cx="64" cy="48" r="2.5" fill="#ff9b9b" opacity="0.55"/>
+    <!-- Tray -->
+    <rect x="74" y="86" width="22" height="4" rx="2" fill="#c08040"/>
+    <circle cx="86" cy="82" r="3.5" fill="#fff8e8"/>
   </g>
 </svg>`;
 
