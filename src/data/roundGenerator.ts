@@ -174,10 +174,24 @@ export function generateRound(vocab: Vocab, opts: GenerateRoundOpts = {}): Round
 export function roundTypeLabel(type: RoundType): string {
   switch (type) {
     case 'syn':
-      return 'Find the synonym';
+      return '找同義字  ·  Synonym';
     case 'ant':
-      return 'Find the antonym';
+      return '找反義字  ·  Antonym';
     case 'pos':
-      return 'Same part of speech';
+      return '相同詞性  ·  Same part of speech';
+  }
+}
+
+/**
+ * Compact label for the round-type chip — used in the HUD pill.
+ */
+export function roundTypeShort(type: RoundType): string {
+  switch (type) {
+    case 'syn':
+      return 'SYNONYM';
+    case 'ant':
+      return 'ANTONYM';
+    case 'pos':
+      return 'SAME POS';
   }
 }

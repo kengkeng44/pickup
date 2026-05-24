@@ -1,6 +1,25 @@
 import Phaser from 'phaser';
 import { useRunStore } from '../store/runStore';
 
+interface Rank {
+  title: string;
+  color: string;
+}
+
+/**
+ * Rank thresholds out of a perfect 100+streak (max ~150 with bonuses).
+ *   <30   Novice
+ *   30-59 Apprentice
+ *   60-89 Wordsmith
+ *   90+   Master
+ */
+function rankFor(score: number): Rank {
+  if (score >= 90) return { title: 'Wordsmith Master', color: '#ff7a59' };
+  if (score >= 60) return { title: 'Skilled Wordsmith', color: '#2fb380' };
+  if (score >= 30) return { title: 'Apprentice', color: '#a86a2a' };
+  return { title: 'Novice', color: '#6b6375' };
+}
+
 export class EndScene extends Phaser.Scene {
   constructor() {
     super({ key: 'EndScene' });
@@ -13,47 +32,79 @@ export class EndScene extends Phaser.Scene {
     const correct = state.history.filter((h) => h.correct).length;
     const wrong = state.history.length - correct;
     const dead = state.hp <= 0;
+    const rank = rankFor(state.score);
 
     this.add
-      .text(width / 2, height / 2 - 140, dead ? 'You ran out of HP' : 'Run complete', {
+      .text(width / 2, height / 2 - 180, dead ? 'You ran out of HP' : 'Run complete', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '36px',
+        fontSize: '32px',
         fontStyle: 'bold',
-        color: dead ? '#ef4444' : '#f4f4f5',
+        color: dead ? '#e25c4d' : '#2a2730',
       })
       .setOrigin(0.5);
 
+    // Rank — gives the score arc a story.
     this.add
-      .text(width / 2, height / 2 - 60, `Final score: ${state.score}`, {
+      .text(width / 2, height / 2 - 120, rank.title, {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '48px',
-        fontStyle: 'bold',
-        color: '#22c55e',
-      })
-      .setOrigin(0.5);
-
-    this.add
-      .text(width / 2, height / 2 + 10, `Correct: ${correct}    Wrong: ${wrong}`, {
-        fontFamily: 'ui-monospace, monospace',
         fontSize: '22px',
-        color: '#a1a1aa',
+        fontStyle: 'bold',
+        color: rank.color,
       })
       .setOrigin(0.5);
 
-    // "Play again" button — a Graphics rectangle + Text inside a Container.
+    const scoreNum = this.add
+      .text(width / 2, height / 2 - 50, `${state.score}`, {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '72px',
+        fontStyle: 'bold',
+        color: '#2fb380',
+      })
+      .setOrigin(0.5);
+
+    // Score count-up tween for impact.
+    scoreNum.setText('0');
+    const counter = { v: 0 };
+    this.tweens.add({
+      targets: counter,
+      v: state.score,
+      duration: 700,
+      ease: 'Quad.easeOut',
+      onUpdate: () => scoreNum.setText(String(Math.round(counter.v))),
+      onComplete: () => scoreNum.setText(String(state.score)),
+    });
+
+    this.add
+      .text(
+        width / 2,
+        height / 2 + 20,
+        `Correct ${correct}    ·    Wrong ${wrong}    ·    Best streak ${state.bestStreak}`,
+        {
+          fontFamily: 'ui-monospace, monospace',
+          fontSize: '18px',
+          color: '#6b6375',
+        }
+      )
+      .setOrigin(0.5);
+
+    // "Play again" button.
     const btnW = 220;
-    const btnH = 60;
+    const btnH = 56;
     const btnX = width / 2;
     const btnY = height / 2 + 110;
 
     const btnBg = this.add.graphics();
-    btnBg.fillStyle(0x6366f1, 1);
-    btnBg.fillRoundedRect(btnX - btnW / 2, btnY - btnH / 2, btnW, btnH, 12);
+    const drawBtn = (hover: boolean) => {
+      btnBg.clear();
+      btnBg.fillStyle(hover ? 0xff8e72 : 0xff7a59, 1);
+      btnBg.fillRoundedRect(btnX - btnW / 2, btnY - btnH / 2, btnW, btnH, 12);
+    };
+    drawBtn(false);
 
-    const btnText = this.add
+    this.add
       .text(btnX, btnY, 'Play again', {
         fontFamily: 'system-ui, sans-serif',
-        fontSize: '24px',
+        fontSize: '22px',
         fontStyle: 'bold',
         color: '#ffffff',
       })
@@ -63,22 +114,11 @@ export class EndScene extends Phaser.Scene {
       .zone(btnX, btnY, btnW, btnH)
       .setInteractive({ useHandCursor: true });
 
-    hit.on('pointerover', () => {
-      btnBg.clear();
-      btnBg.fillStyle(0x818cf8, 1);
-      btnBg.fillRoundedRect(btnX - btnW / 2, btnY - btnH / 2, btnW, btnH, 12);
-    });
-    hit.on('pointerout', () => {
-      btnBg.clear();
-      btnBg.fillStyle(0x6366f1, 1);
-      btnBg.fillRoundedRect(btnX - btnW / 2, btnY - btnH / 2, btnW, btnH, 12);
-    });
+    hit.on('pointerover', () => drawBtn(true));
+    hit.on('pointerout', () => drawBtn(false));
     hit.on('pointerup', () => {
       useRunStore.getState().reset();
       this.scene.start('PlayScene');
     });
-
-    // Silences "unused locals" — btnText is needed visually, but TS sees no read.
-    btnText.setVisible(true);
   }
 }

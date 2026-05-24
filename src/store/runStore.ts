@@ -7,11 +7,13 @@ import { generateRound } from '../data/roundGenerator';
 export interface PlayResult {
   correct: boolean;
   reason: string;
+  pointsGained: number;
+  streak: number;
 }
 
 export interface HistoryEntry {
   round: Round;
-  played: string;
+  played: string | null; // null = timeout / no answer
   correct: boolean;
 }
 
@@ -20,23 +22,31 @@ export interface RunState {
   round: Round | null;
   score: number;
   hp: number;
+  streak: number;
+  bestStreak: number;
   history: HistoryEntry[];
   loading: boolean;
   error: string | null;
   loadVocab: () => Promise<void>;
   startRound: () => void;
   playCard: (card: string) => PlayResult;
+  timeoutRound: () => PlayResult;
   reset: () => void;
 }
 
 const STARTING_HP = 3;
-const POINTS_PER_CORRECT = 10;
+const POINTS_BASE = 10;
+// Streak bonus: +2 per streak step, capped at +10 (so max 20 per card at streak 5+).
+const STREAK_BONUS_STEP = 2;
+const STREAK_BONUS_CAP = 10;
 
 export const useRunStore = create<RunState>((set, get) => ({
   vocab: null,
   round: null,
   score: 0,
   hp: STARTING_HP,
+  streak: 0,
+  bestStreak: 0,
   history: [],
   loading: false,
   error: null,
@@ -63,9 +73,9 @@ export const useRunStore = create<RunState>((set, get) => ({
   },
 
   playCard: (card: string): PlayResult => {
-    const { vocab, round, score, hp, history } = get();
+    const { vocab, round, score, hp, history, streak, bestStreak } = get();
     if (!vocab || !round) {
-      return { correct: false, reason: 'No active round' };
+      return { correct: false, reason: 'No active round', pointsGained: 0, streak };
     }
 
     const matcher =
@@ -76,11 +86,19 @@ export const useRunStore = create<RunState>((set, get) => ({
         : samePOS;
     const correct = matcher(card, round.target, vocab);
 
+    const newStreak = correct ? streak + 1 : 0;
+    const streakBonus = correct
+      ? Math.min(STREAK_BONUS_CAP, Math.max(0, streak) * STREAK_BONUS_STEP)
+      : 0;
+    const pointsGained = correct ? POINTS_BASE + streakBonus : 0;
+
     const entry: HistoryEntry = { round, played: card, correct };
     set({
       history: [...history, entry],
-      score: correct ? score + POINTS_PER_CORRECT : score,
+      score: score + pointsGained,
       hp: correct ? hp : Math.max(0, hp - 1),
+      streak: newStreak,
+      bestStreak: Math.max(bestStreak, newStreak),
     });
 
     return {
@@ -88,6 +106,27 @@ export const useRunStore = create<RunState>((set, get) => ({
       reason: correct
         ? `${card} is a valid ${labelFor(round.type)} of ${round.target}`
         : `${card} is not a ${labelFor(round.type)} of ${round.target}`,
+      pointsGained,
+      streak: newStreak,
+    };
+  },
+
+  timeoutRound: (): PlayResult => {
+    const { round, hp, history, streak } = get();
+    if (!round) {
+      return { correct: false, reason: 'No active round', pointsGained: 0, streak };
+    }
+    const entry: HistoryEntry = { round, played: null, correct: false };
+    set({
+      history: [...history, entry],
+      hp: Math.max(0, hp - 1),
+      streak: 0,
+    });
+    return {
+      correct: false,
+      reason: 'Time ran out',
+      pointsGained: 0,
+      streak: 0,
     };
   },
 
@@ -96,6 +135,8 @@ export const useRunStore = create<RunState>((set, get) => ({
       round: null,
       score: 0,
       hp: STARTING_HP,
+      streak: 0,
+      bestStreak: 0,
       history: [],
     });
   },

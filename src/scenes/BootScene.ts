@@ -13,15 +13,15 @@ export class BootScene extends Phaser.Scene {
         fontFamily: 'system-ui, sans-serif',
         fontSize: '64px',
         fontStyle: 'bold',
-        color: '#f4f4f5',
+        color: '#2a2730',
       })
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height / 2 + 20, '同義反義對戰 · scaffold ready', {
+      .text(width / 2, height / 2 + 20, '同義反義對戰 · 10 rounds, 15 sec each', {
         fontFamily: 'system-ui, sans-serif',
         fontSize: '20px',
-        color: '#a1a1aa',
+        color: '#6b6375',
       })
       .setOrigin(0.5);
 
@@ -29,15 +29,16 @@ export class BootScene extends Phaser.Scene {
       .text(width / 2, height / 2 + 70, 'Tap anywhere to play', {
         fontFamily: 'system-ui, sans-serif',
         fontSize: '16px',
-        color: '#6366f1',
+        color: '#ff7a59',
+        fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height - 30, 'v0.0.1 · Phaser ' + Phaser.VERSION, {
+      .text(width / 2, height - 30, 'v0.0.2 · Phaser ' + Phaser.VERSION, {
         fontFamily: 'ui-monospace, monospace',
         fontSize: '12px',
-        color: '#52525b',
+        color: '#a8a2b3',
       })
       .setOrigin(0.5);
 
