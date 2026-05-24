@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { useRunStore } from '../store/runStore';
+import { sfxEndFanfare, sfxScoreTick } from '../audio/sfx';
+import { audio } from '../audio/AudioManager';
 
 interface Rank {
   title: string;
@@ -62,16 +64,32 @@ export class EndScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Score count-up tween for impact.
+    // Score count-up tween for impact. Audio tick fires on each integer step
+    // for a satisfying "money clicker" feel; throttled so we don't fire 60
+    // times a second on high scores.
     scoreNum.setText('0');
     const counter = { v: 0 };
+    let lastTickAt = -1;
     this.tweens.add({
       targets: counter,
       v: state.score,
-      duration: 700,
+      duration: 900,
       ease: 'Quad.easeOut',
-      onUpdate: () => scoreNum.setText(String(Math.round(counter.v))),
-      onComplete: () => scoreNum.setText(String(state.score)),
+      onUpdate: () => {
+        const v = Math.round(counter.v);
+        scoreNum.setText(String(v));
+        // Tick every ~3 score units; rounds with score 0 produce no ticks.
+        if (v !== lastTickAt && v % 3 === 0 && v > 0) {
+          lastTickAt = v;
+          sfxScoreTick();
+        }
+      },
+      onComplete: () => {
+        scoreNum.setText(String(state.score));
+        // End fanfare — only if there's something to celebrate.
+        if (state.score > 0 && !dead) sfxEndFanfare();
+        if (dead) audio.vibrate([120, 80, 120, 80, 200]);
+      },
     });
 
     this.add
@@ -117,6 +135,7 @@ export class EndScene extends Phaser.Scene {
     hit.on('pointerover', () => drawBtn(true));
     hit.on('pointerout', () => drawBtn(false));
     hit.on('pointerup', () => {
+      audio.vibrate(15);
       useRunStore.getState().reset();
       this.scene.start('PlayScene');
     });

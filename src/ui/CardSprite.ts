@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import type { POS } from '../data/vocab';
+import { audio } from '../audio/AudioManager';
+import { sfxCardPress } from '../audio/sfx';
 
 export type CardState = 'idle' | 'hover' | 'pressed' | 'correct' | 'wrong';
 
@@ -17,9 +19,12 @@ export interface CardSpriteOpts {
 const W = 140;
 const H = 180;
 const RADIUS = 16;
+// Mobile tap target padding: the *visible* card is cardW×cardH, but the
+// hit area extends a few pixels beyond every edge so fat fingers near a
+// card edge still register. WCAG 2.5.5 recommends ≥44×44 CSS px tap targets;
+// adding 12px padding lifts most card sizes over that minimum after FIT scaling.
+const HIT_PADDING = 12;
 
-// Light-theme palette tuned for cream background #fdfaf2.
-// Body text contrast on idle card (#2a2730 on #ffffff) ≈ 14.4:1 — passes WCAG AA.
 const COLORS = {
   idleFill: 0xffffff,
   idleStroke: 0xe7e2d4,
@@ -43,17 +48,22 @@ const POS_LABEL: Record<POS, string> = {
 };
 
 /**
- * A single clickable word-card. Container holds:
- *   - drop-shadow Graphics
- *   - background Graphics (rounded rect with state-driven fill/stroke)
- *   - small POS pill (subtle, learner-friendly — "noun" beats "n.")
- *   - word Text
+ * Clickable word-card.
  *
- * Animation:
- *   - pointerdown: scale 0.95 (~80ms)
- *   - pointerup:   scale back to 1.0
- *   - wrong: horizontal shake (~200ms, 5 jitter frames)
- *   - correct: scale-up + fade-out (caller drives next round transition)
+ * Tap-bug v2 fixes:
+ *   1. Hit area extends `HIT_PADDING` beyond visible bounds so a finger near
+ *      the edge still registers.
+ *   2. `pointerup` AND `pointerupoutside` both trigger the click — touch
+ *      release often fires `pointerupoutside` if the finger drifts even a
+ *      pixel after press. We gate on `wasPressed` instead of "released over".
+ *   3. Cards are NOT interactive until their entrance tween completes — we
+ *      explicitly call `setInteractive` at the end of `playEntrance` rather
+ *      than in the constructor, eliminating the "tap during slide-in" race.
+ *   4. We do NOT mutate state on `pointerout` — touch always fires `pointerout`
+ *      on release, which was wiping the pressed state before `pointerup`
+ *      could read it.
+ *   5. Scale tween targets only the container's scale property; the hit area
+ *      stays at the original visual bounds.
  */
 export class CardSprite extends Phaser.GameObjects.Container {
   public readonly word: string;
@@ -66,7 +76,8 @@ export class CardSprite extends Phaser.GameObjects.Container {
   private cardState: CardState = 'idle';
   private cardW: number;
   private cardH: number;
-  private isActive = true;
+  private isActive = false; // false until entrance finishes
+  private wasPressed = false;
   private homeX: number;
   private homeY: number;
   private onClickCb?: (word: string) => void;
@@ -108,48 +119,8 @@ export class CardSprite extends Phaser.GameObjects.Container {
     }).setOrigin(0.5);
     this.add(this.wordText);
 
-    // Hit area covering the card.
-    this.setSize(this.cardW, this.cardH);
-    this.setInteractive(
-      new Phaser.Geom.Rectangle(-this.cardW / 2, -this.cardH / 2, this.cardW, this.cardH),
-      Phaser.Geom.Rectangle.Contains
-    );
-
-    this.on('pointerover', () => {
-      if (this.isActive && this.cardState === 'idle') this.setCardState('hover');
-    });
-    this.on('pointerout', () => {
-      if (this.isActive && (this.cardState === 'hover' || this.cardState === 'pressed')) {
-        this.setCardState('idle');
-        this.scene.tweens.add({
-          targets: this,
-          scale: 1,
-          duration: 80,
-          ease: 'Quad.easeOut',
-        });
-      }
-    });
-    this.on('pointerdown', () => {
-      if (!this.isActive) return;
-      this.setCardState('pressed');
-      this.scene.tweens.add({
-        targets: this,
-        scale: 0.95,
-        duration: 80,
-        ease: 'Quad.easeOut',
-      });
-    });
-    this.on('pointerup', () => {
-      if (!this.isActive) return;
-      this.scene.tweens.add({
-        targets: this,
-        scale: 1,
-        duration: 80,
-        ease: 'Quad.easeOut',
-      });
-      this.setCardState('hover');
-      if (this.onClickCb) this.onClickCb(this.word);
-    });
+    // Hit area is set later in `enableInput()` — after entrance animation.
+    this.setSize(this.cardW + HIT_PADDING * 2, this.cardH + HIT_PADDING * 2);
 
     this.layout();
     this.setCardState('idle');
@@ -175,30 +146,26 @@ export class CardSprite extends Phaser.GameObjects.Container {
     this.isActive = enabled;
     if (enabled) {
       this.setCardState('idle');
+    } else {
+      this.wasPressed = false;
     }
   }
 
-  /**
-   * Snappy correct feedback: state flip + zoom-out + fade. Caller advances round.
-   */
   flashCorrect(): void {
     this.setCardState('correct');
     this.scene.tweens.add({
       targets: this,
-      scale: 1.15,
+      scale: 1.18,
       alpha: 0.0,
-      duration: 320,
-      ease: 'Quad.easeOut',
+      duration: 280,
+      ease: 'Back.easeOut',
     });
   }
 
-  /**
-   * Wrong feedback: red state + horizontal shake (~200ms).
-   */
   flashWrong(): void {
     this.setCardState('wrong');
     const amp = 8;
-    const dur = 40;
+    const dur = 36;
     this.scene.tweens.chain({
       targets: this,
       tweens: [
@@ -213,19 +180,93 @@ export class CardSprite extends Phaser.GameObjects.Container {
 
   /**
    * Slide-up entrance from below home position; staggered by index.
+   * Input is enabled once the entrance completes (no taps mid-slide).
    */
   playEntrance(delay: number): void {
     const targetY = this.homeY;
     this.y = this.homeY + 60;
     this.alpha = 0;
+    this.setScale(0.92);
     this.scene.tweens.add({
       targets: this,
       y: targetY,
       alpha: 1,
-      duration: 280,
+      scale: 1,
+      duration: 220,
       delay,
       ease: 'Back.easeOut',
+      onComplete: () => this.enableInput(),
     });
+  }
+
+  /**
+   * Make the card interactive. Idempotent. Called when entrance settles.
+   */
+  private enableInput(): void {
+    const hw = this.cardW / 2 + HIT_PADDING;
+    const hh = this.cardH / 2 + HIT_PADDING;
+    if (!this.input) {
+      this.setInteractive(
+        new Phaser.Geom.Rectangle(-hw, -hh, hw * 2, hh * 2),
+        Phaser.Geom.Rectangle.Contains
+      );
+
+      // Hover (desktop only — touch devices fire this on tap-down which we
+      // already handle via pointerdown).
+      this.on('pointerover', () => {
+        if (this.isActive && this.cardState === 'idle') this.setCardState('hover');
+      });
+
+      // Pointerout: ONLY reset visual state when not pressed. Do NOT touch
+      // wasPressed — we want to treat "press then drift then release outside"
+      // as still a valid tap.
+      this.on('pointerout', () => {
+        if (!this.isActive) return;
+        if (this.cardState === 'hover') {
+          this.setCardState('idle');
+        }
+      });
+
+      this.on('pointerdown', () => {
+        if (!this.isActive) return;
+        this.wasPressed = true;
+        this.setCardState('pressed');
+        // SFX: card press — also serves as the gesture that unlocks the
+        // AudioContext on iOS Safari.
+        sfxCardPress();
+        // Light haptic tap.
+        audio.vibrate(10);
+        this.scene.tweens.add({
+          targets: this,
+          scale: 0.94,
+          duration: 70,
+          ease: 'Quad.easeOut',
+        });
+      });
+
+      // Both pointerup and pointerupoutside register the tap. Phaser fires
+      // pointerupoutside when a touch ends with the pointer position outside
+      // the hit area — common on mobile because the finger releases off-pad
+      // by a pixel or two.
+      this.on('pointerup', () => this.handleRelease());
+      this.on('pointerupoutside', () => this.handleRelease());
+    }
+    this.isActive = true;
+  }
+
+  private handleRelease(): void {
+    if (!this.isActive) return;
+    if (!this.wasPressed) return; // ignore stray ups (e.g., touch resumed after lock)
+    this.wasPressed = false;
+    this.scene.tweens.add({
+      targets: this,
+      scale: 1,
+      duration: 70,
+      ease: 'Quad.easeOut',
+    });
+    // We don't flip back to hover on touch — leave at idle until decision FX.
+    this.setCardState('idle');
+    if (this.onClickCb) this.onClickCb(this.word);
   }
 
   private redraw(): void {
@@ -233,7 +274,6 @@ export class CardSprite extends Phaser.GameObjects.Container {
     const hw = this.cardW / 2;
     const hh = this.cardH / 2;
 
-    // Drop shadow (offset down, lighter when pressed).
     const shadowOffset = this.cardState === 'pressed' ? 1 : 4;
     this.shadow.clear();
     this.shadow.fillStyle(COLORS.shadow, 0.55);
@@ -245,7 +285,6 @@ export class CardSprite extends Phaser.GameObjects.Container {
     this.bg.fillRoundedRect(-hw, -hh, this.cardW, this.cardH, RADIUS);
     this.bg.strokeRoundedRect(-hw, -hh, this.cardW, this.cardH, RADIUS);
 
-    // Badge background — soft warm pill.
     this.badge.clear();
     const badgeW = 44;
     const badgeH = 18;

@@ -3,10 +3,23 @@ import { useRunStore } from '../store/runStore';
 import { roundTypeLabel, roundTypeShort } from '../data/roundGenerator';
 import { CardSprite } from '../ui/CardSprite';
 import type { Vocab } from '../data/vocab';
+import { audio } from '../audio/AudioManager';
+import { startBgm } from '../audio/bgm';
+import {
+  sfxCorrect,
+  sfxWrong,
+  sfxTimerTick,
+  sfxRoundTransition,
+  sfxHpLoss,
+} from '../audio/sfx';
+import { MuteButton } from '../ui/MuteButton';
 
 const ROUNDS_PER_RUN = 10;
 const ROUND_TIME_MS = 15_000;
-const FLASH_MS = 650;
+// Tighter feedback window — v1 was 650ms which felt sluggish on a streak.
+// 480ms still lets the player read the result + see the score bump without
+// dragging the round-to-round cadence.
+const FLASH_MS = 480;
 const HP_MAX = 3;
 
 export class PlayScene extends Phaser.Scene {
@@ -33,6 +46,9 @@ export class PlayScene extends Phaser.Scene {
   private timerEvent?: Phaser.Time.TimerEvent;
   private timerLowPulseTween?: Phaser.Tweens.Tween;
   private timerExpired = false;
+  private lastTickSecond = -1;
+  private displayedScore = 0;
+  private scoreTween?: Phaser.Tweens.Tween;
 
   constructor() {
     super({ key: 'PlayScene' });
@@ -154,6 +170,10 @@ export class PlayScene extends Phaser.Scene {
     this.skipBtn.on('pointerout', () => this.redrawSkipBtn(false));
     this.skipBtn.on('pointerup', () => this.handleSkip());
 
+    // ── Mute button (top-right corner) ────────────────────────────────────────
+    // 28px in from each edge — outside the timer ring's 26px radius.
+    new MuteButton(this, width - 28, 28);
+
     // ── Screen-flash overlay (subtle, only for correct answers) ───────────────
     this.flashOverlay = this.add
       .rectangle(width / 2, height / 2, width, height, 0x2fb380, 0)
@@ -184,6 +204,8 @@ export class PlayScene extends Phaser.Scene {
     this.loadingText?.destroy();
     this.loadingText = undefined;
     store.reset();
+    this.displayedScore = 0;
+    this.scoreText.setText('Score 0');
     this.nextRound();
   }
 
@@ -238,10 +260,24 @@ export class PlayScene extends Phaser.Scene {
 
     store.startRound();
     this.timerExpired = false;
+    this.lastTickSecond = -1;
     this.renderHud();
     this.animateTargetIn();
     this.renderHand(useRunStore.getState().vocab!);
     this.startTimer();
+    // Swoosh between rounds (skipped on round 1 — first round opens silently
+    // since BGM hasn't been authorized by user gesture yet anyway).
+    if (rounds > 0) {
+      sfxRoundTransition();
+    }
+  }
+
+  private maybeStartBgm(): void {
+    if (audio.audioMuted) return;
+    if (audio.isBgmRunning) return;
+    const ctx = audio.ensureContext();
+    if (!ctx) return;
+    startBgm();
   }
 
   private renderHud(): void {
@@ -253,7 +289,9 @@ export class PlayScene extends Phaser.Scene {
     if (hint) hint.setText(roundTypeLabel(round.type));
     this.layoutTypeChip();
     this.targetText.setText(round.target);
-    this.scoreText.setText(`Score ${state.score}`);
+    // v2 polish: animate score gains with a quick count-up + pop, so the
+    // player FEELS the points arrive rather than just seeing a number change.
+    this.animateScoreTo(state.score);
     this.roundText.setText(`Round ${state.history.length + 1} / ${ROUNDS_PER_RUN}`);
 
     // Hearts: show 3 outlines, fill the first `hp` with red.
@@ -289,16 +327,19 @@ export class PlayScene extends Phaser.Scene {
   }
 
   private animateTargetIn(): void {
+    // v2 polish: shorter entrance (220ms vs 320ms). Snappiness comes from
+    // sub-250ms response — at 320ms the player felt like they were waiting
+    // for the round to "start" rather than playing it.
     const targetY = 120;
-    this.targetText.y = targetY - 40;
+    this.targetText.y = targetY - 24;
     this.targetText.alpha = 0;
-    this.targetText.setScale(0.92);
+    this.targetText.setScale(0.94);
     this.tweens.add({
       targets: this.targetText,
       y: targetY,
       alpha: 1,
       scale: 1,
-      duration: 320,
+      duration: 220,
       ease: 'Back.easeOut',
     });
   }
@@ -341,7 +382,10 @@ export class PlayScene extends Phaser.Scene {
         height: cardH,
         onClick: (w) => this.handleCardClick(w),
       });
-      sprite.playEntrance(60 * idx);
+      // v2 polish: stagger 35ms not 60ms — total entry is now 35×3+220 ≈ 325ms
+      // vs v1's 60×3+280 = 460ms. The cards feel like they "appear together"
+      // rather than waiting in line.
+      sprite.playEntrance(35 * idx);
       this.cardSprites.push(sprite);
     });
   }
@@ -354,6 +398,12 @@ export class PlayScene extends Phaser.Scene {
     for (const c of this.cardSprites) c.setEnabled(false);
     this.stopTimer();
 
+    // First card tap is the gesture that unlocks the AudioContext on iOS.
+    // Lazy-start BGM here rather than in BootScene because the tap-anywhere
+    // there sometimes wasn't being honored as a user-gesture by iOS Safari
+    // when scene-start fired immediately.
+    this.maybeStartBgm();
+
     const store = useRunStore.getState();
     const result = store.playCard(word);
 
@@ -363,9 +413,14 @@ export class PlayScene extends Phaser.Scene {
         playedSprite.flashCorrect();
         this.spawnFloatingScore(playedSprite.x, playedSprite.y, result.pointsGained);
         this.playScreenFlash(0x2fb380, 0.18);
+        sfxCorrect();
+        audio.vibrate(30);
       } else {
         playedSprite.flashWrong();
         this.shakeHearts();
+        sfxWrong();
+        sfxHpLoss();
+        audio.vibrate([50, 30, 50]);
       }
     }
 
@@ -378,8 +433,11 @@ export class PlayScene extends Phaser.Scene {
     this.cardsLocked = true;
     for (const c of this.cardSprites) c.setEnabled(false);
     this.stopTimer();
+    this.maybeStartBgm();
     useRunStore.getState().timeoutRound();
     this.shakeHearts();
+    sfxHpLoss();
+    audio.vibrate([80, 40, 80]);
     this.renderHud();
     this.time.delayedCall(FLASH_MS, () => this.nextRound());
   }
@@ -426,6 +484,14 @@ export class PlayScene extends Phaser.Scene {
       this.timerLowPulseTween = undefined;
     }
 
+    // Tick SFX + light haptic each second under 5s, fires once per second.
+    if (low && seconds !== this.lastTickSecond) {
+      this.lastTickSecond = seconds;
+      sfxTimerTick();
+      audio.vibrate(20);
+    }
+    if (!low) this.lastTickSecond = -1;
+
     if (remaining <= 0 && !this.timerExpired && !this.cardsLocked) {
       this.timerExpired = true;
       this.handleTimeout();
@@ -433,15 +499,17 @@ export class PlayScene extends Phaser.Scene {
   }
 
   private drawTimerRing(cx: number, cy: number, ratio: number, low = false): void {
+    // v2 polish: thicker active arc (7px) vs background (4px) makes the
+    // depleting timer pop visually. Background also lightened to #f0eadc.
     const r = 26;
     this.timerArcBg.clear();
-    this.timerArcBg.lineStyle(5, 0xe7e2d4, 1);
+    this.timerArcBg.lineStyle(4, 0xf0eadc, 1);
     this.timerArcBg.strokeCircle(cx, cy, r);
 
     this.timerArc.clear();
     if (ratio <= 0) return;
     const color = low ? 0xe25c4d : 0xff7a59;
-    this.timerArc.lineStyle(5, color, 1);
+    this.timerArc.lineStyle(7, color, 1);
     const start = -Math.PI / 2;
     const end = start + Math.PI * 2 * ratio;
     // Phaser's arc draws clockwise when anticlockwise=false.
@@ -457,6 +525,8 @@ export class PlayScene extends Phaser.Scene {
     this.stopTimer();
     useRunStore.getState().timeoutRound();
     this.shakeHearts();
+    sfxHpLoss();
+    audio.vibrate([80, 40, 80]);
     this.renderHud();
 
     // Visual cue for timeout — target text turns red briefly.
@@ -495,6 +565,40 @@ export class PlayScene extends Phaser.Scene {
   }
 
   // ─── FX ─────────────────────────────────────────────────────────────────────
+
+  private animateScoreTo(target: number): void {
+    if (target === this.displayedScore) return;
+    if (this.scoreTween) {
+      this.scoreTween.stop();
+      this.scoreTween = undefined;
+    }
+    const from = this.displayedScore;
+    const counter = { v: from };
+    this.scoreTween = this.tweens.add({
+      targets: counter,
+      v: target,
+      duration: 360,
+      ease: 'Quad.easeOut',
+      onUpdate: () => {
+        this.scoreText.setText(`Score ${Math.round(counter.v)}`);
+      },
+      onComplete: () => {
+        this.displayedScore = target;
+        this.scoreText.setText(`Score ${target}`);
+        this.scoreTween = undefined;
+      },
+    });
+    // Quick scale pop on the score text — only on gains, not on reset.
+    if (target > from) {
+      this.tweens.add({
+        targets: this.scoreText,
+        scale: { from: 1.0, to: 1.15 },
+        duration: 120,
+        yoyo: true,
+        ease: 'Quad.easeOut',
+      });
+    }
+  }
 
   private spawnFloatingScore(x: number, y: number, points: number): void {
     if (points <= 0) return;
@@ -548,6 +652,14 @@ export class PlayScene extends Phaser.Scene {
       h.setColor('#ff3b30');
       this.time.delayedCall(220, () => h.setColor(prev));
     });
+
+    // v2 polish: subtle red screen flash gives HP loss real weight. The
+    // existing green flash on correct answers reads as positive feedback;
+    // mirror it with red on wrong to balance the two states emotionally.
+    this.playScreenFlash(0xe25c4d, 0.14);
+
+    // Camera shake — tiny but felt. (4px amplitude, 200ms)
+    this.cameras.main.shake(180, 0.004);
   }
 
   private redrawSkipBtn(hover: boolean): void {

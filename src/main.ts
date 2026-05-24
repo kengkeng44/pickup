@@ -14,6 +14,15 @@ const config: Phaser.Types.Core.GameConfig = {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
+  input: {
+    // Explicit single-touch tap registration. Multi-finger taps were
+    // confusing Phaser's pointer routing on some Android devices, occasionally
+    // dropping the second tap on a card. One pointer is all we need.
+    activePointers: 2, // 1 active + 1 mouse fallback for hybrid devices
+    touch: {
+      capture: true,
+    },
+  },
   scene: [BootScene, PlayScene, EndScene],
 };
 
