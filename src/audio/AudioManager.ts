@@ -28,7 +28,9 @@ export class AudioManager {
   private masterGain?: GainNode;
   private bgmGain?: GainNode;
   private sfxGain?: GainNode;
+  private warnGain?: GainNode;
   private bgmStop?: BgmStopHandle;
+  private warningStop?: () => void;
 
   private _audioMuted: boolean;
   private _hapticsMuted: boolean;
@@ -91,7 +93,82 @@ export class AudioManager {
     this.sfxGain.gain.value = SFX_VOLUME;
     this.sfxGain.connect(this.masterGain);
 
+    // Warning layer — separate gain so we can fade it in over BGM without
+    // affecting other channels.
+    this.warnGain = ctx.createGain();
+    this.warnGain.gain.value = 0;
+    this.warnGain.connect(this.masterGain);
+
     return ctx;
+  }
+
+  getWarnDestination(): AudioNode | undefined {
+    return this.warnGain;
+  }
+
+  /**
+   * Start the timer-low warning layer. Idempotent — if already playing,
+   * no-op. The warning is a subtle low pulse that fades in over 200ms.
+   */
+  playWarningLayer(): void {
+    if (this.warningStop) return;
+    if (this._audioMuted) return;
+    const ctx = this.ensureContext();
+    if (!ctx || !this.warnGain) return;
+
+    // Two-oscillator dissonant low pulse, modulated by a slow LFO via a
+    // gain ramp pattern (heartbeat-ish).
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
+    osc1.type = 'sine';
+    osc2.type = 'sine';
+    osc1.frequency.value = 110;
+    osc2.frequency.value = 116; // beating against osc1 for unease
+    const pulseGain = ctx.createGain();
+    pulseGain.gain.value = 0;
+
+    osc1.connect(pulseGain);
+    osc2.connect(pulseGain);
+    pulseGain.connect(this.warnGain);
+
+    // Fade the warning channel in over 200ms.
+    const now = ctx.currentTime;
+    this.warnGain.gain.cancelScheduledValues(now);
+    this.warnGain.gain.setValueAtTime(0, now);
+    this.warnGain.gain.linearRampToValueAtTime(0.35, now + 0.2);
+
+    // Heartbeat-ish: pulse every 0.8s (~75 bpm). Schedule pulses out ~6s
+    // ahead — the warning only ever lasts ~5s before resolve, so this is plenty.
+    osc1.start(now);
+    osc2.start(now);
+    const beatDur = 0.8;
+    for (let i = 0; i < 8; i++) {
+      const t = now + i * beatDur;
+      pulseGain.gain.setValueAtTime(0.0001, t);
+      pulseGain.gain.linearRampToValueAtTime(0.6, t + 0.05);
+      pulseGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.3);
+    }
+
+    this.warningStop = () => {
+      const stopNow = ctx.currentTime;
+      if (this.warnGain) {
+        this.warnGain.gain.cancelScheduledValues(stopNow);
+        this.warnGain.gain.setValueAtTime(this.warnGain.gain.value, stopNow);
+        this.warnGain.gain.linearRampToValueAtTime(0, stopNow + 0.08);
+      }
+      // Stop oscillators after the fade-out so we don't click.
+      try {
+        osc1.stop(stopNow + 0.1);
+        osc2.stop(stopNow + 0.1);
+      } catch {
+        // already stopped
+      }
+    };
+  }
+
+  stopWarningLayer(): void {
+    this.warningStop?.();
+    this.warningStop = undefined;
   }
 
   get audioMuted(): boolean {
@@ -108,6 +185,7 @@ export class AudioManager {
     }
     if (muted) {
       this.stopBgm();
+      this.stopWarningLayer();
     }
     this.emit();
   }

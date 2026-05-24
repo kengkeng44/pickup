@@ -18,7 +18,7 @@ export class BootScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height / 2 + 20, '同義反義對戰 · 10 rounds, 15 sec each', {
+      .text(width / 2, height / 2 + 20, 'CEFR cloze · 10 rounds, 15 sec each', {
         fontFamily: 'system-ui, sans-serif',
         fontSize: '20px',
         color: '#6b6375',
@@ -35,7 +35,7 @@ export class BootScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, height - 30, 'v0.0.2 · Phaser ' + Phaser.VERSION, {
+      .text(width / 2, height - 30, 'v0.1.0 · Phaser ' + Phaser.VERSION, {
         fontFamily: 'ui-monospace, monospace',
         fontSize: '12px',
         color: '#a8a2b3',
@@ -55,7 +55,7 @@ export class BootScene extends Phaser.Scene {
     const advance = () => {
       if (advanced) return;
       advanced = true;
-      this.scene.start('PlayScene');
+      this.scene.start('MenuScene');
     };
 
     // Auto-advance after 1.5s, or on any click/tap.

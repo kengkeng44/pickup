@@ -9,11 +9,9 @@ interface Rank {
 }
 
 /**
- * Rank thresholds out of a perfect 100+streak (max ~150 with bonuses).
- *   <30   Novice
- *   30-59 Apprentice
- *   60-89 Wordsmith
- *   90+   Master
+ * Rank thresholds out of a possible ~150 (10 questions × 10 base + streak
+ * bonuses). Score gates kept identical to the synonym-era game so a
+ * "Wordsmith Master" still means the same thing to returning players.
  */
 function rankFor(score: number): Rank {
   if (score >= 90) return { title: 'Wordsmith Master', color: '#ff7a59' };
@@ -45,7 +43,6 @@ export class EndScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Rank — gives the score arc a story.
     this.add
       .text(width / 2, height / 2 - 120, rank.title, {
         fontFamily: 'system-ui, sans-serif',
@@ -64,9 +61,6 @@ export class EndScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Score count-up tween for impact. Audio tick fires on each integer step
-    // for a satisfying "money clicker" feel; throttled so we don't fire 60
-    // times a second on high scores.
     scoreNum.setText('0');
     const counter = { v: 0 };
     let lastTickAt = -1;
@@ -78,7 +72,6 @@ export class EndScene extends Phaser.Scene {
       onUpdate: () => {
         const v = Math.round(counter.v);
         scoreNum.setText(String(v));
-        // Tick every ~3 score units; rounds with score 0 produce no ticks.
         if (v !== lastTickAt && v % 3 === 0 && v > 0) {
           lastTickAt = v;
           sfxScoreTick();
@@ -86,7 +79,6 @@ export class EndScene extends Phaser.Scene {
       },
       onComplete: () => {
         scoreNum.setText(String(state.score));
-        // End fanfare — only if there's something to celebrate.
         if (state.score > 0 && !dead) sfxEndFanfare();
         if (dead) audio.vibrate([120, 80, 120, 80, 200]);
       },
@@ -105,7 +97,16 @@ export class EndScene extends Phaser.Scene {
       )
       .setOrigin(0.5);
 
-    // "Play again" button.
+    // Level played, for context.
+    this.add
+      .text(width / 2, height / 2 + 50, `Level ${state.level}`, {
+        fontFamily: 'ui-monospace, monospace',
+        fontSize: '14px',
+        color: '#a8a2b3',
+      })
+      .setOrigin(0.5);
+
+    // ── Play again button ────────────────────────────────────────────────────
     const btnW = 220;
     const btnH = 56;
     const btnX = width / 2;
@@ -131,13 +132,27 @@ export class EndScene extends Phaser.Scene {
     const hit = this.add
       .zone(btnX, btnY, btnW, btnH)
       .setInteractive({ useHandCursor: true });
-
-    hit.on('pointerover', () => drawBtn(true));
-    hit.on('pointerout', () => drawBtn(false));
     hit.on('pointerup', () => {
       audio.vibrate(15);
       useRunStore.getState().reset();
       this.scene.start('PlayScene');
+    });
+    hit.on('pointerover', () => drawBtn(true));
+    hit.on('pointerout', () => drawBtn(false));
+
+    // ── Change level link ────────────────────────────────────────────────────
+    const link = this.add
+      .text(width / 2, btnY + 50, 'Change level', {
+        fontFamily: 'system-ui, sans-serif',
+        fontSize: '14px',
+        color: '#6b6375',
+        fontStyle: 'italic',
+      })
+      .setOrigin(0.5)
+      .setInteractive({ useHandCursor: true });
+    link.on('pointerup', () => {
+      useRunStore.getState().reset();
+      this.scene.start('MenuScene');
     });
   }
 }

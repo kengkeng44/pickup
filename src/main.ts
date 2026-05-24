@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
+import { MenuScene } from './scenes/MenuScene';
 import { PlayScene } from './scenes/PlayScene';
 import { EndScene } from './scenes/EndScene';
 import './style.css';
@@ -23,7 +24,7 @@ const config: Phaser.Types.Core.GameConfig = {
       capture: true,
     },
   },
-  scene: [BootScene, PlayScene, EndScene],
+  scene: [BootScene, MenuScene, PlayScene, EndScene],
 };
 
 new Phaser.Game(config);
