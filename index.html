@@ -17,78 +17,64 @@
         margin: 0; padding: 0;
       }
 
-      /* v1.7.1 entry transition — Tear Drop.
-       * Inspired by Suntera mood-tracker (vibrant orange, big cartoon
-       * face, no text). Character bio: the calico is a 愛哭鬼 (crybaby)
-       * but 很堅韌 (resilient). The tear that drips down → expands →
-       * reveals the menu beneath is the visual metaphor for that
-       * personality: she cries, then keeps moving.
+      /* v1.7.16 entry transition — Zoom-in + Zoom-out + Center Disc.
+       * Replaces the v1.7.1-15 tear-drop transition (user feedback:
+       * tear didn't fully reach bottom, distracting).
        *
-       * Lives inline so it paints on the very first frame — even before
-       * Phaser/Vite JS loads.
-       *
-       * Timing (total ≈3.0s — slightly slower than v1.7.0 so the user
-       * can't miss it):
-       *   0.00–0.55s: cat face scale-fades in
-       *   0.55–1.55s: tear forms at left eye corner, drips down cheek
-       *   1.55–2.65s: cream disc grows from the tear-landing point
-       *               (scale-based now — radiates from center cleanly)
-       *   2.65–3.00s: orange shell fades, MenuScene visible underneath
+       * Timing (total ≈2.8s):
+       *   0.05–0.55s: cat face scale 0.7 → 1 (zoom in, fade in)
+       *   0.55–1.30s: holds — character recognized
+       *   1.30–1.85s: cat scale 1 → 1.5 + opacity 1 → 0 (zoom out + fade)
+       *   1.70–2.55s: cream disc expands from screen center,
+       *               covers viewport
+       *   2.55–2.80s: orange shell fades, MenuScene visible underneath
        */
       #pickup-tear-intro {
         position: fixed; inset: 0; z-index: 9999;
         background: #ed5a2e;
         display: flex; align-items: center; justify-content: center;
         pointer-events: none; overflow: hidden;
-        animation: pickup-intro-fade 0.35s ease-out 2.65s forwards;
+        animation: pickup-intro-fade 0.25s ease-out 2.55s forwards;
       }
       #pickup-tear-intro svg.tear-cat {
         width: 70vmin; max-width: 420px; height: auto; display: block;
-        opacity: 0; transform: scale(0.92);
-        animation: pickup-cat-in 0.55s ease-out 0.05s forwards;
-      }
-      #pickup-tear-intro .tear-drop {
         opacity: 0;
-        animation: pickup-tear-fall 1.0s cubic-bezier(0.55, 0.05, 0.65, 1) 0.55s forwards;
+        transform: scale(0.7);
+        animation:
+          pickup-cat-zoom-in 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.1) 0.05s forwards,
+          pickup-cat-zoom-out 0.55s cubic-bezier(0.4, 0, 0.6, 1) 1.30s forwards;
       }
-      /* v1.7.1 — disc now anchored to a fixed center via translate,
-       * then scaled. Result: radiates from tear-landing point evenly
-       * in all directions instead of biased to upper-left. */
       #pickup-tear-intro .reveal-disc {
         position: absolute;
         left: 50%;
-        top: calc(50% + 95px);  /* roughly where the tear lands */
+        top: 50%;
         width: 80px; height: 80px;
         margin-left: -40px; margin-top: -40px;
         border-radius: 50%;
         background: #fef8ed;
         transform: scale(0);
-        animation: pickup-disc-expand 1.1s cubic-bezier(0.55, 0, 0.45, 1) 1.55s forwards;
+        animation: pickup-disc-expand 0.85s cubic-bezier(0.55, 0, 0.45, 1) 1.70s forwards;
         will-change: transform;
         box-shadow: 0 0 40px rgba(254, 248, 237, 0.6);
       }
-      @keyframes pickup-cat-in {
-        from { opacity: 0; transform: scale(0.92); }
+      @keyframes pickup-cat-zoom-in {
+        from { opacity: 0; transform: scale(0.7); }
         to   { opacity: 1; transform: scale(1); }
       }
-      @keyframes pickup-tear-fall {
-        0%   { opacity: 0; transform: translate(0, -8px) scale(0.5); }
-        15%  { opacity: 1; transform: translate(0, 0) scale(1); }
-        100% { opacity: 1; transform: translate(2px, 90px) scale(1.4); }
+      @keyframes pickup-cat-zoom-out {
+        from { opacity: 1; transform: scale(1); }
+        to   { opacity: 0; transform: scale(1.5); }
       }
       @keyframes pickup-disc-expand {
         0%   { transform: scale(0); }
-        20%  { transform: scale(1.5); }
         100% { transform: scale(50); }
       }
       @keyframes pickup-intro-fade {
         to { opacity: 0; }
       }
       @media (prefers-reduced-motion: reduce) {
-        /* No animation: hold cat for 0.5s then fade orange away. */
-        #pickup-tear-intro { animation: pickup-intro-fade 0.35s ease-out 0.5s forwards; }
+        #pickup-tear-intro { animation: pickup-intro-fade 0.25s ease-out 0.5s forwards; }
         #pickup-tear-intro svg.tear-cat,
-        #pickup-tear-intro .tear-drop,
         #pickup-tear-intro .reveal-disc { animation: none !important; opacity: 1 !important; transform: none !important; }
       }
     </style>
@@ -96,39 +82,34 @@
   <body>
     <div id="pickup-tear-intro" aria-hidden="true">
       <svg class="tear-cat" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
-        <!-- Ears (outer triangles) -->
+        <!-- v1.7.16: PawDoro-style sleepy half-moon eyes + thinner curved
+             whiskers. Tear element removed. Same calico body. Anchor
+             SVG kept until user-generated replacement PNG arrives. -->
         <path d="M 110 195 L 145 100 L 180 195 Z" fill="#9d3e1c"/>
         <path d="M 290 195 L 255 100 L 220 195 Z" fill="#9d3e1c"/>
-        <!-- Inner ear pink -->
         <path d="M 134 188 L 154 138 L 174 188 Z" fill="#e89887"/>
         <path d="M 266 188 L 246 138 L 226 188 Z" fill="#e89887"/>
-        <!-- Head (cream) -->
         <ellipse cx="200" cy="295" rx="138" ry="128" fill="#fdf0d6"/>
-        <!-- Calico orange patch (top-left forehead) -->
         <ellipse cx="158" cy="220" rx="38" ry="24" fill="#e89c5e" transform="rotate(-22 158 220)"/>
-        <!-- Calico black patch (right cheek) -->
         <ellipse cx="270" cy="250" rx="32" ry="38" fill="#3a2a1f" transform="rotate(18 270 250)"/>
-        <!-- Whiskers -->
-        <path d="M 80 330 L 130 335" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 80 352 L 130 350" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 270 335 L 320 330" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 270 350 L 320 352" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <!-- Eyes (Suntera-style bold black ovals) -->
-        <ellipse cx="160" cy="295" rx="22" ry="36" fill="#1a1208"/>
-        <ellipse cx="240" cy="295" rx="22" ry="36" fill="#1a1208"/>
-        <!-- Eye highlights -->
-        <circle cx="168" cy="282" r="6.5" fill="#ffffff"/>
-        <circle cx="248" cy="282" r="6.5" fill="#ffffff"/>
-        <!-- Nose (pink triangle) -->
-        <path d="M 190 340 L 210 340 L 200 350 Z" fill="#d48474"/>
-        <!-- Mouth (subtle determined smile — trying to be brave) -->
-        <path d="M 178 372 Q 200 384 222 372" stroke="#1a1208" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-        <!-- Tear (from left eye corner) — animates via .tear-drop class -->
-        <g class="tear-drop">
-          <path d="M 142 332 Q 138 348 136 360 Q 135 372 142 376 Q 150 372 150 360 Q 148 344 142 332 Z"
-                fill="#6fb8d8" stroke="#3d8aae" stroke-width="1.2"/>
-          <ellipse cx="140" cy="346" rx="2.5" ry="4" fill="#ffffff" opacity="0.7"/>
-        </g>
+        <!-- v1.7.16 PawDoro-style thin curved whiskers (3 each side) -->
+        <path d="M 70 320 Q 95 326 130 332" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <path d="M 70 342 Q 95 346 130 348" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <path d="M 70 362 Q 95 360 130 362" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <path d="M 270 332 Q 305 326 330 320" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <path d="M 270 348 Q 305 346 330 342" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <path d="M 270 362 Q 305 360 330 362" stroke="#3a2a1f" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.78"/>
+        <!-- v1.7.16 PawDoro-style half-moon sleepy eyes: solid black
+             bottom half + curved top edge, no whites visible -->
+        <path d="M 138 290 Q 138 322 160 322 Q 182 322 182 290 Z" fill="#1a1208"/>
+        <path d="M 218 290 Q 218 322 240 322 Q 262 322 262 290 Z" fill="#1a1208"/>
+        <!-- Tiny white reflection dots near top edge of eyes (PawDoro hint) -->
+        <circle cx="168" cy="298" r="3.5" fill="#ffffff" opacity="0.85"/>
+        <circle cx="248" cy="298" r="3.5" fill="#ffffff" opacity="0.85"/>
+        <!-- Pink triangle nose -->
+        <path d="M 188 340 L 212 340 L 200 352 Z" fill="#e6a8a3"/>
+        <!-- Subtle chill mouth (W shape) -->
+        <path d="M 184 366 Q 195 374 200 366 Q 205 374 216 366" stroke="#1a1208" stroke-width="3" fill="none" stroke-linecap="round"/>
       </svg>
       <div class="reveal-disc"></div>
     </div>

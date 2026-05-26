@@ -373,6 +373,45 @@ export class PlayScene extends Phaser.Scene {
       }
       window.setTimeout(() => speak(sentenceText), 280);
     }
+
+    // v1.7.16: Reading mode also gets a small 🔊 speaker button next
+    // to the sentence so the player can OPTIONALLY hear it. Duolingo-
+    // style: every exercise has audio access even when reading is
+    // primary. Speaks the FULL sentence with the correct word filled
+    // in (no [blank], no underscores).
+    if (!useRunStore.getState().listeningMode && after.round && this.hud) {
+      const sentenceEl = this.hud.getSentenceElement();
+      if (sentenceEl) {
+        const round = after.round;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pickup-mini-speaker';
+        btn.setAttribute('aria-label', 'Hear sentence');
+        btn.innerHTML = '🔊';
+        Object.assign(btn.style, {
+          background: '#fffbf2',
+          border: '2px solid #e7a44a',
+          borderBottom: '3px solid #b07a2a',
+          borderRadius: '12px',
+          padding: '4px 10px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          marginRight: '8px',
+          verticalAlign: 'middle',
+          fontFamily: 'inherit',
+          touchAction: 'manipulation',
+          WebkitTapHighlightColor: 'transparent',
+        });
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const correctWord = round.options[round.correctIndex] ?? '';
+          const fullSentence = round.sentence.replace(/_{2,}/g, correctWord);
+          speak(fullSentence);
+        });
+        sentenceEl.insertBefore(btn, sentenceEl.firstChild);
+      }
+    }
     this.hud?.animateSentenceIn();
     // Story mode: no timer (force-correct flow makes the timeout pressure
     // counterproductive and stressful).

@@ -412,9 +412,10 @@ export class StoryMapView {
     cat.className = 'pickup-map-cat';
     applyStyle(cat, {
       position: 'absolute',
-      // v1.7.15: container holds grandma (main) + shiba (smaller sidekick).
-      // Width sized for both side-by-side with a slight overlap.
-      width: '150px',
+      // v1.7.16: tighter container — grandma + shiba should look glued
+      // together, not "sitting on empty ground far apart". Container
+      // shrunk so shiba overlaps grandma's right side by ~20px.
+      width: '138px',
       height: '110px',
       pointerEvents: 'none',
       zIndex: '5',
@@ -430,11 +431,13 @@ export class StoryMapView {
       <img src="/mascots/iso-grandma.webp" alt="" style="
         position:absolute; left:0; bottom:0;
         width:96px; height:auto; display:block;
+        z-index:2;
         filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.20));
       " />
       <img src="/mascots/iso-shiba.webp" alt="" style="
-        position:absolute; right:0; bottom:-2px;
+        position:absolute; left:76px; bottom:-3px;
         width:62px; height:auto; display:block;
+        z-index:1;
         filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.18));
       " />
     `;
@@ -472,8 +475,8 @@ export class StoryMapView {
     const nodeLeft = isLeft
       ? CONTAINER_W / 2 - NODE_SIZE / 2 - ZIG_OFFSET
       : CONTAINER_W / 2 - NODE_SIZE / 2 + ZIG_OFFSET;
-    // v1.7.15: container is now 150px wide (grandma + shiba duo).
-    const catX = nodeLeft + NODE_SIZE / 2 - 150 / 2;
+    // v1.7.16: container is now 138px wide (tighter grandma+shiba duo).
+    const catX = nodeLeft + NODE_SIZE / 2 - 138 / 2;
     const catY = rowTop - 96;
 
     if (!animate) {
