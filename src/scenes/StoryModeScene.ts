@@ -18,6 +18,7 @@ import { StoryMapView } from '../ui/StoryMapView';
 import { BottomNav, type BottomNavTab } from '../ui/BottomNav';
 import { NodeActivitySheet } from '../ui/NodeActivitySheet';
 import { readXp, levelProgress } from '../data/xp';
+import { readStreak } from '../data/streak';
 
 const COLOR_BG = '#fef8ed';
 const COLOR_AMBER = '#e7a44a';
@@ -339,7 +340,9 @@ export class StoryModeScene extends Phaser.Scene {
     const chapterProg = readChapterProgress();
     const srsCount = this.readSrsCount();
     const totalAnswered = this.readTotalAnswered();
-    const currentStreak = useRunStore.getState().streak;
+    // v1.9.5: use persistent daily streak (not per-run streak)
+    const dailyStreak = readStreak();
+    const currentStreak = dailyStreak;
 
     const grid = document.createElement('div');
     applyStyle(grid, {
@@ -350,7 +353,7 @@ export class StoryModeScene extends Phaser.Scene {
     grid.appendChild(this.makeStatCard('Chapters', `${chapterProg.highestCompleted}/8`, 'completed'));
     grid.appendChild(this.makeStatCard('Questions', `${totalAnswered}`, 'answered'));
     grid.appendChild(this.makeStatCard('In review', `${srsCount}`, 'still learning'));
-    grid.appendChild(this.makeStatCard('Streak', `${currentStreak}`, 'this run'));
+    grid.appendChild(this.makeStatCard('Streak', `${currentStreak}`, 'day(s)'));
     content.appendChild(grid);
 
     // ── Difficulty section ──

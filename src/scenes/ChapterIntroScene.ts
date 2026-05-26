@@ -311,7 +311,10 @@ export class ChapterIntroScene extends Phaser.Scene {
     // CTA
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.textContent = 'Begin chapter →';
+    // v1.9.5: CTA text reflects mode picked at node sheet
+    cta.textContent = useRunStore.getState().listeningMode
+      ? '🎧 Start Listening →'
+      : '📖 Start Reading →';
     applyStyle(cta, {
       marginTop: '4px',
       minHeight: '56px',
