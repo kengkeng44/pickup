@@ -266,6 +266,185 @@ export function mountTapTiles(opts: {
   return { destroy: () => root.remove() };
 }
 
+// ─── Type what you hear ───────────────────────────────────────────────
+
+export function mountTypeWhatYouHear(opts: {
+  slot: HTMLElement;
+  correctAnswer: string;        // expected word (case-insensitive)
+  prompt?: string;
+  onSpeak: () => void;
+  onComplete: (correct: boolean) => void;
+}): TapHandle {
+  const { slot, correctAnswer, prompt = 'Type what you hear' } = opts;
+
+  const root = document.createElement('div');
+  root.className = 'pickup-type-what-you-hear';
+  Object.assign(root.style, {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '14px',
+    padding: '4px',
+    fontFamily: 'inherit',
+  });
+
+  // Big speaker icon
+  const speaker = document.createElement('button');
+  speaker.type = 'button';
+  speaker.setAttribute('aria-label', 'Replay audio');
+  Object.assign(speaker.style, {
+    alignSelf: 'center',
+    width: '72px',
+    height: '72px',
+    borderRadius: '50%',
+    background: COLOR_BLUE,
+    border: 'none',
+    borderBottom: `5px solid ${COLOR_BLUE_DARK}`,
+    color: '#ffffff',
+    fontSize: '34px',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'inherit',
+    touchAction: 'manipulation',
+    WebkitTapHighlightColor: 'transparent',
+    boxShadow: '0 4px 12px rgba(61, 138, 174, 0.30)',
+  });
+  speaker.innerHTML = '🔊';
+  speaker.addEventListener('click', (e) => { e.preventDefault(); opts.onSpeak(); });
+  root.appendChild(speaker);
+
+  const promptEl = document.createElement('div');
+  promptEl.textContent = prompt;
+  Object.assign(promptEl.style, {
+    alignSelf: 'center',
+    fontSize: '13px',
+    fontWeight: '800',
+    color: COLOR_TEXT_MUTED,
+    letterSpacing: '1.2px',
+    textTransform: 'uppercase',
+  });
+  root.appendChild(promptEl);
+
+  // Text input — Duolingo-style large, centered
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = 'Type here…';
+  input.autocapitalize = 'none';
+  input.autocomplete = 'off';
+  input.spellcheck = false;
+  Object.assign(input.style, {
+    width: '100%',
+    padding: '14px 16px',
+    background: '#ffffff',
+    color: COLOR_TEXT_DARK,
+    border: `2px solid ${COLOR_BORDER}`,
+    borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
+    borderRadius: '14px',
+    fontSize: '17px',
+    fontWeight: '700',
+    fontFamily: 'inherit',
+    outline: 'none',
+    textAlign: 'center',
+    boxSizing: 'border-box',
+  });
+  input.addEventListener('focus', () => {
+    input.style.borderColor = COLOR_BLUE;
+    input.style.borderBottomColor = COLOR_BLUE_DARK;
+  });
+  input.addEventListener('blur', () => {
+    input.style.borderColor = COLOR_BORDER;
+    input.style.borderBottomColor = COLOR_BORDER_DARK;
+  });
+  root.appendChild(input);
+
+  // CHECK button
+  const check = document.createElement('button');
+  check.type = 'button';
+  check.textContent = 'CHECK';
+  Object.assign(check.style, {
+    marginTop: '6px',
+    padding: '14px 0',
+    background: COLOR_GREY_BTN,
+    color: '#fff',
+    border: 'none',
+    borderBottom: `4px solid ${COLOR_GREY_BTN_DARK}`,
+    borderRadius: '14px',
+    fontSize: '15px',
+    fontWeight: '900',
+    letterSpacing: '1.5px',
+    cursor: 'not-allowed',
+    fontFamily: 'inherit',
+    width: '100%',
+    transition: 'background 160ms ease, border-color 160ms ease',
+  });
+  root.appendChild(check);
+
+  const setReady = (ready: boolean) => {
+    if (ready) {
+      Object.assign(check.style, {
+        background: COLOR_SUCCESS,
+        borderBottom: `4px solid ${COLOR_SUCCESS_DARK}`,
+        cursor: 'pointer',
+      });
+    } else {
+      Object.assign(check.style, {
+        background: COLOR_GREY_BTN,
+        borderBottom: `4px solid ${COLOR_GREY_BTN_DARK}`,
+        cursor: 'not-allowed',
+      });
+    }
+  };
+
+  input.addEventListener('input', () => setReady(input.value.trim().length > 0));
+
+  const submit = () => {
+    const v = input.value.trim().toLowerCase();
+    if (!v) return;
+    const correct = v === correctAnswer.trim().toLowerCase();
+    if (correct) {
+      Object.assign(input.style, {
+        borderColor: COLOR_SUCCESS,
+        borderBottomColor: COLOR_SUCCESS_DARK,
+        background: 'rgba(125,154,79,0.10)',
+      });
+      Object.assign(check.style, {
+        background: COLOR_SUCCESS,
+        borderBottom: `4px solid ${COLOR_SUCCESS_DARK}`,
+      });
+      window.setTimeout(() => opts.onComplete(true), 460);
+    } else {
+      Object.assign(input.style, {
+        borderColor: COLOR_ERROR,
+        borderBottomColor: '#7a2a20',
+        background: 'rgba(200,74,58,0.10)',
+      });
+      Object.assign(check.style, {
+        background: COLOR_ERROR,
+        borderBottom: `4px solid #7a2a20`,
+      });
+      window.setTimeout(() => {
+        input.value = '';
+        Object.assign(input.style, {
+          borderColor: COLOR_BORDER,
+          borderBottomColor: COLOR_BORDER_DARK,
+          background: '#ffffff',
+        });
+        setReady(false);
+      }, 750);
+    }
+  };
+  check.addEventListener('click', (e) => { e.preventDefault(); submit(); });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); submit(); }
+  });
+
+  slot.appendChild(root);
+  // Focus the input after mount so keyboard pops up immediately
+  window.setTimeout(() => input.focus(), 100);
+  return { destroy: () => root.remove() };
+}
+
 // ─── Tap the pairs ─────────────────────────────────────────────────────
 
 export function mountTapPairs(opts: {

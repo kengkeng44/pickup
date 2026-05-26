@@ -3,7 +3,7 @@ import { useRunStore, RUN_CONFIG } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
 import { speak, stopSpeaking } from '../audio/tts';
-import { mountTapTiles, mountTapPairs, type TapHandle } from '../ui/TapInputUI';
+import { mountTapTiles, mountTapPairs, mountTypeWhatYouHear, type TapHandle } from '../ui/TapInputUI';
 import {
   sfxCorrect,
   sfxWrong,
@@ -446,7 +446,7 @@ export class PlayScene extends Phaser.Scene {
     // option buttons with the new tap-input UI mounted into the same slot.
     this.tapHandle?.destroy();
     this.tapHandle = undefined;
-    if (round && (qType === 'tap-tiles' || qType === 'tap-pairs') && this.hud) {
+    if (round && (qType === 'tap-tiles' || qType === 'tap-pairs' || qType === 'type-what-you-hear') && this.hud) {
       const slot = this.hud.buttonsSlot();
       // Hide the standard 4-MC buttons rendered by ClozeUI for this round
       slot.innerHTML = '';
@@ -465,6 +465,18 @@ export class PlayScene extends Phaser.Scene {
         // Auto-play once on round start
         window.setTimeout(() => speak(audioText), 280);
         // Also hide the sentence card content (no sentence to read)
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) sentEl.innerHTML = '';
+      } else if (qType === 'type-what-you-hear') {
+        const correctWord = round.options[round.correctIndex] ?? '';
+        this.tapHandle = mountTypeWhatYouHear({
+          slot,
+          correctAnswer: correctWord,
+          prompt: round.question ?? 'Type what you hear',
+          onSpeak: () => speak(audioText),
+          onComplete: (correct) => this.handleAnswer(correct ? round.correctIndex : (round.correctIndex + 1) % 4),
+        });
+        window.setTimeout(() => speak(audioText), 280);
         const sentEl = this.hud.getSentenceElement();
         if (sentEl) sentEl.innerHTML = '';
       } else if (qType === 'tap-pairs' && round.pairs) {

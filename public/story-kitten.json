@@ -55,14 +55,14 @@
     "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 4,
-    "type": "read-mc-with-audio",
+    "type": "type-what-you-hear",
     "storyBeat": "一個大影子靠近,我嚇到",
-    "sentence": "A big shadow comes close. I am ___.",
-    "question": "Fill in the blank.",
+    "sentence": "A big shadow comes close. I am scared.",
+    "question": "Type the missing word",
     "options": ["scared", "brave", "funny", "kind"],
     "correctIndex": 0,
-    "explanationZh": "閱讀題附音檔(可選聽)。大影子靠近 → scared(害怕)。其他選項都是正面情緒。",
-    "tags": ["story", "ch1", "emotion", "reading-with-audio"]
+    "explanationZh": "打字聽寫:聽完整句後打出感受詞 scared(害怕)。容錯大小寫 + 前後空白。",
+    "tags": ["story", "ch1", "emotion", "type-what-you-hear"]
   },
   {
     "id": "kt-ch1-05",

@@ -36,8 +36,9 @@ export const ClozeQuestionSchema = z.object({
     'listen-emoji',
     'listen-comprehension',
     'read-mc-with-audio',
-    'tap-tiles',     // v1.8.3: Duolingo "Tap what you hear" — order word tiles
-    'tap-pairs',     // v1.8.3: Duolingo "Tap the pairs" — match 4 EN ↔ ZH pairs
+    'tap-tiles',
+    'tap-pairs',
+    'type-what-you-hear',   // v1.8.9: Duolingo "Type what you hear" — text input
   ]).optional(),
   /** v1.8.0: comprehension prompt shown above the options. */
   question: z.string().optional(),

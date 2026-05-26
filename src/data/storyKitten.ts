@@ -42,6 +42,7 @@ export const QuestionTypeSchema = z.enum([
   'read-mc-with-audio',
   'tap-tiles',
   'tap-pairs',
+  'type-what-you-hear',
 ]);
 export type QuestionType = z.infer<typeof QuestionTypeSchema>;
 
