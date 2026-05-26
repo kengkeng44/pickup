@@ -461,6 +461,68 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── v1.7.1 cat-themed loading indicator ─────────────────────────────
+ * Used by PlayScene + anywhere we need an in-app "loading" state.
+ * Mini calico face with looping blinks and a tear forming/fading at the
+ * eye corner — reflects the 愛哭鬼但堅韌 character canon. */
+.pickup-cat-loader {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 11;
+  pointer-events: none;
+  font-family: 'Nunito', 'Noto Sans TC', system-ui, sans-serif;
+}
+.pickup-cat-loader svg {
+  width: 96px;
+  height: 96px;
+  display: block;
+  filter: drop-shadow(0 6px 10px rgba(231, 164, 74, 0.25));
+}
+.pickup-cat-loader .label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pickup-text-muted, #8b6f4a);
+  letter-spacing: 0.4px;
+  animation: pickup-loader-label 1.6s ease-in-out infinite;
+}
+/* Eye blink loop — close at 1.2s then again at 3.0s */
+.pickup-cat-loader .loader-eye {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pickup-loader-blink 3.0s ease-in-out infinite;
+}
+/* Recurring micro-tear: forms, slides, fades, repeats */
+.pickup-cat-loader .loader-tear {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pickup-loader-tear 2.4s ease-in-out infinite;
+}
+@keyframes pickup-loader-blink {
+  0%, 38%, 44%, 100% { transform: scaleY(1); }
+  40%, 42%           { transform: scaleY(0.08); }
+}
+@keyframes pickup-loader-tear {
+  0%, 100% { opacity: 0; transform: translateY(-2px) scale(0.4); }
+  20%      { opacity: 1; transform: translateY(0) scale(1); }
+  70%      { opacity: 1; transform: translateY(20px) scale(1.1); }
+  85%      { opacity: 0; transform: translateY(28px) scale(0.9); }
+}
+@keyframes pickup-loader-label {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pickup-cat-loader .loader-eye,
+  .pickup-cat-loader .loader-tear,
+  .pickup-cat-loader .label { animation: none !important; }
+  .pickup-cat-loader .loader-tear { opacity: 0; }
+}
+
 /* ─── v1.6.0 POV scene backdrop ────────────────────────────────────────
  * First-person scene image fills the viewport, slow Ken Burns pan/zoom
  * creates an "alive" feeling. Cream gradient overlay keeps the cloze

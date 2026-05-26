@@ -50,21 +50,12 @@ const config: Phaser.Types.Core.GameConfig = {
 
 new Phaser.Game(config);
 
-// Dismiss the inline pre-boot skeleton once Phaser has mounted. Brief
-// delay lets BootScene paint at least once so the cream → splash fade
-// is seamless instead of a flash of empty cream.
-window.setTimeout(() => {
-  const preboot = document.getElementById('pickup-preboot-inline');
-  if (preboot) {
-    preboot.classList.add('is-hidden');
-    window.setTimeout(() => preboot.remove(), 360);
-  }
-}, 220);
-
-// v1.7.0: remove the tear-drop intro overlay after its full sequence.
-// Timeline: 0.05s cat fade-in + 0.85s tear fall (start 0.5s) + 1.0s disc
-// expand (start 1.3s) + 0.3s fade (start 2.3s) = ends at 2.6s.
-// Pad to 2800ms so we never yank the element mid-fade on slow devices.
+// v1.7.1: remove the tear-drop intro overlay after its full sequence.
+// Timeline: 0.05s cat fade-in (0.55s) + tear fall 0.55→1.55s + disc
+// expand 1.55→2.65s + orange shell fade 2.65→3.0s = ends at 3.0s.
+// Pad to 3200ms so we never yank the element mid-fade on slow devices.
+// (Old preboot skeleton removed in v1.7.1 — tear-intro IS the new
+// preboot, paints on first frame.)
 window.setTimeout(() => {
   document.getElementById('pickup-tear-intro')?.remove();
-}, 2800);
+}, 3200);

@@ -194,24 +194,39 @@ export class PlayScene extends Phaser.Scene {
 
   private showLoadingDom(): void {
     if (this.loadingEl) return;
+    // v1.7.1: cat-themed loader (mini calico face + blink + recurring tear).
+    // CSS animations live in style.css under `.pickup-cat-loader`.
     this.loadingEl = document.createElement('div');
     this.loadingEl.id = 'pickup-loading';
-    Object.assign(this.loadingEl.style, {
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      fontFamily:
-        '"Noto Sans TC", "Nunito", system-ui, -apple-system, sans-serif',
-      fontSize: '17px',
-      fontWeight: '700',
-      color: 'var(--pickup-text-muted)',
-      zIndex: '11',
-      pointerEvents: 'none',
-      textAlign: 'center',
-      animation: 'pickup-pulse 1.6s ease-in-out infinite',
-    } as CSSStyleDeclaration);
-    this.loadingEl.textContent = 'Loading…';
+    this.loadingEl.className = 'pickup-cat-loader';
+    this.loadingEl.innerHTML = `
+      <svg viewBox="0 0 100 110" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <!-- ears -->
+        <path d="M 22 48 L 32 22 L 42 48 Z" fill="#9d3e1c"/>
+        <path d="M 78 48 L 68 22 L 58 48 Z" fill="#9d3e1c"/>
+        <path d="M 27 45 L 33 30 L 39 45 Z" fill="#e89887"/>
+        <path d="M 73 45 L 67 30 L 61 45 Z" fill="#e89887"/>
+        <!-- head -->
+        <ellipse cx="50" cy="65" rx="32" ry="30" fill="#fdf0d6"/>
+        <!-- calico patches -->
+        <ellipse cx="38" cy="52" rx="9" ry="6" fill="#e89c5e" transform="rotate(-20 38 52)"/>
+        <ellipse cx="65" cy="60" rx="7" ry="9" fill="#3a2a1f" transform="rotate(18 65 60)"/>
+        <!-- whiskers -->
+        <path d="M 16 70 L 30 71" stroke="#3a2a1f" stroke-width="1" opacity="0.7"/>
+        <path d="M 70 71 L 84 70" stroke="#3a2a1f" stroke-width="1" opacity="0.7"/>
+        <!-- eyes (animated blink) -->
+        <ellipse class="loader-eye" cx="40" cy="65" rx="5" ry="8" fill="#1a1208"/>
+        <ellipse class="loader-eye" cx="60" cy="65" rx="5" ry="8" fill="#1a1208"/>
+        <!-- nose + mouth -->
+        <path d="M 47 78 L 53 78 L 50 81 Z" fill="#d48474"/>
+        <path d="M 44 86 Q 50 89 56 86" stroke="#1a1208" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <!-- recurring tear at left eye corner -->
+        <g class="loader-tear">
+          <path d="M 35 73 Q 33 78 33 82 Q 33 86 35 87 Q 37 86 37 82 Q 37 77 35 73 Z" fill="#6fb8d8" stroke="#3d8aae" stroke-width="0.4"/>
+        </g>
+      </svg>
+      <div class="label">Loading…</div>
+    `;
     document.body.appendChild(this.loadingEl);
   }
 
@@ -224,8 +239,12 @@ export class PlayScene extends Phaser.Scene {
 
   private showLoadFailure(reason: string): void {
     if (this.loadingEl) {
-      this.loadingEl.style.animation = '';
-      this.loadingEl.innerHTML = `Loading failed, try again?<br><span style="font-weight:600;color:var(--pickup-error);font-size:13px;">${escapeHtml(reason)}</span>`;
+      // Replace just the label text — keep the cat SVG visible so the
+      // failure state still feels on-brand.
+      const label = this.loadingEl.querySelector('.label');
+      if (label) {
+        label.innerHTML = `Loading failed, try again?<br><span style="font-weight:600;color:var(--pickup-error);font-size:13px;">${escapeHtml(reason)}</span>`;
+      }
     }
     if (this.retryEl) return;
     this.retryEl = document.createElement('button');
@@ -257,7 +276,8 @@ export class PlayScene extends Phaser.Scene {
       e.preventDefault();
       this.retryEl?.remove();
       this.retryEl = undefined;
-      if (this.loadingEl) this.loadingEl.textContent = 'Loading…';
+      const label = this.loadingEl?.querySelector('.label');
+      if (label) label.textContent = 'Loading…';
       this.bootstrap();
     });
     document.body.appendChild(this.retryEl);
