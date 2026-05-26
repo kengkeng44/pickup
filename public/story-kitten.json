@@ -515,71 +515,71 @@
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 1,
-    "storyBeat": "雪停了,清晨第一道光照在新雪上。",
-    "sentence": "The morning ___ falls softly on the snow.",
-    "options": ["rain", "wind", "light", "noise"],
-    "correctIndex": 2,
-    "explanationZh": "清晨溫暖的意象 = light (光)。rain (雨) / wind (風) 跟「雪停了的清晨」氛圍不合。",
-    "tags": ["story", "ch8", "imagery"]
+    "storyBeat": "美美在雪地裡找到三花,把她抱回家。溫熱的浴、軟綿的床。",
+    "sentence": "Mei-mei carries me home. I feel warm and ___ again.",
+    "options": ["safe", "lost", "hungry", "afraid"],
+    "correctIndex": 0,
+    "explanationZh": "被愛人找回 + 溫熱的家 = safe (安全)。lost / afraid 是 Ch1 的狀態,現在完全反轉。",
+    "tags": ["story", "ch8", "feeling"]
   },
   {
     "id": "kt-ch8-02",
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 2,
-    "storyBeat": "她沿著腳印往那扇亮著燈的窗走去。",
-    "sentence": "I ___ slowly toward the warm yellow window.",
-    "options": ["walk", "swim", "fly", "sleep"],
+    "storyBeat": "半夜,風裡傳來一聲熟悉的狗吠——是布魯托。",
+    "sentence": "In the night, I ___ a familiar bark in the wind.",
+    "options": ["hear", "see", "smell", "draw"],
     "correctIndex": 0,
-    "explanationZh": "貓朝窗戶移動的動作 = walk (走)。swim (游) / fly (飛) 顯然不適用。",
-    "tags": ["story", "ch8", "action"]
+    "explanationZh": "聲音用 hear (聽見),狗吠 (bark) 是聽覺資訊。see 是看到,跟「夜裡風中」對不上。",
+    "tags": ["story", "ch8", "sense"]
   },
   {
     "id": "kt-ch8-03",
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 3,
-    "storyBeat": "窗台上,美美守了一整夜,眼睛紅紅的。",
-    "sentence": "The girl has been ___ for me all night.",
-    "options": ["waiting", "running", "cooking", "leaving"],
-    "correctIndex": 0,
-    "explanationZh": "守了一整夜 = waiting (等待)。leaving (離開) 是反義詞,情境不符。",
-    "tags": ["story", "ch8", "emotion"]
+    "storyBeat": "她想起布魯托、阿嬤、麵包店老闆——她的街頭家人。",
+    "sentence": "I think ___ my friends out in the cold street.",
+    "options": ["away", "about", "off", "out"],
+    "correctIndex": 1,
+    "explanationZh": "「想念某人」用 think about,固定搭配。think away / off / out 都不通。延續 Ch7 的「沒有人是偶然」記憶網絡。",
+    "tags": ["story", "ch8", "memory"]
   },
   {
     "id": "kt-ch8-04",
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 4,
-    "storyBeat": "踏上門口時,她心裡只有一句話。",
-    "sentence": "\"I came back because I ___ to,\" I think to myself.",
-    "options": ["had", "chose", "forgot", "tried"],
+    "storyBeat": "兩邊都是真愛——但她知道自己該做什麼。",
+    "sentence": "I love this home, but I ___ go to my friends.",
+    "options": ["never", "must", "cannot", "stop"],
     "correctIndex": 1,
-    "explanationZh": "全篇最關鍵的一句:回家是因為「我選擇要回來」= I chose to。had to (不得不) 才是「被迫」,跟主題完全相反。",
-    "tags": ["story", "ch8", "choice"]
+    "explanationZh": "「我必須去」= must go,情態動詞表達「無法拒絕的責任感」。never / cannot 意思相反,跟「主動選擇」矛盾。",
+    "tags": ["story", "ch8", "decision"]
   },
   {
     "id": "kt-ch8-05",
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 5,
-    "storyBeat": "一樣的家,一樣的人,但這次感覺不一樣了。",
-    "sentence": "The home ___ different now, even though nothing has changed.",
-    "options": ["sounds", "feels", "smells", "tastes"],
+    "storyBeat": "美美睡夢中伸出手,輕輕放開。三花從窗口溜出去。",
+    "sentence": "I leave ___ so I do not wake her.",
+    "options": ["loudly", "quietly", "angrily", "quickly"],
     "correctIndex": 1,
-    "explanationZh": "「感覺」不一樣 = feels different,五官中表達整體感受用 feel。sound / smell / taste 都太局部。",
-    "tags": ["story", "ch8", "perception"]
+    "explanationZh": "怕吵醒美美 → 輕聲地 (quietly)。loudly (大聲) 會吵醒,angrily (生氣地) 跟「不捨」的離別氛圍相反。",
+    "tags": ["story", "ch8", "manner"]
   },
   {
     "id": "kt-ch8-06",
     "level": "A2",
     "chapter": 8,
     "questionInChapter": 6,
-    "storyBeat": "美美打開門。沒有人說話。她走了進去。",
-    "sentence": "I am ___.",
-    "options": ["lost", "afraid", "home", "alone"],
+    "storyBeat": "三花走到街頭家族中間——布魯托、小奶貓、街上的老朋友。她是中心。",
+    "sentence": "We stay ___. We are a family.",
+    "options": ["apart", "alone", "together", "asleep"],
     "correctIndex": 2,
-    "explanationZh": "全故事最後一句,最簡單也最重——I am home (我到家了)。lost / afraid / alone 都是故事開頭的狀態,現在全部翻轉。",
-    "tags": ["story", "ch8", "home"]
+    "explanationZh": "全故事最後一句,從 Ch1「I feel scared」→ v0.9.1「I am home」→ v0.9.2「We stay together」。主詞從 I 變成 We,身分從「被收留」變成「選擇了家人」。apart (分開) / alone (獨自) 跟「家人」相反。",
+    "tags": ["story", "ch8", "identity"]
   }
 ]

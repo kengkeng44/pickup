@@ -179,7 +179,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     titleEn: 'Shrine Encounter',
     narration:
       '雪一直下,直到牠走進一座山邊的小神社。\n\n奇怪的是,踏進石階的那一刻,雪停了。月光從雲縫裡漏下來,照在朱紅色的鳥居上。\n\n殿前的香爐旁,坐著一個說不出形狀的存在——像霧、像光、像一隻很老很老的貓。\n\n「沒有人是偶然走進你的故事的。」它的聲音很輕。「每一個人,都是你回家路上的一塊石頭。」',
-    outro: '她在神社靜靜坐了一夜。第一次,她知道自己要去哪裡了。',
+    outro: '她在神社靜靜坐了一夜。第一次,她知道自己屬於哪裡了——\n\n不是哪一個屋簷,而是哪一群人。',
     // NOTE: kittenCh7 + 神社靈 SVG not yet drawn — reusing kittenCh5 (mature
     // posture) + npcGrandma (gentle mystical vibe-adjacent) as visual stand-ins.
     // Replace with dedicated mascots in a follow-up.
@@ -190,21 +190,25 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   8: {
     id: 8,
-    emoji: '🏠',
-    titleZh: '永遠的家',
-    titleEn: 'Forever Home',
+    emoji: '🐾',
+    titleZh: '選擇了家人',
+    titleEn: 'I Chose My People',
     narration:
-      '雪停了。天快亮了。\n\n她沿著自己昨夜留下的腳印走回去——那些腳印早已被新雪蓋住,但她記得每一個轉彎。\n\n遠遠地,那扇窗還亮著黃黃的燈。窗台上有個小小的影子,守了一夜,沒有睡。',
-    // ── The real ending. Same family, but this time it's her choice.
+      '天快亮的時候,美美在雪地裡找到了她。\n\n美美的眼睛紅紅的——從 Ch5 那扇沒關緊的窗開始,她和爸媽找了好幾天好幾夜。她把三花輕輕抱起來,沒有責備,只是一直、一直地擁著。\n\n溫熱的浴、軟綿的毛巾、燉得很爛的小魚乾。然後是那張軟軟的小床。她睡著了——這次是真的睡著了,安全得不能再安全。',
+    // ── The REAL real ending (v0.9.2). Same warm family, but in the night she
+    // hears 布魯托's bark and realises her people are also out there. She doesn't
+    // reject 美美 — she chooses BOTH. Walks back to the street family not as
+    // victim, but as the one they look to.
     outro:
-      '同一個家。同一群人。但這次,是我自己走進來的。\n\n她不是被收養的小貓。她是選擇了這個家的成熟貓。\n\n陽光從窗台照進來,落在三色花紋的毛上。她蜷成一個小小的圓,在自己選擇的窗台上,睡著了。',
-    // NOTE: kittenCh8 (中年從容貓) SVG not yet drawn — reusing kittenCh5
-    // (mature posture) + npcFamily (the family group) as visual stand-ins.
-    // Replace with dedicated mascots in a follow-up.
+      '半夜她醒過來。\n\n遠遠的、很遠的地方,風裡傳來一聲熟悉的狗吠——布魯托,還在外面,聲音裡有疲倦。\n\n她想起神社靈說的:「每一個人,都是你回家路上的一塊石頭。」原來布魯托、阿嬤、麵包店老闆,他們也是她的家人,不是只有這扇窗裡的人。\n\n她在美美床邊坐了很久。然後輕輕跳到地上,在新雪上留下一串腳印,通往美美的房門。\n\n美美沒有醒。但在睡夢裡,她伸出手——像是早就知道了——輕輕地、放開。\n\n三花從那扇沒關緊的窗,再一次溜了出去。\n\n這次,不是逃。是去接她的人。\n\n她在街角找到布魯托,瘸著腿,身邊圍著一隻發抖的小奶貓和兩三個街頭的老朋友。布魯托抬起頭,獨眼裡有光。\n\n「我就知道你會回來。」\n\n她沒回話,只是走到他們中間,輕輕用頭蹭了蹭那隻小奶貓。\n\n那一刻她明白了——\n她有過家。她現在,選了家人。\n\n雪又下了起來。但這次,她不再是被風吹著走的小貓。\n她是那群人圍著的、那個中心。',
+    // NOTE: kittenCh8 (中年從容領袖貓 + 街頭家族圍繞構圖) SVG not yet drawn —
+    // reusing kittenCh5 (mature posture) + npcBrutus (street family stand-in)
+    // as visual stand-ins. v0.9.2 ending pivot calls for new "三花 + 街頭家族
+    // group composition" mascot art — main Claude will dispatch follow-up.
     kittenMascotId: 'kittenCh5',
-    npcMascotId: 'npcFamily',
-    tint: '#fef0d0',
-    accent: '#e7a44a',
+    npcMascotId: 'npcBrutus',
+    tint: '#dfe7ee',
+    accent: '#6a7d8f',
   },
 };
 
