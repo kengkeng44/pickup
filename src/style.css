@@ -800,6 +800,110 @@ h1, h2 {
   background: #ffd6d6;
 }
 
+/* ─── Word-hint tap-to-translate (v1.3, Duolingo-style) ───────────────────
+ * Every word in the cloze sentence is wrapped in `<span class="word">`
+ * by GameHUD.renderSentence(). Tapping shows a floating Chinese-gloss
+ * tooltip via WordHint.ts. The dashed underline appears on hover/active
+ * to telegraph the affordance — but stays invisible at rest so the
+ * sentence still reads as plain prose.
+ */
+.word {
+  display: inline;
+  cursor: help;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 120ms ease-out, background-color 120ms ease-out;
+  /* Prevent the mobile long-press selection menu hijacking the tap. */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.word:hover {
+  border-bottom-color: var(--pickup-accent);
+}
+.word.is-hinted {
+  border-bottom-color: var(--pickup-accent);
+  background: var(--pickup-accent-tint);
+  border-radius: 4px;
+  padding: 0 3px;
+  /* Negative margin keeps line-height steady so the sentence doesn't
+   * jump when the highlight pill appears. */
+  margin: 0 -3px;
+}
+
+.pickup-word-tooltip {
+  position: fixed;
+  z-index: 200;
+  display: none; /* toggled to flex when shown */
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--pickup-text);
+  color: var(--pickup-bg);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.1);
+  pointer-events: none; /* never intercept taps — outside-tap dismiss relies on this */
+  max-width: min(280px, 84vw);
+  word-wrap: break-word;
+  text-align: center;
+  opacity: 0;
+  /* CSS var --pickup-tip-arrow positions the arrow tip under the word
+   * center (set by WordHint.ts position()). Falls back to 50% center. */
+}
+.pickup-word-tooltip.pickup-word-tooltip-show {
+  animation: pickup-word-tip-up 180ms var(--pickup-snap) forwards;
+}
+.pickup-word-tooltip.below.pickup-word-tooltip-show {
+  animation: pickup-word-tip-down 180ms var(--pickup-snap) forwards;
+}
+.pickup-word-tooltip-en {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  opacity: 0.72;
+  text-transform: lowercase;
+}
+.pickup-word-tooltip-zh {
+  font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Arrow — pointing DOWN when tooltip is above the word (default). */
+.pickup-word-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: var(--pickup-tip-arrow, 50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--pickup-text);
+}
+/* Arrow flipped UP when tooltip is below the word. */
+.pickup-word-tooltip.below::after {
+  top: -6px;
+  bottom: auto;
+  border-top: none;
+  border-bottom: 7px solid var(--pickup-text);
+}
+
+@keyframes pickup-word-tip-up {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes pickup-word-tip-down {
+  0% { opacity: 0; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 /* Respect reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
   .mascot-idle,
@@ -820,8 +924,13 @@ h1, h2 {
   #pickup-preboot-mark,
   #pickup-preboot-dots span,
   #pickup-splash,
-  .pickup-difficulty-opts {
+  .pickup-difficulty-opts,
+  .pickup-word-tooltip.pickup-word-tooltip-show {
     animation: none !important;
+  }
+  /* Word-hint tooltip still needs to be visible without animation. */
+  .pickup-word-tooltip.pickup-word-tooltip-show {
+    opacity: 1 !important;
   }
   .pickup-difficulty-caret {
     transition: none !important;

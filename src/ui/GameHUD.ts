@@ -22,6 +22,7 @@
  */
 
 import { applyStyle } from './domUtil';
+import { preloadHints, wireSentenceHints, dismissWordHint } from './WordHint';
 // audio import removed — audio managed by PlayScene/AudioManager directly, not the HUD
 
 export interface GameHUDOptions {
@@ -124,9 +125,20 @@ export class GameHUD {
     this.buildFlashOverlay();
 
     this.appRoot.appendChild(this.root);
+
+    // v1.3 — Duolingo tap-to-translate word hints. Preload the dictionary
+    // ASAP (it's only ~30-60 KB, so this is cheap), and bind a single
+    // delegated tap handler on the sentence element. Per-round `render()`
+    // re-renders `sentenceEl.innerHTML` but the listener stays attached
+    // because it's bound to the element itself, not children.
+    preloadHints();
+    wireSentenceHints(this.sentenceEl);
   }
 
   destroy(): void {
+    // Tear down any open word-hint tooltip BEFORE the host DOM disappears
+    // (otherwise its outside-tap listener can hold a stale Element ref).
+    dismissWordHint();
     this.root.remove();
     this.flashEl?.remove();
     for (const el of this.ambientEls) el.remove();
@@ -512,6 +524,9 @@ export class GameHUD {
       this.chipEl.style.display = 'none';
     }
 
+    // Sentence changes between rounds — dismiss any open word-hint
+    // tooltip so it doesn't hover orphaned next to the new sentence.
+    dismissWordHint();
     this.sentenceEl.innerHTML = renderSentence(state.sentence);
 
     this.timerNum.textContent = String(state.timerSeconds);
@@ -602,16 +617,76 @@ export class GameHUD {
 }
 
 /**
- * Stylize the sentence: turn runs of underscores into a visual blank
- * placeholder with an accent underline. Otherwise just text.
+ * Stylize the sentence:
+ *   - Runs of `___` become a visual blank placeholder (NOT tappable).
+ *   - Every other word becomes `<span class="word" data-word="...">` so
+ *     it can be tapped for a Chinese hint (WordHint.ts handles the
+ *     popup). Punctuation stays unwrapped + non-tappable.
+ *
+ * Tokenizer rules:
+ *   - Split into word / non-word runs. Words = letters + interior
+ *     apostrophes (so "don't", "she's", "I'd" survive intact).
+ *   - Hyphenated tokens like "wake-up" become ONE .word — that's how the
+ *     dictionary stores them, and tapping any half should show one
+ *     popup for the whole compound.
+ *   - The blank (≥3 underscores) is replaced with the styled placeholder
+ *     span FIRST (regex on the raw string), then everything else passes
+ *     through the tokenizer.
  */
 function renderSentence(raw: string): string {
-  const escaped = escapeHtml(raw);
-  return escaped.replace(
-    /_{3,}/g,
-    () =>
-      `<span aria-label="blank" style="display:inline-block;min-width:60px;border-bottom:3px solid var(--pickup-accent);margin:0 4px;padding:0 4px;color:var(--pickup-accent);">&nbsp;</span>`
-  );
+  // Split on the blank token so we can replace it with a non-tappable
+  // placeholder while still tokenizing surrounding prose.
+  const blankRe = /_{3,}/g;
+  let out = '';
+  let lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = blankRe.exec(raw)) !== null) {
+    if (m.index > lastIndex) {
+      out += tokenizeForHints(raw.slice(lastIndex, m.index));
+    }
+    out += BLANK_HTML;
+    lastIndex = m.index + m[0].length;
+  }
+  if (lastIndex < raw.length) {
+    out += tokenizeForHints(raw.slice(lastIndex));
+  }
+  return out;
+}
+
+const BLANK_HTML =
+  '<span aria-label="blank" style="display:inline-block;min-width:60px;border-bottom:3px solid var(--pickup-accent);margin:0 4px;padding:0 4px;color:var(--pickup-accent);">&nbsp;</span>';
+
+/**
+ * Walk a fragment of sentence prose and wrap each English word in a
+ * tappable .word span. Non-word characters (spaces / punctuation /
+ * digits) are passed through verbatim (HTML-escaped).
+ *
+ * The regex matches one of:
+ *   - A "word" = letters with optional interior apostrophes AND
+ *     optional hyphen-joined word continuations ("wake-up", "X-ray",
+ *     "follow-up"). Trailing apostrophe after the word (e.g. "kids'")
+ *     stays as punctuation.
+ *   - Anything else = a single non-word character chunk.
+ */
+function tokenizeForHints(text: string): string {
+  // Word: [a-z]+(?:'[a-z]+)* with optional -[a-z]+(?:'[a-z]+)* repeats.
+  const wordRe = /[A-Za-z]+(?:'[A-Za-z]+)*(?:-[A-Za-z]+(?:'[A-Za-z]+)*)*/g;
+  let result = '';
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = wordRe.exec(text)) !== null) {
+    if (m.index > last) {
+      result += escapeHtml(text.slice(last, m.index));
+    }
+    const word = m[0];
+    const escaped = escapeHtml(word);
+    result += `<span class="word" data-word="${escaped}">${escaped}</span>`;
+    last = m.index + word.length;
+  }
+  if (last < text.length) {
+    result += escapeHtml(text.slice(last));
+  }
+  return result;
 }
 
 function escapeHtml(s: string): string {
