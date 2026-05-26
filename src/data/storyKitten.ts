@@ -1,8 +1,9 @@
 import { z } from 'zod';
 import { ClozeQuestionSchema, type ClozeQuestion } from './sentences';
 
-// DEV: all chapters unlocked for testing — flip to false before public ship
-const DEV_UNLOCK_ALL = true;
+// Production v1.0: chapters unlock progressively (Ch1 free, rest via earned progression).
+// Set true during dev to test all chapters without playing through.
+const DEV_UNLOCK_ALL = false;
 
 /**
  * StoryQuestion — A2 cloze tied to a chapter of the "小貓回家路" story.
