@@ -36,6 +36,8 @@ export class ChapterIntroScene extends Phaser.Scene {
 
   create(): void {
     this.cameras.main.setBackgroundColor(COLOR_CREAM);
+    // v1.8.7: kill leftover nav so chapter intro is immersive too.
+    document.getElementById('pickup-bottom-nav')?.remove();
     const { chapter } = useRunStore.getState();
     if (!chapter) {
       this.scene.start('StoryModeScene');

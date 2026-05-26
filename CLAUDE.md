@@ -167,9 +167,28 @@
 - **Continue**：「繼續 →」（含箭頭）
 - **完成**：「完成一輪！」+ italic sub-tagline
 
-### Mascot 美術
-- v0.8.3-0.8.4 RUMBO sticker 風（粗黑邊 + 平塗 + radial halo + drop shadow + 16 mascots）
-- **🚧 MASCOT STATUS：目前正在用外部 AI image gen 重做** — 主走 Claude Design + Pollinations.ai fallback。完整 workflow 在 `Desktop\拾光-mascot-claude-design-steps.md`
+### Mascot 美術 (v1.7.6 視覺方向重定)
+
+**現行決策(2026-05-26):所有出場角色統一 isometric Duolingo chibi 風**(類 Lin / Junior / Lily)。
+
+- **角色 art**(貓 / NPC / 人物)= **isometric chibi**,大頭小身、純色塊無黑邊、坐在白色 tile 平台上、軟陰影
+- **POV 場景背景**(Ch1 q1-q6)= 保留 painterly Ghibli(painterly + atmospheric,因貓不在場景中)
+- **小裝飾 / icons** = 可混用其他 style
+
+**生圖管道**:
+- 用戶手動 ChatGPT / Gemini(DALL-E 3 / GPT-4o / Imagen 對 Duolingo style 比 SDXL 準)
+- Prompt doc:`Desktop\wordwar\Pickup-isometric-character-prompts.md`(anchor + 7 NPC + refine 指令)
+- ❌ **SDXL via Stable Horde 對這個風格無效**(會生成 3D render / Sanrio 公仔,不是扁平向量)— POC `public/mascots/iso-calico-poc.png` 留作反例對比
+
+**取代清單(等用戶交 PNG 後)**:
+- 進站 tear-intro SVG 貓臉 → 新 isometric PNG
+- 地圖 sitting cat SVG → 新 isometric PNG
+- Loader 旋轉貓頭 SVG → 新 isometric PNG  
+- 舊 `public/mascots/calico-anchor.png`(Suntera sticker)→ 廢棄
+
+### 歷史 mascot 美術(歸檔)
+- v0.8.3-0.8.4 RUMBO sticker 風(粗黑邊 + 平塗 + radial halo + drop shadow + 16 mascots)— 已淘汰
+- v1.4 sticker 三花貓(user-generated via ChatGPT + rembg 去背)— v1.7.6 後也淘汰
 - 動畫：CSS keyframe（不在 Phaser canvas 內）— idle bounce / 答對開心彈跳 / 答錯難過搖頭
 
 ### Layout
@@ -341,6 +360,18 @@ npx wrangler pages deploy dist \
 - `wordwar-*` → `pickup-*` CSS classname refactor (Step 7)
 - DEV_UNLOCK_ALL flip 回 false + paywall gate
 - Public v1.0 ship
+
+### Phase 2.5 — iOS App Store 上架（v1.x 完成後）
+
+走 **Path B:Capacitor + Codemagic 雲端 build**（2026-05-26 用戶確認）:
+- ❌ 不走 Expo/EAS Build(Pickup 不是 RN)
+- ❌ 不走本機 Xcode(用戶 Windows 沒 Mac)
+- ✅ Capacitor 把現有 web bundle 包進 WebView native shell
+- ✅ Codemagic.io 雲端 build(500 min/mo 免費 tier)→ 直推 TestFlight
+- ✅ Apple Developer Program $99/yr 是 hard cost
+- 全程瀏覽器管 App Store Connect,不碰 Mac
+
+**前置**:先做 PWA(manifest + service worker)讓 iPhone 可加桌面 — 是過渡方案不是衝突方案。
 
 ### Phase 3 — 延伸故事 / 多 IP（後傳）
 - 候選續集 IP（同調動物治癒系）：

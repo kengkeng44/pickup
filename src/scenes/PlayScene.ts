@@ -68,6 +68,10 @@ export class PlayScene extends Phaser.Scene {
     // Phaser canvas is hidden via CSS — no Phaser-side rendering needed.
     this.cameras.main.setBackgroundColor('#ffffff');
 
+    // v1.8.7: Duolingo immersive lesson — defensively kill any leftover
+    // bottom nav element so the player isn't pulled away mid-question.
+    document.getElementById('pickup-bottom-nav')?.remove();
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.cleanupOverlay();
     });
