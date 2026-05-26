@@ -49,3 +49,14 @@ const config: Phaser.Types.Core.GameConfig = {
 };
 
 new Phaser.Game(config);
+
+// Dismiss the inline pre-boot skeleton once Phaser has mounted. Brief
+// delay lets BootScene paint at least once so the cream → splash fade
+// is seamless instead of a flash of empty cream.
+window.setTimeout(() => {
+  const preboot = document.getElementById('pickup-preboot-inline');
+  if (preboot) {
+    preboot.classList.add('is-hidden');
+    window.setTimeout(() => preboot.remove(), 360);
+  }
+}, 220);

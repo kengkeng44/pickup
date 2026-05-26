@@ -234,9 +234,10 @@ export class ChapterIntroScene extends Phaser.Scene {
     // CTA
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.textContent = '開始本章';
+    cta.textContent = '開始本章 →';
     applyStyle(cta, {
       marginTop: '4px',
+      minHeight: '56px',
       padding: '16px 28px',
       background: COLOR_GREEN,
       color: '#ffffff',
@@ -250,9 +251,10 @@ export class ChapterIntroScene extends Phaser.Scene {
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      transition: 'transform 80ms ease-out',
+      transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
       boxShadow: '0 4px 12px rgba(88, 204, 2, 0.25)',
     });
+    cta.classList.add('pickup-pulse');
     cta.addEventListener('pointerdown', () => {
       cta.style.transform = 'translateY(2px)';
       cta.style.borderBottomWidth = '3px';

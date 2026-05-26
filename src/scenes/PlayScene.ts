@@ -20,7 +20,8 @@ const HP_MAX = 3;
 const ADVANCE_CORRECT_MS = 4_000;
 const ADVANCE_WRONG_MS = 8_000;
 const ADVANCE_TIMEOUT_MS = 8_000;
-const STORY_ADVANCE_CORRECT_MS = 1_200; // story: brief celebrate then auto-advance
+const STORY_ADVANCE_CORRECT_MS = 1_400; // story: brief celebrate then auto-advance (v0.10 +200ms for breathing)
+const ROUND_TRANSITION_BREATHING_MS = 250; // v0.10 — Duolingo pacing pause between rounds
 const TIMER_LOW_THRESHOLD_MS = 5_000;
 
 /**
@@ -197,15 +198,16 @@ export class PlayScene extends Phaser.Scene {
       left: '50%',
       transform: 'translate(-50%, -50%)',
       fontFamily:
-        '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
-      fontSize: '18px',
+        '"Noto Sans TC", "Nunito", system-ui, -apple-system, sans-serif',
+      fontSize: '17px',
       fontWeight: '700',
-      color: '#777777',
+      color: 'var(--pickup-text-muted)',
       zIndex: '11',
       pointerEvents: 'none',
       textAlign: 'center',
+      animation: 'pickup-pulse 1.6s ease-in-out infinite',
     } as CSSStyleDeclaration);
-    this.loadingEl.textContent = 'Loading…';
+    this.loadingEl.textContent = '準備中…';
     document.body.appendChild(this.loadingEl);
   }
 
@@ -218,30 +220,31 @@ export class PlayScene extends Phaser.Scene {
 
   private showLoadFailure(reason: string): void {
     if (this.loadingEl) {
-      this.loadingEl.innerHTML = `Failed to load<br><span style="font-weight:600;color:#ff4b4b;font-size:14px;">${escapeHtml(reason)}</span>`;
+      this.loadingEl.style.animation = '';
+      this.loadingEl.innerHTML = `載入失敗,再試一次?<br><span style="font-weight:600;color:var(--pickup-error);font-size:13px;">${escapeHtml(reason)}</span>`;
     }
     if (this.retryEl) return;
     this.retryEl = document.createElement('button');
     this.retryEl.type = 'button';
-    this.retryEl.textContent = 'Retry';
+    this.retryEl.textContent = '重試';
     Object.assign(this.retryEl.style, {
       position: 'fixed',
       top: 'calc(50% + 60px)',
       left: '50%',
       transform: 'translateX(-50%)',
+      minHeight: '52px',
       padding: '14px 36px',
-      background: '#58cc02',
+      background: 'var(--pickup-success)',
       color: '#ffffff',
       border: 'none',
-      borderBottom: '4px solid #58a700',
+      borderBottom: '4px solid var(--pickup-success-dark)',
       borderRadius: '14px',
       fontSize: '17px',
-      fontWeight: '800',
+      fontWeight: '900',
       cursor: 'pointer',
       fontFamily:
-        '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+        '"Noto Sans TC", "Nunito", system-ui, -apple-system, sans-serif',
       letterSpacing: '0.5px',
-      textTransform: 'uppercase',
       pointerEvents: 'auto',
       zIndex: '12',
       touchAction: 'manipulation',
@@ -454,7 +457,12 @@ export class PlayScene extends Phaser.Scene {
     if (store.awaitingRetry) return;
     if (!this.locked && !this.timerExpired) return;
     this.cancelAdvanceTimer();
-    this.nextRound();
+    // v0.10 — Duolingo pacing: brief breathing pause before the next
+    // question paints. Avoids the jarring instant-cut feel.
+    this.advanceTimer = this.time.delayedCall(
+      ROUND_TRANSITION_BREATHING_MS,
+      () => this.nextRound()
+    );
   }
 
   private scheduleAdvance(ms: number): void {

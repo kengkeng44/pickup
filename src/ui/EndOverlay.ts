@@ -39,6 +39,7 @@ export interface EndOverlayOptions {
   onChangeMode: () => void;
 }
 
+// v0.10 — semantic tokens (mirrors --pickup-* in style.css)
 const COLOR_GREEN = '#58cc02';
 const COLOR_GREEN_DARK = '#58a700';
 const COLOR_YELLOW = '#ffc800';
@@ -46,10 +47,22 @@ const COLOR_YELLOW_DARK = '#e5b400';
 const COLOR_BLUE = '#1cb0f6';
 const COLOR_ORANGE = '#ff9600';
 const COLOR_RED = '#ff4b4b';
-const COLOR_TEXT = '#3c3c3c';
-const COLOR_MUTED = '#777777';
-const COLOR_BORDER = '#e5e5e5';
-const COLOR_BORDER_DARK = '#d4d4d4';
+const COLOR_TEXT = '#3d2817';
+const COLOR_MUTED = '#8b6f4a';
+const COLOR_BORDER = '#ead9bb';
+const COLOR_BORDER_DARK = '#d4c098';
+
+// v0.10 — Duolingo-style encouraging summaries.
+const COMPLETE_PRAISE = [
+  '今天又拾起一段時光',
+  '單字又進步了一點',
+  '繼續這樣下去!',
+  '太棒了 · 又一輪完成',
+  '英文越來越穩了',
+];
+function pickPraise(pool: readonly string[]): string {
+  return pool[Math.floor(Math.random() * pool.length)];
+}
 
 export class EndOverlay {
   private root: HTMLDivElement;
@@ -139,23 +152,46 @@ export class EndOverlay {
   }
 
   private makeBanner(): HTMLElement {
+    const wrap = document.createElement('div');
+    applyStyle(wrap, {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '4px',
+      marginBottom: '4px',
+    });
+
     const banner = document.createElement('div');
-    banner.textContent = this.opts.dead ? 'OUT OF HP' : 'LESSON COMPLETE!';
+    banner.textContent = this.opts.dead ? '差一點 · 別放棄' : '完成一輪!';
     applyStyle(banner, {
-      fontSize: '30px',
+      fontSize: '32px',
       fontWeight: '900',
-      letterSpacing: '0.6px',
+      letterSpacing: '-0.3px',
       textAlign: 'center',
       color: this.opts.dead ? COLOR_RED : COLOR_YELLOW_DARK,
       textShadow: this.opts.dead
         ? 'none'
-        : `0 2px 0 ${COLOR_YELLOW}, 0 4px 8px rgba(255, 200, 0, 0.35)`,
-      // Mount animation: scale 0.7 → 1 with overshoot.
+        : `0 2px 0 ${COLOR_YELLOW}, 0 4px 12px rgba(255, 200, 0, 0.4)`,
       animation: 'wordwar-banner-pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1)',
-      marginBottom: '4px',
       padding: '4px 8px',
     });
-    return banner;
+    wrap.appendChild(banner);
+
+    // Sub-tagline microcopy with character — Duolingo principle 4.
+    if (!this.opts.dead) {
+      const sub = document.createElement('div');
+      sub.textContent = pickPraise(COMPLETE_PRAISE);
+      applyStyle(sub, {
+        fontSize: '14px',
+        fontWeight: '600',
+        fontStyle: 'italic',
+        color: COLOR_MUTED,
+        animation: 'wordwar-stat-in 480ms ease-out 280ms both',
+        opacity: '0',
+      });
+      wrap.appendChild(sub);
+    }
+    return wrap;
   }
 
   private makeRank(): HTMLElement {
@@ -244,41 +280,43 @@ export class EndOverlay {
     const timeLabel =
       mins > 0 ? `${mins}:${String(secs).padStart(2, '0')}` : `${secs}s`;
 
+    // v0.10 — cascade reveal with larger stagger (100ms between tiles)
+    // for dramatic dopamine pacing per Duolingo's UX playbook.
     row.appendChild(
       this.makeStatTile({
         icon: '',
         label: 'XP',
-        value: '', // filled by count-up
+        value: '',
         color: COLOR_YELLOW,
         countUpTo: this.opts.score,
-        delayMs: 120,
-      })
-    );
-    row.appendChild(
-      this.makeStatTile({
-        icon: '',
-        label: 'Accuracy',
-        value: `${accuracy}%`,
-        color: COLOR_GREEN,
         delayMs: 200,
       })
     );
     row.appendChild(
       this.makeStatTile({
         icon: '',
-        label: 'Time',
-        value: timeLabel,
-        color: COLOR_BLUE,
-        delayMs: 280,
+        label: '準確率',
+        value: `${accuracy}%`,
+        color: COLOR_GREEN,
+        delayMs: 320,
       })
     );
     row.appendChild(
       this.makeStatTile({
         icon: '',
-        label: 'Streak',
+        label: '時間',
+        value: timeLabel,
+        color: COLOR_BLUE,
+        delayMs: 440,
+      })
+    );
+    row.appendChild(
+      this.makeStatTile({
+        icon: '',
+        label: '連勝',
         value: String(this.opts.bestStreak),
         color: COLOR_ORANGE,
-        delayMs: 360,
+        delayMs: 560,
       })
     );
 
@@ -295,7 +333,7 @@ export class EndOverlay {
   }): HTMLElement {
     const tile = document.createElement('div');
     applyStyle(tile, {
-      padding: '10px 6px',
+      padding: '12px 6px',
       borderRadius: '14px',
       background: '#ffffff',
       border: `2px solid ${opts.color}`,
@@ -305,9 +343,10 @@ export class EndOverlay {
       alignItems: 'center',
       gap: '4px',
       minWidth: '0',
-      animation: 'wordwar-stat-in 360ms ease-out both',
+      animation: 'wordwar-stat-in 480ms cubic-bezier(0.34, 1.56, 0.64, 1) both',
       animationDelay: `${opts.delayMs}ms`,
       opacity: '0',
+      boxShadow: `0 2px 8px ${opts.color}22`,
     });
 
     if (opts.icon) {
@@ -320,10 +359,11 @@ export class EndOverlay {
     const value = document.createElement('div');
     value.textContent = opts.value;
     applyStyle(value, {
-      fontSize: '20px',
+      fontSize: '22px',
       fontWeight: '900',
       color: opts.color,
-      lineHeight: '1',
+      lineHeight: '1.05',
+      letterSpacing: '-0.3px',
     });
     tile.appendChild(value);
 
@@ -357,16 +397,17 @@ export class EndOverlay {
     });
 
     const primary = this.makeCtaButton({
-      text: '再戰一輪',
+      text: '再來一輪 →',
       bg: COLOR_GREEN,
       bgDark: COLOR_GREEN_DARK,
       color: '#ffffff',
       onClick: () => this.opts.onPlayAgain(),
+      pulse: true,
     });
     wrap.appendChild(primary);
 
     const secondary = this.makeCtaButton({
-      text: this.opts.isScenario ? '換情境' : '換等級',
+      text: this.opts.isScenario ? '換個情境' : '換個模式',
       bg: '#ffffff',
       bgDark: COLOR_BORDER_DARK,
       color: COLOR_MUTED,
@@ -385,12 +426,14 @@ export class EndOverlay {
     color: string;
     bordered?: boolean;
     onClick: () => void;
+    pulse?: boolean;
   }): HTMLButtonElement {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.textContent = opts.text;
     applyStyle(btn, {
       width: '100%',
+      minHeight: '52px',
       padding: '15px 18px',
       borderRadius: '14px',
       border: opts.bordered ? `2px solid ${COLOR_BORDER}` : 'none',
@@ -398,14 +441,18 @@ export class EndOverlay {
       background: opts.bg,
       color: opts.color,
       fontSize: '17px',
-      fontWeight: '800',
+      fontWeight: '900',
       letterSpacing: '0.4px',
       cursor: 'pointer',
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      transition: 'transform 80ms ease-out',
+      transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
     });
+    if (opts.pulse) {
+      // Primary CTA gets attention-grabbing pulse — Duolingo principle 2.
+      btn.classList.add('pickup-pulse');
+    }
     btn.addEventListener('pointerdown', () => {
       btn.style.transform = 'translateY(2px)';
       btn.style.borderBottomWidth = '2px';

@@ -93,7 +93,7 @@ export class ChapterEndScene extends Phaser.Scene {
 
     // Chapter complete banner
     const banner = document.createElement('div');
-    banner.textContent = `第 ${chapter} 章完成`;
+    banner.textContent = `第 ${chapter} 章 · 完成!`;
     applyStyle(banner, {
       textAlign: 'center',
       fontSize: '14px',
@@ -220,6 +220,7 @@ export class ChapterEndScene extends Phaser.Scene {
     cta.textContent = `下一章 → ${nextMeta.titleZh}`;
     applyStyle(cta, {
       marginTop: '4px',
+      minHeight: '56px',
       padding: '16px 24px',
       background: COLOR_GREEN,
       color: '#ffffff',
@@ -233,9 +234,10 @@ export class ChapterEndScene extends Phaser.Scene {
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      transition: 'transform 80ms ease-out',
+      transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
       boxShadow: '0 4px 12px rgba(88, 204, 2, 0.25)',
     });
+    cta.classList.add('pickup-pulse');
     cta.addEventListener('pointerdown', () => {
       cta.style.transform = 'translateY(2px)';
       cta.style.borderBottomWidth = '3px';

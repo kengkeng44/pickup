@@ -29,7 +29,7 @@ export interface ModeMenuHandlers {
 
 const LS_INTRO_DISMISSED = 'wordwar.introDismissed';
 
-// v0.8 palette — warm cream + amber accent layered over Duolingo green
+// v0.10 — semantic tokens mirror --pickup-* in style.css
 const COLOR_GREEN = '#58cc02';
 const COLOR_GREEN_DARK = '#58a700';
 const COLOR_BLUE = '#1cb0f6';
@@ -38,10 +38,10 @@ const COLOR_YELLOW = '#ffc800';
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
 const COLOR_CREAM = '#fef8ed';
-const COLOR_BORDER = '#e5e5e5';
-const COLOR_BORDER_DARK = '#d4d4d4';
-const COLOR_TEXT_DARK = '#3c3c3c';
-const COLOR_TEXT_MUTED = '#777777';
+const COLOR_BORDER = '#ead9bb';
+const COLOR_BORDER_DARK = '#d4c098';
+const COLOR_TEXT_DARK = '#3d2817';
+const COLOR_TEXT_MUTED = '#8b6f4a';
 
 export class ModeMenu {
   private root: HTMLDivElement;
@@ -95,23 +95,26 @@ export class ModeMenu {
     const title = document.createElement('div');
     title.textContent = '拾光';
     applyStyle(title, {
-      fontSize: '40px',
+      fontSize: '44px',
       fontWeight: '900',
       textAlign: 'center',
-      color: COLOR_GREEN,
-      letterSpacing: '-0.5px',
-      marginBottom: '4px',
+      color: COLOR_AMBER,
+      letterSpacing: '-1px',
+      marginBottom: '2px',
+      textShadow: `0 2px 0 ${COLOR_AMBER_DARK}`,
     });
     this.content.appendChild(title);
 
     const subtitle = document.createElement('div');
-    subtitle.textContent = 'CEFR cloze · 填空挑戰';
+    subtitle.textContent = '學英文 · 撿回時間';
     applyStyle(subtitle, {
-      fontSize: '13px',
+      fontSize: '14px',
       fontWeight: '600',
+      fontStyle: 'italic',
       color: COLOR_TEXT_MUTED,
       textAlign: 'center',
       marginBottom: '24px',
+      letterSpacing: '0.4px',
     });
     this.content.appendChild(subtitle);
 
@@ -211,6 +214,7 @@ export class ModeMenu {
       display: 'flex',
       alignItems: 'center',
       gap: '14px',
+      minHeight: isPrimary ? '88px' : '64px',
       padding: isPrimary ? '22px 20px' : '14px 18px',
       marginBottom: isPrimary ? '20px' : '12px',
       borderRadius: isPrimary ? '20px' : '14px',
@@ -223,9 +227,13 @@ export class ModeMenu {
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      transition: 'transform 80ms ease-out',
+      transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out, border-bottom-width 100ms cubic-bezier(0.2, 0.8, 0.4, 1)',
       boxShadow: isPrimary ? '0 6px 20px rgba(231, 164, 74, 0.3)' : 'none',
     });
+    if (isPrimary) {
+      // Primary CTA gets attention pulse — Duolingo principle 2.
+      card.classList.add('pickup-pulse');
+    }
 
     if (opts.emoji) {
       const iconBox = document.createElement('div');

@@ -27,17 +27,20 @@ interface Piece {
   alpha: number;
 }
 
+// v0.10 — weighted palette: brand amber + success green dominate; xp
+// yellow + streak orange as accents; blue/red rare. Avoids the random
+// rainbow look and ties confetti back to the semantic system.
 const COLORS = [
-  '#58cc02', // green
-  '#1cb0f6', // blue
-  '#ffc800', // yellow
-  '#ff4b4b', // red
-  '#ce82ff', // purple
-  '#ff9600', // orange
+  '#58cc02', '#58cc02', // success (green) ×2
+  '#e7a44a', '#e7a44a', // brand accent (amber) ×2
+  '#ffd900', // xp yellow
+  '#ff9600', // streak orange
+  '#1cb0f6', // info blue
+  '#ffc800', // warning yellow
 ];
 
 const DURATION_MS = 2500;
-const PIECE_COUNT = 80;
+const PIECE_COUNT = 100; // v0.10 — more pieces for richer dopamine
 
 export class Confetti {
   private canvas: HTMLCanvasElement;

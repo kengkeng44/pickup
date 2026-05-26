@@ -183,28 +183,38 @@ export class GameHUD {
       flex: '0 0 auto',
     });
 
-    // Streak (left): "x" label + number
+    // Streak (left): "🔥 x N" — biggest element on the screen per Duolingo
+    // hierarchy. Hot orange (--pickup-streak), bold display weight.
     this.streakEl = document.createElement('div');
     applyStyle(this.streakEl, {
       display: 'flex',
       alignItems: 'baseline',
-      gap: '3px',
-      minWidth: '50px',
-      fontSize: '18px',
-      fontWeight: '800',
-      color: '#ff9600',
+      gap: '4px',
+      minWidth: '58px',
+      fontSize: '26px',
+      fontWeight: '900',
+      color: 'var(--pickup-streak)',
+      textShadow: '0 1px 0 rgba(204, 120, 0, 0.25)',
+      letterSpacing: '-0.5px',
+      lineHeight: '1',
     });
     const streakLabel = document.createElement('span');
-    streakLabel.textContent = 'x';
+    streakLabel.textContent = '×';
     applyStyle(streakLabel, {
-      fontSize: '13px',
+      fontSize: '15px',
       fontWeight: '800',
       lineHeight: '1',
-      opacity: '0.85',
+      opacity: '0.9',
     });
     this.streakEl.appendChild(streakLabel);
     this.streakNum = document.createElement('span');
     this.streakNum.textContent = '0';
+    applyStyle(this.streakNum, {
+      fontSize: '26px',
+      fontWeight: '900',
+      lineHeight: '1',
+      transformOrigin: 'center',
+    });
     this.streakEl.appendChild(this.streakNum);
     this.header.appendChild(this.streakEl);
 
@@ -213,19 +223,20 @@ export class GameHUD {
     applyStyle(this.progressTrack, {
       flex: '1 1 auto',
       height: '14px',
-      background: '#e5e5e5',
+      background: 'rgba(234, 217, 187, 0.55)',
       borderRadius: '7px',
       overflow: 'hidden',
       position: 'relative',
+      boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.06)',
     });
     this.progressFill = document.createElement('div');
     applyStyle(this.progressFill, {
       width: '0%',
       height: '100%',
-      background: '#58cc02',
+      background: 'var(--pickup-success)',
       borderRadius: '7px',
-      transition: 'width 240ms ease-out',
-      boxShadow: 'inset 0 -3px 0 rgba(0,0,0,0.08)',
+      transition: 'width 360ms cubic-bezier(0.2, 0.8, 0.4, 1)',
+      boxShadow: 'inset 0 -3px 0 rgba(0,0,0,0.12), inset 0 2px 0 rgba(255,255,255,0.25)',
     });
     this.progressTrack.appendChild(this.progressFill);
     this.header.appendChild(this.progressTrack);
@@ -236,28 +247,29 @@ export class GameHUD {
       display: 'flex',
       alignItems: 'center',
       gap: '2px',
-      fontSize: '20px',
       lineHeight: '1',
-      color: '#ff4b4b',
+      color: 'var(--pickup-error)',
       fontWeight: '800',
-      minWidth: '40px',
+      minWidth: '44px',
       justifyContent: 'flex-end',
     });
     const heart = document.createElement('span');
-    heart.textContent = 'HP';
+    heart.textContent = '♥';
     applyStyle(heart, {
-      fontSize: '12px',
-      fontWeight: '800',
-      letterSpacing: '0.5px',
-      opacity: '0.85',
+      fontSize: '20px',
+      fontWeight: '900',
+      letterSpacing: '0px',
+      opacity: '0.95',
+      lineHeight: '1',
     });
     const hpCount = document.createElement('span');
     hpCount.textContent = '3';
     applyStyle(hpCount, {
-      fontSize: '18px',
-      fontWeight: '800',
-      color: '#ff4b4b',
+      fontSize: '20px',
+      fontWeight: '900',
+      color: 'var(--pickup-error)',
       marginLeft: '4px',
+      lineHeight: '1',
     });
     this.hpEl.appendChild(heart);
     this.hpEl.appendChild(hpCount);
@@ -270,23 +282,23 @@ export class GameHUD {
     // Timer pill — right of HP (replaces former mute button; user controls audio via phone volume)
     this.timerEl = document.createElement('div');
     applyStyle(this.timerEl, {
-      minWidth: '38px',
-      height: '34px',
+      minWidth: '44px',
+      height: '36px',
       padding: '0 10px',
       borderRadius: '10px',
-      background: '#ffffff',
-      border: '2px solid #e5e5e5',
-      borderBottom: '3px solid #d4d4d4',
+      background: 'var(--pickup-surface)',
+      border: '2px solid var(--pickup-border)',
+      borderBottom: '3px solid var(--pickup-border-dark)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontFamily: 'inherit',
-      fontWeight: '800',
-      fontSize: '15px',
-      color: '#3c3c3c',
+      fontWeight: '900',
+      fontSize: '17px',
+      color: 'var(--pickup-text)',
       pointerEvents: 'none',
       flex: '0 0 auto',
-      transition: 'color 200ms ease, border-color 200ms ease',
+      transition: 'color 200ms ease, border-color 200ms ease, transform 200ms ease',
     });
     this.timerNum = document.createElement('span');
     this.timerNum.textContent = '15';
@@ -301,18 +313,18 @@ export class GameHUD {
     this.chipEl = document.createElement('div');
     applyStyle(this.chipEl, {
       alignSelf: 'center',
-      padding: '5px 12px',
+      padding: '6px 14px',
       borderRadius: '999px',
       background: this.opts.accent,
       color: '#ffffff',
       fontSize: '12px',
-      fontWeight: '800',
-      letterSpacing: '0.3px',
+      fontWeight: '900',
+      letterSpacing: '0.8px',
       textTransform: 'uppercase',
       display: 'inline-flex',
       alignItems: 'center',
       gap: '6px',
-      boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1), inset 0 -2px 0 rgba(0,0,0,0.12)',
       flex: '0 0 auto',
     });
     this.chipText = document.createElement('span');
@@ -368,11 +380,12 @@ export class GameHUD {
     this.card.classList.add('wordwar-breathing');
     applyStyle(this.card, {
       width: '100%',
-      background: '#ffffff',
-      borderRadius: '16px',
-      border: '2px solid #e5e5e5',
-      padding: '18px 18px 14px 18px',
-      boxShadow: '0 4px 10px rgba(0,0,0,0.06)',
+      background: 'var(--pickup-surface)',
+      borderRadius: '18px',
+      border: '2px solid var(--pickup-border)',
+      borderBottom: '4px solid var(--pickup-border-dark)',
+      padding: '20px 20px 16px 20px',
+      boxShadow: '0 4px 14px rgba(120, 90, 40, 0.08)',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -385,12 +398,13 @@ export class GameHUD {
     applyStyle(this.sentenceEl, {
       fontSize: '20px',
       fontWeight: '700',
-      lineHeight: '1.55',
-      color: '#3c3c3c',
+      lineHeight: '1.6',
+      color: 'var(--pickup-text)',
       textAlign: 'center',
       display: 'block',
-      minHeight: '60px',
-      transition: 'opacity 220ms ease-out, transform 220ms ease-out',
+      minHeight: '64px',
+      transition: 'opacity 260ms ease-out, transform 260ms ease-out',
+      letterSpacing: '0.2px',
     });
     this.card.appendChild(this.sentenceEl);
 
@@ -423,21 +437,30 @@ export class GameHUD {
   private buildChangeLink(): void {
     this.changeLink = document.createElement('button');
     this.changeLink.type = 'button';
-    this.changeLink.textContent = '← change';
+    this.changeLink.textContent = '← 換模式';
     applyStyle(this.changeLink, {
       alignSelf: 'center',
       marginTop: 'auto',
+      minHeight: '44px', // iOS touch target
       background: 'transparent',
       border: 'none',
-      padding: '6px 10px',
-      color: '#777777',
+      padding: '10px 16px',
+      color: 'var(--pickup-text-muted)',
       fontFamily: 'inherit',
-      fontSize: '12px',
-      fontWeight: '600',
+      fontSize: '13px',
+      fontWeight: '700',
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       flex: '0 0 auto',
+      borderRadius: '8px',
+      transition: 'color 160ms ease-out, background 160ms ease-out',
+    });
+    this.changeLink.addEventListener('pointerover', () => {
+      this.changeLink.style.color = 'var(--pickup-text)';
+    });
+    this.changeLink.addEventListener('pointerout', () => {
+      this.changeLink.style.color = 'var(--pickup-text-muted)';
     });
     this.changeLink.addEventListener('click', (e) => {
       e.preventDefault();
@@ -460,12 +483,19 @@ export class GameHUD {
   render(state: GameHUDState): void {
     this.hpHearts[1].textContent = String(Math.max(0, state.hp));
 
-    // Streak: hide when < 2 (consistent with v0.3 behaviour)
+    // Streak: hide when < 2. v0.10 — bigger, brighter, more dopamine.
     if (state.streak >= 2) {
       this.streakEl.style.opacity = '1';
       this.streakNum.textContent = String(state.streak);
+      // Visual treat: streaks of 5+ get a glow that scales with momentum.
+      if (state.streak >= 5) {
+        this.streakEl.style.filter = `drop-shadow(0 0 ${Math.min(state.streak, 10)}px rgba(255, 150, 0, 0.45))`;
+      } else {
+        this.streakEl.style.filter = '';
+      }
     } else {
       this.streakEl.style.opacity = '0.35';
+      this.streakEl.style.filter = '';
       this.streakNum.textContent = '0';
     }
 
@@ -486,17 +516,19 @@ export class GameHUD {
 
     this.timerNum.textContent = String(state.timerSeconds);
     const low = state.timerLow;
-    this.timerEl.style.color = low ? '#ff4b4b' : '#3c3c3c';
-    this.timerEl.style.borderColor = low ? '#ffb3b3' : '#e5e5e5';
-    this.timerEl.style.borderBottomColor = low ? '#ff4b4b' : '#d4d4d4';
+    this.timerEl.style.color = low ? 'var(--pickup-error)' : 'var(--pickup-text)';
+    this.timerEl.style.borderColor = low ? '#ffb3b3' : 'var(--pickup-border)';
+    this.timerEl.style.borderBottomColor = low ? 'var(--pickup-error)' : 'var(--pickup-border-dark)';
+    this.timerEl.style.transform = low ? 'scale(1.06)' : '';
   }
 
   /** Update timer only — called every 50ms from tick. */
   updateTimer(seconds: number, low: boolean): void {
     this.timerNum.textContent = String(seconds);
-    this.timerEl.style.color = low ? '#ff4b4b' : '#3c3c3c';
-    this.timerEl.style.borderColor = low ? '#ffb3b3' : '#e5e5e5';
-    this.timerEl.style.borderBottomColor = low ? '#ff4b4b' : '#d4d4d4';
+    this.timerEl.style.color = low ? 'var(--pickup-error)' : 'var(--pickup-text)';
+    this.timerEl.style.borderColor = low ? '#ffb3b3' : 'var(--pickup-border)';
+    this.timerEl.style.borderBottomColor = low ? 'var(--pickup-error)' : 'var(--pickup-border-dark)';
+    this.timerEl.style.transform = low ? 'scale(1.06)' : '';
   }
 
   /** v0.8 story mode: hide the timer pill in the header. */
@@ -509,13 +541,16 @@ export class GameHUD {
     if (n > 0) this.opts.totalRounds = n;
   }
 
-  /** Tiny pulse on the sentence card on round-in. */
+  /** Tiny pulse on the sentence card on round-in. v0.10 uses
+   *  pickup-fade-up keyframe for consistency with the design system. */
   animateSentenceIn(): void {
+    this.sentenceEl.classList.remove('pickup-fade-up');
     this.sentenceEl.style.opacity = '0';
-    this.sentenceEl.style.transform = 'translateY(-6px)';
+    this.sentenceEl.style.transform = 'translateY(8px)';
     void this.sentenceEl.offsetHeight;
-    this.sentenceEl.style.opacity = '1';
-    this.sentenceEl.style.transform = 'translateY(0)';
+    this.sentenceEl.classList.add('pickup-fade-up');
+    this.sentenceEl.style.opacity = '';
+    this.sentenceEl.style.transform = '';
   }
 
   /** Heart-loss shake on the HP element. */
@@ -534,15 +569,27 @@ export class GameHUD {
     );
   }
 
-  /** Pulse the streak counter when it increments. */
+  /** Pulse the streak counter when it increments. v0.10 — uses the
+   *  pickup-streak-pop keyframe (spring-easing scale + glow) on the
+   *  number itself for a more satisfying dopamine hit. */
   pulseStreak(): void {
+    // Number pop with glow halo
+    this.streakNum.classList.remove('pickup-streak-pop');
+    void this.streakNum.offsetWidth;
+    this.streakNum.classList.add('pickup-streak-pop');
+    window.setTimeout(() => {
+      this.streakNum.classList.remove('pickup-streak-pop');
+    }, 520);
+
+    // Whole element subtle bounce
     this.streakEl.animate(
       [
         { transform: 'scale(1)' },
-        { transform: 'scale(1.18)' },
+        { transform: 'scale(1.2)' },
+        { transform: 'scale(0.96)' },
         { transform: 'scale(1)' },
       ],
-      { duration: 280, easing: 'ease-out' }
+      { duration: 380, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }
     );
   }
 
@@ -561,7 +608,7 @@ function renderSentence(raw: string): string {
   return escaped.replace(
     /_{3,}/g,
     () =>
-      `<span style="display:inline-block;min-width:60px;border-bottom:3px solid #58cc02;margin:0 4px;padding:0 4px;color:#58cc02;">&nbsp;</span>`
+      `<span style="display:inline-block;min-width:60px;border-bottom:3px solid var(--pickup-accent);margin:0 4px;padding:0 4px;color:var(--pickup-accent);">&nbsp;</span>`
   );
 }
 

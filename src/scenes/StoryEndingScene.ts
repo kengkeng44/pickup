@@ -212,6 +212,7 @@ export class StoryEndingScene extends Phaser.Scene {
     replay.textContent = '重新體驗故事';
     applyStyle(replay, {
       marginTop: '4px',
+      minHeight: '56px',
       padding: '15px 24px',
       background: COLOR_GREEN,
       color: '#ffffff',
@@ -225,9 +226,10 @@ export class StoryEndingScene extends Phaser.Scene {
       cursor: 'pointer',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      transition: 'transform 80ms ease-out',
+      transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
       boxShadow: '0 4px 12px rgba(88, 204, 2, 0.25)',
     });
+    replay.classList.add('pickup-pulse');
     replay.addEventListener('click', (e) => {
       e.preventDefault();
       if (typeof window !== 'undefined' && window.confirm) {

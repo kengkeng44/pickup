@@ -1,37 +1,113 @@
-/* 拾光 (Pickup) — global styles + animations (v0.6 flex-column layout fix).
+/* 拾光 (Pickup) — global styles + animations (v0.10 Duolingo polish).
  *
- * v0.6: replaced absolute-positioning soup with a proper flex-column
- * layout for #app. PlayScene's HUD/Mascot/ClozeUI are now flex-flow
- * children inside #app. Phaser canvas is hidden (display:none) — the
- * game uses zero Phaser-rendered visuals, only state + tween/time. */
+ * v0.10: introduced a full design token system. Semantic color names
+ * (success/warning/error/streak/xp/info), typography scale (display /
+ * body / button / stat / microcopy), reusable 3D button utility
+ * (.pickup-btn) + animation library (pickup-bounce / pickup-pulse /
+ * pickup-wobble / pickup-fade-up / pickup-streak-pop).
+ *
+ * Old --ww-* aliases are preserved so legacy component code keeps
+ * working while we migrate. New code SHOULD use --pickup-* tokens. */
 
 :root {
-  /* Duolingo-flavored brand stack: Nunito if installed, else Inter,
-   * else native system. All chosen are wide, rounded, friendly. */
-  font-family: 'Nunito', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  color: #3c3c3c;
+  /* Font stack — Noto Sans TC is loaded via index.html for proper
+   * Traditional Chinese; Nunito fallback for the Duolingo roundness. */
+  font-family: 'Noto Sans TC', 'Nunito', 'Inter', system-ui, -apple-system,
+    'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  color: #3d2817;
   background: #fef8ed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
 
-  /* Palette tokens (referenced via CSS vars where useful). */
-  --ww-green: #58cc02;
-  --ww-green-dark: #58a700;
-  --ww-green-tint: #e0f5d0;
-  --ww-blue: #1cb0f6;
-  --ww-yellow: #ffc800;
-  --ww-red: #ff4b4b;
-  /* v0.8 warm story palette */
-  --ww-cream: #fef8ed;
-  --ww-amber: #e7a44a;
-  --ww-amber-dark: #b07a2a;
+  /* ─── Semantic color tokens (Layer 1) ──────────────────────────────
+   * Each color carries meaning — apply CONSISTENTLY across every
+   * surface. Per Duolingo's UX playbook (Crosley / 925studios /
+   * raw.studio). */
+  --pickup-success: #58cc02;
+  --pickup-success-dark: #58a700;
+  --pickup-success-tint: #e0f5d0;
+
+  --pickup-warning: #ffc800;
+  --pickup-warning-dark: #e5b400;
+  --pickup-warning-tint: #fff4d4;
+
+  --pickup-error: #ff4b4b;
+  --pickup-error-dark: #cc3a3a;
+  --pickup-error-tint: #ffd6d6;
+
+  --pickup-streak: #ff9600;
+  --pickup-streak-dark: #cc7800;
+  --pickup-streak-tint: #fff0d6;
+
+  --pickup-xp: #ffd900;
+  --pickup-xp-dark: #d4b400;
+
+  --pickup-info: #1cb0f6;
+  --pickup-info-dark: #0b8ec9;
+  --pickup-info-tint: #d6f0fb;
+
+  /* Brand (Ghibli warm — replaces v0.4 Duolingo green primary) */
+  --pickup-bg: #fef8ed;
+  --pickup-bg-outer: #f4ecd8;
+  --pickup-surface: #ffffff;
+  --pickup-accent: #e7a44a;
+  --pickup-accent-dark: #b07a2a;
+  --pickup-accent-tint: #fdedd0;
+
+  /* Text */
+  --pickup-text: #3d2817;
+  --pickup-text-muted: #8b6f4a;
+  --pickup-text-soft: #b8a280;
+  --pickup-outline: #1a1a1a;
+
+  /* Surface utility (borders + dividers) */
+  --pickup-border: #ead9bb;
+  --pickup-border-dark: #d4c098;
+
+  /* ─── Typography scale (Layer 1) ───────────────────────────────────
+   * Use as `font: var(--font-display);` shorthand OR pull pieces. */
+  --font-family: 'Noto Sans TC', 'Nunito', 'Inter', system-ui,
+    -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei',
+    sans-serif;
+  --font-display-size: 36px;
+  --font-display-weight: 900;
+  --font-display-tracking: -0.5px;
+  --font-body-size: 16px;
+  --font-body-weight: 600;
+  --font-button-size: 17px;
+  --font-button-weight: 800;
+  --font-button-tracking: 0.6px;
+  --font-stat-size: 28px;
+  --font-stat-weight: 900;
+  --font-microcopy-size: 13px;
+  --font-microcopy-weight: 600;
+
+  /* Spacing rhythm — 4px base */
+  --pickup-pad-xs: 4px;
+  --pickup-pad-sm: 8px;
+  --pickup-pad-md: 14px;
+  --pickup-pad-lg: 20px;
+
+  /* Easing */
+  --pickup-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --pickup-snap: cubic-bezier(0.2, 0.8, 0.4, 1);
+
+  /* ─── Legacy WordWar aliases (DO NOT add new uses; migrate to --pickup-*) ─── */
+  --ww-green: var(--pickup-success);
+  --ww-green-dark: var(--pickup-success-dark);
+  --ww-green-tint: var(--pickup-success-tint);
+  --ww-blue: var(--pickup-info);
+  --ww-yellow: var(--pickup-warning);
+  --ww-red: var(--pickup-error);
+  --ww-cream: var(--pickup-bg);
+  --ww-amber: var(--pickup-accent);
+  --ww-amber-dark: var(--pickup-accent-dark);
   --ww-sepia: #3c2a1c;
-  --ww-text: #3c3c3c;
-  --ww-muted: #777777;
-  --ww-border: #e5e5e5;
-  --ww-border-dark: #d4d4d4;
+  --ww-text: var(--pickup-text);
+  --ww-muted: var(--pickup-text-muted);
+  --ww-border: var(--pickup-border);
+  --ww-border-dark: var(--pickup-border-dark);
 }
 
 html,
@@ -40,23 +116,19 @@ body {
   padding: 0;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #fef8ed;
+  background: var(--pickup-bg);
 }
 
 /* ─── #app: flex column ──────────────────────────────────────────────────
  *
- * Everything visible lives inside #app as flex-flow children. Padding +
- * gap give consistent spacing between sections — no more overlapping
- * absolutely-positioned blocks. `100dvh` uses the dynamic viewport so
- * Safari's address-bar pop doesn't clip the bottom button row.
- */
+ * Everything visible lives inside #app as flex-flow children. */
 #app {
   width: 100vw;
   max-width: 480px;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0 auto;
-  background: #fef8ed;
+  background: var(--pickup-bg);
   position: relative;
 
   display: flex;
@@ -67,16 +139,14 @@ body {
   box-sizing: border-box;
 }
 
-/* Phaser canvas — kept off the visual flow. The Phaser game is now a
- * pure state machine driving scene lifecycle; we don't render its
- * pixels. */
+/* Phaser canvas — kept off the visual flow. */
 #app canvas {
   display: none !important;
 }
 
 @media (min-width: 520px) {
   body {
-    background: #f4ecd8;
+    background: var(--pickup-bg-outer);
   }
   #app {
     border-radius: 22px;
@@ -88,8 +158,71 @@ body {
   }
 }
 
+/* ─── Accessibility: focus rings ────────────────────────────────────────
+ * Visible keyboard focus using --pickup-info (Duolingo blue). Mouse
+ * users won't see this thanks to :focus-visible. */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: 3px solid var(--pickup-info);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+button:focus-visible {
+  outline-offset: 3px;
+}
+
+/* ─── Reusable 3D button utility (Layer 1) ──────────────────────────────
+ * Apply .pickup-btn for the Duolingo-tactile press feel. Components
+ * that need custom colors can override --pbg / --pbg-dark / --pfg.
+ *
+ * The press shift is GPU-accelerated (transform), and the bottom
+ * border collapses from 4px → 2px on press — physical-key tactile. */
+.pickup-btn {
+  --pbg: var(--pickup-success);
+  --pbg-dark: var(--pickup-success-dark);
+  --pfg: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--pbg);
+  color: var(--pfg);
+  border: none;
+  border-bottom: 4px solid var(--pbg-dark);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: var(--font-button-size);
+  font-weight: var(--font-button-weight);
+  letter-spacing: var(--font-button-tracking);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  min-height: 44px;
+  transition: transform 100ms var(--pickup-snap),
+    border-bottom-width 100ms var(--pickup-snap),
+    box-shadow 200ms ease-out, opacity 160ms ease-out;
+}
+.pickup-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+.pickup-btn:active:not(:disabled),
+.pickup-btn.is-pressed:not(:disabled) {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+  box-shadow: none;
+}
+.pickup-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */
-/* v0.8.1: shake amplitude halved — less jarring, more "gentle nudge". */
 @keyframes wordwar-shake {
   0%, 100% { transform: translate(0, 0); }
   15% { transform: translate(-1.5px, 0.5px); }
@@ -120,39 +253,113 @@ body {
 
 /* ─── Boot screen "Tap to start" blink ────────────────────────────────── */
 @keyframes wordwar-blink {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.4;
-  }
+  from { opacity: 1; }
+  to { opacity: 0.4; }
 }
 
 /* ─── EndOverlay: banner pop + stat tile staggered fade-in ──────────────── */
 @keyframes wordwar-banner-pop {
-  0% {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes wordwar-stat-in {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Pickup animation library (Layer 2) ────────────────────────────────
+ * All meant to be applied via class for one-shot moments. Each is
+ * tuned for ~250-600ms — Duolingo's pacing sweet spot. */
+
+/* pickup-bounce — celebratory pop on correct answer / streak hit. */
+@keyframes pickup-bounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.14); }
+  60% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+.pickup-bounce {
+  animation: pickup-bounce 0.4s var(--pickup-spring);
+}
+
+/* pickup-pulse — idle attention-getter for primary CTAs.
+ * Subtle so it doesn't feel desperate — soft glow + tiny scale. */
+@keyframes pickup-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(231, 164, 74, 0.5);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 0 0 10px rgba(231, 164, 74, 0);
+  }
+}
+.pickup-pulse {
+  animation: pickup-pulse 1.6s ease-in-out infinite;
+}
+
+/* pickup-wobble — gentle "no, try again" without being harsh. */
+@keyframes pickup-wobble {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  20% { transform: translateX(-4px) rotate(-1deg); }
+  40% { transform: translateX(4px) rotate(1deg); }
+  60% { transform: translateX(-3px) rotate(-0.5deg); }
+  80% { transform: translateX(2px) rotate(0.5deg); }
+}
+.pickup-wobble {
+  animation: pickup-wobble 0.35s ease-in-out;
+}
+
+/* pickup-fade-up — new content sliding into view. */
+@keyframes pickup-fade-up {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.pickup-fade-up {
+  animation: pickup-fade-up 0.28s var(--pickup-snap) both;
+}
+
+/* pickup-streak-pop — fires on streak number increment. */
+@keyframes pickup-streak-pop {
   0% {
-    opacity: 0;
-    transform: translateY(12px);
+    transform: scale(1);
+    color: var(--pickup-streak);
+    text-shadow: 0 0 0 rgba(255, 150, 0, 0);
+  }
+  40% {
+    transform: scale(1.5);
+    color: var(--pickup-streak);
+    text-shadow: 0 0 12px rgba(255, 150, 0, 0.8);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+    color: var(--pickup-streak);
+    text-shadow: 0 0 0 rgba(255, 150, 0, 0);
   }
+}
+.pickup-streak-pop {
+  animation: pickup-streak-pop 0.5s var(--pickup-spring);
+}
+
+/* pickup-confetti-burst — for non-canvas mini-celebrations. */
+@keyframes pickup-confetti-burst {
+  0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  40% { opacity: 1; transform: scale(1.15) rotate(180deg); }
+  100% { opacity: 0; transform: scale(1) rotate(360deg) translateY(-40px); }
+}
+.pickup-confetti-burst {
+  animation: pickup-confetti-burst 0.6s ease-out forwards;
+}
+
+/* pickup-glow — soft idle attention halo for primary CTAs. */
+@keyframes pickup-glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(28, 176, 246, 0.3)); }
+  50% { filter: drop-shadow(0 0 12px rgba(28, 176, 246, 0.6)); }
+}
+.pickup-glow {
+  animation: pickup-glow 1.6s ease-in-out infinite;
 }
 
 /* ─── Mascot animations ──────────────────────────────────────────────── */
@@ -173,13 +380,8 @@ body {
 }
 
 @keyframes mascot-idle-bob {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-4px) scale(1.015);
-  }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.015); }
 }
 
 .mascot-happy {
@@ -187,24 +389,12 @@ body {
 }
 
 @keyframes mascot-happy-bounce {
-  0% {
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-  20% {
-    transform: translateY(-14px) scale(1.08) rotate(-3deg);
-  }
-  45% {
-    transform: translateY(0) scale(1.04) rotate(3deg);
-  }
-  65% {
-    transform: translateY(-7px) scale(1.06) rotate(-2deg);
-  }
-  85% {
-    transform: translateY(0) scale(1.02) rotate(1deg);
-  }
-  100% {
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  20% { transform: translateY(-14px) scale(1.08) rotate(-3deg); }
+  45% { transform: translateY(0) scale(1.04) rotate(3deg); }
+  65% { transform: translateY(-7px) scale(1.06) rotate(-2deg); }
+  85% { transform: translateY(0) scale(1.02) rotate(1deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
 }
 
 .mascot-sad {
@@ -212,32 +402,16 @@ body {
 }
 
 @keyframes mascot-sad-shake {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  15% {
-    transform: translateY(2px) rotate(-4deg);
-  }
-  30% {
-    transform: translateY(4px) rotate(4deg);
-  }
-  45% {
-    transform: translateY(6px) rotate(-3deg);
-  }
-  60% {
-    transform: translateY(7px) rotate(2deg);
-  }
-  80% {
-    transform: translateY(4px) rotate(0deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  15% { transform: translateY(2px) rotate(-4deg); }
+  30% { transform: translateY(4px) rotate(4deg); }
+  45% { transform: translateY(6px) rotate(-3deg); }
+  60% { transform: translateY(7px) rotate(2deg); }
+  80% { transform: translateY(4px) rotate(0deg); }
+  100% { transform: translateY(0) rotate(0deg); }
 }
 
-/* Pupils dilate on happy, droop on sad — small detail that makes the
- * face feel reactive without any extra DOM.
- */
+/* Pupils dilate on happy, droop on sad */
 .mascot-happy .mascot-pupil {
   transform: translateY(-1px) scale(1.15);
   transform-origin: center;
@@ -249,18 +423,13 @@ body {
   transform-box: fill-box;
 }
 
-/* ─── Mascot blink (eyes briefly close) ───────────────────────────────────
- * Targets <ellipse|circle> elements with class `mascot-eye` inside any
- * mascot SVG. Scales the Y axis to 0 for a few frames to simulate a
- * blink. Staggers every 3.5s with a small random-feel offset.
- */
+/* ─── Mascot blink ─────────────────────────────────────────────────── */
 .mascot-wrap .mascot-eye {
   transform-origin: center;
   transform-box: fill-box;
   animation: mascot-blink 4.2s ease-in-out infinite;
 }
 .mascot-wrap .mascot-eye-right {
-  /* slight phase offset so eyes blink almost-but-not-quite together */
   animation-delay: 0.04s;
 }
 @keyframes mascot-blink {
@@ -268,10 +437,7 @@ body {
   94%, 97% { transform: scaleY(0.1); }
 }
 
-/* ─── Sentence card subtle breathing ─────────────────────────────────────
- * Almost imperceptible scale pulse — adds life to an otherwise static
- * card during answering. Applied via class on the GameHUD sentence card.
- */
+/* ─── Sentence card subtle breathing ───────────────────────────────── */
 .wordwar-breathing {
   animation: wordwar-breathing 3.2s ease-in-out infinite;
   transform-origin: center;
@@ -282,10 +448,7 @@ body {
   50% { transform: scale(1.006); }
 }
 
-/* ─── Ambient background drift shapes ────────────────────────────────────
- * 2-3 floating low-opacity shapes between header and mascot. Pure CSS
- * keyframe drift — no JS animation loop.
- */
+/* ─── Ambient background drift shapes ──────────────────────────────── */
 .wordwar-ambient {
   position: absolute;
   pointer-events: none;
@@ -294,7 +457,6 @@ body {
   will-change: transform, opacity;
   z-index: 0;
 }
-/* Ensure the HUD flex content sits above the ambient shapes. */
 #wordwar-hud {
   position: relative;
   z-index: 1;
@@ -340,22 +502,69 @@ body {
   50% { transform: rotate(-6deg) translate(10px, 14px); opacity: 0.18; }
 }
 
-/* ─── Splash overlay (v0.7 cover page) ───────────────────────────────────
- * White-canvas, centered column with big mascot + bold green wordmark +
- * 3D-depth CTA button. Fade-in on mount.
- */
+/* ─── Pre-boot loading skeleton (Layer 5 polish) ──────────────────────
+ * Inserted directly into index.html as #pickup-preboot — first paint
+ * shows a subtle 拾光 wordmark on cream bg instead of blank white. */
+#pickup-preboot {
+  position: fixed;
+  inset: 0;
+  background: var(--pickup-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  pointer-events: none;
+  gap: 12px;
+  font-family: 'Noto Sans TC', 'Nunito', system-ui, sans-serif;
+  transition: opacity 320ms ease-out;
+}
+#pickup-preboot.is-hidden {
+  opacity: 0;
+}
+#pickup-preboot-mark {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--pickup-accent);
+  letter-spacing: -1px;
+  animation: pickup-preboot-pulse 1.2s ease-in-out infinite;
+}
+#pickup-preboot-dots {
+  display: flex;
+  gap: 6px;
+}
+#pickup-preboot-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pickup-accent);
+  opacity: 0.3;
+  animation: pickup-preboot-dot 1.2s ease-in-out infinite;
+}
+#pickup-preboot-dots span:nth-child(2) { animation-delay: 0.18s; }
+#pickup-preboot-dots span:nth-child(3) { animation-delay: 0.36s; }
+@keyframes pickup-preboot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.97); }
+}
+@keyframes pickup-preboot-dot {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.85); }
+  40% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ─── Splash overlay (v0.7 cover page) ───────────────────────────────── */
 #wordwar-splash {
   position: fixed;
   inset: 0;
-  background: #fef8ed;
+  background: var(--pickup-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 14px;
   z-index: 15;
-  font-family: 'Nunito', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  color: #3c3c3c;
+  font-family: var(--font-family);
+  color: var(--pickup-text);
   padding: 24px;
   box-sizing: border-box;
   opacity: 0;
@@ -366,10 +575,11 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 .wordwar-splash-tagline {
-  font-size: 15px;
+  font-size: var(--font-microcopy-size);
   font-weight: 700;
-  color: #777777;
-  letter-spacing: 0.3px;
+  color: var(--pickup-text-muted);
+  letter-spacing: 0.6px;
+  font-style: italic;
 }
 .wordwar-splash-mascot {
   width: 240px;
@@ -384,44 +594,53 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 8px 14px rgba(88, 204, 2, 0.25));
+  filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
 }
 .wordwar-splash-title {
   font-size: 56px;
   font-weight: 900;
   letter-spacing: -1.5px;
-  color: #58cc02;
+  color: var(--pickup-accent);
   margin-top: 4px;
-  text-shadow: 0 2px 0 rgba(88, 167, 0, 0.35);
+  text-shadow: 0 2px 0 var(--pickup-accent-dark);
 }
 .wordwar-splash-cta {
   margin-top: 12px;
   width: min(320px, 80%);
+  min-height: 56px;
   padding: 16px 28px;
-  background: #58cc02;
+  background: var(--pickup-success);
   color: #ffffff;
   border: none;
-  border-bottom: 5px solid #58a700;
+  border-bottom: 5px solid var(--pickup-success-dark);
   border-radius: 16px;
   font-family: inherit;
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 1.2px;
-  text-transform: uppercase;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 80ms ease-out, border-bottom-width 80ms ease-out;
+  transition: transform 100ms var(--pickup-snap),
+    border-bottom-width 100ms var(--pickup-snap),
+    box-shadow 200ms ease-out;
   box-shadow: 0 4px 12px rgba(88, 204, 2, 0.25);
+  animation: pickup-pulse 2.2s ease-in-out infinite;
+}
+.wordwar-splash-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 204, 2, 0.35);
 }
 .wordwar-splash-cta:active {
   transform: translateY(3px);
   border-bottom-width: 2px;
+  box-shadow: none;
+  animation: none;
 }
 .wordwar-splash-meta {
   font-size: 12px;
   font-weight: 600;
-  color: #a8a2b3;
+  color: var(--pickup-text-soft);
   margin-top: 2px;
 }
 
@@ -434,6 +653,16 @@ body {
   .wordwar-breathing,
   .wordwar-ambient,
   .wordwar-splash-mascot,
+  .wordwar-splash-cta,
+  .pickup-bounce,
+  .pickup-pulse,
+  .pickup-wobble,
+  .pickup-fade-up,
+  .pickup-streak-pop,
+  .pickup-confetti-burst,
+  .pickup-glow,
+  #pickup-preboot-mark,
+  #pickup-preboot-dots span,
   #wordwar-splash {
     animation: none !important;
   }
