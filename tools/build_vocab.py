@@ -1,5 +1,5 @@
 """
-build_vocab.py — WordWar M1 vocabulary pipeline.
+build_vocab.py — 拾光 (Pickup) M1 vocabulary pipeline.
 
 Reads a CEFR A2-B1 wordlist (tools/cefr_a2_b1.txt) and pulls synonyms +
 antonyms from WordNet via NLTK, filtering both sides against the CEFR pool

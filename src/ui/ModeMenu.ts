@@ -93,7 +93,7 @@ export class ModeMenu {
     this.content.innerHTML = '';
 
     const title = document.createElement('div');
-    title.textContent = 'WordWar';
+    title.textContent = '拾光';
     applyStyle(title, {
       fontSize: '40px',
       fontWeight: '900',

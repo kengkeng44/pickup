@@ -1,12 +1,15 @@
-# WordWar — Project Context for Claude
+# 拾光 (Pickup) — Project Context for Claude
 
-> 這份文件是給「下次來接手 WordWar 的 Claude session」看的 onboarding。讀完應該能無縫繼續開發、做出符合作者意圖的決定。
+> **Brand: WordWar → 拾光 (Pickup) — infrastructure rename pending alias decision.**
+> 資料夾路徑、GitHub repo (`kengkeng44/wordwar`)、Cloudflare project (`wordwar.pages.dev`) 暫時保留原名。
+
+> 這份文件是給「下次來接手拾光的 Claude session」看的 onboarding。讀完應該能無縫繼續開發、做出符合作者意圖的決定。
 
 ---
 
 ## 🎯 Vision & 情感核心
 
-**WordWar = 給上班族的「下班逃逸」式英文養成遊戲。**
+**拾光 (Pickup) = 給上班族的「下班逃逸」式英文養成遊戲。**
 
 - **目標客群**：台灣中文母語、A2-B1 程度、想學英文但下班已經夠累的上班族
 - **核心情緒**：「下班逃逸」 — 不是「下班再體驗一次上班」。所以**避開**留學夢 / 跨國辦公 / 創業 simulator 那種真實人生劇本，**走向**動物、玄幻、治癒系故事

@@ -61,7 +61,7 @@ export class BootScene extends Phaser.Scene {
     // Tagline (top)
     const tagline = document.createElement('div');
     tagline.className = 'wordwar-splash-tagline';
-    tagline.textContent = '學英文,贏對戰';
+    tagline.textContent = '學英文,撿回時間';
     root.appendChild(tagline);
 
     // Mascot (middle, big)
@@ -73,7 +73,7 @@ export class BootScene extends Phaser.Scene {
     // Title (big bold green)
     const title = document.createElement('div');
     title.className = 'wordwar-splash-title';
-    title.textContent = 'WORDWAR';
+    title.textContent = '拾光';
     root.appendChild(title);
 
     // CTA

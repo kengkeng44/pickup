@@ -1,4 +1,4 @@
-# WordWar vocab pipeline
+# 拾光 (Pickup) vocab pipeline
 
 One-time preprocessing that builds `public/vocab.json` from a CEFR
 wordlist + WordNet. The game ships the JSON as a static asset and never
