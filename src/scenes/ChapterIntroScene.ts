@@ -8,6 +8,7 @@ import {
 import { applyStyle } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { speak, stopSpeaking } from '../audio/tts';
+import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -257,11 +258,18 @@ export class ChapterIntroScene extends Phaser.Scene {
       row.appendChild(speaker);
 
       const text = document.createElement('div');
-      text.textContent = sentence;
+      // v1.9.0: wrap each word in <span class="word"> so WordHint can
+      // bind tap handlers — Duolingo-style dashed underline + popup
+      // translation on tap.
+      text.className = 'pickup-narration-line';
+      text.innerHTML = sentence.split(/(\s+)/).map(tok => {
+        if (/^\s+$/.test(tok) || tok === '') return tok;
+        return `<span class="word">${tok}</span>`;
+      }).join('');
       applyStyle(text, {
         flex: '1 1 auto',
         fontSize: '15px',
-        lineHeight: '1.55',
+        lineHeight: '1.7',
         color: COLOR_TEXT_DARK,
         fontWeight: '700',
         paddingTop: '6px',
@@ -271,6 +279,11 @@ export class ChapterIntroScene extends Phaser.Scene {
       narrationWrap.appendChild(row);
     });
     content.appendChild(narrationWrap);
+
+    // v1.9.0: wire WordHint tap handlers across all narration words
+    // and kick off dictionary preload (idempotent).
+    preloadHints();
+    wireSentenceHints(narrationWrap);
 
     // Auto-play the first sentence after mount (works on iOS because
     // the previous user gesture — sheet button — already unlocked TTS).
