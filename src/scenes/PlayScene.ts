@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { useRunStore, RUN_CONFIG } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
+import { speak, stopSpeaking } from '../audio/tts';
 import {
   sfxCorrect,
   sfxWrong,
@@ -323,6 +324,14 @@ export class PlayScene extends Phaser.Scene {
     this.lastTickSecond = -1;
     this.updatePovScene();
     this.renderHud();
+
+    // v1.7.11: listening mode — speak the new round's sentence via
+    // browser TTS. Small delay so HUD render commits first; then user
+    // hears the audio with the visible card paint.
+    if (useRunStore.getState().listeningMode && after.round) {
+      const sentence = after.round.sentence;
+      window.setTimeout(() => speak(sentence), 320);
+    }
     this.hud?.animateSentenceIn();
     // Story mode: no timer (force-correct flow makes the timeout pressure
     // counterproductive and stressful).
@@ -358,6 +367,8 @@ export class PlayScene extends Phaser.Scene {
     this.povSceneEl?.remove();
     this.povSceneEl = undefined;
     this.stopWarning();
+    // v1.7.11: silence any in-flight TTS utterance when leaving PlayScene.
+    stopSpeaking();
   }
 
   /**

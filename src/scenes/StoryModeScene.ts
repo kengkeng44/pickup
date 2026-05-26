@@ -16,6 +16,8 @@ import { audio } from '../audio/AudioManager';
 import { applyStyle } from '../ui/domUtil';
 import { StoryMapView } from '../ui/StoryMapView';
 import { BottomNav, type BottomNavTab } from '../ui/BottomNav';
+import { NodeActivitySheet } from '../ui/NodeActivitySheet';
+import { readXp, levelProgress } from '../data/xp';
 
 const COLOR_BG = '#fef8ed';
 const COLOR_AMBER = '#e7a44a';
@@ -72,6 +74,31 @@ export class StoryModeScene extends Phaser.Scene {
     this.panelEl = undefined;
     this.nav?.destroy();
     this.nav = undefined;
+    this.activitySheet?.dismiss();
+    this.activitySheet = undefined;
+  }
+
+  private activitySheet?: NodeActivitySheet;
+
+  private openActivitySheet(chapter: ChapterId): void {
+    this.activitySheet?.dismiss();
+    const startChapter = (listening: boolean) => {
+      const store = useRunStore.getState();
+      store.setMode('story');
+      store.setChapter(chapter);
+      store.setScenario(null);
+      store.setLevel('A2');
+      store.setListeningMode(listening);
+      this.cleanup();
+      this.scene.start('ChapterIntroScene');
+    };
+    this.activitySheet = new NodeActivitySheet({
+      sectionLabel: `Section 1 · Chapter ${chapter}`,
+      questionLabel: 'Story practice — pick a mode',
+      onListening: () => startChapter(true),
+      onReading: () => startChapter(false),
+      onDismiss: () => { this.activitySheet = undefined; },
+    });
   }
 
   // ─── Tab routing ──────────────────────────────────────────────────────
@@ -90,13 +117,9 @@ export class StoryModeScene extends Phaser.Scene {
       case 'home':
         this.mapView = new StoryMapView({
           onPlayChapter: (chapter: ChapterId) => {
-            const store = useRunStore.getState();
-            store.setMode('story');
-            store.setChapter(chapter);
-            store.setScenario(null);
-            store.setLevel('A2');
-            this.cleanup();
-            this.scene.start('ChapterIntroScene');
+            // v1.7.11: tapping a node no longer goes straight into the
+            // chapter. We open the listening/reading sheet first.
+            this.openActivitySheet(chapter);
           },
         });
         break;
@@ -307,6 +330,9 @@ export class StoryModeScene extends Phaser.Scene {
     const panel = this.makePanelShell('Profile', '愛哭鬼但堅韌 — your cozy progress');
     const content = this.getPanelContentRoot(panel);
 
+    // ── XP / Level hero card (v1.7.11) ──
+    content.appendChild(this.makeXpHeroCard());
+
     // ── Stats section ──
     content.appendChild(this.makeSectionHeader('Your Stats'));
 
@@ -481,6 +507,49 @@ export class StoryModeScene extends Phaser.Scene {
     row.appendChild(label);
     row.appendChild(btn);
     return row;
+  }
+
+  private makeXpHeroCard(): HTMLElement {
+    const xp = readXp();
+    const { level, intoLevel, nextLevelAt, fraction } = levelProgress(xp);
+    const card = document.createElement('div');
+    applyStyle(card, {
+      background: `linear-gradient(135deg, ${COLOR_AMBER} 0%, #d4892a 100%)`,
+      borderRadius: '20px',
+      padding: '18px 20px',
+      color: '#ffffff',
+      boxShadow: `0 5px 0 ${COLOR_AMBER_DARK}, 0 14px 18px -4px rgba(60, 42, 28, 0.25)`,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+    });
+    card.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;opacity:0.88;text-transform:uppercase;">
+            Level
+          </div>
+          <div style="font-size:38px;font-weight:900;line-height:1;margin-top:2px;">
+            ${level}
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;opacity:0.88;text-transform:uppercase;">
+            Total XP
+          </div>
+          <div style="font-size:24px;font-weight:900;line-height:1;margin-top:2px;">
+            ${xp}
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;opacity:0.92;">
+        <div style="flex:1;height:10px;background:rgba(255,255,255,0.25);border-radius:5px;overflow:hidden;">
+          <div style="width:${Math.round(fraction * 100)}%;height:100%;background:#ffffff;border-radius:5px;transition:width 600ms ease-out;"></div>
+        </div>
+        <div>${intoLevel} / ${nextLevelAt} → L${level + 1}</div>
+      </div>
+    `;
+    return card;
   }
 
   private makeStatCard(label: string, value: string, sublabel: string): HTMLElement {

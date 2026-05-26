@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { addXp } from '../data/xp';
 import {
   loadSentences,
   pickByLevel,
@@ -121,6 +122,10 @@ export interface RunState {
   setMode: (mode: RunMode) => void;
   setScenario: (scenario: ScenarioId | null) => void;
   setChapter: (chapter: ChapterId | null) => void;
+  /** v1.7.11 — true if user picked "聽力練習" from the node sheet. PlayScene
+   *  uses this to auto-play TTS each round + slightly hide the sentence. */
+  listeningMode: boolean;
+  setListeningMode: (on: boolean) => void;
   startRound: () => void;
   answer: (selectedIndex: number) => PlayResult;
   /** v0.8 story mode: clear `answered` + `awaitingRetry` so the same
@@ -282,6 +287,11 @@ export const useRunStore = create<RunState>((set, get) => ({
     set({ chapter });
   },
 
+  listeningMode: false,
+  setListeningMode: (on: boolean) => {
+    set({ listeningMode: on });
+  },
+
   startRound: () => {
     const {
       questions,
@@ -410,6 +420,14 @@ export const useRunStore = create<RunState>((set, get) => ({
     if (isStory) {
       if (correct) removeFromSrs(round.id);
       else addToSrs(round.id);
+    }
+
+    // v1.7.11: award persistent XP on every correct answer (+3 base).
+    // Listening mode adds a small bonus (+1) for the extra cognitive
+    // load of solving without seeing the sentence. Reading: no bonus.
+    if (correct) {
+      const listening = get().listeningMode;
+      addXp(3 + (listening ? 1 : 0));
     }
 
     set({
