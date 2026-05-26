@@ -3,6 +3,7 @@ import { useRunStore, RUN_CONFIG } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
 import { speak, stopSpeaking } from '../audio/tts';
+import { mountTapTiles, mountTapPairs, type TapHandle } from '../ui/TapInputUI';
 import {
   sfxCorrect,
   sfxWrong,
@@ -54,6 +55,10 @@ export class PlayScene extends Phaser.Scene {
   // v1.6.0: POV scene backdrop (story mode only — shows a per-question
   // first-person scene image with Ken Burns + rain ambient).
   private povSceneEl?: HTMLDivElement;
+
+  // v1.8.3: Duolingo-style alternative-input UI handles for tap-tiles
+  // / tap-pairs question types.
+  private tapHandle?: TapHandle;
 
   constructor() {
     super({ key: 'PlayScene' });
@@ -432,6 +437,43 @@ export class PlayScene extends Phaser.Scene {
         sentenceEl.insertBefore(btn, sentenceEl.firstChild);
       }
     }
+
+    // v1.8.3: tap-tiles / tap-pairs question types — replace ClozeUI's
+    // option buttons with the new tap-input UI mounted into the same slot.
+    this.tapHandle?.destroy();
+    this.tapHandle = undefined;
+    if (round && (qType === 'tap-tiles' || qType === 'tap-pairs') && this.hud) {
+      const slot = this.hud.buttonsSlot();
+      // Hide the standard 4-MC buttons rendered by ClozeUI for this round
+      slot.innerHTML = '';
+      const correctWord = round.options[round.correctIndex] ?? '';
+      const audioText = round.sentence.replace(/_{2,}/g, correctWord);
+
+      if (qType === 'tap-tiles' && round.tiles && round.correctOrder) {
+        this.tapHandle = mountTapTiles({
+          slot,
+          tiles: round.tiles,
+          correctOrder: round.correctOrder,
+          prompt: round.question ?? 'Tap what you hear',
+          onSpeak: () => speak(audioText),
+          onComplete: (correct) => this.handleAnswer(correct ? round.correctIndex : (round.correctIndex + 1) % 4),
+        });
+        // Auto-play once on round start
+        window.setTimeout(() => speak(audioText), 280);
+        // Also hide the sentence card content (no sentence to read)
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) sentEl.innerHTML = '';
+      } else if (qType === 'tap-pairs' && round.pairs) {
+        this.tapHandle = mountTapPairs({
+          slot,
+          pairs: round.pairs,
+          prompt: round.question ?? 'Tap the pairs',
+          onComplete: (correct) => this.handleAnswer(correct ? round.correctIndex : (round.correctIndex + 1) % 4),
+        });
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) sentEl.innerHTML = `<div style="font-size:13px;font-weight:700;color:#7a6850;text-align:center;">${round.sentence}</div>`;
+      }
+    }
     this.hud?.animateSentenceIn();
     // Story mode: no timer (force-correct flow makes the timeout pressure
     // counterproductive and stressful).
@@ -466,6 +508,8 @@ export class PlayScene extends Phaser.Scene {
     this.hud = undefined;
     this.povSceneEl?.remove();
     this.povSceneEl = undefined;
+    this.tapHandle?.destroy();
+    this.tapHandle = undefined;
     this.stopWarning();
     // v1.7.11: silence any in-flight TTS utterance when leaving PlayScene.
     stopSpeaking();

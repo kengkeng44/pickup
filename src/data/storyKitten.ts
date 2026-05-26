@@ -40,6 +40,8 @@ export const QuestionTypeSchema = z.enum([
   'listen-emoji',
   'listen-comprehension',
   'read-mc-with-audio',
+  'tap-tiles',
+  'tap-pairs',
 ]);
 export type QuestionType = z.infer<typeof QuestionTypeSchema>;
 
@@ -91,10 +93,12 @@ export function toClozeQuestion(q: StoryQuestion): ClozeQuestion {
     correctIndex: q.correctIndex,
     explanationZh: q.explanationZh,
     tags: q.tags,
-    // v1.8.0: carry type + question through to runStore.round so PlayScene
-    // can pick the right UI variant.
     type: q.type,
     question: q.question,
+    // v1.8.3: also carry tap-tiles / tap-pairs payload through.
+    tiles: (q as unknown as { tiles?: string[] }).tiles,
+    correctOrder: (q as unknown as { correctOrder?: number[] }).correctOrder,
+    pairs: (q as unknown as { pairs?: { left: string; right: string }[] }).pairs,
   };
 }
 

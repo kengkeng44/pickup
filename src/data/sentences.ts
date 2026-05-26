@@ -30,17 +30,26 @@ export const ClozeQuestionSchema = z.object({
   correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
   explanationZh: z.string(),
   tags: z.array(z.string()).optional(),
-  /** v1.8.0: TOEIC-style question type. Optional — legacy data defaults
-   *  to "listen-mc" / "read-mc-with-audio" behavior. */
+  /** v1.8.x: question type. Optional — legacy data defaults to MC. */
   type: z.enum([
     'listen-mc',
     'listen-emoji',
     'listen-comprehension',
     'read-mc-with-audio',
+    'tap-tiles',     // v1.8.3: Duolingo "Tap what you hear" — order word tiles
+    'tap-pairs',     // v1.8.3: Duolingo "Tap the pairs" — match 4 EN ↔ ZH pairs
   ]).optional(),
-  /** v1.8.0: comprehension prompt shown above the options for
-   *  emoji / comprehension types (e.g. "How do I feel?"). */
+  /** v1.8.0: comprehension prompt shown above the options. */
   question: z.string().optional(),
+  /** v1.8.3 tap-tiles: shuffled word tile bank (may include distractors). */
+  tiles: z.array(z.string()).optional(),
+  /** v1.8.3 tap-tiles: indices into `tiles` in the correct order. */
+  correctOrder: z.array(z.number().int()).optional(),
+  /** v1.8.3 tap-pairs: 4 pairs of EN ↔ translation. */
+  pairs: z.array(z.object({
+    left: z.string(),
+    right: z.string(),
+  })).optional(),
 });
 
 export const ClozeQuestionsSchema = z.array(ClozeQuestionSchema);

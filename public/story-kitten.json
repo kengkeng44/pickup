@@ -70,14 +70,16 @@
     "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 5,
-    "type": "listen-mc",
+    "type": "tap-tiles",
     "storyBeat": "是個阿嬤,撐著藍色傘,慈祥的臉",
-    "sentence": "It is a grandma with a blue umbrella. She has a kind face.",
-    "question": "Which word describes her face?",
-    "options": ["kind", "kid", "king", "kine"],
+    "sentence": "She has a kind face.",
+    "question": "Tap what you hear",
+    "options": ["She", "has", "kind", "face"],
     "correctIndex": 0,
-    "explanationZh": "進階聽力辨字:kind(慈祥)vs kid(小孩)vs king(國王)— 母音和尾音都不一樣,仔細聽。",
-    "tags": ["story", "ch1", "people", "homophone"]
+    "tiles": ["face", "She", "kind", "a", "has", "big"],
+    "correctOrder": [1, 4, 3, 2, 0],
+    "explanationZh": "聽完整句後依序點 word tile:She → has → a → kind → face。big 是干擾 tile。",
+    "tags": ["story", "ch1", "people", "tap-tiles"]
   },
   {
     "id": "kt-ch1-06",
@@ -85,13 +87,19 @@
     "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 6,
-    "type": "read-mc-with-audio",
-    "storyBeat": "阿嬤把傘撐到我頭上",
-    "sentence": "The grandma ___ her umbrella over me.",
-    "question": "What action did she do?",
-    "options": ["throws", "drops", "holds", "buys"],
-    "correctIndex": 2,
-    "explanationZh": "閱讀 + 聽力雙重輔助:阿嬤撐傘 = holds(握持/撐起)。throw 是丟、drop 是掉、buy 是買,情境都不合。",
-    "tags": ["story", "ch1", "action", "reading-with-audio"]
+    "type": "tap-pairs",
+    "storyBeat": "回顧本章關鍵字",
+    "sentence": "Match the Ch1 words with their meaning",
+    "question": "Tap the pairs",
+    "options": ["hard", "cold", "hungry", "kind"],
+    "correctIndex": 0,
+    "pairs": [
+      {"left": "hard", "right": "大力"},
+      {"left": "cold", "right": "寒冷"},
+      {"left": "hungry", "right": "飢餓"},
+      {"left": "kind", "right": "慈祥"}
+    ],
+    "explanationZh": "Ch1 四個關鍵字配對中文意義。記得本章遇到的詞 — 配對是最強的單字記憶法。",
+    "tags": ["story", "ch1", "review", "tap-pairs"]
   }
 ]
