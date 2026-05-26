@@ -220,6 +220,35 @@ export class StoryModeScene extends Phaser.Scene {
     );
     const content = this.getPanelContentRoot(panel);
 
+    // v1.9.6: Daily challenge banner — show streak + encourage daily play
+    const dailyCard = document.createElement('div');
+    const streakCount = readStreak();
+    applyStyle(dailyCard, {
+      background: `linear-gradient(135deg, ${COLOR_AMBER} 0%, #d4823a 100%)`,
+      borderRadius: '18px',
+      padding: '14px 16px',
+      color: '#ffffff',
+      boxShadow: `0 4px 0 ${COLOR_AMBER_DARK}, 0 10px 16px -3px rgba(60, 42, 28, 0.22)`,
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px',
+    });
+    dailyCard.innerHTML = `
+      <div style="font-size:30px;line-height:1;">🔥</div>
+      <div style="flex:1;">
+        <div style="font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;opacity:0.85;">
+          Daily Streak
+        </div>
+        <div style="font-size:18px;font-weight:900;line-height:1.2;margin-top:2px;">
+          ${streakCount} day${streakCount === 1 ? '' : 's'}
+        </div>
+        <div style="font-size:11px;font-weight:600;opacity:0.92;margin-top:2px;">
+          Keep it alive — answer any question today
+        </div>
+      </div>
+    `;
+    content.appendChild(dailyCard);
+
     // Quick Practice section
     content.appendChild(this.makeSectionHeader('Quick Practice'));
 
