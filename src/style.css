@@ -552,7 +552,13 @@ button:focus-visible {
   40% { opacity: 1; transform: scale(1.15); }
 }
 
-/* ─── Splash overlay (v0.7 cover page) ───────────────────────────────── */
+/* ─── Splash overlay (v0.13 minimal cover page) ────────────────────────
+ * Design intent (per user feedback on v0.12):
+ *   - Everything centered (text-align + flex centering).
+ *   - Strip helper microcopy. Whitespace > explanation.
+ *   - 開始 CTA = the only loud element. Difficulty is a quiet
+ *     collapsible underneath, much smaller, muted color.
+ */
 #wordwar-splash {
   position: fixed;
   inset: 0;
@@ -561,12 +567,13 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 20px;
   z-index: 15;
   font-family: var(--font-family);
   color: var(--pickup-text);
-  padding: 24px;
+  padding: 32px 24px;
   box-sizing: border-box;
+  text-align: center;
   opacity: 0;
   animation: wordwar-splash-in 360ms ease-out forwards;
 }
@@ -574,21 +581,18 @@ button:focus-visible {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
-.wordwar-splash-tagline {
-  font-size: var(--font-microcopy-size);
-  font-weight: 700;
-  color: var(--pickup-text-muted);
-  letter-spacing: 0.6px;
-  font-style: italic;
+#wordwar-splash * {
+  text-align: center;
 }
 .wordwar-splash-mascot {
-  width: 240px;
-  height: 270px;
+  width: 220px;
+  height: 250px;
   animation: mascot-idle-bob 2.6s ease-in-out infinite;
   transform-origin: 50% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 .wordwar-splash-mascot svg {
   width: 100%;
@@ -597,39 +601,40 @@ button:focus-visible {
   filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
 }
 .wordwar-splash-title {
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 900;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
   color: var(--pickup-accent);
-  margin-top: 4px;
+  margin: 0 auto;
   text-shadow: 0 2px 0 var(--pickup-accent-dark);
+  line-height: 1;
 }
 .wordwar-splash-cta {
-  margin-top: 12px;
-  width: min(320px, 80%);
-  min-height: 56px;
-  padding: 16px 28px;
+  margin: 8px auto 0;
+  width: min(280px, 75%);
+  min-height: 64px;
+  padding: 18px 28px;
   background: var(--pickup-success);
   color: #ffffff;
   border: none;
   border-bottom: 5px solid var(--pickup-success-dark);
-  border-radius: 16px;
+  border-radius: 18px;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 900;
-  letter-spacing: 1.2px;
+  letter-spacing: 2px;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition: transform 100ms var(--pickup-snap),
     border-bottom-width 100ms var(--pickup-snap),
     box-shadow 200ms ease-out;
-  box-shadow: 0 4px 12px rgba(88, 204, 2, 0.25);
+  box-shadow: 0 4px 14px rgba(88, 204, 2, 0.28);
   animation: pickup-pulse 2.2s ease-in-out infinite;
 }
 .wordwar-splash-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(88, 204, 2, 0.35);
+  box-shadow: 0 6px 20px rgba(88, 204, 2, 0.38);
 }
 .wordwar-splash-cta:active {
   transform: translateY(3px);
@@ -637,11 +642,107 @@ button:focus-visible {
   box-shadow: none;
   animation: none;
 }
-.wordwar-splash-meta {
-  font-size: 12px;
-  font-weight: 600;
+.wordwar-splash-footer {
+  position: absolute;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  font-size: 11px;
   color: var(--pickup-text-soft);
-  margin-top: 2px;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono',
+    monospace;
+  text-align: center;
+}
+
+/* ─── Difficulty collapsible (v0.13) ───────────────────────────────────
+ * Quiet expand option under CTA. Visually subordinate by design:
+ *   - 14px font (vs CTA's 22px),
+ *   - regular weight (vs CTA's 900),
+ *   - muted color (vs CTA's white-on-green).
+ * Native <details>/<summary> for zero-JS toggle. */
+.wordwar-difficulty {
+  margin: 4px auto 0;
+  width: min(280px, 75%);
+  text-align: center;
+}
+.wordwar-difficulty-summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pickup-text-muted);
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 160ms ease-out, background 160ms ease-out;
+}
+.wordwar-difficulty-summary::-webkit-details-marker {
+  display: none;
+}
+.wordwar-difficulty-summary:hover {
+  color: var(--pickup-text);
+  background: rgba(231, 164, 74, 0.08);
+}
+.wordwar-difficulty-current {
+  font-weight: 700;
+  color: var(--pickup-accent);
+}
+.wordwar-difficulty-caret {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 220ms var(--pickup-snap);
+  color: var(--pickup-text-soft);
+}
+.wordwar-difficulty[open] .wordwar-difficulty-caret {
+  transform: rotate(180deg);
+}
+.wordwar-difficulty-opts {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  animation: wordwar-difficulty-reveal 220ms var(--pickup-snap);
+}
+@keyframes wordwar-difficulty-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.wordwar-difficulty-opt {
+  flex: 0 0 auto;
+  min-width: 60px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--pickup-border);
+  background: #ffffff;
+  color: var(--pickup-text-muted);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 140ms ease-out, color 140ms ease-out,
+    border-color 140ms ease-out, transform 100ms var(--pickup-snap);
+}
+.wordwar-difficulty-opt:hover {
+  border-color: var(--pickup-accent);
+  color: var(--pickup-text);
+}
+.wordwar-difficulty-opt:active {
+  transform: translateY(1px);
+}
+.wordwar-difficulty-opt.is-active {
+  background: var(--pickup-accent);
+  border-color: var(--pickup-accent);
+  color: #ffffff;
+  font-weight: 700;
 }
 
 /* Respect reduced-motion preferences. */
@@ -663,8 +764,12 @@ button:focus-visible {
   .pickup-glow,
   #pickup-preboot-mark,
   #pickup-preboot-dots span,
-  #wordwar-splash {
+  #wordwar-splash,
+  .wordwar-difficulty-opts {
     animation: none !important;
+  }
+  .wordwar-difficulty-caret {
+    transition: none !important;
   }
   #boot-overlay * {
     animation: none !important;

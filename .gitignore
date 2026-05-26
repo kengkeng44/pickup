@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Temp mascot generation workspace (Pollinations / Claude Design test outputs)
+.tmp-mascots/
+
+# Local env (API keys etc.)
+.env
+.env.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

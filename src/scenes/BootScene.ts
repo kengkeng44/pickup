@@ -1,14 +1,29 @@
 import Phaser from 'phaser';
 import { getMascotSvg } from '../ui/mascots';
+import { useRunStore } from '../store/runStore';
+import type { Difficulty } from '../data/sentences';
 
 /**
- * BootScene — v0.7 splash / cover page.
+ * BootScene — v0.13 minimal splash / cover page.
  *
- * Duolingo-style intro: white canvas, tagline, BIG mascot, bold green
- * wordmark, full-width 3D CTA button, fine-print meta. No auto-advance —
- * the user taps the green button (or anywhere on the splash, for
- * backward compatibility) to enter the menu.
+ * Design intent (per user feedback on v0.12):
+ *   - Strip all explanatory text. Whitespace > microcopy.
+ *   - Center every element (title, mascot, CTA, difficulty).
+ *   - Move difficulty here from ModeMenu, as a quiet collapsible
+ *     under the "開始" CTA. Default state: small one-liner
+ *     `難度 · 中等 ⌄`. Tap to expand, pick to collapse.
+ *   - Visual hierarchy: 開始 dominates, 難度 recedes.
+ *
+ * The collapsible uses a native <details> element with custom CSS,
+ * so no JS framework / animation library is needed.
  */
+
+const DIFFICULTY_LABELS: Record<Difficulty, string> = {
+  easy: '簡單',
+  medium: '中等',
+  hard: '困難',
+};
+
 export class BootScene extends Phaser.Scene {
   private overlay?: HTMLDivElement;
 
@@ -29,7 +44,9 @@ export class BootScene extends Phaser.Scene {
       this.scene.start('MenuScene');
     };
 
-    // Wire up the CTA button + anywhere-tap fallback.
+    // CTA — explicit single button. NO anywhere-tap fallback in v0.13:
+    // the difficulty <details> now needs taps to expand without leaking
+    // through to advance().
     const cta = this.overlay?.querySelector<HTMLButtonElement>(
       '.wordwar-splash-cta'
     );
@@ -37,16 +54,6 @@ export class BootScene extends Phaser.Scene {
       e.preventDefault();
       advance();
     });
-    this.overlay?.addEventListener(
-      'pointerdown',
-      (e) => {
-        // Don't fire the anywhere-tap if the CTA's own handler will run.
-        const t = e.target as HTMLElement | null;
-        if (t && t.closest('.wordwar-splash-cta')) return;
-        advance();
-      },
-      { once: false }
-    );
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.overlay?.remove();
@@ -58,51 +65,88 @@ export class BootScene extends Phaser.Scene {
     const root = document.createElement('div');
     root.id = 'wordwar-splash';
 
-    // Tagline (top)
-    const tagline = document.createElement('div');
-    tagline.className = 'wordwar-splash-tagline';
-    tagline.textContent = '學英文,撿回時間';
-    root.appendChild(tagline);
-
-    // Mascot (middle, big)
+    // Mascot (top — no tagline above it for minimalism).
     const mascot = document.createElement('div');
     mascot.className = 'wordwar-splash-mascot';
     mascot.innerHTML = getMascotSvg('owl');
     root.appendChild(mascot);
 
-    // Title (big bold green)
+    // Title — single big amber wordmark, centered.
     const title = document.createElement('div');
     title.className = 'wordwar-splash-title';
     title.textContent = '拾光';
     root.appendChild(title);
 
-    // CTA
+    // CTA — primary action, large.
     const cta = document.createElement('button');
     cta.type = 'button';
     cta.className = 'wordwar-splash-cta';
     cta.textContent = '開始';
     root.appendChild(cta);
 
-    // Meta
-    const meta = document.createElement('div');
-    meta.className = 'wordwar-splash-meta';
-    meta.textContent = '1361 個 A2 單字 · 5 個情境模式';
-    root.appendChild(meta);
+    // Difficulty — collapsible, much smaller than CTA.
+    root.appendChild(this.makeDifficultyCollapsible());
 
     // Tiny version footer
     const footer = document.createElement('div');
-    footer.textContent = `v0.7.0 · Phaser ${Phaser.VERSION}`;
-    Object.assign(footer.style, {
-      position: 'absolute',
-      bottom: 'max(20px, env(safe-area-inset-bottom))',
-      fontSize: '11px',
-      color: '#a8a2b3',
-      fontFamily:
-        'ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace',
-    } as CSSStyleDeclaration);
+    footer.className = 'wordwar-splash-footer';
+    footer.textContent = `v0.13.0`;
     root.appendChild(footer);
 
     document.body.appendChild(root);
     this.overlay = root;
+  }
+
+  /**
+   * Native <details>/<summary> collapsible. Summary shows the current
+   * difficulty inline. Tapping reveals three centered options. Selecting
+   * one persists it + collapses + updates the summary label.
+   */
+  private makeDifficultyCollapsible(): HTMLElement {
+    const details = document.createElement('details');
+    details.className = 'wordwar-difficulty';
+
+    const summary = document.createElement('summary');
+    summary.className = 'wordwar-difficulty-summary';
+    const current = useRunStore.getState().difficulty;
+    summary.innerHTML = `<span class="wordwar-difficulty-label">難度 · <span class="wordwar-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="wordwar-difficulty-caret">⌄</span>`;
+    details.appendChild(summary);
+
+    const opts = document.createElement('div');
+    opts.className = 'wordwar-difficulty-opts';
+
+    const tiers: Difficulty[] = ['easy', 'medium', 'hard'];
+    const buttons = new Map<Difficulty, HTMLButtonElement>();
+
+    const paint = (active: Difficulty) => {
+      for (const [id, el] of buttons) {
+        el.classList.toggle('is-active', id === active);
+      }
+      const cur = summary.querySelector('.wordwar-difficulty-current');
+      if (cur) cur.textContent = DIFFICULTY_LABELS[active];
+    };
+
+    for (const tier of tiers) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'wordwar-difficulty-opt';
+      btn.dataset.difficulty = tier;
+      btn.textContent = DIFFICULTY_LABELS[tier];
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        useRunStore.getState().setDifficulty(tier);
+        paint(tier);
+        // Auto-collapse after a brief moment so the user sees the new state.
+        window.setTimeout(() => {
+          details.open = false;
+        }, 140);
+      });
+      buttons.set(tier, btn);
+      opts.appendChild(btn);
+    }
+    paint(current);
+    details.appendChild(opts);
+
+    return details;
   }
 }
