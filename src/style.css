@@ -461,6 +461,23 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── Splash mascot idle (v1.5 Tier 1 Duolingo-style breathe + sway) ──
+ * Layered animation on .pickup-splash-mascot:
+ *   - breathe: gentle 3.2s scale pulse (1 → 1.025) — "alive" feel
+ *   - sway:    6.4s slow rotate ±0.4deg — subtle weight shift
+ * Two periods (3.2 vs 6.4) means they desync, so the motion never
+ * feels mechanical. transform-origin pins to bottom-center so the
+ * cat appears anchored to the ground while head sways slightly. */
+@keyframes pickup-idle-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.025); }
+}
+@keyframes pickup-idle-sway {
+  0%, 100% { transform: rotate(0deg)    translateY(0); }
+  25%      { transform: rotate(-0.4deg) translateY(-1px); }
+  75%      { transform: rotate(0.4deg)  translateY(-0.5px); }
+}
+
 /* ─── Sentence card subtle breathing ───────────────────────────────── */
 .pickup-breathing {
   animation: pickup-breathing 3.2s ease-in-out infinite;
@@ -611,8 +628,10 @@ button:focus-visible {
 .pickup-splash-mascot {
   width: 180px;
   height: 200px;
-  animation: mascot-idle-bob 2.6s ease-in-out infinite;
+  /* Outer: sway — rotate + tiny vertical drift */
+  animation: pickup-idle-sway 6.4s ease-in-out infinite;
   transform-origin: 50% 100%;
+  will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -623,6 +642,11 @@ button:focus-visible {
   height: 100%;
   display: block;
   filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
+  /* Inner: breathe — scale pulse. Split from sway so both transforms
+   * apply (sibling animations on the same element overwrite each other). */
+  animation: pickup-idle-breathe 3.2s ease-in-out infinite;
+  transform-origin: 50% 80%;
+  will-change: transform;
 }
 .pickup-splash-title {
   font-family: var(--font-display);
@@ -913,6 +937,7 @@ h1, h2 {
   .pickup-breathing,
   .pickup-ambient,
   .pickup-splash-mascot,
+  .pickup-splash-mascot svg,
   .pickup-splash-cta,
   .pickup-bounce,
   .pickup-pulse,
