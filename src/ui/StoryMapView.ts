@@ -62,6 +62,19 @@ const CH1_BEAT_LABELS = [
 
 const LS_LAST_CAT_NODE = 'pickup.map.cat-node';
 
+/**
+ * v1.7.10: derive a darker shade of a hex color for matching-family
+ * shadows. amount=0.35 means 35% darker. Replaces hard-coded
+ * COLOR_NODE_DARK on the banner so the banner depth-shadow matches the
+ * banner's body color family, not coffee brown.
+ */
+function darken(hex: string, amount = 0.35): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgb(${Math.round(r * (1 - amount))}, ${Math.round(g * (1 - amount))}, ${Math.round(b * (1 - amount))})`;
+}
+
 interface NodeRef {
   idx: number;          // 0..N
   el: HTMLButtonElement;
@@ -102,7 +115,9 @@ export class StoryMapView {
       flex: '1 1 auto',
       overflowY: 'auto',
       overflowX: 'hidden',
-      paddingTop: '12px',
+      // v1.7.10: extra top padding so the banner's depth shadow plus
+      // any drift can't reach the first node / cat position.
+      paddingTop: '34px',
       paddingBottom: '110px', // leave space for BottomNav
       position: 'relative',
       WebkitOverflowScrolling: 'touch',
@@ -216,9 +231,13 @@ export class StoryMapView {
       borderRadius: '14px',
       padding: '12px 16px',
       color: '#ffffff',
-      // v1.7.7: 3D depth + soft cast shadow (Duolingo style — banner
-      // floats above the page with a subtle ground shadow).
-      boxShadow: `0 3px 0 ${COLOR_NODE_DARK}, 0 10px 14px -2px rgba(60, 42, 28, 0.22)`,
+      // v1.7.10:
+      //  - 3D depth color now derived from meta.accent (same color
+      //    family as banner body, not unrelated coffee brown)
+      //  - Cast "ground" shadow removed because it was bleeding into
+      //    the scroll area below and visually overlapping the first
+      //    node + cat. Banner only has its solid 3D depth now.
+      boxShadow: `0 4px 0 ${darken(meta.accent, 0.32)}`,
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
