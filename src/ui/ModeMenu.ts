@@ -20,6 +20,14 @@ import {
   isScenarioCompleted,
   type ScenarioId,
 } from '../data/scenarios';
+import { useRunStore } from '../store/runStore';
+import type { Difficulty } from '../data/sentences';
+
+const DIFFICULTY_LABELS: Record<Difficulty, string> = {
+  easy: 'Easy',
+  medium: 'Medium',
+  hard: 'Hard',
+};
 
 export interface ModeMenuHandlers {
   onStartStory: () => void;
@@ -122,6 +130,12 @@ export class ModeMenu {
       this.content.appendChild(this.makeIntroCard());
     }
 
+    // v1.7.0: difficulty picker, relocated from the deleted BootScene
+    // splash. Stays compact + collapsed by default. Sits above the
+    // primary Story card so first-time players see it before picking
+    // a mode.
+    this.content.appendChild(this.makeDifficultyPill());
+
     const chooseLabel = document.createElement('div');
     chooseLabel.textContent = 'Choose a mode';
     applyStyle(chooseLabel, {
@@ -186,7 +200,7 @@ export class ModeMenu {
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v1.2.0';
+    footer.textContent = 'v1.7.0';
     applyStyle(footer, {
       marginTop: '24px',
       fontSize: '11px',
@@ -506,5 +520,122 @@ export class ModeMenu {
     } catch {
       return false;
     }
+  }
+
+  /**
+   * v1.7.0: compact difficulty pill. Sits above the Story card,
+   * native <details> auto-collapses after the user picks. First-time
+   * users see it pre-expanded with a one-liner hint.
+   */
+  private makeDifficultyPill(): HTMLElement {
+    const details = document.createElement('details');
+    applyStyle(details, {
+      marginBottom: '16px',
+      background: '#ffffff',
+      border: `2px solid ${COLOR_BORDER}`,
+      borderBottom: `3px solid ${COLOR_BORDER_DARK}`,
+      borderRadius: '14px',
+      padding: '0',
+      overflow: 'hidden',
+    });
+
+    // First-time UX: pre-expand on first visit so the affordance is obvious.
+    let seen = false;
+    try {
+      seen = localStorage.getItem('pickup.difficulty-seen') === '1';
+    } catch { /* ignore */ }
+    if (!seen) details.open = true;
+
+    const current = useRunStore.getState().difficulty;
+
+    const summary = document.createElement('summary');
+    applyStyle(summary, {
+      listStyle: 'none',
+      cursor: 'pointer',
+      padding: '10px 14px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      fontSize: '13px',
+      fontWeight: '700',
+      color: COLOR_TEXT_MUTED,
+    });
+    summary.innerHTML =
+      `<span>Difficulty · <span class="pickup-diff-cur" style="color:${COLOR_TEXT_DARK};">${DIFFICULTY_LABELS[current]}</span></span>` +
+      `<span style="font-size:14px;">⌄</span>`;
+    details.appendChild(summary);
+
+    let hintEl: HTMLDivElement | null = null;
+    if (!seen) {
+      hintEl = document.createElement('div');
+      hintEl.textContent = 'Pick your level first';
+      applyStyle(hintEl, {
+        padding: '0 14px 4px',
+        fontSize: '11px',
+        fontStyle: 'italic',
+        color: COLOR_TEXT_MUTED,
+      });
+      details.appendChild(hintEl);
+    }
+
+    const opts = document.createElement('div');
+    applyStyle(opts, {
+      display: 'flex',
+      gap: '8px',
+      padding: '8px 12px 12px',
+    });
+
+    const tiers: Difficulty[] = ['easy', 'medium', 'hard'];
+    const buttons = new Map<Difficulty, HTMLButtonElement>();
+
+    const paint = (active: Difficulty) => {
+      for (const [id, el] of buttons) {
+        const isActive = id === active;
+        applyStyle(el, {
+          background: isActive ? COLOR_AMBER : '#ffffff',
+          color: isActive ? '#ffffff' : COLOR_TEXT_MUTED,
+          borderColor: isActive ? COLOR_AMBER_DARK : COLOR_BORDER,
+        });
+      }
+      const cur = summary.querySelector('.pickup-diff-cur');
+      if (cur) cur.textContent = DIFFICULTY_LABELS[active];
+    };
+
+    for (const tier of tiers) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = DIFFICULTY_LABELS[tier];
+      applyStyle(btn, {
+        flex: '1',
+        padding: '8px 0',
+        fontSize: '13px',
+        fontWeight: '800',
+        background: '#ffffff',
+        color: COLOR_TEXT_MUTED,
+        border: `2px solid ${COLOR_BORDER}`,
+        borderRadius: '10px',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        transition: 'background 160ms ease, color 160ms ease',
+      });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        useRunStore.getState().setDifficulty(tier);
+        paint(tier);
+        if (!seen) {
+          seen = true;
+          try { localStorage.setItem('pickup.difficulty-seen', '1'); } catch { /* ignore */ }
+          hintEl?.remove();
+          hintEl = null;
+        }
+        window.setTimeout(() => { details.open = false; }, 160);
+      });
+      buttons.set(tier, btn);
+      opts.appendChild(btn);
+    }
+    paint(current);
+    details.appendChild(opts);
+
+    return details;
   }
 }

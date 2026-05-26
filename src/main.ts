@@ -61,9 +61,10 @@ window.setTimeout(() => {
   }
 }, 220);
 
-// v1.6.0: remove the curtain transition element after its animation
-// completes. Timeline: 0.6s delay + 0.9s slide = 1.5s. Pad to 1700ms so
-// we don't yank the element mid-frame on slow devices.
+// v1.7.0: remove the tear-drop intro overlay after its full sequence.
+// Timeline: 0.05s cat fade-in + 0.85s tear fall (start 0.5s) + 1.0s disc
+// expand (start 1.3s) + 0.3s fade (start 2.3s) = ends at 2.6s.
+// Pad to 2800ms so we never yank the element mid-fade on slow devices.
 window.setTimeout(() => {
-  document.getElementById('pickup-curtain')?.remove();
-}, 1700);
+  document.getElementById('pickup-tear-intro')?.remove();
+}, 2800);

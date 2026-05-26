@@ -66,10 +66,21 @@ const COLOR_TEXT_DARK = '#3d2817';
 const COLOR_TEXT_MUTED = '#8b6f4a';
 
 // v0.10 — encouraging microcopy with character (Duolingo principle 4).
+// v1.7.0 — added crybaby-but-resilient flavor in line with the protagonist's
+// personality (愛哭鬼但堅韌). The cat cries, then keeps going. Microcopy
+// reflects both halves: gentle on wrong, brave-flavored on right.
 // Vary the copy per call so it stays fresh rather than feeling canned.
-const PRAISE_CORRECT = ['Brilliant!', 'Nice!', 'You got it!', 'Perfect!', 'Yes!', "That's the one!"];
+const PRAISE_CORRECT = [
+  'Brilliant!', 'Nice!', 'You got it!', 'Perfect!', 'Yes!', "That's the one!",
+  'Brave!',          // v1.7 — calls out the resilient half
+  'Tears off, paws on!',  // v1.7 — playful nod to the cry-then-recover arc
+];
 const PRAISE_TIMEOUT = ['Time up · tap the green button', 'Almost · tap the green one'];
-const PRAISE_WRONG = ['Try again', 'Almost', 'Not quite · keep going', 'One more try'];
+const PRAISE_WRONG = [
+  'Try again', 'Almost', 'Not quite · keep going', 'One more try',
+  'Cry later · try again',   // v1.7 — direct character beat
+  'Sniffle, then keep going', // v1.7 — gentle, no shaming
+];
 
 function pickPraise(pool: readonly string[]): string {
   return pool[Math.floor(Math.random() * pool.length)];

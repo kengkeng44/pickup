@@ -33,45 +33,74 @@
         #pickup-preboot-inline .mark, #pickup-preboot-inline .dots span { animation: none; }
       }
 
-      /* v1.6.0 entry transition — curtain rise.
-       * Two horizontal panels slide off (top up / bottom down) revealing
-       * the splash. Runs on every fresh page load, then removes itself
-       * after the animation completes (handled in main.ts).
-       * Lives in <head> inline so it paints on the very first frame —
-       * no flash of blank app between preboot and the splash.
+      /* v1.7.0 entry transition — Tear Drop.
+       * Inspired by Suntera mood-tracker (vibrant orange, big cartoon
+       * face, no text). Character bio: the calico is a 愛哭鬼 (crybaby)
+       * but 很堅韌 (resilient). The tear that drips down → expands →
+       * reveals the menu beneath is the visual metaphor for that
+       * personality: she cries, then keeps moving.
+       *
+       * Lives inline so it paints on the very first frame — even before
+       * Phaser/Vite JS loads.
+       *
+       * Timing (total ≈2.6s):
+       *   0.00–0.50s: cat face scale-fades in
+       *   0.50–1.30s: tear forms at left eye corner, drips down cheek
+       *   1.30–2.30s: cream disc grows from where the tear lands, covers screen
+       *   2.30–2.60s: orange shell fades, MenuScene visible underneath
        */
-      #pickup-curtain {
-        position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      #pickup-tear-intro {
+        position: fixed; inset: 0; z-index: 9999;
+        background: #ed5a2e;  /* same vibrant orange as the reference */
+        display: flex; align-items: center; justify-content: center;
+        pointer-events: none; overflow: hidden;
+        animation: pickup-intro-fade 0.3s ease-out 2.3s forwards;
       }
-      #pickup-curtain .panel {
-        position: absolute; left: 0; right: 0; height: 50%;
-        background: linear-gradient(180deg, #e7a44a 0%, #d18d2f 100%);
-        will-change: transform;
-        box-shadow: 0 0 32px rgba(60, 42, 28, 0.18);
+      #pickup-tear-intro svg.tear-cat {
+        width: 70vmin; max-width: 420px; height: auto; display: block;
+        opacity: 0; transform: scale(0.94);
+        animation: pickup-cat-in 0.5s ease-out 0.05s forwards;
       }
-      #pickup-curtain .panel-top    { top: 0;    animation: pickup-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.6s forwards; }
-      #pickup-curtain .panel-bottom { bottom: 0; transform: scaleY(-1); animation: pickup-curtain-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.6s forwards; }
-      #pickup-curtain .seal {
-        position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-        color: #fef8ed; font-family: 'Nunito', system-ui, sans-serif;
-        font-size: 28px; font-weight: 900; letter-spacing: 1px;
-        opacity: 0; animation: pickup-seal-in 0.5s ease-out 0.1s forwards, pickup-seal-out 0.3s ease-in 0.7s forwards;
-        z-index: 1;
+      /* Tear element nested inside SVG */
+      #pickup-tear-intro .tear-drop {
+        opacity: 0;
+        animation: pickup-tear-fall 0.85s cubic-bezier(0.55, 0.05, 0.65, 1) 0.5s forwards;
       }
-      @keyframes pickup-curtain-up {
-        from { transform: translateY(0) scaleY(1); }
-        to   { transform: translateY(-100%) scaleY(1); }
+      /* Cream reveal disc — anchored where the tear lands. Starts as
+       * a tiny dot and grows to cover the viewport. */
+      #pickup-tear-intro .reveal-disc {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% + 90px);
+        width: 0; height: 0;
+        border-radius: 50%;
+        background: #fef8ed;
+        animation: pickup-disc-expand 1.0s cubic-bezier(0.55, 0, 0.45, 1) 1.3s forwards;
+        will-change: width, height;
       }
-      /* Bottom panel mirrors via scaleY(-1) so the same keyframe drives both */
-      #pickup-curtain .panel-bottom { animation-name: pickup-curtain-down; }
-      @keyframes pickup-curtain-down {
-        from { transform: translateY(0); }
-        to   { transform: translateY(100%); }
+      @keyframes pickup-cat-in {
+        from { opacity: 0; transform: scale(0.94); }
+        to   { opacity: 1; transform: scale(1); }
       }
-      @keyframes pickup-seal-in  { from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
-      @keyframes pickup-seal-out { from { opacity: 1; } to { opacity: 0; } }
+      @keyframes pickup-tear-fall {
+        0%   { opacity: 0; transform: translate(0, -6px) scale(0.6); }
+        18%  { opacity: 1; transform: translate(0, 0) scale(1); }
+        100% { opacity: 1; transform: translate(2px, 78px) scale(1.35); }
+      }
+      @keyframes pickup-disc-expand {
+        from { width: 0;       height: 0; }
+        to   { width: 260vmax; height: 260vmax;
+               transform: translate(-50%, -50%); }
+      }
+      @keyframes pickup-intro-fade {
+        to { opacity: 0; }
+      }
       @media (prefers-reduced-motion: reduce) {
-        #pickup-curtain { display: none !important; }
+        /* No animation: hold cat for 0.4s then fade orange away. */
+        #pickup-tear-intro { animation: pickup-intro-fade 0.3s ease-out 0.4s forwards; }
+        #pickup-tear-intro svg.tear-cat,
+        #pickup-tear-intro .tear-drop,
+        #pickup-tear-intro .reveal-disc { animation: none !important; opacity: 1 !important; }
       }
     </style>
   </head>
@@ -80,10 +109,43 @@
       <div class="mark">Pickup</div>
       <div class="dots"><span></span><span></span><span></span></div>
     </div>
-    <div id="pickup-curtain" aria-hidden="true">
-      <div class="seal">拾光</div>
-      <div class="panel panel-top"></div>
-      <div class="panel panel-bottom"></div>
+    <div id="pickup-tear-intro" aria-hidden="true">
+      <svg class="tear-cat" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
+        <!-- Ears (outer triangles) -->
+        <path d="M 110 195 L 145 100 L 180 195 Z" fill="#9d3e1c"/>
+        <path d="M 290 195 L 255 100 L 220 195 Z" fill="#9d3e1c"/>
+        <!-- Inner ear pink -->
+        <path d="M 134 188 L 154 138 L 174 188 Z" fill="#e89887"/>
+        <path d="M 266 188 L 246 138 L 226 188 Z" fill="#e89887"/>
+        <!-- Head (cream) -->
+        <ellipse cx="200" cy="295" rx="138" ry="128" fill="#fdf0d6"/>
+        <!-- Calico orange patch (top-left forehead) -->
+        <ellipse cx="158" cy="220" rx="38" ry="24" fill="#e89c5e" transform="rotate(-22 158 220)"/>
+        <!-- Calico black patch (right cheek) -->
+        <ellipse cx="270" cy="250" rx="32" ry="38" fill="#3a2a1f" transform="rotate(18 270 250)"/>
+        <!-- Whiskers -->
+        <path d="M 80 330 L 130 335" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 80 352 L 130 350" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 270 335 L 320 330" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 270 350 L 320 352" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <!-- Eyes (Suntera-style bold black ovals) -->
+        <ellipse cx="160" cy="295" rx="22" ry="36" fill="#1a1208"/>
+        <ellipse cx="240" cy="295" rx="22" ry="36" fill="#1a1208"/>
+        <!-- Eye highlights -->
+        <circle cx="168" cy="282" r="6.5" fill="#ffffff"/>
+        <circle cx="248" cy="282" r="6.5" fill="#ffffff"/>
+        <!-- Nose (pink triangle) -->
+        <path d="M 190 340 L 210 340 L 200 350 Z" fill="#d48474"/>
+        <!-- Mouth (subtle determined smile — trying to be brave) -->
+        <path d="M 178 372 Q 200 384 222 372" stroke="#1a1208" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+        <!-- Tear (from left eye corner) — animates via .tear-drop class -->
+        <g class="tear-drop">
+          <path d="M 142 332 Q 138 348 136 360 Q 135 372 142 376 Q 150 372 150 360 Q 148 344 142 332 Z"
+                fill="#6fb8d8" stroke="#3d8aae" stroke-width="1.2"/>
+          <ellipse cx="140" cy="346" rx="2.5" ry="4" fill="#ffffff" opacity="0.7"/>
+        </g>
+      </svg>
+      <div class="reveal-disc"></div>
     </div>
     <a href="#app" class="skip-link">Skip to main content</a>
     <main id="app"></main>
