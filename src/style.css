@@ -461,6 +461,22 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── v1.7.12 current map node pulse ───────────────────────────────────
+ * Replaces the visual "you are here" function the cat sprite used to
+ * serve. Uses filter: drop-shadow which respects border-radius and
+ * doesn't conflict with the node's inline box-shadow.
+ */
+.pickup-map-node-current {
+  animation: pickup-current-pulse 1.6s ease-in-out infinite;
+}
+@keyframes pickup-current-pulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(231, 164, 74, 0.35)); }
+  50%      { filter: drop-shadow(0 0 12px rgba(231, 164, 74, 0.85)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pickup-map-node-current { animation: none; filter: drop-shadow(0 0 6px rgba(231, 164, 74, 0.55)); }
+}
+
 /* ─── v1.7.2 cat-themed loading indicator ─────────────────────────────
  * Used by PlayScene + anywhere we need an in-app "loading" state.
  * Visual: the SAME calico face from the entry transition, scaled to 96px

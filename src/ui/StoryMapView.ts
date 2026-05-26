@@ -142,9 +142,7 @@ export class StoryMapView {
     const progress = readChapterProgress();
     const ch1Unlocked = isChapterUnlocked(1);
     const ch1Completed = isChapterCompleted(1);
-    // For v1.7.3 we treat all 6 nodes inside Ch1 as "the chapter":
-    // they unlock together when Ch1 unlocks. Once completed, all 6
-    // show the green-checkmark style.
+    const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
     for (let i = 0; i < 6; i++) {
       const beat = CH1_BEAT_LABELS[i];
       const node = this.buildNode({
@@ -154,6 +152,12 @@ export class StoryMapView {
         completed: ch1Completed,
         chapter: 1,
       });
+      // v1.7.12: mark the user's current node so CSS pulse animation
+      // can highlight where they are (replaces the visual role the cat
+      // sprite used to play).
+      if (i === currentNodeIdx) {
+        node.el.classList.add('pickup-map-node-current');
+      }
       column.appendChild(node.el);
       this.nodes.push(node);
     }
@@ -349,15 +353,24 @@ export class StoryMapView {
     }
 
     if (opts.unlocked) {
-      row.addEventListener('mousedown', () => {
-        row.style.transform = 'translateY(2px)';
-      });
-      row.addEventListener('mouseup', () => {
+      // v1.7.11: real press-down feedback — node visibly depresses,
+      // 3D depth shrinks, cast shadow tightens. Released = back to rest.
+      const restShadow = `0 11px 0 ${shadowColor}, 0 20px 14px -3px rgba(60, 42, 28, 0.32)`;
+      const pressShadow = `0 3px 0 ${shadowColor}, 0 8px 6px -2px rgba(60, 42, 28, 0.22)`;
+      const press = () => {
+        row.style.transform = 'translateY(8px)';
+        row.style.boxShadow = pressShadow;
+      };
+      const release = () => {
         row.style.transform = '';
-      });
-      row.addEventListener('mouseleave', () => {
-        row.style.transform = '';
-      });
+        row.style.boxShadow = restShadow;
+      };
+      row.addEventListener('mousedown', press);
+      row.addEventListener('mouseup', release);
+      row.addEventListener('mouseleave', release);
+      row.addEventListener('touchstart', press, { passive: true });
+      row.addEventListener('touchend', release);
+      row.addEventListener('touchcancel', release);
       row.addEventListener('click', (e) => {
         e.preventDefault();
         if (opts.chapter !== null) {
@@ -403,6 +416,10 @@ export class StoryMapView {
       height: '110px',
       pointerEvents: 'none',
       zIndex: '5',
+      // v1.7.12: cat sprite hidden until replacement art lands (grandma /
+      // Shiba etc.). Code path kept intact so we can swap inner SVG and
+      // toggle display when new PNGs arrive.
+      display: 'none',
       transition: 'transform 700ms cubic-bezier(0.4, -0.3, 0.55, 1.5)',
       transformOrigin: '50% 100%',
       willChange: 'transform',
