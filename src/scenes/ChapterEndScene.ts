@@ -53,16 +53,14 @@ export class ChapterEndScene extends Phaser.Scene {
     this.mountOverlay(chapter);
     sfxEndFanfare();
 
-    // v1.9.9: confetti burst on chapter complete — Duolingo-style
-    // celebration. Mounts overlay, runs the burst, auto-cleans up.
+    // v1.9.9: confetti burst on chapter complete (Confetti.burst()
+    // self-cleans when animation ends — no manual destroy needed).
     const confetti = new Confetti();
-    confetti.fire();
-    window.setTimeout(() => confetti.destroy(), 3000);
+    confetti.burst();
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.root?.remove();
       this.root = undefined;
-      confetti.destroy();
     });
   }
 
