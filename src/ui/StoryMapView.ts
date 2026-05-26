@@ -213,11 +213,15 @@ export class StoryMapView {
       borderRadius: '14px',
       padding: '12px 16px',
       color: '#ffffff',
-      boxShadow: `0 3px 0 ${COLOR_NODE_DARK}`,
+      // v1.7.7: 3D depth + soft cast shadow (Duolingo style — banner
+      // floats above the page with a subtle ground shadow).
+      boxShadow: `0 3px 0 ${COLOR_NODE_DARK}, 0 10px 14px -2px rgba(60, 42, 28, 0.22)`,
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
     });
+    // Cat paw-pad SVG — decorative brand icon replacing the old restart
+    // button. Restart still available via Profile tab → Danger Zone.
     card.innerHTML = `
       <div style="flex:1;">
         <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:0.85;">
@@ -227,24 +231,23 @@ export class StoryMapView {
           ${meta.titleEn}
         </div>
       </div>
-      <button type="button" aria-label="Restart story" style="
-        background: rgba(255,255,255,0.2); border: none; color: #fff;
-        width: 36px; height: 36px; border-radius: 10px; cursor: pointer;
-        font-size: 18px; font-weight: 900; padding: 0; line-height: 1;
-        font-family: inherit; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-      ">↻</button>
+      <div aria-hidden="true" style="
+        width: 36px; height: 36px; border-radius: 10px;
+        background: rgba(255,255,255,0.2);
+        display: flex; align-items: center; justify-content: center;
+        flex: 0 0 auto;
+      ">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff" aria-hidden="true">
+          <!-- palm pad -->
+          <ellipse cx="12" cy="16" rx="5.6" ry="4.6"/>
+          <!-- 4 toe beans, slight arc -->
+          <ellipse cx="6" cy="10" rx="2.2" ry="2.6" transform="rotate(-25 6 10)"/>
+          <ellipse cx="9.7" cy="6.6" rx="2.1" ry="2.6"/>
+          <ellipse cx="14.3" cy="6.6" rx="2.1" ry="2.6"/>
+          <ellipse cx="18" cy="10" rx="2.2" ry="2.6" transform="rotate(25 18 10)"/>
+        </svg>
+      </div>
     `;
-    const restartBtn = card.querySelector('button');
-    restartBtn?.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (typeof window === 'undefined' || !window.confirm) return;
-      if (!window.confirm('Restart Ch1 progress?')) return;
-      try {
-        localStorage.removeItem('wordwar.story.chapterProgress');
-        localStorage.removeItem(LS_LAST_CAT_NODE);
-      } catch { /* ignore */ }
-      window.location.reload();
-    });
     wrap.appendChild(card);
     return wrap;
   }
@@ -288,7 +291,10 @@ export class StoryMapView {
       borderRadius: '50%',
       border: 'none',
       background: baseColor,
-      boxShadow: `0 5px 0 ${shadowColor}`,
+      // v1.7.7: 3D depth (solid color directly under) + soft cast shadow
+      // (diffuse "ground" shadow further below). Same Duolingo two-shadow
+      // recipe as the banner.
+      boxShadow: `0 5px 0 ${shadowColor}, 0 14px 10px -3px rgba(60, 42, 28, 0.28)`,
       color: '#ffffff',
       fontSize: '26px',
       fontWeight: '900',
