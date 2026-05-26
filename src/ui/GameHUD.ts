@@ -199,6 +199,42 @@ export class GameHUD {
 
     // Streak (left): "🔥 x N" — biggest element on the screen per Duolingo
     // hierarchy. Hot orange (--pickup-streak), bold display weight.
+    // v1.9.2: Duolingo-style X close button at the far left of the lesson
+    // header. Tap = leave lesson (calls onChange handler which routes back
+    // to the map/menu).
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.setAttribute('aria-label', 'Quit lesson');
+    closeBtn.innerHTML = '×';
+    applyStyle(closeBtn, {
+      width: '32px',
+      height: '32px',
+      borderRadius: '50%',
+      background: 'rgba(180, 165, 140, 0.18)',
+      color: '#8b6f4a',
+      border: 'none',
+      fontSize: '24px',
+      fontWeight: '900',
+      lineHeight: '1',
+      cursor: 'pointer',
+      padding: '0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+      flex: '0 0 auto',
+    });
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof window !== 'undefined' && window.confirm) {
+        if (!window.confirm('Leave the lesson? Progress in this round is lost.')) return;
+      }
+      this.opts.onChange();
+    });
+    this.header.appendChild(closeBtn);
+
     this.streakEl = document.createElement('div');
     applyStyle(this.streakEl, {
       display: 'flex',
