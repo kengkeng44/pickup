@@ -87,6 +87,9 @@ export class ClozeUI {
   /** v0.8 force-correct: true after a wrong answer is shown and we are
    *  waiting for the player to tap the correct option. */
   private awaitingForceCorrect = false;
+  /** v0.8.1 blind retry: cached explanation text from the first wrong tap,
+   *  shown only after the player finally lands on the correct option. */
+  private pendingExplanationZh = '';
 
   constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
@@ -149,12 +152,17 @@ export class ClozeUI {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const idx = Number(btn.getAttribute('data-cloze-idx'));
-        // v0.8: in force-correct retry mode, only the correct button is
-        // clickable. Tap it → fire onForceCorrect; PlayScene clears state
-        // and advances.
+        // v0.8.1 blind retry: in force-correct mode, after a wrong tap
+        // the player keeps trying. Wrong tap → mark red locally (no
+        // onAnswer, store already recorded the original wrong answer
+        // for SRS). Correct tap → fire onForceCorrect; PlayScene clears
+        // state and advances.
         if (this.awaitingForceCorrect && this.forceCorrectMode) {
+          if (btn.disabled) return;
           if (idx === this.currentCorrectIndex) {
             this.handlers.onForceCorrect?.(idx);
+          } else {
+            this.markWrongButton(idx);
           }
           return;
         }
@@ -298,6 +306,7 @@ export class ClozeUI {
     this.locked = false;
     this.awaitingForceCorrect = false;
     this.currentCorrectIndex = -1;
+    this.pendingExplanationZh = '';
     for (const { el, letter } of this.buttons) {
       el.disabled = false;
       el.style.display = 'flex';
@@ -309,6 +318,7 @@ export class ClozeUI {
       el.style.borderBottomWidth = '4px';
       el.style.cursor = 'pointer';
       el.style.opacity = '1';
+      el.style.animation = '';
       letter.style.background = '#ffffff';
       letter.style.borderColor = COLOR_BORDER;
       letter.style.color = COLOR_TEXT_MUTED;
@@ -324,7 +334,6 @@ export class ClozeUI {
     explanationZh: string,
     isCorrect?: boolean
   ): void {
-    this.locked = true;
     this.currentCorrectIndex = correctIndex;
     const correct =
       typeof isCorrect === 'boolean'
@@ -334,6 +343,34 @@ export class ClozeUI {
     // v0.8 force-correct: a wrong answer in story mode keeps the correct
     // button clickable so the player MUST tap it themselves to advance.
     const forceCorrectRetry = this.forceCorrectMode && !correct;
+    // v0.8.1 "blind retry": in force-correct mode after a wrong tap, do
+    // NOT reveal which option is correct. Only mark the WRONG-tapped
+    // button red + disable it; leave all OTHER buttons enabled so the
+    // player can keep trying until they hit the correct one. No reveal
+    // panel until they actually answer correctly (or time out).
+    const blindRetry =
+      this.forceCorrectMode &&
+      !correct &&
+      selectedIndex >= 0 &&
+      selectedIndex !== correctIndex;
+
+    if (blindRetry) {
+      // Mark only the wrong button as wrong, keep all OTHER buttons
+      // clickable. Subsequent taps are routed through the
+      // awaitingForceCorrect branch in the click handler (wrong → mark
+      // red locally, correct → onForceCorrect). No hint about which
+      // option is correct, and no reveal panel until the player nails it.
+      this.locked = true; // block onAnswer from re-firing into the store
+      this.awaitingForceCorrect = true;
+      this.pendingExplanationZh = explanationZh;
+      this.markWrongButton(selectedIndex);
+      this.revealPanel.style.display = 'none';
+      this.revealPanel.style.opacity = '0';
+      this.revealPanel.style.transform = 'translateY(40px)';
+      return;
+    }
+
+    this.locked = true;
     this.awaitingForceCorrect = forceCorrectRetry;
 
     for (let i = 0; i < this.buttons.length; i++) {
@@ -348,7 +385,9 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
-        // Re-enable the correct button for the forced retry tap.
+        // Re-enable the correct button for the forced retry tap
+        // (only relevant for time-out path now — wrong clicks are
+        // handled by the blindRetry branch above).
         if (forceCorrectRetry) {
           el.disabled = false;
           el.style.cursor = 'pointer';
@@ -445,16 +484,28 @@ export class ClozeUI {
    */
   acknowledgeForceCorrect(): void {
     this.awaitingForceCorrect = false;
+    this.locked = true;
     for (let i = 0; i < this.buttons.length; i++) {
-      const { el } = this.buttons[i];
+      const { el, letter } = this.buttons[i];
       el.disabled = true;
       el.style.cursor = 'default';
       if (i === this.currentCorrectIndex) {
         el.style.animation = '';
+        // v0.8.1: in blind-retry flow the correct button was never
+        // painted green by revealAnswer — do it here so the player
+        // sees what they finally got right.
+        el.style.background = COLOR_GREEN;
+        el.style.borderColor = COLOR_GREEN_DARK;
+        el.style.borderBottomColor = COLOR_GREEN_DARK;
+        el.style.color = '#ffffff';
+        letter.style.background = '#ffffff';
+        letter.style.borderColor = '#ffffff';
+        letter.style.color = COLOR_GREEN_DARK;
       }
     }
     this.revealHeaderIcon.textContent = '✓';
     this.revealHeaderIcon.style.background = COLOR_GREEN;
+    this.revealHeaderIcon.style.color = '#ffffff';
     this.revealHeaderText.textContent = '答對了!';
     this.revealHeaderText.style.color = COLOR_GREEN_DARK;
     this.revealPanel.style.background = COLOR_GREEN_TINT;
@@ -464,6 +515,51 @@ export class ClozeUI {
     this.revealContinue.style.opacity = '1';
     this.revealContinue.style.cursor = 'pointer';
     this.revealContinue.textContent = '繼續';
+    // v0.8.1: blind-retry path skipped the reveal panel earlier. Make
+    // sure it's shown now with the cached explanation.
+    if (this.pendingExplanationZh) {
+      this.revealText.textContent = this.pendingExplanationZh;
+      this.pendingExplanationZh = '';
+    }
+    if (this.revealPanel.style.display === 'none') {
+      this.revealPanel.style.display = 'block';
+      void this.revealPanel.offsetHeight;
+      this.revealPanel.style.opacity = '1';
+      this.revealPanel.style.transform = 'translateY(0)';
+      window.setTimeout(() => {
+        try {
+          this.revealPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        } catch {
+          this.revealPanel.scrollIntoView(false);
+        }
+      }, 120);
+    }
+  }
+
+  /**
+   * v0.8.1 blind retry — visually mark a wrong-tapped button and disable
+   * it so the player can't tap it again. Used during force-correct retry
+   * when we deliberately HIDE which option is correct.
+   */
+  private markWrongButton(idx: number): void {
+    const btn = this.buttons[idx];
+    if (!btn) return;
+    const { el, letter } = btn;
+    el.disabled = true;
+    el.style.cursor = 'default';
+    el.style.background = COLOR_RED_TINT;
+    el.style.borderColor = COLOR_RED;
+    el.style.borderBottomColor = COLOR_RED_DARK;
+    el.style.color = COLOR_RED_DARK;
+    letter.style.background = COLOR_RED;
+    letter.style.borderColor = COLOR_RED;
+    letter.style.color = '#ffffff';
+    // Brief button-level shake for blind-retry follow-up taps (the
+    // first wrong tap already triggers an app-wide shake via PlayScene).
+    el.classList.remove('wordwar-shake');
+    void el.offsetWidth;
+    el.classList.add('wordwar-shake');
+    window.setTimeout(() => el.classList.remove('wordwar-shake'), 240);
   }
 
   private syncFromState(round: ClozeQuestion | null): void {

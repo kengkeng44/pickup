@@ -183,21 +183,26 @@ export class GameHUD {
       flex: '0 0 auto',
     });
 
-    // Streak (left): 🔥 + number
+    // Streak (left): "x" label + number
     this.streakEl = document.createElement('div');
     applyStyle(this.streakEl, {
       display: 'flex',
-      alignItems: 'center',
-      gap: '4px',
+      alignItems: 'baseline',
+      gap: '3px',
       minWidth: '50px',
       fontSize: '18px',
       fontWeight: '800',
       color: '#ff9600',
     });
-    const flame = document.createElement('span');
-    flame.textContent = '\u{1F525}';
-    applyStyle(flame, { fontSize: '20px', lineHeight: '1' });
-    this.streakEl.appendChild(flame);
+    const streakLabel = document.createElement('span');
+    streakLabel.textContent = 'x';
+    applyStyle(streakLabel, {
+      fontSize: '13px',
+      fontWeight: '800',
+      lineHeight: '1',
+      opacity: '0.85',
+    });
+    this.streakEl.appendChild(streakLabel);
     this.streakNum = document.createElement('span');
     this.streakNum.textContent = '0';
     this.streakEl.appendChild(this.streakNum);
@@ -239,15 +244,20 @@ export class GameHUD {
       justifyContent: 'flex-end',
     });
     const heart = document.createElement('span');
-    heart.textContent = '❤';
-    applyStyle(heart, { fontSize: '22px' });
+    heart.textContent = 'HP';
+    applyStyle(heart, {
+      fontSize: '12px',
+      fontWeight: '800',
+      letterSpacing: '0.5px',
+      opacity: '0.85',
+    });
     const hpCount = document.createElement('span');
     hpCount.textContent = '3';
     applyStyle(hpCount, {
       fontSize: '18px',
       fontWeight: '800',
       color: '#ff4b4b',
-      marginLeft: '2px',
+      marginLeft: '4px',
     });
     this.hpEl.appendChild(heart);
     this.hpEl.appendChild(hpCount);

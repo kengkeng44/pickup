@@ -135,7 +135,7 @@ export class ModeMenu {
     // v0.8: 新故事 is the primary CTA — larger, amber accent, top of list.
     this.content.appendChild(
       this.makeModeCard({
-        emoji: '🐈',
+        emoji: '',
         title: '新故事 · 小貓回家路',
         sub: '8 章治癒系故事 · 48 題 A2',
         primary: COLOR_AMBER,
@@ -162,7 +162,7 @@ export class ModeMenu {
 
     this.content.appendChild(
       this.makeModeCard({
-        emoji: '🎯',
+        emoji: '',
         title: '自由練習',
         sub: '10 題隨機 A2 題目',
         primary: COLOR_GREEN,
@@ -173,7 +173,7 @@ export class ModeMenu {
 
     this.content.appendChild(
       this.makeModeCard({
-        emoji: '🎬',
+        emoji: '',
         title: '情境模式',
         sub: '5 個主題,每題 10 句',
         primary: COLOR_BLUE,
@@ -227,14 +227,16 @@ export class ModeMenu {
       boxShadow: isPrimary ? '0 6px 20px rgba(231, 164, 74, 0.3)' : 'none',
     });
 
-    const iconBox = document.createElement('div');
-    iconBox.textContent = opts.emoji;
-    applyStyle(iconBox, {
-      fontSize: isPrimary ? '44px' : '32px',
-      flex: '0 0 auto',
-      lineHeight: '1',
-    });
-    card.appendChild(iconBox);
+    if (opts.emoji) {
+      const iconBox = document.createElement('div');
+      iconBox.textContent = opts.emoji;
+      applyStyle(iconBox, {
+        fontSize: isPrimary ? '44px' : '32px',
+        flex: '0 0 auto',
+        lineHeight: '1',
+      });
+      card.appendChild(iconBox);
+    }
 
     const text = document.createElement('div');
     applyStyle(text, {
@@ -378,7 +380,7 @@ export class ModeMenu {
     headerRow.appendChild(back);
 
     const title = document.createElement('div');
-    title.textContent = '🎬 選擇情境';
+    title.textContent = '選擇情境';
     applyStyle(title, {
       fontSize: '22px',
       fontWeight: '800',
@@ -421,9 +423,9 @@ export class ModeMenu {
       transition: 'transform 80ms ease-out',
     });
 
-    // Colored emoji circle (scenario-tinted)
+    // Colored circle (scenario-tinted) — shows scenario initial letter
     const iconBox = document.createElement('div');
-    iconBox.textContent = meta.emoji;
+    iconBox.textContent = meta.labelEn.charAt(0);
     applyStyle(iconBox, {
       width: '48px',
       height: '48px',
@@ -433,7 +435,9 @@ export class ModeMenu {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '24px',
+      fontSize: '20px',
+      fontWeight: '800',
+      color: meta.accent,
       flex: '0 0 auto',
     });
     card.appendChild(iconBox);
@@ -450,7 +454,7 @@ export class ModeMenu {
     applyStyle(titleEl, { fontSize: '17px', fontWeight: '800' });
     const subEl = document.createElement('div');
     const bestText = best > 0 ? `最佳 ${best} 分` : '尚未挑戰';
-    subEl.textContent = completed ? `${bestText} · ✓ 已通關` : bestText;
+    subEl.textContent = completed ? `${bestText} · 已通關` : bestText;
     applyStyle(subEl, {
       fontSize: '12px',
       fontWeight: '700',

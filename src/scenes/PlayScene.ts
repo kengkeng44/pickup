@@ -128,9 +128,9 @@ export class PlayScene extends Phaser.Scene {
     const isStory = state.mode === 'story';
     const isScenario = state.mode === 'scenario';
     const chipLabel = isStory
-      ? `${meta.emoji} 第 ${state.chapter} 章 · ${meta.labelZh}`
+      ? `第 ${state.chapter} 章 · ${meta.labelZh}`
       : isScenario
-        ? `${meta.emoji} ${meta.labelEn}`
+        ? meta.labelEn
         : '';
 
     // Story mode: total rounds = SRS + 6 chapter questions. Computed in
@@ -359,9 +359,9 @@ export class PlayScene extends Phaser.Scene {
     const low = remaining > 0 && remaining <= TIMER_LOW_THRESHOLD_MS;
 
     const chipLabel = isStory && state.chapter
-      ? `${meta.emoji} 第 ${state.chapter} 章 · ${meta.labelZh}`
+      ? `第 ${state.chapter} 章 · ${meta.labelZh}`
       : isScenario
-        ? `${meta.emoji} ${meta.labelEn}`
+        ? meta.labelEn
         : '';
 
     this.hud.render({

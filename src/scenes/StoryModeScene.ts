@@ -109,7 +109,7 @@ export class StoryModeScene extends Phaser.Scene {
     headerRow.appendChild(back);
 
     const title = document.createElement('div');
-    title.textContent = '🐈 小貓回家路';
+    title.textContent = '小貓回家路';
     applyStyle(title, {
       fontSize: '22px',
       fontWeight: '900',
@@ -143,7 +143,7 @@ export class StoryModeScene extends Phaser.Scene {
     if (progress.highestCompleted > 0) {
       const restart = document.createElement('button');
       restart.type = 'button';
-      restart.textContent = '重新開始故事 ↺';
+      restart.textContent = '重新開始故事';
       applyStyle(restart, {
         marginTop: '10px',
         background: 'transparent',
@@ -223,8 +223,10 @@ export class StoryModeScene extends Phaser.Scene {
         svg.setAttribute('height', '60');
       }
     } else {
-      mascotBox.textContent = '🔒';
-      mascotBox.style.fontSize = '24px';
+      mascotBox.textContent = '鎖';
+      mascotBox.style.fontSize = '20px';
+      mascotBox.style.fontWeight = '800';
+      mascotBox.style.color = COLOR_LOCKED;
     }
     card.appendChild(mascotBox);
 
@@ -236,14 +238,14 @@ export class StoryModeScene extends Phaser.Scene {
       flex: '1 1 auto',
     });
     const titleEl = document.createElement('div');
-    titleEl.textContent = `${meta.emoji} 第 ${id} 章 · ${meta.titleZh}`;
+    titleEl.textContent = `第 ${id} 章 · ${meta.titleZh}`;
     applyStyle(titleEl, { fontSize: '16px', fontWeight: '800' });
     text.appendChild(titleEl);
 
     const subEl = document.createElement('div');
     let subText = meta.titleEn;
-    if (completed) subText = `✓ 已完成 · ${meta.titleEn}`;
-    else if (inProgress) subText = `▶ 進行中 · ${meta.titleEn}`;
+    if (completed) subText = `已完成 · ${meta.titleEn}`;
+    else if (inProgress) subText = `進行中 · ${meta.titleEn}`;
     else if (!unlocked) subText = `未解鎖 · 完成第 ${id - 1} 章後開啟`;
     subEl.textContent = subText;
     applyStyle(subEl, {
@@ -259,7 +261,7 @@ export class StoryModeScene extends Phaser.Scene {
     card.appendChild(text);
 
     const arrow = document.createElement('div');
-    arrow.textContent = unlocked ? '→' : '🔒';
+    arrow.textContent = unlocked ? '→' : '';
     applyStyle(arrow, {
       fontSize: unlocked ? '22px' : '16px',
       fontWeight: '800',

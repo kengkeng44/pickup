@@ -128,7 +128,7 @@ export class ChapterIntroScene extends Phaser.Scene {
 
     // Big title
     const title = document.createElement('div');
-    title.textContent = `${meta.emoji} ${meta.titleZh}`;
+    title.textContent = meta.titleZh;
     applyStyle(title, {
       fontSize: '30px',
       fontWeight: '900',
@@ -217,7 +217,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     // SRS notice (optional)
     if (srsCount > 0) {
       const srsNote = document.createElement('div');
-      srsNote.textContent = `📖 開始前會先複習 ${srsCount} 題之前答錯的題目`;
+      srsNote.textContent = `開始前會先複習 ${srsCount} 題之前答錯的題目`;
       applyStyle(srsNote, {
         background: '#fff4d4',
         border: `2px solid ${COLOR_AMBER}`,

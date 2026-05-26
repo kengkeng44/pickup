@@ -93,7 +93,7 @@ export class ChapterEndScene extends Phaser.Scene {
 
     // Chapter complete banner
     const banner = document.createElement('div');
-    banner.textContent = `第 ${chapter} 章完成 ✨`;
+    banner.textContent = `第 ${chapter} 章完成`;
     applyStyle(banner, {
       textAlign: 'center',
       fontSize: '14px',
@@ -106,7 +106,7 @@ export class ChapterEndScene extends Phaser.Scene {
     content.appendChild(banner);
 
     const title = document.createElement('div');
-    title.textContent = `${meta.emoji} ${meta.titleZh}`;
+    title.textContent = meta.titleZh;
     applyStyle(title, {
       fontSize: '26px',
       fontWeight: '900',
@@ -217,7 +217,7 @@ export class ChapterEndScene extends Phaser.Scene {
     // Next chapter CTA
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.textContent = `下一章 → ${nextMeta.emoji} ${nextMeta.titleZh}`;
+    cta.textContent = `下一章 → ${nextMeta.titleZh}`;
     applyStyle(cta, {
       marginTop: '4px',
       padding: '16px 24px',

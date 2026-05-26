@@ -190,7 +190,7 @@ export class EndOverlay {
     });
 
     const head = document.createElement('div');
-    head.textContent = `${meta.emoji} ${meta.labelZh}`;
+    head.textContent = meta.labelZh;
     applyStyle(head, {
       fontSize: '15px',
       fontWeight: '800',
@@ -212,7 +212,7 @@ export class EndOverlay {
 
     const best = document.createElement('div');
     best.textContent = this.opts.newBest
-      ? `🏆 新紀錄 · Best ${this.opts.bestScore}`
+      ? `新紀錄 · Best ${this.opts.bestScore}`
       : `Best ${this.opts.bestScore}`;
     applyStyle(best, {
       fontSize: '12px',
@@ -246,7 +246,7 @@ export class EndOverlay {
 
     row.appendChild(
       this.makeStatTile({
-        icon: '⚡',
+        icon: '',
         label: 'XP',
         value: '', // filled by count-up
         color: COLOR_YELLOW,
@@ -256,7 +256,7 @@ export class EndOverlay {
     );
     row.appendChild(
       this.makeStatTile({
-        icon: '🎯',
+        icon: '',
         label: 'Accuracy',
         value: `${accuracy}%`,
         color: COLOR_GREEN,
@@ -265,7 +265,7 @@ export class EndOverlay {
     );
     row.appendChild(
       this.makeStatTile({
-        icon: '⏱️',
+        icon: '',
         label: 'Time',
         value: timeLabel,
         color: COLOR_BLUE,
@@ -274,7 +274,7 @@ export class EndOverlay {
     );
     row.appendChild(
       this.makeStatTile({
-        icon: '🔥',
+        icon: '',
         label: 'Streak',
         value: String(this.opts.bestStreak),
         color: COLOR_ORANGE,
@@ -310,10 +310,12 @@ export class EndOverlay {
       opacity: '0',
     });
 
-    const icon = document.createElement('div');
-    icon.textContent = opts.icon;
-    applyStyle(icon, { fontSize: '20px', lineHeight: '1' });
-    tile.appendChild(icon);
+    if (opts.icon) {
+      const icon = document.createElement('div');
+      icon.textContent = opts.icon;
+      applyStyle(icon, { fontSize: '20px', lineHeight: '1' });
+      tile.appendChild(icon);
+    }
 
     const value = document.createElement('div');
     value.textContent = opts.value;

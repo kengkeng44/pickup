@@ -94,7 +94,7 @@ export class StoryEndingScene extends Phaser.Scene {
     content.appendChild(banner);
 
     const title = document.createElement('div');
-    title.textContent = '🐈 小貓回家路';
+    title.textContent = '小貓回家路';
     applyStyle(title, {
       fontSize: '32px',
       fontWeight: '900',
@@ -147,8 +147,14 @@ export class StoryEndingScene extends Phaser.Scene {
       }
       cell.appendChild(svgBox);
       const label = document.createElement('div');
-      label.textContent = `${m.emoji}`;
-      applyStyle(label, { fontSize: '14px' });
+      label.textContent = `Ch${m.id}`;
+      applyStyle(label, {
+        fontSize: '11px',
+        fontWeight: '800',
+        color: COLOR_AMBER_DARK,
+        fontFamily:
+          'ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace',
+      });
       cell.appendChild(label);
       arcRow.appendChild(cell);
       window.requestAnimationFrame(() => {
@@ -185,7 +191,7 @@ export class StoryEndingScene extends Phaser.Scene {
       '她有過家。她現在,選了家人。\n\n' +
       '雪又下了起來,但她不再是被風吹著走的小貓——\n' +
       '她是那群人圍著的、那個中心。\n\n' +
-      '你陪牠走完了這條路。謝謝你 ❤';
+      '你陪牠走完了這條路。謝謝你。';
     content.appendChild(ending);
 
     // Stats line

@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { ClozeQuestionSchema, type ClozeQuestion } from './sentences';
 
+// DEV: all chapters unlocked for testing — flip to false before public ship
+const DEV_UNLOCK_ALL = true;
+
 /**
  * StoryQuestion — A2 cloze tied to a chapter of the "小貓回家路" story.
  * Each chapter has exactly 6 questions in fixed order (questionInChapter 1..6).
@@ -89,7 +92,7 @@ export interface ChapterMeta {
 export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   1: {
     id: 1,
-    emoji: '🌧️',
+    emoji: '',
     titleZh: '流落街頭',
     titleEn: 'Lost on the Streets',
     narration:
@@ -102,7 +105,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   2: {
     id: 2,
-    emoji: '🥐',
+    emoji: '',
     titleZh: '麵包店午後',
     titleEn: 'Bakery Afternoon',
     narration:
@@ -115,7 +118,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   3: {
     id: 3,
-    emoji: '🏞️',
+    emoji: '',
     titleZh: '公園的小妹妹',
     titleEn: 'Park Girl',
     narration:
@@ -128,7 +131,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   4: {
     id: 4,
-    emoji: '🐕',
+    emoji: '',
     titleZh: '流浪狗大哥',
     titleEn: 'Stray Dog Big Brother',
     narration:
@@ -141,7 +144,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   5: {
     id: 5,
-    emoji: '🏠',
+    emoji: '',
     titleZh: '永遠的家',
     titleEn: 'Forever Home',
     narration:
@@ -158,7 +161,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   6: {
     id: 6,
-    emoji: '❄️',
+    emoji: '',
     titleZh: '寒冬考驗',
     titleEn: 'Winter Trial',
     narration:
@@ -174,7 +177,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   7: {
     id: 7,
-    emoji: '⛩️',
+    emoji: '',
     titleZh: '神社的相遇',
     titleEn: 'Shrine Encounter',
     narration:
@@ -190,7 +193,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
   8: {
     id: 8,
-    emoji: '🐾',
+    emoji: '',
     titleZh: '選擇了家人',
     titleEn: 'I Chose My People',
     narration:
@@ -264,6 +267,7 @@ export function resetStoryProgress(): void {
 }
 
 export function isChapterUnlocked(chapter: ChapterId): boolean {
+  if (DEV_UNLOCK_ALL) return true;
   if (chapter === 1) return true;
   const { highestCompleted } = readChapterProgress();
   return highestCompleted >= chapter - 1;
