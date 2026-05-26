@@ -2,19 +2,19 @@
 <html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#fef8ed" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>拾光 · CEFR cloze 填空挑戰</title>
     <meta name="description" content="拾光 (Pickup) — 給上班族的下班逃逸式英文養成遊戲。CEFR A2 cloze 填空挑戰，搭配小貓回家路故事模式。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
     <style>
       /* Inline pre-boot skeleton — paints before main.ts loads, so the
        * first paint isn't blank white. Removed by main.ts after Phaser
        * mounts the BootScene. */
-      html, body { font-family: 'Noto Sans TC', 'Nunito', system-ui, -apple-system, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: #fef8ed; margin: 0; padding: 0; }
+      html, body { font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: #fef8ed; margin: 0; padding: 0; }
       #pickup-preboot-inline {
         position: fixed; inset: 0; background: #fef8ed;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -39,7 +39,8 @@
       <div class="mark">拾光</div>
       <div class="dots"><span></span><span></span><span></span></div>
     </div>
-    <div id="app"></div>
+    <a href="#app" class="skip-link">跳到主內容</a>
+    <main id="app"></main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

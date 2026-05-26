@@ -313,7 +313,7 @@ export class ModeMenu {
       position: 'relative',
     });
     intro.textContent =
-      '選句子中空格最適合的單字。答對加分,答錯扣血。每回合 15 秒,慢了會自動算錯。';
+      '答題像對話 — 答對就推進故事,答錯也沒事,再試到對為止。';
 
     const dismiss = document.createElement('button');
     dismiss.type = 'button';

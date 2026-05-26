@@ -10,10 +10,12 @@
  * working while we migrate. New code SHOULD use --pickup-* tokens. */
 
 :root {
-  /* Font stack — Noto Sans TC is loaded via index.html for proper
-   * Traditional Chinese; Nunito fallback for the Duolingo roundness. */
-  font-family: 'Noto Sans TC', 'Nunito', 'Inter', system-ui, -apple-system,
-    'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  /* Font stack — Noto Sans TC for body CJK (clean readable), Nunito
+   * for display Latin (Duolingo Feather Bold's closest free alternative
+   * — rounded geometric sans). Both loaded via index.html.
+   * See --font-display / --font-body tokens below. */
+  font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'PingFang TC', 'Microsoft JhengHei', sans-serif;
   color: #3d2817;
   background: #fef8ed;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +26,7 @@
    * Each color carries meaning — apply CONSISTENTLY across every
    * surface. Per Duolingo's UX playbook (Crosley / 925studios /
    * raw.studio). */
-  --pickup-success: #58cc02;
+  --pickup-success: #3fa600;
   --pickup-success-dark: #58a700;
   --pickup-success-tint: #e0f5d0;
 
@@ -32,11 +34,11 @@
   --pickup-warning-dark: #e5b400;
   --pickup-warning-tint: #fff4d4;
 
-  --pickup-error: #ff4b4b;
-  --pickup-error-dark: #cc3a3a;
+  --pickup-error: #d92e2e;
+  --pickup-error-dark: #a82020;
   --pickup-error-tint: #ffd6d6;
 
-  --pickup-streak: #ff9600;
+  --pickup-streak: #cc7800;
   --pickup-streak-dark: #cc7800;
   --pickup-streak-tint: #fff0d6;
 
@@ -52,7 +54,7 @@
   --pickup-bg-outer: #f4ecd8;
   --pickup-surface: #ffffff;
   --pickup-accent: #e7a44a;
-  --pickup-accent-dark: #b07a2a;
+  --pickup-accent-dark: #8e5e1e;
   --pickup-accent-tint: #fdedd0;
 
   /* Text */
@@ -67,9 +69,11 @@
 
   /* ─── Typography scale (Layer 1) ───────────────────────────────────
    * Use as `font: var(--font-display);` shorthand OR pull pieces. */
-  --font-family: 'Noto Sans TC', 'Nunito', 'Inter', system-ui,
-    -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei',
-    sans-serif;
+  --font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-display: 'Nunito', 'Noto Sans TC', system-ui, sans-serif;
+  --font-body: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+    'PingFang TC', 'Microsoft JhengHei', sans-serif;
   --font-display-size: 36px;
   --font-display-weight: 900;
   --font-display-tracking: -0.5px;
@@ -117,6 +121,25 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   background: var(--pickup-bg);
+  font-family: var(--font-body);
+}
+
+/* Skip link — visible only on keyboard focus, lets SR / keyboard users
+ * jump past nav directly to main content. */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  padding: 8px 16px;
+  background: var(--pickup-accent-dark);
+  color: white;
+  z-index: 1000;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
 }
 
 /* ─── #app: flex column ──────────────────────────────────────────────────
@@ -601,6 +624,7 @@ button:focus-visible {
   filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
 }
 .pickup-splash-title {
+  font-family: var(--font-display);
   font-size: 64px;
   font-weight: 900;
   letter-spacing: -2px;
@@ -608,6 +632,24 @@ button:focus-visible {
   margin: 0 auto;
   text-shadow: 0 2px 0 var(--pickup-accent-dark);
   line-height: 1;
+}
+
+/* Display font on semantic headings — uses LXGW WenKai TC for Ghibli warmth. */
+h1, h2 {
+  font-family: var(--font-display);
+}
+.pickup-splash-subtitle {
+  font-size: 15px;
+  color: var(--pickup-text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+.pickup-difficulty-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pickup-text-muted);
+  letter-spacing: 0.4px;
 }
 .pickup-splash-cta {
   margin: 8px auto 0;
@@ -741,8 +783,20 @@ button:focus-visible {
 .pickup-difficulty-opt.is-active {
   background: var(--pickup-accent);
   border-color: var(--pickup-accent);
-  color: #ffffff;
+  color: var(--pickup-text);
   font-weight: 700;
+}
+
+/* Scenario chip — keep readable text on amber accent (mirrors active difficulty pill) */
+.pickup-scenario-chip {
+  background: var(--pickup-accent);
+  color: var(--pickup-text);
+}
+
+/* Reveal panel red text — higher contrast on cream/red-tint backgrounds */
+.pickup-reveal-error-text {
+  color: #a82020;
+  background: #ffd6d6;
 }
 
 /* Respect reduced-motion preferences. */

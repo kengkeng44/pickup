@@ -72,10 +72,16 @@ export class BootScene extends Phaser.Scene {
     root.appendChild(mascot);
 
     // Title — single big amber wordmark, centered.
-    const title = document.createElement('div');
+    const title = document.createElement('h1');
     title.className = 'pickup-splash-title';
     title.textContent = '拾光';
     root.appendChild(title);
+
+    // Subtitle — tagline directly under the wordmark.
+    const subtitle = document.createElement('div');
+    subtitle.className = 'pickup-splash-subtitle';
+    subtitle.textContent = '學英文 · 撿回時間';
+    root.appendChild(subtitle);
 
     // CTA — primary action, large.
     const cta = document.createElement('button');
@@ -106,11 +112,51 @@ export class BootScene extends Phaser.Scene {
     const details = document.createElement('details');
     details.className = 'pickup-difficulty';
 
+    // First-time UX: if the user has never seen the difficulty picker,
+    // start it expanded with a one-time inline microcopy nudge. On the
+    // first close we persist a flag and never auto-open again.
+    let firstTimeHint: HTMLDivElement | null = null;
+    let seen = false;
+    try {
+      seen = localStorage.getItem('pickup.difficulty-seen') === '1';
+    } catch {
+      // ignore
+    }
+    if (!seen) {
+      details.open = true;
+    }
+
     const summary = document.createElement('summary');
     summary.className = 'pickup-difficulty-summary';
     const current = useRunStore.getState().difficulty;
     summary.innerHTML = `<span class="pickup-difficulty-label">難度 · <span class="pickup-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="pickup-difficulty-caret">⌄</span>`;
     details.appendChild(summary);
+
+    if (!seen) {
+      firstTimeHint = document.createElement('div');
+      firstTimeHint.className = 'pickup-difficulty-hint';
+      firstTimeHint.textContent = '先選你的程度';
+      details.appendChild(firstTimeHint);
+    }
+
+    const markSeen = () => {
+      if (seen) return;
+      seen = true;
+      try {
+        localStorage.setItem('pickup.difficulty-seen', '1');
+      } catch {
+        // ignore
+      }
+      firstTimeHint?.remove();
+      firstTimeHint = null;
+    };
+
+    // Detect first close (user dismissed / selected) → write 'seen'.
+    details.addEventListener('toggle', () => {
+      if (!details.open) {
+        markSeen();
+      }
+    });
 
     const opts = document.createElement('div');
     opts.className = 'pickup-difficulty-opts';

@@ -555,6 +555,7 @@ export class GameHUD {
 
   /** Heart-loss shake on the HP element. */
   shakeHp(): void {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const el = this.hpEl;
     el.animate(
       [
@@ -573,6 +574,7 @@ export class GameHUD {
    *  pickup-streak-pop keyframe (spring-easing scale + glow) on the
    *  number itself for a more satisfying dopamine hit. */
   pulseStreak(): void {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     // Number pop with glow halo
     this.streakNum.classList.remove('pickup-streak-pop');
     void this.streakNum.offsetWidth;

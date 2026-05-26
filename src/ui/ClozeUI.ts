@@ -198,6 +198,10 @@ export class ClozeUI {
 
     // Reveal panel — built into revealSlot, hidden until revealAnswer().
     this.revealPanel = document.createElement('div');
+    // a11y: announce reveal text to screen readers without stealing focus.
+    this.revealPanel.setAttribute('role', 'status');
+    this.revealPanel.setAttribute('aria-live', 'polite');
+    this.revealPanel.setAttribute('aria-atomic', 'true');
     applyStyle(this.revealPanel, {
       width: '100%',
       padding: '14px 16px',
@@ -252,7 +256,7 @@ export class ClozeUI {
 
     this.revealContinue = document.createElement('button');
     this.revealContinue.type = 'button';
-    this.revealContinue.textContent = 'CONTINUE';
+    this.revealContinue.textContent = '繼續 →';
     applyStyle(this.revealContinue, {
       marginTop: '12px',
       padding: '13px 22px',
@@ -329,6 +333,7 @@ export class ClozeUI {
       el.style.cursor = 'pointer';
       el.style.opacity = '1';
       el.style.animation = '';
+      el.removeAttribute('aria-label');
       letter.style.background = '#ffffff';
       letter.style.borderColor = COLOR_BORDER;
       letter.style.color = COLOR_TEXT_MUTED;
@@ -384,7 +389,7 @@ export class ClozeUI {
     this.awaitingForceCorrect = forceCorrectRetry;
 
     for (let i = 0; i < this.buttons.length; i++) {
-      const { el, letter } = this.buttons[i];
+      const { el, letter, label } = this.buttons[i];
       el.disabled = true;
       el.style.cursor = 'default';
       if (i === correctIndex) {
@@ -395,6 +400,7 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
+        el.setAttribute('aria-label', `正確答案：${label.textContent ?? ''}`);
         // Celebratory bounce on the correct option (only on correct
         // answers — for wrong-then-retry the bounce signals "tap me").
         if (correct) {
@@ -409,7 +415,10 @@ export class ClozeUI {
         if (forceCorrectRetry) {
           el.disabled = false;
           el.style.cursor = 'pointer';
-          el.style.animation = 'mascot-happy-bounce 0.9s ease-in-out infinite';
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.style.animation =
+              'mascot-happy-bounce 0.9s ease-in-out infinite';
+          }
         }
       } else if (i === selectedIndex && selectedIndex !== correctIndex) {
         el.style.background = COLOR_RED_TINT;
@@ -419,6 +428,7 @@ export class ClozeUI {
         letter.style.background = COLOR_RED;
         letter.style.borderColor = COLOR_RED;
         letter.style.color = '#ffffff';
+        el.setAttribute('aria-label', `你選的錯誤答案：${label.textContent ?? ''}`);
         // Gentle wobble on the wrong button — "no, try again" without harshness.
         el.classList.remove('pickup-wobble');
         void el.offsetWidth;
@@ -484,9 +494,13 @@ export class ClozeUI {
     // Use 'end' so the bottom of the panel (CTA) is brought to the bottom
     // of the viewport. Delay slightly so the slide-up animation can start
     // first — feels less jarring than scrolling instantly.
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.setTimeout(() => {
       try {
-        this.revealPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        this.revealPanel.scrollIntoView({
+          behavior: reduceMotion ? 'auto' : 'smooth',
+          block: 'end',
+        });
       } catch {
         // Older browsers without smooth scroll options — fall back silently.
         this.revealPanel.scrollIntoView(false);
@@ -507,7 +521,7 @@ export class ClozeUI {
     this.awaitingForceCorrect = false;
     this.locked = true;
     for (let i = 0; i < this.buttons.length; i++) {
-      const { el, letter } = this.buttons[i];
+      const { el, letter, label } = this.buttons[i];
       el.disabled = true;
       el.style.cursor = 'default';
       if (i === this.currentCorrectIndex) {
@@ -522,6 +536,7 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
+        el.setAttribute('aria-label', `正確答案：${label.textContent ?? ''}`);
       }
     }
     this.revealHeaderIcon.textContent = '✓';
@@ -547,9 +562,13 @@ export class ClozeUI {
       void this.revealPanel.offsetHeight;
       this.revealPanel.style.opacity = '1';
       this.revealPanel.style.transform = 'translateY(0)';
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.setTimeout(() => {
         try {
-          this.revealPanel.scrollIntoView({ behavior: 'smooth', block: 'end' });
+          this.revealPanel.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'end',
+          });
         } catch {
           this.revealPanel.scrollIntoView(false);
         }
@@ -565,7 +584,7 @@ export class ClozeUI {
   private markWrongButton(idx: number): void {
     const btn = this.buttons[idx];
     if (!btn) return;
-    const { el, letter } = btn;
+    const { el, letter, label } = btn;
     el.disabled = true;
     el.style.cursor = 'default';
     el.style.background = COLOR_RED_TINT;
@@ -575,6 +594,7 @@ export class ClozeUI {
     letter.style.background = COLOR_RED;
     letter.style.borderColor = COLOR_RED;
     letter.style.color = '#ffffff';
+    el.setAttribute('aria-label', `你選的錯誤答案：${label.textContent ?? ''}`);
     // v0.10 — gentle wobble (Duolingo pacing principle) replaces the
     // harsher shake on blind-retry follow-up taps. PlayScene still
     // shakes the entire app on the first wrong tap.

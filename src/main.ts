@@ -21,7 +21,7 @@ export const PHASER_WIDTH = 400;
 export const PHASER_HEIGHT = 800;
 
 const config: Phaser.Types.Core.GameConfig = {
-  type: Phaser.AUTO,
+  type: Phaser.HEADLESS,
   parent: 'app',
   width: PHASER_WIDTH,
   height: PHASER_HEIGHT,
