@@ -15,6 +15,9 @@ dist-ssr
 # Temp mascot generation workspace (Pollinations / Claude Design test outputs)
 .tmp-mascots/
 
+# rembg pre-removal backups — keep locally for re-processing, don't ship to git
+public/mascots/*.original.png
+
 # Local env (API keys etc.)
 .env
 .env.local

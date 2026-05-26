@@ -68,7 +68,10 @@ export class BootScene extends Phaser.Scene {
     // Mascot (top — no tagline above it for minimalism).
     const mascot = document.createElement('div');
     mascot.className = 'pickup-splash-mascot';
-    mascot.innerHTML = getMascotSvg('owl');
+    // v1.5.1: splash shows the calico anchor (story protagonist), not the
+    // generic owl. Three-color cat is the brand face — should be the first
+    // thing the user sees.
+    mascot.innerHTML = getMascotSvg('kittenCh1');
     root.appendChild(mascot);
 
     // Title — single big amber wordmark, centered.
