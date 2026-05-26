@@ -487,14 +487,18 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.8.2: tighter — character sits half-overlapping the node tile
-    // (like Duolingo Lin), not pushed off to the side. Smaller mirror
-    // offset (50px instead of full container width).
+    // v1.8.4: position character on the INSIDE of the curve, not based
+    // on the node's absolute dx. Compute local flow direction from
+    // (next.dx - prev.dx). Path curves right → character on right side;
+    // curves left → character on left side.
     const containerW = 122;
-    const catX = slot.dx >= 0
-      ? nodeLeft - containerW + 50   // node on right → cat to its LEFT, 50px overlap
-      : nodeLeft + NODE_SIZE - 50;   // node on left  → cat to its RIGHT, 50px overlap
-    const catY = rowTop - 36;        // partially overlap top of node
+    const prevSlot = NODE_PATH[Math.max(0, nodeIdx - 1)] ?? slot;
+    const nextSlot = NODE_PATH[Math.min(NODE_PATH.length - 1, nodeIdx + 1)] ?? slot;
+    const flowDir = nextSlot.dx - prevSlot.dx;
+    const catX = flowDir >= 0
+      ? nodeLeft + NODE_SIZE - 50   // curve flowing right → character on RIGHT of node
+      : nodeLeft - containerW + 50; // curve flowing left → character on LEFT of node
+    const catY = rowTop - 36;
 
     if (!animate) {
       this.cat.style.transition = 'none';
