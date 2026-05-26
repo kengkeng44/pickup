@@ -461,10 +461,12 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
-/* ─── v1.7.1 cat-themed loading indicator ─────────────────────────────
+/* ─── v1.7.2 cat-themed loading indicator ─────────────────────────────
  * Used by PlayScene + anywhere we need an in-app "loading" state.
- * Mini calico face with looping blinks and a tear forming/fading at the
- * eye corner — reflects the 愛哭鬼但堅韌 character canon. */
+ * Visual: the SAME calico face from the entry transition, scaled to 96px
+ * and rotating 360° as the spinner. Keeps brand continuity — the user
+ * sees the same character on first paint, then again whenever the app
+ * is loading content. */
 .pickup-cat-loader {
   position: fixed;
   top: 50%; left: 50%;
@@ -482,6 +484,8 @@ button:focus-visible {
   height: 96px;
   display: block;
   filter: drop-shadow(0 6px 10px rgba(231, 164, 74, 0.25));
+  animation: pickup-loader-spin 1.6s linear infinite;
+  transform-origin: 50% 50%;
 }
 .pickup-cat-loader .label {
   font-size: 14px;
@@ -490,37 +494,17 @@ button:focus-visible {
   letter-spacing: 0.4px;
   animation: pickup-loader-label 1.6s ease-in-out infinite;
 }
-/* Eye blink loop — close at 1.2s then again at 3.0s */
-.pickup-cat-loader .loader-eye {
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: pickup-loader-blink 3.0s ease-in-out infinite;
-}
-/* Recurring micro-tear: forms, slides, fades, repeats */
-.pickup-cat-loader .loader-tear {
-  transform-origin: center;
-  transform-box: fill-box;
-  animation: pickup-loader-tear 2.4s ease-in-out infinite;
-}
-@keyframes pickup-loader-blink {
-  0%, 38%, 44%, 100% { transform: scaleY(1); }
-  40%, 42%           { transform: scaleY(0.08); }
-}
-@keyframes pickup-loader-tear {
-  0%, 100% { opacity: 0; transform: translateY(-2px) scale(0.4); }
-  20%      { opacity: 1; transform: translateY(0) scale(1); }
-  70%      { opacity: 1; transform: translateY(20px) scale(1.1); }
-  85%      { opacity: 0; transform: translateY(28px) scale(0.9); }
+@keyframes pickup-loader-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 @keyframes pickup-loader-label {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.55; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pickup-cat-loader .loader-eye,
-  .pickup-cat-loader .loader-tear,
+  .pickup-cat-loader svg,
   .pickup-cat-loader .label { animation: none !important; }
-  .pickup-cat-loader .loader-tear { opacity: 0; }
 }
 
 /* ─── v1.6.0 POV scene backdrop ────────────────────────────────────────

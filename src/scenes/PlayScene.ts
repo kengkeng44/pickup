@@ -199,31 +199,29 @@ export class PlayScene extends Phaser.Scene {
     this.loadingEl = document.createElement('div');
     this.loadingEl.id = 'pickup-loading';
     this.loadingEl.className = 'pickup-cat-loader';
+    // v1.7.2: same calico face as the entry transition, scaled to 96px
+    // and rotating 360° (animation in style.css `.pickup-cat-loader svg`).
+    // Identical SVG geometry to the tear-intro so the user sees brand
+    // continuity between first-paint and any in-app loading state.
     this.loadingEl.innerHTML = `
-      <svg viewBox="0 0 100 110" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <!-- ears -->
-        <path d="M 22 48 L 32 22 L 42 48 Z" fill="#9d3e1c"/>
-        <path d="M 78 48 L 68 22 L 58 48 Z" fill="#9d3e1c"/>
-        <path d="M 27 45 L 33 30 L 39 45 Z" fill="#e89887"/>
-        <path d="M 73 45 L 67 30 L 61 45 Z" fill="#e89887"/>
-        <!-- head -->
-        <ellipse cx="50" cy="65" rx="32" ry="30" fill="#fdf0d6"/>
-        <!-- calico patches -->
-        <ellipse cx="38" cy="52" rx="9" ry="6" fill="#e89c5e" transform="rotate(-20 38 52)"/>
-        <ellipse cx="65" cy="60" rx="7" ry="9" fill="#3a2a1f" transform="rotate(18 65 60)"/>
-        <!-- whiskers -->
-        <path d="M 16 70 L 30 71" stroke="#3a2a1f" stroke-width="1" opacity="0.7"/>
-        <path d="M 70 71 L 84 70" stroke="#3a2a1f" stroke-width="1" opacity="0.7"/>
-        <!-- eyes (animated blink) -->
-        <ellipse class="loader-eye" cx="40" cy="65" rx="5" ry="8" fill="#1a1208"/>
-        <ellipse class="loader-eye" cx="60" cy="65" rx="5" ry="8" fill="#1a1208"/>
-        <!-- nose + mouth -->
-        <path d="M 47 78 L 53 78 L 50 81 Z" fill="#d48474"/>
-        <path d="M 44 86 Q 50 89 56 86" stroke="#1a1208" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- recurring tear at left eye corner -->
-        <g class="loader-tear">
-          <path d="M 35 73 Q 33 78 33 82 Q 33 86 35 87 Q 37 86 37 82 Q 37 77 35 73 Z" fill="#6fb8d8" stroke="#3d8aae" stroke-width="0.4"/>
-        </g>
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path d="M 110 195 L 145 100 L 180 195 Z" fill="#9d3e1c"/>
+        <path d="M 290 195 L 255 100 L 220 195 Z" fill="#9d3e1c"/>
+        <path d="M 134 188 L 154 138 L 174 188 Z" fill="#e89887"/>
+        <path d="M 266 188 L 246 138 L 226 188 Z" fill="#e89887"/>
+        <ellipse cx="200" cy="295" rx="138" ry="128" fill="#fdf0d6"/>
+        <ellipse cx="158" cy="220" rx="38" ry="24" fill="#e89c5e" transform="rotate(-22 158 220)"/>
+        <ellipse cx="270" cy="250" rx="32" ry="38" fill="#3a2a1f" transform="rotate(18 270 250)"/>
+        <path d="M 80 330 L 130 335" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 80 352 L 130 350" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 270 335 L 320 330" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <path d="M 270 350 L 320 352" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
+        <ellipse cx="160" cy="295" rx="22" ry="36" fill="#1a1208"/>
+        <ellipse cx="240" cy="295" rx="22" ry="36" fill="#1a1208"/>
+        <circle cx="168" cy="282" r="6.5" fill="#ffffff"/>
+        <circle cx="248" cy="282" r="6.5" fill="#ffffff"/>
+        <path d="M 190 340 L 210 340 L 200 350 Z" fill="#d48474"/>
+        <path d="M 178 372 Q 200 384 222 372" stroke="#1a1208" stroke-width="4.5" fill="none" stroke-linecap="round"/>
       </svg>
       <div class="label">Loading…</div>
     `;
