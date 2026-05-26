@@ -7,6 +7,7 @@ import {
 } from '../data/storyKitten';
 import { applyStyle } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
+import { speak, stopSpeaking } from '../audio/tts';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -184,22 +185,62 @@ export class ChapterIntroScene extends Phaser.Scene {
     sceneCard.appendChild(npcSlot);
     content.appendChild(sceneCard);
 
-    // Narration card
-    const narration = document.createElement('div');
-    applyStyle(narration, {
+    // Narration card — v1.8.2: in listening mode, auto-play TTS + add
+    // small 🔊 replay button so the intro IS a listening exercise.
+    const narrationWrap = document.createElement('div');
+    applyStyle(narrationWrap, {
       background: '#ffffff',
       border: `2px solid ${COLOR_BORDER}`,
       borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
       borderRadius: '16px',
       padding: '16px 18px',
+      position: 'relative',
+    });
+
+    const isListening = useRunStore.getState().listeningMode;
+    if (isListening) {
+      const listenBtn = document.createElement('button');
+      listenBtn.type = 'button';
+      listenBtn.innerHTML = '🔊 Listen';
+      listenBtn.setAttribute('aria-label', 'Replay narration');
+      applyStyle(listenBtn, {
+        position: 'absolute',
+        top: '10px',
+        right: '12px',
+        background: '#3d8aae',
+        color: '#ffffff',
+        border: 'none',
+        borderBottom: '3px solid #2c6986',
+        borderRadius: '10px',
+        padding: '5px 11px',
+        fontSize: '12px',
+        fontWeight: '900',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+      });
+      listenBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        speak(meta.narration);
+      });
+      narrationWrap.appendChild(listenBtn);
+      // Auto-play once after a beat
+      window.setTimeout(() => speak(meta.narration), 400);
+    }
+
+    const narration = document.createElement('div');
+    applyStyle(narration, {
       fontSize: '15px',
       lineHeight: '1.7',
       color: COLOR_TEXT_DARK,
       fontWeight: '600',
       whiteSpace: 'pre-wrap',
+      paddingTop: isListening ? '18px' : '0',
     });
     narration.textContent = meta.narration;
-    content.appendChild(narration);
+    narrationWrap.appendChild(narration);
+    content.appendChild(narrationWrap);
 
     // SRS notice (optional)
     if (srsCount > 0) {
@@ -255,6 +296,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     cta.addEventListener('pointercancel', release);
     cta.addEventListener('click', (e) => {
       e.preventDefault();
+      stopSpeaking();
       this.root?.remove();
       this.root = undefined;
       this.scene.start('PlayScene');

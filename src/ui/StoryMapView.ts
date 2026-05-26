@@ -52,15 +52,17 @@ const CONTAINER_W = 320;
 // per Duolingo reference (user 2026-05-27). No more strict left-right
 // zig-zag. Flow: right cluster → drift center → left cluster → back
 // center. Path reads like a meandering river.
+// v1.8.2: opened vertical spacing from ~84px to ~100px between nodes
+// (more breathing room, less cramped).
 const NODE_PATH: Array<{ dx: number; top: number }> = [
-  { dx: 8,   top: 12 },    // node 0 — slight right of center
-  { dx: 28,  top: 94 },    // node 1 — drift right
-  { dx: 36,  top: 178 },   // node 2 — right peak
-  { dx: 14,  top: 262 },   // node 3 — start curving back
-  { dx: -20, top: 344 },   // node 4 — cross center, into left
-  { dx: -38, top: 430 },   // node 5 — left peak
-  { dx: -18, top: 538 },   // node 6 — Ch2 lock, curve back
-  { dx: 14,  top: 622 },   // node 7 — Ch2 lock, near center
+  { dx: 10,  top: 16 },    // node 0 — slight right of center
+  { dx: 30,  top: 116 },   // node 1 — drift right
+  { dx: 38,  top: 214 },   // node 2 — right peak
+  { dx: 16,  top: 312 },   // node 3 — start curving back
+  { dx: -20, top: 410 },   // node 4 — cross center, into left
+  { dx: -38, top: 506 },   // node 5 — left peak
+  { dx: -18, top: 618 },   // node 6 — Ch2 lock, curve back
+  { dx: 14,  top: 716 },   // node 7 — Ch2 lock, near center
 ];
 // (ROW_HEIGHT removed v1.8.0 — irregular path replaces it)
 
@@ -424,10 +426,9 @@ export class StoryMapView {
     cat.className = 'pickup-map-cat';
     applyStyle(cat, {
       position: 'absolute',
-      // v1.7.16: tighter container — grandma + shiba should look glued
-      // together, not "sitting on empty ground far apart". Container
-      // shrunk so shiba overlaps grandma's right side by ~20px.
-      width: '138px',
+      // v1.8.2: even tighter — shiba overlaps grandma ~35px (was 20).
+      // Container shrunk further.
+      width: '122px',
       height: '110px',
       pointerEvents: 'none',
       zIndex: '5',
@@ -442,12 +443,12 @@ export class StoryMapView {
     cat.innerHTML = `
       <img src="/mascots/iso-grandma.webp" alt="" style="
         position:absolute; left:0; bottom:0;
-        width:96px; height:auto; display:block;
+        width:88px; height:auto; display:block;
         z-index:2;
         filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.20));
       " />
       <img src="/mascots/iso-shiba.webp" alt="" style="
-        position:absolute; left:76px; bottom:-3px;
+        position:absolute; left:58px; bottom:-3px;
         width:62px; height:auto; display:block;
         z-index:1;
         filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.18));
@@ -486,14 +487,14 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.8.1: place character ALONGSIDE the node (like Duolingo Lin),
-    // not stacked above. Mirror left/right based on which side of the
-    // map the current node sits — character always faces inward.
-    const containerW = 138;
+    // v1.8.2: tighter — character sits half-overlapping the node tile
+    // (like Duolingo Lin), not pushed off to the side. Smaller mirror
+    // offset (50px instead of full container width).
+    const containerW = 122;
     const catX = slot.dx >= 0
-      ? nodeLeft - containerW + 12   // node on right → cat to its LEFT
-      : nodeLeft + NODE_SIZE - 12;   // node on left  → cat to its RIGHT
-    const catY = rowTop - 30;        // partially overlap top of node
+      ? nodeLeft - containerW + 50   // node on right → cat to its LEFT, 50px overlap
+      : nodeLeft + NODE_SIZE - 50;   // node on left  → cat to its RIGHT, 50px overlap
+    const catY = rowTop - 36;        // partially overlap top of node
 
     if (!animate) {
       this.cat.style.transition = 'none';
