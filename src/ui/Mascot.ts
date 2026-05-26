@@ -99,7 +99,7 @@ export class Mascot {
 
   constructor(opts: MascotOptions = {}) {
     this.root = document.createElement('div');
-    this.root.id = 'wordwar-mascot';
+    this.root.id = 'pickup-mascot';
     // In-flow flex child. Width/height inherit from CSS var so changes
     // flow through; `margin: 0 auto` centers within the parent slot.
     applyStyle(this.root, {

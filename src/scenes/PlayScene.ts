@@ -191,7 +191,7 @@ export class PlayScene extends Phaser.Scene {
   private showLoadingDom(): void {
     if (this.loadingEl) return;
     this.loadingEl = document.createElement('div');
-    this.loadingEl.id = 'wordwar-loading';
+    this.loadingEl.id = 'pickup-loading';
     Object.assign(this.loadingEl.style, {
       position: 'fixed',
       top: '50%',

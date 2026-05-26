@@ -99,7 +99,7 @@ export class GameHUD {
     this.appRoot = app;
 
     this.root = document.createElement('div');
-    this.root.id = 'wordwar-hud';
+    this.root.id = 'pickup-hud';
     applyStyle(this.root, {
       display: 'flex',
       flexDirection: 'column',
@@ -132,7 +132,7 @@ export class GameHUD {
     for (const el of this.ambientEls) el.remove();
     this.ambientEls = [];
     // Reset any shake class that may have been applied.
-    this.appRoot.classList.remove('wordwar-shake');
+    this.appRoot.classList.remove('pickup-shake');
   }
 
   /** Slot the Mascot component mounts into. */
@@ -152,12 +152,12 @@ export class GameHUD {
 
   /** Trigger a CSS shake on #app (replaces Phaser camera shake). */
   shake(): void {
-    this.appRoot.classList.remove('wordwar-shake');
+    this.appRoot.classList.remove('pickup-shake');
     // Force reflow so the animation restarts.
     void this.appRoot.offsetWidth;
-    this.appRoot.classList.add('wordwar-shake');
+    this.appRoot.classList.add('pickup-shake');
     window.setTimeout(() => {
-      this.appRoot.classList.remove('wordwar-shake');
+      this.appRoot.classList.remove('pickup-shake');
     }, 220);
   }
 
@@ -165,9 +165,9 @@ export class GameHUD {
   flash(color: string, peakAlpha: number): void {
     this.flashEl.style.background = color;
     this.flashEl.style.setProperty('--flash-peak', String(peakAlpha));
-    this.flashEl.classList.remove('wordwar-flash-on');
+    this.flashEl.classList.remove('pickup-flash-on');
     void this.flashEl.offsetWidth;
-    this.flashEl.classList.add('wordwar-flash-on');
+    this.flashEl.classList.add('pickup-flash-on');
   }
 
   // ─── Build ────────────────────────────────────────────────────────────────
@@ -339,7 +339,7 @@ export class GameHUD {
     // everything (z-index 0; flex children default to auto / above).
     for (let i = 1; i <= 3; i++) {
       const el = document.createElement('div');
-      el.classList.add('wordwar-ambient', `wordwar-ambient-${i}`);
+      el.classList.add('pickup-ambient', `pickup-ambient-${i}`);
       this.appRoot.appendChild(el);
       this.ambientEls.push(el);
     }
@@ -377,7 +377,7 @@ export class GameHUD {
 
   private buildSentenceCard(): void {
     this.card = document.createElement('div');
-    this.card.classList.add('wordwar-breathing');
+    this.card.classList.add('pickup-breathing');
     applyStyle(this.card, {
       width: '100%',
       background: 'var(--pickup-surface)',
@@ -471,7 +471,7 @@ export class GameHUD {
 
   private buildFlashOverlay(): void {
     this.flashEl = document.createElement('div');
-    this.flashEl.id = 'wordwar-flash';
+    this.flashEl.id = 'pickup-flash';
     document.body.appendChild(this.flashEl);
   }
 

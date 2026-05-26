@@ -53,7 +53,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     const srsCount = chapter > 1 ? Math.min(3, readSrsQueue().length) : 0;
 
     const root = document.createElement('div');
-    root.id = 'wordwar-chapter-intro';
+    root.id = 'pickup-chapter-intro';
     applyStyle(root, {
       position: 'fixed',
       inset: '0',

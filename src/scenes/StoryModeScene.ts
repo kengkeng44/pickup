@@ -48,7 +48,7 @@ export class StoryModeScene extends Phaser.Scene {
 
   private mountOverlay(): void {
     const root = document.createElement('div');
-    root.id = 'wordwar-story-mode';
+    root.id = 'pickup-story-mode';
     applyStyle(root, {
       position: 'fixed',
       inset: '0',

@@ -172,7 +172,7 @@ export class EndOverlay {
       textShadow: this.opts.dead
         ? 'none'
         : `0 2px 0 ${COLOR_YELLOW}, 0 4px 12px rgba(255, 200, 0, 0.4)`,
-      animation: 'wordwar-banner-pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+      animation: 'pickup-banner-pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1)',
       padding: '4px 8px',
     });
     wrap.appendChild(banner);
@@ -186,7 +186,7 @@ export class EndOverlay {
         fontWeight: '600',
         fontStyle: 'italic',
         color: COLOR_MUTED,
-        animation: 'wordwar-stat-in 480ms ease-out 280ms both',
+        animation: 'pickup-stat-in 480ms ease-out 280ms both',
         opacity: '0',
       });
       wrap.appendChild(sub);
@@ -221,7 +221,7 @@ export class EndOverlay {
       flexDirection: 'column',
       gap: '4px',
       alignItems: 'center',
-      animation: 'wordwar-stat-in 360ms ease-out both',
+      animation: 'pickup-stat-in 360ms ease-out both',
       animationDelay: '40ms',
     });
 
@@ -343,7 +343,7 @@ export class EndOverlay {
       alignItems: 'center',
       gap: '4px',
       minWidth: '0',
-      animation: 'wordwar-stat-in 480ms cubic-bezier(0.34, 1.56, 0.64, 1) both',
+      animation: 'pickup-stat-in 480ms cubic-bezier(0.34, 1.56, 0.64, 1) both',
       animationDelay: `${opts.delayMs}ms`,
       opacity: '0',
       boxShadow: `0 2px 8px ${opts.color}22`,

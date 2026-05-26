@@ -52,7 +52,7 @@ export class StoryEndingScene extends Phaser.Scene {
 
   private mountOverlay(): void {
     const root = document.createElement('div');
-    root.id = 'wordwar-story-ending';
+    root.id = 'pickup-story-ending';
     applyStyle(root, {
       position: 'fixed',
       inset: '0',
@@ -89,7 +89,7 @@ export class StoryEndingScene extends Phaser.Scene {
       letterSpacing: '6px',
       color: COLOR_AMBER_DARK,
       textTransform: 'uppercase',
-      animation: 'wordwar-banner-pop 480ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+      animation: 'pickup-banner-pop 480ms cubic-bezier(0.34, 1.56, 0.64, 1)',
     });
     content.appendChild(banner);
 

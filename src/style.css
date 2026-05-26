@@ -223,7 +223,7 @@ button:focus-visible {
 }
 
 /* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */
-@keyframes wordwar-shake {
+@keyframes pickup-shake {
   0%, 100% { transform: translate(0, 0); }
   15% { transform: translate(-1.5px, 0.5px); }
   30% { transform: translate(1.5px, -0.5px); }
@@ -232,39 +232,39 @@ button:focus-visible {
   75% { transform: translate(-0.5px, 0.5px); }
   90% { transform: translate(0.5px, 0); }
 }
-.wordwar-shake {
-  animation: wordwar-shake 200ms ease-in-out;
+.pickup-shake {
+  animation: pickup-shake 200ms ease-in-out;
 }
 
-#wordwar-flash {
+#pickup-flash {
   position: fixed;
   inset: 0;
   pointer-events: none;
   opacity: 0;
   z-index: 25;
 }
-@keyframes wordwar-flash-anim {
+@keyframes pickup-flash-anim {
   0% { opacity: var(--flash-peak, 0.18); }
   100% { opacity: 0; }
 }
-#wordwar-flash.wordwar-flash-on {
-  animation: wordwar-flash-anim 320ms ease-out;
+#pickup-flash.pickup-flash-on {
+  animation: pickup-flash-anim 320ms ease-out;
 }
 
 /* ─── Boot screen "Tap to start" blink ────────────────────────────────── */
-@keyframes wordwar-blink {
+@keyframes pickup-blink {
   from { opacity: 1; }
   to { opacity: 0.4; }
 }
 
 /* ─── EndOverlay: banner pop + stat tile staggered fade-in ──────────────── */
-@keyframes wordwar-banner-pop {
+@keyframes pickup-banner-pop {
   0% { transform: scale(0.7); opacity: 0; }
   60% { transform: scale(1.08); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-@keyframes wordwar-stat-in {
+@keyframes pickup-stat-in {
   0% { opacity: 0; transform: translateY(12px); }
   100% { opacity: 1; transform: translateY(0); }
 }
@@ -438,18 +438,18 @@ button:focus-visible {
 }
 
 /* ─── Sentence card subtle breathing ───────────────────────────────── */
-.wordwar-breathing {
-  animation: wordwar-breathing 3.2s ease-in-out infinite;
+.pickup-breathing {
+  animation: pickup-breathing 3.2s ease-in-out infinite;
   transform-origin: center;
   will-change: transform;
 }
-@keyframes wordwar-breathing {
+@keyframes pickup-breathing {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.006); }
 }
 
 /* ─── Ambient background drift shapes ──────────────────────────────── */
-.wordwar-ambient {
+.pickup-ambient {
   position: absolute;
   pointer-events: none;
   border-radius: 50%;
@@ -457,28 +457,28 @@ button:focus-visible {
   will-change: transform, opacity;
   z-index: 0;
 }
-#wordwar-hud {
+#pickup-hud {
   position: relative;
   z-index: 1;
 }
-.wordwar-ambient-1 {
+.pickup-ambient-1 {
   width: 44px;
   height: 44px;
   background: #c8eba0;
   top: 18%;
   left: 8%;
-  animation: wordwar-drift-a 9s ease-in-out infinite;
+  animation: pickup-drift-a 9s ease-in-out infinite;
 }
-.wordwar-ambient-2 {
+.pickup-ambient-2 {
   width: 28px;
   height: 28px;
   background: #ffe48a;
   top: 26%;
   right: 10%;
-  animation: wordwar-drift-b 11s ease-in-out infinite;
+  animation: pickup-drift-b 11s ease-in-out infinite;
   animation-delay: -3s;
 }
-.wordwar-ambient-3 {
+.pickup-ambient-3 {
   width: 36px;
   height: 36px;
   background: #b8e0ff;
@@ -486,18 +486,18 @@ button:focus-visible {
   right: 32%;
   border-radius: 8px;
   transform: rotate(12deg);
-  animation: wordwar-drift-c 13s ease-in-out infinite;
+  animation: pickup-drift-c 13s ease-in-out infinite;
   animation-delay: -6s;
 }
-@keyframes wordwar-drift-a {
+@keyframes pickup-drift-a {
   0%, 100% { transform: translate(0, 0); opacity: 0.16; }
   50% { transform: translate(14px, -10px); opacity: 0.22; }
 }
-@keyframes wordwar-drift-b {
+@keyframes pickup-drift-b {
   0%, 100% { transform: translate(0, 0); opacity: 0.14; }
   50% { transform: translate(-12px, 8px); opacity: 0.2; }
 }
-@keyframes wordwar-drift-c {
+@keyframes pickup-drift-c {
   0%, 100% { transform: rotate(12deg) translate(0, 0); opacity: 0.12; }
   50% { transform: rotate(-6deg) translate(10px, 14px); opacity: 0.18; }
 }
@@ -559,7 +559,7 @@ button:focus-visible {
  *   - 開始 CTA = the only loud element. Difficulty is a quiet
  *     collapsible underneath, much smaller, muted color.
  */
-#wordwar-splash {
+#pickup-splash {
   position: fixed;
   inset: 0;
   background: var(--pickup-bg);
@@ -575,16 +575,16 @@ button:focus-visible {
   box-sizing: border-box;
   text-align: center;
   opacity: 0;
-  animation: wordwar-splash-in 360ms ease-out forwards;
+  animation: pickup-splash-in 360ms ease-out forwards;
 }
-@keyframes wordwar-splash-in {
+@keyframes pickup-splash-in {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
-#wordwar-splash * {
+#pickup-splash * {
   text-align: center;
 }
-.wordwar-splash-mascot {
+.pickup-splash-mascot {
   width: 220px;
   height: 250px;
   animation: mascot-idle-bob 2.6s ease-in-out infinite;
@@ -594,13 +594,13 @@ button:focus-visible {
   justify-content: center;
   margin: 0 auto;
 }
-.wordwar-splash-mascot svg {
+.pickup-splash-mascot svg {
   width: 100%;
   height: 100%;
   display: block;
   filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
 }
-.wordwar-splash-title {
+.pickup-splash-title {
   font-size: 64px;
   font-weight: 900;
   letter-spacing: -2px;
@@ -609,7 +609,7 @@ button:focus-visible {
   text-shadow: 0 2px 0 var(--pickup-accent-dark);
   line-height: 1;
 }
-.wordwar-splash-cta {
+.pickup-splash-cta {
   margin: 8px auto 0;
   width: min(280px, 75%);
   min-height: 64px;
@@ -632,17 +632,17 @@ button:focus-visible {
   box-shadow: 0 4px 14px rgba(88, 204, 2, 0.28);
   animation: pickup-pulse 2.2s ease-in-out infinite;
 }
-.wordwar-splash-cta:hover {
+.pickup-splash-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(88, 204, 2, 0.38);
 }
-.wordwar-splash-cta:active {
+.pickup-splash-cta:active {
   transform: translateY(3px);
   border-bottom-width: 2px;
   box-shadow: none;
   animation: none;
 }
-.wordwar-splash-footer {
+.pickup-splash-footer {
   position: absolute;
   bottom: max(20px, env(safe-area-inset-bottom));
   left: 0;
@@ -660,12 +660,12 @@ button:focus-visible {
  *   - regular weight (vs CTA's 900),
  *   - muted color (vs CTA's white-on-green).
  * Native <details>/<summary> for zero-JS toggle. */
-.wordwar-difficulty {
+.pickup-difficulty {
   margin: 4px auto 0;
   width: min(280px, 75%);
   text-align: center;
 }
-.wordwar-difficulty-summary {
+.pickup-difficulty-summary {
   list-style: none;
   display: inline-flex;
   align-items: center;
@@ -681,39 +681,39 @@ button:focus-visible {
   -webkit-tap-highlight-color: transparent;
   transition: color 160ms ease-out, background 160ms ease-out;
 }
-.wordwar-difficulty-summary::-webkit-details-marker {
+.pickup-difficulty-summary::-webkit-details-marker {
   display: none;
 }
-.wordwar-difficulty-summary:hover {
+.pickup-difficulty-summary:hover {
   color: var(--pickup-text);
   background: rgba(231, 164, 74, 0.08);
 }
-.wordwar-difficulty-current {
+.pickup-difficulty-current {
   font-weight: 700;
   color: var(--pickup-accent);
 }
-.wordwar-difficulty-caret {
+.pickup-difficulty-caret {
   display: inline-block;
   font-size: 12px;
   line-height: 1;
   transition: transform 220ms var(--pickup-snap);
   color: var(--pickup-text-soft);
 }
-.wordwar-difficulty[open] .wordwar-difficulty-caret {
+.pickup-difficulty[open] .pickup-difficulty-caret {
   transform: rotate(180deg);
 }
-.wordwar-difficulty-opts {
+.pickup-difficulty-opts {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 10px;
-  animation: wordwar-difficulty-reveal 220ms var(--pickup-snap);
+  animation: pickup-difficulty-reveal 220ms var(--pickup-snap);
 }
-@keyframes wordwar-difficulty-reveal {
+@keyframes pickup-difficulty-reveal {
   from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.wordwar-difficulty-opt {
+.pickup-difficulty-opt {
   flex: 0 0 auto;
   min-width: 60px;
   padding: 8px 14px;
@@ -731,14 +731,14 @@ button:focus-visible {
   transition: background 140ms ease-out, color 140ms ease-out,
     border-color 140ms ease-out, transform 100ms var(--pickup-snap);
 }
-.wordwar-difficulty-opt:hover {
+.pickup-difficulty-opt:hover {
   border-color: var(--pickup-accent);
   color: var(--pickup-text);
 }
-.wordwar-difficulty-opt:active {
+.pickup-difficulty-opt:active {
   transform: translateY(1px);
 }
-.wordwar-difficulty-opt.is-active {
+.pickup-difficulty-opt.is-active {
   background: var(--pickup-accent);
   border-color: var(--pickup-accent);
   color: #ffffff;
@@ -751,10 +751,10 @@ button:focus-visible {
   .mascot-happy,
   .mascot-sad,
   .mascot-wrap .mascot-eye,
-  .wordwar-breathing,
-  .wordwar-ambient,
-  .wordwar-splash-mascot,
-  .wordwar-splash-cta,
+  .pickup-breathing,
+  .pickup-ambient,
+  .pickup-splash-mascot,
+  .pickup-splash-cta,
   .pickup-bounce,
   .pickup-pulse,
   .pickup-wobble,
@@ -764,20 +764,20 @@ button:focus-visible {
   .pickup-glow,
   #pickup-preboot-mark,
   #pickup-preboot-dots span,
-  #wordwar-splash,
-  .wordwar-difficulty-opts {
+  #pickup-splash,
+  .pickup-difficulty-opts {
     animation: none !important;
   }
-  .wordwar-difficulty-caret {
+  .pickup-difficulty-caret {
     transition: none !important;
   }
   #boot-overlay * {
     animation: none !important;
   }
-  .wordwar-shake {
+  .pickup-shake {
     animation: none;
   }
-  #wordwar-flash.wordwar-flash-on {
+  #pickup-flash.pickup-flash-on {
     animation: none;
   }
 }

@@ -64,7 +64,7 @@ export class ChapterEndScene extends Phaser.Scene {
     const nextMeta = CHAPTER_META[nextId];
 
     const root = document.createElement('div');
-    root.id = 'wordwar-chapter-end';
+    root.id = 'pickup-chapter-end';
     applyStyle(root, {
       position: 'fixed',
       inset: '0',
@@ -101,7 +101,7 @@ export class ChapterEndScene extends Phaser.Scene {
       letterSpacing: '3px',
       color: COLOR_AMBER_DARK,
       textTransform: 'uppercase',
-      animation: 'wordwar-banner-pop 480ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+      animation: 'pickup-banner-pop 480ms cubic-bezier(0.34, 1.56, 0.64, 1)',
     });
     content.appendChild(banner);
 

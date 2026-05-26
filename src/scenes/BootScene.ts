@@ -48,7 +48,7 @@ export class BootScene extends Phaser.Scene {
     // the difficulty <details> now needs taps to expand without leaking
     // through to advance().
     const cta = this.overlay?.querySelector<HTMLButtonElement>(
-      '.wordwar-splash-cta'
+      '.pickup-splash-cta'
     );
     cta?.addEventListener('click', (e) => {
       e.preventDefault();
@@ -63,24 +63,24 @@ export class BootScene extends Phaser.Scene {
 
   private mountOverlay(): void {
     const root = document.createElement('div');
-    root.id = 'wordwar-splash';
+    root.id = 'pickup-splash';
 
     // Mascot (top — no tagline above it for minimalism).
     const mascot = document.createElement('div');
-    mascot.className = 'wordwar-splash-mascot';
+    mascot.className = 'pickup-splash-mascot';
     mascot.innerHTML = getMascotSvg('owl');
     root.appendChild(mascot);
 
     // Title — single big amber wordmark, centered.
     const title = document.createElement('div');
-    title.className = 'wordwar-splash-title';
+    title.className = 'pickup-splash-title';
     title.textContent = '拾光';
     root.appendChild(title);
 
     // CTA — primary action, large.
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.className = 'wordwar-splash-cta';
+    cta.className = 'pickup-splash-cta';
     cta.textContent = '開始';
     root.appendChild(cta);
 
@@ -89,7 +89,7 @@ export class BootScene extends Phaser.Scene {
 
     // Tiny version footer
     const footer = document.createElement('div');
-    footer.className = 'wordwar-splash-footer';
+    footer.className = 'pickup-splash-footer';
     footer.textContent = `v0.13.0`;
     root.appendChild(footer);
 
@@ -104,16 +104,16 @@ export class BootScene extends Phaser.Scene {
    */
   private makeDifficultyCollapsible(): HTMLElement {
     const details = document.createElement('details');
-    details.className = 'wordwar-difficulty';
+    details.className = 'pickup-difficulty';
 
     const summary = document.createElement('summary');
-    summary.className = 'wordwar-difficulty-summary';
+    summary.className = 'pickup-difficulty-summary';
     const current = useRunStore.getState().difficulty;
-    summary.innerHTML = `<span class="wordwar-difficulty-label">難度 · <span class="wordwar-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="wordwar-difficulty-caret">⌄</span>`;
+    summary.innerHTML = `<span class="pickup-difficulty-label">難度 · <span class="pickup-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="pickup-difficulty-caret">⌄</span>`;
     details.appendChild(summary);
 
     const opts = document.createElement('div');
-    opts.className = 'wordwar-difficulty-opts';
+    opts.className = 'pickup-difficulty-opts';
 
     const tiers: Difficulty[] = ['easy', 'medium', 'hard'];
     const buttons = new Map<Difficulty, HTMLButtonElement>();
@@ -122,14 +122,14 @@ export class BootScene extends Phaser.Scene {
       for (const [id, el] of buttons) {
         el.classList.toggle('is-active', id === active);
       }
-      const cur = summary.querySelector('.wordwar-difficulty-current');
+      const cur = summary.querySelector('.pickup-difficulty-current');
       if (cur) cur.textContent = DIFFICULTY_LABELS[active];
     };
 
     for (const tier of tiers) {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'wordwar-difficulty-opt';
+      btn.className = 'pickup-difficulty-opt';
       btn.dataset.difficulty = tier;
       btn.textContent = DIFFICULTY_LABELS[tier];
       btn.addEventListener('click', (e) => {
