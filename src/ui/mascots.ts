@@ -323,6 +323,11 @@ const receptionist = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 1
 // — will swap over when user generates more variants.
 // v1.7.13: switched .png -> .webp (754KB -> 74KB, 90% reduction).
 // All modern browsers (Safari 14+, Chrome 32+, Firefox 65+) support WebP.
+// v1.9.3: kitten Ch1 now uses iso-shiba as the cat surrogate (story
+// reframed: Pickup's protagonist is the calico but the player journeys
+// alongside both — shiba provides a more lively iso-chibi presence for
+// chapter intros while the calico stays on the splash + tear intro).
+// User generated both characters in same iso chibi anchor session.
 const kittenCh1 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
   <image href="/mascots/calico-anchor.webp" x="0" y="0" width="100" height="140" preserveAspectRatio="xMidYMid meet"/>
 </svg>`;
@@ -566,60 +571,11 @@ const kittenCh5 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140"
 
 // ─── Story NPCs ──────────────────────────────────────────────────────────────
 
-// Ch1 — Grandma holding umbrella overhead, sheltering, rain droplets context.
-const npcGrandma = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true">
-  <defs>
-    <radialGradient id="gm-halo" cx="50%" cy="45%" r="60%">
-      <stop offset="0%" stop-color="#fef3c7"/>
-      <stop offset="100%" stop-color="#fcd34d"/>
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="80" r="52" fill="url(#gm-halo)" opacity="0.88"/>
-  <!-- Rain droplets falling around umbrella (context) -->
-  <g fill="#3b82f6" stroke="none" opacity="0.75">
-    <ellipse cx="10" cy="56" rx="1.5" ry="3"/>
-    <ellipse cx="18" cy="40" rx="1.5" ry="3"/>
-    <ellipse cx="82" cy="40" rx="1.5" ry="3"/>
-    <ellipse cx="90" cy="56" rx="1.5" ry="3"/>
-    <ellipse cx="6" cy="80" rx="1.2" ry="2.6"/>
-    <ellipse cx="94" cy="80" rx="1.2" ry="2.6"/>
-  </g>
-  <ellipse cx="50" cy="133" rx="26" ry="2.5" fill="#1a1a1a" opacity="0.2"/>
-  <g stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Umbrella (dusty rose, big & arched overhead) -->
-    <path d="M10 42 Q50 8 90 42 Q70 38 50 42 Q30 38 10 42 Z" fill="#e8a3a3" stroke-width="5"/>
-    <!-- Umbrella spokes -->
-    <path d="M30 42 L30 38" stroke-width="2.5" fill="none"/>
-    <path d="M50 42 L50 14" stroke-width="2.5" fill="none"/>
-    <path d="M70 42 L70 38" stroke-width="2.5" fill="none"/>
-    <!-- Umbrella shaft -->
-    <path d="M50 42 L50 76" fill="none" stroke-width="3"/>
-    <!-- Umbrella handle (J-curve) -->
-    <path d="M48 76 Q50 84 58 80" fill="none" stroke-width="3"/>
-  </g>
-  <g class="mascot-body" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Body / shawl (dusty rose) -->
-    <path d="M26 96 Q36 90 50 90 Q64 90 74 96 L78 132 L22 132 Z" fill="#e8a3a3" stroke-width="5"/>
-    <!-- Cardigan buttons -->
-    <circle cx="50" cy="104" r="1.8" fill="#1a1a1a" stroke="none"/>
-    <circle cx="50" cy="116" r="1.8" fill="#1a1a1a" stroke="none"/>
-    <circle cx="50" cy="128" r="1.8" fill="#1a1a1a" stroke="none"/>
-    <!-- Head -->
-    <circle cx="50" cy="70" r="22" fill="#fde4c8" stroke-width="5"/>
-    <!-- White bun hair -->
-    <path d="M30 60 Q34 50 50 50 Q66 50 70 60 Q60 56 50 58 Q40 56 30 60 Z" fill="#e2e8f0" stroke-width="4"/>
-    <circle cx="50" cy="48" r="7" fill="#e2e8f0" stroke-width="3.5"/>
-    <!-- Closed gentle eyes -->
-    <path d="M40 70 Q42 74 44 70" fill="none" stroke-width="3" class="mascot-eye"/>
-    <path d="M56 70 Q58 74 60 70" fill="none" stroke-width="3" class="mascot-eye mascot-eye-right"/>
-    <!-- Strong cheek blush -->
-    <circle cx="36" cy="76" r="3.2" fill="#f4a8a8" opacity="0.9" stroke="none"/>
-    <circle cx="64" cy="76" r="3.2" fill="#f4a8a8" opacity="0.9" stroke="none"/>
-    <!-- Gentle smile -->
-    <path d="M44 82 Q50 86 56 82" fill="none" stroke-width="3"/>
-    <!-- Cane -->
-    <path d="M82 100 Q86 96 88 100 L88 132" fill="none" stroke-width="3.5"/>
-  </g>
+// Ch1 — Grandma. v1.9.3: use user-generated isometric chibi PNG (rembg'd
+// to transparent + WebP). Replaces old Suntera-flat SVG for visual
+// consistency with the v1.7+ Duolingo character system.
+const npcGrandma = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+  <image href="/mascots/iso-grandma.webp" x="0" y="0" width="100" height="140" preserveAspectRatio="xMidYMid meet"/>
 </svg>`;
 
 // Ch2 — Baker holding fresh bread roll, flour-dust puffs, "★" on chef hat.
