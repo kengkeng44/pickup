@@ -7,6 +7,7 @@ import {
 import { applyStyle } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { sfxEndFanfare } from '../audio/sfx';
+import { Confetti } from '../ui/Confetti';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -52,9 +53,16 @@ export class ChapterEndScene extends Phaser.Scene {
     this.mountOverlay(chapter);
     sfxEndFanfare();
 
+    // v1.9.9: confetti burst on chapter complete — Duolingo-style
+    // celebration. Mounts overlay, runs the burst, auto-cleans up.
+    const confetti = new Confetti();
+    confetti.fire();
+    window.setTimeout(() => confetti.destroy(), 3000);
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.root?.remove();
       this.root = undefined;
+      confetti.destroy();
     });
   }
 
