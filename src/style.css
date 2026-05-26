@@ -461,6 +461,27 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── v1.9.10 listen button "tap me" subtle pulse ──────────────────────
+ * Periodic gentle nudge so user knows the speaker is interactive.
+ * Applies to PlayScene listening 🔊 button + TapInputUI speaker icon. */
+.pickup-listen-btn,
+.pickup-tap-tiles svg.tap-speaker,
+.pickup-tap-tiles button[aria-label="Replay audio"],
+.pickup-type-what-you-hear button[aria-label="Replay audio"] {
+  animation: pickup-speaker-pulse 2.6s ease-in-out infinite;
+}
+@keyframes pickup-speaker-pulse {
+  0%, 75%, 100% { transform: scale(1); }
+  82%, 90%      { transform: scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pickup-listen-btn,
+  .pickup-tap-tiles button[aria-label="Replay audio"],
+  .pickup-type-what-you-hear button[aria-label="Replay audio"] {
+    animation: none;
+  }
+}
+
 /* ─── v1.9.0 chapter intro narration words — dashed underline ──────────
  * Each word in the per-sentence narration gets a tappable dashed
  * underline (Duolingo Stories style). Tap pops a translation tooltip
