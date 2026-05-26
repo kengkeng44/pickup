@@ -21,9 +21,9 @@ const COLOR_TEXT_DARK = '#3c2a1c';
 const COLOR_TEXT_MUTED = '#7a6850';
 
 /**
- * StoryEndingScene — full ending cinematic shown after Ch5 (v0.8).
+ * StoryEndingScene — full ending cinematic shown after Ch8 (v0.9).
  *
- * Big "故事完結" banner, all 5 kitten states in a row showing the arc,
+ * Big "故事完結" banner, all 8 kitten states in a row showing the arc,
  * full ending paragraph, replay + back-to-menu CTAs. Confetti on entry.
  */
 export class StoryEndingScene extends Phaser.Scene {
@@ -104,17 +104,17 @@ export class StoryEndingScene extends Phaser.Scene {
     });
     content.appendChild(title);
 
-    // Kitten arc row — 5 mini states
+    // Kitten arc row — 8 mini states (squeezed to fit narrow phones)
     const arcRow = document.createElement('div');
     applyStyle(arcRow, {
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'space-between',
-      gap: '4px',
+      gap: '2px',
       background: '#fef0d0',
       border: `2px solid ${COLOR_AMBER}`,
       borderRadius: '16px',
-      padding: '12px 8px',
+      padding: '12px 6px',
     });
     for (const id of CHAPTERS_IN_ORDER) {
       const cell = document.createElement('div');
@@ -124,15 +124,17 @@ export class StoryEndingScene extends Phaser.Scene {
         alignItems: 'center',
         gap: '2px',
         flex: '1 1 0',
+        minWidth: '0',
         opacity: '0',
         transform: 'translateY(8px)',
-        transition: `opacity 500ms ease-out ${id * 220}ms, transform 500ms ease-out ${id * 220}ms`,
+        transition: `opacity 500ms ease-out ${id * 160}ms, transform 500ms ease-out ${id * 160}ms`,
       });
       const m = CHAPTER_META[id];
       const svgBox = document.createElement('div');
       applyStyle(svgBox, {
-        width: '64px',
-        height: '74px',
+        width: '100%',
+        maxWidth: '48px',
+        height: '56px',
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -140,8 +142,8 @@ export class StoryEndingScene extends Phaser.Scene {
       svgBox.innerHTML = getMascotSvg(m.kittenMascotId);
       const svg = svgBox.querySelector('svg');
       if (svg) {
-        svg.setAttribute('width', '60');
-        svg.setAttribute('height', '70');
+        svg.setAttribute('width', '44');
+        svg.setAttribute('height', '52');
       }
       cell.appendChild(svgBox);
       const label = document.createElement('div');
@@ -173,9 +175,11 @@ export class StoryEndingScene extends Phaser.Scene {
       whiteSpace: 'pre-wrap',
     });
     ending.textContent =
-      '從濕冷的巷子,到撐傘的阿嬤,從麵包店的香味,到公園的小妹妹;\n' +
-      '從街頭的布魯托大哥,到溫暖的小床——\n\n' +
-      '小貓終於找到了永遠的家。\n\n' +
+      '從濕冷的巷子,到撐傘的阿嬤;從麵包店的香味,到公園的小妹妹;\n' +
+      '從街頭的老大哥,到一個她以為已經抵達的家——\n\n' +
+      '直到她在雪夜裡選擇走出去,在神社裡看清那條路,\n' +
+      '再選擇一次,走回同一扇亮著燈的窗。\n\n' +
+      '不是被救,是選擇了這個家。\n\n' +
       '你陪牠走完了這條路。謝謝你 ❤';
     content.appendChild(ending);
 

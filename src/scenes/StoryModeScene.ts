@@ -25,7 +25,7 @@ const COLOR_LOCKED = '#bba892';
 /**
  * StoryModeScene — chapter select grid (v0.8).
  *
- * Shows 5 chapter cards. Locked chapters render with a lock icon and
+ * Shows 8 chapter cards. Locked chapters render with a lock icon and
  * desaturated style. Tapping an unlocked chapter starts ChapterIntroScene
  * with that chapter id loaded into the run store.
  */
@@ -122,7 +122,7 @@ export class StoryModeScene extends Phaser.Scene {
     content.appendChild(headerRow);
 
     const sub = document.createElement('div');
-    sub.textContent = '5 章節 · 每章 6 題 · 答錯不扣血,改答對即可';
+    sub.textContent = '8 章節 · 每章 6 題 · 答錯不扣血,改答對即可';
     applyStyle(sub, {
       fontSize: '12px',
       fontWeight: '700',

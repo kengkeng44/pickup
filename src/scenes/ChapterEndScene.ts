@@ -23,7 +23,7 @@ const COLOR_TEXT_MUTED = '#7a6850';
  *
  * Shows a crossfade from the just-completed chapter's kitten state to
  * the next chapter's kitten state — visualizing the kitten's emotional
- * arc. After Ch5 it routes to StoryEndingScene instead.
+ * arc. After the final chapter it routes to StoryEndingScene instead.
  */
 export class ChapterEndScene extends Phaser.Scene {
   private root?: HTMLDivElement;
@@ -43,7 +43,7 @@ export class ChapterEndScene extends Phaser.Scene {
     // Persist chapter completion now (idempotent).
     useRunStore.getState().completeChapter();
 
-    if (chapter >= 5) {
+    if (chapter >= 8) {
       // Final chapter — route to the dedicated ending scene.
       this.scene.start('StoryEndingScene');
       return;

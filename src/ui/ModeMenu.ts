@@ -137,7 +137,7 @@ export class ModeMenu {
       this.makeModeCard({
         emoji: '🐈',
         title: '新故事 · 小貓回家路',
-        sub: '5 章治癒系故事 · 30 題 A2',
+        sub: '8 章治癒系故事 · 48 題 A2',
         primary: COLOR_AMBER,
         primaryDark: COLOR_AMBER_DARK,
         primaryCta: true,

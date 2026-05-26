@@ -13,6 +13,9 @@ export const ChapterIdSchema = z.union([
   z.literal(3),
   z.literal(4),
   z.literal(5),
+  z.literal(6),
+  z.literal(7),
+  z.literal(8),
 ]);
 
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
@@ -143,7 +146,61 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     titleEn: 'Forever Home',
     narration:
       '美美帶著爸媽來到公園。媽媽蹲下來,輕輕摸著小貓的頭。\n\n「我們帶你回家好嗎?」',
-    outro: '小貓躺在自己的小床上,屋子裡有燈、有飯、有愛牠的人。\n\n「歡迎回家。你永遠是我們的家人。」',
+    // ── False ending. Kitten is in the home, surrounded by love, but realizes
+    // she was CHOSEN, not that she CHOSE. Slips out into the snow. The arc
+    // continues into Ch6-8.
+    outro:
+      '屋子裡有燈、有飯、有抱著牠的人。媽媽笑了,美美哭了,爸爸把暖氣調高了一格。\n\n夜裡,小貓蜷在窗邊。窗外開始下雪,一片一片,落得好慢。\n\n「他們選擇了我。」牠看著自己模糊的倒影。「但我選擇了這個家嗎?」\n\n窗戶沒關緊。牠輕輕跳了下去,腳掌陷進雪裡。\n\n「我需要知道——如果有一天我回來,是因為我想回來,不是因為沒地方去。」',
+    kittenMascotId: 'kittenCh5',
+    npcMascotId: 'npcFamily',
+    tint: '#fef0d0',
+    accent: '#e7a44a',
+  },
+  6: {
+    id: 6,
+    emoji: '❄️',
+    titleZh: '寒冬考驗',
+    titleEn: 'Winter Trial',
+    narration:
+      '牠從那扇沒關緊的窗戶溜出來,腳印一個一個,被新雪慢慢蓋掉。\n\n風好冷,世界靜得只剩自己的呼吸。走著走著,牠走進了夢——夢裡走來一個熟悉的身影,是老黑,街頭的老導師,早就不在了的老朋友。\n\n「孩子,你終於為自己做了選擇。」老黑看著牠。「選擇本身,就是長大。」',
+    outro: '小貓在雪地上站起來,腳印一個接一個,深深地、堅定地往前。\n\n牠不再只是被照顧的小貓——牠選擇了活下去,選擇了往前走。這一刻,牠長大了。',
+    // NOTE: kittenCh6 + ghost-mentor (老黑) SVG not yet drawn — reusing kittenCh4
+    // (standing/forward pose) + npcBrutus (老狗導師 fits the ghost mentor vibe) as
+    // visual stand-ins. Replace with dedicated mascots in a follow-up.
+    kittenMascotId: 'kittenCh4',
+    npcMascotId: 'npcBrutus',
+    tint: '#dfe7ee',
+    accent: '#6a7d8f',
+  },
+  7: {
+    id: 7,
+    emoji: '⛩️',
+    titleZh: '神社的相遇',
+    titleEn: 'Shrine Encounter',
+    narration:
+      '雪一直下,直到牠走進一座山邊的小神社。\n\n奇怪的是,踏進石階的那一刻,雪停了。月光從雲縫裡漏下來,照在朱紅色的鳥居上。\n\n殿前的香爐旁,坐著一個說不出形狀的存在——像霧、像光、像一隻很老很老的貓。\n\n「沒有人是偶然走進你的故事的。」它的聲音很輕。「每一個人,都是你回家路上的一塊石頭。」',
+    outro: '她在神社靜靜坐了一夜。第一次,她知道自己要去哪裡了。',
+    // NOTE: kittenCh7 + 神社靈 SVG not yet drawn — reusing kittenCh5 (mature
+    // posture) + npcGrandma (gentle mystical vibe-adjacent) as visual stand-ins.
+    // Replace with dedicated mascots in a follow-up.
+    kittenMascotId: 'kittenCh5',
+    npcMascotId: 'npcGrandma',
+    tint: '#e8e0ee',
+    accent: '#8a6ea8',
+  },
+  8: {
+    id: 8,
+    emoji: '🏠',
+    titleZh: '永遠的家',
+    titleEn: 'Forever Home',
+    narration:
+      '雪停了。天快亮了。\n\n她沿著自己昨夜留下的腳印走回去——那些腳印早已被新雪蓋住,但她記得每一個轉彎。\n\n遠遠地,那扇窗還亮著黃黃的燈。窗台上有個小小的影子,守了一夜,沒有睡。',
+    // ── The real ending. Same family, but this time it's her choice.
+    outro:
+      '同一個家。同一群人。但這次,是我自己走進來的。\n\n她不是被收養的小貓。她是選擇了這個家的成熟貓。\n\n陽光從窗台照進來,落在三色花紋的毛上。她蜷成一個小小的圓,在自己選擇的窗台上,睡著了。',
+    // NOTE: kittenCh8 (中年從容貓) SVG not yet drawn — reusing kittenCh5
+    // (mature posture) + npcFamily (the family group) as visual stand-ins.
+    // Replace with dedicated mascots in a follow-up.
     kittenMascotId: 'kittenCh5',
     npcMascotId: 'npcFamily',
     tint: '#fef0d0',
@@ -151,7 +208,7 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
 };
 
-export const CHAPTERS_IN_ORDER: ChapterId[] = [1, 2, 3, 4, 5];
+export const CHAPTERS_IN_ORDER: ChapterId[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 // ─── Chapter progress persistence ────────────────────────────────────────────
 
@@ -159,7 +216,7 @@ const LS_CHAPTER_PROGRESS = 'wordwar.story.chapterProgress';
 const LS_SRS_QUEUE = 'wordwar.srs.kitten';
 
 export interface ChapterProgress {
-  /** Highest chapter the player has completed (0..5). 0 = none. */
+  /** Highest chapter the player has completed (0..8). 0 = none. */
   highestCompleted: number;
 }
 
@@ -170,7 +227,7 @@ export function readChapterProgress(): ChapterProgress {
     if (!v) return { highestCompleted: 0 };
     const parsed = JSON.parse(v);
     const n = Number(parsed.highestCompleted);
-    if (Number.isFinite(n) && n >= 0 && n <= 5) {
+    if (Number.isFinite(n) && n >= 0 && n <= 8) {
       return { highestCompleted: Math.floor(n) };
     }
   } catch {
