@@ -290,10 +290,13 @@ export class StoryMapView {
       height: `${NODE_SIZE}px`,
       borderRadius: '50%',
       border: 'none',
-      background: baseColor,
+      // v1.7.8: layered background — soft white gloss highlight at
+      // upper-left (radial-gradient) over the solid base color. Mimics
+      // Duolingo's glossy 3D node look. Gradient first, base second
+      // because CSS shorthand applies layers top-to-bottom.
+      background: `radial-gradient(ellipse at 30% 22%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 55%), ${baseColor}`,
       // v1.7.7: 3D depth (solid color directly under) + soft cast shadow
-      // (diffuse "ground" shadow further below). Same Duolingo two-shadow
-      // recipe as the banner.
+      // (diffuse "ground" shadow further below).
       boxShadow: `0 5px 0 ${shadowColor}, 0 14px 10px -3px rgba(60, 42, 28, 0.28)`,
       color: '#ffffff',
       fontSize: '26px',
