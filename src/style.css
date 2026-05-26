@@ -461,6 +461,80 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── v1.6.0 POV scene backdrop ────────────────────────────────────────
+ * First-person scene image fills the viewport, slow Ken Burns pan/zoom
+ * creates an "alive" feeling. Cream gradient overlay keeps the cloze
+ * card readable. Optional rain ambient layer for Ch1.
+ *
+ * Per-question PNG: `/pov/ch{N}-q{M}.png` (user-generated). If the file
+ * is missing, browser falls back to the dusky `background-color` so the
+ * page never breaks. */
+.pickup-pov-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #2b1b0f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: pickup-ken-burns 18s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  transition: background-image 600ms ease-in-out;
+}
+.pickup-pov-scene::before {
+  /* Cream tint so cloze buttons stay legible no matter what's behind */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(254, 248, 237, 0.35) 0%,
+    rgba(254, 248, 237, 0.72) 55%,
+    rgba(254, 248, 237, 0.95) 100%
+  );
+}
+.pickup-pov-scene::after {
+  /* Rain ambient — angled diagonal streaks via two repeating gradients
+   * sliding down. Toggle via data-rain="true" on the parent. */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(100deg, transparent 0 18px, rgba(180, 200, 220, 0.30) 18px 19px),
+    repeating-linear-gradient(100deg, transparent 0 36px, rgba(140, 160, 180, 0.18) 36px 37px);
+  background-size: 100% 200%;
+  animation: pickup-rain-fall 0.7s linear infinite;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+.pickup-pov-scene[data-rain="true"]::after {
+  opacity: 1;
+}
+@keyframes pickup-ken-burns {
+  from { transform: scale(1)    translate(0, 0); }
+  to   { transform: scale(1.08) translate(-1.5%, -1%); }
+}
+@keyframes pickup-rain-fall {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+
+/* Per-question background images. Missing files fall back to the
+ * dusky background-color above — no broken-image icon. */
+.pickup-pov-scene[data-pov-scene="ch1-q1"] { background-image: url('/pov/ch1-q1.png'); }
+.pickup-pov-scene[data-pov-scene="ch1-q2"] { background-image: url('/pov/ch1-q2.png'); }
+.pickup-pov-scene[data-pov-scene="ch1-q3"] { background-image: url('/pov/ch1-q3.png'); }
+.pickup-pov-scene[data-pov-scene="ch1-q4"] { background-image: url('/pov/ch1-q4.png'); }
+.pickup-pov-scene[data-pov-scene="ch1-q5"] { background-image: url('/pov/ch1-q5.png'); }
+.pickup-pov-scene[data-pov-scene="ch1-q6"] { background-image: url('/pov/ch1-q6.png'); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pickup-pov-scene { animation: none !important; }
+  .pickup-pov-scene::after { animation: none !important; }
+}
+
 /* ─── Splash mascot idle (v1.5 Tier 1 Duolingo-style breathe + sway) ──
  * Layered animation on .pickup-splash-mascot:
  *   - breathe: gentle 3.2s scale pulse (1 → 1.025) — "alive" feel

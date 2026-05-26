@@ -60,3 +60,10 @@ window.setTimeout(() => {
     window.setTimeout(() => preboot.remove(), 360);
   }
 }, 220);
+
+// v1.6.0: remove the curtain transition element after its animation
+// completes. Timeline: 0.6s delay + 0.9s slide = 1.5s. Pad to 1700ms so
+// we don't yank the element mid-frame on slow devices.
+window.setTimeout(() => {
+  document.getElementById('pickup-curtain')?.remove();
+}, 1700);

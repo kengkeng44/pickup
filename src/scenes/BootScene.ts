@@ -99,7 +99,7 @@ export class BootScene extends Phaser.Scene {
     // Tiny version footer
     const footer = document.createElement('div');
     footer.className = 'pickup-splash-footer';
-    footer.textContent = `v1.5.0`;
+    footer.textContent = `v1.6.0`;
     root.appendChild(footer);
 
     document.body.appendChild(root);

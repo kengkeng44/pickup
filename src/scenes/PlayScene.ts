@@ -50,6 +50,10 @@ export class PlayScene extends Phaser.Scene {
   private loadingEl?: HTMLDivElement;
   private retryEl?: HTMLButtonElement;
 
+  // v1.6.0: POV scene backdrop (story mode only — shows a per-question
+  // first-person scene image with Ken Burns + rain ambient).
+  private povSceneEl?: HTMLDivElement;
+
   constructor() {
     super({ key: 'PlayScene' });
   }
@@ -299,6 +303,7 @@ export class PlayScene extends Phaser.Scene {
     this.mascot?.setAnim('idle');
     this.timerExpired = false;
     this.lastTickSecond = -1;
+    this.updatePovScene();
     this.renderHud();
     this.hud?.animateSentenceIn();
     // Story mode: no timer (force-correct flow makes the timeout pressure
@@ -332,7 +337,45 @@ export class PlayScene extends Phaser.Scene {
     this.mascot = undefined;
     this.hud?.destroy();
     this.hud = undefined;
+    this.povSceneEl?.remove();
+    this.povSceneEl = undefined;
     this.stopWarning();
+  }
+
+  /**
+   * v1.6.0: refresh the POV backdrop for the current question.
+   * - Mounts lazily on first story-mode round.
+   * - Encodes the current question as `data-pov-scene="chN-qM"`, which
+   *   CSS uses to swap the background-image. Missing PNGs fall back to
+   *   the dusky color in CSS, no broken-image icon.
+   * - Toggles `data-rain="true"` for chapters whose narrative beat
+   *   includes weather (Ch1 rainy night).
+   */
+  private updatePovScene(): void {
+    const state = useRunStore.getState();
+    if (state.mode !== 'story' || !state.round || !state.chapter) {
+      this.povSceneEl?.remove();
+      this.povSceneEl = undefined;
+      return;
+    }
+    if (!this.povSceneEl) {
+      const el = document.createElement('div');
+      el.className = 'pickup-pov-scene';
+      el.setAttribute('aria-hidden', 'true');
+      // Mount as first child of body so it sits BEHIND #app content
+      // (which has its own stacking context).
+      document.body.insertBefore(el, document.body.firstChild);
+      this.povSceneEl = el;
+    }
+    // Derive scene key from round id (format `kt-ch1-01`).
+    const m = /^kt-ch(\d+)-(\d+)/i.exec(state.round.id);
+    if (m) {
+      const ch = Number(m[1]);
+      const q = Number(m[2]);
+      this.povSceneEl.setAttribute('data-pov-scene', `ch${ch}-q${q}`);
+      // Ch1 = rainy-night narrative → rain ambient on.
+      this.povSceneEl.setAttribute('data-rain', ch === 1 ? 'true' : 'false');
+    }
   }
 
   private maybeStartBgm(): void {

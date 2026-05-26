@@ -222,7 +222,13 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   },
 };
 
-export const CHAPTERS_IN_ORDER: ChapterId[] = [1, 2, 3, 4, 5, 6, 7, 8];
+// v1.6.0: scope narrowed to Ch1 while we rebuild each chapter with
+// first-person POV scenes + Ken Burns animation. Ch2-8 content lives
+// in branch `backup/v1.5.1-eight-chapters` and will be reintroduced
+// chapter-by-chapter as POV scenes get produced. CHAPTER_META and
+// ChapterIdSchema still cover 1-8 so the type system can accept future
+// data without a schema migration.
+export const CHAPTERS_IN_ORDER: ChapterId[] = [1];
 
 // ─── Chapter progress persistence ────────────────────────────────────────────
 
