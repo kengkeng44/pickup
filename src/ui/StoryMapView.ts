@@ -42,7 +42,10 @@ const COLOR_NODE_LOCKED_DARK = '#a89c80';
 const COLOR_TEXT_DARK = '#3c2a1c';
 const COLOR_TEXT_MUTED = '#7a6850';
 
-const NODE_SIZE = 76;
+// v1.7.9: nodes are now flattened ovals (Duolingo "tilted coin" look)
+// rather than circles. Width > height for the isometric foreshortening.
+const NODE_SIZE = 82;   // width
+const NODE_HEIGHT = 64; // visual height — gives the 5:4 ratio
 const ROW_HEIGHT = 108;
 const CONTAINER_W = 320;
 const ZIG_OFFSET = 64; // horizontal swing of each node from container center
@@ -287,17 +290,13 @@ export class StoryMapView {
       left: `${leftPx}px`,
       top: `${opts.idx * ROW_HEIGHT + 16}px`,
       width: `${NODE_SIZE}px`,
-      height: `${NODE_SIZE}px`,
-      borderRadius: '50%',
+      height: `${NODE_HEIGHT}px`,
+      borderRadius: '50%', // ellipse since W != H
       border: 'none',
-      // v1.7.8: layered background — soft white gloss highlight at
-      // upper-left (radial-gradient) over the solid base color. Mimics
-      // Duolingo's glossy 3D node look. Gradient first, base second
-      // because CSS shorthand applies layers top-to-bottom.
+      // v1.7.8: soft white gloss highlight at upper-left over base color
       background: `radial-gradient(ellipse at 30% 22%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 55%), ${baseColor}`,
-      // v1.7.7: 3D depth (solid color directly under) + soft cast shadow
-      // (diffuse "ground" shadow further below).
-      boxShadow: `0 5px 0 ${shadowColor}, 0 14px 10px -3px rgba(60, 42, 28, 0.28)`,
+      // v1.7.9: thicker 3D depth (11px vs 5px) — Duolingo's tilted coin look
+      boxShadow: `0 11px 0 ${shadowColor}, 0 20px 14px -4px rgba(60, 42, 28, 0.32)`,
       color: '#ffffff',
       fontSize: '26px',
       fontWeight: '900',
@@ -312,9 +311,23 @@ export class StoryMapView {
       opacity: opts.unlocked ? '1' : '0.7',
     });
 
-    // Icon glyph — book / star / lock / checkmark depending on state
-    const glyph = opts.completed ? '★' : opts.unlocked ? '📖' : '🔒';
-    row.textContent = glyph;
+    // v1.7.9: icon system —
+    //   completed → ★ emoji (golden star feel)
+    //   unlocked  → white paw-pad SVG (brand fingerprint)
+    //   locked    → 🔒 emoji
+    if (opts.completed) {
+      row.textContent = '★';
+    } else if (opts.unlocked) {
+      row.innerHTML = `<svg viewBox="0 0 24 24" width="34" height="34" fill="#ffffff" aria-hidden="true" style="display:block;">
+        <ellipse cx="12" cy="16" rx="5.6" ry="4.6"/>
+        <ellipse cx="6" cy="10" rx="2.2" ry="2.6" transform="rotate(-25 6 10)"/>
+        <ellipse cx="9.7" cy="6.6" rx="2.1" ry="2.6"/>
+        <ellipse cx="14.3" cy="6.6" rx="2.1" ry="2.6"/>
+        <ellipse cx="18" cy="10" rx="2.2" ry="2.6" transform="rotate(25 18 10)"/>
+      </svg>`;
+    } else {
+      row.textContent = '🔒';
+    }
 
     if (opts.unlocked) {
       row.addEventListener('mousedown', () => {
@@ -432,7 +445,9 @@ export class StoryMapView {
       ? CONTAINER_W / 2 - NODE_SIZE / 2 - ZIG_OFFSET
       : CONTAINER_W / 2 - NODE_SIZE / 2 + ZIG_OFFSET;
     const catX = nodeLeft + NODE_SIZE / 2 - 88 / 2;  // center horizontally on node
-    const catY = rowTop - 78;                         // bottom of cat overlaps top half of node
+    // v1.7.9: node is shorter (64px tall) — push cat up so its bottom
+    // overlaps the top ~12px of the node, like sitting on it not in it.
+    const catY = rowTop - 98;
 
     if (!animate) {
       this.cat.style.transition = 'none';
