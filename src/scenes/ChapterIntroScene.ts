@@ -185,62 +185,97 @@ export class ChapterIntroScene extends Phaser.Scene {
     sceneCard.appendChild(npcSlot);
     content.appendChild(sceneCard);
 
-    // Narration card — v1.8.2: in listening mode, auto-play TTS + add
-    // small 🔊 replay button so the intro IS a listening exercise.
+    // v1.8.6: Duolingo Stories style — narration split sentence-by-
+    // sentence. Each sentence gets its own row with a 🔊 icon on the
+    // left + dashed underline below. Tap any 🔊 to replay that line.
+    // Auto-play the first sentence on mount.
     const narrationWrap = document.createElement('div');
     applyStyle(narrationWrap, {
       background: '#ffffff',
       border: `2px solid ${COLOR_BORDER}`,
       borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
       borderRadius: '16px',
-      padding: '16px 18px',
-      position: 'relative',
+      padding: '14px 16px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '14px',
     });
 
-    const isListening = useRunStore.getState().listeningMode;
-    if (isListening) {
-      const listenBtn = document.createElement('button');
-      listenBtn.type = 'button';
-      listenBtn.innerHTML = '🔊 Listen';
-      listenBtn.setAttribute('aria-label', 'Replay narration');
-      applyStyle(listenBtn, {
-        position: 'absolute',
-        top: '10px',
-        right: '12px',
+    // Split narration: respect explicit newlines first, then split each
+    // chunk on sentence boundaries. Keep punctuation attached.
+    const sentences: string[] = [];
+    meta.narration.split(/\n+/).forEach((chunk) => {
+      const trimmed = chunk.trim();
+      if (!trimmed) return;
+      const parts = trimmed.match(/[^.!?…]+[.!?…]+|\S+/g);
+      if (parts) {
+        parts.forEach(p => { const s = p.trim(); if (s) sentences.push(s); });
+      } else {
+        sentences.push(trimmed);
+      }
+    });
+
+    sentences.forEach((sentence, idx) => {
+      const row = document.createElement('div');
+      applyStyle(row, {
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '10px',
+        paddingBottom: '8px',
+        borderBottom: `1.5px dashed ${COLOR_BORDER}`,
+      });
+
+      const speaker = document.createElement('button');
+      speaker.type = 'button';
+      speaker.setAttribute('aria-label', `Listen to sentence ${idx + 1}`);
+      speaker.innerHTML = '🔊';
+      applyStyle(speaker, {
+        flex: '0 0 auto',
+        width: '34px',
+        height: '34px',
+        borderRadius: '50%',
         background: '#3d8aae',
         color: '#ffffff',
         border: 'none',
         borderBottom: '3px solid #2c6986',
-        borderRadius: '10px',
-        padding: '5px 11px',
-        fontSize: '12px',
-        fontWeight: '900',
+        fontSize: '16px',
         cursor: 'pointer',
+        padding: '0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         fontFamily: 'inherit',
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
+        marginTop: '2px',
       });
-      listenBtn.addEventListener('click', (e) => {
+      speaker.addEventListener('click', (e) => {
         e.preventDefault();
-        speak(meta.narration);
+        speak(sentence);
       });
-      narrationWrap.appendChild(listenBtn);
-      // Auto-play once after a beat
-      window.setTimeout(() => speak(meta.narration), 400);
-    }
+      row.appendChild(speaker);
 
-    const narration = document.createElement('div');
-    applyStyle(narration, {
-      fontSize: '15px',
-      lineHeight: '1.7',
-      color: COLOR_TEXT_DARK,
-      fontWeight: '600',
-      whiteSpace: 'pre-wrap',
-      paddingTop: isListening ? '18px' : '0',
+      const text = document.createElement('div');
+      text.textContent = sentence;
+      applyStyle(text, {
+        flex: '1 1 auto',
+        fontSize: '15px',
+        lineHeight: '1.55',
+        color: COLOR_TEXT_DARK,
+        fontWeight: '700',
+        paddingTop: '6px',
+      });
+      row.appendChild(text);
+
+      narrationWrap.appendChild(row);
     });
-    narration.textContent = meta.narration;
-    narrationWrap.appendChild(narration);
     content.appendChild(narrationWrap);
+
+    // Auto-play the first sentence after mount (works on iOS because
+    // the previous user gesture — sheet button — already unlocked TTS).
+    if (sentences.length > 0) {
+      window.setTimeout(() => speak(sentences[0]), 400);
+    }
 
     // SRS notice (optional)
     if (srsCount > 0) {

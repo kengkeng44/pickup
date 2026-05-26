@@ -235,12 +235,30 @@ export function mountTapTiles(opts: {
     e.preventDefault();
     if (selectedOrder.length !== slotsNeeded) return;
     const correct = selectedOrder.every((v, idx) => v === correctOrder[idx]);
-    answerRow.style.background = correct ? 'rgba(125,154,79,0.14)' : 'rgba(200,74,58,0.14)';
-    Object.assign(check.style, {
-      background: correct ? COLOR_SUCCESS : COLOR_ERROR,
-      borderBottom: `4px solid ${correct ? COLOR_SUCCESS_DARK : '#7a2a20'}`,
-    });
-    window.setTimeout(() => opts.onComplete(correct), 480);
+    if (correct) {
+      answerRow.style.background = 'rgba(125,154,79,0.14)';
+      Object.assign(check.style, {
+        background: COLOR_SUCCESS,
+        borderBottom: `4px solid ${COLOR_SUCCESS_DARK}`,
+      });
+      window.setTimeout(() => opts.onComplete(true), 480);
+    } else {
+      // v1.8.6 bug fix: wrong answer flashes red, then auto-resets the
+      // selected tiles + CHECK button so user can retry from scratch.
+      // Previous version locked CHECK in red state, leaving the UI dead.
+      answerRow.style.background = 'rgba(200,74,58,0.14)';
+      Object.assign(check.style, {
+        background: COLOR_ERROR,
+        borderBottom: `4px solid #7a2a20`,
+        cursor: 'not-allowed',
+      });
+      window.setTimeout(() => {
+        selectedOrder.length = 0;
+        tileButtons.forEach(b => Object.assign(b.style, tileRest()));
+        answerRow.style.background = 'transparent';
+        renderAnswer();  // resets check button to grey + empty slots
+      }, 750);
+    }
   });
 
   renderAnswer();
