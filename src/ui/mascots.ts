@@ -317,53 +317,12 @@ const receptionist = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 1
 
 // ─── Kitten Ch1 — wet, cold, curled tight ──────────────────────────────────
 // Rain streaks all around, hunched into ball, tear, droopy ears.
-const kittenCh1 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true">
-  <defs>
-    <radialGradient id="k1-halo" cx="50%" cy="45%" r="60%">
-      <stop offset="0%" stop-color="#cbd5e1"/>
-      <stop offset="100%" stop-color="#64748b"/>
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="76" r="54" fill="url(#k1-halo)" opacity="0.9"/>
-  <!-- Rain streaks (context — 5 long droplets) -->
-  <g stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7">
-    <path d="M14 14 L10 24"/>
-    <path d="M86 10 L82 22"/>
-    <path d="M22 30 L18 40"/>
-    <path d="M82 36 L78 46"/>
-    <path d="M10 56 L6 66"/>
-  </g>
-  <ellipse cx="50" cy="133" rx="26" ry="2.5" fill="#1a1a1a" opacity="0.2"/>
-  <g class="mascot-body" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Curled tight body (wet blue-grey) — more compressed -->
-    <path d="M22 100 Q18 80 36 72 Q50 68 64 72 Q82 80 78 100 Q82 124 64 128 Q50 130 36 128 Q18 124 22 100 Z" fill="#94a3b8" stroke-width="5"/>
-    <!-- Belly (paler) -->
-    <ellipse cx="50" cy="106" rx="16" ry="14" fill="#cbd5e1" stroke="none"/>
-    <!-- Head (lower, tucked) -->
-    <circle cx="50" cy="58" r="26" fill="#94a3b8" stroke-width="5"/>
-    <!-- Droopy folded-down ears -->
-    <path d="M28 50 Q24 64 36 66 Q40 60 38 50 Z" fill="#94a3b8" stroke-width="4"/>
-    <path d="M72 50 Q76 64 64 66 Q60 60 62 50 Z" fill="#94a3b8" stroke-width="4"/>
-    <!-- Inner ear pink hint -->
-    <path d="M32 54 L35 60" stroke="#f4a8a8" stroke-width="2.5"/>
-    <path d="M68 54 L65 60" stroke="#f4a8a8" stroke-width="2.5"/>
-    <!-- Big sad droopy eyes -->
-    <ellipse cx="40" cy="60" rx="5.5" ry="6.5" fill="#fef8ed" stroke-width="4"/>
-    <ellipse cx="60" cy="60" rx="5.5" ry="6.5" fill="#fef8ed" stroke-width="4"/>
-    <circle cx="40" cy="62" r="3.8" fill="#1a1a1a" class="mascot-pupil mascot-eye" stroke="none"/>
-    <circle cx="60" cy="62" r="3.8" fill="#1a1a1a" class="mascot-pupil mascot-eye mascot-eye-right" stroke="none"/>
-    <circle cx="41" cy="60.5" r="1.2" fill="#fef8ed" stroke="none"/>
-    <circle cx="61" cy="60.5" r="1.2" fill="#fef8ed" stroke="none"/>
-    <!-- Tear running down -->
-    <path d="M36 68 Q34 74 36 78" fill="#3b82f6" stroke="#3b82f6" stroke-width="2"/>
-    <!-- Nose -->
-    <path d="M47 72 L53 72 L50 75 Z" fill="#f4a8a8" stroke-width="2"/>
-    <!-- Sad mouth -->
-    <path d="M46 80 Q50 78 54 80" fill="none" stroke-width="3"/>
-    <!-- Wet fur drip lines -->
-    <path d="M30 92 L30 96" stroke-width="2"/>
-    <path d="M70 92 L70 96" stroke-width="2"/>
-  </g>
+// v1.4 MVP: kittenCh1 now uses the user-generated calico anchor PNG
+// (from Claude Design / ChatGPT chat). Wrapped in SVG to maintain the
+// existing inline-render API. Other 15 mascots still use placeholder SVG
+// — will swap over when user generates more variants.
+const kittenCh1 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+  <image href="/mascots/calico-anchor.png" x="0" y="0" width="100" height="140" preserveAspectRatio="xMidYMid meet"/>
 </svg>`;
 
 // ─── Kitten Ch2 — sitting straight observing baker, alert and curious ────
