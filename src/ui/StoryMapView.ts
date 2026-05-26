@@ -48,19 +48,19 @@ const NODE_SIZE = 82;   // width
 const NODE_HEIGHT = 64; // visual height — gives the 5:4 ratio
 const CONTAINER_W = 320;
 
-// v1.8.0: irregular hand-tuned node positions, tighter vertical spacing.
-// Replaces strict ±64 left/right zig-zag at ROW_HEIGHT=108 with an organic
-// path. {dx} is horizontal offset from container center; {top} is absolute
-// top position within the scroll column. 8 entries = 6 Ch1 + 2 Ch2 lock.
+// v1.8.1: redesigned path — "many nodes on same side before turning"
+// per Duolingo reference (user 2026-05-27). No more strict left-right
+// zig-zag. Flow: right cluster → drift center → left cluster → back
+// center. Path reads like a meandering river.
 const NODE_PATH: Array<{ dx: number; top: number }> = [
-  { dx: -28, top: 12 },    // node 0 — slight left
-  { dx: 50,  top: 94 },    // node 1 — right swing
-  { dx: -64, top: 178 },   // node 2 — far left
-  { dx: 26,  top: 258 },   // node 3 — right but tight
-  { dx: -42, top: 342 },   // node 4 — left medium
-  { dx: 58,  top: 430 },   // node 5 — right wide
-  { dx: -36, top: 538 },   // node 6 — Ch2 lock 1 (after divider)
-  { dx: 46,  top: 626 },   // node 7 — Ch2 lock 2
+  { dx: 8,   top: 12 },    // node 0 — slight right of center
+  { dx: 28,  top: 94 },    // node 1 — drift right
+  { dx: 36,  top: 178 },   // node 2 — right peak
+  { dx: 14,  top: 262 },   // node 3 — start curving back
+  { dx: -20, top: 344 },   // node 4 — cross center, into left
+  { dx: -38, top: 430 },   // node 5 — left peak
+  { dx: -18, top: 538 },   // node 6 — Ch2 lock, curve back
+  { dx: 14,  top: 622 },   // node 7 — Ch2 lock, near center
 ];
 // (ROW_HEIGHT removed v1.8.0 — irregular path replaces it)
 
@@ -486,9 +486,14 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.7.16: container is now 138px wide (tighter grandma+shiba duo).
-    const catX = nodeLeft + NODE_SIZE / 2 - 138 / 2;
-    const catY = rowTop - 96;
+    // v1.8.1: place character ALONGSIDE the node (like Duolingo Lin),
+    // not stacked above. Mirror left/right based on which side of the
+    // map the current node sits — character always faces inward.
+    const containerW = 138;
+    const catX = slot.dx >= 0
+      ? nodeLeft - containerW + 12   // node on right → cat to its LEFT
+      : nodeLeft + NODE_SIZE - 12;   // node on left  → cat to its RIGHT
+    const catY = rowTop - 30;        // partially overlap top of node
 
     if (!animate) {
       this.cat.style.transition = 'none';
