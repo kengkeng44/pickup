@@ -19,6 +19,7 @@ import { BottomNav, type BottomNavTab } from '../ui/BottomNav';
 import { NodeActivitySheet } from '../ui/NodeActivitySheet';
 import { readXp, levelProgress } from '../data/xp';
 import { readStreak } from '../data/streak';
+import { readCoins } from '../data/coins';
 import { evaluateAchievements, countUnlocked } from '../data/achievements';
 
 const COLOR_BG = '#fef8ed';
@@ -380,10 +381,12 @@ export class StoryModeScene extends Phaser.Scene {
       gridTemplateColumns: '1fr 1fr',
       gap: '12px',
     });
+    const coinTotal = readCoins();
     grid.appendChild(this.makeStatCard('Chapters', `${chapterProg.highestCompleted}/8`, 'completed'));
     grid.appendChild(this.makeStatCard('Questions', `${totalAnswered}`, 'answered'));
-    grid.appendChild(this.makeStatCard('In review', `${srsCount}`, 'still learning'));
     grid.appendChild(this.makeStatCard('Streak', `${currentStreak}`, 'day(s)'));
+    grid.appendChild(this.makeStatCard('Coins', `${coinTotal}`, 'earned'));
+    grid.appendChild(this.makeStatCard('In review', `${srsCount}`, 'still learning'));
     content.appendChild(grid);
 
     // ── Difficulty section ──
