@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
+import { sfxCardPress } from './audio/sfx';
+import { audio } from './audio/AudioManager';
 import { MenuScene } from './scenes/MenuScene';
 import { PlayScene } from './scenes/PlayScene';
 import { EndScene } from './scenes/EndScene';
@@ -49,6 +51,21 @@ const config: Phaser.Types.Core.GameConfig = {
 };
 
 new Phaser.Game(config);
+
+// v1.9.12: global click SFX. Any <button> tap fires a subtle press
+// sound (sfxCardPress). User has audio mute toggle in Profile if too
+// much. Excludes silent-on-purpose buttons via [data-no-click-sfx].
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement | null;
+  if (!target) return;
+  const btn = target.closest('button') as HTMLButtonElement | null;
+  if (!btn) return;
+  if (btn.hasAttribute('data-no-click-sfx')) return;
+  if (audio.audioMuted) return;
+  // ensureContext to unlock on first user click
+  audio.ensureContext();
+  sfxCardPress();
+}, true);
 
 // v1.7.1: remove the tear-drop intro overlay after its full sequence.
 // Timeline: 0.05s cat fade-in (0.55s) + tear fall 0.55→1.55s + disc
