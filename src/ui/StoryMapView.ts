@@ -760,22 +760,52 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.9.19: fourth revision — "弧度的中心點 但不能離太近".
-    //   - Use whole-curve mean dx (not current node) to pick a STABLE side
-    //   - Inside of arc = opposite side of mean
-    //   - Add 28px breathing room from container edge (not crammed)
-    //   - Vertical center between top + bottom visible nodes
+    // v1.9.20 (B path): "vertically avoid dense node area".
+    //   - Find the vertical band with LEAST horizontal node coverage on
+    //     the desired side, place character there.
+    //   - For Ch1: middle (y≈200-400) is dense with right-side nodes,
+    //     upper region (y≈80-180) only has node 1 → cleanest.
+    //   - Mean dx still picks side; vertical centered in the sparse band.
     const containerW = 122;
     void nodeLeft; void rowTop; void slot;
     const visible = NODE_PATH.slice(0, 6);
     const meanDx = visible.reduce((s, n) => s + n.dx, 0) / visible.length;
-    const topY = visible[0].top;
-    const bottomY = visible[visible.length - 1].top + NODE_HEIGHT;
-    const EDGE_MARGIN = 28;
-    const catX = meanDx >= 0
-      ? EDGE_MARGIN
-      : CONTAINER_W - containerW - EDGE_MARGIN;
-    const catY = (topY + bottomY) / 2 - 55;
+
+    // Calculate, per node, whether it overlaps the desired character side.
+    // Then find a vertical Y window where the overlapping nodes are minimum.
+    const charSide: 'L' | 'R' = meanDx >= 0 ? 'L' : 'R';
+    // Score each candidate catY by counting node-bands it would intersect
+    // on the chosen side (less = better).
+    const candidates = [60, 100, 130, 180, 220, 380, 440, 500];
+    let bestCatY = 130;
+    let bestScore = Number.POSITIVE_INFINITY;
+    for (const cy of candidates) {
+      const top = cy;
+      const bot = cy + 110; // character height
+      let overlapCount = 0;
+      let minHorizontalGap = Number.POSITIVE_INFINITY;
+      for (const n of visible) {
+        const nTop = n.top, nBot = n.top + NODE_HEIGHT;
+        const yOverlap = !(bot < nTop || top > nBot);
+        if (!yOverlap) continue;
+        overlapCount++;
+        const nLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + n.dx;
+        const nRight = nLeft + NODE_SIZE;
+        const gap = charSide === 'L'
+          ? nLeft - containerW          // distance from char's right (assuming char glued left)
+          : (CONTAINER_W - nRight);     // distance from char's left (char glued right)
+        minHorizontalGap = Math.min(minHorizontalGap, gap);
+      }
+      // Lower score = fewer overlaps + larger min gap
+      const score = overlapCount * 100 - minHorizontalGap;
+      if (score < bestScore) {
+        bestScore = score;
+        bestCatY = cy;
+      }
+    }
+    const EDGE_MARGIN = 14;
+    const catX = charSide === 'L' ? EDGE_MARGIN : CONTAINER_W - containerW - EDGE_MARGIN;
+    const catY = bestCatY;
 
     if (!animate) {
       this.cat.style.transition = 'none';
