@@ -8,6 +8,7 @@ import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { sfxEndFanfare } from '../audio/sfx';
 import { Confetti } from '../ui/Confetti';
+import { applyCatName } from '../data/catName';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -203,7 +204,7 @@ export class ChapterEndScene extends Phaser.Scene {
       fontWeight: '600',
       whiteSpace: 'pre-wrap',
     });
-    outro.textContent = meta.outro;
+    outro.textContent = applyCatName(meta.outro);
     content.appendChild(outro);
 
     // Run stats

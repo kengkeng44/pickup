@@ -10,6 +10,7 @@ import { getMascotSvg } from '../ui/mascots';
 import { speak, stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 import { createSpeakerButton } from '../ui/SpeakerButton';
+import { applyCatName } from '../data/catName';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -156,35 +157,39 @@ export class ChapterIntroScene extends Phaser.Scene {
       padding: '14px 12px',
       minHeight: '160px',
     });
-    const kittenSlot = document.createElement('div');
-    applyStyle(kittenSlot, {
+    // v1.9.52: solid-ellipse ground shadow wrapper so mascots don't float.
+    const mascotSlotStyle = {
       width: '120px',
       height: '140px',
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'center',
-    });
-    kittenSlot.innerHTML = getMascotSvg(meta.kittenMascotId);
+      position: 'relative' as const,
+    };
+    const groundShadowHtml =
+      '<div style="position:absolute;left:14%;right:14%;bottom:6%;height:10%;background:rgba(60,42,28,0.22);border-radius:50%;z-index:0;pointer-events:none;"></div>';
+
+    const kittenSlot = document.createElement('div');
+    applyStyle(kittenSlot, mascotSlotStyle);
+    kittenSlot.innerHTML = groundShadowHtml + getMascotSvg(meta.kittenMascotId);
     const kSvg = kittenSlot.querySelector('svg');
     if (kSvg) {
       kSvg.setAttribute('width', '120');
       kSvg.setAttribute('height', '140');
+      (kSvg as unknown as HTMLElement).style.position = 'relative';
+      (kSvg as unknown as HTMLElement).style.zIndex = '1';
     }
     sceneCard.appendChild(kittenSlot);
 
     const npcSlot = document.createElement('div');
-    applyStyle(npcSlot, {
-      width: '120px',
-      height: '140px',
-      display: 'flex',
-      alignItems: 'flex-end',
-      justifyContent: 'center',
-    });
-    npcSlot.innerHTML = getMascotSvg(meta.npcMascotId);
+    applyStyle(npcSlot, mascotSlotStyle);
+    npcSlot.innerHTML = groundShadowHtml + getMascotSvg(meta.npcMascotId);
     const nSvg = npcSlot.querySelector('svg');
     if (nSvg) {
       nSvg.setAttribute('width', '120');
       nSvg.setAttribute('height', '140');
+      (nSvg as unknown as HTMLElement).style.position = 'relative';
+      (nSvg as unknown as HTMLElement).style.zIndex = '1';
     }
     sceneCard.appendChild(npcSlot);
     content.appendChild(sceneCard);
@@ -208,7 +213,8 @@ export class ChapterIntroScene extends Phaser.Scene {
     // Split narration: respect explicit newlines first, then split each
     // chunk on sentence boundaries. Keep punctuation attached.
     const sentences: string[] = [];
-    meta.narration.split(/\n+/).forEach((chunk) => {
+    // v1.9.52: inject player's cat name into narration {catName} placeholders.
+    applyCatName(meta.narration).split(/\n+/).forEach((chunk) => {
       const trimmed = chunk.trim();
       if (!trimmed) return;
       const parts = trimmed.match(/[^.!?…]+[.!?…]+|\S+/g);

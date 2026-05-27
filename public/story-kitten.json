@@ -6,12 +6,12 @@
     "chapter": 1,
     "questionInChapter": 1,
     "type": "listen-mc",
-    "storyBeat": "我是糰糰,跟奶奶住",
-    "sentence": "I am 糰糰. I am a small cat.",
+    "storyBeat": "我是流浪貓,沒有家",
+    "sentence": "I am {catName}. I am a stray cat.",
     "question": "Which word did you hear?",
-    "options": ["cat", "cap", "cut", "cot"],
+    "options": ["stray", "stay", "straw", "story"],
     "correctIndex": 0,
-    "explanationZh": "cat = 貓。cap(帽子)、cut(剪)、cot(嬰兒床)母音相近,要靠尾音跟前面的母音長度分辨。糰糰是一隻三花貓。",
+    "explanationZh": "stray = 流浪的(沒有固定家的)。stay 是留下、straw 是吸管、story 是故事,母音相近要靠尾音分辨。我是一隻流浪貓,沒有人住的地方。",
     "tags": ["story", "ch1", "prologue", "intro"]
   },
   {
@@ -21,13 +21,13 @@
     "chapter": 1,
     "questionInChapter": 2,
     "type": "listen-emoji",
-    "storyBeat": "花花是柴犬,我的朋友",
-    "sentence": "花花 is my friend. He is a brown dog.",
-    "question": "Who is 花花?",
-    "options": ["🐕 a dog", "🐈 a cat", "🦅 a bird", "🐇 a rabbit"],
+    "storyBeat": "每晚我去奶奶的院子",
+    "sentence": "Every night I visit Grandma's yard.",
+    "question": "Where do I go every night?",
+    "options": ["🏡 Grandma's yard", "🌳 a forest", "🏪 a shop", "🚉 a station"],
     "correctIndex": 0,
-    "explanationZh": "花花是 brown dog(棕色的狗)— 一隻柴犬。雖然花花聽起來像花的名字,但他是奶奶後來撿到的小狗,現在是糰糰最好的朋友。",
-    "tags": ["story", "ch1", "prologue", "intro"]
+    "explanationZh": "yard = 院子。我雖然是流浪貓,但每晚都會跑去奶奶家的院子。那裡有食物,有奶奶的狗朋友花花。",
+    "tags": ["story", "ch1", "prologue", "setting"]
   },
   {
     "id": "kt-ch1-03",
@@ -36,12 +36,12 @@
     "chapter": 1,
     "questionInChapter": 3,
     "type": "type-what-you-hear",
-    "storyBeat": "每晚奶奶都說一個故事",
-    "sentence": "Tonight Grandma tells a story.",
+    "storyBeat": "花花是奶奶養的柴犬",
+    "sentence": "花花 is Grandma's brown dog.",
     "question": "Type the missing word",
-    "options": ["story", "store", "stay", "stone"],
+    "options": ["dog", "day", "deep", "door"],
     "correctIndex": 0,
-    "explanationZh": "story = 故事。奶奶的女兒跟孫子住得遠不常來,所以每晚奶奶都對糰糰跟花花說一個 story。今天說的是糰糰自己的故事。",
+    "explanationZh": "dog = 狗。花花是 Grandma's brown dog(奶奶養的棕色狗)— 一隻柴犬。我每晚跟他一起趴在地上聽故事。",
     "tags": ["story", "ch1", "prologue", "type-what-you-hear"]
   },
   {
@@ -51,7 +51,7 @@
     "chapter": 1,
     "questionInChapter": 4,
     "type": "listen-comprehension",
-    "storyBeat": "從前一個雨夜,奶奶看見一隻小貓",
+    "storyBeat": "從前一個雨夜,奶奶看見小貓",
     "sentence": "Long ago, on a rainy night, I saw a small cat.",
     "question": "What did Grandma see?",
     "options": [
@@ -61,7 +61,7 @@
       "An old tree"
     ],
     "correctIndex": 0,
-    "explanationZh": "long ago = 很久以前。奶奶說她在 a rainy night(雨夜)看見了 a small cat 在路上 — 那就是糰糰跟奶奶相遇的起點。",
+    "explanationZh": "long ago = 很久以前。奶奶說她在 a rainy night(雨夜)看見了 a small cat — 那就是我們相遇的起點。雖然她沒帶我回家,但她讓我每晚可以來院子。",
     "tags": ["story", "ch1", "main", "comprehension"]
   },
   {
@@ -71,12 +71,12 @@
     "chapter": 1,
     "questionInChapter": 5,
     "type": "type-what-you-hear",
-    "storyBeat": "奶奶撐開傘給濕透的小貓",
+    "storyBeat": "奶奶撐傘給濕透的小貓",
     "sentence": "I opened my umbrella for her.",
     "question": "Type the missing word",
     "options": ["umbrella", "uniform", "under", "useful"],
     "correctIndex": 0,
-    "explanationZh": "umbrella = 傘。長一點的字,3 個音節 um-brel-la。奶奶為了濕透的小貓撐開傘 — 這是糰糰跟奶奶第一次靠近。",
+    "explanationZh": "umbrella = 傘。長一點的字,3 個音節 um-brel-la。奶奶為了濕透的我撐開傘 — 我們第一次靠近,但她沒抓我,只是給我一個躲雨的角落。",
     "tags": ["story", "ch1", "main", "type-what-you-hear"]
   },
   {
@@ -86,14 +86,14 @@
     "chapter": 1,
     "questionInChapter": 6,
     "type": "tap-tiles",
-    "storyBeat": "奶奶把小貓帶回家",
-    "sentence": "I took her home.",
+    "storyBeat": "我每晚都回到院子",
+    "sentence": "She came back every night.",
     "question": "Tap what you hear",
-    "options": ["I", "took", "her", "home"],
+    "options": ["She", "came", "back", "every", "night"],
     "correctIndex": 0,
-    "tiles": ["I", "took", "her", "home", "saw", "house"],
-    "correctOrder": [0, 1, 2, 3],
-    "explanationZh": "依序點:I → took → her → home。took 是 take 的過去式(帶過去了)。saw 跟 house 是干擾。home 是「家」,有家人感情,跟 house 不同。",
+    "tiles": ["She", "came", "back", "every", "night", "always", "house"],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanationZh": "依序點:She → came → back → every → night。came 是 come 的過去式(回來了)。奶奶說我每晚都回去找她。always 跟 house 是干擾。",
     "tags": ["story", "ch1", "main", "tap-tiles", "past-tense"]
   },
   {
@@ -103,12 +103,12 @@
     "chapter": 1,
     "questionInChapter": 7,
     "type": "listen-mc",
-    "storyBeat": "故事說完了,糰糰跟奶奶說晚安",
+    "storyBeat": "故事說完了,我要走回街上",
     "sentence": "Goodnight, Grandma.",
     "question": "Which word did you hear?",
     "options": ["Goodnight", "Good morning", "Good day", "Goodbye"],
     "correctIndex": 0,
-    "explanationZh": "Goodnight = 晚安(睡覺前)。Goodbye 是再見、Good morning 是早安、Good day 是日安。糰糰聽完故事舔舔腳,跟奶奶說 Goodnight。",
+    "explanationZh": "Goodnight = 晚安(睡前)。Goodbye 是再見、Good morning 是早安、Good day 是日安。故事說完了我會跳過矮牆走回街上,明晚再來。",
     "tags": ["story", "ch1", "closing", "greeting"]
   },
   {
@@ -121,15 +121,15 @@
     "storyBeat": "今晚的四個關鍵字",
     "sentence": "These are tonight's four words.",
     "question": "Tap the pairs",
-    "options": ["cat", "umbrella", "rainy", "home"],
+    "options": ["stray", "yard", "umbrella", "back"],
     "correctIndex": 0,
     "pairs": [
-      {"left": "cat", "right": "貓"},
+      {"left": "stray", "right": "流浪的"},
+      {"left": "yard", "right": "院子"},
       {"left": "umbrella", "right": "傘"},
-      {"left": "rainy", "right": "下雨的"},
-      {"left": "home", "right": "家"}
+      {"left": "back", "right": "回來"}
     ],
-    "explanationZh": "糰糰的故事四個關鍵字:cat 貓、umbrella 傘、rainy 下雨的、home 家。它們組成了奶奶遇到糰糰的那個雨夜。",
+    "explanationZh": "今晚四個字:stray 流浪的、yard 院子、umbrella 傘、back 回來。我是流浪貓,每晚回到奶奶的院子聽故事。",
     "tags": ["story", "ch1", "review", "tap-pairs"]
   }
 ]

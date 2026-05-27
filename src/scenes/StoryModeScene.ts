@@ -13,6 +13,7 @@ import {
 import type { Difficulty } from '../data/sentences';
 import { useRunStore } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
+import { readCatName, writeCatName, DEFAULT_CAT_NAME } from '../data/catName';
 import { applyStyle } from '../ui/domUtil';
 import { StoryMapView } from '../ui/StoryMapView';
 import { BottomNav, type BottomNavTab } from '../ui/BottomNav';
@@ -396,6 +397,10 @@ export class StoryModeScene extends Phaser.Scene {
     grid.appendChild(this.makeStatCard('In review', `${srsCount}`, 'still learning'));
     content.appendChild(grid);
 
+    // ── Cat Name section (v1.9.52) ──
+    content.appendChild(this.makeSectionHeader('貓咪名字 · Cat Name'));
+    content.appendChild(this.wrapSettingCard(this.buildCatNameControl()));
+
     // ── Difficulty section ──
     content.appendChild(this.makeSectionHeader('Difficulty'));
     content.appendChild(this.wrapSettingCard(this.buildDifficultyControl()));
@@ -468,6 +473,85 @@ export class StoryModeScene extends Phaser.Scene {
     });
     card.appendChild(child);
     return card;
+  }
+
+  /**
+   * v1.9.52: player customizes the stray cat's name. Input + Save button.
+   * Saving reloads the page so loadStoryQuestions() re-injects the new name
+   * into sentence + explanationZh fields.
+   */
+  private buildCatNameControl(): HTMLElement {
+    const wrap = document.createElement('div');
+    applyStyle(wrap, {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '8px',
+    });
+    const hint = document.createElement('div');
+    hint.textContent = `現在叫:${readCatName()}(預設 ${DEFAULT_CAT_NAME})`;
+    applyStyle(hint, {
+      fontSize: '12px',
+      color: COLOR_TEXT_MUTED,
+      letterSpacing: '0.3px',
+    });
+    wrap.appendChild(hint);
+
+    const row = document.createElement('div');
+    applyStyle(row, {
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center',
+    });
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.value = readCatName();
+    input.maxLength = 12;
+    input.placeholder = DEFAULT_CAT_NAME;
+    applyStyle(input as unknown as HTMLElement, {
+      flex: '1',
+      padding: '10px 12px',
+      border: `2px solid ${COLOR_BORDER}`,
+      borderBottom: `3px solid ${COLOR_BORDER_DARK}`,
+      borderRadius: '12px',
+      fontSize: '15px',
+      fontWeight: '800',
+      color: COLOR_TEXT_DARK,
+      background: '#ffffff',
+      fontFamily: 'inherit',
+      outline: 'none',
+    });
+
+    const saveBtn = document.createElement('button');
+    saveBtn.type = 'button';
+    saveBtn.textContent = '存';
+    applyStyle(saveBtn, {
+      padding: '10px 16px',
+      background: COLOR_AMBER,
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: `3px solid ${COLOR_AMBER_DARK}`,
+      borderRadius: '12px',
+      fontSize: '14px',
+      fontWeight: '900',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      flex: '0 0 auto',
+    });
+    saveBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newName = writeCatName(input.value);
+      hint.textContent = `已存:${newName} · 重新整理頁面套用`;
+      window.setTimeout(() => {
+        if (typeof window !== 'undefined') window.location.reload();
+      }, 800);
+    });
+
+    row.appendChild(input);
+    row.appendChild(saveBtn);
+    wrap.appendChild(row);
+    return wrap;
   }
 
   private buildDifficultyControl(): HTMLElement {

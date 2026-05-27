@@ -72,8 +72,17 @@ export async function loadStoryQuestions(): Promise<StoryQuestion[]> {
   }
   const raw = await res.json();
   const parsed = StoryQuestionsSchema.parse(raw);
-  cached = parsed;
-  return parsed;
+  // v1.9.52: inject player's cat name into sentence + explanationZh at load.
+  // Changing the name requires a reload to re-fire — acceptable trade-off.
+  const { applyCatName } = await import('./catName');
+  const injected = parsed.map((q) => ({
+    ...q,
+    sentence: applyCatName(q.sentence),
+    explanationZh: applyCatName(q.explanationZh),
+    storyBeat: q.storyBeat ? applyCatName(q.storyBeat) : q.storyBeat,
+  }));
+  cached = injected;
+  return injected;
 }
 
 export function questionsForChapter(
@@ -128,12 +137,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   1: {
     id: 1,
     emoji: '',
-    titleZh: '我們的第一天',
-    titleEn: 'The First Story',
+    titleZh: '院子裡的第一個故事',
+    titleEn: 'A Story in the Yard',
     narration:
-      "I am 糰糰. I live with Grandma and my friend 花花.\n\nThe daughter lives far away. Every night, Grandma tells us a story.\n\nTonight, she tells me about the day we first met…",
+      "I am {catName}. I am a stray cat.\n\nEvery night, I visit one yard. Grandma and her dog 花花 are there.\n\nGrandma tells stories. I listen with 花花.\n\nTonight, she tells one about me…",
     outro:
-      "花花 is asleep. I lick my paw and curl up next to him.\n\nGoodnight, Grandma. Goodnight, 花花.",
+      "The story ends. 花花 is asleep on the floor.\n\nI walk back to the street. Goodnight, Grandma. Goodnight, 花花.\n\nSee you tomorrow night.",
     kittenMascotId: 'kittenCh1',
     npcMascotId: 'npcGrandma',
     // v1.8.0: shifted from cool blue (#6e88a8) to warm peach to align with
