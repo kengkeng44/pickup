@@ -377,13 +377,7 @@ export class StoryMapView {
         touch-action: manipulation; -webkit-tap-highlight-color: transparent;
         transition: transform 80ms ease-out, background 160ms ease;
       ">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff" aria-hidden="true">
-          <ellipse cx="12" cy="16" rx="5.6" ry="4.6"/>
-          <ellipse cx="6" cy="10" rx="2.2" ry="2.6" transform="rotate(-25 6 10)"/>
-          <ellipse cx="9.7" cy="6.6" rx="2.1" ry="2.6"/>
-          <ellipse cx="14.3" cy="6.6" rx="2.1" ry="2.6"/>
-          <ellipse cx="18" cy="10" rx="2.2" ry="2.6" transform="rotate(25 18 10)"/>
-        </svg>
+        <img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width="24" height="24" style="display:block;filter:brightness(0) invert(1);" />
       </button>
     `;
     const paw = card.querySelector('.pickup-banner-paw') as HTMLButtonElement | null;
@@ -627,14 +621,17 @@ export class StoryMapView {
       opacity: opts.unlocked ? '1' : '0.7',
     });
 
-    // v1.9.17: node icons now use user-generated PNGs.
-    //   completed → gold star PNG
-    //   unlocked  → white paw-pad PNG
-    //   locked    → 🔒 emoji (no PNG generated yet)
+    // v1.9.21: icon variety per node — alternate book / headphones / paw
+    // to mimic Duolingo's mixed lesson icons (reading / listening / etc.).
+    //   completed → gold star
+    //   unlocked  → cycle book / headphones / paw by index
+    //   locked    → 🔒 emoji
     if (opts.completed) {
       row.innerHTML = `<img src="/mascots/node-star.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else if (opts.unlocked) {
-      row.innerHTML = `<img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
+      const ICONS = ['node-paw.webp', 'node-book.webp', 'node-headphones.webp'];
+      const file = ICONS[opts.idx % ICONS.length];
+      row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;filter:brightness(0) invert(1);" />`;
     } else {
       row.textContent = '🔒';
     }
