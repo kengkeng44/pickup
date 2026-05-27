@@ -629,9 +629,13 @@ export class StoryMapView {
     if (opts.completed) {
       row.innerHTML = `<img src="/mascots/node-star.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else if (opts.unlocked) {
+      // v1.9.22: drop the brightness/invert filter — only paw needs to be
+      // white (it already is). book + headphones use their natural colours
+      // so the blue spine / silver band stay visible against the coffee
+      // node background.
       const ICONS = ['node-paw.webp', 'node-book.webp', 'node-headphones.webp'];
       const file = ICONS[opts.idx % ICONS.length];
-      row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;filter:brightness(0) invert(1);" />`;
+      row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else {
       row.textContent = '🔒';
     }
