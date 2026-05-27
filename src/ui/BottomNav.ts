@@ -83,10 +83,9 @@ export class BottomNav {
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
       });
-      btn.innerHTML = `
-        <span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>
-        <span style="font-size:10px;font-weight:800;letter-spacing:0.4px;">${LABELS[tab]}</span>
-      `;
+      // v1.9.15: icon-only nav per user request — "把文字敘述都去掉".
+      // LABELS still used for aria-label / tooltip.
+      btn.innerHTML = `<span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>`;
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         handlers.onTab(tab);

@@ -119,10 +119,10 @@ export class StoryModeScene extends Phaser.Scene {
       case 'home':
         this.mapView = new StoryMapView({
           onPlayChapter: (chapter: ChapterId) => {
-            // v1.7.11: tapping a node no longer goes straight into the
-            // chapter. We open the listening/reading sheet first.
             this.openActivitySheet(chapter);
           },
+          // v1.9.15: HUD icons route to other tabs via this callback
+          onSwitchTab: (next) => this.switchTab(next),
         });
         break;
       case 'tasks':

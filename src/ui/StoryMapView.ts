@@ -37,6 +37,8 @@ import { readStreak } from '../data/streak';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
+  /** v1.9.15: HUD icon taps need to switch tabs via the parent scene. */
+  onSwitchTab?: (tab: 'home' | 'tasks' | 'profile' | 'alerts') => void;
 }
 
 const COLOR_BG = '#fef8ed';
@@ -250,40 +252,92 @@ export class StoryMapView {
   // ───────────────────────────────────────────────────────────────────
 
   private buildHudBar(): HTMLElement {
-    // v1.9.1: gamification HUD — chapter / XP / level (no streak yet)
+    // v1.9.15: Duolingo-style HUD — Flag / Tier crown / Gems / Energy.
+    // Text labels removed; icons + values only. Each slot is a button
+    // routing to the appropriate tab. Crown tier scales with level
+    // (silver L1-2, gold L3-4, diamond L5+).
     const wrap = document.createElement('div');
     applyStyle(wrap, {
       padding: 'max(14px, env(safe-area-inset-top)) 14px 0',
       flex: '0 0 auto',
       display: 'flex',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      gap: '8px',
+      gap: '4px',
       fontFamily: 'inherit',
       marginBottom: '8px',
     });
-    const progress = readChapterProgress();
     const xp = readXp();
     const level = levelForXp(xp);
+    const streak = readStreak();
 
-    const item = (icon: string, value: string, label: string, color: string) => {
-      const el = document.createElement('div');
-      el.innerHTML = `
-        <div style="display:flex;align-items:center;gap:5px;font-family:inherit;">
-          <span style="font-size:18px;">${icon}</span>
-          <span style="font-size:17px;font-weight:900;color:${color};line-height:1;">${value}</span>
-        </div>
-        <div style="font-size:9px;font-weight:800;color:${COLOR_TEXT_MUTED};letter-spacing:0.8px;text-transform:uppercase;text-align:center;margin-top:3px;">${label}</div>
+    // Tier badge SVG — Duolingo-style stacked-crown that changes color
+    // based on level. Silver / Gold / Diamond.
+    const tierFor = (lv: number): { fill: string; stroke: string; label: string } => {
+      if (lv >= 5) return { fill: '#7ad8e0', stroke: '#3a9eaa', label: 'Diamond' };
+      if (lv >= 3) return { fill: '#f0c33a', stroke: '#c79410', label: 'Gold' };
+      return { fill: '#c9d2da', stroke: '#7a8794', label: 'Silver' };
+    };
+    const t = tierFor(level);
+    const crownSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M3 10l3 3 6-7 6 7 3-3v9H3z" fill="${t.fill}" stroke="${t.stroke}" stroke-width="1.4" stroke-linejoin="round"/>
+      <circle cx="6" cy="9" r="1.4" fill="${t.stroke}"/>
+      <circle cx="12" cy="5" r="1.4" fill="${t.stroke}"/>
+      <circle cx="18" cy="9" r="1.4" fill="${t.stroke}"/>
+    </svg>`;
+
+    // Gem SVG (XP slot) — blue diamond
+    const gemSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M6 3h12l4 6-10 12L2 9z" fill="#1cb0f6" stroke="#0b8ec9" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M6 3l-4 6 10 12M18 3l4 6-10 12M9 9h6M9 9L6 3M15 9l3-6M9 9l3 12M15 9l-3 12" fill="none" stroke="#0b8ec9" stroke-width="0.9" opacity="0.6"/>
+    </svg>`;
+
+    // Lightning energy SVG (using streak count as the energy "fuel")
+    const energySvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path d="M13 2L4 14h6l-2 8 9-12h-6l2-8z" fill="#ff9600" stroke="#c4760b" stroke-width="1.3" stroke-linejoin="round"/>
+    </svg>`;
+
+    // Flag (decorative, English course indicator) — UK flag stylized
+    const flagSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <rect x="2" y="5" width="20" height="14" rx="2" fill="#1d4dba"/>
+      <path d="M2 5l20 14M22 5L2 19" stroke="#ffffff" stroke-width="2"/>
+      <path d="M12 5v14M2 12h20" stroke="#ffffff" stroke-width="3.5"/>
+      <path d="M12 5v14M2 12h20" stroke="#cf142b" stroke-width="2"/>
+    </svg>`;
+
+    const item = (innerHtml: string, value: string, onClick: () => void, valueColor: string) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.innerHTML = `
+        <span style="display:flex;align-items:center;gap:4px;">
+          ${innerHtml}
+          ${value ? `<span style="font-size:15px;font-weight:900;color:${valueColor};line-height:1;">${value}</span>` : ''}
+        </span>
       `;
-      return el;
+      Object.assign(btn.style, {
+        background: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        padding: '8px 6px',
+        borderRadius: '10px',
+        fontFamily: 'inherit',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+        display: 'flex',
+        alignItems: 'center',
+        transition: 'background 120ms ease, transform 80ms ease',
+      } as Partial<CSSStyleDeclaration> as Record<string, string>);
+      btn.addEventListener('pointerdown', () => { btn.style.transform = 'translateY(1px)'; });
+      btn.addEventListener('pointerup', () => { btn.style.transform = ''; });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+      btn.addEventListener('click', (e) => { e.preventDefault(); onClick(); });
+      return btn;
     };
 
-    // v1.9.4: 4-slot HUD — Chapters / Streak / XP / Level
-    const streak = readStreak();
-    wrap.appendChild(item('🐾', `${progress.highestCompleted}/8`, 'Chapters', '#a47148'));
-    wrap.appendChild(item('🔥', String(streak), 'Streak', '#d4823a'));
-    wrap.appendChild(item('⭐', String(xp), 'XP', '#e7a44a'));
-    wrap.appendChild(item('🎯', `L${level}`, 'Level', '#7d9a4f'));
+    wrap.appendChild(item(flagSvg, '', () => this.handlers.onSwitchTab?.('profile'), '#3c2a1c'));
+    wrap.appendChild(item(crownSvg, `L${level}`, () => this.handlers.onSwitchTab?.('profile'), t.stroke));
+    wrap.appendChild(item(gemSvg, String(xp), () => this.handlers.onSwitchTab?.('profile'), '#0b8ec9'));
+    wrap.appendChild(item(energySvg, String(streak), () => this.handlers.onSwitchTab?.('alerts'), '#c4760b'));
     return wrap;
   }
 
