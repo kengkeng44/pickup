@@ -236,10 +236,11 @@ export class StoryMapView {
     // Sub-section divider hint — "Chapter 2 coming"
     column.appendChild(this.buildDivider('Chapter 2 — coming soon'));
 
-    // 2 locked placeholder nodes — visual continuity, hints "more is coming"
+    // v1.9.54: 2 Ch2 lock-teaser nodes use NODE_PATH[8]/[9] (was 6+i before
+    // Ch1 expanded to 8 nodes; that overlapped Ch1's idx 6/7).
     for (let i = 0; i < 2; i++) {
       const node = this.buildNode({
-        idx: 6 + i,
+        idx: 8 + i,
         label: 'Locked',
         unlocked: false,
         completed: false,
@@ -247,6 +248,37 @@ export class StoryMapView {
       });
       column.appendChild(node.el);
       this.nodes.push(node);
+    }
+
+    // v1.9.54: animate newly-unlocked nodes (across chapter transitions).
+    // localStorage stores last seen highestCompleted; on next mount if
+    // current > stored, nodes that just transitioned to unlocked get a
+    // scale + grayscale-reveal pop.
+    try {
+      const LS_KEY = 'pickup.map.last-seen-completed';
+      const seen = parseInt(localStorage.getItem(LS_KEY) ?? '0', 10);
+      const cur = progress.highestCompleted;
+      if (cur > seen) {
+        // Identify nodes that were locked at `seen` but unlocked now.
+        // For Ch1 (cur=1, seen=0): no new unlocks here (Ch1 was always unlocked).
+        // For Ch2+ (cur=2, seen=1): the Ch2 teaser nodes would be unlocked.
+        for (const n of this.nodes) {
+          if (n.unlocked) n.el.classList.add('pickup-map-node-unlock-pop');
+        }
+        // Persist after animation finishes so it only plays once.
+        window.setTimeout(() => {
+          try { localStorage.setItem(LS_KEY, String(cur)); } catch { /* ignore */ }
+        }, 1200);
+      } else if (seen === 0 && cur === 0) {
+        // First-ever visit: pop the very first node to teach "tap me".
+        const first = this.nodes[0];
+        if (first?.unlocked) first.el.classList.add('pickup-map-node-unlock-pop');
+        window.setTimeout(() => {
+          try { localStorage.setItem(LS_KEY, '0'); } catch { /* ignore */ }
+        }, 1200);
+      }
+    } catch {
+      // ignore localStorage failures
     }
 
     this.scrollArea.appendChild(column);
@@ -655,24 +687,19 @@ export class StoryMapView {
       opacity: opts.unlocked ? '1' : '0.7',
     });
 
-    // v1.9.21: icon variety per node — alternate book / headphones / paw
-    // to mimic Duolingo's mixed lesson icons (reading / listening / etc.).
-    //   completed → gold star
-    //   unlocked  → cycle book / headphones / paw by index
-    //   locked    → 🔒 emoji
+    // v1.9.54: all nodes use the paw icon (no more book/headphones cycle).
+    //   completed → paw with gold star sticker overlay (TBD: keep star for now)
+    //   unlocked  → coloured paw
+    //   locked    → greyed paw (filter grayscale + dimmed)
     if (opts.completed) {
       row.innerHTML = `<img src="/mascots/node-star.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else if (opts.unlocked) {
-      // v1.9.22: drop the brightness/invert filter — only paw needs to be
-      // white (it already is). book + headphones use their natural colours
-      // so the blue spine / silver band stay visible against the coffee
-      // node background.
-      const ICONS = ['node-paw.webp', 'node-book.webp', 'node-headphones.webp'];
-      const file = ICONS[opts.idx % ICONS.length];
-      row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
+      row.innerHTML = `<img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else {
-      // v1.9.41: Duo-flat icon-lock.webp replaces the prior stylised SVG.
-      row.innerHTML = `<img src="/mascots/icon-lock.webp" alt="" aria-hidden="true" width="38" height="38" style="display:block;" />`;
+      // v1.9.54: locked = greyed paw (no separate lock icon). When the node
+      // transitions to unlocked, .pickup-map-node-unlock-pop class animates
+      // the grayscale away while scale-popping.
+      row.innerHTML = `<img class="pickup-node-icon" src="/mascots/node-paw.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;filter:grayscale(1);opacity:0.65;" />`;
     }
 
     if (opts.unlocked) {

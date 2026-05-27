@@ -528,6 +528,31 @@ button:focus-visible {
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.05); }
 }
+
+/* v1.9.54: unlock pop — fires once when a node transitions from locked
+ * to unlocked. Node scales up-then-down, icon's grayscale fades to colour. */
+@keyframes pickup-map-node-unlock-pop {
+  0%   { transform: scale(0.82); }
+  55%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+@keyframes pickup-map-node-unlock-color {
+  0%   { filter: grayscale(1) brightness(0.85); }
+  100% { filter: grayscale(0) brightness(1); }
+}
+.pickup-map-node-unlock-pop {
+  animation: pickup-map-node-unlock-pop 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pickup-map-node-unlock-pop .pickup-node-icon,
+.pickup-map-node-unlock-pop img {
+  animation: pickup-map-node-unlock-color 700ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pickup-map-node-unlock-pop,
+  .pickup-map-node-unlock-pop img {
+    animation: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .pickup-map-node-current { animation: none; }
 }
