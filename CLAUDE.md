@@ -70,8 +70,17 @@
 | v1.9.11 | Key Sentences overlay(paw icon → bubbles with audio + dashed underline + ZH)|
 | v1.9.12 | Global click SFX(sfxCardPress on any button tap)|
 | v1.9.13 | Agent-audited WordHint dictionary coverage(填 7 個 Ch1 漏字)|
+| v1.9.14 | CLAUDE.md sync |
+| v1.9.15 | Duolingo HUD(Flag/Crown tier/Gem/Energy SVG)+ nav 去字 |
+| v1.9.16 | HUD crown 依 difficulty 不是 level + 獨立金幣計數器 |
+| v1.9.17 | 12 user-generated icon PNGs 整合(HUD/Nav/Map nodes) |
+| v1.9.18-19 | 角色位置 v3 / v4 iteration |
+| v1.9.20 | 角色位置 v5 — 候選 Y scoring 避開節點密集區 |
+| v1.9.21-22 | 節點 icon 多樣化 + filter 調校 |
+| v1.9.23 | Profile Stats 加 Coins 卡 |
+| v1.9.24 | Locked nodes SVG padlock 取代 🔒 emoji |
 
-**當前版本：v1.9.13。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
+**當前版本：v1.9.24。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
 **下個目標**:剩餘 polish + Ch2-8 內容回補(目前只有 Ch1)。
 
 ## 📋 待辦(user 2026-05-27 確認)

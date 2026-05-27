@@ -637,7 +637,13 @@ export class StoryMapView {
       const file = ICONS[opts.idx % ICONS.length];
       row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else {
-      row.textContent = '🔒';
+      // v1.9.24: stylised SVG lock (matches node-icon palette)
+      row.innerHTML = `<svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true" style="display:block;">
+        <path d="M7.5 11V8a4.5 4.5 0 0 1 9 0v3" stroke="#7a6850" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <rect x="5" y="10.5" width="14" height="10.5" rx="2.2" fill="#ffffff" stroke="#7a6850" stroke-width="1.5"/>
+        <circle cx="12" cy="15" r="1.6" fill="#7a6850"/>
+        <path d="M12 16.5v2.8" stroke="#7a6850" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>`;
     }
 
     if (opts.unlocked) {
