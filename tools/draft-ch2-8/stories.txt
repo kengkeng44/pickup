@@ -1,162 +1,207 @@
 ================================================================
 拾光 PICKUP - 故事草稿純文字版
-2026-05-27 v4 (奶奶睡前故事 / 糰糰=貓 / 花花=狗 / cat POV)
+2026-05-27 v5 (Ch1 完整 8 題 + 奶奶睡前故事 + 糰糰/花花 cat POV)
 ================================================================
 
 
 ================================================================
-最新框架 - 奶奶說睡前故事 / 糰糰 cat POV 第一視角
+框架(unchanged from v4)
 ================================================================
 
-定位:
-  - 兒童英語學習(6-12 歲)
-  - 兒童繪本式 / 童書感
-  - 短篇集,各章獨立
+定位: 兒童英語學習(6-12 歲), 兒童繪本式, 短篇集
 
 角色:
-  - 糰糰 (Tuán-tuán) = 三花貓,雨夜被撿到的,故事敘事者
-  - 花花 (Huā-huā) = 柴犬,後來撿到的,糰糰的好朋友
-  - 奶奶 = 獨居,女兒+孫子住遠不常來
+  糰糰 (Tuán-tuán) = 三花貓, 雨夜被撿到的, 故事敘事者
+  花花 (Huā-huā) = 柴犬, 後來撿到的, 糰糰的好朋友
+  奶奶 = 獨居, 女兒+孫子住遠不常來
 
-第一視角:糰糰(貓)
+第一視角: 糰糰(貓)
 
-敘事結構(每章三層):
-  1. 外層 = 糰糰現在 在毯子上(prologue + 開場)
-  2. 中層 = 奶奶今晚說的故事 (直接引語 ".....")
-  3. 內層 = 故事內容(童話 / 回憶 / 日常小事)
-
-
---------------------------------------------------------------
-共用 PROLOGUE (跨章 reuse,首章完整,後章可縮)
---------------------------------------------------------------
-
-I am 糰糰. I live with Grandma.
-我是糰糰。我跟奶奶住。
-
-花花 is my friend. He is a brown shiba.
-花花是我的朋友,一隻棕色的柴犬。
-
-Grandma has a daughter. The daughter lives far.
-奶奶有個女兒,住得很遠。
-
-The daughter has a small child. They do not come often.
-她有一個小孩,他們不常來。
-
-So Grandma tells us stories every night.
-所以奶奶每晚說故事給我們聽。
+敘事結構 三層:
+  外層 = 糰糰在毯子上(prologue + 開場 + 結尾)
+  中層 = 奶奶說的故事(直接引語 ".....")
+  內層 = 故事內容(回憶 / 童話 / 日常)
 
 
 
 ================================================================
-Ch1 樣本 - 「我跟你的第一天」
+CH1 - 「我跟你的第一天」 完整 8 題版
 ================================================================
 
-(糰糰 開場 - 描述今晚情境)
+故事流程:
+  Q1-Q3  Prologue(3 題)   建立世界:糰糰 / 花花 / 奶奶說故事
+  Q4-Q6  奶奶的故事(3 題)  雨夜遇貓 / 撐傘 / 帶回家
+  Q7     Closing(1 題)    Goodnight
+  Q8     Review(1 題)     4 個關鍵字配對
 
-Tonight Grandma sits in her chair.
-今晚奶奶坐在她的椅子上。
-
-花花 sleeps near her feet.
-花花在她腳邊睡覺。
-
-I sit on the warm blanket.
-我坐在溫暖的毯子上。
+每題類型分散:listen-mc x2 / listen-emoji x1 / type x2 / listen-comprehension x1 / tap-tiles x1 / tap-pairs x1
 
 
-(奶奶的故事 - 直接引語)
+--------------------------------------------------------------
+Q1 [listen-mc]
+--------------------------------------------------------------
+storyBeat: 我是糰糰,跟奶奶住
+sentence: "I am 糰糰. I am a small cat."
+question: "Which word did you hear?"
+options: ["cat", "cap", "cut", "cot"]
+correctIndex: 0
+explanationZh:
+  cat = 貓。cap(帽子)、cut(剪)、cot(嬰兒床)母音相近,
+  要靠尾音跟前面的母音長度分辨。糰糰是一隻三花貓。
+
+
+--------------------------------------------------------------
+Q2 [listen-emoji]
+--------------------------------------------------------------
+storyBeat: 花花是柴犬,我的朋友
+sentence: "花花 is my friend. He is a brown dog."
+question: "Who is 花花?"
+options: ["🐕 a dog", "🐈 a cat", "🦅 a bird", "🐇 a rabbit"]
+correctIndex: 0
+explanationZh:
+  花花是 brown dog(棕色的狗)— 一隻柴犬。雖然花花聽起來像
+  花的名字,但他是奶奶後來撿到的小狗,現在是糰糰最好的朋友。
+
+
+--------------------------------------------------------------
+Q3 [type-what-you-hear]
+--------------------------------------------------------------
+storyBeat: 每晚奶奶都說一個故事
+sentence: "Tonight Grandma tells a story."
+question: "Type the missing word"
+correct answer: story
+explanationZh:
+  story = 故事。奶奶的女兒跟孫子住得遠不常來,所以每晚奶奶
+  都對糰糰跟花花說一個 story。今天說的是糰糰自己的故事。
+
+
+--------------------------------------------------------------
+Q4 [listen-comprehension] ← 奶奶開始說故事
+--------------------------------------------------------------
+storyBeat: 從前一個雨夜,奶奶看見一隻小貓
+sentence: "Long ago, on a rainy night, I saw a small cat."
+question: "What did Grandma see?"
+options:
+  - "A small cat"      ✓
+  - "A big dog"
+  - "A red bird"
+  - "An old tree"
+explanationZh:
+  long ago = 很久以前。奶奶說她在 a rainy night(雨夜)看見了
+  a small cat 在路上 — 那就是糰糰跟奶奶相遇的起點。
+
+
+--------------------------------------------------------------
+Q5 [type-what-you-hear]
+--------------------------------------------------------------
+storyBeat: 奶奶撐開傘給濕透的小貓
+sentence: "I opened my umbrella for her."
+question: "Type the missing word"
+correct answer: umbrella
+explanationZh:
+  umbrella = 傘。長一點的字,3 個音節 um-brel-la。奶奶為了
+  濕透的小貓撐開傘 — 這是糰糰跟奶奶第一次靠近。
+
+
+--------------------------------------------------------------
+Q6 [tap-tiles]
+--------------------------------------------------------------
+storyBeat: 奶奶把小貓帶回家
+sentence: "I took her home."
+question: "Tap what you hear"
+tiles: ["I", "took", "her", "home", "saw", "house"]
+correct order: I → took → her → home
+explanationZh:
+  依序點:I → took → her → home。took 是 take 的過去式
+  (帶過去了)。saw 跟 house 是干擾。house 跟 home 意思相近但
+  語感不同 — home 是「家」,有家人感情。
+
+
+--------------------------------------------------------------
+Q7 [listen-mc] ← 糰糰結尾
+--------------------------------------------------------------
+storyBeat: 故事說完了,糰糰跟奶奶說晚安
+sentence: "Goodnight, Grandma."
+question: "Which word did you hear?"
+options: ["Goodnight", "Good morning", "Good day", "Goodbye"]
+correctIndex: 0
+explanationZh:
+  Goodnight = 晚安(睡覺前說的)。Goodbye 是再見、Good morning
+  是早安、Good day 是日安。糰糰聽完故事舔舔腳,跟奶奶說 Goodnight。
+
+
+--------------------------------------------------------------
+Q8 [tap-pairs] ← Ch1 章節 review
+--------------------------------------------------------------
+storyBeat: 今晚的四個關鍵字
+sentence: "These are tonight's four words."
+pairs:
+  cat       貓
+  umbrella  傘
+  rainy     下雨的
+  home      家
+explanationZh:
+  糰糰的故事四個關鍵字:cat 貓、umbrella 傘、rainy 下雨的、
+  home 家。它們組成了奶奶遇到糰糰的那個雨夜。
+
+
+
+================================================================
+CH1 narrative 文字版(讀起來像繪本一篇)
+================================================================
+
+I am 糰糰. I am a small cat.
+我是糰糰,一隻小貓。
+
+花花 is my friend. He is a brown dog.
+花花是我的朋友,一隻棕色的狗。
+
+Tonight Grandma tells a story.
+今晚奶奶要說故事。
 
 "Long ago, on a rainy night,
- I walked home with my umbrella.
- 從前,在一個雨夜,
- 我撐著傘走回家。
-
- I saw a small cat on the road.
- She was wet and cold.
- 我看到路上有一隻小貓,
- 她又濕又冷。
+ I saw a small cat.
+ 從前一個雨夜,
+ 我看見一隻小貓。
 
  I opened my umbrella for her.
- She came under it.
- 我為她撐開傘,
- 她躲了進來。
+ 我為她撐開傘。
 
- I took her home. She was you, 糰糰.
- 我把她帶回家。那就是你,糰糰。"
-
-
-(糰糰 結尾 - goodnight)
-
-花花 is asleep. I lick my paw.
-花花睡著了, 我舔舔腳。
+ I took her home."
+ 我把她帶回家。
 
 Goodnight, Grandma.
 晚安,奶奶。
 
-
-
-================================================================
-Ch2-Ch8 主題提議 (請確認 / 調整)
-================================================================
-
-Ch2 - 「花花的故事」
-   奶奶在車站旁撿到花花(小箱子裡的小狗)
-   主題:緣分 / 花花的來歷
-   學:station / box / brother / found
-
-Ch3 - 「女兒小時候的那個下午」
-   奶奶想起女兒小時候,在院子吃柚子的某個午後
-   主題:思念 / 過去的甜
-   學:daughter / afternoon / sun / sweet
-
-Ch4 - 「奶奶種的那棵柚子樹」
-   奶奶種了一棵柚子樹,長大開花結果
-   主題:時間 / 種下會留下
-   學:tree / plant / grow / fruit / yellow
-
-Ch5 - 「月亮跟一顆白色的蛋」(輕童話)
-   奶奶說一個 made-up 小童話:月亮某晚下了一顆蛋
-   主題:想像 / 童趣
-   學:moon / egg / white / sky / dream
-
-Ch6 - 「奶奶以前村子的雨」
-   奶奶回憶小時候,村子的雨打在屋頂上
-   主題:鄉愁 / 時間
-   學:village / roof / drop / sound / long ago
-
-Ch7 - 「奶奶的奶奶說過的話」
-   奶奶傳給糰糰一句她奶奶說過的話
-   主題:傳承 / 愛是傳下去的
-   學:words / remember / heart / pass
-
-Ch8 - 「門為什麼一直開著」(thesis 收尾)
-   奶奶告訴糰糰為什麼她從不關門
-   主題:愛 = 不留 / 讓走也是愛
-   學:door / open / stay / leave / love
+(全文 8 句英文 / 8 句中文。長度剛好讀完一頁繪本。)
 
 
 
 ================================================================
-備存:舊版本(參考用 - 不再採用)
+Ch2-Ch8 主題提議(未寫,等你確認 Ch1 後再展開)
 ================================================================
 
-V1 (已上線) Ch1 = 6 題壓縮版 https://pickupwords.pages.dev
-V2 (option-B/) Option B = 8 章 x 6 題 壓縮版,主旨「門永遠開」
-V3 (hierarchical-test/) Ch1 = 3 Unit (主+支+主),13 題
-V4 (本檔) 奶奶睡前故事 + 糰糰/花花 + cat POV
+Ch2 「花花的故事」     - 奶奶撿到柴犬花花的那天
+Ch3 「女兒小時候的下午」- 院子吃柚子的午後
+Ch4 「奶奶種的柚子樹」  - 樹長大開花結果
+Ch5 「月亮跟一顆蛋」    - 輕童話
+Ch6 「奶奶以前村子的雨」- 鄉愁
+Ch7 「奶奶的奶奶」      - 代代相傳
+Ch8 「門為什麼一直開著」- thesis 收尾
 
-
-
-================================================================
-判斷清單 (你 review 後告訴我)
-================================================================
-
-1. 名字「糰糰(貓) + 花花(狗)」OK 嗎? <-- 已確認 ✓
-2. Ch1 樣本 cat POV 第一視角感覺對嗎?
-3. 三層結構(糰糰 prologue + 奶奶引語 + 糰糰 goodnight)順嗎?
-4. 8 章主題單獨成立可以嗎(各章獨立小故事)?有想換哪章?
-5. 學齡:6-8 歲 / 9-12 歲 / 全包?
 
 
 ================================================================
-End of stories.txt v4
+判斷清單(你 review Ch1 後告訴我)
+================================================================
+
+1. 8 題的節奏(3 prologue + 3 story + 1 closing + 1 review)順嗎?
+2. 句子難度 A2 對嗎?有沒有哪個字太難 / 太簡單?
+3. 中文解釋(explanationZh)夠不夠帶情境(不只翻譯,也有故事 voice)?
+4. 「Goodnight, Grandma」當 Q7 結尾,還是想多 1 題糰糰描述阿柴睡著?
+5. tap-pairs Q8 四個關鍵字選 cat/umbrella/rainy/home 對嗎?要換哪個?
+
+
+================================================================
+End of stories.txt v5
 ================================================================
