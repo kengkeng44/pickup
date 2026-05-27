@@ -64,8 +64,14 @@
 | v1.9.5 | Profile streak 用 persistent + Begin CTA 文字依模式 |
 | v1.9.6 | Tasks tab 加 Daily Streak hero card |
 | v1.9.7 | Achievements 8 badges in Alerts tab(streak/XP/chapter milestones)|
+| v1.9.8 | CLAUDE.md autonomous-loop sync |
+| v1.9.9 | Confetti burst on chapter complete |
+| v1.9.10 | Listen / Replay speaker buttons subtle pulse(tap-me cue)|
+| v1.9.11 | Key Sentences overlay(paw icon → bubbles with audio + dashed underline + ZH)|
+| v1.9.12 | Global click SFX(sfxCardPress on any button tap)|
+| v1.9.13 | Agent-audited WordHint dictionary coverage(填 7 個 Ch1 漏字)|
 
-**當前版本：v1.9.7。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
+**當前版本：v1.9.13。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
 **下個目標**:剩餘 polish(confetti 答對特效升級 / new question types Listen+Image / Sentence Shuffle) + Ch2-8 內容回補(目前只有 Ch1)。
 
 ---
