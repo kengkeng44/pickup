@@ -760,18 +760,20 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.8.7: back to Duolingo standard — character BESIDE current node.
-    // User said "標準就是要跟多鄰國一樣" (standard = match Duolingo).
-    // Duolingo Lin sits next to the current lesson node, partially
-    // overlapping the tile. Mirror side based on local curve flow.
+    // v1.9.18: third revision per user feedback.
+    //   - Character mirrors CURRENT NODE's absolute dx (not flow direction)
+    //   - If current node is right-of-center → character on far LEFT
+    //   - If current node is left-of-center → character on far RIGHT
+    //   - Vertical aligned with current node's row (platforms level)
+    // Reasoning: user's screenshot consistently circles "empty space"
+    // opposite the node cluster as the target. This places character
+    // unambiguously in that visual gap.
     const containerW = 122;
-    const prevSlot = NODE_PATH[Math.max(0, nodeIdx - 1)] ?? slot;
-    const nextSlot = NODE_PATH[Math.min(NODE_PATH.length - 1, nodeIdx + 1)] ?? slot;
-    const flowDir = nextSlot.dx - prevSlot.dx;
-    const catX = flowDir >= 0
-      ? nodeLeft + NODE_SIZE - 40   // curve flowing right → character on RIGHT of node
-      : nodeLeft - containerW + 40; // curve flowing left → character on LEFT of node
-    const catY = rowTop - 36;       // partially overlap top of node
+    void nodeLeft;
+    const catX = slot.dx >= 0
+      ? 4                                  // current node right → character on far LEFT
+      : CONTAINER_W - containerW - 4;      // current node left → character on far RIGHT
+    const catY = rowTop - 50;              // platform aligns with node tile
 
     if (!animate) {
       this.cat.style.transition = 'none';
