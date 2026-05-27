@@ -72,7 +72,14 @@
 | v1.9.13 | Agent-audited WordHint dictionary coverage(填 7 個 Ch1 漏字)|
 
 **當前版本：v1.9.13。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
-**下個目標**:剩餘 polish(confetti 答對特效升級 / new question types Listen+Image / Sentence Shuffle) + Ch2-8 內容回補(目前只有 Ch1)。
+**下個目標**:剩餘 polish + Ch2-8 內容回補(目前只有 Ch1)。
+
+## 📋 待辦(user 2026-05-27 確認)
+
+- **Drag-and-drop tap-tiles**(complexity 評估 ~3-4 hr,iOS Safari 多坑)— **暫緩**,等用戶主動 unblock
+- **Listen + Image / Sentence Shuffle 新題型** — 需圖庫
+- **角色站位規則 v4**(2026-05-27 確定):mean dx 偏右 → 角色貼 container 左 28px margin,垂直在節點群中段
+- 更多 user-generated icons(目前 12 個已整合)
 
 ---
 
