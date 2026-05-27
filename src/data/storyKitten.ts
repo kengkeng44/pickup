@@ -48,7 +48,7 @@ export type QuestionType = z.infer<typeof QuestionTypeSchema>;
 
 export const StoryQuestionSchema = ClozeQuestionSchema.extend({
   chapter: ChapterIdSchema,
-  questionInChapter: z.number().int().min(1).max(6),
+  questionInChapter: z.number().int().min(1).max(8),
   storyBeat: z.string().optional(),
   /** v1.8.0: optional. Defaults to 'listen-mc' if absent (legacy data). */
   type: QuestionTypeSchema.optional(),

@@ -144,7 +144,7 @@ const POINTS_BASE = 10;
 const STREAK_BONUS_STEP = 2;
 const STREAK_BONUS_CAP = 10;
 const QUESTIONS_PER_RUN = 10;
-const STORY_QUESTIONS_PER_CHAPTER = 6;
+const STORY_QUESTIONS_PER_CHAPTER = 8;  // v1.9.50: Ch1 expanded for grandma-v4
 const SRS_REVIEW_LIMIT = 3;
 
 const LS_LEVEL = 'wordwar.level';

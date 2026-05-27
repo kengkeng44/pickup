@@ -104,6 +104,7 @@
 | **v1.9.47 (audit-3 收尾 8/8)** | #4 3D depth 3-tier scale lock(card 4 / hero 6 / interactive 10 + 3 press);#5 白卡片 4 處(Free Practice / scenario / stat / achievement)補 amber top stripe `inset 0 4px 0 rgba(231,164,74,0.15-0.18)`;#7 BottomNav active tab 加 3px amber `borderTop` 色塊指示條 + `translateY(-2px)` 浮起,inactive = transparent;#8 POV scene linear-gradient carve-out 註解豁免 |
 | v1.9.48 (audit-4 #3+#4+#5 安全 ship) | #3 kt-ch1-06 sentence 從 meta "Match the Ch1 words..." → flow "These are the words I will remember.";#4 boot 偵測 localStorage 寫入失敗 → 紅 banner 提醒 "進度無法儲存 — 請關閉私密瀏覽";#5 iOS TTS race fallback:auto-speak 後 1s 檢測,如未起動則 reveal sentence + "🔇 Audio unavailable" 微文案。#1 Ch1 擴充 + #2 sessionStorage resume 因 AFK 風險過大延後 |
 | v1.9.49 (audit-5 全 8 AFK-safe polish) | F1 砍 orphaned energy-bolt.webp;F2-F4 Ch1 explanationZh 從 jargon → story voice(去 "Comprehension 題" / "干擾 tile" / UX 細節 leak);F5 welcome banner 雙語 "從第一顆節點開始 · Tap to begin";F6 PRAISE_TIMEOUT 拿掉「green button」字眼(palette olive 後不準了 + 也回避 blindRetry 違反);F7 Ch1-q1 sentence 兩句合一 "I wake up and the rain is falling hard."(TTS intonation 順);F8 explanationZh 標點正規化 |
+| **v1.9.50 (Ch1 grandma-v4 上線)** | 市場 pivot:adult Ghibli → 兒童童話。Ch1 重寫成「奶奶睡前故事」框架(糰糰=三花貓敘事者,花花=柴犬,奶奶因女兒住遠每晚對牠們說故事)。Ch1 從 6 題擴成 8 題(3 prologue 設定世界 + 3 奶奶說的雨夜故事 + 1 Goodnight + 1 tap-pairs review)。Schema max(6)→max(8),`STORY_QUESTIONS_PER_CHAPTER` 6→8,`NODE_PATH` 8→10 位置(8 Ch1 + 2 Ch2 lock),`CH1_BEAT_LABELS` 重寫 |
 | v1.9.24 | Locked nodes SVG padlock 取代 🔒 emoji |
 
 **當前版本：v1.9.24。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。

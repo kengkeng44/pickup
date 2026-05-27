@@ -65,6 +65,8 @@ const CONTAINER_W = 320;
 // center. Path reads like a meandering river.
 // v1.8.2: opened vertical spacing from ~84px to ~100px between nodes
 // (more breathing room, less cramped).
+// v1.9.50: Ch1 expanded 6→8 questions (grandma bedtime story framework).
+// 8 Ch1 main nodes + 2 Ch2 lock teasers below.
 const NODE_PATH: Array<{ dx: number; top: number }> = [
   { dx: 10,  top: 16 },    // node 0 — slight right of center
   { dx: 30,  top: 116 },   // node 1 — drift right
@@ -72,19 +74,24 @@ const NODE_PATH: Array<{ dx: number; top: number }> = [
   { dx: 16,  top: 312 },   // node 3 — start curving back
   { dx: -20, top: 410 },   // node 4 — cross center, into left
   { dx: -38, top: 506 },   // node 5 — left peak
-  { dx: -18, top: 618 },   // node 6 — Ch2 lock, curve back
-  { dx: 14,  top: 716 },   // node 7 — Ch2 lock, near center
+  { dx: -18, top: 604 },   // node 6 — curve back
+  { dx: 14,  top: 700 },   // node 7 — near center (Ch1 last)
+  { dx: 30,  top: 798 },   // node 8 — Ch2 lock teaser
+  { dx: 38,  top: 896 },   // node 9 — Ch2 lock teaser
 ];
 // (ROW_HEIGHT removed v1.8.0 — irregular path replaces it)
 
 // Ch1 narrative beats — short label per question, used as tooltip / aria.
+// v1.9.50: 8 beats for grandma-v4 framework (prologue + tale + goodnight + review).
 const CH1_BEAT_LABELS = [
-  'Rainy start',
-  'Wet and cold',
-  'Hungry alley',
-  'A big shadow',
-  'A kind face',
-  'Sheltered',
+  'I am 糰糰',
+  'Meet 花花',
+  'Tonight a story',
+  'Rainy night cat',
+  'The umbrella',
+  'Took her home',
+  'Goodnight',
+  'Four words',
 ];
 
 const LS_LAST_CAT_NODE = 'pickup.map.cat-node';
@@ -202,12 +209,12 @@ export class StoryMapView {
     this.cat = this.buildCat();
     column.appendChild(this.cat);
 
-    // Build nodes — Ch1's 6 questions
+    // Build nodes — Ch1's 8 questions (v1.9.50 grandma-v4)
     const progress = readChapterProgress();
     const ch1Unlocked = isChapterUnlocked(1);
     const ch1Completed = isChapterCompleted(1);
     const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
       const beat = CH1_BEAT_LABELS[i];
       const node = this.buildNode({
         idx: i,
@@ -711,7 +718,7 @@ export class StoryMapView {
       position: 'absolute',
       left: '0',
       right: '0',
-      top: `${NODE_PATH[5].top + NODE_HEIGHT + 26}px`,
+      top: `${NODE_PATH[7].top + NODE_HEIGHT + 26}px`,
       textAlign: 'center',
       fontSize: '11px',
       fontWeight: '800',
@@ -812,7 +819,7 @@ export class StoryMapView {
     //   - Mean dx still picks side; vertical centered in the sparse band.
     const containerW = 122;
     void nodeLeft; void rowTop; void slot;
-    const visible = NODE_PATH.slice(0, 6);
+    const visible = NODE_PATH.slice(0, 8);
     const meanDx = visible.reduce((s, n) => s + n.dx, 0) / visible.length;
 
     // Calculate, per node, whether it overlaps the desired character side.
