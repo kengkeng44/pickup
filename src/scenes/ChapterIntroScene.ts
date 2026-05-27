@@ -145,6 +145,8 @@ export class ChapterIntroScene extends Phaser.Scene {
     content.appendChild(title);
 
     // Scene illustration row — kitten state + NPC, side by side on a card.
+    // v1.9.53: solid floor band (inset bottom) so mascots stand on visible
+    // ground instead of floating. Color-block lighting per Pickup brand.
     const sceneCard = document.createElement('div');
     applyStyle(sceneCard, {
       display: 'flex',
@@ -154,10 +156,12 @@ export class ChapterIntroScene extends Phaser.Scene {
       background: meta.tint,
       border: `2px dashed ${meta.accent}`,
       borderRadius: '20px',
-      padding: '14px 12px',
+      padding: '14px 12px 32px',
       minHeight: '160px',
+      boxShadow: 'inset 0 -50px 0 rgba(60, 42, 28, 0.10)',
     });
-    // v1.9.52: solid-ellipse ground shadow wrapper so mascots don't float.
+    // v1.9.53: ground is now the sceneCard's bottom floor band (inset shadow),
+    // so each mascot slot just bottom-aligns to it. Removed prior ellipse hack.
     const mascotSlotStyle = {
       width: '120px',
       height: '140px',
@@ -166,30 +170,24 @@ export class ChapterIntroScene extends Phaser.Scene {
       justifyContent: 'center',
       position: 'relative' as const,
     };
-    const groundShadowHtml =
-      '<div style="position:absolute;left:14%;right:14%;bottom:6%;height:10%;background:rgba(60,42,28,0.22);border-radius:50%;z-index:0;pointer-events:none;"></div>';
 
     const kittenSlot = document.createElement('div');
     applyStyle(kittenSlot, mascotSlotStyle);
-    kittenSlot.innerHTML = groundShadowHtml + getMascotSvg(meta.kittenMascotId);
+    kittenSlot.innerHTML = getMascotSvg(meta.kittenMascotId);
     const kSvg = kittenSlot.querySelector('svg');
     if (kSvg) {
       kSvg.setAttribute('width', '120');
       kSvg.setAttribute('height', '140');
-      (kSvg as unknown as HTMLElement).style.position = 'relative';
-      (kSvg as unknown as HTMLElement).style.zIndex = '1';
     }
     sceneCard.appendChild(kittenSlot);
 
     const npcSlot = document.createElement('div');
     applyStyle(npcSlot, mascotSlotStyle);
-    npcSlot.innerHTML = groundShadowHtml + getMascotSvg(meta.npcMascotId);
+    npcSlot.innerHTML = getMascotSvg(meta.npcMascotId);
     const nSvg = npcSlot.querySelector('svg');
     if (nSvg) {
       nSvg.setAttribute('width', '120');
       nSvg.setAttribute('height', '140');
-      (nSvg as unknown as HTMLElement).style.position = 'relative';
-      (nSvg as unknown as HTMLElement).style.zIndex = '1';
     }
     sceneCard.appendChild(npcSlot);
     content.appendChild(sceneCard);

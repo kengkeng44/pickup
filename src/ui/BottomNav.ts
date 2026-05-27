@@ -88,13 +88,9 @@ export class BottomNav {
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
       });
-      // v1.9.31 audit #11: restore tiny 10px labels under each icon.
-      // Visible labels help users + screen readers; the 10px size keeps the
-      // nav uncluttered (vs. the bulky text that was removed in v1.9.15).
-      btn.innerHTML = `
-        <span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>
-        <span style="font-size:10px;font-weight:800;letter-spacing:0.4px;line-height:1;">${LABELS[tab]}</span>
-      `;
+      // v1.9.53: labels removed again per user. Icons only, EN labels stay
+      // in aria-label only (screen readers still get them).
+      btn.innerHTML = `<span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>`;
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         handlers.onTab(tab);

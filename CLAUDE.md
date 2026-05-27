@@ -107,6 +107,7 @@
 | **v1.9.50 (Ch1 grandma-v4 上線)** | 市場 pivot:adult Ghibli → 兒童童話。Ch1 重寫成「奶奶睡前故事」框架(糰糰=三花貓敘事者,花花=柴犬,奶奶因女兒住遠每晚對牠們說故事)。Ch1 從 6 題擴成 8 題(3 prologue 設定世界 + 3 奶奶說的雨夜故事 + 1 Goodnight + 1 tap-pairs review)。Schema max(6)→max(8),`STORY_QUESTIONS_PER_CHAPTER` 6→8,`NODE_PATH` 8→10 位置(8 Ch1 + 2 Ch2 lock),`CH1_BEAT_LABELS` 重寫 |
 | v1.9.51 (Ch1 narration + title 同步 grandma-v4) | 漏改的 ChapterIntroScene narration + outro 更新成 cat POV / 糰糰+花花;titleZh 「流落街頭」→「我們的第一天」;titleEn 「A Rainy Night」→「The First Story」。**deploy lesson**:wrangler 不加 `--branch=main` 才上 production root,加 flag = 卡 Preview |
 | **v1.9.52 (stray cat + custom name + mascot ground)** | 故事 reframe:貓不再被收養,是**流浪貓** 每晚去奶奶院子聽故事(花花是奶奶養的)。Ch1 narration / outro / Q1-Q2-Q6-Q8 全更新。新檔 `src/data/catName.ts` + `applyCatName()` 注入 `{catName}` 預設糰糰。`loadStoryQuestions()` load-time 注入到 sentence + explanationZh。Profile tab 加「貓咪名字」input 改完 reload 套用。ChapterIntroScene 兩隻 mascot 加 solid 橢圓地影色塊(fix floating bug)|
+| v1.9.53 (nav去字 + mascot floor band + map bg -5%) | BottomNav 去 EN labels(aria-label 留)icon-only。ChapterIntroScene sceneCard 改 inset 50px floor band(`rgba(60,42,28,0.10)`)— mascot 直接 align-flex-end 站在 floor 上,不再 floating(舊橢圓 hack 移除)。Map bg `#fef8ed` → `#f1ebe1`(數學上 5% 較深的暖米) |
 | v1.9.24 | Locked nodes SVG padlock 取代 🔒 emoji |
 
 **當前版本：v1.9.24。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。

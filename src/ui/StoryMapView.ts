@@ -43,7 +43,7 @@ export interface StoryMapHandlers {
   onSwitchTab?: (tab: 'home' | 'tasks' | 'profile' | 'alerts') => void;
 }
 
-const COLOR_BG = '#fef8ed';
+const COLOR_BG = '#f1ebe1'; // v1.9.53: ~5% darker cream (was #fef8ed)
 const COLOR_NODE = '#a47148';        // coffee brown
 const COLOR_NODE_DARK = '#7a5b3a';   // shadow side
 const COLOR_NODE_DONE = '#7d9a4f';   // muted green for completed
