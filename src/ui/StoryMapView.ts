@@ -278,10 +278,12 @@ export class StoryMapView {
 
     // v1.9.16: Crown tier reflects DIFFICULTY setting per user request:
     //   easy → Silver, medium → Gold, hard → Diamond
-    const tierForDifficulty = (d: 'easy' | 'medium' | 'hard'): { fill: string; stroke: string; label: string } => {
-      if (d === 'hard') return { fill: '#7ad8e0', stroke: '#3a9eaa', label: 'Diamond' };
-      if (d === 'medium') return { fill: '#f0c33a', stroke: '#c79410', label: 'Gold' };
-      return { fill: '#c9d2da', stroke: '#7a8794', label: 'Silver' };
+    // v1.9.17: tier maps to label + CSS filter (PNG crown is gold base,
+    // we hue-shift for diamond and desaturate for silver).
+    const tierForDifficulty = (d: 'easy' | 'medium' | 'hard'): { stroke: string; label: string; filter: string } => {
+      if (d === 'hard') return { stroke: '#3a9eaa', label: 'Diamond', filter: 'hue-rotate(155deg) saturate(0.75)' };
+      if (d === 'medium') return { stroke: '#c79410', label: 'Gold', filter: 'none' };
+      return { stroke: '#7a8794', label: 'Silver', filter: 'saturate(0.12) brightness(0.95)' };
     };
     const t = tierForDifficulty(difficulty);
     // v1.9.17: user-generated PNG icons (rembg + WebP), 24px square.
