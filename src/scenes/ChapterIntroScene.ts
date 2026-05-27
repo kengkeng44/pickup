@@ -5,10 +5,11 @@ import {
   readSrsQueue,
   type ChapterId,
 } from '../data/storyKitten';
-import { applyStyle } from '../ui/domUtil';
+import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { speak, stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
+import { createSpeakerButton } from '../ui/SpeakerButton';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -228,32 +229,11 @@ export class ChapterIntroScene extends Phaser.Scene {
         borderBottom: `1.5px dashed ${COLOR_BORDER}`,
       });
 
-      const speaker = document.createElement('button');
-      speaker.type = 'button';
-      speaker.setAttribute('aria-label', `Listen to sentence ${idx + 1}`);
-      // v1.8.8: smaller icon-only style closer to Duolingo Stories.
-      // Was 34×34 chunky button; now 24×24 minimal icon.
-      speaker.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="#3d8aae" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-      applyStyle(speaker, {
-        flex: '0 0 auto',
-        width: '28px',
-        height: '28px',
-        borderRadius: '50%',
-        background: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        padding: '0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: 'inherit',
-        touchAction: 'manipulation',
-        WebkitTapHighlightColor: 'transparent',
-        marginTop: '2px',
-      });
-      speaker.addEventListener('click', (e) => {
-        e.preventDefault();
-        speak(sentence);
+      // v1.9.25 audit #5: use shared SpeakerButton component.
+      const speaker = createSpeakerButton({
+        text: sentence,
+        size: 'sm',
+        ariaLabel: `Listen to sentence ${idx + 1}`,
       });
       row.appendChild(speaker);
 
@@ -332,20 +312,11 @@ export class ChapterIntroScene extends Phaser.Scene {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
-      boxShadow: '0 4px 12px rgba(88, 204, 2, 0.25)',
+      // v1.9.44 Duo flat: CTA blur halo removed; press-feedback does the 3D.
+      boxShadow: 'none',
     });
     cta.classList.add('pickup-pulse');
-    cta.addEventListener('pointerdown', () => {
-      cta.style.transform = 'translateY(2px)';
-      cta.style.borderBottomWidth = '3px';
-    });
-    const release = () => {
-      cta.style.transform = '';
-      cta.style.borderBottomWidth = '5px';
-    };
-    cta.addEventListener('pointerup', release);
-    cta.addEventListener('pointerleave', release);
-    cta.addEventListener('pointercancel', release);
+    attachPressFeedback(cta, { depth: 2, borderBottom: { from: 5, to: 3 } });
     cta.addEventListener('click', (e) => {
       e.preventDefault();
       stopSpeaking();

@@ -65,7 +65,8 @@ export class NodeActivitySheet {
       background: '#ffffff',
       borderRadius: '22px',
       padding: '18px 18px 16px',
-      boxShadow: '0 -10px 30px rgba(28, 18, 8, 0.18), 0 8px 0 #d4c098',
+      // v1.9.44 Duo flat: kept solid 3D depth, dropped blur top halo.
+      boxShadow: '0 8px 0 #d4c098',
       display: 'flex',
       flexDirection: 'column',
       gap: '10px',

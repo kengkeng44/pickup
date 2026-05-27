@@ -40,6 +40,10 @@ export interface GameHUDOptions {
   onChange: () => void;
   /** v0.8 story mode: hide the HP heart counter entirely. */
   hideHp?: boolean;
+  /** v1.9.25 audit #1+#4: hide streak (already on map HUD, avoids duplicate). */
+  hideStreak?: boolean;
+  /** v1.9.25 audit #4: hide timer pill in story mode (no pressure). */
+  hideTimer?: boolean;
 }
 
 export interface GameHUDState {
@@ -67,6 +71,10 @@ export class GameHUD {
   private header!: HTMLDivElement;
   private streakEl!: HTMLDivElement;
   private streakNum!: HTMLSpanElement;
+  /** v1.9.34 audit-2 F2: chapter chip shown in story mode to anchor the
+   * lesson header's left side when streak/timer are hidden. */
+  private chapterChip?: HTMLDivElement;
+  private chapterChipText?: HTMLSpanElement;
   private progressTrack!: HTMLDivElement;
   private progressFill!: HTMLDivElement;
   private hpEl!: HTMLDivElement;
@@ -235,6 +243,30 @@ export class GameHUD {
     });
     this.header.appendChild(closeBtn);
 
+    // v1.9.34 audit-2 F2: chapter chip — only mounted in story mode (where
+    // streak + timer are hidden) so the close button + progress bar don't
+    // float alone with a giant empty gap between them.
+    if (this.opts.hideStreak) {
+      this.chapterChip = document.createElement('div');
+      applyStyle(this.chapterChip, {
+        display: 'inline-flex',
+        alignItems: 'center',
+        padding: '6px 12px',
+        borderRadius: '999px',
+        background: 'rgba(231, 164, 74, 0.18)',
+        color: '#8b6f4a',
+        fontSize: '13px',
+        fontWeight: '900',
+        letterSpacing: '0.6px',
+        fontFamily: 'inherit',
+        flex: '0 0 auto',
+      });
+      this.chapterChipText = document.createElement('span');
+      this.chapterChipText.textContent = 'q1';
+      this.chapterChip.appendChild(this.chapterChipText);
+      this.header.appendChild(this.chapterChip);
+    }
+
     this.streakEl = document.createElement('div');
     applyStyle(this.streakEl, {
       display: 'flex',
@@ -248,13 +280,16 @@ export class GameHUD {
       letterSpacing: '-0.5px',
       lineHeight: '1',
     });
-    const streakLabel = document.createElement('span');
-    streakLabel.textContent = '×';
-    applyStyle(streakLabel, {
-      fontSize: '15px',
-      fontWeight: '800',
-      lineHeight: '1',
-      opacity: '0.9',
+    // v1.9.41: replace 🔥 emoji with Duo-flat icon-flame.webp.
+    const streakLabel = document.createElement('img');
+    (streakLabel as HTMLImageElement).src = '/mascots/icon-flame.webp';
+    streakLabel.setAttribute('alt', '');
+    streakLabel.setAttribute('aria-hidden', 'true');
+    applyStyle(streakLabel as unknown as HTMLElement, {
+      width: '22px',
+      height: '22px',
+      marginRight: '2px',
+      display: 'block',
     });
     this.streakEl.appendChild(streakLabel);
     this.streakNum = document.createElement('span');
@@ -267,6 +302,9 @@ export class GameHUD {
     });
     this.streakEl.appendChild(this.streakNum);
     this.header.appendChild(this.streakEl);
+    if (this.opts.hideStreak) {
+      this.streakEl.style.display = 'none';
+    }
 
     // Progress bar (center, flexes)
     this.progressTrack = document.createElement('div');
@@ -277,7 +315,7 @@ export class GameHUD {
       borderRadius: '7px',
       overflow: 'hidden',
       position: 'relative',
-      boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.06)',
+      // v1.9.44 Duo flat: inset blur stripped.
     });
     this.progressFill = document.createElement('div');
     applyStyle(this.progressFill, {
@@ -286,7 +324,8 @@ export class GameHUD {
       background: 'var(--pickup-success)',
       borderRadius: '7px',
       transition: 'width 360ms cubic-bezier(0.2, 0.8, 0.4, 1)',
-      boxShadow: 'inset 0 -3px 0 rgba(0,0,0,0.12), inset 0 2px 0 rgba(255,255,255,0.25)',
+      // v1.9.43: Duo flat — strip glossy inset highlight + inner shadow.
+      // Progress fill is pure solid color, no glass effect.
     });
     this.progressTrack.appendChild(this.progressFill);
     this.header.appendChild(this.progressTrack);
@@ -354,6 +393,9 @@ export class GameHUD {
     this.timerNum.textContent = '15';
     this.timerEl.appendChild(this.timerNum);
     this.header.appendChild(this.timerEl);
+    if (this.opts.hideTimer) {
+      this.timerEl.style.display = 'none';
+    }
 
     this.root.appendChild(this.header);
   }
@@ -374,7 +416,7 @@ export class GameHUD {
       display: 'inline-flex',
       alignItems: 'center',
       gap: '6px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1), inset 0 -2px 0 rgba(0,0,0,0.12)',
+      // v1.9.44 Duo flat: solid border-bottom does 3D depth, no blur halo.
       flex: '0 0 auto',
     });
     this.chipText = document.createElement('span');
@@ -435,7 +477,7 @@ export class GameHUD {
       border: '2px solid var(--pickup-border)',
       borderBottom: '4px solid var(--pickup-border-dark)',
       padding: '20px 20px 16px 20px',
-      boxShadow: '0 4px 14px rgba(120, 90, 40, 0.08)',
+      // v1.9.44 Duo flat: blur halo stripped.
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -537,12 +579,10 @@ export class GameHUD {
     if (state.streak >= 2) {
       this.streakEl.style.opacity = '1';
       this.streakNum.textContent = String(state.streak);
-      // Visual treat: streaks of 5+ get a glow that scales with momentum.
-      if (state.streak >= 5) {
-        this.streakEl.style.filter = `drop-shadow(0 0 ${Math.min(state.streak, 10)}px rgba(255, 150, 0, 0.45))`;
-      } else {
-        this.streakEl.style.filter = '';
-      }
+      // v1.9.46 Duo flat (audit-3 #3): drop the dynamic blur halo. The streak
+      // number already has solid color + bold weight; momentum cue is the
+      // count itself rising, not a glow.
+      this.streakEl.style.filter = '';
     } else {
       this.streakEl.style.opacity = '0.35';
       this.streakEl.style.filter = '';
@@ -554,6 +594,9 @@ export class GameHUD {
       Math.min(1, (state.currentRound - 1) / Math.max(1, state.totalRounds))
     );
     this.progressFill.style.width = `${Math.round(r * 100)}%`;
+    if (this.chapterChipText) {
+      this.chapterChipText.textContent = `q${state.currentRound}/${state.totalRounds}`;
+    }
 
     if (this.chipEl && state.scenarioLabel) {
       this.chipText.textContent = state.scenarioLabel;

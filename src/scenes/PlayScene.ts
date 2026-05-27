@@ -162,6 +162,8 @@ export class PlayScene extends Phaser.Scene {
       scenarioLabel: chipLabel,
       emoji: meta.emoji,
       hideHp: isStory,
+      hideStreak: isStory,
+      hideTimer: isStory,
       onChange: () => {
         this.cleanupOverlay();
         this.stopTimer();
@@ -187,7 +189,13 @@ export class PlayScene extends Phaser.Scene {
       }
     );
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
-    this.mascot.setMascot(meta.mascotId);
+    // v1.9.40 audit-2 F8: in story mode, swap mascot SVG → calico WebP so
+    // the cat user saw on the map continues into the lesson.
+    if (isStory) {
+      this.mascot.setMascotImage('/mascots/calico-anchor.webp');
+    } else {
+      this.mascot.setMascot(meta.mascotId);
+    }
 
     this.nextRound();
   }
@@ -370,7 +378,7 @@ export class PlayScene extends Phaser.Scene {
             touch-action:manipulation; -webkit-tap-highlight-color:transparent;
             transition: transform 80ms ease-out, border-bottom-width 80ms ease-out;
           " aria-label="Tap to hear sentence">
-            <span style="font-size:22px;">🔊</span> Tap to listen
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff" aria-hidden="true" style="vertical-align:middle;"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg> Tap to listen
           </button>
         `;
         const btn = sentenceEl.querySelector('.pickup-listen-btn') as HTMLButtonElement | null;
@@ -388,7 +396,27 @@ export class PlayScene extends Phaser.Scene {
           });
         }
       }
-      window.setTimeout(() => speak(sentenceText), 280);
+      window.setTimeout(() => {
+        speak(sentenceText);
+        // v1.9.48 audit-4 #5: iOS TTS race fallback. If speechSynthesis
+        // doesn't actually start within 1s, the listening question becomes
+        // unsolvable. Reveal the sentence as a graceful escape.
+        window.setTimeout(() => {
+          if (typeof window === 'undefined' || !window.speechSynthesis) return;
+          const ss = window.speechSynthesis;
+          if (!ss.speaking && !ss.pending) {
+            const sentEl = this.hud?.getSentenceElement();
+            if (sentEl && !sentEl.querySelector('.pickup-tts-fallback')) {
+              const fb = document.createElement('div');
+              fb.className = 'pickup-tts-fallback';
+              fb.style.cssText =
+                'font-size:13px;color:#8b6f4a;font-style:italic;margin-top:10px;text-align:center;line-height:1.4;';
+              fb.textContent = `🔇 Audio unavailable — ${sentenceText}`;
+              sentEl.appendChild(fb);
+            }
+          }
+        }, 1000);
+      }, 280);
     }
 
     // v1.7.16: Reading mode also gets a small 🔊 speaker button next

@@ -12,7 +12,7 @@
  * with 2px border + 4px bottom border (Duolingo 3D depth).
  */
 
-import { applyStyle } from './domUtil';
+import { applyStyle, attachPressFeedback } from './domUtil';
 import {
   SCENARIO_META,
   SCENARIOS_IN_ORDER,
@@ -37,19 +37,16 @@ export interface ModeMenuHandlers {
 
 const LS_INTRO_DISMISSED = 'wordwar.introDismissed';
 
-// v0.10 — semantic tokens mirror --pickup-* in style.css
-const COLOR_GREEN = '#58cc02';
-const COLOR_GREEN_DARK = '#58a700';
-const COLOR_BLUE = '#1cb0f6';
-const COLOR_BLUE_DARK = '#0b8ec9';
-const COLOR_YELLOW = '#ffc800';
-const COLOR_AMBER = '#e7a44a';
-const COLOR_AMBER_DARK = '#b07a2a';
-const COLOR_CREAM = '#fef8ed';
-const COLOR_BORDER = '#ead9bb';
-const COLOR_BORDER_DARK = '#d4c098';
-const COLOR_TEXT_DARK = '#3d2817';
-const COLOR_TEXT_MUTED = '#8b6f4a';
+// v1.9.28 audit #7: shared palette imported from tokens.ts.
+import {
+  COLOR_GREEN, COLOR_GREEN_DARK,
+  COLOR_BLUE, COLOR_BLUE_DARK,
+  COLOR_YELLOW,
+  COLOR_AMBER, COLOR_AMBER_DARK,
+  COLOR_CREAM,
+  COLOR_BORDER, COLOR_BORDER_DARK,
+  COLOR_TEXT_DARK, COLOR_TEXT_MUTED,
+} from './tokens';
 
 export class ModeMenu {
   private root: HTMLDivElement;
@@ -200,7 +197,7 @@ export class ModeMenu {
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v1.9.24';
+    footer.textContent = 'v1.9.49';
     applyStyle(footer, {
       marginTop: '24px',
       fontSize: '11px',
@@ -242,7 +239,7 @@ export class ModeMenu {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out, border-bottom-width 100ms cubic-bezier(0.2, 0.8, 0.4, 1)',
-      boxShadow: isPrimary ? '0 6px 20px rgba(231, 164, 74, 0.3)' : 'none',
+      boxShadow: 'none',  // v1.9.44 Duo flat: blur halo removed
     });
     if (isPrimary) {
       // Primary CTA gets attention pulse — Duolingo principle 2.
@@ -293,18 +290,7 @@ export class ModeMenu {
     });
     card.appendChild(arrow);
 
-    const restBottom = isPrimary ? '6px' : '4px';
-    card.addEventListener('pointerdown', () => {
-      card.style.transform = 'translateY(2px)';
-      card.style.borderBottomWidth = '3px';
-    });
-    const release = () => {
-      card.style.transform = '';
-      card.style.borderBottomWidth = restBottom;
-    };
-    card.addEventListener('pointerup', release);
-    card.addEventListener('pointerleave', release);
-    card.addEventListener('pointercancel', release);
+    attachPressFeedback(card, { depth: 2, borderBottom: { from: isPrimary ? 6 : 4, to: 3 } });
     card.addEventListener('click', (e) => {
       e.preventDefault();
       opts.onClick();
@@ -495,17 +481,7 @@ export class ModeMenu {
     });
     card.appendChild(arrow);
 
-    card.addEventListener('pointerdown', () => {
-      card.style.transform = 'translateY(2px)';
-      card.style.borderBottomWidth = '2px';
-    });
-    const release = () => {
-      card.style.transform = '';
-      card.style.borderBottomWidth = '4px';
-    };
-    card.addEventListener('pointerup', release);
-    card.addEventListener('pointerleave', release);
-    card.addEventListener('pointercancel', release);
+    attachPressFeedback(card, { depth: 2, borderBottom: { from: 4, to: 2 } });
     card.addEventListener('click', (e) => {
       e.preventDefault();
       this.handlers.onStartScenario(id);

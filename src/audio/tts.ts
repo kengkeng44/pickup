@@ -27,7 +27,9 @@ export function speak(text: string, lang = 'en-US'): void {
     const cleaned = text.replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
     const u = new SpeechSynthesisUtterance(cleaned);
     u.lang = lang;
-    u.rate = 0.92;
+    // v1.9.38 audit-2 F10: drop rate to 0.85 — A2 Taiwanese learners need
+    // slower TTS to map sounds to words. Was 0.92 (still felt rushed).
+    u.rate = 0.85;
     u.pitch = 1;
     u.volume = 1;
     window.speechSynthesis.speak(u);

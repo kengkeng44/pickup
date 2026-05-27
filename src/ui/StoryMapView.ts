@@ -19,7 +19,8 @@
  * Duolingo green so we own our own aesthetic.
  */
 
-import { applyStyle } from './domUtil';
+import { applyStyle, attachPressFeedback } from './domUtil';
+import { createSpeakerButton } from './SpeakerButton';
 import {
   readChapterProgress,
   isChapterUnlocked,
@@ -30,12 +31,11 @@ import {
   type ChapterId,
   type StoryQuestion,
 } from '../data/storyKitten';
-import { speak, stopSpeaking } from '../audio/tts';
+import { stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from './WordHint';
-import { readXp, levelForXp } from '../data/xp';
+import { readXp, levelForXp, levelProgress } from '../data/xp';
 import { readStreak } from '../data/streak';
 import { readCoins } from '../data/coins';
-import { useRunStore } from '../store/runStore';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -102,6 +102,17 @@ function darken(hex: string, amount = 0.35): string {
   return `rgb(${Math.round(r * (1 - amount))}, ${Math.round(g * (1 - amount))}, ${Math.round(b * (1 - amount))})`;
 }
 
+// v1.9.43: lighten a hex by mixing toward white. Used to create the Duo-style
+// banner top highlight band ("光") — a flat lighter color block stacked on
+// top of the main body, NOT a gradient.
+function lighten(hex: string, amount = 0.22): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const m = (c: number) => Math.round(c + (255 - c) * amount);
+  return `rgb(${m(r)}, ${m(g)}, ${m(b)})`;
+}
+
 interface NodeRef {
   idx: number;          // 0..N
   el: HTMLButtonElement;
@@ -135,6 +146,28 @@ export class StoryMapView {
     // v1.9.1: Top HUD bar (Duolingo style — gamification at-a-glance)
     const hudBar = this.buildHudBar();
     this.root.appendChild(hudBar);
+
+    // v1.9.35 audit-2 F6: warm welcome microcopy for first-time users
+    // (xp=0). Sits between HUD and section banner; disappears once user
+    // earns any XP. Warm-amber pill with paw — Pickup brand not Duo cold.
+    if (readXp() === 0) {
+      const welcome = document.createElement('div');
+      applyStyle(welcome, {
+        margin: '4px 14px 10px',
+        padding: '8px 14px',
+        background: 'rgba(231, 164, 74, 0.14)',
+        border: '1.5px dashed rgba(231, 164, 74, 0.55)',
+        borderRadius: '14px',
+        color: '#8b6f4a',
+        fontSize: '13px',
+        fontWeight: '800',
+        textAlign: 'center',
+        letterSpacing: '0.3px',
+        flex: '0 0 auto',
+      });
+      welcome.innerHTML = '<img src="/mascots/icon-paw.webp" alt="" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-5px;margin-right:6px;" />從第一顆節點開始 · Tap to begin';
+      this.root.appendChild(welcome);
+    }
 
     // Header — section banner (Duolingo-style filled card at top)
     const header = this.buildHeader();
@@ -254,10 +287,10 @@ export class StoryMapView {
   // ───────────────────────────────────────────────────────────────────
 
   private buildHudBar(): HTMLElement {
-    // v1.9.15: Duolingo-style HUD — Flag / Tier crown / Gems / Energy.
-    // Text labels removed; icons + values only. Each slot is a button
-    // routing to the appropriate tab. Crown tier scales with level
-    // (silver L1-2, gold L3-4, diamond L5+).
+    // v1.9.25: Crown decoupled from Difficulty (audit #3).
+    // Tier now reflects LEVEL (Duolingo's original skill-mastery semantic):
+    //   L1-2 → Silver, L3-4 → Gold, L5+ → Diamond
+    // Difficulty stays in Profile picker as single source of truth.
     const wrap = document.createElement('div');
     applyStyle(wrap, {
       padding: 'max(14px, env(safe-area-inset-top)) 14px 0',
@@ -273,19 +306,13 @@ export class StoryMapView {
     const level = levelForXp(xp);
     const streak = readStreak();
     const coins = readCoins();
-    const difficulty = useRunStore.getState().difficulty;
-    void xp; void level;  // kept around for future Crown-level mode
 
-    // v1.9.16: Crown tier reflects DIFFICULTY setting per user request:
-    //   easy → Silver, medium → Gold, hard → Diamond
-    // v1.9.17: tier maps to label + CSS filter (PNG crown is gold base,
-    // we hue-shift for diamond and desaturate for silver).
-    const tierForDifficulty = (d: 'easy' | 'medium' | 'hard'): { stroke: string; label: string; filter: string } => {
-      if (d === 'hard') return { stroke: '#3a9eaa', label: 'Diamond', filter: 'hue-rotate(155deg) saturate(0.75)' };
-      if (d === 'medium') return { stroke: '#c79410', label: 'Gold', filter: 'none' };
-      return { stroke: '#7a8794', label: 'Silver', filter: 'saturate(0.12) brightness(0.95)' };
+    const tierForLevel = (lv: number): { stroke: string; label: string; filter: string } => {
+      if (lv >= 5) return { stroke: '#3a9eaa', label: `L${lv}`, filter: 'hue-rotate(155deg) saturate(0.75)' };
+      if (lv >= 3) return { stroke: '#c79410', label: `L${lv}`, filter: 'none' };
+      return { stroke: '#7a8794', label: `L${lv}`, filter: 'saturate(0.12) brightness(0.95)' };
     };
-    const t = tierForDifficulty(difficulty);
+    const t = tierForLevel(level);
     // v1.9.17: user-generated PNG icons (rembg + WebP), 24px square.
     // Crown recolored per tier via CSS filter.
     const iconImg = (src: string, filter = 'none') =>
@@ -293,15 +320,27 @@ export class StoryMapView {
     const flagSvg   = iconImg('flag-en.webp');
     const crownSvg  = iconImg('crown-gold.webp', t.filter);
     const coinSvg   = iconImg('coin-gold.webp');
-    const energySvg = iconImg('energy-bolt.webp');
+    // v1.9.41: Duo-flat icon-flame.webp replaces the prior inline SVG.
+    const energySvg = '<img src="/mascots/icon-flame.webp" alt="" aria-hidden="true" width="26" height="26" style="display:block;" />';
 
-    const item = (innerHtml: string, value: string, onClick: () => void, valueColor: string) => {
+    const item = (innerHtml: string, value: string, onClick: () => void, valueColor: string, ariaLabel: string, progress?: number) => {
       const btn = document.createElement('button');
       btn.type = 'button';
+      btn.setAttribute('aria-label', ariaLabel);
+      // v1.9.37 audit-2 F3: optional mini progress bar (4px) below the
+      // icon row — used by Crown slot to show XP fraction toward next level.
+      const progressHtml = typeof progress === 'number'
+        ? `<span style="display:block;width:38px;height:3px;background:rgba(122,104,80,0.18);border-radius:2px;margin-top:3px;overflow:hidden;">
+             <span style="display:block;width:${Math.round(progress * 100)}%;height:100%;background:${valueColor};border-radius:2px;transition:width 400ms cubic-bezier(0.2,0.8,0.4,1);"></span>
+           </span>`
+        : '';
       btn.innerHTML = `
-        <span style="display:flex;align-items:center;gap:4px;">
-          ${innerHtml}
-          ${value ? `<span style="font-size:15px;font-weight:900;color:${valueColor};line-height:1;">${value}</span>` : ''}
+        <span style="display:flex;flex-direction:column;align-items:center;gap:0;">
+          <span style="display:flex;align-items:center;gap:4px;">
+            ${innerHtml}
+            ${value ? `<span style="font-size:15px;font-weight:900;color:${valueColor};line-height:1;">${value}</span>` : ''}
+          </span>
+          ${progressHtml}
         </span>
       `;
       Object.assign(btn.style, {
@@ -317,18 +356,21 @@ export class StoryMapView {
         alignItems: 'center',
         transition: 'background 120ms ease, transform 80ms ease',
       } as Partial<CSSStyleDeclaration> as Record<string, string>);
-      btn.addEventListener('pointerdown', () => { btn.style.transform = 'translateY(1px)'; });
-      btn.addEventListener('pointerup', () => { btn.style.transform = ''; });
-      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+      attachPressFeedback(btn, 1);
       btn.addEventListener('click', (e) => { e.preventDefault(); onClick(); });
       return btn;
     };
 
-    // v1.9.16 4-slot HUD: Flag(language) / Crown(difficulty) / Coin / Energy
-    wrap.appendChild(item(flagSvg, '', () => this.handlers.onSwitchTab?.('profile'), '#3c2a1c'));
-    wrap.appendChild(item(crownSvg, t.label, () => this.handlers.onSwitchTab?.('profile'), t.stroke));
-    wrap.appendChild(item(coinSvg, String(coins), () => this.handlers.onSwitchTab?.('profile'), '#c79410'));
-    wrap.appendChild(item(energySvg, String(streak), () => this.handlers.onSwitchTab?.('alerts'), '#c4760b'));
+    // v1.9.35 audit-2 F6: first-time user (xp=0) sees coin/streak slots
+    // without the cold "0" digit — just the icon. Less stark, warmer
+    // onboarding aligned with Pickup brand.
+    // v1.9.37 audit-2 F3: Crown slot shows XP fraction to next level.
+    const firstTime = xp === 0;
+    const lvlProg = levelProgress(xp);
+    wrap.appendChild(item(flagSvg, '', () => this.handlers.onSwitchTab?.('profile'), '#3c2a1c', 'Language: English'));
+    wrap.appendChild(item(crownSvg, t.label, () => this.handlers.onSwitchTab?.('profile'), t.stroke, `Crown level ${level}, ${Math.round(lvlProg.fraction * 100)}% to L${level + 1}`, lvlProg.fraction));
+    wrap.appendChild(item(coinSvg, firstTime ? '' : String(coins), () => this.handlers.onSwitchTab?.('profile'), '#c79410', `Coins ${coins}`));
+    wrap.appendChild(item(energySvg, firstTime ? '' : String(streak), () => this.handlers.onSwitchTab?.('tasks'), '#ff7a3a', `Streak ${streak} day${streak === 1 ? '' : 's'}`));
     return wrap;
   }
 
@@ -352,7 +394,9 @@ export class StoryMapView {
       //  - Cast "ground" shadow removed because it was bleeding into
       //    the scroll area below and visually overlapping the first
       //    node + cat. Banner only has its solid 3D depth now.
-      boxShadow: `0 4px 0 ${darken(meta.accent, 0.32)}`,
+      // v1.9.43 Duo-style banner: composite shadow = top 8px lighter
+      // highlight layer (matches Duo screenshot stratification) + 3D depth.
+      boxShadow: `inset 0 8px 0 ${lighten(meta.accent, 0.18)}, 0 4px 0 ${darken(meta.accent, 0.32)}`,
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
@@ -466,8 +510,9 @@ export class StoryMapView {
       <div style="font-size:12px;font-weight:800;letter-spacing:1.5px;color:#7a6850;text-transform:uppercase;text-align:center;">
         ${meta.titleEn}
       </div>
-      <div style="font-size:22px;font-weight:900;color:#3c2a1c;text-align:center;margin-top:4px;">
-        🐾 Key Sentences
+      <div style="font-size:22px;font-weight:900;color:#3c2a1c;text-align:center;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <img src="/mascots/icon-paw.webp" alt="" aria-hidden="true" width="28" height="28" style="display:inline-block;" />
+        Key Sentences
       </div>
     `;
     content.appendChild(titleWrap);
@@ -500,20 +545,12 @@ export class StoryMapView {
       // Speak this sentence (use full sentence with answer filled)
       const correctWord = q.options[q.correctIndex] ?? '';
       const audioText = q.sentence.replace(/_{2,}/g, correctWord);
-      const speakerBtn = document.createElement('button');
-      speakerBtn.type = 'button';
-      speakerBtn.setAttribute('aria-label', 'Listen');
-      speakerBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="#3d8aae" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-      applyStyle(speakerBtn, {
-        flex: '0 0 auto', width: '28px', height: '28px',
-        background: 'transparent', border: 'none',
-        cursor: 'pointer', padding: '0',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'inherit',
-        touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-        marginTop: '2px',
+      // v1.9.25 audit #5: shared SpeakerButton component.
+      const speakerBtn = createSpeakerButton({
+        text: audioText,
+        size: 'sm',
+        ariaLabel: 'Listen',
       });
-      speakerBtn.addEventListener('click', (e) => { e.preventDefault(); speak(audioText); });
       bubble.appendChild(speakerBtn);
 
       const txtWrap = document.createElement('div');
@@ -595,29 +632,19 @@ export class StoryMapView {
         ? COLOR_NODE_DARK
         : COLOR_NODE_LOCKED_DARK;
 
+    // v1.9.33 audit #12: static styles live on .pickup-map-node class;
+    // only position + gradient + shadow + cursor + opacity stay inline.
+    // Cuts 18→6 inline style writes per node × 8 nodes = 96 saves.
+    row.className = 'pickup-map-node';
     applyStyle(row, {
-      position: 'absolute',
       left: `${leftPx}px`,
       top: `${slot.top}px`,
-      width: `${NODE_SIZE}px`,
-      height: `${NODE_HEIGHT}px`,
-      borderRadius: '50%', // ellipse since W != H
-      border: 'none',
-      // v1.7.8: soft white gloss highlight at upper-left over base color
-      background: `radial-gradient(ellipse at 30% 22%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 55%), ${baseColor}`,
-      // v1.7.9: thicker 3D depth (11px vs 5px) — Duolingo's tilted coin look
-      boxShadow: `0 11px 0 ${shadowColor}, 0 20px 14px -4px rgba(60, 42, 28, 0.32)`,
-      color: '#ffffff',
-      fontSize: '26px',
-      fontWeight: '900',
-      fontFamily: 'inherit',
+      // v1.9.46 Duo flat (audit-3 #2): replace radial-gradient gloss with
+      // composite solid color-block: top highlight band + 3D depth.
+      background: baseColor,
+      // v1.9.47 audit-3 #4: interactive tier = 10px (locked scale).
+      boxShadow: `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`,
       cursor: opts.unlocked ? 'pointer' : 'not-allowed',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'transform 100ms ease-out',
-      touchAction: 'manipulation',
-      WebkitTapHighlightColor: 'transparent',
       opacity: opts.unlocked ? '1' : '0.7',
     });
 
@@ -637,20 +664,16 @@ export class StoryMapView {
       const file = ICONS[opts.idx % ICONS.length];
       row.innerHTML = `<img src="/mascots/${file}" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else {
-      // v1.9.24: stylised SVG lock (matches node-icon palette)
-      row.innerHTML = `<svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true" style="display:block;">
-        <path d="M7.5 11V8a4.5 4.5 0 0 1 9 0v3" stroke="#7a6850" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-        <rect x="5" y="10.5" width="14" height="10.5" rx="2.2" fill="#ffffff" stroke="#7a6850" stroke-width="1.5"/>
-        <circle cx="12" cy="15" r="1.6" fill="#7a6850"/>
-        <path d="M12 16.5v2.8" stroke="#7a6850" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>`;
+      // v1.9.41: Duo-flat icon-lock.webp replaces the prior stylised SVG.
+      row.innerHTML = `<img src="/mascots/icon-lock.webp" alt="" aria-hidden="true" width="38" height="38" style="display:block;" />`;
     }
 
     if (opts.unlocked) {
       // v1.7.11: real press-down feedback — node visibly depresses,
       // 3D depth shrinks, cast shadow tightens. Released = back to rest.
-      const restShadow = `0 11px 0 ${shadowColor}, 0 20px 14px -3px rgba(60, 42, 28, 0.32)`;
-      const pressShadow = `0 3px 0 ${shadowColor}, 0 8px 6px -2px rgba(60, 42, 28, 0.22)`;
+      // v1.9.47 audit-3 #4: 10px rest / 3px press (interactive tier).
+      const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
+      const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
       const press = () => {
         row.style.transform = 'translateY(8px)';
         row.style.boxShadow = pressShadow;
@@ -720,18 +743,32 @@ export class StoryMapView {
     // Both isometric chibi WebP (user-generated via ChatGPT, processed
     // through rembg + Pillow WebP — see tools/process_grandma.py and
     // tools/process_shiba.py).
+    // v1.9.45 Duo flat: solid ellipse floor shadows (color block, zero blur)
+    // re-ground the mascots after v1.9.44 stripped the drop-shadow halos.
     cat.innerHTML = `
+      <div style="
+        position:absolute; left:6px; bottom:-2px;
+        width:78px; height:10px;
+        background:rgba(60,42,28,0.30);
+        border-radius:50%;
+        z-index:0;
+      "></div>
+      <div style="
+        position:absolute; left:62px; bottom:-4px;
+        width:56px; height:8px;
+        background:rgba(60,42,28,0.26);
+        border-radius:50%;
+        z-index:0;
+      "></div>
       <img src="/mascots/iso-grandma.webp" alt="" style="
         position:absolute; left:0; bottom:0;
         width:88px; height:auto; display:block;
         z-index:2;
-        filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.20));
       " />
       <img src="/mascots/iso-shiba.webp" alt="" style="
         position:absolute; left:58px; bottom:-3px;
         width:62px; height:auto; display:block;
         z-index:1;
-        filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.18));
       " />
     `;
     return cat;
@@ -744,10 +781,10 @@ export class StoryMapView {
    * is done. Once Ch2 unlocks, it'll move to node 6.
    */
   private deriveCurrentNodeIdx(highestCompleted: number): number {
-    if (highestCompleted >= 1) {
-      // Ch1 done — cat parks at last Ch1 node (will hop to ch2 placeholder later)
-      return 5;
-    }
+    // v1.9.39 audit-2 F9: when chapter is fully completed return -1 so
+    // the pulse class is skipped — previously returned 5, putting the
+    // "tap me next" pulse on an already-green completed node.
+    if (highestCompleted >= 1) return -1;
     return 0;
   }
 

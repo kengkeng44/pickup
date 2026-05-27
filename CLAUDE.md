@@ -78,6 +78,32 @@
 | v1.9.20 | 角色位置 v5 — 候選 Y scoring 避開節點密集區 |
 | v1.9.21-22 | 節點 icon 多樣化 + filter 調校 |
 | v1.9.23 | Profile Stats 加 Coins 卡 |
+| v1.9.24 | Map char vertical-Y scoring + node icon 多樣化 + lock SVG padlock |
+| **v1.9.25 (audit pass 1)** | **Crown 解耦 difficulty 改 level-mapped(audit #3)+ Lesson HUD 砍 streak/timer(audit #1+#4)+ 抽 SpeakerButton 共用組件(audit #5)** |
+| v1.9.26 (audit #2) | HUD streak icon 從閃電 webp 改成內嵌火焰 SVG;色票對齊火橙 #ff7a3a;routing 改 → tasks tab |
+| v1.9.27 (audit #6) | tap-tiles + type-what-you-hear 答錯流程改 blind-retry parity:flash 後保留 user 輸入/排列,只解鎖 CHECK,不再從零開始 |
+| v1.9.28 (audit #7 pass 1) | 新檔 src/ui/tokens.ts 集中 COLOR_*;ClozeUI / EndOverlay / ModeMenu 改 import,3 套同值常數歸 1。TapInputUI/GameHUD 暖色系另一組未動 |
+| v1.9.29 (audit #8) | domUtil.ts 加 attachPressFeedback(el, opts) helper;7 個 callsite(SpeakerButton/StoryMapView/EndOverlay/ModeMenu×2/ChapterEnd/ChapterIntro)從複製貼上變一行;ClozeUI 有 lock gate 跳過 |
+| v1.9.30 (audit #9) | 11 個 raw PNG(~6.5MB)從 public/mascots/ 移到 tools/raw-mascots/,不再上 CDN |
+| v1.9.31 (audit #11) | BottomNav 4 icon 下加 10px label;HUD button 加 aria-label 含 value(Crown level 2 / Streak 5 days etc),screen reader 可讀 |
+| v1.9.32 (audit #10 部分) | index.html reduce-motion `svg.tear-cat` → `img.tear-cat` 修死 selector;mascots.ts 經 audit 並非死碼(5 處使用),保留 |
+| **v1.9.33 (audit #12 → 12/12 完工)** | StoryMapView node static styles 抽 `.pickup-map-node` CSS class;每 node inline style 18→6,8 node mount 省 96 次 DOM write |
+| v1.9.34 (audit-2 F1+F2) | TapInputUI tap-tiles + type-what-you-hear 兩處 72px emoji 🔊 換 SpeakerButton lg primary pulse;PlayScene listen pill 把 emoji 換 SVG;Lesson HUD 加 chapter chip "qN/total" 錨 story mode 左邊 |
+| v1.9.35 (audit-2 F5+F6) | GameHUD streak 從 ×N 改 🔥N(去 close-button × 衝突);xp=0 首訪 user HUD coin/streak 不顯示「0」,改加 "🐾 Tap any node to begin" dashed amber 微文案 banner |
+| v1.9.36 (audit-2 F4) | tokens.ts 從 Duo bright 全面換 Ghibli warm:green #58cc02→olive #7d9a4f,red #ff4b4b→terracotta #c84a3a。ClozeUI / EndOverlay / ModeMenu 透過 import 同步,整個 app 答對 / 答錯色終於統一 |
+| v1.9.37 (audit-2 F3) | Crown HUD slot 下加 4px mini progress bar 顯示 levelProgress(xp).fraction;aria-label 含進度百分比;L1 user 看見 XP 累積朝下一階段 |
+| v1.9.38 (audit-2 F10) | PRAISE 池全面雙語化(中文 · English 格式);TTS rate 從 0.92 → 0.85,A2 Taiwanese learners 聽得清 |
+| v1.9.39 (audit-2 F9) | deriveCurrentNodeIdx Ch1 完成時改回傳 -1(原本回 5)— pulse class 不再貼錯在 completed node 上 |
+| **v1.9.40 (audit-2 F8 → 10/10 收工)** | Mascot.ts 加 setMascotImage(src) 方法;PlayScene story mode 改用 calico-anchor.webp 代替 SVG mascot,map 上看到的三花貓也出現在 lesson screen,brand 連結成立 |
+| **v1.9.41 (Duo-flat icon batch 1+2+3 = 12 icons)** | 用戶生 3 張 1024×1024 grid PNG,Python 切+rembg+WebP 出 12 個無線 flat-shape icon。Code swap:SpeakerButton SVG→PNG;StoryMapView welcome 🐾 / HUD streak / locked node / Key Sentences banner;GameHUD streak label;StoryModeScene Daily Streak hero。flag-en/crown-gold/coin-gold/node-paw/node-headphones/node-book 覆寫成 flat 版 |
+| v1.9.42 (achievements PNG 接入) | Achievement interface 加 iconSrc?;6/8 badge 接 PNG(paw/flame/lightning/icon-star/node-star/trophy);剩 ☂️/🎯 沒對應 PNG 留 emoji。Alerts tab 八格從 emoji 排版升 flat-icon 排版 |
+| **v1.9.43 (Duo flat-light pass)** | 砍違反 Duo 風的「光」:GameHUD progress fill inset glossy / timer pill inset darken / StoryModeScene 2 卡 linear-gradient 全拆;加 Duo 招牌「flat top highlight 帶」(StoryMapView banner + StoryModeScene daily card + XP hero card);新 helper lighten();Chapter Intro/End/StoryEnding CTA box-shadow 從 v1.9.36 殘留 bright green leak 改 olive |
+| **v1.9.44 (色塊打光 ≠ 光暈,全清 blur halo)** | 用戶澄清「不要光暈,要色塊打光」。砍所有 blur box-shadow + drop-shadow halo(14 TS callsite + 5 CSS 動畫)。Pulse 從 box-shadow 0→10px 環擴 → 改 transform scale 1→1.03 / 1.05 / 1.04。Map node 平壓 3D depth(remove cast shadow blur);grandma+shiba mascot 移除 drop-shadow;BottomNav blur top halo 改 solid 3px border-top |
+| v1.9.45 (mascot solid ellipse floor) | v1.9.44 後 mascot 脫地補回 solid 橢圓地影色塊(zero blur,rgba(60,42,28,0.28-0.30)):StoryMapView grandma+shiba 雙橢圓;Mascot.ts setMascotImage 加 wrapper ellipse 給 calico-anchor lesson 內也接地 |
+| **v1.9.46 (audit-3 critical 3 + 動畫加強)** | #1 EndOverlay radial-gradient bg → flat cream + yellow textShadow blur halo 砍;#2 map node radial-gradient gloss → composite inset top stripe + 3D depth(對齊 banner);#3 GameHUD streak ≥5 dynamic drop-shadow halo 砍;#6 pickup-pulse scale 1.03 → 1.05 補回 halo 拿掉後的注意力 |
+| **v1.9.47 (audit-3 收尾 8/8)** | #4 3D depth 3-tier scale lock(card 4 / hero 6 / interactive 10 + 3 press);#5 白卡片 4 處(Free Practice / scenario / stat / achievement)補 amber top stripe `inset 0 4px 0 rgba(231,164,74,0.15-0.18)`;#7 BottomNav active tab 加 3px amber `borderTop` 色塊指示條 + `translateY(-2px)` 浮起,inactive = transparent;#8 POV scene linear-gradient carve-out 註解豁免 |
+| v1.9.48 (audit-4 #3+#4+#5 安全 ship) | #3 kt-ch1-06 sentence 從 meta "Match the Ch1 words..." → flow "These are the words I will remember.";#4 boot 偵測 localStorage 寫入失敗 → 紅 banner 提醒 "進度無法儲存 — 請關閉私密瀏覽";#5 iOS TTS race fallback:auto-speak 後 1s 檢測,如未起動則 reveal sentence + "🔇 Audio unavailable" 微文案。#1 Ch1 擴充 + #2 sessionStorage resume 因 AFK 風險過大延後 |
+| v1.9.49 (audit-5 全 8 AFK-safe polish) | F1 砍 orphaned energy-bolt.webp;F2-F4 Ch1 explanationZh 從 jargon → story voice(去 "Comprehension 題" / "干擾 tile" / UX 細節 leak);F5 welcome banner 雙語 "從第一顆節點開始 · Tap to begin";F6 PRAISE_TIMEOUT 拿掉「green button」字眼(palette olive 後不準了 + 也回避 blindRetry 違反);F7 Ch1-q1 sentence 兩句合一 "I wake up and the rain is falling hard."(TTS intonation 順);F8 explanationZh 標點正規化 |
 | v1.9.24 | Locked nodes SVG padlock 取代 🔒 emoji |
 
 **當前版本：v1.9.24。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。

@@ -53,33 +53,45 @@ interface BtnRefs {
 
 const LETTERS = ['A', 'B', 'C', 'D'];
 
-// Duolingo palette — semantic tokens (mirrors --pickup-* in style.css)
-const COLOR_GREEN = '#58cc02';
-const COLOR_GREEN_DARK = '#58a700';
-const COLOR_GREEN_TINT = '#e0f5d0';
-const COLOR_RED = '#ff4b4b';
-const COLOR_RED_DARK = '#cc3a3a';
-const COLOR_RED_TINT = '#ffd6d6';
-const COLOR_BORDER = '#ead9bb';
-const COLOR_BORDER_DARK = '#d4c098';
-const COLOR_TEXT_DARK = '#3d2817';
-const COLOR_TEXT_MUTED = '#8b6f4a';
+// v1.9.28 audit #7: shared palette imported from tokens.ts.
+import {
+  COLOR_GREEN, COLOR_GREEN_DARK, COLOR_GREEN_TINT,
+  COLOR_RED, COLOR_RED_DARK, COLOR_RED_TINT,
+  COLOR_BORDER, COLOR_BORDER_DARK,
+  COLOR_TEXT_DARK, COLOR_TEXT_MUTED,
+} from './tokens';
 
 // v0.10 — encouraging microcopy with character (Duolingo principle 4).
 // v1.7.0 — added crybaby-but-resilient flavor in line with the protagonist's
 // personality (愛哭鬼但堅韌). The cat cries, then keeps going. Microcopy
 // reflects both halves: gentle on wrong, brave-flavored on right.
 // Vary the copy per call so it stays fresh rather than feeling canned.
+// v1.9.38 audit-2 F10: bilingual praise — A2 Taiwanese learners read the
+// Chinese first for emotional warmth, the English second for word mapping.
+// Format `中文 · English` reinforces target-language exposure.
 const PRAISE_CORRECT = [
-  'Brilliant!', 'Nice!', 'You got it!', 'Perfect!', 'Yes!', "That's the one!",
-  'Brave!',          // v1.7 — calls out the resilient half
-  'Tears off, paws on!',  // v1.7 — playful nod to the cry-then-recover arc
+  '棒 · Brilliant!',
+  '答對 · Nice!',
+  '好厲害 · You got it!',
+  '正確 · Perfect!',
+  '答對了 · Yes!',
+  '就是這個 · That\'s the one!',
+  '勇敢 · Brave!',
+  '拭乾眼淚再前進 · Tears off, paws on!',
 ];
-const PRAISE_TIMEOUT = ['Time up · tap the green button', 'Almost · tap the green one'];
+// v1.9.49 audit-5 F6: dropped the "green button" reference — palette is
+// olive after v1.9.36 and pointing at a specific answer breaks blindRetry.
+const PRAISE_TIMEOUT = [
+  '時間到 · take your time',
+  '再試一次 · no rush',
+];
 const PRAISE_WRONG = [
-  'Try again', 'Almost', 'Not quite · keep going', 'One more try',
-  'Cry later · try again',   // v1.7 — direct character beat
-  'Sniffle, then keep going', // v1.7 — gentle, no shaming
+  '再試一次 · Try again',
+  '差一點 · Almost',
+  '別停下 · Keep going',
+  '再一次 · One more try',
+  '哭完再繼續 · Cry later, try again',
+  '擦乾鼻涕繼續 · Sniffle, then keep going',
 ];
 
 function pickPraise(pool: readonly string[]): string {
@@ -222,7 +234,7 @@ export class ClozeUI {
       fontSize: '15px',
       lineHeight: '1.55',
       fontFamily: 'inherit',
-      boxShadow: '0 -8px 24px rgba(0,0,0,0.05)',
+      // v1.9.44 Duo flat: blur halo removed.
       transform: 'translateY(40px)',
       opacity: '0',
       transition: 'transform 240ms ease-out, opacity 240ms ease-out',

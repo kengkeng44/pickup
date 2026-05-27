@@ -4,7 +4,7 @@ import {
   CHAPTER_META,
   type ChapterId,
 } from '../data/storyKitten';
-import { applyStyle } from '../ui/domUtil';
+import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { sfxEndFanfare } from '../audio/sfx';
 import { Confetti } from '../ui/Confetti';
@@ -241,20 +241,10 @@ export class ChapterEndScene extends Phaser.Scene {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       transition: 'transform 100ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 200ms ease-out',
-      boxShadow: '0 4px 12px rgba(88, 204, 2, 0.25)',
+      boxShadow: 'none',
     });
     cta.classList.add('pickup-pulse');
-    cta.addEventListener('pointerdown', () => {
-      cta.style.transform = 'translateY(2px)';
-      cta.style.borderBottomWidth = '3px';
-    });
-    const release = () => {
-      cta.style.transform = '';
-      cta.style.borderBottomWidth = '5px';
-    };
-    cta.addEventListener('pointerup', release);
-    cta.addEventListener('pointerleave', release);
-    cta.addEventListener('pointercancel', release);
+    attachPressFeedback(cta, { depth: 2, borderBottom: { from: 5, to: 3 } });
     cta.addEventListener('click', (e) => {
       e.preventDefault();
       const store = useRunStore.getState();

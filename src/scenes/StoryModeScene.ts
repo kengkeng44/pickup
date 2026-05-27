@@ -226,17 +226,19 @@ export class StoryModeScene extends Phaser.Scene {
     const dailyCard = document.createElement('div');
     const streakCount = readStreak();
     applyStyle(dailyCard, {
-      background: `linear-gradient(135deg, ${COLOR_AMBER} 0%, #d4823a 100%)`,
+      // v1.9.43 Duo flat: solid AMBER + top 8px lighter band as flat highlight
+      // layer (Duo banner stratification — see screenshot) + 3D depth.
+      background: COLOR_AMBER,
       borderRadius: '18px',
       padding: '14px 16px',
       color: '#ffffff',
-      boxShadow: `0 4px 0 ${COLOR_AMBER_DARK}, 0 10px 16px -3px rgba(60, 42, 28, 0.22)`,
+      boxShadow: `inset 0 8px 0 rgba(255, 226, 178, 0.42), 0 4px 0 ${COLOR_AMBER_DARK}`,
       display: 'flex',
       alignItems: 'center',
       gap: '12px',
     });
     dailyCard.innerHTML = `
-      <div style="font-size:30px;line-height:1;">🔥</div>
+      <img src="/mascots/icon-flame.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />
       <div style="flex:1;">
         <div style="font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;opacity:0.85;">
           Daily Streak
@@ -271,6 +273,9 @@ export class StoryModeScene extends Phaser.Scene {
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
+      // v1.9.47 audit-3 #5: subtle warm-amber top stripe on white cards
+      // so they share visual DNA with the duo-flat hero cards.
+      boxShadow: 'inset 0 4px 0 rgba(231, 164, 74, 0.15)',
     });
     freeCard.innerHTML = `
       <div style="font-size:28px;line-height:1;">🎲</div>
@@ -328,6 +333,8 @@ export class StoryModeScene extends Phaser.Scene {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       transition: 'transform 80ms ease-out',
+      // v1.9.47 audit-3 #5: warm-amber top stripe parity with other cards.
+      boxShadow: 'inset 0 4px 0 rgba(231, 164, 74, 0.15)',
     });
     card.innerHTML = `
       <div style="flex:1;">
@@ -550,11 +557,14 @@ export class StoryModeScene extends Phaser.Scene {
     const { level, intoLevel, nextLevelAt, fraction } = levelProgress(xp);
     const card = document.createElement('div');
     applyStyle(card, {
-      background: `linear-gradient(135deg, ${COLOR_AMBER} 0%, #d4892a 100%)`,
+      // v1.9.43 Duo flat: solid AMBER + top 10px lighter band as flat highlight
+      // layer. Composite box-shadow keeps the 3D depth + amber halo + top band.
+      background: COLOR_AMBER,
       borderRadius: '20px',
       padding: '18px 20px',
       color: '#ffffff',
-      boxShadow: `0 5px 0 ${COLOR_AMBER_DARK}, 0 14px 18px -4px rgba(60, 42, 28, 0.25)`,
+      // v1.9.47 audit-3 #4: hero tier = 6px (locked scale).
+      boxShadow: `inset 0 10px 0 rgba(255, 226, 178, 0.42), 0 6px 0 ${COLOR_AMBER_DARK}`,
       display: 'flex',
       flexDirection: 'column',
       gap: '10px',
@@ -597,6 +607,8 @@ export class StoryModeScene extends Phaser.Scene {
       borderRadius: '16px',
       padding: '16px 14px',
       textAlign: 'center',
+      // v1.9.47 audit-3 #5: amber top stripe parity for stat tiles.
+      boxShadow: 'inset 0 4px 0 rgba(231, 164, 74, 0.15)',
     });
     card.innerHTML = `
       <div style="font-size:11px;font-weight:800;letter-spacing:1px;color:${COLOR_TEXT_MUTED};text-transform:uppercase;">${label}</div>
@@ -645,14 +657,20 @@ export class StoryModeScene extends Phaser.Scene {
         background: ach.unlocked ? '#ffffff' : '#f3eddc',
         border: `2px solid ${ach.unlocked ? COLOR_AMBER : COLOR_BORDER}`,
         borderBottom: `4px solid ${ach.unlocked ? COLOR_AMBER_DARK : COLOR_BORDER_DARK}`,
+        // v1.9.47 audit-3 #5: amber top stripe for achievement tile parity.
+        boxShadow: 'inset 0 4px 0 rgba(231, 164, 74, 0.18)',
         borderRadius: '16px',
         padding: '14px 12px',
         textAlign: 'center',
         opacity: ach.unlocked ? '1' : '0.6',
         filter: ach.unlocked ? 'none' : 'grayscale(0.3)',
       });
+      // v1.9.42: prefer PNG icon over emoji when iconSrc is provided.
+      const iconHtml = ach.iconSrc
+        ? `<img src="${ach.iconSrc}" alt="" aria-hidden="true" width="42" height="42" style="display:block;margin:0 auto 6px;" />`
+        : `<div style="font-size:36px;line-height:1;margin-bottom:6px;">${ach.emoji}</div>`;
       card.innerHTML = `
-        <div style="font-size:36px;line-height:1;margin-bottom:6px;">${ach.emoji}</div>
+        ${iconHtml}
         <div style="font-size:13px;font-weight:900;color:${COLOR_TEXT_DARK};line-height:1.2;">${ach.title}</div>
         <div style="font-size:11px;font-weight:600;color:${COLOR_TEXT_MUTED};margin-top:4px;line-height:1.35;">
           ${ach.description}

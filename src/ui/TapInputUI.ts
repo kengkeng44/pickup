@@ -15,6 +15,8 @@
  *     - No CHECK button — completes automatically on all-matched
  */
 
+import { createSpeakerButton } from './SpeakerButton';
+
 const COLOR_BORDER = '#e6dec9';
 const COLOR_BORDER_DARK = '#cbbf9c';
 const COLOR_TEXT_DARK = '#3c2a1c';
@@ -63,29 +65,15 @@ export function mountTapTiles(opts: {
     alignItems: 'center',
     gap: '6px',
   });
-  const speaker = document.createElement('button');
-  speaker.type = 'button';
-  speaker.setAttribute('aria-label', 'Replay audio');
-  Object.assign(speaker.style, {
-    width: '72px',
-    height: '72px',
-    borderRadius: '50%',
-    background: COLOR_BLUE,
-    border: 'none',
-    borderBottom: `5px solid ${COLOR_BLUE_DARK}`,
-    color: '#ffffff',
-    fontSize: '34px',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: 'inherit',
-    touchAction: 'manipulation',
-    WebkitTapHighlightColor: 'transparent',
-    boxShadow: '0 4px 12px rgba(61, 138, 174, 0.30)',
+  // v1.9.34 audit-2 F1: migrate from 🔊 emoji 72px button to shared SpeakerButton.
+  const speaker = createSpeakerButton({
+    text: '',
+    size: 'lg',
+    variant: 'primary',
+    pulse: true,
+    ariaLabel: 'Replay audio',
+    onClick: opts.onSpeak,
   });
-  speaker.innerHTML = '🔊';
-  speaker.addEventListener('click', (e) => { e.preventDefault(); opts.onSpeak(); });
   speakerWrap.appendChild(speaker);
 
   const promptEl = document.createElement('div');
@@ -243,9 +231,10 @@ export function mountTapTiles(opts: {
       });
       window.setTimeout(() => opts.onComplete(true), 480);
     } else {
-      // v1.8.6 bug fix: wrong answer flashes red, then auto-resets the
-      // selected tiles + CHECK button so user can retry from scratch.
-      // Previous version locked CHECK in red state, leaving the UI dead.
+      // v1.9.27 audit #6: blind-retry parity with ClozeUI 4-MC. Flash red
+      // briefly, then unlock CHECK without wiping the arrangement so user
+      // can rearrange chips (click a placed chip to remove it) and resubmit.
+      // Prior behaviour reset everything, costing the user their context.
       answerRow.style.background = 'rgba(200,74,58,0.14)';
       Object.assign(check.style, {
         background: COLOR_ERROR,
@@ -253,10 +242,8 @@ export function mountTapTiles(opts: {
         cursor: 'not-allowed',
       });
       window.setTimeout(() => {
-        selectedOrder.length = 0;
-        tileButtons.forEach(b => Object.assign(b.style, tileRest()));
         answerRow.style.background = 'transparent';
-        renderAnswer();  // resets check button to grey + empty slots
+        setCheckReady(selectedOrder.length === slotsNeeded);
       }, 750);
     }
   });
@@ -287,31 +274,16 @@ export function mountTypeWhatYouHear(opts: {
     fontFamily: 'inherit',
   });
 
-  // Big speaker icon
-  const speaker = document.createElement('button');
-  speaker.type = 'button';
-  speaker.setAttribute('aria-label', 'Replay audio');
-  Object.assign(speaker.style, {
-    alignSelf: 'center',
-    width: '72px',
-    height: '72px',
-    borderRadius: '50%',
-    background: COLOR_BLUE,
-    border: 'none',
-    borderBottom: `5px solid ${COLOR_BLUE_DARK}`,
-    color: '#ffffff',
-    fontSize: '34px',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: 'inherit',
-    touchAction: 'manipulation',
-    WebkitTapHighlightColor: 'transparent',
-    boxShadow: '0 4px 12px rgba(61, 138, 174, 0.30)',
+  // v1.9.34 audit-2 F1: migrate type-what-you-hear speaker to shared SpeakerButton.
+  const speaker = createSpeakerButton({
+    text: '',
+    size: 'lg',
+    variant: 'primary',
+    pulse: true,
+    ariaLabel: 'Replay audio',
+    onClick: opts.onSpeak,
   });
-  speaker.innerHTML = '🔊';
-  speaker.addEventListener('click', (e) => { e.preventDefault(); opts.onSpeak(); });
+  speaker.style.alignSelf = 'center';
   root.appendChild(speaker);
 
   const promptEl = document.createElement('div');
@@ -414,6 +386,9 @@ export function mountTypeWhatYouHear(opts: {
       });
       window.setTimeout(() => opts.onComplete(true), 460);
     } else {
+      // v1.9.27 audit #6: blind-retry parity. Flash red briefly, then
+      // restore input visual state WITHOUT clearing the text — user can
+      // edit and resubmit. Prior version wiped the input, costing context.
       Object.assign(input.style, {
         borderColor: COLOR_ERROR,
         borderBottomColor: '#7a2a20',
@@ -424,13 +399,13 @@ export function mountTypeWhatYouHear(opts: {
         borderBottom: `4px solid #7a2a20`,
       });
       window.setTimeout(() => {
-        input.value = '';
         Object.assign(input.style, {
           borderColor: COLOR_BORDER,
           borderBottomColor: COLOR_BORDER_DARK,
           background: '#ffffff',
         });
-        setReady(false);
+        setReady(input.value.trim().length > 0);
+        input.focus();
       }, 750);
     }
   };

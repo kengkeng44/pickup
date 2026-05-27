@@ -56,8 +56,8 @@ export class BottomNav {
       alignItems: 'stretch',
       padding: 'max(8px, env(safe-area-inset-bottom)) 6px max(10px, env(safe-area-inset-bottom)) 6px',
       background: '#3c2a1c',
-      borderTop: '2px solid #2a1d12',
-      boxShadow: '0 -3px 12px rgba(0, 0, 0, 0.18)',
+      // v1.9.44 Duo flat: blur top halo stripped, solid 3px border-top for separation.
+      borderTop: '3px solid #2a1d12',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     });
 
@@ -71,24 +71,30 @@ export class BottomNav {
         flex: '1',
         background: 'transparent',
         border: 'none',
-        padding: '8px 4px 4px',
+        // v1.9.47 audit-3 #7: active tab gets a solid 3px amber top bar
+        // (color-block indicator) — pure Duo, no halo. Inactive = no bar.
+        borderTop: isActive ? '3px solid #f7c97d' : '3px solid transparent',
+        padding: '5px 4px 4px',
         cursor: 'pointer',
-        // v1.9.17: PNG icons are fixed-colour so we use opacity to dim
-        // inactive tabs. Active tab glows via a soft golden drop-shadow.
         color: isActive ? '#f7c97d' : '#a8927a',
         opacity: isActive ? '1' : '0.55',
+        transform: isActive ? 'translateY(-2px)' : 'none',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: '3px',
         fontFamily: 'inherit',
-        transition: 'color 160ms ease, transform 160ms ease',
+        transition: 'color 160ms ease, transform 160ms ease, border-top-color 160ms ease',
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
       });
-      // v1.9.15: icon-only nav per user request — "把文字敘述都去掉".
-      // LABELS still used for aria-label / tooltip.
-      btn.innerHTML = `<span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>`;
+      // v1.9.31 audit #11: restore tiny 10px labels under each icon.
+      // Visible labels help users + screen readers; the 10px size keeps the
+      // nav uncluttered (vs. the bulky text that was removed in v1.9.15).
+      btn.innerHTML = `
+        <span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>
+        <span style="font-size:10px;font-weight:800;letter-spacing:0.4px;line-height:1;">${LABELS[tab]}</span>
+      `;
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         handlers.onTab(tab);
@@ -105,6 +111,9 @@ export class BottomNav {
       const active = id === tab;
       btn.style.color = active ? '#f7c97d' : '#a8927a';
       btn.style.opacity = active ? '1' : '0.55';
+      // v1.9.47 audit-3 #7: also toggle the amber top bar + lift.
+      btn.style.borderTop = active ? '3px solid #f7c97d' : '3px solid transparent';
+      btn.style.transform = active ? 'translateY(-2px)' : 'none';
     }
   }
 

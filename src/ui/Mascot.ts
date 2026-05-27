@@ -148,6 +148,36 @@ export class Mascot {
     this.inner.innerHTML = getMascotSvg(mascotId);
   }
 
+  /**
+   * v1.9.40 audit-2 F8 — render a raster image (PNG/WebP) instead of SVG.
+   * Used in story mode to bring the calico cat from the map into the
+   * lesson screen, reinforcing brand connection.
+   *
+   * v1.9.45: stack a solid ellipse floor shadow (color block, zero blur)
+   * under the image so the mascot stays grounded without using drop-shadow
+   * halos.
+   */
+  setMascotImage(src: string): void {
+    if (src === this.currentMascot) return;
+    this.currentMascot = src;
+    this.inner.innerHTML = `
+      <div style="position:relative;width:100%;height:100%;">
+        <div style="
+          position:absolute; left:18%; right:18%; bottom:4%;
+          height:9%;
+          background:rgba(60,42,28,0.28);
+          border-radius:50%;
+          z-index:0;
+        "></div>
+        <img src="${src}" alt="" aria-hidden="true" style="
+          position:relative;
+          width:100%;height:100%;object-fit:contain;pointer-events:none;
+          z-index:1;
+        " />
+      </div>
+    `;
+  }
+
   setAnim(anim: MascotAnim): void {
     this.clearOneShot();
     this.inner.classList.remove('mascot-idle', 'mascot-happy', 'mascot-sad');

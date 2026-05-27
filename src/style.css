@@ -309,16 +309,12 @@ button:focus-visible {
 }
 
 /* pickup-pulse — idle attention-getter for primary CTAs.
- * Subtle so it doesn't feel desperate — soft glow + tiny scale. */
+ * v1.9.46 (audit-3 #6): bumped 1.03 → 1.05 for stronger peripheral cue
+ * after losing the halo glow ring. Still pure scale (no blur), but the
+ * extra 2pp gives a visible breathe on 280px CTA. */
 @keyframes pickup-pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(231, 164, 74, 0.5);
-  }
-  50% {
-    transform: scale(1.025);
-    box-shadow: 0 0 0 10px rgba(231, 164, 74, 0);
-  }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
 }
 .pickup-pulse {
   animation: pickup-pulse 1.6s ease-in-out infinite;
@@ -377,10 +373,10 @@ button:focus-visible {
   animation: pickup-confetti-burst 0.6s ease-out forwards;
 }
 
-/* pickup-glow — soft idle attention halo for primary CTAs. */
+/* pickup-glow — v1.9.44 Duo flat: was a halo, now a transform scale pulse. */
 @keyframes pickup-glow {
-  0%, 100% { filter: drop-shadow(0 0 4px rgba(28, 176, 246, 0.3)); }
-  50% { filter: drop-shadow(0 0 12px rgba(28, 176, 246, 0.6)); }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
 }
 .pickup-glow {
   animation: pickup-glow 1.6s ease-in-out infinite;
@@ -527,12 +523,13 @@ button:focus-visible {
 .pickup-map-node-current {
   animation: pickup-current-pulse 1.6s ease-in-out infinite;
 }
+/* v1.9.44 Duo flat: was a drop-shadow halo, now a transform scale pulse. */
 @keyframes pickup-current-pulse {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(231, 164, 74, 0.35)); }
-  50%      { filter: drop-shadow(0 0 12px rgba(231, 164, 74, 0.85)); }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pickup-map-node-current { animation: none; filter: drop-shadow(0 0 6px rgba(231, 164, 74, 0.55)); }
+  .pickup-map-node-current { animation: none; }
 }
 
 /* ─── v1.7.2 cat-themed loading indicator ─────────────────────────────
@@ -557,7 +554,6 @@ button:focus-visible {
   width: 96px;
   height: 96px;
   display: block;
-  filter: drop-shadow(0 6px 10px rgba(231, 164, 74, 0.25));
   animation: pickup-loader-spin 1.6s linear infinite;
   transform-origin: 50% 50%;
 }
@@ -608,6 +604,11 @@ button:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
+  /* v1.9.47 audit-3 #8 carve-out: POV scene backgrounds keep their
+   * painterly Ghibli linear-gradient treatment for atmospheric mood +
+   * readability. Exempt from the "no gradient" Duo flat-shape rule
+   * applied everywhere else — see CLAUDE.md "Visual Language" for
+   * the explicit POV painterly carve-out. */
   background: linear-gradient(
     180deg,
     rgba(254, 248, 237, 0.35) 0%,
@@ -835,8 +836,8 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 8px 14px rgba(231, 164, 74, 0.28));
-  /* Inner: breathe — scale pulse. Split from sway so both transforms
+  /* v1.9.44 Duo flat: removed amber drop-shadow halo.
+   * Inner: breathe — scale pulse. Split from sway so both transforms
    * apply (sibling animations on the same element overwrite each other). */
   animation: pickup-idle-breathe 3.2s ease-in-out infinite;
   transform-origin: 50% 80%;
@@ -887,20 +888,17 @@ h1, h2 {
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  /* v1.9.44 Duo flat: dropped bright-green blur halos; pulse via scale only. */
   transition: transform 100ms var(--pickup-snap),
-    border-bottom-width 100ms var(--pickup-snap),
-    box-shadow 200ms ease-out;
-  box-shadow: 0 4px 14px rgba(88, 204, 2, 0.28);
+    border-bottom-width 100ms var(--pickup-snap);
   animation: pickup-pulse 2.2s ease-in-out infinite;
 }
 .pickup-splash-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(88, 204, 2, 0.38);
 }
 .pickup-splash-cta:active {
   transform: translateY(3px);
   border-bottom-width: 2px;
-  box-shadow: none;
   animation: none;
 }
 .pickup-splash-footer {
@@ -1163,4 +1161,26 @@ h1, h2 {
   #pickup-flash.pickup-flash-on {
     animation: none;
   }
+}
+
+/* v1.9.33 audit #12: map-node static styles hoisted to a class so the
+ * 8 nodes don't re-write 18 identical inline styles each on mount. Only
+ * the truly dynamic bits (position, gradient base color, shadow color,
+ * cursor, opacity) stay inline now. */
+.pickup-map-node {
+  position: absolute;
+  width: 82px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 900;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 100ms ease-out, box-shadow 100ms ease-out;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }

@@ -7,11 +7,11 @@
     "questionInChapter": 1,
     "type": "listen-mc",
     "storyBeat": "我在雨夜醒來,雨下得很大",
-    "sentence": "I wake up. The rain is falling hard.",
+    "sentence": "I wake up and the rain is falling hard.",
     "question": "Which word did you hear?",
     "options": ["heart", "hard", "heard", "hat"],
     "correctIndex": 1,
-    "explanationZh": "聽 hard(用力地、大力地)— 跟 heart / heard / hat 都是近音字陷阱,要靠耳朵分辨子音和母音長度。",
+    "explanationZh": "聽 hard(用力地、大力地)。heart、heard、hat 都是近音字陷阱,要靠耳朵分辨子音和母音長度。",
     "tags": ["story", "ch1", "weather", "homophone"]
   },
   {
@@ -26,7 +26,7 @@
     "question": "How do I feel?",
     "options": ["😄 happy", "🥶 cold", "🥵 hot", "😴 sleepy"],
     "correctIndex": 1,
-    "explanationZh": "聽完整句後選對應的 emoji。cold(冷)是當下感受,fur is wet 也能推。",
+    "explanationZh": "聽完整句後選對應的 emoji。cold = 冷,是當下的身體感受,fur is wet(毛濕了)也是線索。",
     "tags": ["story", "ch1", "feeling", "emoji-match"]
   },
   {
@@ -46,7 +46,7 @@
       "I am lost"
     ],
     "correctIndex": 2,
-    "explanationZh": "Comprehension 題:聽完整句後選最貼近主旨的整句答案。「沒吃 + so hungry」對應 I am hungry。",
+    "explanationZh": "沒吃 + so hungry → I am hungry(我餓)。累、病、迷路也都讓人不舒服,但句子裡只說了餓。",
     "tags": ["story", "ch1", "feeling", "comprehension"]
   },
   {
@@ -61,7 +61,7 @@
     "question": "Type the missing word",
     "options": ["scared", "brave", "funny", "kind"],
     "correctIndex": 0,
-    "explanationZh": "打字聽寫:聽完整句後打出感受詞 scared(害怕)。容錯大小寫 + 前後空白。",
+    "explanationZh": "scared = 害怕的。看到大影子靠近 → 嚇到 → scared。大小寫不分,放心打。",
     "tags": ["story", "ch1", "emotion", "type-what-you-hear"]
   },
   {
@@ -78,7 +78,7 @@
     "correctIndex": 0,
     "tiles": ["face", "She", "kind", "a", "has", "big"],
     "correctOrder": [1, 4, 3, 2, 0],
-    "explanationZh": "聽完整句後依序點 word tile:She → has → a → kind → face。big 是干擾 tile。",
+    "explanationZh": "依序點 word tile:She → has → a → kind → face。kind face = 慈祥的臉,阿嬤給我的第一印象。",
     "tags": ["story", "ch1", "people", "tap-tiles"]
   },
   {
@@ -89,7 +89,7 @@
     "questionInChapter": 6,
     "type": "tap-pairs",
     "storyBeat": "回顧本章關鍵字",
-    "sentence": "Match the Ch1 words with their meaning",
+    "sentence": "These are the words I will remember.",
     "question": "Tap the pairs",
     "options": ["hard", "cold", "hungry", "kind"],
     "correctIndex": 0,
@@ -99,7 +99,7 @@
       {"left": "hungry", "right": "飢餓"},
       {"left": "kind", "right": "慈祥"}
     ],
-    "explanationZh": "Ch1 四個關鍵字配對中文意義。記得本章遇到的詞 — 配對是最強的單字記憶法。",
+    "explanationZh": "Ch1 四個關鍵字配對中文意義。記得本章遇到的詞,配對是最強的單字記憶法。",
     "tags": ["story", "ch1", "review", "tap-pairs"]
   }
 ]

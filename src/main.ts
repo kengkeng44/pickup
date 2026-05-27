@@ -1,6 +1,30 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { sfxCardPress } from './audio/sfx';
+
+// v1.9.48 audit-4 #4: detect blocked localStorage (Safari Private,
+// quota-exceeded, etc.) so user knows their progress will silently revert
+// on reload. Banner only mounts when writes actually fail.
+function detectStorageBlocked(): boolean {
+  try {
+    const k = '__pickup_storage_test__';
+    localStorage.setItem(k, '1');
+    localStorage.removeItem(k);
+    return false;
+  } catch {
+    return true;
+  }
+}
+if (typeof window !== 'undefined' && detectStorageBlocked()) {
+  const banner = document.createElement('div');
+  banner.id = 'pickup-storage-warn';
+  banner.style.cssText =
+    'position:fixed;top:0;left:0;right:0;z-index:9999;background:#c84a3a;color:#fff;' +
+    'padding:10px 14px;text-align:center;font-size:12px;font-weight:800;line-height:1.4;' +
+    'font-family:"Noto Sans TC", "Nunito", system-ui, sans-serif;letter-spacing:0.3px;';
+  banner.textContent = '⚠️ 進度無法儲存 — 請關閉私密瀏覽以保留 XP / 連勝紀錄';
+  document.body.appendChild(banner);
+}
 import { audio } from './audio/AudioManager';
 import { MenuScene } from './scenes/MenuScene';
 import { PlayScene } from './scenes/PlayScene';

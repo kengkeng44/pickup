@@ -14,6 +14,8 @@ import { readChapterProgress } from './storyKitten';
 export interface Achievement {
   id: string;
   emoji: string;
+  /** v1.9.42: optional WebP icon — if present, render `<img>` instead of emoji. */
+  iconSrc?: string;
   title: string;
   description: string;
   unlocked: boolean;
@@ -23,6 +25,7 @@ export interface Achievement {
 interface AchievementDef {
   id: string;
   emoji: string;
+  iconSrc?: string;
   title: string;
   description: string;
   check: (state: AppState) => { unlocked: boolean; progressLabel?: string };
@@ -39,13 +42,14 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'first-question',
     emoji: '🐾',
+    iconSrc: '/mascots/icon-paw.webp',
     title: 'First Paw',
     description: 'Earn your first XP',
     check: (s) => ({ unlocked: s.xp >= 1, progressLabel: s.xp >= 1 ? undefined : '0 XP' }),
   },
   {
     id: 'ch1-complete',
-    emoji: '☂️',
+    emoji: '☂️',  // no umbrella WebP yet — emoji stays as fallback
     title: 'Rainy Night Survived',
     description: 'Complete Chapter 1',
     check: (s) => ({
@@ -56,6 +60,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'streak-3',
     emoji: '🔥',
+    iconSrc: '/mascots/icon-flame.webp',
     title: 'Three-Day Spark',
     description: 'Hit a 3-day streak',
     check: (s) => ({
@@ -66,6 +71,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'streak-7',
     emoji: '⚡',
+    iconSrc: '/mascots/icon-lightning.webp',
     title: 'Weekly Resilience',
     description: 'Hit a 7-day streak',
     check: (s) => ({
@@ -76,6 +82,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'streak-30',
     emoji: '🌟',
+    iconSrc: '/mascots/icon-star.webp',
     title: 'Monthly Master',
     description: 'Hit a 30-day streak',
     check: (s) => ({
@@ -86,6 +93,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'xp-50',
     emoji: '⭐',
+    iconSrc: '/mascots/node-star.webp',
     title: 'Level 2 Hatchling',
     description: 'Reach Level 2 (50 XP)',
     check: (s) => ({
@@ -95,7 +103,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   },
   {
     id: 'xp-200',
-    emoji: '🎯',
+    emoji: '🎯',  // no target WebP yet — emoji stays as fallback
     title: 'Level 3 Climb',
     description: 'Reach Level 3 (200 XP)',
     check: (s) => ({
@@ -106,6 +114,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
   {
     id: 'all-chapters',
     emoji: '🏆',
+    iconSrc: '/mascots/icon-trophy.webp',
     title: 'Way Home',
     description: 'Complete all 8 chapters',
     check: (s) => ({
@@ -128,6 +137,7 @@ export function evaluateAchievements(): Achievement[] {
     return {
       id: def.id,
       emoji: def.emoji,
+      iconSrc: def.iconSrc,
       title: def.title,
       description: def.description,
       unlocked,

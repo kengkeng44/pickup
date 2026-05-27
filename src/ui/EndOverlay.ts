@@ -15,7 +15,7 @@
  * lifecycle (mount/destroy) is owned by EndScene.
  */
 
-import { applyStyle } from './domUtil';
+import { applyStyle, attachPressFeedback } from './domUtil';
 import { SCENARIO_META, type ScenarioId } from '../data/scenarios';
 
 export interface EndOverlayOptions {
@@ -39,18 +39,15 @@ export interface EndOverlayOptions {
   onChangeMode: () => void;
 }
 
-// v0.10 — semantic tokens (mirrors --pickup-* in style.css)
-const COLOR_GREEN = '#58cc02';
-const COLOR_GREEN_DARK = '#58a700';
-const COLOR_YELLOW = '#ffc800';
-const COLOR_YELLOW_DARK = '#e5b400';
-const COLOR_BLUE = '#1cb0f6';
-const COLOR_ORANGE = '#ff9600';
-const COLOR_RED = '#ff4b4b';
-const COLOR_TEXT = '#3d2817';
-const COLOR_MUTED = '#8b6f4a';
-const COLOR_BORDER = '#ead9bb';
-const COLOR_BORDER_DARK = '#d4c098';
+// v1.9.28 audit #7: shared palette imported from tokens.ts.
+import {
+  COLOR_GREEN, COLOR_GREEN_DARK,
+  COLOR_YELLOW, COLOR_YELLOW_DARK,
+  COLOR_BLUE, COLOR_ORANGE, COLOR_RED,
+  COLOR_BORDER, COLOR_BORDER_DARK,
+  COLOR_TEXT_DARK as COLOR_TEXT,
+  COLOR_TEXT_MUTED as COLOR_MUTED,
+} from './tokens';
 
 // v0.10 — Duolingo-style encouraging summaries.
 const COMPLETE_PRAISE = [
@@ -79,9 +76,8 @@ export class EndOverlay {
     applyStyle(this.root, {
       position: 'fixed',
       inset: '0',
-      // Subtle radial gradient: green tint at top, white at bottom.
-      background:
-        'radial-gradient(ellipse at top, #e0f5d0 0%, #f4fbe9 35%, #ffffff 75%)',
+      // v1.9.46 Duo flat (audit-3 #1): flat cream surface, no gradient.
+      background: '#fef8ed',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -169,9 +165,8 @@ export class EndOverlay {
       letterSpacing: '-0.3px',
       textAlign: 'center',
       color: this.opts.dead ? COLOR_RED : COLOR_YELLOW_DARK,
-      textShadow: this.opts.dead
-        ? 'none'
-        : `0 2px 0 ${COLOR_YELLOW}, 0 4px 12px rgba(255, 200, 0, 0.4)`,
+      // v1.9.46 Duo flat (audit-3 #1): drop the blur halo, keep solid 2px depth.
+      textShadow: this.opts.dead ? 'none' : `0 2px 0 ${COLOR_YELLOW}`,
       animation: 'pickup-banner-pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1)',
       padding: '4px 8px',
     });
@@ -346,7 +341,7 @@ export class EndOverlay {
       animation: 'pickup-stat-in 480ms cubic-bezier(0.34, 1.56, 0.64, 1) both',
       animationDelay: `${opts.delayMs}ms`,
       opacity: '0',
-      boxShadow: `0 2px 8px ${opts.color}22`,
+      // v1.9.44 Duo flat: blur halo stripped.
     });
 
     if (opts.icon) {
@@ -453,17 +448,7 @@ export class EndOverlay {
       // Primary CTA gets attention-grabbing pulse — Duolingo principle 2.
       btn.classList.add('pickup-pulse');
     }
-    btn.addEventListener('pointerdown', () => {
-      btn.style.transform = 'translateY(2px)';
-      btn.style.borderBottomWidth = '2px';
-    });
-    const release = () => {
-      btn.style.transform = '';
-      btn.style.borderBottomWidth = '4px';
-    };
-    btn.addEventListener('pointerup', release);
-    btn.addEventListener('pointerleave', release);
-    btn.addEventListener('pointercancel', release);
+    attachPressFeedback(btn, { depth: 2, borderBottom: { from: 4, to: 2 } });
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       opts.onClick();
