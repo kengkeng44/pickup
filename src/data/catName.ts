@@ -7,7 +7,7 @@
  */
 
 const LS_CAT_NAME = 'pickup.cat-name';
-export const DEFAULT_CAT_NAME = '糰糰';
+export const DEFAULT_CAT_NAME = 'Mochi';
 const MAX_LEN = 12;
 
 export function readCatName(): string {

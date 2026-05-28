@@ -36,6 +36,7 @@ import { preloadHints, wireSentenceHints } from './WordHint';
 import { readXp, levelForXp, levelProgress } from '../data/xp';
 import { readStreak } from '../data/streak';
 import { readCoins } from '../data/coins';
+import { applyCatName } from '../data/catName';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -84,7 +85,7 @@ const NODE_PATH: Array<{ dx: number; top: number }> = [
 // Ch1 narrative beats — short label per question, used as tooltip / aria.
 // v1.9.50: 8 beats for grandma-v4 framework (prologue + tale + goodnight + review).
 const CH1_BEAT_LABELS = [
-  'I am 糰糰',
+  'I am {catName}',
   'Meet 花花',
   'Tonight a story',
   'Rainy night cat',
@@ -215,7 +216,7 @@ export class StoryMapView {
     const ch1Completed = isChapterCompleted(1);
     const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
     for (let i = 0; i < 8; i++) {
-      const beat = CH1_BEAT_LABELS[i];
+      const beat = applyCatName(CH1_BEAT_LABELS[i]);
       const node = this.buildNode({
         idx: i,
         label: beat,
