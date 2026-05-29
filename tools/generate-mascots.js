@@ -106,6 +106,66 @@ CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
 
 Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
   },
+  flame: {
+    name: 'icon-flame',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A stylized flame / fire icon for a streak counter in a learning app. The flame body is a chunky teardrop shape in WARM AMBER #e7a44a with a slightly lighter cream-amber inner core. Add a deeper COFFEE BROWN #8b6f4a base/edge for depth. Soft cel-shaded — 1 base tone + 1 darker depth tone, NOT realistic gradient. Friendly, cute, NOT aggressive fire.
+
+CRITICAL palette: ONLY amber/coffee/cream/olive accent. ABSOLUTELY NO red, NO bright orange #ff7a3a, NO yellow neon. The v1.9.41 SVG fire used #ff7a3a — replace with warm amber tone family.
+
+Composition: flame centered, ~70% canvas, slight kawaii personality (optional tiny eyes + smile if natural). Subtle solid coffee ellipse base shadow. No text.`,
+  },
+  lightning: {
+    name: 'icon-lightning',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A stylized lightning bolt / energy icon for an energy/XP counter. Classic zigzag bolt shape in WARM AMBER #e7a44a, with a slightly darker COFFEE BROWN #8b6f4a 3D-depth side (chunky 3D Duolingo-style). Soft cel-shading. Friendly.
+
+CRITICAL palette: amber/coffee/cream ONLY. NO yellow neon #ffeb3b, NO bright electric blue. Pickup brand warm.
+
+Composition: bolt centered, slight tilt for energy, ~65% canvas. Subtle base shadow. Optional tiny kawaii face. No text.`,
+  },
+  star: {
+    name: 'icon-star',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A 5-point star icon for achievements. WARM AMBER #e7a44a star body with COFFEE BROWN #8b6f4a 3D depth side (one face brighter, one darker). Chunky thick proportions, slightly rounded points (not sharp). Soft cel-shading 2 tones.
+
+CRITICAL palette: amber/coffee ONLY. NO bright Disney gold #ffd700, NO red shimmer.
+
+Composition: star centered, slight isometric tilt for 3D feel, ~70% canvas. Subtle base ellipse shadow. Optional tiny kawaii smile in center. No text.`,
+  },
+  trophy: {
+    name: 'icon-trophy',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A chunky trophy cup icon. Cup bowl + handles + small base. WARM AMBER #e7a44a cup body with COFFEE BROWN #8b6f4a 3D depth + base, OLIVE GREEN #7d9a4f thin band around cup as accent. Chunky Duolingo-style.
+
+CRITICAL palette: amber/coffee/olive ONLY. NO bright Disney gold, NO red.
+
+Composition: trophy centered, ~70% canvas. Subtle base ellipse shadow. Optional tiny kawaii face on cup. No text.`,
+  },
+  coin: {
+    name: 'coin-gold',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A chunky round coin icon for currency. WARM AMBER #e7a44a coin face, COFFEE BROWN #8b6f4a edge/rim showing 3D depth (Duolingo tilted-coin look). On the face: a simple OLIVE GREEN #7d9a4f paw print (matches Pickup brand — paw is the chapter section symbol).
+
+CRITICAL palette: amber/coffee/olive ONLY. NO bright Disney gold #ffd700, NO red, NO shimmer effect.
+
+Composition: coin centered with slight 3D tilt (top face slightly visible, edge showing on right), ~70% canvas. Subtle base shadow. No text on coin (the paw IS the symbol).`,
+  },
+  crown: {
+    name: 'crown-gold',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A chunky crown icon for level/tier display. Classic crown shape (band + 3-5 points + small dots/circles on points as gem placeholders). WARM AMBER #e7a44a crown body with COFFEE BROWN #8b6f4a 3D depth side. Points have small OLIVE GREEN #7d9a4f circles as "gems" (NOT realistic jewels). Chunky Duolingo style.
+
+CRITICAL palette: amber/coffee/olive ONLY. NO bright Disney gold, NO red rubies, NO purple gems, NO sparkle effect.
+
+Composition: crown centered with slight isometric 3D feel, ~70% canvas. Subtle base ellipse shadow. No text.`,
+  },
   speaker: {
     name: 'icon-speaker',
     prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
