@@ -14,8 +14,8 @@ describe('lessons-ch1.json content', () => {
     expect(result.success).toBe(true);
   });
 
-  it('contains the expected 21 lessons (L1-L3 prologue + L4-L15 main story + L16-L18 aesop ant + L19-L21 aesop north-wind)', () => {
-    expect(raw).toHaveLength(21);
+  it('contains the expected 24 lessons (L1-L3 prologue + L4-L15 main story + L16-L18 aesop ant + L19-L21 aesop north-wind + L22-L23 outer-outro + L24 review)', () => {
+    expect(raw).toHaveLength(24);
     expect(raw[0].id).toBe('kt-ch1-l1');
     expect(raw[0].lessonInChapter).toBe(1);
     expect(raw[0].segmentType).toBe('outer-prologue');
@@ -40,5 +40,11 @@ describe('lessons-ch1.json content', () => {
     expect(raw[18].lessonInChapter).toBe(19);
     expect(raw[18].segmentType).toBe('aesop-side');
     expect(raw[18].storyId).toBe('north-wind-and-sun');
+    expect(raw[21].id).toBe('kt-ch1-l22');
+    expect(raw[21].lessonInChapter).toBe(22);
+    expect(raw[21].segmentType).toBe('outer-outro');
+    expect(raw[23].id).toBe('kt-ch1-l24');
+    expect(raw[23].lessonInChapter).toBe(24);
+    expect(raw[23].segmentType).toBe('review');
   });
 });
