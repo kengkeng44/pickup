@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>拾光 Ch2-8 多智能體腦力激盪 — 過程紀錄</title>
+<style>
+  :root {
+    --amber: #e7a44a;
+    --amber-soft: #f0c074;
+    --cream: #fef8ed;
+    --cream-deep: #f1ebe1;
+    --coffee: #8b6f4a;
+    --coffee-dark: #6f573a;
+    --olive: #7d9a4f;
+    --dark: #3c2a1c;
+    --terracotta: #c84a3a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 48px 28px 96px; }
+  header {
+    border-bottom: 3px solid var(--amber);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+  }
+  h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: var(--dark);
+  }
+  .lead {
+    color: var(--coffee-dark);
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+  h2 {
+    font-size: 24px;
+    color: var(--coffee-dark);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed var(--amber-soft);
+  }
+  h3 {
+    font-size: 19px;
+    color: var(--dark);
+    margin: 28px 0 12px;
+  }
+  h4 {
+    font-size: 16px;
+    margin: 16px 0 6px;
+    color: var(--coffee-dark);
+  }
+  p { margin: 8px 0; }
+  .persona-card {
+    border-left: 6px solid var(--amber);
+    background: #fff;
+    padding: 14px 20px;
+    margin: 14px 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 6px rgba(60, 42, 28, 0.06);
+  }
+  .persona-card.designer { border-left-color: var(--olive); }
+  .persona-card.brand { border-left-color: var(--amber); }
+  .persona-card.narrative { border-left-color: var(--coffee); }
+  .persona-card.player { border-left-color: var(--terracotta); }
+  .persona-card.linguist { border-left-color: #6a7fa0; }
+  .persona-card.moderator { border-left-color: var(--dark); background: var(--cream-deep); }
+  .name {
+    font-weight: 700;
+    color: var(--coffee-dark);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .name .tag {
+    background: var(--cream-deep);
+    color: var(--coffee-dark);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: 500;
+  }
+  .quote {
+    margin: 6px 0 0;
+    color: var(--dark);
+  }
+  blockquote {
+    margin: 12px 0;
+    padding: 12px 16px;
+    background: var(--cream-deep);
+    border-radius: 6px;
+    font-style: italic;
+    color: var(--coffee-dark);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+    background: #fff;
+  }
+  th, td {
+    border: 1px solid var(--cream-deep);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--amber);
+    color: #fff;
+  }
+  tr:nth-child(even) { background: var(--cream); }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-right: 6px;
+    background: var(--olive);
+    color: #fff;
+  }
+  .pill.warn { background: var(--terracotta); }
+  .pill.locked { background: var(--coffee-dark); }
+  .pill.amber { background: var(--amber); }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .round-divider {
+    margin: 48px 0 24px;
+    border: 0;
+    border-top: 3px dotted var(--amber);
+  }
+  .locked-box {
+    background: linear-gradient(180deg, #fff8ea 0, #fff 100%);
+    border: 2px solid var(--amber);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+  .locked-box .title {
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+  code {
+    background: var(--cream-deep);
+    color: var(--coffee-dark);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .toc {
+    background: var(--cream-deep);
+    padding: 16px 22px;
+    border-radius: 8px;
+    margin: 24px 0 40px;
+  }
+  .toc h4 { margin-top: 0; }
+  .toc a { color: var(--coffee-dark); text-decoration: none; }
+  .toc a:hover { color: var(--amber); text-decoration: underline; }
+  .footer {
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cream-deep);
+    color: var(--coffee-dark);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>拾光 Ch2-8 多智能體腦力激盪 — 過程紀錄</h1>
+  <p class="lead">v2.0.B.22 · 2026-05-30 · Ch2-8 故事+題目+互動設計 · 五位內部顧問三輪辯論到共識</p>
+</header>
+
+<div class="toc">
+  <h4>導覽</h4>
+  <ul>
+    <li><a href="#cast">出場顧問</a></li>
+    <li><a href="#round1">第 1 輪 — 初稿:沿用既有八章還是推翻?</a></li>
+    <li><a href="#round2">第 2 輪 — 互動模式:奶奶問 Mochi/Hana 怎麼設計</a></li>
+    <li><a href="#round3">第 3 輪 — 題目優先,場景跟隨</a></li>
+    <li><a href="#round4">第 4 輪 — A2 字彙曲線與重複率</a></li>
+    <li><a href="#final">最終共識:Ch2-8 鎖定決策</a></li>
+    <li><a href="#risk">未解風險與升級事項</a></li>
+  </ul>
+</div>
+
+<h2 id="cast">出場顧問</h2>
+<p>五位內部 persona 在這場會議中各代表一塊不可妥協的價值。會議規則:每輪每人先發言,主持人最後綜合,任何決策必須兩位以上點頭才上鎖。</p>
+
+<div class="persona-card designer">
+  <div class="name">林教學 Lin <span class="tag">教學設計師</span></div>
+  <p class="quote">前 Duolingo Curriculum,17 年 CEFR-J A1-B2 教材設計經驗。立場:每課必須對應一個明確的字彙叢集(7-12 個 active words),題型分佈不能放縱情緒寫作犧牲學習密度。</p>
+</div>
+<div class="persona-card brand">
+  <div class="name">陳品牌 Chen <span class="tag">品牌策略師</span></div>
+  <p class="quote">前奶茶連鎖品牌主理人,擅長台灣文化情境消費品定位。立場:守住「下班逃逸 + Ghibli 暖色 + 愛哭鬼但堅韌」三條品牌線,任何選擇都要回到下班族晚上 22:30 在沙發上的心情。</p>
+</div>
+<div class="persona-card narrative">
+  <div class="name">陶敘事 Tao <span class="tag">敘事編輯</span></div>
+  <p class="quote">兒童文學編輯轉行內容企劃。立場:故事永遠優先於課程結構;每章必須有一個「為什麼今晚要聽這個故事」的情感釣鉤,沒有就推翻重寫。</p>
+</div>
+<div class="persona-card player">
+  <div class="name">游體驗 You <span class="tag">玩家體驗顧問</span></div>
+  <p class="quote">手遊 retention 分析師。立場:玩家在每章前 30 秒做的事最重要;任何「字幕長 + 沒互動」的開場都會 D1 retention 掉 15%。每段體驗都要問:「現在 user 在幹嘛?是滑還是動?」</p>
+</div>
+<div class="persona-card linguist">
+  <div class="name">梁語言 Liang <span class="tag">A2 語言學家</span></div>
+  <p class="quote">CEFR-J 編寫員 + 在地化專家。立場:A2 線指的是 1500 字以內、動詞限定 simple present + simple past、句長 ≤ 8 字、避開複合連接詞。任何超綱字必須在前面 lesson 鋪過。</p>
+</div>
+<div class="persona-card moderator">
+  <div class="name">主持人 Mod <span class="tag">產品經理</span></div>
+  <p class="quote">會議主持。任務:綜合、上鎖決策、識別需要升級的風險。</p>
+</div>
+
+<hr class="round-divider">
+
+<h2 id="round1">第 1 輪 — 初稿:沿用既有八章還是推翻?</h2>
+
+<p><b>議題:</b>spec 已經設定 Ch2-8 主菜為桃太郎 / 醜小鴨 / 龜兔賽跑 / 駱駝駝峰 / Baba Yaga / 六隻天鵝 / 葉限。用戶說「整個推翻都可以」。要不要推翻?</p>
+
+<h3>各 persona 開場意見</h3>
+
+<div class="persona-card narrative">
+  <div class="name">陶敘事</div>
+  <p class="quote">我先 push back 三件事。第一,<b>桃太郎放 Ch2 太早</b>。桃太郎是「主角集結同伴」的累積結構,但這時 user 才剛理解「奶奶說故事」的外層框架,馬上塞一個有四個人物的累積劇情會打亂節奏。Ch2 應該是更 intimate、更 close-up 的故事。第二,<b>Baba Yaga 放 Ch6 過於黑暗</b>,跟「下班逃逸」核心衝突。第三,<b>葉限放最後當收尾很妙,但前面沒有任何中華 motif 鋪墊</b>,Ch8 出現會像外掛。</p>
+</div>
+
+<div class="persona-card brand">
+  <div class="name">陳品牌</div>
+  <p class="quote">我同意陶的「Baba Yaga 違反下班逃逸」。但<b>桃太郎放 Ch2 是對的</b> — 它是日系最熟、最暖、最有「萌寵集結」的故事,跟 Mochi+Hana 「貓狗朋友」基線剛好同構,user 會自動帶入。葉限收尾我同意保留 — 它本來就是隱性中華梗,在 Ch7-8 雙語 code-switch 才會被注意,提早鋪沒必要。</p>
+</div>
+
+<div class="persona-card designer">
+  <div class="name">林教學</div>
+  <p class="quote">從字彙叢集看八章的 vocab spread:</p>
+  <ul>
+    <li>Ch2 桃太郎 → animal companions、quest verbs(fight, sail, give)、food(rice ball)</li>
+    <li>Ch3 醜小鴨 → identity(ugly, beautiful)、emotion(sad, alone)、seasons</li>
+    <li>Ch4 龜兔賽跑 → comparative(fast, slow)、dialogue verbs</li>
+    <li>Ch5 駱駝駝峰 → desert、why-because、body parts</li>
+    <li>Ch6 Baba Yaga → forest、scary、house parts</li>
+    <li>Ch7 六隻天鵝 → siblings、silent、weave</li>
+    <li>Ch8 葉限 → river、wish、fish、moon</li>
+  </ul>
+  <p class="quote">叢集分佈我可以接受。但<b>「龜兔賽跑」既是 Ch2 Aesop side、又是 Ch4 main 嗎</b>?那 user 在 Ch2 已經聽過縮減版,到 Ch4 重看完整版會覺得冗 — 教學上 vocab 過早曝光,reuse rate 不夠高。</p>
+</div>
+
+<div class="persona-card player">
+  <div class="name">游體驗</div>
+  <p class="quote">我最在意的:<b>Ch1 是雨夜小貓(meta-anchor,主角自己的故事)</b>,Ch2 馬上跳到桃太郎 — 從「我自己」到「別人的故事」,情感連結會突然中斷。user 會問:「等等,那隻雨夜小貓最後怎麼樣了?」答不出來他就走。<b>建議 Ch2 留一個關於 Mochi 自己的小故事</b>,做情感過渡。</p>
+</div>
+
+<div class="persona-card linguist">
+  <div class="name">梁語言</div>
+  <p class="quote">A2 角度,我建議 Ch2 走<b>簡單敘事結構</b>(not Kipling 第二人稱、not 對話體 alternating)。Ch1 已經是第一人稱了,Ch2 該換到第三人稱簡單過去式,讓 user 適應 narrative tense。桃太郎剛好是第三人稱,符合。</p>
+</div>
+
+<h3>主持人 Round 1 綜合</h3>
+
+<div class="persona-card moderator">
+  <div class="name">主持人</div>
+  <p class="quote">我聽到三個衝突:</p>
+  <ol>
+    <li>陶 vs 陳:Ch2 該不該是桃太郎</li>
+    <li>陶 vs 全員:Baba Yaga 該不該保留</li>
+    <li>林發現的:Ch4 跟 Ch2 龜兔賽跑重疊</li>
+  </ol>
+  <p class="quote">游補一個重要觀察:Ch1→Ch2 情感過渡。我提一個改造方案:</p>
+  <div class="locked-box">
+    <div class="title">Round 1 主持人提案</div>
+    <ul>
+      <li><b>Ch2 主菜保留桃太郎</b>(陳的 brand fit 論點站得住),但 outer prologue 三課要拉長到處理「Mochi 又回奶奶院子了」的微敘事,回應游的擔憂</li>
+      <li><b>砍掉 Ch2 龜兔賽跑 Aesop</b> — 它要留給 Ch4 升 main。Ch2 用其他兩個 Aesop:狼來了 + 狐狸與葡萄</li>
+      <li><b>Baba Yaga 上桌討論</b>:陶 push 推翻,我們 round 2 投票</li>
+      <li>葉限保留 Ch8,維持中華收尾</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="round-divider">
+
+<h2 id="round2">第 2 輪 — 互動模式:奶奶問 Mochi/Hana 怎麼設計</h2>
+
+<p><b>議題:</b>用戶最 critical 的要求:題目中要穿插「奶奶問 Mochi/Hana」+「Mochi/Hana 視角解讀」橋段。要怎麼落地進 5Q/lesson 的結構,不增加題目數又不犧牲 vocab 教學密度。</p>
+
+<h3>各 persona 開場意見</h3>
+
+<div class="persona-card narrative">
+  <div class="name">陶敘事</div>
+  <p class="quote">這正是我最想做的!我提議三層互動模式:</p>
+  <ul>
+    <li><b>A. 奶奶問句(Grandma Asks)</b>:奶奶對著貓狗問一個 A2 問句,e.g. <code>"{catName}, do you think the boy is brave?"</code></li>
+    <li><b>B. Mochi/Hana 視角回應(Child Echo)</b>:回應該童話事件,用幼稚化的觀點 — Mochi 害怕但 Hana 樂觀</li>
+    <li><b>C. 後設笑點(Meta Beat)</b>:奶奶笑著糾正或補充</li>
+  </ul>
+  <p class="quote">這三層自然形成一個 mini scene,我建議<b>每 lesson 的 Q5 變成這種互動題</b>(取代原本的純 comprehension)。Q5 用 listen-comprehension 體裁:奶奶問「你覺得 X 嗎?」,選項是貓狗可能的回答。</p>
+</div>
+
+<div class="persona-card designer">
+  <div class="name">林教學</div>
+  <p class="quote">我支持,但要設條件。<b>不能每 lesson Q5 都是互動題</b> — 那會變模板感,也會擠壓 comprehension 真正測理解的題量。</p>
+  <p class="quote">建議:</p>
+  <ul>
+    <li>每章 24 lessons 裡,<b>抓 6-8 個「Interaction Beat」lessons</b>(約 1/3 比例)</li>
+    <li>分佈在 outer prologue(2-3)、main story 中段(2-3)、aesop 後(1-2),review 不算</li>
+    <li>互動題仍然用既有題型(listen-comprehension / listen-emoji / tap-pairs),不增加新題型,UI 不用改</li>
+    <li>互動題仍然教 vocab,只是 framing 換成「Grandma's question」+「Mochi/Hana's interpretation」</li>
+  </ul>
+</div>
+
+<div class="persona-card player">
+  <div class="name">游體驗</div>
+  <p class="quote">我覺得這設計超讚的,因為它解決了一個我一直擔心但沒講的問題:<b>「inner story」的 user 是空白聽眾</b>。當奶奶說桃太郎時,user 在哪?他只是按題目。但如果 Mochi 跟 Hana 變成「替 user 反應」的代理,user 透過貓狗的天真解讀來投射自己 — 這就是 Pixar Soul 那種觀點切換的魔法。</p>
+  <p class="quote">我加碼一個 idea:<b>讓貓狗給「不同」的解讀</b>。Mochi 是愛哭鬼但堅韌,所以她會說「桃太郎好可憐,離開奶奶」;Hana 是樂觀柴犬,所以她說「我也想去打鬼!」奶奶笑了。這種雙視角讓 user 看到「同一件事可以兩種方式感受」,治癒感拉滿。</p>
+</div>
+
+<div class="persona-card brand">
+  <div class="name">陳品牌</div>
+  <p class="quote">游講到我心坎裡了。<b>愛哭鬼 Mochi + 樂觀 Hana 的雙視角,是 Pickup 從 v1.9 累積到現在最有資產感的設定</b>。我們應該把這個設定壓到每一個互動題裡。</p>
+  <p class="quote">但我要 push back 一個細節:<b>奶奶不能像老師一樣解釋</b>。她應該像「在跟兩隻孩子聊天」 — 微笑、簡短、不一定有對錯。e.g.</p>
+  <blockquote>奶奶:「桃太郎為什麼出發?」<br>
+  Mochi:「因為他媽媽叫他不要回家。」(誤讀但 cute)<br>
+  Hana:「因為鬼島有點心可以吃!」(樂觀曲解)<br>
+  奶奶:「都不太對,但你們都很努力想。」</blockquote>
+  <p class="quote">這比「正確解釋」更有品牌調。</p>
+</div>
+
+<div class="persona-card linguist">
+  <div class="name">梁語言</div>
+  <p class="quote">我提醒一個技術點。如果互動題用 listen-comprehension,「奶奶問」要用 audio 念出來 — 但目前 TTS 都是同一個聲音。我們<b>不能假裝有兩個 voice</b>,所以互動題的 sentence 應該明示「Grandma asks:」開頭,讓 user 從文字看到 speaker 切換。e.g.</p>
+  <ul>
+    <li>Q sentence: <code>Grandma asks, "Mochi, are you scared too?"</code></li>
+    <li>Options: <code>"Yes, I cry a little"</code> / <code>"No, I am brave"</code> / <code>"Maybe later"</code> / <code>"I don't know"</code></li>
+    <li>正解可以是「Yes, I cry a little」 — Mochi 的性格</li>
+  </ul>
+  <p class="quote">這樣 A2 vocab 還教到,人物性格也鞏固。</p>
+</div>
+
+<h3>主持人 Round 2 綜合 + 鎖定</h3>
+
+<div class="persona-card moderator">
+  <div class="name">主持人</div>
+  <div class="locked-box">
+    <div class="title">Round 2 鎖定:互動模式 設計規格</div>
+    <ul>
+      <li><span class="pill amber">LOCKED</span> 每章 24 lessons 裡,鎖定 <b>7 個 Interaction Beat lessons</b>(prologue 2 + main 中段 3 + aesop 後 1 + outro 1)</li>
+      <li><span class="pill amber">LOCKED</span> 互動題出現在該 lesson 的 <b>Q4 或 Q5 位置</b>(讓前面 Q1-Q3 先教完當段 vocab,Q4-5 再用 vocab 跑互動)</li>
+      <li><span class="pill amber">LOCKED</span> 文字 framing 固定 <code>Grandma asks, "..."</code> / <code>{catName} says, "..."</code> / <code>{dogName} says, "..."</code> 三種開頭</li>
+      <li><span class="pill amber">LOCKED</span> Mochi 視角 = 愛哭鬼但堅韌(會怕、會哭、但會 try);Hana 視角 = 樂觀傻柴(直線思考、會曲解但溫暖)</li>
+      <li><span class="pill amber">LOCKED</span> 奶奶絕不當「正確答案」糾錯角色,而是溫和補完或贊同</li>
+      <li><span class="pill amber">LOCKED</span> 不增加新題型,沿用 listen-mc / listen-comprehension / listen-emoji / tap-pairs</li>
+    </ul>
+  </div>
+  <p class="quote">游和陶就 Baba Yaga 議題的 Round 1 殘局繼續討論。投票結果:陶 push 推翻、游同意推翻、陳支持保留、林中立、梁支持保留。3:2 split,主持人決:<b>砍掉 Baba Yaga,改放更輕的東歐故事 — 「金鵝」(The Golden Goose, Grimm)</b>。Baba Yaga 留給 v2.x 後續 Ch9+ Halloween 主題章再用。</p>
+</div>
+
+<hr class="round-divider">
+
+<h2 id="round3">第 3 輪 — 題目優先,場景跟隨</h2>
+
+<p><b>議題:</b>用戶明確說「以劇情題目為優先」。意思是先寫題目+互動,再回頭設計章節背景畫面。這對視覺團隊和文案團隊的工作順序有什麼影響?</p>
+
+<div class="persona-card narrative">
+  <div class="name">陶敘事</div>
+  <p class="quote">這正是我一直想要的工作流!過去產品的痛點:文案被視覺先綁死,寫題目要遷就場景設計。改成題目先決定,每章「主場景」就是該章<b>劇情高峰所在的位置</b>。e.g.</p>
+  <ul>
+    <li>Ch2 桃太郎:題目高峰在「鬼島之戰」,主場景就是<b>鬼島海岸夕陽</b></li>
+    <li>Ch3 醜小鴨:題目高峰在「照鏡子看見自己變天鵝」,主場景就是<b>湖面倒影黎明</b></li>
+    <li>Ch5 駱駝駝峰:題目高峰在「精靈賜駝峰」,主場景就是<b>沙漠日出</b></li>
+  </ul>
+  <p class="quote">每章畫一張主視覺就夠,其他 lesson 用 Mochi+Hana+奶奶的 outer scene 重複(可省 60% 美術工)。</p>
+</div>
+
+<div class="persona-card player">
+  <div class="name">游體驗</div>
+  <p class="quote">我支持,但要補一個 UX 細節。Duolingo 9 年資料告訴我們<b>「同一個背景看 24 lesson 會無聊」</b>。建議:</p>
+  <ul>
+    <li>每章一張<b>主場景圖</b>(內故事高峰)</li>
+    <li>外層 outer scene 用 <b>3 種光照變化</b>(奶奶開書時黃昏 / 故事高潮時月亮 / Goodnight 時燭火將熄)</li>
+    <li>用<b>同一張 base 改光色</b>就能做出,成本接近零</li>
+  </ul>
+</div>
+
+<div class="persona-card brand">
+  <div class="name">陳品牌</div>
+  <p class="quote">我加一條 brand 守則:<b>每章主視覺都要看得到 Mochi 跟 Hana 是「在聽」</b>。即使是鬼島場景,角落也要有奶奶的書頁邊緣、或月光下兩隻小動物剪影。這提醒 user「這是故事,不是現實」 — 維持治癒感不被內 story 的緊張感壓垮。</p>
+</div>
+
+<div class="persona-card designer">
+  <div class="name">林教學</div>
+  <p class="quote">這順序對我的工作完全 OK,但提醒:<b>主視覺圖出來前,vocab cluster 一定要先鎖</b>。否則畫面細節跟詞彙 mismatch — e.g. 圖裡有 elephant 但 vocab 沒教 elephant,user 學不到。流程上:</p>
+  <ol>
+    <li>vocab cluster 鎖(我做)</li>
+    <li>題目+互動寫完(陶做)</li>
+    <li>從 vocab + 題目推「該章畫什麼 object 細節」</li>
+    <li>視覺寫 prompt 餵 gpt-image-1</li>
+  </ol>
+</div>
+
+<h3>主持人 Round 3 綜合</h3>
+
+<div class="persona-card moderator">
+  <div class="name">主持人</div>
+  <div class="locked-box">
+    <div class="title">Round 3 鎖定:題目→畫面工作流</div>
+    <ul>
+      <li><span class="pill amber">LOCKED</span> 寫作順序:<b>vocab cluster → 24 lesson 題目+互動 → 推主視覺 prompt → 出圖</b></li>
+      <li><span class="pill amber">LOCKED</span> 每章視覺資產:<b>1 張內故事主視覺 + 1 張 outer scene(3 個光照變體)= 4 張圖/章</b></li>
+      <li><span class="pill amber">LOCKED</span> 主視覺必須有 Mochi+Hana 在聽的痕跡(剪影、書角、毛巾、爪印任一)</li>
+      <li><span class="pill amber">LOCKED</span> 視覺 prompt 都要 Ghibli warm + isometric chibi mix(同 v1.7.6 美術方向)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="round-divider">
+
+<h2 id="round4">第 4 輪 — A2 字彙曲線與重複率</h2>
+
+<p><b>議題:</b>跨章 vocab 該怎麼漸進?重複曝光怎麼設計才能避免遺忘?</p>
+
+<div class="persona-card linguist">
+  <div class="name">梁語言</div>
+  <p class="quote">我已經做了 Ch2-8 主題詞彙映射(每章 ~80 active words + ~40 recycled words from previous chapters)。重點:</p>
+  <table>
+    <tr><th>Ch</th><th>主題詞彙叢集</th><th>核心動詞時態</th></tr>
+    <tr><td>2 桃太郎</td><td>peach / boat / fight / animal / friend / island / brave / give</td><td>simple past + past continuous</td></tr>
+    <tr><td>3 醜小鴨</td><td>egg / different / lonely / lake / swan / mirror / sad / beautiful</td><td>simple past + comparative</td></tr>
+    <tr><td>4 龜兔賽跑</td><td>race / fast / slow / sleep / win / lose / try / again</td><td>對話體(present tense)</td></tr>
+    <tr><td>5 駱駝駝峰</td><td>desert / sand / sun / lazy / camel / why / because / hump</td><td>questions + because</td></tr>
+    <tr><td>6 金鵝</td><td>gold / feather / forest / silly / share / stick / laugh / brother</td><td>simple past + sequence</td></tr>
+    <tr><td>7 六隻天鵝</td><td>brother / silent / weave / shirt / sister / save / pain / love</td><td>simple past + relative clause</td></tr>
+    <tr><td>8 葉限</td><td>fish / river / step-mother / wish / dance / shoe / king / moon</td><td>simple past + bilingual code-switch</td></tr>
+  </table>
+</div>
+
+<div class="persona-card designer">
+  <div class="name">林教學</div>
+  <p class="quote">梁的表合理。我建議重複率設計:</p>
+  <ul>
+    <li>每章 main story 12 lessons 各引入 5-7 個新詞,共 70 個 active vocab(主菜)</li>
+    <li>Aesop sides 6 lessons 帶入 30 個輔詞</li>
+    <li>每章 review lesson 用 tap-pairs 抓 16 個 key vocab(覆蓋率 ~20%)</li>
+    <li>下一章 outer prologue lesson 1 帶 3 個舊章關鍵詞(自然 SRS)</li>
+  </ul>
+</div>
+
+<div class="persona-card narrative">
+  <div class="name">陶敘事</div>
+  <p class="quote">我提一個 narrative 層面的重複技巧:<b>奶奶會在新章節提一句「上次說的那個 ___ 還記得嗎?」</b> — 比如 Ch4 開頭奶奶說「上次我們看了 Mochi 在雨夜很 scared」,sentence 帶到 Ch1 的 scared。這既是 SRS 又是情感連結。</p>
+</div>
+
+<div class="persona-card moderator">
+  <div class="name">主持人</div>
+  <div class="locked-box">
+    <div class="title">Round 4 鎖定:vocab 曲線</div>
+    <ul>
+      <li><span class="pill amber">LOCKED</span> 每章 ~80 active vocab + ~40 recycled,共 ~120 詞曝光,跨 8 章 unique ~700 詞,覆蓋 A2 核心</li>
+      <li><span class="pill amber">LOCKED</span> 每章 outer prologue 第一個 lesson 必須回看前章 3 個關鍵詞,搭配 narrator 「上次說的那個 ___ 還記得嗎?」</li>
+      <li><span class="pill amber">LOCKED</span> review lesson 4 個 tap-pairs(outer / main / aesop / interaction)</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="round-divider">
+
+<h2 id="final">最終共識:Ch2-8 鎖定決策</h2>
+
+<div class="locked-box">
+  <div class="title">Final Decision Board</div>
+  <table>
+    <tr><th>項目</th><th>決議</th></tr>
+    <tr><td>Ch2 主菜</td><td>桃太郎(保留)</td></tr>
+    <tr><td>Ch2 Aesop</td><td>狼來了 + 狐狸與葡萄(砍龜兔賽跑,留給 Ch4 main)</td></tr>
+    <tr><td>Ch3 主菜</td><td>醜小鴨(保留)</td></tr>
+    <tr><td>Ch3 Aesop</td><td>獅子與老鼠 + 牧羊人與狼(保留)</td></tr>
+    <tr><td>Ch4 主菜</td><td>龜兔賽跑(保留升 main)</td></tr>
+    <tr><td>Ch4 Aesop</td><td>烏鴉與狐狸 + 城市鼠與鄉村鼠(保留)</td></tr>
+    <tr><td>Ch5 主菜</td><td>駱駝駝峰(保留)</td></tr>
+    <tr><td>Ch5 Aesop</td><td>蘆葦與橡樹 + 老鼠開會(保留)</td></tr>
+    <tr><td>Ch6 主菜</td><td><b>金鵝(The Golden Goose)取代 Baba Yaga</b></td></tr>
+    <tr><td>Ch6 Aesop</td><td>漁夫與妻子 + 老鼠新娘(保留,新搭配)</td></tr>
+    <tr><td>Ch7 主菜</td><td>六隻天鵝(保留)</td></tr>
+    <tr><td>Ch7 Aesop</td><td>三個願望 + 田螺姑娘(田螺姑娘移上來預埋中華 motif)</td></tr>
+    <tr><td>Ch8 主菜</td><td>葉限(保留,雙語 code-switch)</td></tr>
+    <tr><td>Ch8 Aesop</td><td>嫦娥奔月 + 七張床(七張床從 Ch6 移過來)</td></tr>
+    <tr><td>每章結構</td><td>24 lessons:3 prologue + 12-13 main + 6-7 aesop + 1-2 outro + 1 review</td></tr>
+    <tr><td>互動題分佈</td><td>每章 7 個 Interaction Beat lessons</td></tr>
+    <tr><td>視覺資產</td><td>每章 4 張圖(1 內故事主視覺 + outer scene 3 光照)</td></tr>
+  </table>
+</div>
+
+<h3>各 persona 結尾話</h3>
+
+<div class="persona-card narrative">
+  <div class="name">陶敘事</div>
+  <p class="quote">Ch6 換金鵝是這次最大的勝利。<b>金鵝 = 一根會黏人的金羽毛 + 一串笑死人的隊伍 + 公主終於笑了</b>。情感曲線完美:輕鬆 → 累積 → 笑出來。完全是 Pickup brand 該有的。</p>
+</div>
+
+<div class="persona-card brand">
+  <div class="name">陳品牌</div>
+  <p class="quote">奶奶問 Mochi/Hana 的設計上線後,Pickup 就有了 Duolingo 那隻綠鴨子做不到的東西 — <b>「兩種性格的孩子聽同一個故事的對話」</b>。這是品牌資產的 multiplier。</p>
+</div>
+
+<div class="persona-card designer">
+  <div class="name">林教學</div>
+  <p class="quote">Vocab 表已經鎖,內容寫作時 80% 的詞由 cluster table 推,20% 用 narrative 需要自由發揮。可控可預測。</p>
+</div>
+
+<div class="persona-card player">
+  <div class="name">游體驗</div>
+  <p class="quote">我預期 D1 retention 從 v1.x 的 28% 提升到 v2.0 的 36-42%,因為 Mochi/Hana 變成 user 的代理。可以做 A/B 驗證。</p>
+</div>
+
+<div class="persona-card linguist">
+  <div class="name">梁語言</div>
+  <p class="quote">Ch8 葉限雙語 code-switch 我建議用「奶奶說中文書、貓狗用英文反應」這個 framing 來做,自然不違和。具體寫法等下篇 plan 細部展開。</p>
+</div>
+
+<h2 id="risk">未解風險與升級事項</h2>
+
+<table>
+  <tr><th>風險</th><th>機率</th><th>影響</th><th>處置</th></tr>
+  <tr><td>7 個 Interaction Beat 在 24 lesson 中分佈不均,user 感覺前段密集後段稀疏</td><td>中</td><td>體感不順</td><td>內容寫完後做 lesson distribution audit,要求至少每 4 lesson 有 1 個互動</td></tr>
+  <tr><td>Ch4 龜兔賽跑作為 main 時要避免重複 Ch2 Aesop 版本(雖然已砍但 user 可能記憶模糊)</td><td>低</td><td>輕微</td><td>Ch4 開頭明確說「奶奶今晚要好好說龜兔賽跑這個故事」</td></tr>
+  <tr><td>Ch6 金鵝美術需要 6-7 個跟隨者群像,gpt-image-1 不容易畫</td><td>中</td><td>美術延期</td><td>備案:主視覺只畫前 3 個跟隨者,後面用 typography 補</td></tr>
+  <tr><td>Ch8 雙語 code-switch 對未上 B1 的 user 造成困惑</td><td>高</td><td>學習挫敗</td><td>code-switch 只在 outer prologue 出現,main story 還是英文為主,中文當 explanationZh</td></tr>
+  <tr><td>互動題對 TTS 單一聲源的限制 — user 聽不出誰在問</td><td>高</td><td>沉浸感斷</td><td>文字端明示 <code>Grandma asks:</code> 開頭;v2.1 後考慮女聲 + 童聲 TTS 雙軌</td></tr>
+  <tr><td>vocab 跨章 SRS pool 拉不出來時舊章詞失憶</td><td>中</td><td>學習效率</td><td>Plan 9 polish 時要把 cross-chapter SRS 接好,本批內容寫作不依賴</td></tr>
+  <tr><td>金鵝故事 user 不熟悉(冷門 Grimm)</td><td>低</td><td>初次認知</td><td>章節介紹頁說明「這是格林兄弟的笑話故事」做 expectation set</td></tr>
+</table>
+
+<div class="footer">
+  <p>會議結束時間:2026-05-30 21:00 · 紀錄者:主持人 Mod。下一步:把鎖定決策同步到 <code>docs/ch2-8-stories.html</code> 完整章節展開。</p>
+</div>
+
+</div>
+</body>
+</html>

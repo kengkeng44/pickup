@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>拾光 Ch2-8 最終故事計畫</title>
+<style>
+  :root {
+    --amber: #e7a44a;
+    --amber-soft: #f0c074;
+    --cream: #fef8ed;
+    --cream-deep: #f1ebe1;
+    --coffee: #8b6f4a;
+    --coffee-dark: #6f573a;
+    --olive: #7d9a4f;
+    --dark: #3c2a1c;
+    --terracotta: #c84a3a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 48px 28px 96px; }
+  header {
+    border-bottom: 3px solid var(--amber);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+  }
+  h1 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: var(--dark);
+  }
+  .lead {
+    color: var(--coffee-dark);
+    font-size: 16px;
+    margin: 8px 0 0;
+  }
+  h2 {
+    font-size: 26px;
+    color: var(--dark);
+    margin: 52px 0 12px;
+    padding: 16px 22px;
+    background: linear-gradient(180deg, var(--amber) 0%, var(--amber-soft) 100%);
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+  }
+  .chapter-block {
+    background: #fff;
+    border: 1px solid var(--cream-deep);
+    border-radius: 10px;
+    padding: 0;
+    margin-bottom: 48px;
+    box-shadow: 0 4px 14px rgba(60, 42, 28, 0.05);
+    overflow: hidden;
+  }
+  .chapter-body { padding: 20px 26px 26px; }
+  h3 {
+    font-size: 19px;
+    color: var(--coffee-dark);
+    margin: 26px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed var(--amber-soft);
+  }
+  h4 {
+    font-size: 15px;
+    color: var(--dark);
+    margin: 16px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  p { margin: 8px 0; }
+  .meta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0 0;
+  }
+  .meta-row .chip {
+    background: var(--cream-deep);
+    color: var(--coffee-dark);
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 13px;
+  }
+  .meta-row .chip.amber { background: var(--amber); color: #fff; }
+  .meta-row .chip.olive { background: var(--olive); color: #fff; }
+  .meta-row .chip.terracotta { background: var(--terracotta); color: #fff; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid var(--cream-deep);
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--coffee);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  tr:nth-child(even) { background: var(--cream); }
+  .interaction {
+    background: #fff8ea;
+    border-left: 4px solid var(--amber);
+    padding: 10px 14px;
+    margin: 10px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .interaction .label {
+    font-weight: 700;
+    color: var(--terracotta);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .question-card {
+    background: #fafafa;
+    border: 1px solid var(--cream-deep);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 6px 0;
+    font-size: 14px;
+  }
+  .question-card .qtag {
+    display: inline-block;
+    background: var(--olive);
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+  .question-card .qtag.amber { background: var(--amber); }
+  .question-card .qtag.coffee { background: var(--coffee); }
+  .question-card .qtag.terracotta { background: var(--terracotta); }
+  .question-card .qtag.linguist { background: #6a7fa0; }
+  .question-card .sentence { color: var(--dark); margin: 4px 0; }
+  .question-card .zh { color: var(--coffee-dark); font-size: 13px; }
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .lesson-mini {
+    background: var(--cream);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 4px solid var(--amber);
+    font-size: 13px;
+  }
+  .lesson-mini.outer { border-left-color: var(--coffee); }
+  .lesson-mini.main { border-left-color: var(--amber); }
+  .lesson-mini.aesop { border-left-color: var(--olive); }
+  .lesson-mini.outro { border-left-color: var(--coffee-dark); }
+  .lesson-mini.review { border-left-color: var(--terracotta); }
+  .lesson-mini.interact { background: #fff8ea; box-shadow: 0 0 0 2px var(--amber); }
+  .lesson-mini .num {
+    font-weight: 700;
+    color: var(--coffee-dark);
+  }
+  .lesson-mini .seg {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--coffee-dark);
+    letter-spacing: 0.5px;
+  }
+  .prompt-box {
+    background: var(--cream-deep);
+    border-left: 4px solid var(--coffee);
+    padding: 12px 16px;
+    margin: 10px 0;
+    border-radius: 0 6px 6px 0;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 13px;
+    color: var(--coffee-dark);
+    white-space: pre-wrap;
+  }
+  .toc {
+    background: var(--cream-deep);
+    padding: 18px 24px;
+    border-radius: 10px;
+    margin: 24px 0 40px;
+  }
+  .toc h4 { margin-top: 0; }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: var(--coffee-dark);
+    text-decoration: none;
+  }
+  .toc a:hover { color: var(--amber); text-decoration: underline; }
+  code {
+    background: var(--cream-deep);
+    color: var(--coffee-dark);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .summary-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 12px 0;
+  }
+  .summary-row .cell {
+    background: var(--cream);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .summary-row .cell .key {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--coffee-dark);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .footer {
+    margin-top: 56px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cream-deep);
+    color: var(--coffee-dark);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>拾光 Ch2-8 最終故事計畫</h1>
+  <p class="lead">v2.0.B.22 · 2026-05-30 · 7 個夜晚 × 24 lessons/章 · 奶奶 ↔ Mochi/Hana 互動穿插</p>
+</header>
+
+<div class="toc">
+  <h4>章節導覽</h4>
+  <a href="#overview">總覽:7 章對照表</a>
+  <a href="#legend">圖例與互動模式說明</a>
+  <a href="#ch2">Ch2 桃太郎 — 出發的勇氣</a>
+  <a href="#ch3">Ch3 醜小鴨 — 不一樣的我</a>
+  <a href="#ch4">Ch4 龜兔賽跑 — 慢慢來比較快</a>
+  <a href="#ch5">Ch5 駱駝駝峰 — 因為,所以</a>
+  <a href="#ch6">Ch6 金鵝 — 笑出來的隊伍</a>
+  <a href="#ch7">Ch7 六隻天鵝 — 沉默的愛</a>
+  <a href="#ch8">Ch8 葉限 — 中華月光下的灰姑娘</a>
+</div>
+
+<h2 id="overview">總覽:7 章對照表</h2>
+<div class="chapter-block">
+<div class="chapter-body">
+<table>
+  <tr>
+    <th>章</th><th>童話</th><th>體裁</th><th>Aesop 配菜</th><th>情緒色調</th><th>核心學習目標</th>
+  </tr>
+  <tr>
+    <td>Ch2</td><td>桃太郎</td><td>第三人稱累積</td><td>狼來了 / 狐狸與葡萄</td><td>暖橘 + 海藍</td><td>過去式敘事 + 動物角色 + 旅程動詞</td>
+  </tr>
+  <tr>
+    <td>Ch3</td><td>醜小鴨</td><td>第一人稱內心獨白</td><td>獅子與老鼠 / 牧羊人與狼</td><td>湖綠 + 灰藍</td><td>形容詞比較 + 情緒詞彙 + 自我認同</td>
+  </tr>
+  <tr>
+    <td>Ch4</td><td>龜兔賽跑</td><td>對話體 alternating</td><td>烏鴉與狐狸 / 城市鼠與鄉村鼠</td><td>嫩綠 + 暖陽</td><td>quoted speech + 副詞 fast/slow + 比較級</td>
+  </tr>
+  <tr>
+    <td>Ch5</td><td>駱駝為什麼有駝峰</td><td>Kipling 第二人稱</td><td>蘆葦與橡樹 / 老鼠開會</td><td>沙黃 + 日出橘</td><td>why-because + 身體部位 + 因果連接詞</td>
+  </tr>
+  <tr>
+    <td>Ch6</td><td>金鵝</td><td>累積荒謬笑點</td><td>漁夫與妻子 / 老鼠新娘</td><td>金黃 + 笑橙</td><td>序列副詞 first/then/next + 分享動詞</td>
+  </tr>
+  <tr>
+    <td>Ch7</td><td>六隻天鵝</td><td>無對話詩意 narration</td><td>三個願望 / 田螺姑娘</td><td>銀月 + 夜紫</td><td>過去進行式 + 沉默愛的詞彙 + 救贖</td>
+  </tr>
+  <tr>
+    <td>Ch8</td><td>葉限</td><td>雙語 code-switch</td><td>嫦娥奔月 / 七張床</td><td>赭紅 + 月白</td><td>中英並置 + 願望 wish/dream + 文化收尾</td>
+  </tr>
+</table>
+</div>
+</div>
+
+<h2 id="legend">圖例與互動模式說明</h2>
+<div class="chapter-block">
+<div class="chapter-body">
+
+<h4>Lesson 分段顏色</h4>
+<div class="lessons-grid">
+  <div class="lesson-mini outer"><span class="num">L1-3</span> <span class="seg">Outer Prologue</span><br>Mochi 跳牆 → Hana 迎接 → 奶奶開書</div>
+  <div class="lesson-mini main"><span class="num">L4-15</span> <span class="seg">Main Story</span><br>該章主菜童話 12 lessons</div>
+  <div class="lesson-mini aesop"><span class="num">L16-22</span> <span class="seg">Aesop Sides</span><br>2 個寓言短篇 各 3 lessons</div>
+  <div class="lesson-mini outro"><span class="num">L23</span> <span class="seg">Outer Outro</span><br>奶奶 Goodnight + Mochi 跳走</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs 收尾 4 組</div>
+  <div class="lesson-mini interact"><span class="num">★</span> <span class="seg">Interaction Beat</span><br>奶奶 ↔ Mochi/Hana 互動題所在 lesson</div>
+</div>
+
+<h4>互動三模式</h4>
+<div class="interaction">
+  <div class="label">Mode A — 奶奶問</div>
+  Grandma asks Mochi or Hana a question. 用 listen-comprehension,sentence 開頭固定 <code>Grandma asks,</code>。
+  e.g. <code>Grandma asks, "{catName}, is the rain scary?"</code>
+</div>
+<div class="interaction">
+  <div class="label">Mode B — 貓狗回應(雙視角)</div>
+  Mochi 視角愛哭鬼但堅韌、Hana 視角樂觀傻柴。同一個問題給兩個答案,user 選符合該性格的選項。
+  e.g. Mochi: <code>"Yes, I cry a little"</code>;Hana: <code>"No, I want to play!"</code>
+</div>
+<div class="interaction">
+  <div class="label">Mode C — 奶奶的補完</div>
+  奶奶不糾錯,只溫和補完。e.g. <code>"You both have a small bit of right."</code>
+</div>
+
+<h4>題型分佈(每 lesson 5Q)</h4>
+<table>
+  <tr><th>Q</th><th>題型</th><th>目的</th></tr>
+  <tr><td>Q1</td><td>listen-mc</td><td>引入新詞</td></tr>
+  <tr><td>Q2</td><td>listen-mc 或 listen-emoji</td><td>情緒/形象綁定</td></tr>
+  <tr><td>Q3</td><td>type-what-you-hear 或 tap-tiles</td><td>主動運用</td></tr>
+  <tr><td>Q4</td><td>listen-comprehension(互動 lesson 用此)</td><td>理解 + 互動</td></tr>
+  <tr><td>Q5</td><td>listen-mc 收尾或 tap-tiles 較長句</td><td>整合句</td></tr>
+</table>
+
+<h4>視覺資產(每章 4 張)</h4>
+<table>
+  <tr><th>圖</th><th>用途</th><th>說明</th></tr>
+  <tr><td>S1 主視覺</td><td>章節 intro + main story 高峰 lesson 背景</td><td>該章內故事最戲劇的一幕,Ghibli warm + 看得到 Mochi/Hana 在聽</td></tr>
+  <tr><td>S2a Outer 黃昏</td><td>L1-3 prologue 背景</td><td>奶奶院子,黃昏暖光,矮牆,書翻開</td></tr>
+  <tr><td>S2b Outer 月夜</td><td>L4-22 中段背景</td><td>同場景換月光,蠟燭點亮</td></tr>
+  <tr><td>S2c Outer 燭殘</td><td>L23-24 outro 背景</td><td>同場景但蠟燭快滅,Mochi 起身要跳</td></tr>
+</table>
+
+</div>
+</div>
+
+<!-- =========== CH2 =========== -->
+
+<h2 id="ch2">Ch2 桃太郎 — 出發的勇氣</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:桃太郎(Momotaro)</span>
+  <span class="chip olive">Aesop:狼來了 + 狐狸與葡萄</span>
+  <span class="chip">情緒:暖橘 + 海藍</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>奶奶開書的第二夜。Mochi 又跳上矮牆,Hana 已經在等。「上次的雨夜小貓還記得吧?」奶奶笑了笑,「今晚我說另一個被撿來的孩子。」她翻到桃太郎那一頁。<b>河邊老婦人撿到一顆大桃子 → 切開來是個男孩 → 男孩長大要去打鬼 → 路上遇到狗、猴、雉,各給一個 dango 結伴 → 渡海到鬼島 → 戰勝 → 帶寶物回家。</b>奶奶說到打鬼那段時,Mochi 縮起來:「鬼好可怕,我會哭。」Hana 站起來搖尾巴:「我也想去!我會咬鬼!」奶奶笑著說:「你們兩個一個會逃一個會衝,合起來剛好是桃太郎。」這是這章的情感核心 — 勇氣不是不害怕,是<b>害怕但有人作伴所以去了</b>。Aesop 配菜「狼來了」延伸「信任」、「狐狸與葡萄」延伸「酸葡萄心理」,都跟桃太郎的「真正想要 vs 嘴上說想要」呼應。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer interact"><span class="num">L1</span> <span class="seg">Outer · ★</span><br>Mochi 又來了,Hana 認得她</div>
+  <div class="lesson-mini outer interact"><span class="num">L2</span> <span class="seg">Outer · ★</span><br>奶奶問 Mochi 上次雨夜怕不怕</div>
+  <div class="lesson-mini outer"><span class="num">L3</span> <span class="seg">Outer</span><br>奶奶翻書,「今晚說桃太郎」</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>很久以前,有個老婆婆</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>河上漂來一顆大桃子</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>切開來是一個男孩</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Hana 想不想當桃太郎</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>男孩長大,說要去鬼島</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>遇到一隻狗,給他 dango</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>遇到一隻猴,加入隊伍</div>
+  <div class="lesson-mini main"><span class="num">L11</span> <span class="seg">Main</span><br>遇到一隻雉,三人小隊</div>
+  <div class="lesson-mini main interact"><span class="num">L12</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi 怕不怕鬼</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>他們乘船渡海</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>鬼島上,鬼很大</div>
+  <div class="lesson-mini main"><span class="num">L15</span> <span class="seg">Main</span><br>四人合力,贏了</div>
+  <div class="lesson-mini aesop"><span class="num">L16</span> <span class="seg">Aesop</span><br>狼來了 開場 — 男孩看羊</div>
+  <div class="lesson-mini aesop interact"><span class="num">L17</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana 要不要相信男孩</div>
+  <div class="lesson-mini aesop"><span class="num">L18</span> <span class="seg">Aesop</span><br>男孩第三次叫,沒人來</div>
+  <div class="lesson-mini aesop"><span class="num">L19</span> <span class="seg">Aesop</span><br>狐狸與葡萄 開場 — 狐狸看見葡萄</div>
+  <div class="lesson-mini aesop interact"><span class="num">L20</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi 葡萄是不是真的酸</div>
+  <div class="lesson-mini aesop"><span class="num">L21</span> <span class="seg">Aesop</span><br>狐狸跳不到,說「酸」</div>
+  <div class="lesson-mini aesop"><span class="num">L22</span> <span class="seg">Aesop</span><br>三個故事的 echo:桃太郎還在鬼島跳舞</div>
+  <div class="lesson-mini outro interact"><span class="num">L23</span> <span class="seg">Outro · ★</span><br>奶奶 Goodnight,Mochi 跳下牆</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs 4 組</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>peach, river, boy, brave, fight, island, friend, dog, monkey, give, dumpling, boat, sail, win, treasure</td></tr>
+  <tr><td>過去式動詞</td><td>found, opened, grew, said, met, gave, joined, sailed, won, came back</td></tr>
+  <tr><td>Aesop 1 狼來了</td><td>shepherd, wolf, lie, sheep, run, again, believe, trust</td></tr>
+  <tr><td>Aesop 2 狐狸與葡萄</td><td>grape, fox, jump, high, sour, sweet, try, leave</td></tr>
+  <tr><td>互動回收(舊章)</td><td>scared(Ch1), brave(new), kind(Ch1)</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個 Interaction Beats</h3>
+
+<div class="interaction">
+<div class="label">L1 — Interaction Beat 1(暖場識別)</div>
+<b>場景:</b>Mochi 又跳上矮牆,奶奶看到她笑了。<br>
+<b>Q4:</b> <code>Grandma asks, "Are you back, {catName}?"</code>
+<ul>
+  <li>(正解) Yes, I came again — Mochi 點頭(她說不出 "I'm back",但意思是 "I came again")</li>
+  <li>No, I am new — 錯</li>
+  <li>I am Hana — 錯</li>
+  <li>Maybe tomorrow — 錯</li>
+</ul>
+<b>explanationZh:</b> 奶奶認得我,我每晚都來。"came again" 是 "再來了"。
+</div>
+
+<div class="interaction">
+<div class="label">L2 — Interaction Beat 2(回憶 Ch1)</div>
+<b>場景:</b>奶奶問 Mochi 上次雨夜的事。<br>
+<b>Q4:</b> <code>Grandma asks, "{catName}, were you scared in the rain?"</code>
+<ul>
+  <li>(正解,Mochi 視角) Yes, I cried a little — 愛哭鬼但承認</li>
+  <li>No, I love rain — Hana 風但不是 Mochi</li>
+  <li>Rain is fun — 錯</li>
+  <li>I don't remember — 錯</li>
+</ul>
+<b>explanationZh:</b> Mochi 是愛哭鬼,雨夜當然怕。但她承認了 — 這是堅韌。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — Interaction Beat 3(Hana 想當桃太郎)</div>
+<b>場景:</b>奶奶說到桃太郎切桃子段,Hana 興奮地看著奶奶。<br>
+<b>Q5:</b> <code>Grandma asks, "{dogName}, do you want to be Momotaro?"</code>
+<ul>
+  <li>(正解,Hana 視角) Yes! I want to go! — 樂觀傻柴</li>
+  <li>No, it is too far — Mochi 風</li>
+  <li>I want to sleep — 錯</li>
+  <li>I want a peach — cute 但不是答案</li>
+</ul>
+<b>explanationZh:</b> Hana 永遠衝第一個。奶奶說「好,但你也要找朋友一起去」。
+</div>
+
+<div class="interaction">
+<div class="label">L12 — Interaction Beat 4(Mochi 怕鬼)</div>
+<b>場景:</b>故事說到鬼島,Mochi 把臉埋進腳掌。<br>
+<b>Q4:</b> <code>Grandma asks, "{catName}, are oni scary?"</code>
+<ul>
+  <li>(正解,Mochi 視角) Yes, I would cry — 愛哭鬼真實</li>
+  <li>No, oni are friends — 錯</li>
+  <li>I want to fight — Hana 風</li>
+  <li>Oni are small — 錯</li>
+</ul>
+<b>explanationZh:</b> oni = 鬼(日文借字)。Mochi 怕,但她沒躲走 — 她坐著繼續聽。
+</div>
+
+<div class="interaction">
+<div class="label">L17 — Interaction Beat 5(信任)</div>
+<b>場景:</b>狼來了故事,放羊男孩第二次喊狼。<br>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, would you go again?"</code>
+<ul>
+  <li>(正解,Hana 視角) Yes, just in case — 樂觀但溫暖</li>
+  <li>No, he lies — Mochi 風,合理但不對柴犬</li>
+  <li>I will eat the sheep — 錯</li>
+  <li>I am too tired — 錯</li>
+</ul>
+<b>explanationZh:</b> 柴犬就是「就算被騙也再去看看」。lie = 說謊。
+</div>
+
+<div class="interaction">
+<div class="label">L20 — Interaction Beat 6(酸葡萄)</div>
+<b>場景:</b>狐狸跳不到葡萄,說葡萄是酸的。<br>
+<b>Q4:</b> <code>Grandma asks, "{catName}, are the grapes really sour?"</code>
+<ul>
+  <li>(正解) No, the fox just cannot reach — Mochi 敏感,看穿心情</li>
+  <li>Yes, they look green — 錯</li>
+  <li>Maybe — 錯</li>
+  <li>Grapes are always sour — 錯</li>
+</ul>
+<b>explanationZh:</b> Mochi 因為自己愛哭懂得「不是真的不要,是夠不到」。reach = 構到。
+</div>
+
+<div class="interaction">
+<div class="label">L23 — Interaction Beat 7(Goodnight)</div>
+<b>場景:</b>奶奶合書,蠟燭快滅。<br>
+<b>Q4:</b> <code>Grandma says, "Goodnight, my friends. Sleep well."</code>
+<ul>
+  <li>(正解) She will tell more tomorrow — 重複預期</li>
+  <li>The story is over — 部分對</li>
+  <li>Mochi must stay — 錯</li>
+  <li>Hana must run — 錯</li>
+</ul>
+<b>explanationZh:</b> 奶奶每晚都會再講。Mochi 跳下牆,Hana 趴下睡。
+</div>
+
+<h3>非互動 lesson 的 5Q 草稿(精選展示 4 個 lesson)</h3>
+
+<h4>L4 — 故事開場(Main · 非互動)</h4>
+<div class="question-card"><span class="qtag">Q1 listen-mc</span><div class="sentence">Long ago, an old woman lived by a river.</div><div class="zh">很久以前,有位老婆婆住在河邊。考 <b>old</b> 字。</div></div>
+<div class="question-card"><span class="qtag amber">Q2 listen-emoji</span><div class="sentence">She washed clothes all day.</div><div class="zh">她整天洗衣服。emoji:🧺 hardworking。考 <b>washed</b>。</div></div>
+<div class="question-card"><span class="qtag coffee">Q3 type-what-you-hear</span><div class="sentence">The river was wide and quiet.</div><div class="zh">河又寬又安靜。打字輸入 <b>river</b>。</div></div>
+<div class="question-card"><span class="qtag">Q4 listen-mc</span><div class="sentence">Then she saw something big in the water.</div><div class="zh">然後她看見水裡有大東西。考 <b>saw</b>(see 過去式)。</div></div>
+<div class="question-card"><span class="qtag terracotta">Q5 tap-tiles</span><div class="sentence">A big peach came down the river.</div><div class="zh">一顆大桃子順著河流下來。tiles 含干擾字 small/up。</div></div>
+
+<h4>L6 — 切桃子(Main · 非互動)</h4>
+<div class="question-card"><span class="qtag">Q1 listen-mc</span><div class="sentence">She took the peach home.</div><div class="zh">她把桃子帶回家。考 <b>took</b>。</div></div>
+<div class="question-card"><span class="qtag">Q2 listen-mc</span><div class="sentence">She and her husband cut it open.</div><div class="zh">她跟先生切開桃子。考 <b>cut open</b>。</div></div>
+<div class="question-card"><span class="qtag coffee">Q3 type-what-you-hear</span><div class="sentence">A small boy was inside.</div><div class="zh">裡面是一個小男孩。打字 <b>boy</b>。</div></div>
+<div class="question-card"><span class="qtag amber">Q4 listen-emoji</span><div class="sentence">They were so happy.</div><div class="zh">他們好開心。emoji:🥰 joy。考 <b>happy</b>。</div></div>
+<div class="question-card"><span class="qtag">Q5 listen-mc</span><div class="sentence">They called him Momotaro.</div><div class="zh">他們叫他桃太郎。考 <b>called</b>。</div></div>
+
+<h4>L13 — 渡海(Main · 非互動)</h4>
+<div class="question-card"><span class="qtag">Q1 listen-mc</span><div class="sentence">They got on a small boat.</div><div class="zh">他們上了一艘小船。考 <b>boat</b>。</div></div>
+<div class="question-card"><span class="qtag amber">Q2 listen-emoji</span><div class="sentence">The sea was big and blue.</div><div class="zh">海又大又藍。emoji:🌊 vast。</div></div>
+<div class="question-card"><span class="qtag coffee">Q3 type-what-you-hear</span><div class="sentence">They sailed for two days.</div><div class="zh">他們開船兩天。打字 <b>sailed</b>。</div></div>
+<div class="question-card"><span class="qtag">Q4 listen-mc</span><div class="sentence">Far away, they saw the island.</div><div class="zh">遠遠地看見鬼島。考 <b>far away</b>。</div></div>
+<div class="question-card"><span class="qtag terracotta">Q5 tap-tiles</span><div class="sentence">Momotaro was ready to fight.</div><div class="zh">桃太郎準備好要打鬼。tiles 含干擾。</div></div>
+
+<h4>L24 — Review(tap-pairs)</h4>
+<div class="question-card"><span class="qtag terracotta">Q1 tap-pairs · Outer 詞</span><div class="zh">peach 桃子 / book 書 / candle 蠟燭 / yard 院子</div></div>
+<div class="question-card"><span class="qtag terracotta">Q2 tap-pairs · Main 詞</span><div class="zh">brave 勇敢 / friend 朋友 / fight 打 / treasure 寶物</div></div>
+<div class="question-card"><span class="qtag terracotta">Q3 tap-pairs · Aesop 詞</span><div class="zh">lie 說謊 / wolf 狼 / sour 酸 / reach 構到</div></div>
+<div class="question-card"><span class="qtag linguist">Q4 listen-comprehension</span><div class="sentence">What did Grandma tell tonight?</div><div class="zh">奶奶今晚說桃太郎、狼來了、狐狸與葡萄三個故事。</div></div>
+<div class="question-card"><span class="qtag">Q5 listen-mc</span><div class="sentence">Will Mochi come back tomorrow?</div><div class="zh">會。每晚都會。</div></div>
+
+<h3>視覺資產 — gpt-image-1 prompts</h3>
+
+<h4>S1 主視覺:鬼島之戰夕陽</h4>
+<div class="prompt-box">A Studio Ghibli warm watercolor scene of Momotaro and three animal companions (a brown dog, a small monkey, a pheasant) standing on a rocky beach at sunset, facing a silhouette of a large oni (Japanese demon) in the distance. Soft golden hour light. In the corner: a translucent overlay of a grandma reading from an old book, with a calico cat and a shiba dog listening at her feet. Painterly, soft edges, no harsh shadows. Aspect 16:9 mobile-safe composition.</div>
+
+<h4>S2a Outer 黃昏</h4>
+<div class="prompt-box">A cozy Taiwanese countryside backyard at dusk, low stone wall, a wooden chair, an open old book on a small table, candle just lit. Calico cat (three-color) sits on the wall edge looking in. Brown shiba dog lies at chair's foot. Grandma figure not yet visible (chair turned). Ghibli warm palette, amber + sage green, painterly clouds. Portrait mobile composition.</div>
+
+<h4>S2b Outer 月夜</h4>
+<div class="prompt-box">Same backyard as previous, but now under full moonlight. The candle is lit and flickering. The book is open at the middle. Grandma silhouette barely visible in the chair. Calico cat now closer to the chair, shiba dog asleep. Slight mist. Cool moonlight blue + warm candle amber blend.</div>
+
+<h4>S2c Outer 燭殘</h4>
+<div class="prompt-box">Same backyard, candle nearly out, last flicker. Book is being closed. Grandma's hand barely visible. Calico cat stretching, about to jump off the wall. Shiba dog yawning. Pre-dawn dark blue with a hint of warm. Soft, sleepy, quiet.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>暖橘 #f0a661 + 海藍 #5a8ba8</div>
+  <div class="cell"><div class="key">主學習目標</div>simple past + friend / brave / fight 三組叢集</div>
+  <div class="cell"><div class="key">D1 retention 預期</div>+8% vs Ch1 baseline(Mochi 角色更熟)</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH3 =========== -->
+
+<h2 id="ch3">Ch3 醜小鴨 — 不一樣的我</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:醜小鴨(Andersen)</span>
+  <span class="chip olive">Aesop:獅子與老鼠 + 牧羊人與狼</span>
+  <span class="chip">情緒:湖綠 + 灰藍</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第三夜。奶奶說:「今晚我說一個關於『不一樣』的故事。」Mochi 縮在旁邊抖耳朵 — 她也是不一樣的(流浪的、三色的、不被養的)。<b>母鴨孵出五顆蛋,四隻黃色鴨子和一隻灰色大鳥 → 大家笑他、咬他 → 他跑去農場、跑去湖邊、跑去森林 → 冬天差點凍死 → 春天到了,看見湖面倒影,自己是天鵝。</b>第一人稱內心獨白體裁 — sentence 開頭很多 "I am...", "I feel..."。互動橋段重點:奶奶問 Mochi 「你也是不一樣的,你怎麼想?」這是這章的情感釣鉤。Aesop 配菜「獅子與老鼠」延伸「小幫得了大」(醜小鴨自己也有用處)、「牧羊人與狼」延伸「外表 vs 真心」。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer interact"><span class="num">L1</span> <span class="seg">Outer · ★</span><br>Mochi 第三晚到,奶奶說「你長得真特別」</div>
+  <div class="lesson-mini outer"><span class="num">L2</span> <span class="seg">Outer</span><br>Hana 搖尾巴,「她每天都來」</div>
+  <div class="lesson-mini outer interact"><span class="num">L3</span> <span class="seg">Outer · ★</span><br>奶奶說「今晚是『不一樣』的故事」</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>母鴨蹲在窩裡,蛋要孵了</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>四隻黃色小鴨,一隻灰色大鳥</div>
+  <div class="lesson-mini main interact"><span class="num">L6</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「他真的醜嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L7</span> <span class="seg">Main</span><br>其他鴨子咬他,「你不是我們」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>"I feel alone." 內心獨白</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>他離開,走到農場</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>農場的雞也笑他</div>
+  <div class="lesson-mini main interact"><span class="num">L11</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「你也是不一樣的嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L12</span> <span class="seg">Main</span><br>冬天來了,湖結冰</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>他躲在草叢,差點凍死</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>春天到,水暖,他游出來</div>
+  <div class="lesson-mini main interact"><span class="num">L15</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「他看到水裡的自己,你猜他怎麼想?」</div>
+  <div class="lesson-mini aesop"><span class="num">L16</span> <span class="seg">Aesop</span><br>獅子與老鼠 — 獅子睡覺,老鼠爬過</div>
+  <div class="lesson-mini aesop interact"><span class="num">L17</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「老鼠能幫獅子嗎?」</div>
+  <div class="lesson-mini aesop"><span class="num">L18</span> <span class="seg">Aesop</span><br>獅子被網困,老鼠咬斷網繩</div>
+  <div class="lesson-mini aesop"><span class="num">L19</span> <span class="seg">Aesop</span><br>牧羊人與狼 — 牧羊人撿到小狼</div>
+  <div class="lesson-mini aesop"><span class="num">L20</span> <span class="seg">Aesop</span><br>小狼長大,把羊咬了</div>
+  <div class="lesson-mini aesop interact"><span class="num">L21</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「外表和內心,哪個重要?」</div>
+  <div class="lesson-mini aesop"><span class="num">L22</span> <span class="seg">Aesop</span><br>三個故事的 echo</div>
+  <div class="lesson-mini outro"><span class="num">L23</span> <span class="seg">Outro</span><br>奶奶 Goodnight,Mochi 抬頭看月亮</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs 4 組</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>egg, duck, swan, different, ugly, beautiful, alone, lake, mirror, feather, gray, white, hide, grow</td></tr>
+  <tr><td>形容詞比較</td><td>bigger, uglier, prettier, sadder, alone vs together</td></tr>
+  <tr><td>情緒詞</td><td>lonely, hurt, hope, surprised, proud</td></tr>
+  <tr><td>Aesop 獅子與老鼠</td><td>lion, mouse, sleep, small, net, help, free, friend</td></tr>
+  <tr><td>Aesop 牧羊人與狼</td><td>shepherd, raise, grow, sheep, eat, real, truth</td></tr>
+  <tr><td>互動回收</td><td>scared(Ch1), brave(Ch2), kind(Ch1)</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個 Interaction Beats</h3>
+
+<div class="interaction">
+<div class="label">L1 — 奶奶說「你長得真特別」</div>
+<b>Q4:</b> <code>Grandma says, "{catName}, you have three colors. So special."</code>
+<ul>
+  <li>(正解,Mochi 視角) "I am different too." — 點出主題</li>
+  <li>"I am ugly." — 自貶,不是 Mochi 性格</li>
+  <li>"All cats look like me." — 錯認知</li>
+  <li>"I want to be white." — 否定自己</li>
+</ul>
+<b>explanationZh:</b> 三花貓不常見。Mochi 知道自己不一樣 — 她不一定愛這件事,但她承認。
+</div>
+
+<div class="interaction">
+<div class="label">L3 — 「今晚是不一樣的故事」</div>
+<b>Q4:</b> <code>Grandma asks, "Do you like stories about being different?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Yes! All stories are good." — 樂觀</li>
+  <li>"No, they make me cry." — Mochi 風</li>
+  <li>"I want food first." — cute 偏題</li>
+  <li>"I don't know." — 不夠角色</li>
+</ul>
+<b>explanationZh:</b> Hana 不管哪種故事都接受。
+</div>
+
+<div class="interaction">
+<div class="label">L6 — 「他真的醜嗎?」</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, is the gray bird really ugly?"</code>
+<ul>
+  <li>(正解,Hana 視角) "No, he is just gray." — 樂觀直線思考</li>
+  <li>"Yes, he is too big." — 跟其他鴨同看法</li>
+  <li>"He should leave." — 殘忍</li>
+  <li>"Grandma, I'm hungry." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 不會 judge 外表。just gray = 「就只是灰色而已」。
+</div>
+
+<div class="interaction">
+<div class="label">L11 — 奶奶問 Mochi「你也是不一樣的嗎?」</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, are you different too?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes, I am stray. I am alone." — 承認 + 不悲情</li>
+  <li>"No, I am like Hana." — 否認</li>
+  <li>"I am the same as all cats." — 錯</li>
+  <li>"I don't want to be different." — 過悲</li>
+</ul>
+<b>explanationZh:</b> Mochi 是流浪貓,當然不一樣 — 但她不哭,她說出來。這是堅韌。
+</div>
+
+<div class="interaction">
+<div class="label">L15 — 鏡子場景</div>
+<b>Q4:</b> <code>Grandma asks, "He sees a swan in the water. Who is it?"</code>
+<ul>
+  <li>(正解) It is himself. He is a swan. — 揭曉</li>
+  <li>It is another bird. — 錯</li>
+  <li>It is a ghost. — 錯</li>
+  <li>It is his mother. — 錯</li>
+</ul>
+<b>explanationZh:</b> 水裡那隻天鵝就是他自己 — 他從來不是醜小鴨,是天鵝寶寶。Mochi 聽到這裡耳朵動了一下。
+</div>
+
+<div class="interaction">
+<div class="label">L17 — 老鼠能幫獅子嗎?</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, can a small mouse help a big lion?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Yes! Small is okay." — 樂觀</li>
+  <li>"No, mouse is too small." — 表面正確但不溫暖</li>
+  <li>"Lion eats mouse." — 殘忍</li>
+  <li>"Mouse runs away." — 不合 Hana</li>
+</ul>
+<b>explanationZh:</b> Hana 永遠相信「小的也有用」。這對應醜小鴨 — 看起來不行的,可以行。
+</div>
+
+<div class="interaction">
+<div class="label">L21 — 外表 vs 內心</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, what is more important — face or heart?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Heart, I think." — 思考過後的答案</li>
+  <li>"Face is easy to see." — 表面正確</li>
+  <li>"Both are okay." — 模糊</li>
+  <li>"I don't know." — 沒回答</li>
+</ul>
+<b>explanationZh:</b> Mochi 不直接喊口號,她加一個 "I think" — 因為她也還在找答案。這是 A2 的軟性表達。
+</div>
+
+<h3>視覺資產 — gpt-image-1 prompts</h3>
+
+<h4>S1 主視覺:湖面倒影黎明(L15 場景)</h4>
+<div class="prompt-box">A Studio Ghibli style watercolor scene of a young swan (formerly ugly duckling) standing at the edge of a calm spring lake at dawn, looking down at his reflection, which clearly shows a beautiful swan. Mist rising from the water. Soft cyan and blush pink sky. In the corner overlay: grandma's chair with calico cat and shiba dog watching, candlelight blending with dawn. Painterly, warm despite the cool palette.</div>
+
+<h4>S2a-c 同 Ch2 outer scene 3 變體</h4>
+<p>同 Ch2 的 S2a 黃昏 / S2b 月夜 / S2c 燭殘,可重用同一張 base 加光照濾鏡。</p>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>湖綠 #6a9b8a + 灰藍 #7a8a9a</div>
+  <div class="cell"><div class="key">主學習目標</div>形容詞比較 + 第一人稱情緒詞 + 自我認同</div>
+  <div class="cell"><div class="key">情感釣鉤</div>Mochi 投射 — 她也是流浪、也是「不一樣」</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH4 =========== -->
+
+<h2 id="ch4">Ch4 龜兔賽跑 — 慢慢來比較快</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:龜兔賽跑(Aesop 升 main)</span>
+  <span class="chip olive">Aesop:烏鴉與狐狸 + 城市鼠與鄉村鼠</span>
+  <span class="chip">情緒:嫩綠 + 暖陽</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第四夜。奶奶說:「今晚我說一個動物比賽的故事 — 但慢慢說。」對話體 alternating 是這章特色 — 兔子說一句、烏龜回一句,所有句子幾乎都是 quoted speech。<b>兔子嘲笑烏龜慢 → 烏龜說「我們來比一場」→ 兔子答應 → 比賽開始 → 兔子衝得快,睡了一下 → 烏龜慢慢爬到終點 → 兔子醒來輸了。</b>互動重點:Mochi 跟 Hana 對「快好還是慢好」的爭辯 — Hana 喊「我要跑第一!」Mochi 說「慢一點才不會跌倒。」奶奶笑著說「都對。」Aesop 配菜「烏鴉與狐狸」是「被誇上當」、「城市鼠與鄉村鼠」是「自己舒服比較好」 — 跟「慢慢來」呼應。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer interact"><span class="num">L1</span> <span class="seg">Outer · ★</span><br>Hana 看到 Mochi 來,跑出去太快撞牆</div>
+  <div class="lesson-mini outer"><span class="num">L2</span> <span class="seg">Outer</span><br>奶奶笑:「慢一點啊 Hana」</div>
+  <div class="lesson-mini outer"><span class="num">L3</span> <span class="seg">Outer</span><br>奶奶說「今晚說兔子跟烏龜比賽」</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>兔子很快,他知道</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>"You are so slow." 兔子說</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>"Let us race." 烏龜說</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「你想當誰?」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>森林動物都來看</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>"Ready, go!" 比賽開始</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>兔子衝出去,跑得飛快</div>
+  <div class="lesson-mini main interact"><span class="num">L11</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「兔子會贏嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L12</span> <span class="seg">Main</span><br>兔子看烏龜不見人,躺下睡覺</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>烏龜走啊走,不停下</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>兔子醒來,烏龜已到終點</div>
+  <div class="lesson-mini main interact"><span class="num">L15</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「快好還是慢好?」</div>
+  <div class="lesson-mini aesop"><span class="num">L16</span> <span class="seg">Aesop</span><br>烏鴉與狐狸 — 烏鴉嘴叼乳酪</div>
+  <div class="lesson-mini aesop"><span class="num">L17</span> <span class="seg">Aesop</span><br>狐狸誇烏鴉「歌聲好聽」</div>
+  <div class="lesson-mini aesop interact"><span class="num">L18</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「狐狸真的覺得烏鴉唱得好嗎?」</div>
+  <div class="lesson-mini aesop"><span class="num">L19</span> <span class="seg">Aesop</span><br>城市鼠與鄉村鼠 — 城裡的飯多但有危險</div>
+  <div class="lesson-mini aesop"><span class="num">L20</span> <span class="seg">Aesop</span><br>鄉村鼠回家,簡單但安心</div>
+  <div class="lesson-mini aesop interact"><span class="num">L21</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「你想住城裡還是鄉下?」</div>
+  <div class="lesson-mini aesop"><span class="num">L22</span> <span class="seg">Aesop</span><br>三個故事 echo</div>
+  <div class="lesson-mini outro interact"><span class="num">L23</span> <span class="seg">Outro · ★</span><br>奶奶 Goodnight,Mochi 慢慢跳下牆</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>race, rabbit, turtle, fast, slow, win, lose, sleep, finish line, ready, go, wake</td></tr>
+  <tr><td>對話 verbs</td><td>says, asks, replies, laughs, smiles, calls</td></tr>
+  <tr><td>副詞</td><td>quickly, slowly, suddenly, finally</td></tr>
+  <tr><td>Aesop 烏鴉與狐狸</td><td>crow, fox, cheese, voice, sing, drop, trick, praise</td></tr>
+  <tr><td>Aesop 城市鼠</td><td>city, country, safe, danger, simple, peaceful</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個</h3>
+
+<div class="interaction">
+<div class="label">L1 — Hana 撞牆</div>
+<b>Q4:</b> <code>Grandma laughs, "{dogName}, are you the rabbit?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Yes, I am fast!" — 樂觀承認</li>
+  <li>"No, I fell." — 自我貶低</li>
+  <li>"I want to win." — 偏題</li>
+  <li>"Mochi is slow." — 攻擊性</li>
+</ul>
+<b>explanationZh:</b> Hana 樂觀承認自己撞牆是因為太快。fast = 快的。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — Hana 想當誰</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, who do you want to be, rabbit or turtle?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Rabbit! I want to be fast!" — 性格一致</li>
+  <li>"Turtle, I am slow." — 不像 Hana</li>
+  <li>"Both!" — 偏題</li>
+  <li>"I want to sleep." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 永遠選快。但奶奶提醒她:「rabbit 後來輸了喔」。
+</div>
+
+<div class="interaction">
+<div class="label">L11 — 兔子會贏嗎</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, will the rabbit win?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Maybe not. He sleeps." — 細心觀察</li>
+  <li>"Yes, he is faster." — 表面正確</li>
+  <li>"No, he is sad." — 錯解讀</li>
+  <li>"I don't know." — 沒參與</li>
+</ul>
+<b>explanationZh:</b> Mochi 觀察到兔子睡了 — 她記住細節,這是流浪貓的本能。
+</div>
+
+<div class="interaction">
+<div class="label">L15 — 快好還是慢好</div>
+<b>Q4:</b> <code>Grandma asks, "Is fast good or slow good?"</code>
+<ul>
+  <li>(正解) "Both are good. It depends." — A2 高階表達</li>
+  <li>"Fast is always better." — 一邊倒</li>
+  <li>"Slow is boring." — 不夠</li>
+  <li>"I don't know." — 沒回答</li>
+</ul>
+<b>explanationZh:</b> 兩個都好,要看情況。"It depends" = 「看情況」,A2 對話常用。
+</div>
+
+<div class="interaction">
+<div class="label">L18 — 狐狸的誇獎</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, does the fox really like the crow's voice?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "No, he wants the cheese." — 看穿心機</li>
+  <li>"Yes, crow sings well." — 太天真</li>
+  <li>"Both are friends." — 錯</li>
+  <li>"Maybe." — 模糊</li>
+</ul>
+<b>explanationZh:</b> Mochi 因為怕被騙過,認得「誇人是為了拿東西」。trick = 詭計、praise = 稱讚。
+</div>
+
+<div class="interaction">
+<div class="label">L21 — Hana 想住哪</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, city or country?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Here is best. Grandma is here." — 簡單但溫暖</li>
+  <li>"City, more food." — 也合理但不夠</li>
+  <li>"Country is too quiet." — 不像 Hana</li>
+  <li>"Both are good." — 跳過 personal</li>
+</ul>
+<b>explanationZh:</b> Hana 的答案永遠是「哪裡有人愛我哪裡好」。
+</div>
+
+<div class="interaction">
+<div class="label">L23 — Goodnight + Mochi 慢慢跳</div>
+<b>Q4:</b> <code>Grandma says, "Goodnight. {catName}, walk slowly tonight."</code>
+<ul>
+  <li>(正解) Mochi nods and jumps down slowly — 順著故事的學習</li>
+  <li>She runs back — 不對應</li>
+  <li>She stays — 不對</li>
+  <li>She sleeps with Hana — 跟設定衝突(她是流浪)</li>
+</ul>
+<b>explanationZh:</b> Mochi 把這晚的故事學進去了 — 慢慢走也會到家。
+</div>
+
+<h3>視覺資產 prompts</h3>
+
+<h4>S1 主視覺:森林賽跑終點線(L14)</h4>
+<div class="prompt-box">A Studio Ghibli warm watercolor of a forest race finish line at midday. A turtle is just crossing a yellow ribbon while a rabbit, in the background, is just waking up from a nap under a tree, looking shocked. Other forest animals (fox, deer, squirrels) cheering. Bright dappled sunlight through leaves. Corner overlay: grandma reading, calico cat amused, shiba dog excited. Painterly.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>嫩綠 #aab86a + 暖陽 #f5c465</div>
+  <div class="cell"><div class="key">主學習目標</div>quoted speech + 副詞 + 比較級</div>
+  <div class="cell"><div class="key">關鍵語法</div><code>"...," he said.</code> 句構頻繁練習</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH5 =========== -->
+
+<h2 id="ch5">Ch5 駱駝為什麼有駝峰 — 因為,所以</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:駱駝駝峰(Kipling "Just So")</span>
+  <span class="chip olive">Aesop:蘆葦與橡樹 + 老鼠開會</span>
+  <span class="chip">情緒:沙黃 + 日出橘</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第五夜。奶奶說「今晚是一個 why 的故事」。Kipling 第二人稱風格,奶奶會說 "And so, O Best Beloved..." 但簡化成 A2 版的 "And so, my friends..." 開頭。<b>很久以前,駱駝不工作,只說 "Humph!" → 狗、馬、牛都要做事,駱駝拒絕 → 沙漠精靈生氣 → 精靈在駱駝背上變出 humph(駝峰)→ 從此駱駝可以儲水工作三天不吃。</b>體裁要 question-driven —「為什麼駱駝有駝峰?」「因為他懶,精靈罰他帶水。」這章重點教 why-because 句構。互動橋段 Mochi/Hana 對「懶」有不同看法 — Mochi:「他只是累了。」Hana:「我也想要駝峰!可以裝肉!」Aesop:「蘆葦與橡樹」延伸「彎下來才不會斷」、「老鼠開會」延伸「想得到不一定做得到」。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer interact"><span class="num">L1</span> <span class="seg">Outer · ★</span><br>Mochi 跳上牆,問奶奶今晚說什麼</div>
+  <div class="lesson-mini outer"><span class="num">L2</span> <span class="seg">Outer</span><br>奶奶笑「一個 why 的故事」</div>
+  <div class="lesson-mini outer"><span class="num">L3</span> <span class="seg">Outer</span><br>翻書,沙漠插畫出現</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>很久很久以前,沙漠邊緣</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>狗、馬、牛工作,駱駝不</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>"Humph!" 駱駝只說一個字</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「駱駝懶嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>狗去告訴沙漠精靈</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>馬也告訴精靈</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>牛也告訴精靈</div>
+  <div class="lesson-mini main"><span class="num">L11</span> <span class="seg">Main</span><br>精靈找到駱駝</div>
+  <div class="lesson-mini main interact"><span class="num">L12</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「精靈會怎麼做?」</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>駱駝又說 "Humph!"</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>精靈說「好,你就有個 humph」</div>
+  <div class="lesson-mini main"><span class="num">L15</span> <span class="seg">Main</span><br>背上長出 humph,可裝水</div>
+  <div class="lesson-mini main interact"><span class="num">L16</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「這是罰還是禮物?」</div>
+  <div class="lesson-mini aesop"><span class="num">L17</span> <span class="seg">Aesop</span><br>蘆葦與橡樹 — 大風吹來</div>
+  <div class="lesson-mini aesop"><span class="num">L18</span> <span class="seg">Aesop</span><br>橡樹站直,蘆葦彎腰</div>
+  <div class="lesson-mini aesop interact"><span class="num">L19</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「站直好還是彎下好?」</div>
+  <div class="lesson-mini aesop"><span class="num">L20</span> <span class="seg">Aesop</span><br>橡樹斷了,蘆葦還在</div>
+  <div class="lesson-mini aesop"><span class="num">L21</span> <span class="seg">Aesop</span><br>老鼠開會 — 誰來掛鈴</div>
+  <div class="lesson-mini aesop interact"><span class="num">L22</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「想到容易,做到難 — 你呢?」</div>
+  <div class="lesson-mini outro"><span class="num">L23</span> <span class="seg">Outro</span><br>Goodnight</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>camel, desert, sand, sun, work, lazy, hump, water, store, why, because, djinn(=spirit)</td></tr>
+  <tr><td>身體部位</td><td>back, leg, mouth, eye, ear</td></tr>
+  <tr><td>因果連接</td><td>so, because, then, that is why</td></tr>
+  <tr><td>Aesop 蘆葦與橡樹</td><td>reed, oak, wind, bend, break, strong, soft</td></tr>
+  <tr><td>Aesop 老鼠開會</td><td>mouse, meeting, bell, cat, who, plan, idea, easy, hard</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個</h3>
+
+<div class="interaction">
+<div class="label">L1 — Mochi 主動問</div>
+<b>Q4:</b> <code>{catName} asks, "What story tonight, Grandma?"</code>
+<ul>
+  <li>(正解,Mochi 主動性格成長) "A story about a 'why'." — 奶奶回</li>
+  <li>"A story about food." — 偏題</li>
+  <li>"A story about rain." — 跟 Ch1 重</li>
+  <li>"A story about you." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Mochi 第五晚已經敢主動問了 — 角色成長。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — 駱駝懶嗎</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, is the camel lazy?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Maybe he is just tired." — 同理心</li>
+  <li>"Yes, he is bad." — 太簡單</li>
+  <li>"No, he likes work." — 跟故事衝突</li>
+  <li>"I don't know." — 沒參與</li>
+</ul>
+<b>explanationZh:</b> Mochi 流浪過、累過,她不輕易說別人「懶」。tired = 累的。
+</div>
+
+<div class="interaction">
+<div class="label">L12 — 精靈會怎麼做</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, what will the djinn do?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Make camel work!" — 樂觀直接</li>
+  <li>"Give camel food." — 太溫柔</li>
+  <li>"Send camel home." — 沒衝突</li>
+  <li>"Laugh at camel." — 不對</li>
+</ul>
+<b>explanationZh:</b> Hana 想到的就是 work — 因為她每天看奶奶忙。djinn = 精靈(沙漠童話常見詞)。
+</div>
+
+<div class="interaction">
+<div class="label">L16 — 罰還是禮物</div>
+<b>Q5:</b> <code>Grandma asks, "Is the hump a punishment or a gift?"</code>
+<ul>
+  <li>(正解) "Both. It is hard and useful." — 兩面思考</li>
+  <li>"Punishment." — 單面</li>
+  <li>"Gift." — 單面</li>
+  <li>"I don't care." — 沒參與</li>
+</ul>
+<b>explanationZh:</b> 駝峰讓駱駝可以裝水但要扛著走 — 又難又有用。useful = 有用的。
+</div>
+
+<div class="interaction">
+<div class="label">L19 — 站直 vs 彎下</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, stand straight or bend down?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Stand! I am strong!" — 樂觀</li>
+  <li>"Bend, like reed." — 對但不像 Hana</li>
+  <li>"Lie down, easier." — 偏題</li>
+  <li>"Both." — 模糊</li>
+</ul>
+<b>explanationZh:</b> Hana 樂觀地說 stand。奶奶說:「有時候要彎一彎才不會斷喔。」這是這 Aesop 的 reveal。
+</div>
+
+<div class="interaction">
+<div class="label">L22 — 想到 vs 做到</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, is it easy to plan, hard to do?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes, very hard sometimes." — 經驗</li>
+  <li>"No, easy to do." — 不像 Mochi</li>
+  <li>"I never plan." — 不答</li>
+  <li>"Hana plans for me." — 偏題</li>
+</ul>
+<b>explanationZh:</b> 老鼠想到掛鈴在貓脖子上,但沒鼠敢做 — 想到容易做到難。plan = 計畫。
+</div>
+
+<h3>視覺資產 prompts</h3>
+
+<h4>S1 主視覺:沙漠日出 + 精靈(L14)</h4>
+<div class="prompt-box">A Studio Ghibli warm watercolor of a vast desert at sunrise. A camel stands sulkily, with a magical sand-djinn (translucent, like swirling sand and gold light) floating in front of him, gently touching his back where a new hump is growing. Soft amber sand, peach sky, long shadows. Corner overlay: grandma reading by candlelight, calico cat curled, shiba dog yawning. Painterly.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>沙黃 #d4a35e + 日出橘 #f08855</div>
+  <div class="cell"><div class="key">主學習目標</div>why-because + 身體部位 + 因果連接</div>
+  <div class="cell"><div class="key">語法成就</div>第一次大量出現 because / so</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH6 =========== -->
+
+<h2 id="ch6">Ch6 金鵝(The Golden Goose)— 笑出來的隊伍</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:金鵝(Grimm,取代 Baba Yaga)</span>
+  <span class="chip olive">Aesop:漁夫與妻子 + 老鼠新娘</span>
+  <span class="chip">情緒:金黃 + 笑橙</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第六夜。奶奶說「今晚是一個笑出來的故事」。最小的兒子被叫做 Dummling(傻瓜),沒人愛他。但他在森林分麵包給一個小老人,得到一隻金鵝。<b>金鵝會黏人 — 第一個女孩想偷拔金羽毛 → 手黏住 → 第二個人想拉開 → 也黏住 → 第三個 → 也黏住 → 結果一串七個人跟著 Dummling 走進城裡 → 城裡有一位從沒笑過的公主 → 她看到這荒謬隊伍笑了 → 跟 Dummling 結婚。</b>累積荒謬笑點體裁 — 重複句構 "Then came..." / "She/He stuck too." 不斷出現,user 學序列副詞。互動橋段:Hana 大笑「我也想黏在隊伍上!」Mochi 觀察「Dummling 不是傻,他願意分享。」Aesop 配菜「漁夫與妻子」延伸「貪心會失去」、「老鼠新娘」延伸「想得到不一定適合」。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer"><span class="num">L1</span> <span class="seg">Outer</span><br>Mochi 第六晚到</div>
+  <div class="lesson-mini outer interact"><span class="num">L2</span> <span class="seg">Outer · ★</span><br>奶奶說「今晚的故事會笑死你」</div>
+  <div class="lesson-mini outer"><span class="num">L3</span> <span class="seg">Outer</span><br>翻書,金鵝插畫</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>很久以前,一家三兄弟</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>大家叫小兒子 Dummling(笨蛋)</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>Dummling 進森林,遇到一位老人</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「他會分麵包嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>他分了,老人送他金鵝</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>金鵝會黏人</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>第一個女孩想偷,黏住</div>
+  <div class="lesson-mini main"><span class="num">L11</span> <span class="seg">Main</span><br>"Then came another." 黏住</div>
+  <div class="lesson-mini main interact"><span class="num">L12</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「你也會黏上去嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>"Then came..." 第三第四個</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>七個人一串走進城</div>
+  <div class="lesson-mini main"><span class="num">L15</span> <span class="seg">Main</span><br>城裡公主從不笑</div>
+  <div class="lesson-mini main interact"><span class="num">L16</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「公主會笑嗎?」</div>
+  <div class="lesson-mini aesop"><span class="num">L17</span> <span class="seg">Aesop</span><br>漁夫與妻子 — 抓到會說話的魚</div>
+  <div class="lesson-mini aesop interact"><span class="num">L18</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「妻子要什麼?」</div>
+  <div class="lesson-mini aesop"><span class="num">L19</span> <span class="seg">Aesop</span><br>妻子越要越多,最後什麼都沒了</div>
+  <div class="lesson-mini aesop"><span class="num">L20</span> <span class="seg">Aesop</span><br>老鼠新娘 — 老鼠想找最強新郎</div>
+  <div class="lesson-mini aesop interact"><span class="num">L21</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「最強是誰?」</div>
+  <div class="lesson-mini aesop"><span class="num">L22</span> <span class="seg">Aesop</span><br>結果還是老鼠最適合老鼠</div>
+  <div class="lesson-mini outro"><span class="num">L23</span> <span class="seg">Outro</span><br>Goodnight</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>gold, goose, feather, forest, share, bread, stick, princess, laugh, smile, never, line</td></tr>
+  <tr><td>序列副詞</td><td>first, then, next, after that, finally</td></tr>
+  <tr><td>分享動詞</td><td>share, give, take, hold, follow</td></tr>
+  <tr><td>Aesop 漁夫與妻子</td><td>fish, wish, more, greedy, house, castle, queen, gone</td></tr>
+  <tr><td>Aesop 老鼠新娘</td><td>bride, strong, sun, cloud, wind, wall, fit, match</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個</h3>
+
+<div class="interaction">
+<div class="label">L2 — 今晚會笑死你</div>
+<b>Q4:</b> <code>Grandma says, "Tonight's story will make you laugh."</code>
+<ul>
+  <li>(正解,Hana 視角) "I love to laugh!" — 期待</li>
+  <li>"I don't laugh much." — Mochi 風</li>
+  <li>"Is it a sad story?" — 反問</li>
+  <li>"I want to sleep." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 永遠期待笑點。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — Dummling 會分麵包嗎</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, will he share his bread?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes, kind people share." — 觀察成熟</li>
+  <li>"No, he is hungry." — 一面之詞</li>
+  <li>"Maybe later." — 沒答</li>
+  <li>"He has no bread." — 跟故事衝突</li>
+</ul>
+<b>explanationZh:</b> Mochi 自己被奶奶餵過,她懂「會分的人」。kind = 善良的(Ch1 學過,回收)。
+</div>
+
+<div class="interaction">
+<div class="label">L12 — Hana 會黏上去嗎</div>
+<b>Q5:</b> <code>Grandma laughs, "{dogName}, would you stick to the goose?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Yes, sounds fun!" — 不思考的樂觀</li>
+  <li>"No, I want to eat goose." — Hana 但太現實</li>
+  <li>"I am scared." — 不像 Hana</li>
+  <li>"Goose is too big." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 不管後果,聽到好玩就上。stick = 黏住。
+</div>
+
+<div class="interaction">
+<div class="label">L16 — 公主會笑嗎</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, will the princess laugh?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes, it is too silly to ignore." — 思辨後判斷</li>
+  <li>"No, she is sad forever." — 沒希望</li>
+  <li>"Maybe." — 模糊</li>
+  <li>"She will cry." — 錯</li>
+</ul>
+<b>explanationZh:</b> Mochi 用了 silly(傻) + ignore(忽略),A2 邊緣字。
+</div>
+
+<div class="interaction">
+<div class="label">L18 — 妻子要什麼</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, what does the wife want?"</code>
+<ul>
+  <li>(正解,Hana 視角) "More, always more!" — 直白</li>
+  <li>"A small house." — 沒到核心</li>
+  <li>"To say thanks." — 跟故事衝突</li>
+  <li>"Fish dinner." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 看穿:她要的是 more,not 一個具體東西。more = 更多。
+</div>
+
+<div class="interaction">
+<div class="label">L21 — 最強是誰</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, who is the strongest?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "I think... the wall? Or the mouse?" — 思考過程</li>
+  <li>"The sun, always." — 一面</li>
+  <li>"None, all are weak." — 太悲</li>
+  <li>"I don't know." — 沒思考</li>
+</ul>
+<b>explanationZh:</b> 故事的精華是「太陽輸給雲、雲輸給風、風輸給牆、牆怕老鼠咬 — 所以老鼠最強」。Mochi 用 "I think" 表達思考。
+</div>
+
+<div class="interaction">
+<div class="label">L23 — Goodnight</div>
+<b>Q4:</b> <code>Grandma says, "Sleep tight. Tomorrow another story."</code>
+<ul>
+  <li>(正解) Mochi smiles and jumps down — 角色累積到第六晚有笑了</li>
+  <li>She runs fast — 不對 mood</li>
+  <li>She wants to stay — 跟設定衝突</li>
+  <li>She cries — 不對 mood</li>
+</ul>
+<b>explanationZh:</b> Mochi 在第六章開始會 smile 了。這是累積成長。
+</div>
+
+<h3>視覺資產 prompts</h3>
+
+<h4>S1 主視覺:七人黏成一串走進城(L14)</h4>
+<div class="prompt-box">A Studio Ghibli warm watercolor of a comic scene: a young man holding a golden goose, walking forward, followed by 7 people of all ages stuck in a line (each grabbing the next person's clothes or hand, unable to let go). They are entering a medieval town gate. A young princess in the foreground starting to smile, hand covering her mouth. Bright golden sunlight, warm browns and ambers. Corner overlay: grandma reading, calico cat with a small smile, shiba dog grinning wide. Highly painterly, slightly cartoony.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>金黃 #e7b65a + 笑橙 #f29550</div>
+  <div class="cell"><div class="key">主學習目標</div>序列副詞 + 累積敘事</div>
+  <div class="cell"><div class="key">brand fit</div>最 lighten-up 的一章,中段提氣</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH7 =========== -->
+
+<h2 id="ch7">Ch7 六隻天鵝 — 沉默的愛</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:六隻天鵝(Grimm)</span>
+  <span class="chip olive">Aesop:三個願望 + 田螺姑娘(中華 motif 預埋)</span>
+  <span class="chip">情緒:銀月 + 夜紫</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第七夜。奶奶說「今晚是一個沉默的故事」。國王再娶,新王后施咒把六個王子變成天鵝。妹妹想救哥哥,有人告訴她要用蕁麻織六件白衣,六年內不能說話、不能笑。<b>妹妹開始織衣 → 一位國王在森林找到她,愛她 → 婆婆惡毒,把她孩子奪走 → 妹妹不能說話為自己辯護 → 被判火刑那天,六年到了 → 哥哥們飛來,她把白衣丟到他們身上,他們變回人 → 她終於開口說話,救自己。</b>無對話詩意 narration 體裁 — 整章大量 simple past + 內心動作(she wove, she walked, she said nothing)。互動橋段:Mochi 投射「不能說話的痛苦」(她是貓不能說話)。Hana 不懂「為什麼不喊?」奶奶說「有時候愛要安安靜靜地給。」Aesop 配菜:「三個願望」延伸「亂許願會後悔」;「田螺姑娘」中華 PD,預埋 Ch8 葉限的中華 motif。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer"><span class="num">L1</span> <span class="seg">Outer</span><br>第七晚,月亮特別亮</div>
+  <div class="lesson-mini outer interact"><span class="num">L2</span> <span class="seg">Outer · ★</span><br>奶奶說「今晚的故事很安靜」</div>
+  <div class="lesson-mini outer"><span class="num">L3</span> <span class="seg">Outer</span><br>翻書,六隻天鵝插畫</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>國王有六個兒子一個小女兒</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>國王再娶,新王后會魔法</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>六個兒子被變成天鵝飛走</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「妹妹會怎麼做?」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>小女孩找到哥哥們</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>有人說「織六件白衣,六年不說話」</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>她開始織,手會痛</div>
+  <div class="lesson-mini main interact"><span class="num">L11</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「不能說話會怎樣?」</div>
+  <div class="lesson-mini main"><span class="num">L12</span> <span class="seg">Main</span><br>一位國王看到她,帶她回宮</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>她不說話,只織衣</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>婆婆說她是巫女,要燒她</div>
+  <div class="lesson-mini main interact"><span class="num">L15</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「她為什麼不喊?」</div>
+  <div class="lesson-mini main"><span class="num">L16</span> <span class="seg">Main</span><br>火堆點燃,六隻天鵝飛來</div>
+  <div class="lesson-mini main"><span class="num">L17</span> <span class="seg">Main</span><br>她把衣服披在他們身上,變回人</div>
+  <div class="lesson-mini aesop"><span class="num">L18</span> <span class="seg">Aesop</span><br>三個願望 — 漁夫救精靈得三願</div>
+  <div class="lesson-mini aesop interact"><span class="num">L19</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「你想許什麼?」</div>
+  <div class="lesson-mini aesop"><span class="num">L20</span> <span class="seg">Aesop</span><br>第二願後悔,第三願取消</div>
+  <div class="lesson-mini aesop"><span class="num">L21</span> <span class="seg">Aesop</span><br>田螺姑娘 — 老農撿到螺,放進缸</div>
+  <div class="lesson-mini aesop interact"><span class="num">L22</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「她為什麼幫忙?」</div>
+  <div class="lesson-mini outro"><span class="num">L23</span> <span class="seg">Outro</span><br>Goodnight</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>brother, sister, six, silent, weave, shirt, nettle, swan, fly, save, fire, pain</td></tr>
+  <tr><td>沉默愛詞彙</td><td>quiet, careful, hand, patient, love, hide, wait</td></tr>
+  <tr><td>過去進行式</td><td>was weaving, was crying, was watching</td></tr>
+  <tr><td>Aesop 三個願望</td><td>fisherman, spirit, wish, sausage, regret, third, undo</td></tr>
+  <tr><td>Aesop 田螺姑娘</td><td>farmer, snail, jar, cook, secret, kind, magic, rice</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個</h3>
+
+<div class="interaction">
+<div class="label">L2 — 安靜的故事</div>
+<b>Q4:</b> <code>Grandma says, "Tonight's story has no shouting."</code>
+<ul>
+  <li>(正解,Mochi 視角) "I like quiet stories." — 順情境</li>
+  <li>"Boring!" — Hana 但太強</li>
+  <li>"I will sleep." — 偏題</li>
+  <li>"More magic please." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Mochi 自己也安靜。quiet = 安靜的。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — 妹妹會怎麼做</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, what will the sister do?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "She will try to save them." — 堅韌猜測</li>
+  <li>"She will cry forever." — 太悲</li>
+  <li>"She will ask the king." — 沒看出妹妹孤獨</li>
+  <li>"She will become a swan too." — 錯</li>
+</ul>
+<b>explanationZh:</b> Mochi 自己被奶奶救過,她相信「會去救」。save = 救。
+</div>
+
+<div class="interaction">
+<div class="label">L11 — 不能說話會怎樣</div>
+<b>Q5:</b> <code>Grandma asks, "{dogName}, what if you cannot bark?"</code>
+<ul>
+  <li>(正解,Hana 視角) "I will be sad." — 簡單真實</li>
+  <li>"I will eat more." — 偏題</li>
+  <li>"I don't bark." — 跟設定衝突</li>
+  <li>"I will run." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 是柴犬會 bark。問她不能叫會怎樣 — 她說 sad。對應妹妹不能說話。
+</div>
+
+<div class="interaction">
+<div class="label">L15 — 為什麼不喊</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, why doesn't she shout to save herself?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "She loves her brothers more." — 看到核心</li>
+  <li>"She forgot how." — 錯</li>
+  <li>"She is too tired." — 部分對</li>
+  <li>"She is afraid." — 不夠</li>
+</ul>
+<b>explanationZh:</b> Mochi 一直安靜聽,她最理解「為了愛守規矩」。love...more = 更愛。
+</div>
+
+<div class="interaction">
+<div class="label">L19 — 你想許什麼</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, three wishes — what would you wish?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Food, food, food!" — 完全 Hana</li>
+  <li>"Peace for everyone." — 太高</li>
+  <li>"I don't need wishes." — 不像</li>
+  <li>"Money." — 不像 Hana</li>
+</ul>
+<b>explanationZh:</b> Hana 永遠 food。但奶奶說:「如果都是 food,可能會像那個漁夫一樣 regret 唷。」regret = 後悔。
+</div>
+
+<div class="interaction">
+<div class="label">L22 — 田螺姑娘為什麼幫忙</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, why does the snail-girl help the farmer?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "He was kind to her first." — 因果觀察</li>
+  <li>"She likes cooking." — 表面</li>
+  <li>"She is bored." — 不對</li>
+  <li>"She wants gold." — 不對</li>
+</ul>
+<b>explanationZh:</b> 因為他放螺進缸不吃她 — 善意先於回報。這是中華童話常見的「報恩」概念。
+</div>
+
+<h3>視覺資產 prompts</h3>
+
+<h4>S1 主視覺:火堆 + 六隻天鵝飛來(L16)</h4>
+<div class="prompt-box">A Studio Ghibli watercolor of a moonlit night: a young woman tied to a stake on a small fire just being lit, but instead of fear, her face is calm and looking up. From the dark sky, six white swans descend, each holding a white nettle-woven shirt in their beak. Cool silver moonlight, deep indigo sky, single warm fire glow. Highly painterly, almost cinematic. Corner overlay: grandma reading, calico cat motionless silent, shiba dog also quiet with ears down.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>銀月 #b8c5d8 + 夜紫 #4a3a5a</div>
+  <div class="cell"><div class="key">主學習目標</div>過去進行式 + 沉默愛詞彙</div>
+  <div class="cell"><div class="key">情感釣鉤</div>Mochi 自己也不能說話 — 投射拉滿</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== CH8 =========== -->
+
+<h2 id="ch8">Ch8 葉限 — 中華月光下的灰姑娘</h2>
+
+<div class="chapter-block">
+<div class="chapter-body">
+
+<div class="meta-row">
+  <span class="chip amber">主菜:葉限(唐代 灰姑娘原型)</span>
+  <span class="chip olive">Aesop:嫦娥奔月 + 七張床</span>
+  <span class="chip">情緒:赭紅 + 月白</span>
+  <span class="chip terracotta">7 個 Interaction Beats</span>
+</div>
+
+<h3>Story Arc 大綱</h3>
+<p>第八夜。奶奶說「今晚我說一個你們可能沒聽過的故事 — 是中國最古老的灰姑娘。」<b>葉限父親早逝,跟著繼母 → 她養了一條金魚當朋友 → 繼母把魚煮了 → 葉限傷心 → 神人告訴她把魚骨埋在土裡可許願 → 山洞節慶到了 → 她對魚骨許願,得到金履、翠衣 → 去節慶舞蹈 → 繼母看到她跑了 → 留下一隻金履 → 國王找到她,娶她。</b>體裁是<b>雙語 code-switch</b> — 奶奶用中文說一段情緒重的劇情(e.g. 「她把魚抱在懷裡,輕輕摸著魚鱗。」),Mochi/Hana 用英文反應(e.g. <code>"She holds the fish so gently."</code>),然後英文 narration 接住下一段。互動橋段:Mochi 跟 Hana 對「中華 motif」的反應 — Mochi 注意月亮、Hana 注意金履的顏色。奶奶說「這個故事比 Cinderella 早一千年喔。」收尾。最後一晚,奶奶說「以後還會講更多。」Mochi 點頭跳下牆 — 沒有 closure,因為這 app 還會繼續長。</p>
+
+<h3>24 Lessons 結構</h3>
+<div class="lessons-grid">
+  <div class="lesson-mini outer interact"><span class="num">L1</span> <span class="seg">Outer · ★</span><br>Mochi 第八晚,月特別圓</div>
+  <div class="lesson-mini outer"><span class="num">L2</span> <span class="seg">Outer</span><br>Hana 已熟,自動讓位</div>
+  <div class="lesson-mini outer interact"><span class="num">L3</span> <span class="seg">Outer · ★</span><br>奶奶說「今晚的故事,要中英文混著聽」</div>
+  <div class="lesson-mini main"><span class="num">L4</span> <span class="seg">Main</span><br>葉限的父親去世</div>
+  <div class="lesson-mini main"><span class="num">L5</span> <span class="seg">Main</span><br>繼母對她很冷</div>
+  <div class="lesson-mini main"><span class="num">L6</span> <span class="seg">Main</span><br>葉限養了一條金魚當朋友</div>
+  <div class="lesson-mini main interact"><span class="num">L7</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「魚算朋友嗎?」</div>
+  <div class="lesson-mini main"><span class="num">L8</span> <span class="seg">Main</span><br>繼母發現魚,煮了它</div>
+  <div class="lesson-mini main"><span class="num">L9</span> <span class="seg">Main</span><br>葉限哭了一整夜</div>
+  <div class="lesson-mini main"><span class="num">L10</span> <span class="seg">Main</span><br>神人說「把骨頭埋在土裡」</div>
+  <div class="lesson-mini main interact"><span class="num">L11</span> <span class="seg">Main · ★</span><br>奶奶問 Hana「葉限會許什麼?」</div>
+  <div class="lesson-mini main"><span class="num">L12</span> <span class="seg">Main</span><br>她許願,得到翠衣金履</div>
+  <div class="lesson-mini main"><span class="num">L13</span> <span class="seg">Main</span><br>山洞節慶,她去跳舞</div>
+  <div class="lesson-mini main"><span class="num">L14</span> <span class="seg">Main</span><br>繼母看到她,她跑了</div>
+  <div class="lesson-mini main"><span class="num">L15</span> <span class="seg">Main</span><br>留下一隻金履</div>
+  <div class="lesson-mini main interact"><span class="num">L16</span> <span class="seg">Main · ★</span><br>奶奶問 Mochi「金履為什麼掉了?」</div>
+  <div class="lesson-mini main"><span class="num">L17</span> <span class="seg">Main</span><br>國王找遍全國</div>
+  <div class="lesson-mini aesop"><span class="num">L18</span> <span class="seg">Aesop</span><br>嫦娥奔月 — 后羿射日</div>
+  <div class="lesson-mini aesop"><span class="num">L19</span> <span class="seg">Aesop</span><br>嫦娥吞藥,飛到月亮</div>
+  <div class="lesson-mini aesop interact"><span class="num">L20</span> <span class="seg">Aesop · ★</span><br>奶奶問 Hana「她寂寞嗎?」</div>
+  <div class="lesson-mini aesop"><span class="num">L21</span> <span class="seg">Aesop</span><br>七張床 — 北歐金髮女孩</div>
+  <div class="lesson-mini aesop interact"><span class="num">L22</span> <span class="seg">Aesop · ★</span><br>奶奶問 Mochi「她該被原諒嗎?」</div>
+  <div class="lesson-mini outro interact"><span class="num">L23</span> <span class="seg">Outro · ★</span><br>奶奶說「以後還會講更多故事」</div>
+  <div class="lesson-mini review"><span class="num">L24</span> <span class="seg">Review</span><br>tap-pairs 含跨章字</div>
+</div>
+
+<h3>Vocab Cluster</h3>
+<table>
+  <tr><th>類別</th><th>active words</th></tr>
+  <tr><td>主菜核心</td><td>fish, river, step-mother, wish, bone, gold, shoe, dance, festival, king, search, find</td></tr>
+  <tr><td>願望/情緒</td><td>wish, hope, dream, lonely, kind, brave, sad, joy</td></tr>
+  <tr><td>中華 motif</td><td>moon, jade, silk, lantern, bow, magic</td></tr>
+  <tr><td>Aesop 嫦娥</td><td>moon, drink, fly, alone, sky, lover, rabbit</td></tr>
+  <tr><td>Aesop 七張床</td><td>bed, big, small, just right, bear, forgive, leave</td></tr>
+  <tr><td>跨章 SRS 回收</td><td>cry(Ch1), brave(Ch2), different(Ch3), slow(Ch4), why(Ch5), share(Ch6), save(Ch7)</td></tr>
+</table>
+
+<h3>奶奶 ↔ Mochi/Hana 互動橋段 — 7 個</h3>
+
+<div class="interaction">
+<div class="label">L1 — 月特別圓</div>
+<b>Q4:</b> <code>Grandma says, "The moon is full tonight, {catName}."</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes, like a big lantern." — 詩意比喻</li>
+  <li>"It looks cold." — 不夠</li>
+  <li>"I see two moons." — 錯</li>
+  <li>"It is yellow." — 平淡</li>
+</ul>
+<b>explanationZh:</b> 第八章 Mochi 已會用比喻 — full moon = lantern。lantern = 燈籠。
+</div>
+
+<div class="interaction">
+<div class="label">L3 — 中英混著聽</div>
+<b>Q4:</b> <code>Grandma says, "Tonight in Chinese and English, OK?"</code>
+<ul>
+  <li>(正解,Hana 視角) "OK! Two times the fun." — 樂觀</li>
+  <li>"Chinese only please." — 跟 user pivot 矛盾</li>
+  <li>"English only please." — 同上</li>
+  <li>"I don't understand Chinese." — 跟設定衝突</li>
+</ul>
+<b>explanationZh:</b> Hana 樂觀接受雙語。這是預告 — 後面 lesson 會看到中文 sentence 偶爾出現。
+</div>
+
+<div class="interaction">
+<div class="label">L7 — 魚算朋友嗎</div>
+<b>Q4:</b> <code>Grandma asks, "{catName}, is a fish a real friend?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "Yes. Any kind heart is a friend." — 哲學成熟</li>
+  <li>"No, fish cannot talk." — 表面</li>
+  <li>"Fish are food." — 殘忍(且 Mochi 不愛吃魚?)</li>
+  <li>"Maybe." — 模糊</li>
+</ul>
+<b>explanationZh:</b> Mochi 八章以來,理解「朋友不是看物種」。real = 真的、kind heart = 善心。
+</div>
+
+<div class="interaction">
+<div class="label">L11 — 葉限會許什麼</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, what will Ye-Xian wish for?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Her fish back!" — 直接</li>
+  <li>"Money." — 不像葉限</li>
+  <li>"A king." — 答案是後來,不是當下</li>
+  <li>"To eat." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 直覺 — 她會想魚回來。但奶奶說:「魚不能回來,神給她別的東西。」
+</div>
+
+<div class="interaction">
+<div class="label">L16 — 金履為什麼掉了</div>
+<b>Q5:</b> <code>Grandma asks, "{catName}, why did the gold shoe fall off?"</code>
+<ul>
+  <li>(正解,Mochi 視角) "She ran too fast in fear." — 觀察情緒</li>
+  <li>"It was too big." — 不對</li>
+  <li>"She forgot." — 不對</li>
+  <li>"Magic broke." — 不對</li>
+</ul>
+<b>explanationZh:</b> Mochi 自己流浪過,她認得「跑很快是因為怕」。fear = 害怕(回收 Ch1)。
+</div>
+
+<div class="interaction">
+<div class="label">L20 — 嫦娥寂寞嗎</div>
+<b>Q4:</b> <code>Grandma asks, "{dogName}, is Chang'e lonely on the moon?"</code>
+<ul>
+  <li>(正解,Hana 視角) "Yes. No one to play with." — 直白</li>
+  <li>"No, she has rabbit." — 細節 cute</li>
+  <li>"She doesn't need friends." — 不像 Hana</li>
+  <li>"Moon is fun." — 偏題</li>
+</ul>
+<b>explanationZh:</b> Hana 同理她。No one to play with = 沒人陪玩。
+</div>
+
+<div class="interaction">
+<div class="label">L23 — 還會講更多</div>
+<b>Q5:</b> <code>Grandma says, "Many more stories to come, my friends."</code>
+<ul>
+  <li>(正解) Mochi nods and smiles — 八章累積成長</li>
+  <li>She cries — 不對最後 mood</li>
+  <li>She runs away — 偏題</li>
+  <li>She asks for one more — 可以但不對 closure</li>
+</ul>
+<b>explanationZh:</b> 八章下來 Mochi 從愛哭鬼變成「會笑會點頭」。下一個夜晚會再來 — 故事沒結局,生活繼續。
+</div>
+
+<h3>視覺資產 prompts</h3>
+
+<h4>S1 主視覺:節慶夜葉限跳舞 + 金履(L13-15)</h4>
+<div class="prompt-box">A Studio Ghibli warm watercolor of a Tang dynasty mountain cave festival at night. A young woman (Ye-Xian) in flowing jade-green silk robe and gold slippers dances under lantern light, with crowds in shadow watching. One gold slipper is just starting to fly off her foot mid-spin. A large full moon overhead. Warm reds, lantern oranges, jade green accents, deep night blue. Corner overlay: grandma reading, calico cat looking at the moon in the scene, shiba dog watching the slipper. Painterly, slightly silk-painting influenced.</div>
+
+<div class="summary-row">
+  <div class="cell"><div class="key">情緒色調</div>赭紅 #b85042 + 月白 #f4ebd9</div>
+  <div class="cell"><div class="key">主學習目標</div>中英並置 + wish/dream + 跨章 SRS 回收</div>
+  <div class="cell"><div class="key">收尾設計</div>無 closure,「以後還會講更多」預埋 v2.x Ch9+</div>
+</div>
+
+</div>
+</div>
+
+<!-- =========== FOOTER =========== -->
+
+<div class="footer">
+  <p>本檔為 <code>docs/ch2-8-stories.html</code> · v2.0.B.22 · 由內部多智能體腦力激盪共識產出。</p>
+  <p>實作順序建議:Ch2 → Ch3 → Ch4 → Ch5 → Ch6 → Ch7 → Ch8。每章 1-2 個 autonomous loop overnight。</p>
+  <p>對應決策過程請見 <code>docs/agents-thinking-process.html</code>。</p>
+  <p>已知未決問題:Ch8 雙語 code-switch 落地細節、Ch6 金鵝七人圖難度、跨章 SRS pool 連接(留 Plan 9 polish)。</p>
+</div>
+
+</div>
+</body>
+</html>
