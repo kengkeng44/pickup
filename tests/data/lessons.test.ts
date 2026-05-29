@@ -73,4 +73,17 @@ describe('QuestionSchema (discriminated union)', () => {
     };
     expect(() => QuestionSchema.parse(invalid)).toThrow();
   });
+
+  it('rejects tap-tiles with out-of-range correctOrder (cross-field guard)', () => {
+    const invalid = {
+      type: 'tap-tiles',
+      id: 'bad-tap-1',
+      level: 'A2',
+      sentence: 'too out of range',
+      tiles: ['a', 'b', 'c'],
+      correctOrder: [0, 1, 99],  // 99 >= tiles.length (3)
+      explanationZh: 'fail',
+    };
+    expect(() => QuestionSchema.parse(invalid)).toThrow();
+  });
 });

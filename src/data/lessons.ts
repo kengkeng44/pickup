@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { applyCatName } from './catName';
 
 // v2.0: ClozeLevelSchema + DifficultySchema previously lived in
 // `./sentences.ts`, but `sentences.ts` now re-exports `QuestionSchema`
@@ -49,6 +50,8 @@ export const TypeWhatYouHearSchema = FourOptionShape.extend({
 });
 
 // Variable-length tile bank, no max-4 constraint
+// NOTE: .refine() applied to the discriminated union below (z.discriminatedUnion
+// requires plain ZodObject members; ZodEffects from .refine() breaks it).
 export const TapTilesSchema = z.object({
   ...QuestionBaseFields,
   type: z.literal('tap-tiles'),
@@ -66,7 +69,7 @@ export const TapPairsSchema = z.object({
   })).length(4),
 });
 
-export const QuestionSchema = z.discriminatedUnion('type', [
+const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
   ListenEmojiSchema,
   ListenComprehensionSchema,
@@ -75,6 +78,22 @@ export const QuestionSchema = z.discriminatedUnion('type', [
   TapTilesSchema,
   TapPairsSchema,
 ]);
+
+// Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.
+// Applied on the union (not on TapTilesSchema itself) because
+// z.discriminatedUnion requires plain ZodObject members, and .refine()
+// produces a ZodEffects that breaks discriminator detection.
+export const QuestionSchema = QuestionUnion.superRefine((data, ctx) => {
+  if (data.type === 'tap-tiles') {
+    if (!data.correctOrder.every((idx) => idx < data.tiles.length)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'correctOrder indices must be < tiles.length',
+        path: ['correctOrder'],
+      });
+    }
+  }
+});
 
 export type Question = z.infer<typeof QuestionSchema>;
 
@@ -110,3 +129,57 @@ export const LessonSchema = z.object({
 export const LessonsSchema = z.array(LessonSchema);
 
 export type Lesson = z.infer<typeof LessonSchema>;
+
+// ============================================================
+// Loader — fetch /lessons-ch{N}.json, parse, inject {catName}.
+// Pattern follows src/data/storyKitten.ts:loadStoryQuestions() (v1.9.52).
+// Cache key is chapter id (not URL) to keep memory bounded.
+// ============================================================
+
+const cache = new Map<ChapterId, Lesson[]>();
+
+export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
+  const cached = cache.get(ch);
+  if (cached) return cached;
+
+  const res = await fetch(`/lessons-ch${ch}.json`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch lessons-ch${ch}.json: ${res.status}`);
+  }
+  const raw = await res.json();
+  const parsed = LessonsSchema.parse(raw);
+
+  // v1.9.52 pattern: inject player catName at load time
+  const injected = parsed.map((l) => ({
+    ...l,
+    storyBeat: l.storyBeat ? applyCatName(l.storyBeat) : l.storyBeat,
+    questions: l.questions.map((q) => ({
+      ...q,
+      sentence: applyCatName(q.sentence),
+      explanationZh: applyCatName(q.explanationZh),
+    })),
+  })) as Lesson[];
+
+  cache.set(ch, injected);
+  return injected;
+}
+
+export function lessonsBySegment(
+  lessons: Lesson[],
+  segmentType: SegmentType
+): Lesson[] {
+  return lessons.filter((l) => l.segmentType === segmentType);
+}
+
+export function findLesson(lessons: Lesson[], lessonId: string): Lesson | undefined {
+  return lessons.find((l) => l.id === lessonId);
+}
+
+/**
+ * Test-only: clear the per-chapter cache so unit tests can
+ * exercise loadChapterLessons() fresh in each `it()` block.
+ * Not for production use.
+ */
+export function _clearLessonCacheForTests(): void {
+  cache.clear();
+}
