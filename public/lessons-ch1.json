@@ -1258,5 +1258,215 @@
         "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-comprehension"]
       }
     ]
+  },
+  {
+    "id": "kt-ch1-l19",
+    "chapter": 1,
+    "lessonInChapter": 19,
+    "segmentType": "aesop-side",
+    "storyId": "north-wind-and-sun",
+    "storyBeat": "奶奶說「再聽一個小故事」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l19-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"One more story tonight.\"",
+        "question": "When is the story?",
+        "options": ["tonight", "today", "tomorrow", "yesterday"],
+        "correctIndex": 0,
+        "explanationZh": "tonight = 今晚。奶奶輕拍膝蓋,還想再講一個小故事。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l19-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Long ago, the north wind and the sun argued.",
+        "question": "What did they do?",
+        "options": ["argued", "agreed", "sang", "slept"],
+        "correctIndex": 0,
+        "explanationZh": "argued = 爭吵。很久以前,北風和太陽吵起來了:誰才是真正的強者?",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l19-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Both said, \"I am stronger than you.\"",
+        "question": "Type the word you hear.",
+        "options": ["stronger", "softer", "smaller", "slower"],
+        "correctIndex": 0,
+        "explanationZh": "stronger = 比較強。兩個都不服輸,各自喊著自己最強。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l19-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Then they saw a traveler on the road.",
+        "question": "Who did they see?",
+        "options": ["traveler", "teacher", "farmer", "baker"],
+        "correctIndex": 0,
+        "explanationZh": "traveler = 旅人。路上正好有個人經過,他們決定拿他來比一比。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l19-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He wore a warm coat.",
+        "question": "How was the traveler?",
+        "options": ["🧥 dressed", "🌳 outdoors", "😟 worried", "🥶 freezing"],
+        "correctIndex": 0,
+        "explanationZh": "wore a warm coat = 穿著暖外套。旅人裹得緊緊的,準備走他的路。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-emoji"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l20",
+    "chapter": 1,
+    "lessonInChapter": 20,
+    "segmentType": "aesop-side",
+    "storyId": "north-wind-and-sun",
+    "storyBeat": "北風大吹,旅人裹更緊",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l20-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The north wind blows very hard.",
+        "question": "What does the wind do?",
+        "options": ["blows", "sings", "rains", "walks"],
+        "correctIndex": 0,
+        "explanationZh": "blows = 吹。北風使勁吹,要把外套吹掉。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l20-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The wind is cold and strong.",
+        "question": "How is the wind?",
+        "options": ["strong", "quiet", "soft", "warm"],
+        "correctIndex": 0,
+        "explanationZh": "strong = 強的。風又冷又強,可是用力不一定有用。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l20-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The traveler holds his coat tight.",
+        "question": "Type the word you hear.",
+        "options": ["tight", "light", "right", "night"],
+        "correctIndex": 0,
+        "explanationZh": "tight = 緊緊地。風越吹,旅人越把外套抓得更緊。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l20-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He wraps it around himself.",
+        "question": "Where does he wrap it?",
+        "options": ["around", "under", "inside", "across"],
+        "correctIndex": 0,
+        "explanationZh": "around = 環繞、包住。他把外套裹在身上,風吹不進來。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l20-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The wind cannot win.",
+        "question": "How does the wind feel?",
+        "options": ["😤 frustrated", "😊 happy", "🥱 bored", "😍 loved"],
+        "correctIndex": 0,
+        "explanationZh": "cannot win = 沒辦法贏。風吹得再大也拉不下外套,只好認輸。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-emoji"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l21",
+    "chapter": 1,
+    "lessonInChapter": 21,
+    "segmentType": "aesop-side",
+    "storyId": "north-wind-and-sun",
+    "storyBeat": "太陽溫暖,旅人脫了外套",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l21-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Now the sun begins to shine.",
+        "question": "What does the sun do?",
+        "options": ["shine", "rain", "blow", "fall"],
+        "correctIndex": 0,
+        "explanationZh": "shine = 發光、照耀。換太陽出場了,他不用力,只是慢慢照亮路面。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l21-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The air is warm and soft.",
+        "question": "How is the air?",
+        "options": ["warm", "cold", "loud", "dark"],
+        "correctIndex": 0,
+        "explanationZh": "warm = 溫暖的。空氣不再冷颼颼,旅人放鬆了。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l21-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The traveler takes off his coat.",
+        "question": "Type the word you hear.",
+        "options": ["takes", "makes", "wakes", "bakes"],
+        "correctIndex": 0,
+        "explanationZh": "takes off = 脫下。他自己把外套脫了 — 太陽沒拉,他自己想脫。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l21-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He smiles in the warm sun.",
+        "question": "How does the traveler feel?",
+        "options": ["warm and happy", "cold and tired", "scared", "lost"],
+        "correctIndex": 0,
+        "explanationZh": "smiles = 微笑。陽光暖暖的,旅人臉上有笑容,腳步也輕了。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-comprehension"]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l21-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"Gentle is stronger than force.\"",
+        "question": "What is the lesson?",
+        "options": ["gentle wins", "wind wins", "stay cold", "wear two coats"],
+        "correctIndex": 0,
+        "explanationZh": "gentle = 溫和的。奶奶輕輕說:有時候溫柔比用力更能讓人心打開 — 就像她對糰糰和花花一樣。",
+        "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-comprehension"]
+      }
+    ]
   }
 ]
