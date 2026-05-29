@@ -14,8 +14,8 @@ describe('lessons-ch1.json content', () => {
     expect(result.success).toBe(true);
   });
 
-  it('contains the expected 9 lessons (L1-L3 prologue + L4-L9 main story setup)', () => {
-    expect(raw).toHaveLength(9);
+  it('contains the expected 15 lessons (L1-L3 prologue + L4-L15 main story)', () => {
+    expect(raw).toHaveLength(15);
     expect(raw[0].id).toBe('kt-ch1-l1');
     expect(raw[0].lessonInChapter).toBe(1);
     expect(raw[0].segmentType).toBe('outer-prologue');
@@ -25,5 +25,12 @@ describe('lessons-ch1.json content', () => {
     expect(raw[3].storyId).toBe('rainy-night-cat');
     expect(raw[8].id).toBe('kt-ch1-l9');
     expect(raw[8].lessonInChapter).toBe(9);
+    expect(raw[9].id).toBe('kt-ch1-l10');
+    expect(raw[9].lessonInChapter).toBe(10);
+    expect(raw[9].segmentType).toBe('main-story');
+    expect(raw[9].storyId).toBe('rainy-night-cat');
+    expect(raw[14].id).toBe('kt-ch1-l15');
+    expect(raw[14].lessonInChapter).toBe(15);
+    expect(raw[14].segmentType).toBe('main-story');
   });
 });
