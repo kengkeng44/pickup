@@ -128,7 +128,17 @@ console.log(`Output: ${audioDir}`);
 
 const VOICE = 'shimmer';
 const MODEL = 'gpt-4o-mini-tts';
-const INSTRUCTIONS = 'Speak warmly, slowly, and gently — like a kind grandmother telling a bedtime story to her cat and dog. Pause between sentences for clarity.';
+const SPEED = 0.85; // VERY slow grandma cadence
+const INSTRUCTIONS = `You are an elderly grandmother, 80+ years old, sitting in a quiet wooden chair under a warm yellow lamp at night. You are reading a bedtime story to your beloved cat Mochi and dog Hana. Speak VERY SLOWLY. Pause between EVERY phrase, as if savouring each word.
+
+VOICE QUALITIES (essential):
+- Soft, raspy, slightly tremulous — like an old grandmother
+- Warm and unconditionally kind, never sharp or hurried
+- A bit dreamy and gentle, as if you have all the time in the world
+- Add tiny natural pauses where commas appear, longer pauses at periods
+- Lower your pitch slightly at the end of each sentence like a lullaby
+
+Do NOT sound like a young narrator or a corporate audiobook reader. Sound like a real elderly grandmother who has told this same story a thousand times. Imagine your face is smiling softly while you read.`;
 
 let success = 0;
 let failed = 0;
@@ -146,6 +156,7 @@ for (const task of tasks) {
         voice: VOICE,
         input: task.text,
         instructions: INSTRUCTIONS,
+        speed: SPEED,
         response_format: 'mp3',
       }),
     });
