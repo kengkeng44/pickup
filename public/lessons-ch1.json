@@ -208,5 +208,425 @@
         "tags": ["story", "ch1", "prologue", "smoke"]
       }
     ]
+  },
+  {
+    "id": "kt-ch1-l4",
+    "chapter": 1,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "故事開始 — 從前一個雨夜",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"Long ago, on a rainy night...\"",
+        "question": "Which phrase did you hear?",
+        "options": ["long ago", "tomorrow", "next year", "today"],
+        "correctIndex": 0,
+        "explanationZh": "long ago = 很久以前。奶奶的故事都從這開始。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The rain falls hard all night.",
+        "question": "How does the rain fall?",
+        "options": ["hard", "soft", "warm", "light"],
+        "correctIndex": 0,
+        "explanationZh": "hard 在這裡是「大力地」。雨下得很大。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l4-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It is a dark night.",
+        "question": "Type the word you hear.",
+        "options": ["dark", "deep", "deer", "done"],
+        "correctIndex": 0,
+        "explanationZh": "dark = 黑暗的。沒月亮的夜。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l4-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The wind blows cold.",
+        "question": "How does the wind feel?",
+        "options": ["🥶 freezing", "🥵 hot", "😎 cool", "🤩 fun"],
+        "correctIndex": 0,
+        "explanationZh": "cold wind = 冷風,讓人 freezing(冷到發抖)。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l4-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The street is empty and dark.",
+        "question": "Tap the tiles in order.",
+        "tiles": ["The", "street", "is", "empty", "and", "dark", "warm", "loud"],
+        "correctOrder": [0, 1, 2, 3, 4, 5],
+        "explanationZh": "empty = 空的、dark = 黑的。沒人沒燈,只有雨。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l5",
+    "chapter": 1,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "小貓濕透又冷又怕",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A small cat is alone in the rain.",
+        "question": "Which word describes the cat?",
+        "options": ["small", "tall", "smart", "smell"],
+        "correctIndex": 0,
+        "explanationZh": "small = 小的。一隻小貓,沒有人陪。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her fur is all wet.",
+        "question": "Which word did you hear?",
+        "options": ["fur", "for", "far", "fire"],
+        "correctIndex": 0,
+        "explanationZh": "fur = 毛(動物身上的)。雨把她的毛打濕了。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l5-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She has not eaten in two days.",
+        "question": "Type the number you hear.",
+        "options": ["two", "too", "to", "tour"],
+        "correctIndex": 0,
+        "explanationZh": "兩天沒吃了。小貓肚子好餓。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l5-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She is scared of the big shadow.",
+        "question": "How does she feel?",
+        "options": ["😨 scared", "😄 happy", "😴 sleepy", "🤔 thinking"],
+        "correctIndex": 0,
+        "explanationZh": "scared = 害怕的。大影子讓她發抖。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She shakes from cold.",
+        "question": "Which verb did you hear?",
+        "options": ["shakes", "takes", "wakes", "bakes"],
+        "correctIndex": 0,
+        "explanationZh": "shake = 發抖。太冷了,身體一直抖。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l6",
+    "chapter": 1,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "她蜷縮在巷子角落",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She curls into a small ball.",
+        "question": "Which verb did you hear?",
+        "options": ["curls", "calls", "kills", "cools"],
+        "correctIndex": 0,
+        "explanationZh": "curl = 蜷縮成一團。小貓把自己縮起來取暖。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She hides in a dark corner.",
+        "question": "Where does she hide?",
+        "options": ["corner", "garden", "kitchen", "window"],
+        "correctIndex": 0,
+        "explanationZh": "corner = 角落。最黑的牆角是最安全的地方。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l6-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She is alone.",
+        "question": "Type the word you hear.",
+        "options": ["alone", "along", "aloud", "around"],
+        "correctIndex": 0,
+        "explanationZh": "alone = 獨自一個。沒有媽媽,沒有同伴。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l6-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A tear runs down her face.",
+        "question": "What is on her face?",
+        "options": ["😢 a tear", "😊 a smile", "😡 anger", "🤐 silence"],
+        "correctIndex": 0,
+        "explanationZh": "tear = 眼淚。一滴淚從臉頰滑下來。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The alley is wet and quiet.",
+        "question": "Which place did you hear?",
+        "options": ["alley", "valley", "city", "river"],
+        "correctIndex": 0,
+        "explanationZh": "alley = 巷子。窄窄的小巷,只有雨聲。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l7",
+    "chapter": 1,
+    "lessonInChapter": 7,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "大影子靠近 — 是奶奶",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A big shadow comes closer.",
+        "question": "Which word did you hear?",
+        "options": ["shadow", "show", "sheep", "shower"],
+        "correctIndex": 0,
+        "explanationZh": "shadow = 影子。一個大影子慢慢靠近。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat is afraid.",
+        "question": "How does the cat feel?",
+        "options": ["afraid", "angry", "awake", "amazed"],
+        "correctIndex": 0,
+        "explanationZh": "afraid = 害怕的。她不知道影子是好人還是壞人。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It is a woman.",
+        "question": "Type the word you hear.",
+        "options": ["woman", "women", "warm", "wonder"],
+        "correctIndex": 0,
+        "explanationZh": "woman = 女人。原來是一位阿姨,不是壞東西。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l7-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her face is kind.",
+        "question": "How does her face look?",
+        "options": ["🥰 kind", "😠 angry", "😨 scared", "😐 cold"],
+        "correctIndex": 0,
+        "explanationZh": "kind = 親切的。她的眼神很溫柔。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She holds an umbrella.",
+        "question": "What is in her hand?",
+        "options": ["umbrella", "apple", "uniform", "envelope"],
+        "correctIndex": 0,
+        "explanationZh": "umbrella = 雨傘。她手上撐著一把傘。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l8",
+    "chapter": 1,
+    "lessonInChapter": 8,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "奶奶撐傘為她遮雨",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l8-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The woman opens her umbrella.",
+        "question": "What does she do?",
+        "options": ["opens", "closes", "throws", "drops"],
+        "correctIndex": 0,
+        "explanationZh": "open = 打開。她把傘撐開。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l8-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She holds it over the cat.",
+        "question": "Where does she hold it?",
+        "options": ["over", "under", "behind", "inside"],
+        "correctIndex": 0,
+        "explanationZh": "over = 在上方。傘擋在小貓頭頂。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l8-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The rain stops on the cat.",
+        "question": "Type the verb you hear.",
+        "options": ["stops", "steps", "starts", "stays"],
+        "correctIndex": 0,
+        "explanationZh": "stop = 停。雨不再打到她身上。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l8-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat looks up at her.",
+        "question": "Where does the cat look?",
+        "options": ["up", "down", "away", "back"],
+        "correctIndex": 0,
+        "explanationZh": "look up = 抬頭看。小貓抬起頭看著這位阿姨。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l8-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The woman smiles softly.",
+        "question": "How does she smile?",
+        "options": ["🥹 softly", "😆 loudly", "😈 wickedly", "😬 nervously"],
+        "correctIndex": 0,
+        "explanationZh": "softly = 輕輕地。她對小貓溫柔地笑。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l9",
+    "chapter": 1,
+    "lessonInChapter": 9,
+    "segmentType": "main-story",
+    "storyId": "rainy-night-cat",
+    "storyBeat": "奶奶溫柔說「不怕」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l9-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The woman says, \"Do not be afraid.\"",
+        "question": "What does she say?",
+        "options": ["Do not be afraid", "Do not come here", "Do not move now", "Do not look back"],
+        "correctIndex": 0,
+        "explanationZh": "Do not be afraid = 不要怕。她想讓小貓安心。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l9-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her voice is soft.",
+        "question": "How is her voice?",
+        "options": ["soft", "loud", "sharp", "fast"],
+        "correctIndex": 0,
+        "explanationZh": "soft = 輕柔的。她的聲音像棉花一樣軟。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l9-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat listens to her.",
+        "question": "Type the verb you hear.",
+        "options": ["listens", "lessens", "lists", "lifts"],
+        "correctIndex": 0,
+        "explanationZh": "listen = 聽。小貓豎起耳朵專心聽。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l9-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She feels a little warm.",
+        "question": "How does she feel now?",
+        "options": ["🤗 a little warm", "🥶 colder", "😰 more scared", "😴 very sleepy"],
+        "correctIndex": 0,
+        "explanationZh": "a little warm = 有點暖。心裡開始一點點不冷了。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l9-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She is not afraid anymore.",
+        "question": "How does the cat feel at the end?",
+        "options": ["not afraid anymore", "still very scared", "angry at the woman", "ready to run away"],
+        "correctIndex": 0,
+        "explanationZh": "not afraid anymore = 不再害怕了。溫柔的聲音讓她放心。",
+        "tags": ["story", "ch1", "main", "rainy-night-cat"]
+      }
+    ]
   }
 ]

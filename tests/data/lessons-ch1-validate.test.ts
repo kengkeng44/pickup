@@ -14,10 +14,16 @@ describe('lessons-ch1.json content', () => {
     expect(result.success).toBe(true);
   });
 
-  it('contains the expected 3 stub lessons', () => {
-    expect(raw).toHaveLength(3);
+  it('contains the expected 9 lessons (L1-L3 prologue + L4-L9 main story setup)', () => {
+    expect(raw).toHaveLength(9);
     expect(raw[0].id).toBe('kt-ch1-l1');
     expect(raw[0].lessonInChapter).toBe(1);
     expect(raw[0].segmentType).toBe('outer-prologue');
+    expect(raw[3].id).toBe('kt-ch1-l4');
+    expect(raw[3].lessonInChapter).toBe(4);
+    expect(raw[3].segmentType).toBe('main-story');
+    expect(raw[3].storyId).toBe('rainy-night-cat');
+    expect(raw[8].id).toBe('kt-ch1-l9');
+    expect(raw[8].lessonInChapter).toBe(9);
   });
 });
