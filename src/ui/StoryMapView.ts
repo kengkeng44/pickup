@@ -38,6 +38,8 @@ import { readStreak } from '../data/streak';
 import { readCoins } from '../data/coins';
 import { applyCatName } from '../data/catName';
 import { applyDogName } from '../data/dogName';
+import { loadChapterLessons } from '../data/lessons';
+import { readCompletedLessons, isLessonUnlocked } from '../store/runStore';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -82,6 +84,46 @@ const NODE_PATH: Array<{ dx: number; top: number }> = [
   { dx: 38,  top: 896 },   // node 9 — Ch2 lock teaser
 ];
 // (ROW_HEIGHT removed v1.8.0 — irregular path replaces it)
+
+// v2.0 — 24-button winding path per chapter (Duolingo-nested model).
+// Y values approximate a sinuous curve descending from banner to chapter
+// end. X alternates with mild jitter to avoid straight-line monotony.
+// Polish in Phase D (Plan 9) once Ch1 content lands and visual density
+// is testable.
+const NODE_PATH_V2: Array<{ dx: number; top: number }> = [
+  // Outer prologue (3)
+  { dx: 10,  top: 16  },
+  { dx: 30,  top: 100 },
+  { dx: -20, top: 184 },
+  // Main story (12)
+  { dx: 18,  top: 268 },
+  { dx: 38,  top: 352 },
+  { dx: 24,  top: 436 },
+  { dx: -10, top: 520 },
+  { dx: -34, top: 604 },
+  { dx: -18, top: 688 },
+  { dx: 16,  top: 772 },
+  { dx: 36,  top: 856 },
+  { dx: 20,  top: 940 },
+  { dx: -12, top: 1024 },
+  { dx: -32, top: 1108 },
+  { dx: -16, top: 1192 },
+  // Aesop sides (6-9, fits 6)
+  { dx: 14,  top: 1276 },
+  { dx: 34,  top: 1360 },
+  { dx: 18,  top: 1444 },
+  { dx: -10, top: 1528 },
+  { dx: -30, top: 1612 },
+  { dx: -14, top: 1696 },
+  // Outer outro + review (3)
+  { dx: 16,  top: 1780 },
+  { dx: 30,  top: 1864 },
+  { dx: 8,   top: 1948 },
+];
+
+// v2.0 feature flag — when true Ch1 renders via lesson-driven V2 path.
+// Flip to false to fall back to legacy 8-node + 2-teaser NODE_PATH.
+const V2_ENABLED = true;
 
 // Ch1 narrative beats — short label per question, used as tooltip / aria.
 // v1.9.50: 8 beats for grandma-v4 framework (prologue + tale + goodnight + review).
@@ -216,40 +258,88 @@ export class StoryMapView {
     const ch1Unlocked = isChapterUnlocked(1);
     const ch1Completed = isChapterCompleted(1);
     const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
-    for (let i = 0; i < 8; i++) {
-      const beat = applyDogName(applyCatName(CH1_BEAT_LABELS[i]));
-      const node = this.buildNode({
-        idx: i,
-        label: beat,
-        unlocked: ch1Unlocked,
-        completed: ch1Completed,
-        chapter: 1,
-      });
-      // v1.7.12: mark the user's current node so CSS pulse animation
-      // can highlight where they are (replaces the visual role the cat
-      // sprite used to play).
-      if (i === currentNodeIdx) {
-        node.el.classList.add('pickup-map-node-current');
+
+    if (V2_ENABLED) {
+      // v2.0 — lesson-driven 24-button rendering. Async load gated; render
+      // empty path skeleton initially then replace with real lessons once
+      // fetched. Acceptable UX trade-off (StoryMapView mount is async-friendly).
+      // public/lessons-ch1.json may not exist yet (Task 10 stubs it);
+      // catch + log + silent no-op so legacy code path doesn't crash.
+      void (async () => {
+        try {
+          const lessons = await loadChapterLessons(1);
+          const completed = readCompletedLessons(1);
+          lessons.forEach((lesson) => {
+            const i = lesson.lessonInChapter - 1;
+            if (i < 0 || i >= NODE_PATH_V2.length) return;
+            const pos = NODE_PATH_V2[i];
+            const isCompleted = completed.has(lesson.id);
+            const isUnlocked = isLessonUnlocked(1, lesson.lessonInChapter, completed.size);
+            const label = applyDogName(
+              applyCatName(lesson.storyBeat ?? `Lesson ${lesson.lessonInChapter}`)
+            );
+            const node = this.buildNode({
+              idx: i,
+              label,
+              unlocked: isUnlocked,
+              completed: isCompleted,
+              chapter: 1,
+              positionOverride: pos,
+            });
+            // v2.0 click — still routes through onPlayChapter (Task 10 will
+            // wire LessonScene direct-start once integration lands).
+            node.el.addEventListener('click', () => {
+              if (!isUnlocked) return;
+              this.handlers.onPlayChapter(1);
+              // Direct lesson-start (Task 10 e2e):
+              // (window as any).pickupGame?.scene.start('LessonScene', { chapter: 1, lessonId: lesson.id });
+            });
+            column.appendChild(node.el);
+            this.nodes.push(node);
+          });
+        } catch (e) {
+          // Fallback: silent fail until Task 10 ships public/lessons-ch1.json.
+          // Legacy 8-node path is gated off — V2_ENABLED=false to re-enable.
+          console.error('Failed to load Ch1 lessons for V2 map:', e);
+        }
+      })();
+    } else {
+      // Legacy v1.9.54 8-node Ch1 + divider + 2 Ch2 teaser path.
+      for (let i = 0; i < 8; i++) {
+        const beat = applyDogName(applyCatName(CH1_BEAT_LABELS[i]));
+        const node = this.buildNode({
+          idx: i,
+          label: beat,
+          unlocked: ch1Unlocked,
+          completed: ch1Completed,
+          chapter: 1,
+        });
+        // v1.7.12: mark the user's current node so CSS pulse animation
+        // can highlight where they are (replaces the visual role the cat
+        // sprite used to play).
+        if (i === currentNodeIdx) {
+          node.el.classList.add('pickup-map-node-current');
+        }
+        column.appendChild(node.el);
+        this.nodes.push(node);
       }
-      column.appendChild(node.el);
-      this.nodes.push(node);
-    }
 
-    // Sub-section divider hint — "Chapter 2 coming"
-    column.appendChild(this.buildDivider('Chapter 2 — coming soon'));
+      // Sub-section divider hint — "Chapter 2 coming"
+      column.appendChild(this.buildDivider('Chapter 2 — coming soon'));
 
-    // v1.9.54: 2 Ch2 lock-teaser nodes use NODE_PATH[8]/[9] (was 6+i before
-    // Ch1 expanded to 8 nodes; that overlapped Ch1's idx 6/7).
-    for (let i = 0; i < 2; i++) {
-      const node = this.buildNode({
-        idx: 8 + i,
-        label: 'Locked',
-        unlocked: false,
-        completed: false,
-        chapter: null,
-      });
-      column.appendChild(node.el);
-      this.nodes.push(node);
+      // v1.9.54: 2 Ch2 lock-teaser nodes use NODE_PATH[8]/[9] (was 6+i before
+      // Ch1 expanded to 8 nodes; that overlapped Ch1's idx 6/7).
+      for (let i = 0; i < 2; i++) {
+        const node = this.buildNode({
+          idx: 8 + i,
+          label: 'Locked',
+          unlocked: false,
+          completed: false,
+          chapter: null,
+        });
+        column.appendChild(node.el);
+        this.nodes.push(node);
+      }
     }
 
     // v1.9.54: animate newly-unlocked nodes (across chapter transitions).
@@ -657,6 +747,9 @@ export class StoryMapView {
     unlocked: boolean;
     completed: boolean;
     chapter: ChapterId | null;
+    /** v2.0 — when set, overrides NODE_PATH[idx] lookup. Used by V2 path
+     * (NODE_PATH_V2) which has 24 nodes vs legacy 10. */
+    positionOverride?: { dx: number; top: number };
   }): NodeRef {
     const row = document.createElement('button');
     row.type = 'button';
@@ -665,7 +758,10 @@ export class StoryMapView {
     row.dataset.nodeIdx = String(opts.idx);
 
     // v1.8.0: irregular hand-tuned position
-    const slot = NODE_PATH[opts.idx] ?? NODE_PATH[NODE_PATH.length - 1];
+    // v2.0: positionOverride wins (V2 path uses NODE_PATH_V2's 24 slots).
+    const slot =
+      opts.positionOverride ??
+      (NODE_PATH[opts.idx] ?? NODE_PATH[NODE_PATH.length - 1]);
     const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
     const baseColor = opts.completed
