@@ -106,6 +106,46 @@ CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
 
 Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
   },
+  navhome: {
+    name: 'nav-home',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A house icon for bottom nav "home" tab. Simple cottage shape: square body + triangular roof + small door + 1 small window. WARM AMBER #e7a44a body, COFFEE BROWN #8b6f4a roof + accents. Tiny OLIVE GREEN #7d9a4f leaf on side or small bush.
+
+CRITICAL palette: amber/coffee/olive ONLY. NO red, NO bright blue sky.
+
+Composition: house centered, ~75% canvas, slight isometric tilt. No baked shadow. No text.`,
+  },
+  navtasks: {
+    name: 'nav-tasks',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A clipboard with checklist icon for bottom nav "tasks" tab. Simple clipboard outline in COFFEE BROWN #8b6f4a, cream paper inside, 2-3 small check marks in OLIVE GREEN #7d9a4f, small AMBER #e7a44a clip at top.
+
+CRITICAL palette: coffee/cream/olive/amber ONLY. NO bright Disney saturation.
+
+Composition: clipboard centered, ~75% canvas. Subtle base shadow. No text.`,
+  },
+  navprofile: {
+    name: 'nav-profile',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A simplified calico cat face icon (Mochi's portrait) for bottom nav "profile" tab. Just the head — chunky round shape, AMBER + COFFEE BROWN + CREAM tricolor markings, 瞇瞇眼 closed-smile eyes (matches grandma/Hana style), tiny pink nose, faint whiskers.
+
+CRITICAL palette: amber/coffee/cream ONLY. NO bright orange #ff7a3a (use warm amber tone), NO red.
+
+Composition: cat face centered, ~80% canvas (head fills most of icon space), straight angle. Subtle base shadow. No text.`,
+  },
+  navalerts: {
+    name: 'nav-alerts',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A bell icon for bottom nav "alerts" tab. Simple bell shape with curved body + small handle on top + clapper hint at bottom. WARM AMBER #e7a44a bell body, COFFEE BROWN #8b6f4a accents.
+
+CRITICAL palette: amber/coffee ONLY. NO yellow bright #ffd700, NO red notification dot.
+
+Composition: bell centered, ~70% canvas, slight tilt as if ringing. Subtle base shadow. No text.`,
+  },
   paw: {
     name: 'icon-paw',
     prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
