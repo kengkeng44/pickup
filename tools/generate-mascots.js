@@ -106,6 +106,33 @@ CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
 
 Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
   },
+  scene: {
+    name: 'scene-grandma-storytime',
+    prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli warm + Duolingo chibi character DNA. Wide horizontal composition (landscape 1024×1024 OK).
+
+PALETTE: amber #e7a44a, cream #fef8ed, coffee brown #8b6f4a, olive green #7d9a4f, warm dark text #3c2a1c. NO bright Disney, NO neon, NO red/orange clash. Warm twilight glow only.
+
+SCENE: A quiet outdoor yard at gentle evening twilight. Soft cream-amber moonlight ambient.
+- LEFT: A kind elderly East Asian grandmother (silver hair low bun, round glasses, soft 瞇瞇眼 closed smile eyes, deep cute wrinkles, blocky chibi like Lego/Pop Mart vinyl, warm amber knitted cardigan + brown skirt) sitting on a small low wooden chair, reading from an open storybook resting on her lap. Slight forward lean as if narrating.
+- CENTER-RIGHT, at grandma's feet on grass: A calico chibi cat (Mochi — orange + brown + white tricolor, blocky chibi vinyl style, big oval pupils with tiny white highlight) sitting upright facing grandma, attentive listening.
+- BESIDE MOCHI, slightly to the right: A chibi shiba inu (Hana — orange-amber + cream, fluffy curled tail, 瞇瞇眼 squinted happy eyes matching grandma's smile-eye style for cohesion) also sitting upright facing grandma, listening attentively.
+
+Both Mochi and Hana share the SAME blocky cute aesthetic as grandma. Three characters form a unified composition: grandma slightly higher (on chair), the two animals smaller at her feet looking up.
+
+BACKGROUND: VERY simple yard floor (suggested grass + a few simplified plant shapes), soft warm cream-amber gradient sky behind suggesting twilight. NO complex environment, NO foliage detail, NO buildings. Background must be MINIMAL — pure mood + space.
+
+COMPOSITION:
+- NO frame, NO border, NO box around scene
+- NO sticker outline
+- NO baked drop shadow
+- Pure transparent background OR pure flat cream #fef8ed background only
+- Characters cleanly placed in space, ample padding around them
+- Slight ambient soft floor shadow under each character (small ellipse coffee tone, NOT blur)
+
+INSPIRED BY: Studio Ghibli quiet bedtime scenes + Pop Mart vinyl figure simplicity. Avoid Disney saturation. The mood should be cozy, slow, warm — bedtime story atmosphere.
+
+Square 1024×1024. NO text, NO words, NO speech bubbles.`,
+  },
   flame: {
     name: 'icon-flame',
     prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
