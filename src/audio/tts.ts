@@ -28,6 +28,17 @@ function applyDefaults(s: string): string {
   return s.replace(/\{catName\}/g, 'Mochi').replace(/\{dogName\}/g, 'Hana');
 }
 
+// djb2 hash → 8 hex chars. Matches tools/generate-grandma-audio.js hash.
+function hash8(s: string): string {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(h, 33) ^ s.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(16).padStart(8, '0');
+}
+
+function splitChunks(text: string): string[] {
+  return text.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
+}
+
 async function loadAudioLookup(): Promise<void> {
   // Only Ch1 ships with MP3s today. Add Ch2+ here as chapters land.
   const chapters = [1];
@@ -39,9 +50,19 @@ async function loadAudioLookup(): Promise<void> {
       for (const lesson of lessons) {
         for (const q of lesson.questions) {
           if (!q.sentence || !q.id) continue;
-          const text = applyDefaults(q.sentence);
-          if (!audioLookup.has(text)) {
-            audioLookup.set(text, q.id);
+          const fullText = applyDefaults(q.sentence);
+          // Full sentence → q.id-named MP3
+          if (!audioLookup.has(fullText)) {
+            audioLookup.set(fullText, q.id);
+          }
+          // Sub-sentence chunks → hash-named MP3 (handles UI splits)
+          const chunks = splitChunks(fullText);
+          if (chunks.length > 1) {
+            for (const chunk of chunks) {
+              if (!audioLookup.has(chunk)) {
+                audioLookup.set(chunk, hash8(chunk));
+              }
+            }
           }
         }
       }

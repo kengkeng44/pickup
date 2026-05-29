@@ -68,6 +68,21 @@ function substitute(s) {
   return s.replace(/\{catName\}/g, 'Mochi').replace(/\{dogName\}/g, 'Hana');
 }
 
+// djb2 hash → 8 hex chars. Deterministic — matches tts.ts hash for chunk
+// lookup. Used for sub-sentence chunks so UI splits like Key Sentences
+// overlay ("I am Mochi." / "I am a stray cat.") get their own MP3.
+function hash8(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = (h * 33) ^ s.charCodeAt(i);
+  return (h >>> 0).toString(16).padStart(8, '0');
+}
+
+// Split a sentence into chunks at sentence terminators, preserving them.
+// "I am Mochi. I am a stray cat." → ["I am Mochi.", "I am a stray cat."]
+function splitChunks(text) {
+  return text.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
+}
+
 // Collect all unique sentences across lessons.
 // Multiple Q can share a sentence; dedupe by sentence text to save API calls.
 const tasks = [];
@@ -75,16 +90,36 @@ const seenSentences = new Set();
 for (const lesson of lessons) {
   for (const q of lesson.questions) {
     if (!q.sentence) continue;
-    const text = substitute(q.sentence);
-    if (seenSentences.has(text)) continue;
-    seenSentences.add(text);
-    const filename = `${q.id}.mp3`;
-    const filePath = resolve(audioDir, filename);
-    if (existsSync(filePath)) {
-      console.log(`SKIP ${filename} (exists)`);
-      continue;
+    const fullText = substitute(q.sentence);
+
+    // Full sentence (keep q.id-based naming for back-compat)
+    if (!seenSentences.has(fullText)) {
+      seenSentences.add(fullText);
+      const filename = `${q.id}.mp3`;
+      const filePath = resolve(audioDir, filename);
+      if (existsSync(filePath)) {
+        console.log(`SKIP ${filename} (exists)`);
+      } else {
+        tasks.push({ id: q.id, text: fullText, filePath });
+      }
     }
-    tasks.push({ id: q.id, text, filePath });
+
+    // Sub-sentence chunks (hash-based naming, multi-clause sentence support)
+    const chunks = splitChunks(fullText);
+    if (chunks.length > 1) {
+      for (const chunk of chunks) {
+        if (seenSentences.has(chunk)) continue;
+        seenSentences.add(chunk);
+        const id = hash8(chunk);
+        const filename = `${id}.mp3`;
+        const filePath = resolve(audioDir, filename);
+        if (existsSync(filePath)) {
+          console.log(`SKIP ${filename} chunk (exists)`);
+          continue;
+        }
+        tasks.push({ id, text: chunk, filePath });
+      }
+    }
   }
 }
 
