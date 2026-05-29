@@ -106,6 +106,48 @@ CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
 
 Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
   },
+  mochi: {
+    name: 'calico-anchor',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: Pickup main mascot — Mochi the calico cat.')}
+
+Subject: A blocky stylized chubby chibi calico cat (三花貓 — orange + white + brown tricolor) — Pickup's main protagonist Mochi. Sitting upright facing viewer. Round chunky body, BIG head 50%, very small body, tiny legs. Classic calico markings: orange right ear + orange right side patches, brown left ear + brown left side patches, cream/white belly + face mask + paws. Closed-mouth gentle 瞇瞇眼 squinted smile-eyes matching grandma/Hana cohesion. Tiny pink nose. Soft simplified whiskers. Stripey tail wrapped to the right side.
+
+NO clothes (previous v1.4 version had grey shirt + blue shorts — remove). NO accessories. Pure calico cat body.
+
+CRITICAL palette: warm Pickup palette. ORANGE side = warm amber #e7a44a (NOT bright Disney orange). BROWN side = coffee #8b6f4a. CREAM body = #fef8ed. NO bright Disney colors.
+
+Composition: cat centered, ~80% canvas, straight-on slight angle. No baked shadow. Transparent background. No text.`,
+  },
+  nodebook: {
+    name: 'node-book',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon designed for use INSIDE a circular lesson node button.')}
+
+Subject: An open book icon for lessons map node. Simple book shape: 2 facing pages with subtle middle gutter. Pure CREAM #fef8ed pages with thin COFFEE BROWN #8b6f4a outline (~2px). 3 small horizontal cream text lines per page (suggested text, not real). Designed for high contrast against the dark node circle background.
+
+CRITICAL: cream + coffee monochrome ONLY for high contrast at small size (~40-50px in app).
+
+Composition: book centered, ~80% canvas, slight open angle showing both pages. No baked shadow. No text labels.`,
+  },
+  nodeheadphones: {
+    name: 'node-headphones',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon for use INSIDE a circular lesson node button.')}
+
+Subject: A simple headphones icon for listening lessons. Curved headband + 2 ear cups. Pure CREAM #fef8ed fill with thin COFFEE BROWN #8b6f4a outline (~2px). Designed for high contrast at small size.
+
+CRITICAL: cream + coffee ONLY. Designed for small (~40-50px) rendering inside coffee-tone node circle.
+
+Composition: headphones centered, ~80% canvas, slight 3/4 angle. No baked shadow. No text.`,
+  },
+  nodestar: {
+    name: 'node-star',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon for use INSIDE a circular lesson node button.')}
+
+Subject: A simple 5-point star icon (for boss/special lessons). Pure CREAM #fef8ed fill with thin COFFEE BROWN #8b6f4a outline (~2px). Chunky proportions with rounded points (not sharp).
+
+CRITICAL: cream + coffee ONLY for high contrast at small size.
+
+Composition: star centered, ~80% canvas, straight angle. No baked shadow. No text.`,
+  },
   navhome: {
     name: 'nav-home',
     prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
