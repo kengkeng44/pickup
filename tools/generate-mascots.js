@@ -55,8 +55,16 @@ if (!['low', 'medium', 'high'].includes(quality)) {
   process.exit(1);
 }
 
-// Pickup brand palette + style — Isometric Duolingo chibi (matches existing iso-grandma.webp / iso-shiba.webp aesthetic)
-const STYLE_BASE = `Isometric Duolingo-style chibi character (think Duolingo's Lin / Junior / Lily characters — clean rounded shapes, large head small body, friendly inviting). Soft cel-shaded with very minimal subtle outline (NOT bold black ink outline). Studio Ghibli warm palette.
+// Pickup brand palette + style — Duolingo character DNA aesthetic
+const STYLE_BASE = `CRITICAL STYLE REFERENCE: emulate Duolingo's official character design language. Specifically reference Duolingo characters: Lin (kindly grandmother figure with grey hair bun), Junior (round small kid), Lily (teen), Bea (athletic), Oscar (older man), Eddy (cool guy), Vikram, Lucy. The visual DNA is:
+- Bold solid color blocks with clean smooth shape silhouettes
+- Big simplified facial features: oval pupils with tiny white highlight dot, simple curved smile line, single eyebrow stroke
+- LARGE head 40-50% of body height, SMALL chunky body, short legs, big round hands/paws
+- Soft cel-shading: one base color tone + one slightly darker shadow tone per zone (NOT realistic gradient, NOT flat-only)
+- Outlines: VERY soft and clean — only at silhouette edges, NOT bold black ink outline (NOT RUMBO style, NOT Sanrio thick lines). Think Duolingo's clean vector aesthetic.
+- Friendly, inviting, slightly silly even when serious — never corporate
+
+Studio Ghibli warm palette injected into Duolingo character DNA.
 
 PALETTE LOCK: amber #e7a44a, cream #fef8ed, coffee brown #8b6f4a, olive green #7d9a4f, warm dark text #3c2a1c. Avoid bright Disney saturation. Avoid Duolingo bright green #58cc02.
 
