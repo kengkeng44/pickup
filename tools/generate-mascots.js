@@ -106,6 +106,36 @@ CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
 
 Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
   },
+  paw: {
+    name: 'icon-paw',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A stylized cat paw print icon — Pickup brand's signature symbol. Classic paw print shape: 1 large central pad + 4 small toe pads above. WARM AMBER #e7a44a fill with COFFEE BROWN #8b6f4a 3D-depth shadow side (subtle). Soft cel-shading.
+
+CRITICAL palette: amber/coffee/cream ONLY. NO orange #ff7a3a, NO red, NO Disney saturation. Previous v1.9.41 paw had bright orange — replace with warm amber tone.
+
+Composition: paw centered, ~70% canvas, slight angle for friendliness. Subtle base shadow. No text.`,
+  },
+  lock: {
+    name: 'icon-lock',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A closed padlock icon (for locked chapter nodes). Body is a chunky rectangle in COFFEE BROWN #8b6f4a with a slightly darker shadow side. Top: small rounded shackle/U-shape in same coffee tone. Small AMBER #e7a44a keyhole in center.
+
+CRITICAL palette: coffee/amber ONLY. NO bright Disney metal, NO grey neutral, NO red.
+
+Composition: padlock centered, ~70% canvas, slight 3D tilt for Duolingo chunkiness. Subtle base shadow. No text.`,
+  },
+  nodepaw: {
+    name: 'node-paw',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A cat paw print icon designed for use INSIDE a circular lesson node button on a learning map. Bold simplified paw shape (1 central pad + 4 toe pads above). Pure WHITE/CREAM #fef8ed fill for high contrast against the node's coffee-brown background. Subtle COFFEE BROWN #8b6f4a outline (very thin, ~2px).
+
+CRITICAL: this is a high-contrast monochrome cream-on-coffee paw print, NOT colorful. Designed to read clearly at small sizes (~40-50px in the app).
+
+Composition: paw centered, ~80% canvas (slightly bigger than icon-paw to fill node circle), straight angle (no tilt). No baked shadow. No text.`,
+  },
   scene: {
     name: 'scene-grandma-storytime',
     prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli warm + Duolingo chibi character DNA. Wide horizontal composition (landscape 1024×1024 OK).
