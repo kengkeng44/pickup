@@ -33,6 +33,7 @@ import { StoryModeScene } from './scenes/StoryModeScene';
 import { ChapterIntroScene } from './scenes/ChapterIntroScene';
 import { ChapterEndScene } from './scenes/ChapterEndScene';
 import { StoryEndingScene } from './scenes/StoryEndingScene';
+import { LessonScene } from './scenes/LessonScene';
 import './style.css';
 
 /**
@@ -71,6 +72,7 @@ const config: Phaser.Types.Core.GameConfig = {
     ChapterEndScene,
     StoryEndingScene,
     EndScene,
+    LessonScene,  // v2.0 — single-lesson scope, called from StoryMapView click
   ],
 };
 

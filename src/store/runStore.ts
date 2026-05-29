@@ -519,3 +519,51 @@ export const RUN_CONFIG = {
   STORY_QUESTIONS_PER_CHAPTER,
   SRS_REVIEW_LIMIT,
 };
+
+// ============================================================
+// v2.0 — per-lesson progress within chapter
+// Key: pickup.chapter.{N}.lessons.completed = JSON array of lessonId strings
+// ============================================================
+
+const LS_LESSON_PROGRESS = (ch: number) =>
+  `pickup.chapter.${ch}.lessons.completed`;
+
+export function readCompletedLessons(chapter: number): Set<string> {
+  if (typeof localStorage === 'undefined') return new Set();
+  try {
+    const raw = localStorage.getItem(LS_LESSON_PROGRESS(chapter));
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch {
+    return new Set();
+  }
+}
+
+export function markLessonCompleted(chapter: number, lessonId: string): void {
+  if (typeof localStorage === 'undefined') return;
+  try {
+    const current = readCompletedLessons(chapter);
+    current.add(lessonId);
+    localStorage.setItem(
+      LS_LESSON_PROGRESS(chapter),
+      JSON.stringify([...current])
+    );
+  } catch {
+    // localStorage write failure — boot.ts v1.9.48 already shows red banner
+  }
+}
+
+export function isLessonUnlocked(
+  // `chapter` is part of the public signature for future caller clarity
+  // (e.g. "is lesson L unlocked in chapter C?") but the unlock rule is
+  // purely intra-chapter for now. Prefixed `_` to silence TS6133.
+  _chapter: number,
+  lessonInChapter: number,
+  totalCompleted: number
+): boolean {
+  // Lesson 1 always unlocked if chapter is unlocked.
+  // Lesson N unlocks when N-1 is completed.
+  if (lessonInChapter === 1) return true;
+  return totalCompleted >= lessonInChapter - 1;
+}
