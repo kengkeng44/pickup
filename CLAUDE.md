@@ -9,7 +9,7 @@
 
 1. [Vision & 情感核心](#-vision--情感核心)
 2. [Version History](#-version-history)
-3. [主打故事：小貓回家路（8 章 + false-ending）](#-主打故事小貓回家路-8-章--false-ending)
+3. [Story Framework — 奶奶的 8 個說故事夜晚 (v2.0)](#-story-framework--奶奶的-8-個說故事夜晚-v20)
 4. [Core Mechanics](#-core-mechanics)
 5. [Visual Language](#-visual-language)
 6. [Audio](#-audio)
@@ -108,6 +108,7 @@
 | v1.9.51 (Ch1 narration + title 同步 grandma-v4) | 漏改的 ChapterIntroScene narration + outro 更新成 cat POV / 糰糰+花花;titleZh 「流落街頭」→「我們的第一天」;titleEn 「A Rainy Night」→「The First Story」。**deploy lesson**:wrangler 不加 `--branch=main` 才上 production root,加 flag = 卡 Preview |
 | **v1.9.52 (stray cat + custom name + mascot ground)** | 故事 reframe:貓不再被收養,是**流浪貓** 每晚去奶奶院子聽故事(花花是奶奶養的)。Ch1 narration / outro / Q1-Q2-Q6-Q8 全更新。新檔 `src/data/catName.ts` + `applyCatName()` 注入 `{catName}` 預設糰糰。`loadStoryQuestions()` load-time 注入到 sentence + explanationZh。Profile tab 加「貓咪名字」input 改完 reload 套用。ChapterIntroScene 兩隻 mascot 加 solid 橢圓地影色塊(fix floating bug)|
 | v1.9.53 (nav去字 + mascot floor band + map bg -5%) | BottomNav 去 EN labels(aria-label 留)icon-only。ChapterIntroScene sceneCard 改 inset 50px floor band(`rgba(60,42,28,0.10)`)— mascot 直接 align-flex-end 站在 floor 上,不再 floating(舊橢圓 hack 移除)。Map bg `#fef8ed` → `#f1ebe1`(數學上 5% 較深的暖米) |
+| **v2.0.0 (2026-05-29 Plan 1 ships)** | **Duolingo-nested redesign full Phase A+B**:LessonSchema discriminatedUnion (fixes kt-ch1-06 root cause)、LessonScene 單 lesson scope、StoryMapView 24-button V2 path、runStore per-lesson progress、validate-lessons.js CI guard、Ch1 v2.0 24 lessons / ~110 Q across 5 segments (outer-prologue/main-story/aesop-side/outer-outro/review)、Hana dog name default. Spec: `docs/superpowers/specs/2026-05-29-*.md`. Plan: `docs/superpowers/plans/2026-05-29-*.md`. Plans 2-9 stub in `_next-plans.md` for Ch2-8 content + iOS + polish. |
 | **v1.9.54 (paw-only + grey locked + unlock pop)** | 全 node 改用 paw icon(去 book/headphones cycle);locked = greyed paw(`filter:grayscale(1) opacity:0.65`)無 lock icon;新 CSS `@keyframes pickup-map-node-unlock-pop`(scale 0.82→1.12→1)+ `pickup-map-node-unlock-color`(grayscale 1→0 reveal);StoryMapView 加 localStorage `pickup.map.last-seen-completed` 追蹤,跨章 unlock 時自動播 700ms pop 動畫,first-ever 訪客也 pop 第一節點;**bug fix**:Ch2 teaser idx 6+i → 8+i(v1.9.50 Ch1 擴到 8 後沒同步) |
 | v1.9.24 | Locked nodes SVG padlock 取代 🔒 emoji |
 
@@ -146,22 +147,45 @@
 
 ---
 
-## 🐈 主打故事：小貓回家路 (8 章 + false-ending)
+## 🐈 Story Framework — 奶奶的 8 個說故事夜晚 (v2.0)
 
-**8 章成長弧全部已實作 (v0.10)。** Ch5 從「永遠的家」改成 false-ending — 小貓以為到家了，結果窗沒鎖被吹開，又流落街頭。Ch6-8 是真正的成長弧。
+**Slice-of-life,Arabian Nights 結構**。每章 = 一個 storytelling evening。**v1.x 「小貓回家路 8 章 + false-ending」整段廢棄**(v2.0 重新設計,參考 `docs/superpowers/specs/2026-05-29-pickup-duolingo-nested-redesign.md`)。
 
-| 章 | 標題 | 成長級 | 姿態 / 情緒 | 故事 turning point |
-|---|------|--------|------------|-------------------|
-| Ch1 | 🌧️ 雨夜的開始 | 0 — 純粹脆弱 | 縮成一團、半閉眼、耳朵下垂 | 被動接受陌生人善意 |
-| Ch2 | 🛕 街頭智者 | 1 — 開始學習 | 坐姿端正、大眼觀察 | 從被動 → 主動找導師（老黑死後獨自背負所學） |
-| Ch3 | 🥐 麵包店的選擇 | 2 — 第一次說「不」 | 站立、抬頭、尾巴翹起 | 第一次主動拒絕安全選項 |
-| Ch4 | 👧 小女孩的秘密 | 3 — 學會愛 + 學會放手 | 柔軟、會主動 purr | 第一次心碎、撐過 |
-| Ch5 | 🏠 永遠的家（**FALSE ending**） | 4 — 假抵達 | 看似溫暖、暗藏脆弱 | **未鎖的窗 → 又流落街頭** — 戲劇 reset |
-| Ch6 | ❄️ 寒冬考驗 | 5 — 存在的選擇 | 雪中前行、眼神堅毅 | 老黑 ghost mentor 重現，儀式性「成年式」；身份覺醒「**我是 someone**」 |
-| Ch7 | ⛩️ 神社的相遇 | 6 — 命運的承接 | 沉穩、有靈氣、有故事的眼神 | 神社靈出場；意識到「**沒有人是偶然**」— 命運網絡 |
-| Ch8 | 🐾 選擇了家人 | 7 — 抵達 / 圓滿 | 從容自信、像中年貓 | 美美找到她；但她**選了街頭家人**（布魯托）。Outro：「她有過家。她現在，選了家人。」+ "I→We" cloze pivot |
+### Outer frame (8 章 recurring)
 
-**Ch8 結局基調**：從「回家」改成「**留街頭**」— per user feedback「夠戲劇 + 勵志」。
+- Mochi(三花貓 / 流浪)每晚跳上奶奶矮牆
+- Hana(柴犬 / 奶奶養)趴她腳邊
+- 奶奶在椅子上,翻書,講故事
+- Mochi 跟 Hana 是「聽眾」,inner stories 的主角不是他們
+
+### 8 章 inner story map
+
+| Ch | 主菜 | 體裁 | Aesop sides |
+|----|------|------|-------------|
+| 1 | 🌧️ 雨夜小貓(meta-anchor) | 直接體驗 1st-person | 螞蟻與蚱蜢 / 北風與太陽 |
+| 2 | 🍑 桃太郎 | 累積連鎖體 | 龜兔賽跑 / 狼來了 |
+| 3 | 🦢 醜小鴨 | 第一人稱內心獨白 | 獅子與老鼠 / 牧羊人與狼 |
+| 4 | 🐢 龜兔賽跑(升 main) | 對話體 | 烏鴉與狐狸 / 城市鼠與鄉村鼠 |
+| 5 | 🐪 駱駝為什麼有駝峰 | Kipling "O Best Beloved" 第二人稱 | 蘆葦與橡樹 / 老鼠開會 |
+| 6 | 🏚️ Baba Yaga 雞腳屋 | 黑暗民俗 sparse | 漁夫與妻子 / 七張床 |
+| 7 | 🦢 六隻天鵝(Grimm 冷門) | 無對話詩意 narration | 三個願望 / 老鼠新娘 |
+| 8 | 🏺 葉限(唐代 灰姑娘原型) | 雙語 code-switch | 田螺姑娘 / 嫦娥奔月 |
+
+### 章內結構 (Duolingo-nested,每章 24 lessons,每 lesson 5-15 Q)
+
+- 3 outer-prologue lessons(Mochi 跳牆 / Hana 搖尾 / 奶奶開書)
+- 12 main-story lessons(主菜童話)
+- 6 aesop-side lessons(2 短篇 × 3 lessons)
+- 2 outer-outro lessons(Goodnight + Mochi 跳回街上)
+- 1 review lesson(tap-pairs)
+
+### Character names (v2.0.A.8)
+
+- Cat: `{catName}` placeholder, default `'Mochi'` (was `'糰糰'`)
+- Dog: `{dogName}` placeholder, default `'Hana'` (was `'花花'`)
+- Per-player customizable via Profile tab + `src/data/catName.ts` + `src/data/dogName.ts`
+
+**v2.0 出生在這次 brainstorm 對話**:`docs/superpowers/specs/2026-05-29-pickup-duolingo-nested-redesign.md` 是 source of truth。
 
 ---
 
@@ -313,27 +337,33 @@ src/
 │   ├── BootScene.ts        # 啟動 splash + 難度 pill 折疊（v0.13 極簡化）
 │   ├── MenuScene.ts        # 主選單（自由 / 情境 / 故事）
 │   ├── PlayScene.ts        # 主答題場景
-│   ├── StoryModeScene.ts   # 小貓回家路章節網格（8 章）
+│   ├── LessonScene.ts      # v2.0 — 單 lesson scope (Duolingo-nested,每章 24 lessons)
+│   ├── StoryModeScene.ts   # 章節網格（8 章 chapter pack）
 │   ├── ChapterIntroScene.ts # 每章 NPC 場景卡 + 旁白
 │   ├── ChapterEndScene.ts  # 每章結束狀態變化
-│   ├── StoryEndingScene.ts # Ch8 cinematic（選了家人 outro）
+│   ├── StoryEndingScene.ts # Ch8 cinematic
 │   └── EndScene.ts         # 自由 / 情境模式結束（Duolingo 風完成頁）
 ├── store/
 │   └── runStore.ts         # Zustand：分數 / HP / 章節進度 / SRS 庫 / 難度
+│                           # v2.0.A.6 加 per-lesson progress(lessonId → completed Q count)
 ├── ui/                      # DOM rendering layer
 │   ├── ClozeUI.ts          # 4 選 1 + 反饋面板 + blindRetry flow
 │   ├── GameHUD.ts          # Header：streak + progress + HP + timer
 │   ├── Mascot.ts           # 動畫 wrapper
-│   ├── mascots.ts          # SVG inline 定義（mascot 重做中）
+│   ├── mascots.ts          # SVG inline 定義
 │   ├── ModeMenu.ts         # 自由 / 情境 / 故事 模式切換
 │   ├── EndOverlay.ts       # Duolingo 風完成 overlay
+│   ├── StoryMapView.ts     # v2.0.A.9 — V2_ENABLED flag + NODE_PATH_V2 (24-button) + buildLessonNode
 │   ├── Confetti.ts         # 破紀錄彩帶
 │   └── domUtil.ts          # 共用 DOM helpers
 ├── data/
 │   ├── vocab.ts            # 基礎詞彙
 │   ├── sentences.ts        # 80 cloze A2 題目
 │   ├── scenarios.ts        # 5 情境 × 10 題 = 50 情境題
-│   ├── storyKitten.ts      # 小貓回家路 48 題（Ch1-8）+ DEV_UNLOCK_ALL flag
+│   ├── storyKitten.ts      # v1.x chapter pack（保留 backwards-compat）
+│   ├── lessons.ts          # v2.0 — LessonSchema discriminatedUnion + LessonsSchema + loadChapterLessons()
+│   ├── catName.ts          # {catName} placeholder, default 'Mochi'
+│   ├── dogName.ts          # v2.0.A.8 — {dogName} placeholder, default 'Hana' (parallel to catName.ts)
 │   └── roundGenerator.ts   # 出題邏輯：池洗牌、SRS 注入、難度 filter
 ├── audio/
 │   └── bgm.ts              # mp3 streaming（v0.13 從程序合成改寫，63 行）
@@ -342,9 +372,21 @@ src/
 public/
 ├── audio/
 │   └── peace.mp3           # BGM, 7.36 MB, CDN-served not bundled
+├── lessons-ch1.json        # v2.0 — Ch1 24 lessons, ~110 Q (Duolingo-nested model)
 └── vocab.json              # 玩家可見的字庫（user-editable）
 
+tests/                       # v2.0 — Vitest harness (22 pass)
+├── data/
+│   ├── lessons.test.ts                # LessonSchema unit
+│   ├── loader.test.ts                 # loadChapterLessons() integration
+│   ├── lessons-ch1-validate.test.ts   # ch1 JSON shape guard
+│   └── sentences-schema.test.ts       # legacy v1.x schema regression
+├── store/
+│   └── lesson-progress.test.ts        # per-lesson progress slice
+└── sanity.test.ts                     # smoke
+
 tools/                       # 開發用 scripts
+└── validate-lessons.js     # v2.0 — build-time CI guard, runs LessonsSchema parse on lessons-ch1.json
 ```
 
 ---
@@ -415,18 +457,18 @@ npx wrangler pages deploy dist \
 
 ## 🗺️ Roadmap
 
-### Phase 1 — MVP 驗證（✅ 完成）
-- ✅ 5 章 → 8 章小貓回家路全上線 (v0.10)
-- ✅ Ghibli 美學 + force-correct + blindRetry + SRS lite
-- ✅ Duolingo-tier UI overhaul (v0.11) + 難度系統 (v0.12) + 極簡 splash (v0.13)
-- ✅ Rebrand WordWar → 拾光 (v0.9)
+### Phase 1 — v1.x (✅ 完成 2026-05-27 v1.9.56)
+- 8 章 quest arc + Ghibli 美學 + Duolingo polish
+- v1.9.50 grandma-v4 framework introduced (basis for v2.0)
+- v1.9.55 hotfix kt-ch1-06 schema bug, v1.9.56 Mochi default
 
-### Phase 2 — Ship v1.0（下一步）
-- Mascot real assets（外部 AI image gen 重做完成）
-- Ch6-8 視覺強化到 v0.11 標準
-- `wordwar-*` → `pickup-*` CSS classname refactor (Step 7)
-- DEV_UNLOCK_ALL flip 回 false + paywall gate
-- Public v1.0 ship
+### Phase 2 — v2.0 Duolingo-nested redesign(in progress)
+- ✅ **Plan 1 Phase A+B Ch1 prototype** (this ship):schema 重做 + LessonScene + 24-button map + Ch1 24 lessons / ~110 Q
+- Plans 2-8: Ch2-Ch8 content (after Plan 1 ships + model validation)
+- Plan 9: Phase D polish + paywall stub + v2.0 final ship
+
+### Phase 2.5 — iOS App Store(post v2.0 ship)
+- Capacitor + Codemagic, unchanged from v1.x roadmap
 
 ### Phase 2.5 — iOS App Store 上架（v1.x 完成後）
 
