@@ -253,6 +253,37 @@ export class StoryMapView {
     this.cat = this.buildCat();
     column.appendChild(this.cat);
 
+    // v2.0.B.17: Hana on her own — placed at a different button-curve
+    // center on the map (lower-mid section, right side of layout). Fixed
+    // decorative anchor (does NOT follow player progress like grandma).
+    const shiba = document.createElement('div');
+    applyStyle(shiba, {
+      position: 'absolute',
+      // Lower-mid area of V2 24-button path (around top 1200-1400).
+      // dx positive = right side of map curve.
+      left: `${CONTAINER_W / 2 + 40}px`,
+      top: '1300px',
+      width: '80px',
+      height: '90px',
+      pointerEvents: 'none',
+      zIndex: '4',
+    });
+    shiba.innerHTML = `
+      <div style="
+        position:absolute; left:8px; bottom:-2px;
+        width:64px; height:9px;
+        background:rgba(60,42,28,0.28);
+        border-radius:50%;
+        z-index:0;
+      "></div>
+      <img src="/mascots/iso-shiba.webp" alt="" style="
+        position:absolute; left:0; bottom:0;
+        width:80px; height:auto; display:block;
+        z-index:1;
+      " />
+    `;
+    column.appendChild(shiba);
+
     // Build nodes — Ch1's 8 questions (v1.9.50 grandma-v4)
     const progress = readChapterProgress();
     const ch1Unlocked = isChapterUnlocked(1);
@@ -891,22 +922,10 @@ export class StoryMapView {
         border-radius:50%;
         z-index:0;
       "></div>
-      <div style="
-        position:absolute; left:62px; bottom:-4px;
-        width:56px; height:8px;
-        background:rgba(60,42,28,0.26);
-        border-radius:50%;
-        z-index:0;
-      "></div>
       <img src="/mascots/iso-grandma.webp" alt="" style="
         position:absolute; left:0; bottom:0;
         width:88px; height:auto; display:block;
         z-index:2;
-      " />
-      <img src="/mascots/iso-shiba.webp" alt="" style="
-        position:absolute; left:58px; bottom:-3px;
-        width:62px; height:auto; display:block;
-        z-index:1;
       " />
     `;
     return cat;

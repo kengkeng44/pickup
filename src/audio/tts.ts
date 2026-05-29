@@ -91,30 +91,30 @@ export function speak(text: string, lang = 'en-US'): void {
 
   stopSpeaking(); // cancel any in-flight playback
 
-  // Async: wait for lookup map to be ready (first-call only blocks ~200ms)
-  // then try MP3. If lookup map populated already, this resolves immediately.
-  void ensureLookup().then(() => {
-    const audioId = audioLookup.get(cleaned);
-    if (audioId && typeof Audio !== 'undefined') {
-      try {
-        const audio = new Audio(`/audio/lessons/${audioId}.mp3`);
-        audio.playbackRate = 1.0;
-        audio.volume = 1.0;
-        activeAudio = audio;
-        audio.play().catch(() => {
-          if (activeAudio === audio) activeAudio = null;
-          speakWebSpeech(cleaned, lang);
-        });
-        audio.addEventListener('ended', () => {
-          if (activeAudio === audio) activeAudio = null;
-        });
-        return;
-      } catch {
-        // construction failed — fall through to Web Speech
-      }
+  // Sync MP3 lookup — needed to preserve iOS Safari autoplay user-gesture
+  // link. Lookup map is eagerly fetched at module load; by the time user
+  // taps a speaker (post-render, post-fetch), map should be populated.
+  // If map not ready (very early click), fall through to Web Speech.
+  const audioId = audioLookup.get(cleaned);
+  if (audioId && typeof Audio !== 'undefined') {
+    try {
+      const audio = new Audio(`/audio/lessons/${audioId}.mp3`);
+      audio.playbackRate = 1.0;
+      audio.volume = 1.0;
+      activeAudio = audio;
+      audio.play().catch(() => {
+        if (activeAudio === audio) activeAudio = null;
+        speakWebSpeech(cleaned, lang);
+      });
+      audio.addEventListener('ended', () => {
+        if (activeAudio === audio) activeAudio = null;
+      });
+      return;
+    } catch {
+      // construction failed — fall through to Web Speech
     }
-    speakWebSpeech(cleaned, lang);
-  });
+  }
+  speakWebSpeech(cleaned, lang);
 }
 
 export function stopSpeaking(): void {
