@@ -55,25 +55,38 @@ if (!['low', 'medium', 'high'].includes(quality)) {
   process.exit(1);
 }
 
-// Pickup brand palette + style
-const STYLE_BASE = `Isometric chibi sticker character, Studio Ghibli warm palette + Duolingo flat-shape language hybrid. Pickup brand: amber #e7a44a, cream #fef8ed, coffee brown #8b6f4a, olive green #7d9a4f, warm dark text #3c2a1c. Bold black hand-drawn ink outline 4-5px, slightly imperfect wobbly lines. Flat color blocks, NO gradient, NO halo, NO glow. Soft drop shadow at base. Square 1024x1024. Transparent background. Sticker style with subtle die-cut border. NO text, NO words, NO speech bubbles.`;
+// Pickup brand palette + style — Isometric Duolingo chibi (matches existing iso-grandma.webp / iso-shiba.webp aesthetic)
+const STYLE_BASE = `Isometric Duolingo-style chibi character (think Duolingo's Lin / Junior / Lily characters — clean rounded shapes, large head small body, friendly inviting). Soft cel-shaded with very minimal subtle outline (NOT bold black ink outline). Studio Ghibli warm palette.
+
+PALETTE LOCK: amber #e7a44a, cream #fef8ed, coffee brown #8b6f4a, olive green #7d9a4f, warm dark text #3c2a1c. Avoid bright Disney saturation. Avoid Duolingo bright green #58cc02.
+
+SHADING: gentle soft cel-shading only. Flat color blocks. NO gradient. NO halo. NO glow. NO blur drop shadow. NO baked floor shadow under character.
+
+CRITICAL — what NOT to include (runtime app draws these):
+- NO white tile platform under character
+- NO sticker die-cut border around character
+- NO drop shadow blob under character
+- NO baked ellipse floor beneath
+- The character must stand cleanly on transparent background. The Pickup app composites a solid ellipse floor shadow (rgba(60,42,28,0.3), zero blur) at runtime beneath the character — your output must NOT include any pre-baked shadow.
+
+OUTPUT: Square 1024x1024. Pure transparent background. Character occupies center, feet touch lower-middle of canvas (not bottom edge — leave ~15% bottom margin for runtime ellipse). NO text, NO words, NO speech bubbles.`;
 
 const CHARACTERS = {
   grandma: {
     name: 'iso-grandma',
     prompt: `${STYLE_BASE}
 
-Subject: A kind elderly Asian grandmother sitting on a low wooden chair in a quiet outdoor yard at night. She is reading from a small old hardback storybook open on her lap, gentle warm smile, soft round glasses. Silver hair tied in a low bun. Wearing a warm amber knitted cardigan over a cream blouse, brown long skirt. Hands rest gently on the book. Posture peaceful and storyteller-like, slightly leaning forward as if narrating to listeners. Eyes are big round black dots with single white highlight — kawaii style not realistic. Face is soft, kind, with subtle laugh lines. Bedtime story telling vibe, NOT umbrella-holding.
+Subject: A kind elderly East Asian grandmother sitting on a small low wooden chair, reading from a small open storybook resting on her lap. Bedtime storytelling pose (NOT umbrella-holding). Gentle warm closed-mouth smile. Soft round glasses. Silver hair tied in low bun. Wearing warm amber knitted cardigan over cream blouse, brown long skirt. Hands gently on book. Posture peaceful, slightly leaning forward as if narrating. Big round black dot eyes with single white highlight (kawaii Duolingo style). Soft kind face with subtle laugh lines. Chair is small and simple, brown wood — no tile under it. The grandmother and chair together as a unified isometric unit, character clearly the focus.
 
-Inspired by Studio Ghibli grandmothers (warm, wise, gentle) and Duolingo chibi proportions (large head, small body). Round shapes. Cozy and inviting. Avoid Western Disney style.`,
+Inspired by Studio Ghibli grandmothers (warm, wise, gentle) + Duolingo chibi proportions (large head small body). Round shapes. Cozy and inviting. Avoid Western Disney style.`,
   },
   shiba: {
     name: 'iso-shiba',
     prompt: `${STYLE_BASE}
 
-Subject: A chibi shiba inu dog (柴犬), sitting upright on a small floor cushion in a quiet outdoor yard at night, attentive ears perked up, gentle alert smile with tongue slightly out, fluffy curled tail, classic shiba orange + cream fur markings (orange back/head, cream belly/face mask/paws). Wide kawaii black-dot eyes with single white highlight. Looking up as if listening to a story. Cozy, slightly sleepy but engaged. Compact round body proportions, NOT realistic shiba detail.
+Subject: A chibi shiba inu dog (柴犬), sitting upright in a relaxed listening posture. NO cushion or pillow underneath (character stands directly on transparent background). Attentive ears perked up. Gentle alert closed-mouth smile with tip of tongue slightly visible. Fluffy curled tail wrapped at side. Classic shiba markings: orange-amber back and head, cream belly + face mask + paws. Wide kawaii black-dot eyes with single white highlight. Looking up alert as if listening to a story being told. Compact round chibi body proportions, NOT realistic shiba anatomy.
 
-Inspired by Studio Ghibli small animals and Duolingo chibi pets. Round shapes. The dog should look like a beloved family pet, warm and friendly.`,
+Inspired by Studio Ghibli small animals and Duolingo chibi pets. Round shapes. The dog should look like a beloved family pet — warm, friendly, calm.`,
   },
 };
 
