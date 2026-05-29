@@ -9,6 +9,7 @@ import { getMascotSvg } from '../ui/mascots';
 import { sfxEndFanfare } from '../audio/sfx';
 import { Confetti } from '../ui/Confetti';
 import { applyCatName } from '../data/catName';
+import { applyDogName } from '../data/dogName';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -204,7 +205,7 @@ export class ChapterEndScene extends Phaser.Scene {
       fontWeight: '600',
       whiteSpace: 'pre-wrap',
     });
-    outro.textContent = applyCatName(meta.outro);
+    outro.textContent = applyDogName(applyCatName(meta.outro));
     content.appendChild(outro);
 
     // Run stats

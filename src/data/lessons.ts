@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { applyCatName } from './catName';
+import { applyDogName } from './dogName';
 
 // v2.0: ClozeLevelSchema + DifficultySchema previously lived in
 // `./sentences.ts`, but `sentences.ts` now re-exports `QuestionSchema`
@@ -152,11 +153,11 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   // v1.9.52 pattern: inject player catName at load time
   const injected = parsed.map((l) => ({
     ...l,
-    storyBeat: l.storyBeat ? applyCatName(l.storyBeat) : l.storyBeat,
+    storyBeat: l.storyBeat ? applyDogName(applyCatName(l.storyBeat)) : l.storyBeat,
     questions: l.questions.map((q) => ({
       ...q,
-      sentence: applyCatName(q.sentence),
-      explanationZh: applyCatName(q.explanationZh),
+      sentence: applyDogName(applyCatName(q.sentence)),
+      explanationZh: applyDogName(applyCatName(q.explanationZh)),
     })),
   })) as Lesson[];
 

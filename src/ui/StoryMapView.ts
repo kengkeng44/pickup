@@ -37,6 +37,7 @@ import { readXp, levelForXp, levelProgress } from '../data/xp';
 import { readStreak } from '../data/streak';
 import { readCoins } from '../data/coins';
 import { applyCatName } from '../data/catName';
+import { applyDogName } from '../data/dogName';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -86,7 +87,7 @@ const NODE_PATH: Array<{ dx: number; top: number }> = [
 // v1.9.50: 8 beats for grandma-v4 framework (prologue + tale + goodnight + review).
 const CH1_BEAT_LABELS = [
   'I am {catName}',
-  'Meet 花花',
+  'Meet {dogName}',
   'Tonight a story',
   'Rainy night cat',
   'The umbrella',
@@ -216,7 +217,7 @@ export class StoryMapView {
     const ch1Completed = isChapterCompleted(1);
     const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
     for (let i = 0; i < 8; i++) {
-      const beat = applyCatName(CH1_BEAT_LABELS[i]);
+      const beat = applyDogName(applyCatName(CH1_BEAT_LABELS[i]));
       const node = this.buildNode({
         idx: i,
         label: beat,

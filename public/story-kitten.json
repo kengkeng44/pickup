@@ -26,7 +26,7 @@
     "question": "Where do I go every night?",
     "options": ["🏡 Grandma's yard", "🌳 a forest", "🏪 a shop", "🚉 a station"],
     "correctIndex": 0,
-    "explanationZh": "yard = 院子。我雖然是流浪貓,但每晚都會跑去奶奶家的院子。那裡有食物,有奶奶的狗朋友花花。",
+    "explanationZh": "yard = 院子。我雖然是流浪貓,但每晚都會跑去奶奶家的院子。那裡有食物,有奶奶的狗朋友{dogName}。",
     "tags": ["story", "ch1", "prologue", "setting"]
   },
   {
@@ -36,12 +36,12 @@
     "chapter": 1,
     "questionInChapter": 3,
     "type": "type-what-you-hear",
-    "storyBeat": "花花是奶奶養的柴犬",
-    "sentence": "花花 is Grandma's brown dog.",
+    "storyBeat": "{dogName}是奶奶養的柴犬",
+    "sentence": "{dogName} is Grandma's brown dog.",
     "question": "Type the missing word",
     "options": ["dog", "day", "deep", "door"],
     "correctIndex": 0,
-    "explanationZh": "dog = 狗。花花是 Grandma's brown dog(奶奶養的棕色狗)— 一隻柴犬。我每晚跟他一起趴在地上聽故事。",
+    "explanationZh": "dog = 狗。{dogName}是 Grandma's brown dog(奶奶養的棕色狗)— 一隻柴犬。我每晚跟他一起趴在地上聽故事。",
     "tags": ["story", "ch1", "prologue", "type-what-you-hear"]
   },
   {

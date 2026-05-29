@@ -1103,18 +1103,18 @@ Create `public/lessons-ch1.json` with 3 lessons × 3 Q for smoke test:
     "lessonInChapter": 2,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "花花搖尾巴迎接",
+    "storyBeat": "{dogName}搖尾巴迎接",
     "questions": [
       {
         "type": "listen-mc",
         "id": "kt-ch1-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "花花 wags his tail.",
+        "sentence": "{dogName} wags his tail.",
         "question": "What does he do?",
         "options": ["wag", "bark", "jump", "run"],
         "correctIndex": 0,
-        "explanationZh": "wag = 搖(尾巴)。花花搖尾迎接我。",
+        "explanationZh": "wag = 搖(尾巴)。{dogName}搖尾迎接我。",
         "tags": ["story", "ch1", "prologue", "smoke"]
       },
       {
@@ -1184,7 +1184,7 @@ Create `public/lessons-ch1.json` with 3 lessons × 3 Q for smoke test:
         "question": "How do we listen?",
         "options": ["quietly", "loudly", "quickly", "slowly"],
         "correctIndex": 0,
-        "explanationZh": "quietly = 安靜地。花花跟我都安靜聽。",
+        "explanationZh": "quietly = 安靜地。{dogName}跟我都安靜聽。",
         "tags": ["story", "ch1", "prologue", "smoke"]
       }
     ]
@@ -1264,12 +1264,12 @@ L1 storyBeat: 「Mochi 跳上矮牆」 — 5 Q:
 - Q4 listen-emoji: "I am curious." → emojis 🐈 curious / 😟 worried / 😠 angry / 😴 sleepy
 - Q5 listen-comprehension: "Who am I?" → A: stray cat / a dog / a bird / a fish
 
-L2 storyBeat: 「花花搖尾巴迎接」 — 5 Q:
-- Q1 listen-mc: "花花 wags his tail." → wag/bark/jump/run
+L2 storyBeat: 「{dogName}搖尾巴迎接」 — 5 Q:
+- Q1 listen-mc: "{dogName} wags his tail." → wag/bark/jump/run
 - Q2 listen-mc: "He is Grandma's brown dog." → brown/black/white/red
 - Q3 type-what-you-hear: "We are friends." → missing: friends
 - Q4 listen-emoji: "I feel safe with him." → 🤗 safe / 😰 scared / 😡 angry / 😢 sad
-- Q5 listen-comprehension: "Whose dog is 花花?" → A: Grandma's / mine / 花花 is a cat / 花花 has no owner
+- Q5 listen-comprehension: "Whose dog is {dogName}?" → A: Grandma's / mine / {dogName} is a cat / {dogName} has no owner
 
 L3 storyBeat: 「奶奶打開故事書」 — 5 Q:
 - Q1 listen-mc: "Grandma opens an old book." → opens/closes/holds/drops
@@ -1293,7 +1293,7 @@ Run: `npm run dev`. Play through L1-L3, verify all Q render and TTS reads proper
 
 ```bash
 git -C C:/Users/acer/Desktop/wordwar add public/lessons-ch1.json
-git -C C:/Users/acer/Desktop/wordwar commit -m "v2.0.B.1: Ch1 L1-L3 outer-prologue final content (15 Q)" -m "Mochi 跳牆 / 花花搖尾 / 奶奶開書. Mix of listen-mc + type-what-you-hear + tap-tiles + listen-emoji + listen-comprehension. A2 easy difficulty across all 15 Q. Establishes outer-scene voice & vocab anchor (stray/yard/wall/tail/book/tale/listen)."
+git -C C:/Users/acer/Desktop/wordwar commit -m "v2.0.B.1: Ch1 L1-L3 outer-prologue final content (15 Q)" -m "Mochi 跳牆 / {dogName}搖尾 / 奶奶開書. Mix of listen-mc + type-what-you-hear + tap-tiles + listen-emoji + listen-comprehension. A2 easy difficulty across all 15 Q. Establishes outer-scene voice & vocab anchor (stray/yard/wall/tail/book/tale/listen)."
 ```
 
 ---
@@ -1551,7 +1551,7 @@ In `CLAUDE.md`, replace the entire "🐈 主打故事:小貓回家路(8 章 + fa
 
 ### Outer frame (8 章 recurring)
 - Mochi(三花貓 / 流浪)每晚跳上奶奶矮牆
-- 花花(柴犬 / 奶奶養)趴她腳邊
+- {dogName}(柴犬 / 奶奶養)趴她腳邊
 - 奶奶在椅子上,翻書,講故事
 
 ### 8 章 inner story map
@@ -1568,7 +1568,7 @@ In `CLAUDE.md`, replace the entire "🐈 主打故事:小貓回家路(8 章 + fa
 | 8 | 🏺 葉限(唐代 灰姑娘原型) | 雙語 code-switch | 田螺姑娘 / 嫦娥奔月 |
 
 ### 章內結構 (Duolingo-nested,每章 24 lessons,每 lesson 5-15 Q)
-- 3 outer-prologue lessons(Mochi 跳牆 / 花花 / 奶奶開書)
+- 3 outer-prologue lessons(Mochi 跳牆 / {dogName} / 奶奶開書)
 - 12 main-story lessons(主菜童話)
 - 6-9 aesop-side lessons(2-3 個短篇 × 3-4 lessons)
 - 1-2 outer-outro lessons(Goodnight)

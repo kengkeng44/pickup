@@ -11,6 +11,7 @@ import { speak, stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 import { createSpeakerButton } from '../ui/SpeakerButton';
 import { applyCatName } from '../data/catName';
+import { applyDogName } from '../data/dogName';
 
 const COLOR_AMBER = '#e7a44a';
 const COLOR_AMBER_DARK = '#b07a2a';
@@ -212,7 +213,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     // chunk on sentence boundaries. Keep punctuation attached.
     const sentences: string[] = [];
     // v1.9.52: inject player's cat name into narration {catName} placeholders.
-    applyCatName(meta.narration).split(/\n+/).forEach((chunk) => {
+    applyDogName(applyCatName(meta.narration)).split(/\n+/).forEach((chunk) => {
       const trimmed = chunk.trim();
       if (!trimmed) return;
       const parts = trimmed.match(/[^.!?…]+[.!?…]+|\S+/g);
