@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { ClozeQuestionSchema, type ClozeQuestion } from './sentences';
+import { type ClozeQuestion } from './sentences';
+import { FourOptionShape } from './lessons';
 
 /**
  * ScenarioQuestion — A2 cloze question pinned to a real-world setting
@@ -18,8 +19,14 @@ export const ScenarioIdSchema = z.enum([
 
 export type ScenarioId = z.infer<typeof ScenarioIdSchema>;
 
-// Extend the existing ClozeQuestion shape with the scenario tag.
-export const ScenarioQuestionSchema = ClozeQuestionSchema.extend({
+// Extend the 4-option base shape with the scenario tag. Scenarios are
+// authored as plain MC questions (no tap-tiles / tap-pairs), so the
+// 4-option subset is the right base — keeps `.options` / `.correctIndex`
+// directly accessible on the inferred type without union narrowing.
+// v2.0: stamp `type: 'listen-mc'` by default so the entry round-trips
+// through the new discriminated `QuestionSchema` when needed.
+export const ScenarioQuestionSchema = FourOptionShape.extend({
+  type: z.literal('listen-mc').default('listen-mc'),
   scenario: ScenarioIdSchema,
   scenarioOrder: z.number().int().min(0).max(9),
 });
@@ -62,6 +69,8 @@ export function questionsForScenario(
  * Use this when passing into store / UI code that expects ClozeQuestion.
  */
 export function toClozeQuestion(q: ScenarioQuestion): ClozeQuestion {
+  // v2.0: explicit `type` discriminator stamped on so the returned shape
+  // matches the new discriminated `ClozeQuestion` (4-option subset).
   return {
     id: q.id,
     level: q.level,
@@ -70,6 +79,7 @@ export function toClozeQuestion(q: ScenarioQuestion): ClozeQuestion {
     correctIndex: q.correctIndex,
     explanationZh: q.explanationZh,
     tags: q.tags,
+    type: 'listen-mc',
   };
 }
 

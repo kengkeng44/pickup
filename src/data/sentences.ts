@@ -5,61 +5,100 @@ import { z } from 'zod';
  *
  * sentences.json is an array of these. The blank is rendered as ___ in
  * the source string; the UI replaces it with a visual gap.
+ *
+ * v2.0: ClozeLevelSchema + DifficultySchema canonical definitions moved
+ * to `./lessons.ts` to break a circular dependency. Re-exported here so
+ * existing import paths (`from './sentences'`) keep working unchanged.
  */
-export const ClozeLevelSchema = z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+export {
+  ClozeLevelSchema,
+  DifficultySchema,
+  type ClozeLevel,
+  type Difficulty,
+} from './lessons';
+import type { ClozeLevel, Difficulty } from './lessons';
+
+// v2.0: ClozeQuestionSchema now aliases the new discriminated union.
+// Free-practice and scenario modes can still use the loose 4-option types.
+// tap-tiles / tap-pairs are admissible but free-practice UI only handles 4-option types.
+//
+// Legacy JSON data (public/sentences.json + public/scenarios.json) was written
+// without an explicit `type` field — under v1.x ClozeQuestionSchema it was
+// `type: ...optional()` and defaulted to `'listen-mc'` at the UI layer. The
+// new discriminated union REQUIRES `type` as the discriminator, so we
+// preprocess incoming data here: if `type` is missing on an array entry, we
+// stamp it as `'listen-mc'` before discriminated-union parsing runs.
+//
+// TypeScript note: `ClozeQuestion` (the type) is a structurally permissive
+// shape with all type-specific payload fields marked optional. We can't
+// alias it to the new discriminated `Question` union because v1.x code in
+// PlayScene / ClozeUI / runStore reads both 4-option fields (options /
+// correctIndex) and tap-tiles / tap-pairs fields (tiles / correctOrder /
+// pairs) off the same `round` object based on a runtime `.type` check —
+// the discriminated union would narrow on access and break those reads.
+// Runtime validation still goes through the strict `ClozeQuestionSchema`.
+import { QuestionSchema, type Question } from './lessons';
+
+export { QuestionSchema as ClozeQuestionSchema } from './lessons';
 
 /**
- * Player-facing difficulty tier (v0.11). Coarse 3-bucket grouping that
- * maps to mainstream exam vocab pools:
- *   easy   — A1-A2 (TOEIC ~600, Cambridge KET)
- *   medium — A2-B1 (TOEIC 700-800, IELTS 5.5, Cambridge PET)  [default]
- *   hard   — B1-B2 (TOEIC 850+, IELTS 6.5+, FCE, 學測)
- * We deliberately cap at B2 — no C1+ content (would push outside
- * mainstream exam pool the user is preparing for).
+ * Backwards-compatible `ClozeQuestion` type. v1.x callsites in PlayScene /
+ * ClozeUI / runStore read both 4-option fields (`options`/`correctIndex`)
+ * and tap-tiles / tap-pairs fields (`tiles`/`correctOrder`/`pairs`) off
+ * the same `round` object based on a runtime `type` check. The new
+ * discriminated `Question` union narrows on access, which would break
+ * those callsites — so we expose a structurally permissive shape here
+ * (all type-specific payload fields optional). Runtime validation still
+ * goes through the strict discriminated `ClozeQuestionSchema`.
  */
-export const DifficultySchema = z.enum(['easy', 'medium', 'hard']);
-export type Difficulty = z.infer<typeof DifficultySchema>;
+export type ClozeQuestion = {
+  id: string;
+  level: ClozeLevel;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  sentence: string;
+  explanationZh: string;
+  tags?: string[];
+  type?: Question['type'];
+  question?: string;
+  // 4-option fields (listen-mc / listen-emoji / listen-comprehension /
+  // read-mc-with-audio / type-what-you-hear).
+  // Required on the type for backwards-compat with v1.x callsites that
+  // read `.options` / `.correctIndex` without a null check. Tap-tiles /
+  // tap-pairs entries omit these at runtime, which is unsafe but matches
+  // v1.x behavior — guard at the `.type` discriminator level in callers.
+  options: [string, string, string, string];
+  correctIndex: 0 | 1 | 2 | 3;
+  // tap-tiles fields
+  tiles?: string[];
+  correctOrder?: number[];
+  // tap-pairs fields
+  pairs?: { left: string; right: string }[];
+};
 
-export const ClozeQuestionSchema = z.object({
-  id: z.string(),
-  level: ClozeLevelSchema,
-  /** v0.11 — optional during migration; falls back to 'medium' if absent. */
-  difficulty: DifficultySchema.optional(),
-  sentence: z.string(),
-  options: z.tuple([z.string(), z.string(), z.string(), z.string()]),
-  correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
-  explanationZh: z.string(),
-  tags: z.array(z.string()).optional(),
-  /** v1.8.x: question type. Optional — legacy data defaults to MC. */
-  type: z.enum([
-    'listen-mc',
-    'listen-emoji',
-    'listen-comprehension',
-    'read-mc-with-audio',
-    'tap-tiles',
-    'tap-pairs',
-    'type-what-you-hear',   // v1.8.9: Duolingo "Type what you hear" — text input
-  ]).optional(),
-  /** v1.8.0: comprehension prompt shown above the options. */
-  question: z.string().optional(),
-  /** v1.8.3 tap-tiles: shuffled word tile bank (may include distractors). */
-  tiles: z.array(z.string()).optional(),
-  /** v1.8.3 tap-tiles: indices into `tiles` in the correct order. */
-  correctOrder: z.array(z.number().int()).optional(),
-  /** v1.8.3 tap-pairs: 4 pairs of EN ↔ translation. */
-  pairs: z.array(z.object({
-    left: z.string(),
-    right: z.string(),
-  })).optional(),
-});
-
-export const ClozeQuestionsSchema = z.array(ClozeQuestionSchema);
-
-export type ClozeLevel = z.infer<typeof ClozeLevelSchema>;
-export type ClozeQuestion = z.infer<typeof ClozeQuestionSchema>;
+/**
+ * Array schema for cloze pools. Preprocesses each entry to default
+ * `type: 'listen-mc'` when absent — keeps existing JSON content
+ * compatible with the new discriminated union without a data migration.
+ *
+ * Note: parsed result is the broader `Question[]`; callers that want the
+ * narrower `ClozeQuestion[]` cast (free-practice / scenario data is
+ * authored without tap-tiles / tap-pairs by convention).
+ */
+export const ClozeQuestionsSchema = z.preprocess(
+  (val) => {
+    if (!Array.isArray(val)) return val;
+    return val.map((entry) => {
+      if (entry && typeof entry === 'object' && !('type' in entry)) {
+        return { ...entry, type: 'listen-mc' };
+      }
+      return entry;
+    });
+  },
+  z.array(QuestionSchema),
+);
 
 /** Difficulty of a question — defaults to 'medium' if not tagged. */
-export function difficultyOf(q: ClozeQuestion): Difficulty {
+export function difficultyOf(q: { difficulty?: Difficulty }): Difficulty {
   return q.difficulty ?? 'medium';
 }
 
@@ -70,8 +109,13 @@ export function difficultyOf(q: ClozeQuestion): Difficulty {
  * empty round.
  *
  * Returns a NEW array (not a mutation of input).
+ *
+ * Generic constraint loosened in v2.0 from `T extends ClozeQuestion` to
+ * `T extends { difficulty?: Difficulty }` so story + scenario question
+ * shapes (which have different required fields) can pass through without
+ * structural-typing complaints.
  */
-export function filterByDifficulty<T extends ClozeQuestion>(
+export function filterByDifficulty<T extends { difficulty?: Difficulty }>(
   pool: T[],
   difficulty: Difficulty
 ): T[] {
@@ -104,7 +148,12 @@ export async function loadSentences(): Promise<ClozeQuestion[]> {
     throw new Error(`Failed to fetch sentences.json: ${res.status}`);
   }
   const raw = await res.json();
-  const parsed = ClozeQuestionsSchema.parse(raw);
+  // v2.0: ClozeQuestionsSchema accepts the broad `Question` union; we
+  // narrow to the 4-option subset because /sentences.json is authored as
+  // plain MC questions (no tap-tiles / tap-pairs). Cast through unknown
+  // because the discriminated-union narrowing isn't expressible at the
+  // .parse() boundary.
+  const parsed = ClozeQuestionsSchema.parse(raw) as unknown as ClozeQuestion[];
   cached = parsed;
   return parsed;
 }

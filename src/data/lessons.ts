@@ -1,6 +1,15 @@
 import { z } from 'zod';
 
-import { ClozeLevelSchema, DifficultySchema } from './sentences';
+// v2.0: ClozeLevelSchema + DifficultySchema previously lived in
+// `./sentences.ts`, but `sentences.ts` now re-exports `QuestionSchema`
+// from this module. To break the resulting circular dependency the
+// canonical definitions moved here; `./sentences` re-exports them so
+// existing import paths keep working.
+export const ClozeLevelSchema = z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']);
+export type ClozeLevel = z.infer<typeof ClozeLevelSchema>;
+
+export const DifficultySchema = z.enum(['easy', 'medium', 'hard']);
+export type Difficulty = z.infer<typeof DifficultySchema>;
 
 // Shared base fields for all question types
 const QuestionBaseFields = {
@@ -13,8 +22,11 @@ const QuestionBaseFields = {
   tags: z.array(z.string()).optional(),
 };
 
-// 4-option multiple choice shape (5 types share this)
-const FourOptionShape = z.object({
+// 4-option multiple choice shape (5 types share this).
+// Exported so legacy schemas in `./scenarios` and `./storyKitten` can
+// `.extend()` with their own discriminator-free additions (scenario id,
+// chapter id, etc) without falling foul of discriminated-union restrictions.
+export const FourOptionShape = z.object({
   ...QuestionBaseFields,
   options: z.tuple([z.string(), z.string(), z.string(), z.string()]),
   correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),

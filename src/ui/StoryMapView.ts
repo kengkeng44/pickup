@@ -582,8 +582,14 @@ export class StoryMapView {
         alignItems: 'flex-start',
         gap: '10px',
       });
-      // Speak this sentence (use full sentence with answer filled)
-      const correctWord = q.options[q.correctIndex] ?? '';
+      // Speak this sentence (use full sentence with answer filled).
+      // v2.0: options/correctIndex are optional on StoryQuestion now
+      // (tap-tiles / tap-pairs don't carry them) — fall back to the
+      // raw sentence for those types.
+      const correctWord =
+        q.options && q.correctIndex !== undefined
+          ? (q.options[q.correctIndex] ?? '')
+          : '';
       const audioText = q.sentence.replace(/_{2,}/g, correctWord);
       // v1.9.25 audit #5: shared SpeakerButton component.
       const speakerBtn = createSpeakerButton({

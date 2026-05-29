@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ClozeQuestionSchema, type ClozeQuestion } from './sentences';
+import { ClozeLevelSchema, DifficultySchema, type ClozeQuestion } from './sentences';
 
 // Production v1.0: chapters unlock progressively (Ch1 free, rest via earned progression).
 // Set true during dev to test all chapters without playing through.
@@ -46,16 +46,37 @@ export const QuestionTypeSchema = z.enum([
 ]);
 export type QuestionType = z.infer<typeof QuestionTypeSchema>;
 
-export const StoryQuestionSchema = ClozeQuestionSchema.extend({
+// v2.0: StoryQuestionSchema kept as a permissive z.object (NOT the new
+// discriminated union) so legacy story-kitten.json content with mixed
+// 4-option + tap-tiles + tap-pairs entries continues to parse without a
+// data migration. Free-practice / scenario flows go through the new
+// `ClozeQuestionSchema` (= `QuestionSchema`) discriminated union; story
+// flow stays on this looser shape and converts via `toClozeQuestion`.
+export const StoryQuestionSchema = z.object({
+  id: z.string(),
+  level: ClozeLevelSchema,
+  difficulty: DifficultySchema.optional(),
+  sentence: z.string(),
+  options: z.tuple([z.string(), z.string(), z.string(), z.string()]).optional(),
+  correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]).optional(),
+  explanationZh: z.string(),
+  tags: z.array(z.string()).optional(),
+  /** v1.8.0: optional. Defaults to 'listen-mc' if absent (legacy data). */
+  type: QuestionTypeSchema.optional(),
+  /** v1.8.0: comprehension prompt shown above the options. */
+  question: z.string().optional(),
+  /** v1.8.3 tap-tiles: shuffled word tile bank. */
+  tiles: z.array(z.string()).optional(),
+  /** v1.8.3 tap-tiles: indices into `tiles` in the correct order. */
+  correctOrder: z.array(z.number().int()).optional(),
+  /** v1.8.3 tap-pairs: 4 pairs of EN ↔ translation. */
+  pairs: z.array(z.object({
+    left: z.string(),
+    right: z.string(),
+  })).optional(),
   chapter: ChapterIdSchema,
   questionInChapter: z.number().int().min(1).max(8),
   storyBeat: z.string().optional(),
-  /** v1.8.0: optional. Defaults to 'listen-mc' if absent (legacy data). */
-  type: QuestionTypeSchema.optional(),
-  /** v1.8.0: comprehension prompt shown above the options.
-   *  e.g. "What is the kitten feeling?" or "Choose the emoji that matches."
-   *  Absent for plain listen-mc / read-mc-with-audio. */
-  question: z.string().optional(),
 });
 
 export const StoryQuestionsSchema = z.array(StoryQuestionSchema);
@@ -95,7 +116,13 @@ export function questionsForChapter(
 }
 
 export function toClozeQuestion(q: StoryQuestion): ClozeQuestion {
-  return {
+  // v2.0: ClozeQuestion is now narrowed to the 4-option subset of the
+  // discriminated `Question` union. Story data may include tap-tiles /
+  // tap-pairs entries that lack `options` / `correctIndex` — those are
+  // still passed through downstream where PlayScene narrows on `.type`
+  // before reaching into tap-tiles / tap-pairs payload. Cast through
+  // `unknown` because the runtime shape is intentionally a superset.
+  const out = {
     id: q.id,
     level: q.level,
     sentence: q.sentence,
@@ -103,13 +130,14 @@ export function toClozeQuestion(q: StoryQuestion): ClozeQuestion {
     correctIndex: q.correctIndex,
     explanationZh: q.explanationZh,
     tags: q.tags,
-    type: q.type,
+    type: q.type ?? 'listen-mc',
     question: q.question,
     // v1.8.3: also carry tap-tiles / tap-pairs payload through.
-    tiles: (q as unknown as { tiles?: string[] }).tiles,
-    correctOrder: (q as unknown as { correctOrder?: number[] }).correctOrder,
-    pairs: (q as unknown as { pairs?: { left: string; right: string }[] }).pairs,
+    tiles: q.tiles,
+    correctOrder: q.correctOrder,
+    pairs: q.pairs,
   };
+  return out as unknown as ClozeQuestion;
 }
 
 // ─── Chapter metadata: title, theme, kitten state, NPC mascot ───────────────
