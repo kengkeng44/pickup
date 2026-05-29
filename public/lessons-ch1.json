@@ -1,0 +1,140 @@
+[
+  {
+    "id": "kt-ch1-l1",
+    "chapter": 1,
+    "lessonInChapter": 1,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{catName} 跳上矮牆",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I am {catName}. I am a stray cat.",
+        "question": "Which word did you hear?",
+        "options": ["stray", "stay", "straw", "story"],
+        "correctIndex": 0,
+        "explanationZh": "stray = 流浪的(沒有固定家的)。stay 是留下、straw 是吸管、story 是故事,母音相近要靠尾音分辨。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I jump on the low wall.",
+        "question": "Which verb?",
+        "options": ["jump", "walk", "run", "sit"],
+        "correctIndex": 0,
+        "explanationZh": "jump = 跳。Mochi 跳上矮牆,因為矮牆好上去。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The wall is low and warm.",
+        "question": "How is the wall?",
+        "options": ["low", "high", "long", "soft"],
+        "correctIndex": 0,
+        "explanationZh": "low = 矮的。日間太陽曬過,牆還有溫熱。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l2",
+    "chapter": 1,
+    "lessonInChapter": 2,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{dogName} 搖尾巴迎接",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} wags his tail.",
+        "question": "What does {dogName} do?",
+        "options": ["wag", "bark", "jump", "run"],
+        "correctIndex": 0,
+        "explanationZh": "wag = 搖(尾巴)。柴犬看到我來都會搖尾巴。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He is happy to see me.",
+        "question": "How does he feel?",
+        "options": ["happy", "sad", "angry", "tired"],
+        "correctIndex": 0,
+        "explanationZh": "happy = 開心。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I sit beside him.",
+        "question": "Where do I sit?",
+        "options": ["beside", "behind", "before", "below"],
+        "correctIndex": 0,
+        "explanationZh": "beside = 在旁邊。我跟 {dogName} 並排坐著,一起聽故事。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l3",
+    "chapter": 1,
+    "lessonInChapter": 3,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "奶奶打開故事書",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma opens an old book.",
+        "question": "What does she open?",
+        "options": ["book", "door", "bag", "box"],
+        "correctIndex": 0,
+        "explanationZh": "book = 書。奶奶從膝上打開故事書。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Tonight she tells a tale.",
+        "question": "What does she tell?",
+        "options": ["tale", "song", "name", "joke"],
+        "correctIndex": 0,
+        "explanationZh": "tale = 故事(古字 = story)。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "We listen quietly.",
+        "question": "How do we listen?",
+        "options": ["quietly", "loudly", "quickly", "slowly"],
+        "correctIndex": 0,
+        "explanationZh": "quietly = 安靜地。{dogName} 跟我都安靜聽。",
+        "tags": ["story", "ch1", "prologue", "smoke"]
+      }
+    ]
+  }
+]
