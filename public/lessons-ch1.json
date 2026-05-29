@@ -1048,5 +1048,215 @@
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
       }
     ]
+  },
+  {
+    "id": "kt-ch1-l16",
+    "chapter": 1,
+    "lessonInChapter": 16,
+    "segmentType": "aesop-side",
+    "storyId": "ant-and-grasshopper",
+    "storyBeat": "奶奶說「再講一個小故事」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l16-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"I have another story for you.\"",
+        "question": "Which word did you hear?",
+        "options": ["another", "other", "an", "and"],
+        "correctIndex": 0,
+        "explanationZh": "another = 再一個。奶奶今晚要多講一個小故事給我們聽。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l16-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It is a short story about summer.",
+        "question": "Which season did you hear?",
+        "options": ["summer", "winter", "spring", "autumn"],
+        "correctIndex": 0,
+        "explanationZh": "summer = 夏天。這個小故事發生在熱熱的夏天。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l16-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "In the green grass live an ant and a grasshopper.",
+        "question": "Type the word you hear.",
+        "options": ["grass", "glass", "grace", "gross"],
+        "correctIndex": 0,
+        "explanationZh": "grass = 草。綠綠的草叢裡住著一隻螞蟻和一隻蚱蜢。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l16-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The grasshopper loves to sing.",
+        "question": "How does the grasshopper feel?",
+        "options": ["🎵 happy", "😴 sleepy", "😟 worried", "😡 angry"],
+        "correctIndex": 0,
+        "explanationZh": "love to sing = 喜歡唱歌。蚱蜢整天開開心心地哼歌。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l16-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They live together in one field.",
+        "question": "How do they live?",
+        "options": ["together", "alone", "apart", "around"],
+        "correctIndex": 0,
+        "explanationZh": "together = 一起。螞蟻和蚱蜢住在同一片草地上,是鄰居。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l17",
+    "chapter": 1,
+    "lessonInChapter": 17,
+    "segmentType": "aesop-side",
+    "storyId": "ant-and-grasshopper",
+    "storyBeat": "夏天蚱蜢唱歌,螞蟻工作",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l17-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The grasshopper sings all day.",
+        "question": "What does the grasshopper do?",
+        "options": ["sings", "sleeps", "swims", "sits"],
+        "correctIndex": 0,
+        "explanationZh": "sings all day = 整天唱歌。蚱蜢一邊跳一邊唱,玩個不停。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l17-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The ant works very hard.",
+        "question": "How does the ant work?",
+        "options": ["hard", "soft", "slow", "sad"],
+        "correctIndex": 0,
+        "explanationZh": "work hard = 努力工作。螞蟻一趟一趟搬東西,從早忙到晚。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l17-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The ant carries food to her home.",
+        "question": "Type the word you hear.",
+        "options": ["food", "foot", "good", "wood"],
+        "correctIndex": 0,
+        "explanationZh": "food = 食物。螞蟻一粒一粒地把食物搬回家存起來。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l17-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The grasshopper says, \"Come sing with me!\"",
+        "question": "What does the grasshopper want?",
+        "options": ["to sing together", "to fight", "to eat", "to sleep"],
+        "correctIndex": 0,
+        "explanationZh": "蚱蜢想找螞蟻一起玩,一起唱歌,不想一個人。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-comprehension"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l17-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The ant says, \"I cannot. I must save food for winter.\"",
+        "question": "How is the ant?",
+        "options": ["💪 busy", "😴 tired", "😢 sad", "😡 angry"],
+        "correctIndex": 0,
+        "explanationZh": "save food for winter = 為冬天存糧。螞蟻沒空玩,她在為以後做準備。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch1-l18",
+    "chapter": 1,
+    "lessonInChapter": 18,
+    "segmentType": "aesop-side",
+    "storyId": "ant-and-grasshopper",
+    "storyBeat": "冬天來,蚱蜢餓,螞蟻飽",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l18-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Winter comes. The grass is gone.",
+        "question": "What happens to the grass?",
+        "options": ["gone", "here", "wet", "warm"],
+        "correctIndex": 0,
+        "explanationZh": "gone = 不見了。冬天一到,綠草都枯了,什麼都沒了。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l18-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The grasshopper has no food.",
+        "question": "How much food does the grasshopper have?",
+        "options": ["no", "some", "many", "much"],
+        "correctIndex": 0,
+        "explanationZh": "no food = 沒有食物。夏天只顧唱歌,現在什麼都沒存到。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-mc"]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch1-l18-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He is cold and hungry.",
+        "question": "Type the word you hear.",
+        "options": ["hungry", "angry", "hurry", "honey"],
+        "correctIndex": 0,
+        "explanationZh": "hungry = 餓。蚱蜢又冷又餓,在雪地裡發抖。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "type-what-you-hear"]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l18-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The ant is warm and full inside her home.",
+        "question": "How does the ant feel?",
+        "options": ["🥰 cozy", "🥶 freezing", "😟 worried", "😴 sleepy"],
+        "correctIndex": 0,
+        "explanationZh": "warm and full = 又暖又飽。螞蟻夏天的辛苦,讓她現在不怕冬天。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l18-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"The ant was wise. The grasshopper learned.\"",
+        "question": "What is the lesson?",
+        "options": ["work hard before winter", "sing more songs", "stay outside", "make friends with bugs"],
+        "correctIndex": 0,
+        "explanationZh": "wise = 有智慧的。奶奶輕輕說:該玩的時候玩,該準備的時候也別忘了準備。",
+        "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-comprehension"]
+      }
+    ]
   }
 ]
