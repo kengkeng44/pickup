@@ -22,6 +22,10 @@ const QuestionBaseFields = {
   question: z.string().optional(),
   explanationZh: z.string(),
   tags: z.array(z.string()).optional(),
+  // v2.0.B.25: who's speaking the sentence — dispatches to different TTS
+  // voice per speaker. 'narrator' is the default (uses奶奶 voice). Mochi
+  // uses a per-gender voice (player-selected). Hana uses a young voice.
+  speaker: z.enum(['grandma', 'mochi', 'hana', 'narrator']).optional(),
 };
 
 // 4-option multiple choice shape (5 types share this).
