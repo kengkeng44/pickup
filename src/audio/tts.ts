@@ -85,24 +85,43 @@ function speakWebSpeech(text: string, lang: string): void {
   }
 }
 
+function debugLog(msg: string) {
+  if (typeof document === 'undefined') return;
+  console.log('[TTS]', msg);
+  let el = document.getElementById('pickup-tts-debug');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'pickup-tts-debug';
+    el.style.cssText = 'position:fixed;top:8px;right:8px;background:rgba(0,0,0,0.88);color:#fff;padding:6px 10px;border-radius:8px;font:11px/1.3 monospace;z-index:99999;max-width:220px;pointer-events:none;word-break:break-all;';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg.slice(0, 200);
+}
+
 export function speak(text: string, lang = 'en-US'): void {
   const cleaned = cleanText(text);
-  if (!cleaned) return;
+  if (!cleaned) {
+    debugLog('speak: empty text');
+    return;
+  }
 
-  stopSpeaking(); // cancel any in-flight playback
+  stopSpeaking();
 
-  // Sync MP3 lookup — needed to preserve iOS Safari autoplay user-gesture
-  // link. Lookup map is eagerly fetched at module load; by the time user
-  // taps a speaker (post-render, post-fetch), map should be populated.
-  // If map not ready (very early click), fall through to Web Speech.
+  const mapSize = audioLookup.size;
   const audioId = audioLookup.get(cleaned);
+
   if (audioId && typeof Audio !== 'undefined') {
     try {
-      const audio = new Audio(`/audio/lessons/${audioId}.mp3`);
+      const url = `/audio/lessons/${audioId}.mp3`;
+      debugLog(`MP3 try: ${audioId} map=${mapSize}`);
+      const audio = new Audio(url);
       audio.playbackRate = 1.0;
       audio.volume = 1.0;
       activeAudio = audio;
-      audio.play().catch(() => {
+      audio.play().then(() => {
+        debugLog(`MP3 play OK: ${audioId}`);
+      }).catch((err) => {
+        debugLog(`MP3 play FAIL: ${err?.name || 'err'} → WebSpeech`);
         if (activeAudio === audio) activeAudio = null;
         speakWebSpeech(cleaned, lang);
       });
@@ -110,9 +129,11 @@ export function speak(text: string, lang = 'en-US'): void {
         if (activeAudio === audio) activeAudio = null;
       });
       return;
-    } catch {
-      // construction failed — fall through to Web Speech
+    } catch (e: any) {
+      debugLog(`MP3 ctor FAIL: ${e?.message?.slice(0,40)}`);
     }
+  } else {
+    debugLog(`no mp3id (map=${mapSize}) txt=${cleaned.slice(0,40)} → WebSpeech`);
   }
   speakWebSpeech(cleaned, lang);
 }
