@@ -259,10 +259,11 @@ export class StoryMapView {
     const shiba = document.createElement('div');
     applyStyle(shiba, {
       position: 'absolute',
-      // Lower-mid area of V2 24-button path (around top 1200-1400).
-      // dx positive = right side of map curve.
-      left: `${CONTAINER_W / 2 + 40}px`,
-      top: '1300px',
+      // User-drawn placement (2026-05-30): right-side curve middle,
+      // around node 3-5 vertical (top ~480px), well separated from
+      // grandma anchor in upper-left.
+      left: `${CONTAINER_W / 2 + 60}px`,
+      top: '480px',
       width: '80px',
       height: '90px',
       pointerEvents: 'none',

@@ -170,6 +170,15 @@ export class LessonScene extends Phaser.Scene {
     this.mascot?.setAnim('idle');
     this.renderHud();
 
+    // v2.0.B.18: auto-speak the sentence on Q enter — same UX as v1.7.11
+    // PlayScene listen mode. setTimeout(80) delays just enough for UI to
+    // settle but keeps within iOS Safari's ~5s user-gesture window
+    // (user clicked map node to enter this lesson — chain still warm).
+    const sentenceForSpeak = String((q as any).sentence ?? '').replace(/_{2,}/g, '');
+    if (sentenceForSpeak) {
+      setTimeout(() => speak(sentenceForSpeak), 80);
+    }
+
     // v2.0.A.7: dispatch by discriminated `q.type` — mirrors
     // PlayScene.ts:473-520 routing pattern. Without this, tap-tiles /
     // tap-pairs / type-what-you-hear fall through to ClozeUI's 4-option
