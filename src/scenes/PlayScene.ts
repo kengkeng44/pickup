@@ -360,23 +360,36 @@ export class PlayScene extends Phaser.Scene {
       const correctWord = round.options[round.correctIndex] ?? '';
       const sentenceText = round.sentence.replace(/_{2,}/g, correctWord);
       const sentenceEl = this.hud.getSentenceElement();
-      // v2.0.B.61: per memory rule feedback-pickup-listening-format —
-      // killed the big blue "Tap to listen" pill. Listening UI now: small
-      // amber speaker prefix + question prompt on right (always replay-able).
-      // If sentence contains `___` (cloze), show sentence-with-visible-blank
-      // below; pure-comprehension questions show only the prompt (sentence
-      // hidden to preserve listening challenge).
-      const hasBlank = /_{2,}/.test(round.sentence);
-      let sentenceLineHtml = '';
-      if (hasBlank) {
-        const underscoreLen = Math.max(correctWord.length, 4);
-        const blankHtml = `<span style="display:inline-block;border-bottom:2.5px solid #b07a2a;min-width:${underscoreLen * 12}px;height:1.2em;vertical-align:-2px;margin:0 4px;"></span>`;
-        const sHtml = round.sentence.replace(/_{2,}/, blankHtml).split(/(\s+)/).map(tok => {
-          if (/^\s+$/.test(tok) || tok === '' || tok.includes('<span')) return tok;
-          return `<span class="word">${tok}</span>`;
-        }).join('');
-        sentenceLineHtml = `<div style="margin-top:10px;font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.7;">${sHtml}</div>`;
-      }
+      // v2.0.B.63: per user "聽力裡面講什麼 題目框就有幾格_". Render N word-blanks
+      // matching word count of the FULL audio sentence (sentenceText). Tap
+      // any blank → reveal real sentence (cloze ___ stays styled blank for
+      // Q3/Q5/Q7 listen-mc). Word-tap on reveal shows Chinese via WordHint.
+      const sourceForTokens = round.sentence; // preserves __ position for cloze
+      const tokens = sourceForTokens.split(/(\s+)/);
+      const isWord = (t: string) => /\S/.test(t);
+      const isCloze = (t: string) => /_{2,}/.test(t);
+      const blankSpan = (len: number, cloze: boolean) =>
+        `<span style="display:inline-block;border-bottom:${cloze ? '3px' : '2px'} solid ${cloze ? '#b07a2a' : '#c8a878'};min-width:${len}px;height:1.1em;vertical-align:-2px;margin:0 2px;border-radius:1px;"></span>`;
+      const blanksHtml = tokens.map(tok => {
+        if (!isWord(tok)) return tok;
+        // Strip trailing punctuation for length calc, keep it visible after
+        const m = tok.match(/^(.+?)([.,!?;:'"]+)?$/);
+        const word = m?.[1] ?? tok;
+        const punct = m?.[2] ?? '';
+        const cloze = isCloze(word);
+        const wordLen = cloze ? 8 : Math.min(Math.max(word.length, 3), 8);
+        return blankSpan(wordLen * 8, cloze) + (punct ? `<span style="color:#8b6f4a;font-weight:800;">${punct}</span>` : '');
+      }).join('');
+      const realHtml = tokens.map(tok => {
+        if (!isWord(tok)) return tok;
+        const m = tok.match(/^(.+?)([.,!?;:'"]+)?$/);
+        const word = m?.[1] ?? tok;
+        const punct = m?.[2] ?? '';
+        if (isCloze(word)) {
+          return blankSpan(8 * 8, true) + (punct ? `<span style="color:#8b6f4a;font-weight:800;">${punct}</span>` : '');
+        }
+        return `<span class="word">${word}</span>${punct}`;
+      }).join('');
       if (sentenceEl) {
         sentenceEl.innerHTML = `
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
@@ -390,15 +403,25 @@ export class PlayScene extends Phaser.Scene {
               <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
             </button>
             <div style="flex:1 1 auto;min-width:0;">
-              ${round.question ? `<div style="font-size:15px;color:#3c2a1c;font-weight:800;line-height:1.5;">${round.question}</div>` : ''}
-              ${sentenceLineHtml}
+              ${round.question ? `<div style="font-size:15px;color:#3c2a1c;font-weight:800;line-height:1.5;margin-bottom:8px;">${round.question}</div>` : ''}
+              <div class="pickup-listen-sentence" data-revealed="false" style="
+                font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.9;
+                cursor:pointer;user-select:none;
+                max-height:120px;overflow:hidden;
+              ">${blanksHtml}</div>
             </div>
           </div>
         `;
         const spk = sentenceEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
         spk?.addEventListener('click', (e) => { e.preventDefault(); speak(sentenceText); });
-        // Wire word-tap-to-translate on the sentence (if cloze blank shown).
-        if (hasBlank) wireSentenceHints(sentenceEl);
+        const sentRow = sentenceEl.querySelector('.pickup-listen-sentence') as HTMLDivElement | null;
+        sentRow?.addEventListener('click', () => {
+          if (sentRow.getAttribute('data-revealed') === 'true') return;
+          sentRow.setAttribute('data-revealed', 'true');
+          sentRow.innerHTML = realHtml;
+          sentRow.style.cursor = 'default';
+          wireSentenceHints(sentRow);
+        });
       }
       // v2.0.B.51: removed both auto-speak setTimeout AND the "Audio
       // unavailable — ..." fallback microcopy per user feedback ("Audio
