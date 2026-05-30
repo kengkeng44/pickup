@@ -86,6 +86,10 @@ export interface RunState {
   /** v0.8: in story mode, set to true after a WRONG answer to indicate
    * the player must retry the same round. Cleared by retryRound(). */
   awaitingRetry: boolean;
+  /** v2.0.B.55: per-round wrong-attempt count. Reset on startRound.
+   * After 2 wrong attempts story mode auto-reveals (instead of infinite
+   * blindRetry). Memory rule: feedback-pickup-retry-reveal. */
+  wrongAttempts: number;
 
   /** ms timestamp (Date.now) at run start — used by EndScene for total time. */
   runStartedAt: number;
@@ -213,6 +217,7 @@ export const useRunStore = create<RunState>((set, get) => ({
   lastResult: null,
   answered: false,
   awaitingRetry: false,
+  wrongAttempts: 0,
   runStartedAt: 0,
   mode: 'free',
   scenario: null,
@@ -360,6 +365,7 @@ export const useRunStore = create<RunState>((set, get) => ({
       lastResult: null,
       answered: false,
       awaitingRetry: false,
+      wrongAttempts: 0, // v2.0.B.55: reset retry counter per new round
     });
   },
 
@@ -373,6 +379,7 @@ export const useRunStore = create<RunState>((set, get) => ({
       bestStreak,
       answered,
       mode,
+      wrongAttempts,
     } = get();
     if (!round || answered) {
       return {
@@ -440,14 +447,19 @@ export const useRunStore = create<RunState>((set, get) => ({
       streak: newStreak,
       bestStreak: Math.max(bestStreak, newStreak),
       answered: true,
-      // In story mode, a wrong answer leaves the player awaiting a retry.
-      awaitingRetry: isStory && !correct,
+      // v2.0.B.55: 2-strike reveal. After 2 wrong attempts story mode
+      // auto-reveals the correct answer (awaitingRetry false → reveal
+      // panel) instead of forcing infinite blindRetry. wrongAttempts
+      // increments on wrong; correct answer clears.
+      awaitingRetry: isStory && !correct && wrongAttempts < 1,
+      wrongAttempts: correct ? 0 : wrongAttempts + 1,
       lastResult: result,
     });
     return result;
   },
 
   retryRound: () => {
+    // Keep wrongAttempts (the cumulative count) — only clear answered/retry flags.
     set({ answered: false, awaitingRetry: false, lastResult: null });
   },
 

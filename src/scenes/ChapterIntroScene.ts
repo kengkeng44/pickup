@@ -325,65 +325,12 @@ export class ChapterIntroScene extends Phaser.Scene {
       row.appendChild(text);
       narrationWrap.appendChild(row);
     });
-    // v2.0.B.38: ONE paw button. iOS Safari audio chain unreliable —
-    // switched to single CONCATENATED full-narration MP3 (no chain). User
-    // also asked simplify: no subtitle toggle. Subtitles always visible below.
-    applyStyle(narrationWrap, { display: 'block' }); // always shown now
-    const startBtn = document.createElement('button');
-    startBtn.type = 'button';
-    startBtn.setAttribute('aria-label', '播放故事');
-    applyStyle(startBtn, {
-      margin: '8px auto 14px',
-      padding: '0',
-      width: '76px',
-      height: '76px',
-      background: COLOR_AMBER,
-      border: 'none',
-      borderRadius: '50%',
-      color: '#fff',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxShadow: '0 4px 0 #b07a2a',
-    });
-    const pawIcon = document.createElement('img');
-    pawIcon.src = '/mascots/icon-paw.webp';
-    pawIcon.alt = '';
-    applyStyle(pawIcon, {
-      width: '46px',
-      height: '46px',
-      display: 'block',
-      filter: 'brightness(0) invert(1)', // make paw white on amber
-    });
-    startBtn.appendChild(pawIcon);
-    // Track playing state
-    let isPlayingState = false;
-    // v2.0.B.38: SINGLE Audio element + single concatenated MP3. iOS Safari
-    // chain unreliable; one play() call is the canonical reliable pattern.
-    this.narrationAudio = new Audio('/audio/lessons/mochi-ch1-fullnarration.mp3');
-    this.narrationAudio.preload = 'auto';
-    this.narrationAudio.addEventListener('ended', () => {
-      isPlayingState = false;
-      pawIcon.style.transform = 'scale(1)';
-    });
-    startBtn.onclick = () => {
-      const a = this.narrationAudio;
-      if (!a) return;
-      if (isPlayingState) {
-        // Tap again while playing → restart
-        a.currentTime = 0;
-      }
-      isPlayingState = true;
-      pawIcon.style.transform = 'scale(0.85)';
-      pawIcon.style.transition = 'transform 200ms ease';
-      void a.play().catch((e) => {
-        console.error('concat play fail', e);
-        isPlayingState = false;
-        pawIcon.style.transform = 'scale(1)';
-      });
-    };
-    content.appendChild(startBtn);
+    // v2.0.B.55: removed standalone paw "play full narration" button per
+    // user feedback ("這頁的按鈕刪掉 改成next"). Each sentence row now has
+    // its own Mochi avatar (B.53) for per-line audio playback. The concat
+    // narration MP3 is no longer wired — narrationAudio kept as undefined
+    // (SHUTDOWN cleanup still safe via existing null-check).
+    applyStyle(narrationWrap, { display: 'block' });
     content.appendChild(narrationWrap);
 
     preloadHints();
@@ -406,13 +353,10 @@ export class ChapterIntroScene extends Phaser.Scene {
       content.appendChild(srsNote);
     }
 
-    // CTA
+    // CTA — v2.0.B.55: bilingual Next button per memory rule.
     const cta = document.createElement('button');
     cta.type = 'button';
-    // v1.9.5: CTA text reflects mode picked at node sheet
-    cta.textContent = useRunStore.getState().listeningMode
-      ? '🎧 Start Listening →'
-      : '📖 Start Reading →';
+    cta.textContent = '下一步 · Next →';
     applyStyle(cta, {
       marginTop: '4px',
       minHeight: '56px',
