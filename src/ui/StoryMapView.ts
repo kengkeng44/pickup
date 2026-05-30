@@ -569,9 +569,12 @@ export class StoryMapView {
     card.innerHTML = `
       <div style="flex:1;">
         <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:0.85;">
-          Section 1
+          Section 1 · 第 1 章
         </div>
         <div style="font-size:17px;font-weight:900;line-height:1.2;margin-top:2px;">
+          ${meta.titleZh}
+        </div>
+        <div style="font-size:12px;font-weight:700;line-height:1.2;margin-top:2px;opacity:0.85;font-style:italic;">
           ${meta.titleEn}
         </div>
       </div>
