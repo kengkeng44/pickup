@@ -345,6 +345,34 @@ export function ensureLookupReady(): Promise<void> {
   return ensureLookup();
 }
 
+// v2.0.B.76: synchronous warm-up — called from a user-gesture click handler
+// (e.g. ChapterIntro Next CTA). Fetches + decodes ALL chapter audio into
+// AudioBuffer cache while we still have the gesture token. Returns Promise
+// that resolves when all done; caller can await before transitioning to
+// PlayScene so first Q1 mount hits cache instantly. Solves: iOS 18 private-
+// browsing strict sync-call-stack requirement + cache-miss network delay.
+export async function warmUpChapterAudio(chapter: number): Promise<void> {
+  // Ensure lookup is loaded (audioLookup populated from JSON fetches).
+  await ensureLookup();
+  void chapter; // currently lookup covers all chapters once loaded
+  const ctx = getAudioCtx();
+  if (ctx && ctx.state === 'suspended') {
+    try { await ctx.resume(); } catch {}
+  }
+  // Collect all URLs to preload (mochi-{hash} for Mochi POV, otherwise audioId)
+  const urls = new Set<string>();
+  for (const [text, id] of audioLookup.entries()) {
+    if (mochiTexts.has(text)) {
+      urls.add(`/audio/lessons/mochi-${hash8(text)}.mp3`);
+    } else {
+      urls.add(`/audio/lessons/${id}.mp3`);
+    }
+  }
+  // Parallel fetch + decode — race the lot, ignore individual failures
+  await Promise.allSettled(Array.from(urls).map(u => loadBuffer(u)));
+  debugLog(`warmUp Ch${chapter}: ${audioBufferCache.size} buffers cached`);
+}
+
 export const IS_IOS_DEVICE: boolean =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);

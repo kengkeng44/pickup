@@ -7,7 +7,7 @@ import {
 } from '../data/storyKitten';
 import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
-import { stopSpeaking, speak } from '../audio/tts';
+import { stopSpeaking, speak, warmUpChapterAudio } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 import { applyCatName } from '../data/catName';
 import { applyDogName } from '../data/dogName';
@@ -369,10 +369,22 @@ export class ChapterIntroScene extends Phaser.Scene {
     attachPressFeedback(cta, { depth: 2, borderBottom: { from: 5, to: 3 } });
     cta.addEventListener('click', (e) => {
       e.preventDefault();
+      // v2.0.B.76 Solution B: synchronous warm-up within gesture. iOS 18+
+      // requires the gesture call stack to "see" the audio activity within
+      // a strict time window. Fetching+decoding all Ch1 audio NOW (while
+      // gesture token still valid) ensures Q1 mount hits AudioBuffer cache
+      // → playBuffer() succeeds without HTML5 race or autoplay block.
       stopSpeaking();
-      this.root?.remove();
-      this.root = undefined;
-      this.scene.start('PlayScene');
+      const origText = cta.textContent;
+      cta.textContent = '載入中… · Loading…';
+      (cta as HTMLButtonElement).disabled = true;
+      void warmUpChapterAudio(chapter).finally(() => {
+        cta.textContent = origText;
+        (cta as HTMLButtonElement).disabled = false;
+        this.root?.remove();
+        this.root = undefined;
+        this.scene.start('PlayScene');
+      });
     });
     // v2.0.B.56: Next CTA placed right under the hero image (above narration),
     // per user feedback "那個next 是要放在圖下面". Narration sentences become
