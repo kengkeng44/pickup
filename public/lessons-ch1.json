@@ -50,7 +50,7 @@
         "difficulty": "easy",
         "sentence": "The wall is low and warm.",
         "question": "How does the wall feel?",
-        "options": ["🐾 cozy", "❄️ cold", "🔥 hot", "😟 worried"],
+        "options": ["cozy", "cold", "hot", "worried"],
         "correctIndex": 0,
         "explanationZh": "矮牆白天曬過,黃昏還微溫,坐上去剛剛好。",
         "tags": ["story", "ch1", "prologue", "smoke"]
@@ -120,7 +120,7 @@
         "difficulty": "easy",
         "sentence": "I feel safe with him.",
         "question": "How do I feel?",
-        "options": ["🤗 safe", "😰 scared", "😡 angry", "😢 sad"],
+        "options": ["safe", "scared", "angry", "sad"],
         "correctIndex": 0,
         "explanationZh": "跟 {dogName} 一起時感覺安全,不用怕別的動物。",
         "tags": ["story", "ch1", "prologue", "smoke"]
@@ -190,7 +190,7 @@
         "difficulty": "easy",
         "sentence": "I am ready to listen.",
         "question": "How do I feel?",
-        "options": ["👂 ready", "😴 sleepy", "🤔 thinking", "😟 worried"],
+        "options": ["ready", "sleepy", "thinking", "worried"],
         "correctIndex": 0,
         "explanationZh": "ready = 準備好了。耳朵豎起來等著聽。",
         "tags": ["story", "ch1", "prologue", "smoke"]
@@ -260,7 +260,7 @@
         "difficulty": "easy",
         "sentence": "The wind blows cold.",
         "question": "How does the wind feel?",
-        "options": ["🥶 freezing", "🥵 hot", "😎 cool", "🤩 fun"],
+        "options": ["freezing", "hot", "cool", "fun"],
         "correctIndex": 0,
         "explanationZh": "cold wind = 冷風,讓人 freezing(冷到發抖)。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -330,7 +330,7 @@
         "difficulty": "easy",
         "sentence": "She is scared of the big shadow.",
         "question": "How does she feel?",
-        "options": ["😨 scared", "😄 happy", "😴 sleepy", "🤔 thinking"],
+        "options": ["scared", "happy", "sleepy", "thinking"],
         "correctIndex": 0,
         "explanationZh": "scared = 害怕的。大影子讓她發抖。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -400,7 +400,7 @@
         "difficulty": "easy",
         "sentence": "A tear runs down her face.",
         "question": "What is on her face?",
-        "options": ["😢 a tear", "😊 a smile", "😡 anger", "🤐 silence"],
+        "options": ["a tear", "a smile", "anger", "silence"],
         "correctIndex": 0,
         "explanationZh": "tear = 眼淚。一滴淚從臉頰滑下來。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -470,7 +470,7 @@
         "difficulty": "easy",
         "sentence": "Her face is kind.",
         "question": "How does her face look?",
-        "options": ["🥰 kind", "😠 angry", "😨 scared", "😐 cold"],
+        "options": ["kind", "angry", "scared", "cold"],
         "correctIndex": 0,
         "explanationZh": "kind = 親切的。她的眼神很溫柔。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -552,7 +552,7 @@
         "difficulty": "easy",
         "sentence": "The woman smiles softly.",
         "question": "How does she smile?",
-        "options": ["🥹 softly", "😆 loudly", "😈 wickedly", "😬 nervously"],
+        "options": ["softly", "loudly", "wickedly", "nervously"],
         "correctIndex": 0,
         "explanationZh": "softly = 輕輕地。她對小貓溫柔地笑。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -610,7 +610,7 @@
         "difficulty": "easy",
         "sentence": "She feels a little warm.",
         "question": "How does she feel now?",
-        "options": ["🤗 a little warm", "🥶 colder", "😰 more scared", "😴 very sleepy"],
+        "options": ["a little warm", "colder", "more scared", "very sleepy"],
         "correctIndex": 0,
         "explanationZh": "a little warm = 有點暖。心裡開始一點點不冷了。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -750,7 +750,7 @@
         "difficulty": "easy",
         "sentence": "Her tail is wet and low.",
         "question": "How is her tail?",
-        "options": ["💧 wet and low", "✨ dry and high", "🔥 warm and up", "🌪️ wild and fast"],
+        "options": ["wet and low", "dry and high", "warm and up", "wild and fast"],
         "correctIndex": 0,
         "explanationZh": "wet and low = 又濕又垂。尾巴貼在地上,顯得很沒精神。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -832,7 +832,7 @@
         "difficulty": "easy",
         "sentence": "She holds it open for the cat.",
         "question": "How does she hold the towel?",
-        "options": ["🤲 open for the cat", "🤐 tight in her hand", "🙌 high in the air", "👜 back in her bag"],
+        "options": ["open for the cat", "tight in her hand", "high in the air", "back in her bag"],
         "correctIndex": 0,
         "explanationZh": "hold it open = 攤開拿著。她把毛巾打開,像在邀請小貓。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -902,7 +902,7 @@
         "difficulty": "easy",
         "sentence": "Soon the fur is dry.",
         "question": "How is the fur now?",
-        "options": ["🌤️ dry", "💧 still wet", "🧊 frozen", "🔥 burning"],
+        "options": ["dry", "still wet", "frozen", "burning"],
         "correctIndex": 0,
         "explanationZh": "dry = 乾的。沒多久,小貓的毛就不再滴水。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -972,7 +972,7 @@
         "difficulty": "easy",
         "sentence": "Her face is kind again.",
         "question": "How does her face look?",
-        "options": ["🥰 kind", "😠 angry", "😐 cold", "😨 worried"],
+        "options": ["kind", "angry", "cold", "worried"],
         "correctIndex": 0,
         "explanationZh": "kind = 親切的。她想到辦法後,臉上又有了笑意。",
         "tags": ["story", "ch1", "main", "rainy-night-cat"]
@@ -1100,7 +1100,7 @@
         "difficulty": "easy",
         "sentence": "The grasshopper loves to sing.",
         "question": "How does the grasshopper feel?",
-        "options": ["🎵 happy", "😴 sleepy", "😟 worried", "😡 angry"],
+        "options": ["happy", "sleepy", "worried", "angry"],
         "correctIndex": 0,
         "explanationZh": "love to sing = 喜歡唱歌。蚱蜢整天開開心心地哼歌。",
         "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
@@ -1182,7 +1182,7 @@
         "difficulty": "easy",
         "sentence": "The ant says, \"I cannot. I must save food for winter.\"",
         "question": "How is the ant?",
-        "options": ["💪 busy", "😴 tired", "😢 sad", "😡 angry"],
+        "options": ["busy", "tired", "sad", "angry"],
         "correctIndex": 0,
         "explanationZh": "save food for winter = 為冬天存糧。螞蟻沒空玩,她在為以後做準備。",
         "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
@@ -1240,7 +1240,7 @@
         "difficulty": "easy",
         "sentence": "The ant is warm and full inside her home.",
         "question": "How does the ant feel?",
-        "options": ["🥰 cozy", "🥶 freezing", "😟 worried", "😴 sleepy"],
+        "options": ["cozy", "freezing", "worried", "sleepy"],
         "correctIndex": 0,
         "explanationZh": "warm and full = 又暖又飽。螞蟻夏天的辛苦,讓她現在不怕冬天。",
         "tags": ["story", "ch1", "aesop", "ant-and-grasshopper", "listen-emoji"]
@@ -1322,7 +1322,7 @@
         "difficulty": "easy",
         "sentence": "He wore a warm coat.",
         "question": "How was the traveler?",
-        "options": ["🧥 dressed", "🌳 outdoors", "😟 worried", "🥶 freezing"],
+        "options": ["dressed", "outdoors", "worried", "freezing"],
         "correctIndex": 0,
         "explanationZh": "wore a warm coat = 穿著暖外套。旅人裹得緊緊的,準備走他的路。",
         "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-emoji"]
@@ -1392,7 +1392,7 @@
         "difficulty": "easy",
         "sentence": "The wind cannot win.",
         "question": "How does the wind feel?",
-        "options": ["😤 frustrated", "😊 happy", "🥱 bored", "😍 loved"],
+        "options": ["frustrated", "happy", "bored", "loved"],
         "correctIndex": 0,
         "explanationZh": "cannot win = 沒辦法贏。風吹得再大也拉不下外套,只好認輸。",
         "tags": ["story", "ch1", "aesop", "north-wind-and-sun", "listen-emoji"]
@@ -1520,7 +1520,7 @@
         "difficulty": "easy",
         "sentence": "{dogName} is sleepy on the floor.",
         "question": "How does {dogName} feel?",
-        "options": ["😴 sleepy", "😀 happy", "😟 worried", "😡 angry"],
+        "options": ["sleepy", "happy", "worried", "angry"],
         "correctIndex": 0,
         "explanationZh": "sleepy = 想睡的。{dogName} 趴在地上眼睛快閉了。",
         "tags": ["story", "ch1", "closing", "outer-outro", "listen-emoji"]
@@ -1590,7 +1590,7 @@
         "difficulty": "easy",
         "sentence": "I am warm inside.",
         "question": "How do I feel inside?",
-        "options": ["🥰 cozy", "🥶 freezing", "😴 sleepy", "😟 worried"],
+        "options": ["cozy", "freezing", "sleepy", "worried"],
         "correctIndex": 0,
         "explanationZh": "warm inside = 心裡暖。聽完故事像吃飽一樣。",
         "tags": ["story", "ch1", "closing", "outer-outro", "listen-emoji"]
