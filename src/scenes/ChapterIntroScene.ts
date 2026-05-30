@@ -282,41 +282,52 @@ export class ChapterIntroScene extends Phaser.Scene {
       letterSpacing: '0.5px',
       boxShadow: '0 3px 0 #b07a2a',
     });
-    // v2.0.B.33: single Audio element + ended-event chain. iOS Safari
-    // allows audio.play() called from inside an 'ended' event handler
-    // (same element + recent user gesture). setTimeout-based chains
-    // break the gesture link and get NotAllowedError.
-    const chainAudio = new Audio();
+    // v2.0.B.35: PRELOAD all Audio elements upfront on click, then chain.
+    // iOS user-gesture allows multiple audio elements to play in sequence
+    // IF they all share that initial gesture (preloaded + queued during the
+    // click handler). Each ended event triggers the next preloaded element's
+    // play() — within the same gesture token's scope. Robust vs single-Audio-
+    // src-swap which iOS sometimes rejects after first.
+    let chainEls: HTMLAudioElement[] = [];
     let playIdx = 0;
-    let chainUrls: string[] = [];
     const playCurrent = () => {
-      if (playIdx >= chainUrls.length) {
+      if (playIdx >= chainEls.length) {
         startBtn.textContent = '▶ 重新播放';
         playIdx = 0;
         return;
       }
-      const url = chainUrls[playIdx];
-      startBtn.textContent = `▶ 朗讀中 ${playIdx + 1}/${chainUrls.length}`;
-      if (url) {
-        chainAudio.src = url;
-        void chainAudio.play().catch(() => {
+      const a = chainEls[playIdx];
+      startBtn.textContent = `▶ 朗讀中 ${playIdx + 1}/${chainEls.length}`;
+      if (a) {
+        void a.play().catch((err) => {
+          console.error('chain play fail', playIdx, err);
           playIdx += 1;
           playCurrent();
         });
       } else {
-        // No MP3 for this sentence — skip
         playIdx += 1;
         playCurrent();
       }
     };
-    chainAudio.addEventListener('ended', () => {
-      playIdx += 1;
-      playCurrent();
-    });
     startBtn.onclick = async () => {
-      // Ensure lookup populated (fetches /lessons-ch1.json + /story-kitten.json)
+      // First click: lookup may not be ready. Pre-fetch eagerly.
+      // ensureLookupReady() returns instantly if already done.
       await ensureLookupReady();
-      chainUrls = sentences.map((s) => mp3UrlFor(s) ?? '');
+      // Build & preload all audio elements WITHIN the user gesture window.
+      chainEls = sentences.map((s) => {
+        const url = mp3UrlFor(s);
+        if (!url) return null as unknown as HTMLAudioElement;
+        const a = new Audio(url);
+        a.preload = 'auto';
+        a.load();
+        return a;
+      }).filter(Boolean) as HTMLAudioElement[];
+      chainEls.forEach((a, idx) => {
+        a.addEventListener('ended', () => {
+          playIdx = idx + 1;
+          playCurrent();
+        });
+      });
       playIdx = 0;
       playCurrent();
     };
