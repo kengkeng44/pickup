@@ -218,6 +218,31 @@ CRITICAL: this is a high-contrast monochrome cream-on-coffee paw print, NOT colo
 
 Composition: paw centered, ~80% canvas (slightly bigger than icon-paw to fill node circle), straight angle (no tilt). No baked shadow. No text.`,
   },
+  catalone: {
+    name: 'scene-mochi-talking',
+    prompt: `CRITICAL STYLE: Pickup app HERO portrait — Mochi the calico cat alone, facing the viewer (4th wall break), as if she is telling US her story. Watercolor soft, Studio Ghibli warm + Pop Mart vinyl chibi simplicity.
+
+ABSOLUTE RULES — DO NOT VIOLATE:
+1. NO outlines AT ALL — no black ink lines, no thin lines, NO color-block borders defining shapes. Pure soft watercolor edges only. Forms emerge from color difference, not from outline.
+2. PALETTE cream-dominant — soft cream #fef8ed is ~50% of canvas. Mochi's calico fur uses muted warm tones (NOT saturated yellow).
+3. NO frame, NO border, NO box, NO sticker edge, NO baked drop shadow, NO floor under cat.
+4. NO grandma, NO Hana, NO chair, NO yard background. Just Mochi.
+5. Cat facing VIEWER directly (3/4 view OK, mostly frontal). As if she's about to speak. Slightly tilted head, mouth slightly open mid-word, eyes warm and engaged with us.
+
+SUBJECT: Mochi the chibi calico cat (orange + brown + white tricolor) — chunky vinyl figure proportions (50% head, small chubby body). Soft 瞇瞇眼 squinted smile eyes OR slightly open big oval eyes — pick whichever reads more engaged/expressive. One paw slightly raised (gesture of mid-talk). Sweet attentive 4th-wall-break pose.
+
+COLORS:
+- Cream main fur #fef8ed (with brown tabby ears + orange patches scattered)
+- Pink tiny nose
+- Background: pure soft cream #fef8ed (essentially blends with fur — minimal contrast = soft hand-painted feel)
+- Light muted shadows in mid-coffee #b08a6a for face structure
+
+Soft watercolor cell-shading (just 1 base + 1 shadow). NO gradient. NO complex lighting.
+
+Inspired by: Beatrix Potter watercolor + Studio Ghibli small animal portraits + Sanrio cuteness. The mood: she's about to speak to the reader.
+
+Square 1024×1024. NO text. NO speech bubbles. NO border. NO frame.`,
+  },
   scene: {
     name: 'scene-grandma-storytime',
     prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli watercolor warm + Duolingo chibi DNA. STRICT rules — DO NOT VIOLATE:

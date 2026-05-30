@@ -165,7 +165,7 @@ export class ChapterIntroScene extends Phaser.Scene {
       document.head.appendChild(style);
     }
     const heroImg = document.createElement('img');
-    heroImg.src = '/mascots/scene-grandma-storytime.webp';
+    heroImg.src = '/mascots/scene-mochi-talking.webp';
     heroImg.alt = '';
     applyStyle(heroImg, {
       width: '100%',
@@ -260,104 +260,63 @@ export class ChapterIntroScene extends Phaser.Scene {
 
       narrationWrap.appendChild(row);
     });
-    // v2.0.B.32: "▶ 點我開始故事" button — solves iOS autoplay by being
-    // the ACTUAL user-gesture that fires Audio.play() synchronously. Plays
-    // narration sentences sequentially via Audio.ended event chaining
-    // (allowed within same gesture context).
-    applyStyle(narrationWrap, { display: 'none' });
+    // v2.0.B.38: ONE paw button. iOS Safari audio chain unreliable —
+    // switched to single CONCATENATED full-narration MP3 (no chain). User
+    // also asked simplify: no subtitle toggle. Subtitles always visible below.
+    applyStyle(narrationWrap, { display: 'block' }); // always shown now
     const startBtn = document.createElement('button');
     startBtn.type = 'button';
-    startBtn.textContent = '▶ 點我開始故事';
+    startBtn.setAttribute('aria-label', '播放故事');
     applyStyle(startBtn, {
-      margin: '8px auto 6px',
-      padding: '12px 28px',
+      margin: '8px auto 14px',
+      padding: '0',
+      width: '76px',
+      height: '76px',
       background: COLOR_AMBER,
       border: 'none',
-      borderRadius: '24px',
+      borderRadius: '50%',
       color: '#fff',
-      fontSize: '15px',
-      fontWeight: '900',
       cursor: 'pointer',
-      display: 'block',
-      letterSpacing: '0.5px',
-      boxShadow: '0 3px 0 #b07a2a',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0 4px 0 #b07a2a',
     });
-    // v2.0.B.35: PRELOAD all Audio elements upfront on click, then chain.
-    // iOS user-gesture allows multiple audio elements to play in sequence
-    // IF they all share that initial gesture (preloaded + queued during the
-    // click handler). Each ended event triggers the next preloaded element's
-    // play() — within the same gesture token's scope. Robust vs single-Audio-
-    // src-swap which iOS sometimes rejects after first.
-    let chainEls: HTMLAudioElement[] = [];
-    let playIdx = 0;
-    const playCurrent = () => {
-      if (playIdx >= chainEls.length) {
-        startBtn.textContent = '▶ 重新播放';
-        playIdx = 0;
-        return;
+    const pawIcon = document.createElement('img');
+    pawIcon.src = '/mascots/icon-paw.webp';
+    pawIcon.alt = '';
+    applyStyle(pawIcon, {
+      width: '46px',
+      height: '46px',
+      display: 'block',
+      filter: 'brightness(0) invert(1)', // make paw white on amber
+    });
+    startBtn.appendChild(pawIcon);
+    // Track playing state
+    let isPlayingState = false;
+    // v2.0.B.38: SINGLE Audio element + single concatenated MP3. iOS Safari
+    // chain unreliable; one play() call is the canonical reliable pattern.
+    const concatAudio = new Audio('/audio/lessons/mochi-ch1-fullnarration.mp3');
+    concatAudio.preload = 'auto';
+    concatAudio.addEventListener('ended', () => {
+      isPlayingState = false;
+      pawIcon.style.transform = 'scale(1)';
+    });
+    startBtn.onclick = () => {
+      if (isPlayingState) {
+        // Tap again while playing → restart
+        concatAudio.currentTime = 0;
       }
-      const a = chainEls[playIdx];
-      startBtn.textContent = `▶ 朗讀中 ${playIdx + 1}/${chainEls.length}`;
-      if (a) {
-        void a.play().catch((err) => {
-          console.error('chain play fail', playIdx, err);
-          playIdx += 1;
-          playCurrent();
-        });
-      } else {
-        playIdx += 1;
-        playCurrent();
-      }
-    };
-    startBtn.onclick = async () => {
-      // First click: lookup may not be ready. Pre-fetch eagerly.
-      // ensureLookupReady() returns instantly if already done.
-      await ensureLookupReady();
-      // Build & preload all audio elements WITHIN the user gesture window.
-      chainEls = sentences.map((s) => {
-        const url = mp3UrlFor(s);
-        if (!url) return null as unknown as HTMLAudioElement;
-        const a = new Audio(url);
-        a.preload = 'auto';
-        // v2.0.B.37: ElevenLabs Quang Anh native young boy voice — no
-        // playbackRate adjustment needed.
-        a.playbackRate = 1.0;
-        a.load();
-        return a;
-      }).filter(Boolean) as HTMLAudioElement[];
-      chainEls.forEach((a, idx) => {
-        a.addEventListener('ended', () => {
-          playIdx = idx + 1;
-          playCurrent();
-        });
+      isPlayingState = true;
+      pawIcon.style.transform = 'scale(0.85)';
+      pawIcon.style.transition = 'transform 200ms ease';
+      void concatAudio.play().catch((e) => {
+        console.error('concat play fail', e);
+        isPlayingState = false;
+        pawIcon.style.transform = 'scale(1)';
       });
-      playIdx = 0;
-      playCurrent();
     };
     content.appendChild(startBtn);
-
-    const subtitleToggle = document.createElement('button');
-    subtitleToggle.type = 'button';
-    subtitleToggle.textContent = '▾ 顯示字幕';
-    applyStyle(subtitleToggle, {
-      margin: '8px auto 12px',
-      padding: '10px 22px',
-      background: 'transparent',
-      border: `2px solid ${COLOR_AMBER}`,
-      borderRadius: '24px',
-      color: COLOR_AMBER_DARK,
-      fontSize: '14px',
-      fontWeight: '800',
-      cursor: 'pointer',
-      display: 'block',
-      letterSpacing: '0.5px',
-    });
-    subtitleToggle.onclick = () => {
-      const open = narrationWrap.style.display !== 'none';
-      narrationWrap.style.display = open ? 'none' : 'block';
-      subtitleToggle.textContent = open ? '▾ 顯示字幕' : '▴ 收起字幕';
-    };
-    content.appendChild(subtitleToggle);
     content.appendChild(narrationWrap);
 
     preloadHints();

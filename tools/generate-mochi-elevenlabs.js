@@ -24,9 +24,11 @@ if (!process.env.ELEVENLABS_API_KEY) {
   process.exit(1);
 }
 
-// Quang Anh — "A young non-native boy telling stories to his friend in English"
-// Perfect for Mochi (8 y/o stray cat narrator). Verified via /v1/voices (professional, age:young, gender:male).
-const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'atemG3csutMIyK7AbS5c';
+// User reverted to original pick: Lulu Lolipop — high-pitched bubbly girl
+// (technically a female "cute cartoon girl" voice). User feedback prefers
+// over Quang Anh which was slow. Voice gender re-interpreted: Mochi can
+// be a female-presenting cat narrator.
+const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'ocZQ262SsZb9RIxcQBOj';
 const MODEL_ID = 'eleven_multilingual_v2';
 
 const audioDir = resolve(repoRoot, 'public/audio/lessons');
@@ -51,14 +53,22 @@ for (const block of blocks) {
   }
 }
 
+// v2.0.B.38: also generate ONE concatenated full-narration MP3 for
+// single-play iOS Safari (audio chain via ended event still flaky on
+// iPhone; one play() call = guaranteed work).
+const fullNarration = sub(blocks[0]).replace(/\n+/g, ' '); // join chunks into one paragraph
+tasks.unshift(fullNarration); // index 0 = the concat
+const CONCAT_FILENAME = 'mochi-ch1-fullnarration.mp3';
+
 console.log(`Generating ${tasks.length} Mochi MP3s via ElevenLabs voice ${VOICE_ID}`);
 const totalChars = tasks.reduce((s, t) => s + t.length, 0);
 console.log(`Char budget: ${totalChars} (free tier 10K/month)\n`);
 
 let ok = 0;
 let failed = 0;
-for (const text of tasks) {
-  const filename = `mochi-${hash8(text)}.mp3`;
+for (let i = 0; i < tasks.length; i++) {
+  const text = tasks[i];
+  const filename = i === 0 ? CONCAT_FILENAME : `mochi-${hash8(text)}.mp3`;
   const filePath = resolve(audioDir, filename);
   try {
     const res = await fetch(
