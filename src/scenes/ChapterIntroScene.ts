@@ -251,18 +251,37 @@ export class ChapterIntroScene extends Phaser.Scene {
 
       narrationWrap.appendChild(row);
     });
+    // v2.0.B.30: Subtitles collapsed by default per user request.
+    // Default view = image only. Single toggle button reveals subtitle list.
+    // Also fixes iOS NotAllowedError: removed setTimeout auto-play (iOS
+    // breaks gesture chain on delayed Audio.play). User must tap 🔊 manually.
+    applyStyle(narrationWrap, { display: 'none' });
+    const subtitleToggle = document.createElement('button');
+    subtitleToggle.type = 'button';
+    subtitleToggle.textContent = '▾ 顯示字幕';
+    applyStyle(subtitleToggle, {
+      margin: '8px auto 12px',
+      padding: '10px 22px',
+      background: 'transparent',
+      border: `2px solid ${COLOR_AMBER}`,
+      borderRadius: '24px',
+      color: COLOR_AMBER_DARK,
+      fontSize: '14px',
+      fontWeight: '800',
+      cursor: 'pointer',
+      display: 'block',
+      letterSpacing: '0.5px',
+    });
+    subtitleToggle.onclick = () => {
+      const open = narrationWrap.style.display !== 'none';
+      narrationWrap.style.display = open ? 'none' : 'block';
+      subtitleToggle.textContent = open ? '▾ 顯示字幕' : '▴ 收起字幕';
+    };
+    content.appendChild(subtitleToggle);
     content.appendChild(narrationWrap);
 
-    // v1.9.0: wire WordHint tap handlers across all narration words
-    // and kick off dictionary preload (idempotent).
     preloadHints();
     wireSentenceHints(narrationWrap);
-
-    // Auto-play the first sentence after mount (works on iOS because
-    // the previous user gesture — sheet button — already unlocked TTS).
-    if (sentences.length > 0) {
-      window.setTimeout(() => speak(sentences[0]), 400);
-    }
 
     // SRS notice (optional)
     if (srsCount > 0) {
