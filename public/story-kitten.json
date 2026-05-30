@@ -20,11 +20,11 @@
     "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 2,
-    "type": "listen-emoji",
+    "type": "listen-comprehension",
     "storyBeat": "每晚我去奶奶的院子",
     "sentence": "Every night I visit Grandma's yard.",
-    "question": "Where do I go every night?",
-    "options": ["🏡 Grandma's yard", "🌳 a forest", "🏪 a shop", "🚉 a station"],
+    "question": "Where do I go every night? · 我每晚去哪裡?",
+    "options": ["🏡 Grandma's yard", "🌳 the forest", "🏪 a corner shop", "🚉 the train station"],
     "correctIndex": 0,
     "explanationZh": "yard = 院子。我雖然是流浪貓,但每晚都會跑去奶奶家的院子。那裡有食物,有奶奶的狗朋友{dogName}。",
     "tags": ["story", "ch1", "prologue", "setting"]
@@ -53,16 +53,16 @@
     "type": "listen-comprehension",
     "storyBeat": "從前一個雨夜,奶奶看見小貓",
     "sentence": "Long ago, on a rainy night, I saw a small cat.",
-    "question": "What did Grandma see?",
+    "question": "What kind of night was it? · 那是怎樣的夜晚?",
     "options": [
-      "A small cat",
-      "A big dog",
-      "A red bird",
-      "An old tree"
+      "🌧️ A rainy night",
+      "❄️ A snowy night",
+      "☀️ A sunny morning",
+      "🌫️ A foggy afternoon"
     ],
     "correctIndex": 0,
-    "explanationZh": "long ago = 很久以前。奶奶說她在 a rainy night(雨夜)看見了 a small cat — 那就是我們相遇的起點。雖然她沒帶我回家,但她讓我每晚可以來院子。",
-    "tags": ["story", "ch1", "main", "comprehension"]
+    "explanationZh": "a rainy night = 雨夜。奶奶說她在 long ago(很久以前)的雨夜看見了一隻 small cat — 那是我們相遇的起點。問「what kind of night」要聽天氣關鍵字 rainy,陷阱是 snowy/foggy 也是天氣。",
+    "tags": ["story", "ch1", "main", "comprehension", "inference"]
   },
   {
     "id": "kt-ch1-05",
@@ -88,12 +88,12 @@
     "type": "tap-tiles",
     "storyBeat": "我每晚都回到院子",
     "sentence": "She came back every night.",
-    "question": "Tap what you hear",
+    "question": "Tap to build the sentence · 點字組句",
     "options": ["She", "came", "back", "every"],
     "correctIndex": 0,
-    "tiles": ["She", "came", "back", "every", "night", "always", "house"],
+    "tiles": ["She", "came", "back", "every", "night", "today", "house"],
     "correctOrder": [0, 1, 2, 3, 4],
-    "explanationZh": "依序點:She → came → back → every → night。came 是 come 的過去式(回來了)。奶奶說我每晚都回去找她。always 跟 house 是干擾。",
+    "explanationZh": "依序點:She → came → back → every → night。came 是 come 的過去式(回來了)。奶奶說我每晚都回去找她。陷阱:today(今天,跟 every night 矛盾)、house(屋子,跟 yard 院子混淆)。",
     "tags": ["story", "ch1", "main", "tap-tiles", "past-tense"]
   },
   {
@@ -119,17 +119,17 @@
     "questionInChapter": 8,
     "type": "tap-pairs",
     "storyBeat": "今晚的四個關鍵字",
-    "sentence": "These are tonight's four words.",
-    "question": "Tap the pairs",
+    "sentence": "Four words I want to remember from tonight.",
+    "question": "Match each English word with its Chinese · 配對英中",
     "options": ["stray", "yard", "umbrella", "back"],
     "correctIndex": 0,
     "pairs": [
       {"left": "stray", "right": "流浪的"},
       {"left": "yard", "right": "院子"},
       {"left": "umbrella", "right": "傘"},
-      {"left": "back", "right": "回來"}
+      {"left": "back", "right": "(回)來"}
     ],
-    "explanationZh": "今晚四個字:stray 流浪的、yard 院子、umbrella 傘、back 回來。我是流浪貓,每晚回到奶奶的院子聽故事。",
+    "explanationZh": "今晚我記住的四個字:stray 流浪的、yard 院子、umbrella 傘、back(回)來。我是流浪貓,每晚回到奶奶的院子聽故事。",
     "tags": ["story", "ch1", "review", "tap-pairs"]
   }
 ]
