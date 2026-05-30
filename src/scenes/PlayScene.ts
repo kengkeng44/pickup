@@ -391,6 +391,8 @@ export class PlayScene extends Phaser.Scene {
         return `<span class="word">${word}</span>${punct}`;
       }).join('');
       if (sentenceEl) {
+        // v2.0.B.64: question prompt moves BELOW the blank-sentence row
+        // (was above) per user feedback "问题应该放在空格题目的后面而不是直接显现".
         sentenceEl.innerHTML = `
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
             <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
@@ -403,12 +405,12 @@ export class PlayScene extends Phaser.Scene {
               <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
             </button>
             <div style="flex:1 1 auto;min-width:0;">
-              ${round.question ? `<div style="font-size:15px;color:#3c2a1c;font-weight:800;line-height:1.5;margin-bottom:8px;">${round.question}</div>` : ''}
               <div class="pickup-listen-sentence" data-revealed="false" style="
                 font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.9;
                 cursor:pointer;user-select:none;
                 max-height:120px;overflow:hidden;
               ">${blanksHtml}</div>
+              ${round.question ? `<div style="font-size:14px;color:#7a6850;font-weight:700;line-height:1.5;margin-top:10px;">${round.question}</div>` : ''}
             </div>
           </div>
         `;
