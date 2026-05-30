@@ -244,6 +244,69 @@ REFERENCE TARGET (CRITICAL): Picture Duolingo's "el gatito" Spanish vocabulary f
 
 Square 1024×1024. NO text. NO speech bubbles. NO border. NO frame. NO Spanish flashcard chrome (no duolingo logo, no card border — just the cat illustration on flat background).`,
   },
+  grandmaalone: {
+    name: 'scene-grandma-icon',
+    prompt: `CRITICAL STYLE: Pickup app character portrait — kind elderly East Asian grandmother (奶奶), full body, sitting on a small wooden chair holding an open storybook, facing viewer in symmetric frontal pose. **DUOLINGO FLASHCARD ICON STYLE** — exactly emulate Duolingo's Spanish vocabulary flashcard art (e.g. "el gatito the little cat" purple-cat flashcard). MUST aesthetically match a calico-cat icon already generated in this exact same flat-vector style (cream body, 5-color palette, no outlines, geometric primitives, no cel-shading). Place this grandma side-by-side with that cat icon — they MUST look like they belong to the same illustration set.
+
+ABSOLUTE RULES — DO NOT VIOLATE:
+1. **PURE FLAT GEOMETRIC PRIMITIVES.** Built from simple geometric shapes assembled together: oval head, rounded-rectangle body torso, rectangle arms, rounded-rectangle hands. NO 3D modeling, NO cel-shading gradient. Just flat shapes filled with one solid color each.
+2. **SYMMETRIC FRONTAL POSE.** Grandma faces viewer dead-on, left-right mirror symmetric. NO 3/4 angle, NO turned head. Both hands together holding the book in front. Sitting on a small simplified wooden chair (just legs visible at base).
+3. **LIMITED PALETTE — EXACTLY 6 COLORS:**
+   - Silver-white hair #f0ebe0 (large round halo shape on top of head, with small bun bump visible behind/above head)
+   - Soft cream face/skin #f5e3c8 (face skin tone — slightly warm cream, distinct from hair)
+   - Warm cream-amber cardigan #e7c89a (body/torso main, soft warm tone, NOT saturated)
+   - Muted coffee skirt #a08a72 (lower torso/legs area)
+   - Wooden brown chair #8b6f4a (chair legs only, just bottom rails visible)
+   - Cream book pages #fef8ed (open book in lap, two facing pages)
+   - Dark warm brown #3c2a1c (closed 瞇瞇眼 smile arcs as two upward curves, soft round glasses as two thin circles framing the closed eyes, small soft curved smile line, hair bun line)
+   - Tiny pink cheek dots #f0b8b0 (one soft pink circle on each cheek — gentle blush, OPTIONAL — only if it doesn't crowd the face)
+4. **NO outlines AT ALL.** Shapes meet via color contrast.
+5. **DEPTH via internal division only**: glasses circles + closed-eye arcs both sit on the face oval. Cardigan vs skirt = one color block boundary. Hair vs face = one color block boundary.
+6. **FACE FEATURES (clean Duolingo iconic minimalism)**:
+   - Closed 瞇瞇眼: two upward-curving dark-brown arcs (like ∪ shape rotated 180° = ∩) — the classic "grandma laughing" closed eyes
+   - Glasses: two thin dark-brown circles centered over each closed eye arc, connected by a tiny bridge line. The lenses inside are transparent (cream face shows through)
+   - Smile: ONE small soft curved line below the glasses (a gentle upward arc, not a big grin)
+   - SHE IS ELDERLY — add 1-2 SMALL laugh-line wrinkles to convey age: ONE tiny short curve at the outer corner of each closed-eye arc (radiating outward like the classic 魚尾紋 crow's feet), drawn in a slightly lighter brown #6a5440 (NOT as dark as the closed-eye arc itself, so they read as gentle age markers not facial features). Keep them MINIMAL — just 1 short curve per side. NO heavy wrinkles, NO chin lines, NO forehead lines. Just the soft laugh-line crinkles next to the closed eyes.
+7. **POSE**: Sitting upright on chair, both hands resting on the open book in her lap. Book is centered in front of her torso, two cream pages with subtle middle gutter line. Body shape is a rounded warm-amber cardigan torso. Below the cardigan, the muted coffee skirt covers her legs (legs not individually shown — just one skirt color block ending where chair legs start).
+8. **CHAIR**: minimal — just two thin wooden brown rectangles for the front chair legs visible at the very bottom, plus a small wooden chair-seat line peeking from under the skirt. NO full chair detail. Chair is decoration not focus.
+9. **BACKGROUND**: solid soft off-white #f5efe4 (same background as the calico cat icon — they must match if placed side by side). Optional small subtle 1-tone shadow blob under chair as floor anchor. NO scenery, NO frame, NO border, NO text.
+10. **PROPORTIONS**: head ~40% of total height, body+book ~45%, legs+chair ~15%. Grandma is sitting so legs are short.
+
+REFERENCE: Picture Duolingo's "la abuela" Spanish vocabulary flashcard if it existed — a flat geometric grandmother icon in the same minimalist style as "el gatito" cat flashcard. THAT is the visual target. Symmetric, geometric, 6-color, no outlines, no shading.
+
+Square 1024×1024. NO text. NO speech bubbles. NO border. NO Spanish flashcard chrome. Just the grandma illustration on flat background.`,
+  },
+  hanaalone: {
+    name: 'scene-hana-icon',
+    prompt: `CRITICAL STYLE: Pickup app character portrait — Hana the shiba inu (柴犬), full body, sitting upright facing viewer in symmetric frontal pose. **DUOLINGO FLASHCARD ICON STYLE** — exactly emulate Duolingo's Spanish vocabulary flashcard art (e.g. "el gatito the little cat" purple-cat flashcard, "el perro the dog" flashcard if it existed). MUST aesthetically match a calico-cat icon already generated in this exact same flat-vector style (cream body, 5-color palette, no outlines, geometric primitives, no cel-shading). Place this Hana side-by-side with that cat icon — they MUST look like they belong to the same illustration set.
+
+ABSOLUTE RULES — DO NOT VIOLATE:
+1. **PURE FLAT GEOMETRIC PRIMITIVES.** Built from simple geometric shapes: triangle ears, rounded-rectangle head, oval body, rounded-rectangle paws, curled-shape tail. NO 3D modeling, NO cel-shading gradient. Just flat shapes filled with one solid color each.
+2. **SYMMETRIC FRONTAL POSE WITH ICONIC CURLED TAIL.** Hana faces viewer dead-on, left-right mirror symmetric (like emoji or app icon) for HEAD + BODY + PAWS. NO 3/4 angle, NO turned head. Triangle ears symmetric perked up. Front paws together in front. Body sitting upright.
+   **CRITICAL: MANDATORY CURLED TAIL VISIBLE** — the 柴犬 trademark curled tail is iconic and MUST be drawn. The tail curls upward and forward in a spiral (like the digit 9 or 'e' shape) and is visible on ONE SIDE of the body (e.g. right side of Hana from viewer's perspective). The tail BREAKS the strict symmetry — that asymmetry is INTENTIONAL and required. DO NOT omit the tail. DO NOT hide the tail behind the body. The tail must be a clear visible curled spiral element. If you cannot draw the tail visibly, you have failed this brief.
+3. **LIMITED PALETTE — EXACTLY 5 COLORS** (柴犬 classic urajiro / 裏白 pattern):
+   - Warm amber base fur #e7a44a (head top, ears outer, back, sides, tail — the largest area, classic 柴犬 red-fawn)
+   - Cream urajiro patches #fef8ed (柴犬 trademark white markings: muzzle/lower face oval, chest+belly bib, inner ears, brow spots over each eye, paws/socks). The cream forms an organic flowing pattern: face cream area covers lower 1/3 of face from below the eyes down through muzzle; chest cream flows continuously down belly to paws.
+   - Tiny black nose #1a1410 (small rounded triangle centered on muzzle)
+   - Dark warm brown eyes #3c2a1c (two simple rounded vertical rectangles, NO highlights, NO whites, NO sparkle)
+   - Pink tongue tip #f0a8a0 (tiny small pink shape peeking from a slightly open smile — the 柴犬 招牌 happy face)
+4. **NO outlines AT ALL.** Shapes meet via color contrast.
+5. **DEPTH via internal division**: inner ear = cream, outer ear = amber. Paw toes = 2-3 short slits in slightly darker cream #ece5d4 on the cream socks. NO drop shadow. NO floor. NO border.
+6. **FACE FEATURES (Duolingo iconic minimalism)**:
+   - Eyes: two simple dark-brown rounded rectangles
+   - Brow markings: small cream oval over each eye (the classic 柴犬 "eyebrow spot" 眉毛斑) — adds character
+   - Muzzle: cream lower face from below eyes downward, like a soft mask
+   - Nose: tiny black rounded triangle on muzzle
+   - Mouth: small slightly open smile with a tiny pink tongue tip peeking out — the 招牌 shiba happy face. Mouth is a soft small curve, NOT a wide grin.
+   - NO whiskers, NO additional facial detail
+7. **POSE**: Sitting upright with both front paws together in front (visible at the bottom of the body). Triangle ears perked up (one on each side of the head). Curled tail wraps to one side (right side preferred), visible as a curled amber+cream spiral.
+8. **PROPORTIONS**: head ~40% of total height, body ~45%, paws ~15%. Round egg-shape body sitting upright. Compact and chibi.
+9. **BACKGROUND**: solid soft off-white #f5efe4 (SAME background as the calico cat icon — they must match if placed side by side). Optional small subtle 1-tone shadow blob under feet as floor anchor.
+
+REFERENCE: Picture Duolingo's hypothetical "el perro" Spanish vocabulary flashcard with a shiba inu, in the same minimalist style as "el gatito" cat. THAT is the visual target. Symmetric, geometric, 5-color, no outlines, no shading.
+
+Square 1024×1024. NO text. NO speech bubbles. NO border. NO Spanish flashcard chrome. Just the shiba illustration on flat background.`,
+  },
   scene: {
     name: 'scene-grandma-storytime',
     prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli watercolor warm + Duolingo chibi DNA. STRICT rules — DO NOT VIOLATE:
