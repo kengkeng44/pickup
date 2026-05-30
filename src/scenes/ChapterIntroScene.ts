@@ -165,7 +165,12 @@ export class ChapterIntroScene extends Phaser.Scene {
       document.head.appendChild(style);
     }
     const heroImg = document.createElement('img');
-    heroImg.src = '/mascots/scene-mochi-talking.webp';
+    // v2.0.B.43: chapter-aware hero. Ch1 = Mochi alone narrating her own
+    // origin story (4th-wall break). Ch2-8 = grandma reading bedtime story
+    // to Mochi (奶奶說 inner story 的構圖). Both in Duolingo flat icon style.
+    heroImg.src = chapter === 1
+      ? '/mascots/scene-mochi-talking.webp'
+      : '/mascots/scene-grandma-storytime.webp';
     heroImg.alt = '';
     applyStyle(heroImg, {
       width: '100%',
