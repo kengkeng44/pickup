@@ -219,6 +219,11 @@ export function mountTapTiles(opts: {
     bank.appendChild(btn);
   });
 
+  // v2.0.B.56: 2-strike reveal per memory rule feedback-pickup-retry-reveal.
+  // 1st wrong = stay in component (current blind-retry UX). 2nd wrong =
+  // escalate via opts.onComplete(false) so PlayScene/LessonScene calls
+  // runStore.answer() with wrong → wrongAttempts hits 2 → reveal panel auto-fires.
+  let tilesWrongCount = 0;
   check.addEventListener('click', (e) => {
     e.preventDefault();
     if (selectedOrder.length !== slotsNeeded) return;
@@ -231,20 +236,23 @@ export function mountTapTiles(opts: {
       });
       window.setTimeout(() => opts.onComplete(true), 480);
     } else {
-      // v1.9.27 audit #6: blind-retry parity with ClozeUI 4-MC. Flash red
-      // briefly, then unlock CHECK without wiping the arrangement so user
-      // can rearrange chips (click a placed chip to remove it) and resubmit.
-      // Prior behaviour reset everything, costing the user their context.
+      tilesWrongCount += 1;
       answerRow.style.background = 'rgba(200,74,58,0.14)';
       Object.assign(check.style, {
         background: COLOR_ERROR,
         borderBottom: `4px solid #7a2a20`,
         cursor: 'not-allowed',
       });
-      window.setTimeout(() => {
-        answerRow.style.background = 'transparent';
-        setCheckReady(selectedOrder.length === slotsNeeded);
-      }, 750);
+      if (tilesWrongCount >= 2) {
+        // 2-strike: escalate to outer answer flow → reveal panel shows correct
+        window.setTimeout(() => opts.onComplete(false), 750);
+      } else {
+        // 1st wrong: stay for retry
+        window.setTimeout(() => {
+          answerRow.style.background = 'transparent';
+          setCheckReady(selectedOrder.length === slotsNeeded);
+        }, 750);
+      }
     }
   });
 
@@ -362,6 +370,8 @@ export function mountTypeWhatYouHear(opts: {
 
   input.addEventListener('input', () => setReady(input.value.trim().length > 0));
 
+  // v2.0.B.56: 2-strike reveal counter (memory rule feedback-pickup-retry-reveal).
+  let typeWrongCount = 0;
   const submit = () => {
     const v = input.value.trim().toLowerCase();
     if (!v) return;
@@ -378,9 +388,7 @@ export function mountTypeWhatYouHear(opts: {
       });
       window.setTimeout(() => opts.onComplete(true), 460);
     } else {
-      // v1.9.27 audit #6: blind-retry parity. Flash red briefly, then
-      // restore input visual state WITHOUT clearing the text — user can
-      // edit and resubmit. Prior version wiped the input, costing context.
+      typeWrongCount += 1;
       Object.assign(input.style, {
         borderColor: COLOR_ERROR,
         borderBottomColor: '#7a2a20',
@@ -390,15 +398,21 @@ export function mountTypeWhatYouHear(opts: {
         background: COLOR_ERROR,
         borderBottom: `4px solid #7a2a20`,
       });
-      window.setTimeout(() => {
-        Object.assign(input.style, {
-          borderColor: COLOR_BORDER,
-          borderBottomColor: COLOR_BORDER_DARK,
-          background: '#ffffff',
-        });
-        setReady(input.value.trim().length > 0);
-        input.focus();
-      }, 750);
+      if (typeWrongCount >= 2) {
+        // 2-strike: escalate to outer → reveal panel shows correct answer
+        window.setTimeout(() => opts.onComplete(false), 750);
+      } else {
+        // 1st wrong: keep text, allow edit + resubmit
+        window.setTimeout(() => {
+          Object.assign(input.style, {
+            borderColor: COLOR_BORDER,
+            borderBottomColor: COLOR_BORDER_DARK,
+            background: '#ffffff',
+          });
+          setReady(input.value.trim().length > 0);
+          input.focus();
+        }, 750);
+      }
     }
   };
   check.addEventListener('click', (e) => { e.preventDefault(); submit(); });

@@ -386,7 +386,10 @@ export class ChapterIntroScene extends Phaser.Scene {
       this.root = undefined;
       this.scene.start('PlayScene');
     });
-    content.appendChild(cta);
+    // v2.0.B.56: Next CTA placed right under the hero image (above narration),
+    // per user feedback "那個next 是要放在圖下面". Narration sentences become
+    // optional context that scrolls below — user can skip straight to lesson.
+    content.insertBefore(cta, narrationWrap);
 
     root.appendChild(content);
     document.body.appendChild(root);
