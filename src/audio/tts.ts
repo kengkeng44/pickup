@@ -83,6 +83,21 @@ async function loadAudioLookup(): Promise<void> {
       for (const chunk of splitChunks(part)) mochiTexts.add(chunk);
     }
   }
+
+  // v2.0.B.67: Ch1 question audio POV split. Outer-frame questions
+  // (Q2/Q3/Q7/Q8) are Mochi 1st-person → Mochi voice. Inner-story Q4/Q5/Q6
+  // stay grandma voice (her storytelling). Q1 already covered by narration.
+  const mochiQuestions = [
+    "Every night I visit Grandma's yard.",
+    "{dogName} is Grandma's brown dog.",
+    "Goodnight, Grandma.",
+    "Four words I want to remember from tonight.",
+  ];
+  for (const raw of mochiQuestions) {
+    const text = applyDefaults(raw);
+    mochiTexts.add(text);
+    for (const chunk of splitChunks(text)) mochiTexts.add(chunk);
+  }
   return;
 }
 

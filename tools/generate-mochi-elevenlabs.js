@@ -43,6 +43,13 @@ const blocks = [
   'I am {catName}. I am a stray cat.\n\nEvery night, I visit one yard. Grandma and her dog {dogName} are there.\n\nGrandma tells stories. I listen with {dogName}.\n\nTonight, she tells one about me…',
   'The story ends. {dogName} is asleep on the floor.\n\nI walk back to the street. Goodnight, Grandma. Goodnight, {dogName}.\n\nSee you tomorrow night.',
 ];
+// v2.0.B.67: also Mochi-POV question sentences from Ch1 (Q2/Q3/Q7/Q8 outer frame)
+const mochiQuestionSentences = [
+  "Every night I visit Grandma's yard.",
+  "{dogName} is Grandma's brown dog.",
+  "Goodnight, Grandma.",
+  "Four words I want to remember from tonight.",
+];
 const seen = new Set();
 const tasks = [];
 for (const block of blocks) {
@@ -51,6 +58,11 @@ for (const block of blocks) {
     if (!seen.has(part)) { seen.add(part); tasks.push(part); }
     for (const chunk of split(part)) if (!seen.has(chunk)) { seen.add(chunk); tasks.push(chunk); }
   }
+}
+for (const q of mochiQuestionSentences) {
+  const subbed = sub(q);
+  if (!seen.has(subbed)) { seen.add(subbed); tasks.push(subbed); }
+  for (const chunk of split(subbed)) if (!seen.has(chunk)) { seen.add(chunk); tasks.push(chunk); }
 }
 
 // v2.0.B.38: also generate ONE concatenated full-narration MP3 for
