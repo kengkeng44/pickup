@@ -181,7 +181,10 @@ async function loadBuffer(url: string): Promise<AudioBuffer | null> {
   }
 }
 
-// @ts-expect-error retained for diagnostic / fallback path (B.77 uses Howler primarily)
+function fallbackWebSpeech(text: string, lang: string): void {
+  speakWebSpeech(text, lang);
+}
+
 function playBuffer(buf: AudioBuffer): boolean {
   const ctx = getAudioCtx();
   if (!ctx) return false;
@@ -231,32 +234,9 @@ function debugLog(msg: string) {
   if (typeof console !== 'undefined') console.log('[TTS]', msg);
 }
 
-// v2.0.B.77: Howler.js — production-grade iOS-tested audio. Handles
-// AudioContext unlock + ringer-channel bypass + format detection out of
-// the box. Used by many production HTML5 games on iOS.
-const howlCache = new Map<string, import('howler').Howl>();
-let activeHowl: import('howler').Howl | null = null;
-
-async function ensureHowler(): Promise<typeof import('howler')> {
-  const mod = await import('howler');
-  // First-time setup: explicitly unlock + force HTML5 audio off (use Web Audio)
-  mod.Howler.autoUnlock = true;
-  return mod;
-}
-
-function getHowl(url: string, howlerMod: typeof import('howler')): import('howler').Howl {
-  let h = howlCache.get(url);
-  if (!h) {
-    h = new howlerMod.Howl({
-      src: [url],
-      html5: false,        // force Web Audio (faster, iOS-supported once unlocked)
-      preload: true,
-      format: ['mp3'],
-    });
-    howlCache.set(url, h);
-  }
-  return h;
-}
+// v2.0.B.79 per agent Bug B+C: dropped Howler.js entirely. Web Audio cache
+// path is primary; HTML5 persistent Audio + WebSpeech are fallbacks.
+let activeBufferSource: AudioBufferSourceNode | null = null;
 
 export function speak(text: string, lang = 'en-US'): void {
   const cleaned = cleanText(text);
@@ -275,22 +255,25 @@ export function speak(text: string, lang = 'en-US'): void {
     const url = isMochi
       ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
       : `/audio/lessons/${audioId}.mp3`;
-    debugLog(`${isMochi?'🐱':'👵'} howl: ${audioId} map=${mapSize}`);
+    debugLog(`${isMochi?'🐱':'👵'} speak: ${audioId} map=${mapSize}`);
 
-    void ensureHowler().then(howlerMod => {
-      const h = getHowl(url, howlerMod);
-      activeHowl = h;
-      h.once('end', () => { if (activeHowl === h) activeHowl = null; });
-      h.once('playerror', (_id, err) => {
-        debugLog(`howl playerror: ${err} → WebSpeech`);
-        if (activeHowl === h) activeHowl = null;
-        speakWebSpeech(cleaned, lang);
-      });
-      h.once('loaderror', (_id, err) => {
-        debugLog(`howl loaderror: ${err} → WebSpeech`);
-        speakWebSpeech(cleaned, lang);
-      });
-      h.play();
+    // PRIMARY: Web Audio cached buffer (instant, gesture-token-immune)
+    const cached = audioBufferCache.get(url);
+    if (cached) {
+      if (playBuffer(cached)) {
+        debugLog(`webaudio play OK: ${audioId}`);
+        return;
+      }
+    }
+
+    // SECONDARY: async load + play once loaded
+    void loadBuffer(url).then(buf => {
+      if (buf) {
+        if (playBuffer(buf)) debugLog(`webaudio play (post-load) OK: ${audioId}`);
+        else fallbackWebSpeech(cleaned, lang);
+      } else {
+        fallbackWebSpeech(cleaned, lang);
+      }
     });
     return;
   } else {
@@ -300,10 +283,14 @@ export function speak(text: string, lang = 'en-US'): void {
 }
 
 export function stopSpeaking(): void {
-  // v2.0.B.77: stop Howler instance first
-  if (activeHowl) {
-    try { activeHowl.stop(); } catch {}
-    activeHowl = null;
+  // v2.0.B.79: stop Web Audio source first
+  if (activeBufferSource) {
+    try { activeBufferSource.stop(); } catch {}
+    activeBufferSource = null;
+  }
+  if (currentSource) {
+    try { currentSource.stop(); } catch {}
+    currentSource = null;
   }
   if (activeAudio) {
     try {
@@ -386,12 +373,13 @@ let isAudioUnlocked = false;
 
 function unlockAudio(): void {
   if (isAudioUnlocked) return;
-  // v2.0.B.75 CRITICAL — iOS WebKit Bug 237322: Web Audio is MUTED when the
-  // iPhone side-switch is in silent/vibrate mode. HTML5 Audio plays through
-  // media channel but Web Audio routes through ringer channel (= side-switch
-  // muted = no sound). Workaround per swevans/unmute pattern: continuously
-  // loop a silent HTML5 Audio tag — this forces the page's audio output
-  // onto the media channel, so Web Audio plays regardless of side-switch.
+  // v2.0.B.79 per agent audit Bug A: set flag SYNCHRONOUSLY at top, before
+  // any Promise. B.68-B.78 set it only in a .then() that often never fired
+  // on iOS → flag stuck false → autoSpeak silently no-op'd for Q1/Q2 forever.
+  // The actual unlock IS the synchronous Web Audio src.start(0) below.
+  isAudioUnlocked = true;
+
+  // Silent loop for ringer-channel bypass (WebKit Bug 237322).
   try {
     if (!silentLoopAudio) {
       silentLoopAudio = new Audio('/silent.mp3');
@@ -402,7 +390,7 @@ function unlockAudio(): void {
     void silentLoopAudio.play().catch(() => {});
   } catch {}
 
-  // Shared AudioContext resume — only ONE context across the app.
+  // Shared AudioContext resume + silent buffer source (the real unlock).
   try {
     const ctx = getAudioCtx();
     if (ctx) {
