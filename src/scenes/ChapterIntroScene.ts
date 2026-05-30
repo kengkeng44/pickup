@@ -277,11 +277,14 @@ export class ChapterIntroScene extends Phaser.Scene {
       avatarImg.alt = '';
       avatarImg.setAttribute('aria-hidden', 'true');
       applyStyle(avatarImg, {
-        width: '100%',
-        height: '100%',
+        width: '180%',          // v2.0.B.72: zoom into head
+        height: '180%',
         objectFit: 'cover',
+        objectPosition: 'center 20%',  // focus on face/head area
         display: 'block',
         pointerEvents: 'none',
+        marginLeft: '-40%',
+        marginTop: '-15%',
       });
       avatar.appendChild(avatarImg);
       // pulse on the FIRST avatar only — hints "tap me to start"

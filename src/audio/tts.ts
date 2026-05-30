@@ -298,6 +298,9 @@ function unlockAudio(): void {
   // MP3 (854 bytes). iOS attaches gesture-token to this specific element
   // once play() resolves → future speak() calls reuse this element + can
   // .play() from setTimeout contexts without NotAllowedError.
+  // v2.0.B.72: DO NOT reset src='' after prime — that detaches the gesture
+  // token on some iOS versions. Leave silent.mp3 loaded; speak() changes
+  // src on the SAME element which preserves the unlocked state.
   try {
     const a = getPersistentAudio();
     a.muted = true;
@@ -309,10 +312,9 @@ function unlockAudio(): void {
       a.currentTime = 0;
       a.muted = false;
       a.volume = 1;
-      a.src = '';
       isAudioUnlocked = true;
     }).catch(() => {
-      // ignore; will retry on next gesture (isAudioUnlocked stays false)
+      // ignore; will retry on next gesture
     });
   } catch {}
 }
