@@ -220,30 +220,29 @@ Composition: paw centered, ~80% canvas (slightly bigger than icon-paw to fill no
   },
   catalone: {
     name: 'scene-mochi-talking',
-    prompt: `CRITICAL STYLE: Pickup app HERO portrait — Mochi the calico cat alone, facing the viewer (4th wall break), as if she is telling US her story. **DUOLINGO FLAT VECTOR STYLE** — emulate Duolingo character DNA (Lin, Junior, Lily, Falstaff). NOT watercolor, NOT painterly, NOT realistic.
+    prompt: `CRITICAL STYLE: Pickup app HERO portrait — Mochi the calico cat full body, facing viewer, sitting upright in symmetric frontal pose. **DUOLINGO FLASHCARD ICON STYLE** — exactly emulate the Duolingo Spanish vocabulary flashcard art (e.g. "el gatito the little cat" purple-cat flashcard, "el perro" dog flashcard, "el pájaro" bird flashcard). Pure flat geometric vector. NOT watercolor, NOT painterly, NOT 3D vinyl, NOT realistic, NOT cel-shaded with multiple tones.
 
 ABSOLUTE RULES — DO NOT VIOLATE:
-1. **BOLD SOLID COLOR BLOCKS ONLY.** Each zone of Mochi's body is ONE flat color (with at most ONE slightly darker shadow tone for cel-shading). NO watercolor edges. NO gradient. NO airbrush. NO painterly brushwork. Think Duolingo Lin grandma character: pure vector flat fills.
-2. **LIMITED PALETTE — Mochi uses ONLY ~4-5 colors max:**
-   - Cream base body fur #fef8ed
-   - Warm orange calico patches #e7a44a (only a few patches on head/back — NOT covering whole body)
-   - Coffee brown calico patches #8b6f4a (a few smaller patches)
-   - Tiny pink nose #f0b8b0
-   - Dark warm brown eyes / pupils #3c2a1c (oval pupils with single tiny white highlight dot)
-   Background: SOLID cream #fef8ed (single flat color, NO texture, NO gradient, NO scenery)
-3. NO outlines AT ALL — silhouette emerges from color block boundaries (cream cat on cream background means body edge needs faint darker cream shadow #f5e8c8 to read).
-4. NO frame, NO border, NO sticker edge, NO baked drop shadow, NO floor under cat.
-5. NO grandma, NO Hana, NO chair, NO yard. JUST Mochi.
+1. **PURE FLAT GEOMETRIC PRIMITIVES.** Cat is built from simple geometric shapes assembled together: triangle ears, rounded-rectangle head, oval body, rounded-rectangle belly patch, rounded-rectangle paws, rounded-rectangle eye pupils. NO 3D modeling, NO cel-shading, NO gradient. Just flat shapes filled with one solid color each.
+2. **SYMMETRIC FRONTAL POSE.** Cat faces viewer dead-on, left-right mirror symmetric (like an emoji or app icon). NO 3/4 angle, NO turned head, NO raised paw on one side only. Both front paws together visible in front, ears symmetric, eyes symmetric. Pose is sitting upright with full body in frame.
+3. **LIMITED PALETTE — EXACTLY 5 COLORS:**
+   - Cream body base fur #fef8ed (largest area — body + face main)
+   - Warm orange calico patches #e7a44a (SYMMETRIC patches: one on each ear-top, one on top of head between ears, optional symmetric back patches)
+   - Coffee brown calico patches #8b6f4a (a few MEDIUM patches for real calico tricolor balance: one patch over one eye / forehead, one patch on the curled tail, one patch on the shoulder/back. NOT symmetric — calico patches are naturally asymmetric, that's the calico identity. The brown should read as ~15-20% of the body, not just a tiny accent.)
+   - White areas #ffffff — TWO white patches required:
+     (a) MUZZLE WHITE RING: a clean white oval centered on the lower face below the eyes, surrounding the pink nose like a small white face-mask. The pink nose sits IN the middle of this white oval. The white muzzle oval should be clearly visible against the cream body (don't blend).
+     (b) BODY WHITE BIB+SOCKS: one connected white shape that starts at the chin, flows down through the chest/belly, AND continues down to fill the front paws like white socks. NO gap between belly and paws — one organic flowing shape, like a white bib + white socks that touch. NEVER draw separate floating white feet — that looks like stickers. Paw toes are indicated by 2-3 short slits in slightly darker white #ece5d4.
+   These two white areas (muzzle + bib) are SEPARATE — muzzle is on the face, bib starts at chin and flows down. They do NOT connect.
+   - Dark warm brown #3c2a1c (eyes ONLY = two simple rounded vertical rectangles, NO highlights, NO whites, NO sparkle. **NO MOUTH line — the face below the eyes has only the white muzzle oval with pink nose, NOTHING ELSE. NO mouth, NO whiskers, NO chin lines, NO cheek stripes. Clean minimalist face per the Duolingo flashcard reference style.**)
+   - Pink nose accent #f0b8b0 (tiny rounded triangle/heart shape centered)
+4. **NO outlines AT ALL.** Shapes meet via color contrast. No black ink lines around silhouette or features.
+5. **DEPTH via INTERNAL DIVISION ONLY**: paw toes = small rounded slits in same color slightly darker (#e0d6c0 on cream). Inner ear = orange. NO drop shadow. NO floor. NO frame. NO border.
+6. **BACKGROUND**: solid soft off-white #f5efe4 (slightly off from body cream so silhouette reads) OR pure cream #fef8ed with subtle 1-tone shadow blob under cat as floor anchor. Background MUST be flat single color.
+7. **PROPORTIONS**: head ~45% of total height, body ~40%, legs/feet ~15%. Body is a rounded-egg/pear shape sitting upright. Tail wraps gently around side OR curls in front of feet.
 
-SUBJECT: Mochi the chibi calico cat — Duolingo vinyl chibi proportions (LARGE head 50% of body, SMALL chunky body, short stubby legs, big round paws). Facing viewer directly (frontal, slight 3/4 OK). Big round oval eyes engaged with viewer (like Duolingo Lin's wise warm eyes). Mouth slightly open mid-word (small soft curved line). ONE paw slightly raised mid-gesture (waving / talking gesture).
+REFERENCE TARGET (CRITICAL): Picture Duolingo's "el gatito" Spanish vocabulary flashcard — purple cat icon, flat geometric shapes, symmetric frontal, no shading, white belly oval, pink tiny nose, short whisker strokes. Do that EXACT visual treatment but with **calico tricolor (cream + orange + coffee brown patches)** and **full body visible (not just head)**.
 
-SHADING: Duolingo-style cel-shading. ONE base tone per zone + ONE slightly darker tone for shadow side. That's it. NO additional tones. NO highlights other than the single white dot in each eye.
-
-CRITICAL — reference target: This image should look like it could sit next to Duolingo's Lin character without aesthetic clash. Same flat-color-block, same chibi proportions, same vector cleanliness.
-
-NOT watercolor. NOT Studio Ghibli painted. NOT Pop Mart 3D rendered. PURE Duolingo flat vector.
-
-Square 1024×1024. NO text. NO speech bubbles. NO border. NO frame.`,
+Square 1024×1024. NO text. NO speech bubbles. NO border. NO frame. NO Spanish flashcard chrome (no duolingo logo, no card border — just the cat illustration on flat background).`,
   },
   scene: {
     name: 'scene-grandma-storytime',
