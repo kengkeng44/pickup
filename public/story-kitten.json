@@ -35,14 +35,14 @@
     "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 3,
-    "type": "type-what-you-hear",
+    "type": "listen-mc",
     "storyBeat": "{dogName}是奶奶養的柴犬",
-    "sentence": "{dogName} is Grandma's brown dog.",
-    "question": "Type the missing word",
+    "sentence": "{dogName} is Grandma's brown ___.",
+    "question": "What animal is {dogName}? · {dogName} 是什麼動物?",
     "options": ["dog", "day", "deep", "door"],
     "correctIndex": 0,
     "explanationZh": "dog = 狗。{dogName}是 Grandma's brown dog(奶奶養的棕色狗)— 一隻柴犬。我每晚跟他一起趴在地上聽故事。",
-    "tags": ["story", "ch1", "prologue", "type-what-you-hear"]
+    "tags": ["story", "ch1", "prologue", "listen-mc"]
   },
   {
     "id": "kt-ch1-04",
@@ -70,14 +70,14 @@
     "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 5,
-    "type": "type-what-you-hear",
+    "type": "listen-mc",
     "storyBeat": "奶奶撐傘給濕透的小貓",
-    "sentence": "I opened my umbrella for her.",
-    "question": "Type the missing word",
+    "sentence": "I opened my ___ for her.",
+    "question": "What did Grandma open for me? · 奶奶為我打開了什麼?",
     "options": ["umbrella", "uniform", "under", "useful"],
     "correctIndex": 0,
     "explanationZh": "umbrella = 傘。長一點的字,3 個音節 um-brel-la。奶奶為了濕透的我撐開傘 — 我們第一次靠近,但她沒抓我,只是給我一個躲雨的角落。",
-    "tags": ["story", "ch1", "main", "type-what-you-hear"]
+    "tags": ["story", "ch1", "main", "listen-mc"]
   },
   {
     "id": "kt-ch1-06",

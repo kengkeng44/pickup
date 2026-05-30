@@ -493,7 +493,7 @@ export class ClozeUI {
             ? pickPraise(PRAISE_TIMEOUT)
             : 'Time up'
           : this.forceCorrectMode
-            ? 'Almost · tap the green button'
+            ? '差一點 · Almost — see the answer below'
             : pickPraise(PRAISE_WRONG);
       this.revealHeaderText.style.color = COLOR_RED_DARK;
       this.revealPanel.style.background = COLOR_RED_TINT;
