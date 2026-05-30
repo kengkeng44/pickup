@@ -16,6 +16,7 @@ import { Mascot } from '../ui/Mascot';
 import { GameHUD } from '../ui/GameHUD';
 import { SCENARIO_META, FREE_PRACTICE_META } from '../data/scenarios';
 import { CHAPTER_META } from '../data/storyKitten';
+import { wireSentenceHints } from '../ui/WordHint';
 
 const ROUND_TIME_MS = 15_000;
 const HP_MAX = 3;
@@ -359,42 +360,45 @@ export class PlayScene extends Phaser.Scene {
       const correctWord = round.options[round.correctIndex] ?? '';
       const sentenceText = round.sentence.replace(/_{2,}/g, correctWord);
       const sentenceEl = this.hud.getSentenceElement();
-      // v1.8.0: render an optional comprehension prompt above the 🔊
-      // button (e.g. "How do I feel?" or "What is the problem?").
-      const promptHtml = round.question
-        ? `<div style="font-size:13px;color:#7a6850;font-weight:800;margin-bottom:10px;letter-spacing:0.3px;">${round.question}</div>`
-        : '';
+      // v2.0.B.61: per memory rule feedback-pickup-listening-format —
+      // killed the big blue "Tap to listen" pill. Listening UI now: small
+      // amber speaker prefix + question prompt on right (always replay-able).
+      // If sentence contains `___` (cloze), show sentence-with-visible-blank
+      // below; pure-comprehension questions show only the prompt (sentence
+      // hidden to preserve listening challenge).
+      const hasBlank = /_{2,}/.test(round.sentence);
+      let sentenceLineHtml = '';
+      if (hasBlank) {
+        const underscoreLen = Math.max(correctWord.length, 4);
+        const blankHtml = `<span style="display:inline-block;border-bottom:2.5px solid #b07a2a;min-width:${underscoreLen * 12}px;height:1.2em;vertical-align:-2px;margin:0 4px;"></span>`;
+        const sHtml = round.sentence.replace(/_{2,}/, blankHtml).split(/(\s+)/).map(tok => {
+          if (/^\s+$/.test(tok) || tok === '' || tok.includes('<span')) return tok;
+          return `<span class="word">${tok}</span>`;
+        }).join('');
+        sentenceLineHtml = `<div style="margin-top:10px;font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.7;">${sHtml}</div>`;
+      }
       if (sentenceEl) {
         sentenceEl.innerHTML = `
-          ${promptHtml}
-          <button type="button" class="pickup-listen-btn" style="
-            display:inline-flex; align-items:center; gap:10px;
-            margin:6px auto; padding:14px 28px;
-            background:#3d8aae; color:#ffffff;
-            border:none; border-bottom:4px solid #2c6986;
-            border-radius:18px;
-            font-family:inherit; font-size:17px; font-weight:900;
-            letter-spacing:0.5px; cursor:pointer;
-            touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-            transition: transform 80ms ease-out, border-bottom-width 80ms ease-out;
-          " aria-label="Tap to hear sentence">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff" aria-hidden="true" style="vertical-align:middle;"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg> Tap to listen
-          </button>
+          <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
+            <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
+              flex:0 0 auto; width:40px; height:40px; padding:0;
+              background:#e7a44a; border:none; border-bottom:3px solid #b07a2a;
+              border-radius:50%; cursor:pointer;
+              display:inline-flex; align-items:center; justify-content:center;
+              touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+            ">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            </button>
+            <div style="flex:1 1 auto;min-width:0;">
+              ${round.question ? `<div style="font-size:15px;color:#3c2a1c;font-weight:800;line-height:1.5;">${round.question}</div>` : ''}
+              ${sentenceLineHtml}
+            </div>
+          </div>
         `;
-        const btn = sentenceEl.querySelector('.pickup-listen-btn') as HTMLButtonElement | null;
-        if (btn) {
-          const onPress = () => { btn.style.transform = 'translateY(3px)'; btn.style.borderBottomWidth = '1px'; };
-          const onRelease = () => { btn.style.transform = ''; btn.style.borderBottomWidth = '4px'; };
-          btn.addEventListener('mousedown', onPress);
-          btn.addEventListener('mouseup', onRelease);
-          btn.addEventListener('mouseleave', onRelease);
-          btn.addEventListener('touchstart', onPress, { passive: true });
-          btn.addEventListener('touchend', onRelease);
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            speak(sentenceText);
-          });
-        }
+        const spk = sentenceEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
+        spk?.addEventListener('click', (e) => { e.preventDefault(); speak(sentenceText); });
+        // Wire word-tap-to-translate on the sentence (if cloze blank shown).
+        if (hasBlank) wireSentenceHints(sentenceEl);
       }
       // v2.0.B.51: removed both auto-speak setTimeout AND the "Audio
       // unavailable — ..." fallback microcopy per user feedback ("Audio
