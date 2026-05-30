@@ -355,13 +355,17 @@ let isAudioUnlocked = false;
 
 function unlockAudio(): void {
   if (isAudioUnlocked) return;
-  // (a) Web Audio context resume — iOS unlock signal for AudioContext.
+  // v2.0.B.74: CRITICAL FIX — use the SHARED sharedAudioCtx singleton so
+  // speak()'s playBuffer reuses the SAME context that was resumed during
+  // gesture. B.73 created a temp AudioContext here that died; speak()
+  // created a DIFFERENT context later which was never gesture-resumed
+  // → iOS rejected all Web Audio playback. Bug only visible because
+  // audio-context-singleton pattern wasn't fully enforced.
   try {
-    const AC = (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext
-      ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (AC) {
-      const ctx = new AC();
+    const ctx = getAudioCtx();
+    if (ctx) {
       if (ctx.state === 'suspended') void ctx.resume();
+      // Play silent 1-sample buffer source as the unlock gesture-trigger
       const buf = ctx.createBuffer(1, 1, 22050);
       const src = ctx.createBufferSource();
       src.buffer = buf;
@@ -385,17 +389,19 @@ function unlockAudio(): void {
     }).catch(() => {});
   } catch {}
 
-  // v2.0.B.73: Also pre-load AudioBuffers for Ch1 question audios — first
-  // gesture is the best time to start fetch + decode so playback later is
-  // instant (no buffer race on autoSpeak setTimeout).
-  try {
-    const preloadUrls = Array.from(audioLookup.entries()).slice(0, 32).map(([text, id]) => {
-      return mochiTexts.has(text)
-        ? `/audio/lessons/mochi-${hash8(text)}.mp3`
-        : `/audio/lessons/${id}.mp3`;
-    });
-    for (const url of preloadUrls) void loadBuffer(url);
-  } catch {}
+  // v2.0.B.74: defer preload until audioLookup is ready (audioLookup is
+  // populated async from JSON fetches; immediate Array.from(...) at first
+  // gesture may see an empty map).
+  void ensureLookup().then(() => {
+    try {
+      const preloadUrls = Array.from(audioLookup.entries()).slice(0, 32).map(([text, id]) => {
+        return mochiTexts.has(text)
+          ? `/audio/lessons/mochi-${hash8(text)}.mp3`
+          : `/audio/lessons/${id}.mp3`;
+      });
+      for (const url of preloadUrls) void loadBuffer(url);
+    } catch {}
+  });
 }
 
 if (typeof window !== 'undefined') {
