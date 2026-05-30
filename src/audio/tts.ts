@@ -251,17 +251,49 @@ export function ensureLookupReady(): Promise<void> {
   return ensureLookup();
 }
 
-// v2.0.B.44: iOS Safari/WebKit autoplay rule — audio.play() called outside
-// a user-gesture handler synchronously rejects with NotAllowedError. A
-// setTimeout-delayed speak() always violates this, so we skip auto-speak
-// entirely on iOS and rely on the user tapping the pulsing 🔊 speaker icon
-// (the SpeakerButton onclick IS a valid user gesture). Non-iOS browsers
-// keep the smooth auto-speak transition.
 export const IS_IOS_DEVICE: boolean =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
+// v2.0.B.68: iOS audio unlock pattern. Originally B.44 gated autoSpeak as
+// no-op on iOS because audio.play() outside a user-gesture rejects with
+// NotAllowedError. The unlock trick: on the FIRST user gesture, create a
+// dummy Audio + play a silent data-URI. iOS marks the page as "user has
+// allowed audio" → subsequent setTimeout-scheduled audio.play() calls work.
+// User feedback "之前的問題還在 不會自動發出聲音" — they want auto-play. Now
+// we unlock once and let autoSpeak fire on iOS too.
+let isAudioUnlocked = false;
+const SILENT_MP3 = 'data:audio/mp3;base64,/+MYxAAAAANIAAAAAExBTUUzLjk4LjIAAAAAAAAAAAAAACQCQAAAAAAAAAEDgQ1AAAA';
+
+function unlockAudio(): void {
+  if (isAudioUnlocked || typeof Audio === 'undefined') return;
+  try {
+    const a = new Audio(SILENT_MP3);
+    a.muted = true;
+    a.volume = 0;
+    void a.play().then(() => {
+      isAudioUnlocked = true;
+      a.pause();
+      a.src = '';
+    }).catch(() => {
+      // ignore; will retry on next gesture
+    });
+  } catch {
+    // ignore
+  }
+}
+
+if (typeof window !== 'undefined') {
+  const unlockOnce = () => unlockAudio();
+  // First touch/click anywhere unlocks audio. Capture phase so we run before
+  // any handler stops propagation. once:false so we retry until success.
+  window.addEventListener('touchstart', unlockOnce, { capture: true, passive: true });
+  window.addEventListener('click', unlockOnce, { capture: true });
+  window.addEventListener('keydown', unlockOnce, { capture: true });
+}
+
 export function autoSpeak(text: string, lang = 'en-US', delayMs = 280): void {
-  if (IS_IOS_DEVICE) return;
+  // Skip on iOS only if unlock hasn't fired yet — first gesture hasn't happened
+  if (IS_IOS_DEVICE && !isAudioUnlocked) return;
   window.setTimeout(() => speak(text, lang), delayMs);
 }
