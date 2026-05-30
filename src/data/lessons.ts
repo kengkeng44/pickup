@@ -124,7 +124,7 @@ export type ChapterId = z.infer<typeof ChapterIdSchema>;
 export const LessonSchema = z.object({
   id: z.string(),
   chapter: ChapterIdSchema,
-  lessonInChapter: z.number().int().min(1).max(24),
+  lessonInChapter: z.number().int().min(1).max(25),
   segmentType: SegmentTypeSchema,
   storyId: z.string().optional(),
   storyBeat: z.string().optional(),
