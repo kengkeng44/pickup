@@ -143,8 +143,11 @@ export class PlayScene extends Phaser.Scene {
     const state = useRunStore.getState();
     const isStory = state.mode === 'story';
     const isScenario = state.mode === 'scenario';
+    // v2.0.B.69: story mode drops the in-lesson chapter chip per user
+    // "最上面的chapter刪掉 外面有裏面就不要有" — map view already shows
+    // section banner with chapter title; redundant inside lesson.
     const chipLabel = isStory
-      ? `Chapter ${state.chapter} · ${meta.labelEn}`
+      ? ''
       : isScenario
         ? meta.labelEn
         : '';
@@ -660,8 +663,9 @@ export class PlayScene extends Phaser.Scene {
     const seconds = Math.ceil((remaining || ROUND_TIME_MS) / 1000);
     const low = remaining > 0 && remaining <= TIMER_LOW_THRESHOLD_MS;
 
-    const chipLabel = isStory && state.chapter
-      ? `Chapter ${state.chapter} · ${meta.labelEn}`
+    // v2.0.B.69: story mode skips chapter chip (see top of file).
+    const chipLabel = isStory
+      ? ''
       : isScenario
         ? meta.labelEn
         : '';

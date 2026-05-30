@@ -255,29 +255,29 @@ export const IS_IOS_DEVICE: boolean =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-// v2.0.B.68: iOS audio unlock pattern. Originally B.44 gated autoSpeak as
-// no-op on iOS because audio.play() outside a user-gesture rejects with
-// NotAllowedError. The unlock trick: on the FIRST user gesture, create a
-// dummy Audio + play a silent data-URI. iOS marks the page as "user has
-// allowed audio" → subsequent setTimeout-scheduled audio.play() calls work.
-// User feedback "之前的問題還在 不會自動發出聲音" — they want auto-play. Now
-// we unlock once and let autoSpeak fire on iOS too.
+// v2.0.B.69: iOS audio unlock — Web Audio path (more reliable than HTML5
+// Audio + data URI). On first user gesture: (1) resume AudioContext from
+// suspended state via existing AudioManager singleton; (2) schedule a silent
+// 1-sample buffer source → satisfies iOS "user has interacted with audio".
+// Subsequent setTimeout audio.play() works. B.68's malformed data: URI was
+// 90 chars (too short to be a valid MP3) — Web Audio is more reliable.
 let isAudioUnlocked = false;
-const SILENT_MP3 = 'data:audio/mp3;base64,/+MYxAAAAANIAAAAAExBTUUzLjk4LjIAAAAAAAAAAAAAACQCQAAAAAAAAAEDgQ1AAAA';
 
 function unlockAudio(): void {
-  if (isAudioUnlocked || typeof Audio === 'undefined') return;
+  if (isAudioUnlocked) return;
+  // Web Audio context resume (this is the iOS unlock signal)
   try {
-    const a = new Audio(SILENT_MP3);
-    a.muted = true;
-    a.volume = 0;
-    void a.play().then(() => {
-      isAudioUnlocked = true;
-      a.pause();
-      a.src = '';
-    }).catch(() => {
-      // ignore; will retry on next gesture
-    });
+    const AC = (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext
+      ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AC) return;
+    const ctx = new AC();
+    if (ctx.state === 'suspended') void ctx.resume();
+    const buf = ctx.createBuffer(1, 1, 22050);
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    src.connect(ctx.destination);
+    src.start(0);
+    isAudioUnlocked = true;
   } catch {
     // ignore
   }
@@ -285,11 +285,9 @@ function unlockAudio(): void {
 
 if (typeof window !== 'undefined') {
   const unlockOnce = () => unlockAudio();
-  // First touch/click anywhere unlocks audio. Capture phase so we run before
-  // any handler stops propagation. once:false so we retry until success.
   window.addEventListener('touchstart', unlockOnce, { capture: true, passive: true });
   window.addEventListener('click', unlockOnce, { capture: true });
-  window.addEventListener('keydown', unlockOnce, { capture: true });
+  window.addEventListener('pointerdown', unlockOnce, { capture: true });
 }
 
 export function autoSpeak(text: string, lang = 'en-US', delayMs = 280): void {
