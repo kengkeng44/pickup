@@ -280,15 +280,18 @@ export class StoryMapView {
     const currentNodeIdx = this.deriveCurrentNodeIdx(progress.highestCompleted);
 
     if (V2_ENABLED) {
-      // v2.0 — lesson-driven 24-button rendering. Async load gated; render
-      // empty path skeleton initially then replace with real lessons once
-      // fetched. Acceptable UX trade-off (StoryMapView mount is async-friendly).
-      // public/lessons-ch1.json may not exist yet (Task 10 stubs it);
-      // catch + log + silent no-op so legacy code path doesn't crash.
+      // v2.0.B.99: URL ?ch=N selects which chapter map to render. Default 1.
+      // Lets user access all 1161 questions across Ch1-Ch8 without needing
+      // a chapter-selector UI yet. Future: build proper chapter chooser.
+      const urlParams = typeof window !== 'undefined'
+        ? new URLSearchParams(window.location.search)
+        : null;
+      const chapterParam = Math.min(Math.max(parseInt(urlParams?.get('ch') ?? '1', 10) || 1, 1), 8) as ChapterId;
+
       void (async () => {
         try {
-          const lessons = await loadChapterLessons(1);
-          const completed = readCompletedLessons(1);
+          const lessons = await loadChapterLessons(chapterParam);
+          const completed = readCompletedLessons(chapterParam);
           lessons.forEach((lesson) => {
             const i = lesson.lessonInChapter - 1;
             if (i < 0 || i >= NODE_PATH_V2.length) return;
@@ -303,16 +306,18 @@ export class StoryMapView {
               label,
               unlocked: isUnlocked,
               completed: isCompleted,
-              chapter: 1,
+              chapter: chapterParam,
               positionOverride: pos,
             });
-            // v2.0 click — still routes through onPlayChapter (Task 10 will
-            // wire LessonScene direct-start once integration lands).
+            // v2.0.B.99: node tap → LessonScene direct-start with chapter+lessonId.
             node.el.addEventListener('click', () => {
               if (!isUnlocked) return;
-              this.handlers.onPlayChapter(1);
-              // Direct lesson-start (Task 10 e2e):
-              // (window as any).pickupGame?.scene.start('LessonScene', { chapter: 1, lessonId: lesson.id });
+              const g = (window as unknown as { pickupGame?: Phaser.Game }).pickupGame;
+              if (g && g.scene) {
+                g.scene.start('LessonScene', { chapter: chapterParam, lessonId: lesson.id });
+              } else {
+                this.handlers.onPlayChapter(chapterParam);
+              }
             });
             column.appendChild(node.el);
             this.nodes.push(node);

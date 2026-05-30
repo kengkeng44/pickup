@@ -76,7 +76,11 @@ const config: Phaser.Types.Core.GameConfig = {
   ],
 };
 
-new Phaser.Game(config);
+// v2.0.B.99: expose game globally so StoryMapView can scene.start('LessonScene')
+// directly (per Task 10 e2e wiring). Replaces the v1.x flow that routed every
+// node tap through ChapterIntro → PlayScene.
+const game = new Phaser.Game(config);
+(window as unknown as { pickupGame: Phaser.Game }).pickupGame = game;
 
 // v1.9.12: global click SFX. Any <button> tap fires a subtle press
 // sound (sfxCardPress). User has audio mute toggle in Profile if too
