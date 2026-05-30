@@ -50,24 +50,42 @@ async function loadAudioLookup(): Promise<void> {
       for (const lesson of lessons) {
         for (const q of lesson.questions) {
           if (!q.sentence || !q.id) continue;
-          const fullText = applyDefaults(q.sentence);
-          // Full sentence → q.id-named MP3
-          if (!audioLookup.has(fullText)) {
-            audioLookup.set(fullText, q.id);
-          }
-          // Sub-sentence chunks → hash-named MP3 (handles UI splits)
-          const chunks = splitChunks(fullText);
-          if (chunks.length > 1) {
-            for (const chunk of chunks) {
-              if (!audioLookup.has(chunk)) {
-                audioLookup.set(chunk, hash8(chunk));
-              }
-            }
-          }
+          indexLookup(q.sentence, q.id);
         }
       }
-    } catch {
-      // ignore — lookup misses fall back to Web Speech
+    } catch {}
+  }
+
+  // v2.0.B.29: also index v1.x story-kitten.json sentences + Ch1 narration/outro
+  try {
+    const res2 = await fetch('/story-kitten.json');
+    if (res2.ok) {
+      const v1q = await res2.json();
+      for (const q of v1q) {
+        if (q.sentence && q.id) indexLookup(q.sentence, q.id);
+      }
+    }
+  } catch {}
+  const narrationBlocks = [
+    'I am {catName}. I am a stray cat.\n\nEvery night, I visit one yard. Grandma and her dog {dogName} are there.\n\nGrandma tells stories. I listen with {dogName}.\n\nTonight, she tells one about me…',
+    'The story ends. {dogName} is asleep on the floor.\n\nI walk back to the street. Goodnight, Grandma. Goodnight, {dogName}.\n\nSee you tomorrow night.',
+  ];
+  for (const block of narrationBlocks) {
+    const subbed = applyDefaults(block);
+    for (const part of subbed.split(/\n+/).map(s => s.trim()).filter(Boolean)) {
+      indexLookup(part, hash8(part));
+    }
+  }
+  return; // close ensureLookup loop continuation
+}
+
+function indexLookup(rawSentence: string, fullId: string): void {
+  const fullText = applyDefaults(rawSentence);
+  if (!audioLookup.has(fullText)) audioLookup.set(fullText, fullId);
+  const chunks = splitChunks(fullText);
+  if (chunks.length > 1) {
+    for (const chunk of chunks) {
+      if (!audioLookup.has(chunk)) audioLookup.set(chunk, hash8(chunk));
     }
   }
 }

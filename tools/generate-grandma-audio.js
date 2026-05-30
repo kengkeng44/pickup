@@ -50,6 +50,7 @@ if (chapterId < 1 || chapterId > 8) {
 }
 
 const lessonsPath = resolve(repoRoot, `public/lessons-ch${chapterId}.json`);
+const storyKittenPath = resolve(repoRoot, 'public/story-kitten.json');
 if (!existsSync(lessonsPath)) {
   console.error(`Lesson file not found: ${lessonsPath}`);
   process.exit(1);
@@ -61,6 +62,17 @@ if (!existsSync(audioDir)) {
 }
 
 const lessons = JSON.parse(readFileSync(lessonsPath, 'utf-8'));
+// v2.0.B.29: also index v1.x story-kitten.json (PlayScene flow still uses
+// it as source of truth — until LessonScene wiring replaces it).
+const v1xQuestions = existsSync(storyKittenPath)
+  ? JSON.parse(readFileSync(storyKittenPath, 'utf-8'))
+  : [];
+// v2.0.B.29: hardcode Ch1 narration + outro chunks from CHAPTER_META so
+// ChapterIntroScene / ChapterEndScene speakers also get grandma MP3s.
+const ch1NarrationOutro = [
+  'I am {catName}. I am a stray cat.\n\nEvery night, I visit one yard. Grandma and her dog {dogName} are there.\n\nGrandma tells stories. I listen with {dogName}.\n\nTonight, she tells one about me…',
+  'The story ends. {dogName} is asleep on the floor.\n\nI walk back to the street. Goodnight, Grandma. Goodnight, {dogName}.\n\nSee you tomorrow night.',
+];
 
 // Apply default name placeholders so the generated audio matches what
 // new players hear (per-player customization stays in Web Speech fallback)
@@ -87,6 +99,40 @@ function splitChunks(text) {
 // Multiple Q can share a sentence; dedupe by sentence text to save API calls.
 const tasks = [];
 const seenSentences = new Set();
+// v2.0.B.29: helper — index a single sentence + its chunks
+function indexText(sourceId, rawText) {
+  if (!rawText) return;
+  const fullText = substitute(rawText);
+  if (!seenSentences.has(fullText)) {
+    seenSentences.add(fullText);
+    const filename = `${sourceId}.mp3`;
+    const filePath = resolve(audioDir, filename);
+    if (!existsSync(filePath)) tasks.push({ id: sourceId, text: fullText, filePath });
+  }
+  const chunks = splitChunks(fullText);
+  if (chunks.length > 1) {
+    for (const chunk of chunks) {
+      if (seenSentences.has(chunk)) continue;
+      seenSentences.add(chunk);
+      const id = hash8(chunk);
+      const filePath = resolve(audioDir, `${id}.mp3`);
+      if (!existsSync(filePath)) tasks.push({ id, text: chunk, filePath });
+    }
+  }
+}
+
+// Index v1.x story-kitten sentences (PlayScene)
+for (const q of v1xQuestions) {
+  if (q.sentence && q.id) indexText(q.id, q.sentence);
+}
+// Index Ch1 narration + outro (ChapterIntro/EndScene). Per-chunk via hash.
+for (const block of ch1NarrationOutro) {
+  const subbed = substitute(block);
+  for (const part of subbed.split(/\n+/).map(s => s.trim()).filter(Boolean)) {
+    indexText(hash8(part), part);
+  }
+}
+
 for (const lesson of lessons) {
   for (const q of lesson.questions) {
     if (!q.sentence) continue;
