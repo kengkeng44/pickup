@@ -220,26 +220,28 @@ Composition: paw centered, ~80% canvas (slightly bigger than icon-paw to fill no
   },
   catalone: {
     name: 'scene-mochi-talking',
-    prompt: `CRITICAL STYLE: Pickup app HERO portrait — Mochi the calico cat alone, facing the viewer (4th wall break), as if she is telling US her story. Watercolor soft, Studio Ghibli warm + Pop Mart vinyl chibi simplicity.
+    prompt: `CRITICAL STYLE: Pickup app HERO portrait — Mochi the calico cat alone, facing the viewer (4th wall break), as if she is telling US her story. **DUOLINGO FLAT VECTOR STYLE** — emulate Duolingo character DNA (Lin, Junior, Lily, Falstaff). NOT watercolor, NOT painterly, NOT realistic.
 
 ABSOLUTE RULES — DO NOT VIOLATE:
-1. NO outlines AT ALL — no black ink lines, no thin lines, NO color-block borders defining shapes. Pure soft watercolor edges only. Forms emerge from color difference, not from outline.
-2. PALETTE cream-dominant — soft cream #fef8ed is ~50% of canvas. Mochi's calico fur uses muted warm tones (NOT saturated yellow).
-3. NO frame, NO border, NO box, NO sticker edge, NO baked drop shadow, NO floor under cat.
-4. NO grandma, NO Hana, NO chair, NO yard background. Just Mochi.
-5. Cat facing VIEWER directly (3/4 view OK, mostly frontal). As if she's about to speak. Slightly tilted head, mouth slightly open mid-word, eyes warm and engaged with us.
+1. **BOLD SOLID COLOR BLOCKS ONLY.** Each zone of Mochi's body is ONE flat color (with at most ONE slightly darker shadow tone for cel-shading). NO watercolor edges. NO gradient. NO airbrush. NO painterly brushwork. Think Duolingo Lin grandma character: pure vector flat fills.
+2. **LIMITED PALETTE — Mochi uses ONLY ~4-5 colors max:**
+   - Cream base body fur #fef8ed
+   - Warm orange calico patches #e7a44a (only a few patches on head/back — NOT covering whole body)
+   - Coffee brown calico patches #8b6f4a (a few smaller patches)
+   - Tiny pink nose #f0b8b0
+   - Dark warm brown eyes / pupils #3c2a1c (oval pupils with single tiny white highlight dot)
+   Background: SOLID cream #fef8ed (single flat color, NO texture, NO gradient, NO scenery)
+3. NO outlines AT ALL — silhouette emerges from color block boundaries (cream cat on cream background means body edge needs faint darker cream shadow #f5e8c8 to read).
+4. NO frame, NO border, NO sticker edge, NO baked drop shadow, NO floor under cat.
+5. NO grandma, NO Hana, NO chair, NO yard. JUST Mochi.
 
-SUBJECT: Mochi the chibi calico cat (orange + brown + white tricolor) — chunky vinyl figure proportions (50% head, small chubby body). Soft 瞇瞇眼 squinted smile eyes OR slightly open big oval eyes — pick whichever reads more engaged/expressive. One paw slightly raised (gesture of mid-talk). Sweet attentive 4th-wall-break pose.
+SUBJECT: Mochi the chibi calico cat — Duolingo vinyl chibi proportions (LARGE head 50% of body, SMALL chunky body, short stubby legs, big round paws). Facing viewer directly (frontal, slight 3/4 OK). Big round oval eyes engaged with viewer (like Duolingo Lin's wise warm eyes). Mouth slightly open mid-word (small soft curved line). ONE paw slightly raised mid-gesture (waving / talking gesture).
 
-COLORS:
-- Cream main fur #fef8ed (with brown tabby ears + orange patches scattered)
-- Pink tiny nose
-- Background: pure soft cream #fef8ed (essentially blends with fur — minimal contrast = soft hand-painted feel)
-- Light muted shadows in mid-coffee #b08a6a for face structure
+SHADING: Duolingo-style cel-shading. ONE base tone per zone + ONE slightly darker tone for shadow side. That's it. NO additional tones. NO highlights other than the single white dot in each eye.
 
-Soft watercolor cell-shading (just 1 base + 1 shadow). NO gradient. NO complex lighting.
+CRITICAL — reference target: This image should look like it could sit next to Duolingo's Lin character without aesthetic clash. Same flat-color-block, same chibi proportions, same vector cleanliness.
 
-Inspired by: Beatrix Potter watercolor + Studio Ghibli small animal portraits + Sanrio cuteness. The mood: she's about to speak to the reader.
+NOT watercolor. NOT Studio Ghibli painted. NOT Pop Mart 3D rendered. PURE Duolingo flat vector.
 
 Square 1024×1024. NO text. NO speech bubbles. NO border. NO frame.`,
   },
