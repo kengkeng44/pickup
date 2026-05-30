@@ -198,27 +198,9 @@ export class StoryMapView {
     const hudBar = this.buildHudBar();
     this.root.appendChild(hudBar);
 
-    // v1.9.35 audit-2 F6: warm welcome microcopy for first-time users
-    // (xp=0). Sits between HUD and section banner; disappears once user
-    // earns any XP. Warm-amber pill with paw — Pickup brand not Duo cold.
-    if (readXp() === 0) {
-      const welcome = document.createElement('div');
-      applyStyle(welcome, {
-        margin: '4px 14px 10px',
-        padding: '8px 14px',
-        background: 'rgba(231, 164, 74, 0.14)',
-        border: '1.5px dashed rgba(231, 164, 74, 0.55)',
-        borderRadius: '14px',
-        color: '#8b6f4a',
-        fontSize: '13px',
-        fontWeight: '800',
-        textAlign: 'center',
-        letterSpacing: '0.3px',
-        flex: '0 0 auto',
-      });
-      welcome.innerHTML = '<img src="/mascots/icon-paw.webp" alt="" aria-hidden="true" width="22" height="22" style="display:inline-block;vertical-align:-5px;margin-right:6px;" />從第一顆節點開始 · Tap to begin';
-      this.root.appendChild(welcome);
-    }
+    // v2.0.B.62: removed first-time welcome pill ("從第一顆節點開始 · Tap to
+    // begin") per user feedback — map UI is self-explanatory, the welcome
+    // pulse on the unlocked node already cues "tap me".
 
     // Header — section banner (Duolingo-style filled card at top)
     const header = this.buildHeader();
