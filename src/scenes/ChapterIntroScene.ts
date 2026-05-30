@@ -9,7 +9,6 @@ import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
 import { stopSpeaking, speak } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
-import { createSpeakerButton } from '../ui/SpeakerButton';
 import { applyCatName } from '../data/catName';
 import { applyDogName } from '../data/dogName';
 
@@ -216,15 +215,13 @@ export class ChapterIntroScene extends Phaser.Scene {
     // left + dashed underline below. Tap any 🔊 to replay that line.
     // Auto-play the first sentence on mount.
     const narrationWrap = document.createElement('div');
+    // v2.0.B.53: removed outer white box/border per user feedback (frameless).
+    // Each row now uses Mochi avatar on left instead of generic speaker icon.
     applyStyle(narrationWrap, {
-      background: '#ffffff',
-      border: `2px solid ${COLOR_BORDER}`,
-      borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
-      borderRadius: '16px',
-      padding: '14px 16px',
       display: 'flex',
       flexDirection: 'column',
-      gap: '14px',
+      gap: '16px',
+      padding: '4px 0',
     });
 
     // Split narration: respect explicit newlines first, then split each
@@ -246,12 +243,49 @@ export class ChapterIntroScene extends Phaser.Scene {
       const row = document.createElement('div');
       applyStyle(row, {
         display: 'flex',
-        alignItems: 'flex-start',
-        gap: '10px',
-        paddingBottom: '8px',
-        borderBottom: `1.5px dashed ${COLOR_BORDER}`,
+        alignItems: 'center',
+        gap: '12px',
         cursor: 'pointer',
+        padding: '6px 4px',
+        borderRadius: '12px',
+        transition: 'background 120ms ease',
       });
+
+      // v2.0.B.53: Mochi avatar replaces generic speaker icon. Clicking the
+      // avatar plays that sentence's audio + reveals the blanked text.
+      // Frameless conversational layout per user feedback.
+      const avatar = document.createElement('button');
+      avatar.type = 'button';
+      avatar.setAttribute('aria-label', `Mochi 唸第 ${idx + 1} 句 · Listen to sentence ${idx + 1}`);
+      applyStyle(avatar, {
+        flex: '0 0 auto',
+        width: '40px',
+        height: '40px',
+        background: 'transparent',
+        border: 'none',
+        borderRadius: '50%',
+        cursor: 'pointer',
+        padding: '0',
+        overflow: 'hidden',
+        display: 'block',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+        transition: 'transform 120ms ease',
+      });
+      const avatarImg = document.createElement('img');
+      avatarImg.src = '/mascots/scene-mochi-talking.webp';
+      avatarImg.alt = '';
+      avatarImg.setAttribute('aria-hidden', 'true');
+      applyStyle(avatarImg, {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        display: 'block',
+        pointerEvents: 'none',
+      });
+      avatar.appendChild(avatarImg);
+      // pulse on the FIRST avatar only — hints "tap me to start"
+      if (idx === 0) avatar.classList.add('pickup-speaker-pulse');
 
       const text = document.createElement('div');
       text.className = 'pickup-narration-line';
@@ -261,14 +295,10 @@ export class ChapterIntroScene extends Phaser.Scene {
         lineHeight: '1.7',
         color: COLOR_TEXT_DARK,
         fontWeight: '700',
-        paddingTop: '6px',
         userSelect: 'none',
       });
 
-      // v2.0.B.51: per user feedback "字幕不要直接呈現 用__的方式呈獻 點了才出現字".
-      // Initially show one underscore-blank per word (count matches word
-      // count so user sees the structure). Tapping speaker OR the row
-      // reveals the real text + plays audio. Once revealed, stays revealed.
+      // Per-word underscore blanks → tap avatar/row to reveal + speak.
       const tokens = sentence.split(/(\s+)/);
       const realHtml = tokens.map(tok => {
         if (/^\s+$/.test(tok) || tok === '') return tok;
@@ -284,24 +314,15 @@ export class ChapterIntroScene extends Phaser.Scene {
         if (revealed) return;
         revealed = true;
         text.innerHTML = realHtml;
-        // Re-wire WordHint dashed-underline word click after innerHTML rewrite
         wireSentenceHints(text);
       };
 
-      const speaker = createSpeakerButton({
-        text: sentence,
-        size: 'sm',
-        ariaLabel: `Listen to sentence ${idx + 1}`,
-        onClick: () => { reveal(); speak(sentence); },
-      });
-      row.appendChild(speaker);
-      row.appendChild(text);
-      row.addEventListener('click', (e) => {
-        // Don't double-trigger if user tapped the speaker (its own onClick already revealed)
-        if ((e.target as HTMLElement).closest('button')) return;
-        reveal();
-      });
+      const trigger = () => { reveal(); speak(sentence); };
+      avatar.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); trigger(); });
+      row.addEventListener('click', trigger);
 
+      row.appendChild(avatar);
+      row.appendChild(text);
       narrationWrap.appendChild(row);
     });
     // v2.0.B.38: ONE paw button. iOS Safari audio chain unreliable —
