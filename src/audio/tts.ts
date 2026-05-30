@@ -171,10 +171,18 @@ export function speak(text: string, lang = 'en-US'): void {
       audio.volume = 1.0;
       activeAudio = audio;
       audio.play().then(() => {
-        debugLog(`MP3 play OK: ${audioId}`);
+        // v2.0.B.50: skip stale "OK" log when activeAudio has moved on.
+        if (activeAudio === audio) debugLog(`MP3 play OK: ${audioId}`);
       }).catch((err) => {
+        // v2.0.B.50: stale-promise guard. If user advanced (q1→q2) before
+        // this audio's play() Promise settled, the activeAudio slot has
+        // already been replaced or nulled by stopSpeaking(). The rejection
+        // is from a torn-down audio element — NOT a real failure on the
+        // current question. Skip the debug overlay AND the WebSpeech
+        // fallback (which would speak old sentence on new screen).
+        if (activeAudio !== audio) return;
         debugLog(`MP3 play FAIL: ${err?.name || 'err'} → WebSpeech`);
-        if (activeAudio === audio) activeAudio = null;
+        activeAudio = null;
         speakWebSpeech(cleaned, lang);
       });
       audio.addEventListener('ended', () => {
@@ -195,6 +203,11 @@ export function stopSpeaking(): void {
     try {
       activeAudio.pause();
       activeAudio.currentTime = 0;
+      // v2.0.B.50: iOS WebKit decoder release. Without src='', the buffer
+      // keeps a soft reference and subsequent play() calls (on the same or
+      // a new audio element) may race with the half-paused stream and
+      // resolve via NotAllowedError. Clearing src fully tears down.
+      activeAudio.src = '';
     } catch {
       // ignore
     }
