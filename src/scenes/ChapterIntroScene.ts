@@ -260,9 +260,9 @@ export class ChapterIntroScene extends Phaser.Scene {
       avatar.setAttribute('aria-label', `Mochi 唸第 ${idx + 1} 句 · Listen to sentence ${idx + 1}`);
       applyStyle(avatar, {
         flex: '0 0 auto',
-        width: '44px',
-        height: '44px',
-        background: '#fef8ed url(/mascots/scene-mochi-talking.webp) no-repeat center 18% / 175%',
+        width: '34px',
+        height: '34px',
+        background: '#fef8ed url(/mascots/scene-mochi-talking.webp) no-repeat center 22% / 165%',
         border: 'none',
         borderRadius: '50%',
         cursor: 'pointer',

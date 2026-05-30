@@ -181,6 +181,7 @@ async function loadBuffer(url: string): Promise<AudioBuffer | null> {
   }
 }
 
+// @ts-expect-error retained for diagnostic / fallback path (B.77 uses Howler primarily)
 function playBuffer(buf: AudioBuffer): boolean {
   const ctx = getAudioCtx();
   if (!ctx) return false;
@@ -230,6 +231,33 @@ function debugLog(msg: string) {
   if (typeof console !== 'undefined') console.log('[TTS]', msg);
 }
 
+// v2.0.B.77: Howler.js — production-grade iOS-tested audio. Handles
+// AudioContext unlock + ringer-channel bypass + format detection out of
+// the box. Used by many production HTML5 games on iOS.
+const howlCache = new Map<string, import('howler').Howl>();
+let activeHowl: import('howler').Howl | null = null;
+
+async function ensureHowler(): Promise<typeof import('howler')> {
+  const mod = await import('howler');
+  // First-time setup: explicitly unlock + force HTML5 audio off (use Web Audio)
+  mod.Howler.autoUnlock = true;
+  return mod;
+}
+
+function getHowl(url: string, howlerMod: typeof import('howler')): import('howler').Howl {
+  let h = howlCache.get(url);
+  if (!h) {
+    h = new howlerMod.Howl({
+      src: [url],
+      html5: false,        // force Web Audio (faster, iOS-supported once unlocked)
+      preload: true,
+      format: ['mp3'],
+    });
+    howlCache.set(url, h);
+  }
+  return h;
+}
+
 export function speak(text: string, lang = 'en-US'): void {
   const cleaned = cleanText(text);
   if (!cleaned) {
@@ -240,61 +268,31 @@ export function speak(text: string, lang = 'en-US'): void {
   stopSpeaking();
 
   const mapSize = audioLookup.size;
-  // v2.0.B.32: Mochi voice for 1st-person narration sentences
   const isMochi = mochiTexts.has(cleaned);
   const audioId = audioLookup.get(cleaned);
 
-  if (audioId && typeof Audio !== 'undefined') {
+  if (audioId) {
     const url = isMochi
       ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
       : `/audio/lessons/${audioId}.mp3`;
-    debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
+    debugLog(`${isMochi?'🐱':'👵'} howl: ${audioId} map=${mapSize}`);
 
-    // v2.0.B.73: Web Audio path first (canonical iOS Safari fix).
-    // AudioBufferSourceNode plays reliably from any context after unlock.
-    const cached = audioBufferCache.get(url);
-    if (cached) {
-      if (playBuffer(cached)) {
-        debugLog(`webaudio play OK: ${audioId}`);
-        return;
-      }
-    } else {
-      // Kick off async load; meanwhile try HTML5 fallback below
-      void loadBuffer(url).then(buf => {
-        if (buf) debugLog(`buffer cached: ${audioId}`);
-      });
-    }
-
-    try {
-      const audio = getPersistentAudio();
-      audio.src = url;
-      audio.load();
-      audio.playbackRate = 1.0;
-      audio.volume = 1.0;
-      audio.muted = false;
-      activeAudio = audio;
-      audio.play().then(() => {
-        // v2.0.B.50: skip stale "OK" log when activeAudio has moved on.
-        if (activeAudio === audio) debugLog(`MP3 play OK: ${audioId}`);
-      }).catch((err) => {
-        // v2.0.B.50: stale-promise guard. If user advanced (q1→q2) before
-        // this audio's play() Promise settled, the activeAudio slot has
-        // already been replaced or nulled by stopSpeaking(). The rejection
-        // is from a torn-down audio element — NOT a real failure on the
-        // current question. Skip the debug overlay AND the WebSpeech
-        // fallback (which would speak old sentence on new screen).
-        if (activeAudio !== audio) return;
-        debugLog(`MP3 play FAIL: ${err?.name || 'err'} → WebSpeech`);
-        activeAudio = null;
+    void ensureHowler().then(howlerMod => {
+      const h = getHowl(url, howlerMod);
+      activeHowl = h;
+      h.once('end', () => { if (activeHowl === h) activeHowl = null; });
+      h.once('playerror', (_id, err) => {
+        debugLog(`howl playerror: ${err} → WebSpeech`);
+        if (activeHowl === h) activeHowl = null;
         speakWebSpeech(cleaned, lang);
       });
-      audio.addEventListener('ended', () => {
-        if (activeAudio === audio) activeAudio = null;
+      h.once('loaderror', (_id, err) => {
+        debugLog(`howl loaderror: ${err} → WebSpeech`);
+        speakWebSpeech(cleaned, lang);
       });
-      return;
-    } catch (e: any) {
-      debugLog(`MP3 ctor FAIL: ${e?.message?.slice(0,40)}`);
-    }
+      h.play();
+    });
+    return;
   } else {
     debugLog(`no mp3id (map=${mapSize}) txt=${cleaned.slice(0,40)} → WebSpeech`);
   }
@@ -302,14 +300,15 @@ export function speak(text: string, lang = 'en-US'): void {
 }
 
 export function stopSpeaking(): void {
+  // v2.0.B.77: stop Howler instance first
+  if (activeHowl) {
+    try { activeHowl.stop(); } catch {}
+    activeHowl = null;
+  }
   if (activeAudio) {
     try {
       activeAudio.pause();
       activeAudio.currentTime = 0;
-      // v2.0.B.50: iOS WebKit decoder release. Without src='', the buffer
-      // keeps a soft reference and subsequent play() calls (on the same or
-      // a new audio element) may race with the half-paused stream and
-      // resolve via NotAllowedError. Clearing src fully tears down.
       activeAudio.src = '';
     } catch {
       // ignore
