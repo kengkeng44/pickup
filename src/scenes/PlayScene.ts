@@ -406,11 +406,11 @@ export class PlayScene extends Phaser.Scene {
             </button>
             <div style="flex:1 1 auto;min-width:0;">
               <div class="pickup-listen-sentence" data-revealed="false" style="
-                font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.9;
+                font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.8;
                 cursor:pointer;user-select:none;
-                max-height:120px;overflow:hidden;
+                max-height:140px;overflow:hidden;
               ">${blanksHtml}</div>
-              ${round.question ? `<div style="font-size:14px;color:#7a6850;font-weight:700;line-height:1.5;margin-top:10px;">${round.question}</div>` : ''}
+              ${round.question ? `<div style="font-size:17px;color:#3c2a1c;font-weight:800;line-height:1.8;margin-top:10px;">${round.question}</div>` : ''}
             </div>
           </div>
         `;
