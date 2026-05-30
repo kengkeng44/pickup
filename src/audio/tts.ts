@@ -22,6 +22,10 @@
 
 // text -> audioId (Q id) for pre-generated MP3 lookup
 const audioLookup = new Map<string, string>();
+// v2.0.B.32: mochi narration set — texts whose voice should be the young
+// boy Mochi voice (echo), NOT grandma shimmer. ChapterIntro/EndScene
+// narration chunks are 1st-person Mochi POV.
+const mochiTexts = new Set<string>();
 let lookupPromise: Promise<void> | null = null;
 
 function applyDefaults(s: string): string {
@@ -74,9 +78,12 @@ async function loadAudioLookup(): Promise<void> {
     const subbed = applyDefaults(block);
     for (const part of subbed.split(/\n+/).map(s => s.trim()).filter(Boolean)) {
       indexLookup(part, hash8(part));
+      // v2.0.B.32: mark all narration chunks as Mochi voice (1st-person POV)
+      mochiTexts.add(part);
+      for (const chunk of splitChunks(part)) mochiTexts.add(chunk);
     }
   }
-  return; // close ensureLookup loop continuation
+  return;
 }
 
 function indexLookup(rawSentence: string, fullId: string): void {
@@ -147,12 +154,16 @@ export function speak(text: string, lang = 'en-US'): void {
   stopSpeaking();
 
   const mapSize = audioLookup.size;
+  // v2.0.B.32: Mochi voice for 1st-person narration sentences
+  const isMochi = mochiTexts.has(cleaned);
   const audioId = audioLookup.get(cleaned);
 
   if (audioId && typeof Audio !== 'undefined') {
     try {
-      const url = `/audio/lessons/${audioId}.mp3`;
-      debugLog(`MP3 try: ${audioId} map=${mapSize}`);
+      const url = isMochi
+        ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
+        : `/audio/lessons/${audioId}.mp3`;
+      debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
       const audio = new Audio(url);
       audio.playbackRate = 1.0;
       audio.volume = 1.0;

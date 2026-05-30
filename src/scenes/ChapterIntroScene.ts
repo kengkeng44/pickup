@@ -260,11 +260,49 @@ export class ChapterIntroScene extends Phaser.Scene {
 
       narrationWrap.appendChild(row);
     });
-    // v2.0.B.30: Subtitles collapsed by default per user request.
-    // Default view = image only. Single toggle button reveals subtitle list.
-    // Also fixes iOS NotAllowedError: removed setTimeout auto-play (iOS
-    // breaks gesture chain on delayed Audio.play). User must tap 🔊 manually.
+    // v2.0.B.32: "▶ 點我開始故事" button — solves iOS autoplay by being
+    // the ACTUAL user-gesture that fires Audio.play() synchronously. Plays
+    // narration sentences sequentially via Audio.ended event chaining
+    // (allowed within same gesture context).
     applyStyle(narrationWrap, { display: 'none' });
+    const startBtn = document.createElement('button');
+    startBtn.type = 'button';
+    startBtn.textContent = '▶ 點我開始故事';
+    applyStyle(startBtn, {
+      margin: '8px auto 6px',
+      padding: '12px 28px',
+      background: COLOR_AMBER,
+      border: 'none',
+      borderRadius: '24px',
+      color: '#fff',
+      fontSize: '15px',
+      fontWeight: '900',
+      cursor: 'pointer',
+      display: 'block',
+      letterSpacing: '0.5px',
+      boxShadow: '0 3px 0 #b07a2a',
+    });
+    let playIdx = 0;
+    const playNext = () => {
+      if (playIdx >= sentences.length) {
+        startBtn.textContent = '▶ 重新播放';
+        playIdx = 0;
+        return;
+      }
+      const s = sentences[playIdx];
+      startBtn.textContent = `▶ 朗讀中 ${playIdx + 1}/${sentences.length}`;
+      speak(s);
+      playIdx += 1;
+      // Schedule next via timing estimate (audio.ended not exposed by tts.ts)
+      const wait = Math.max(2200, s.length * 90);
+      window.setTimeout(playNext, wait);
+    };
+    startBtn.onclick = () => {
+      playIdx = 0;
+      playNext();
+    };
+    content.appendChild(startBtn);
+
     const subtitleToggle = document.createElement('button');
     subtitleToggle.type = 'button';
     subtitleToggle.textContent = '▾ 顯示字幕';
