@@ -107,7 +107,29 @@ QA agent reports issues per Q. Designer agent fixes + re-submit.
 - `feedback_pickup_perf_budget` — content shouldn't bloat bundle past LCP 3s budget
 - `feedback_pickup_explain_technical_simply` — explanationZh uses 比喻 + 大白話 + 少 jargon
 
-## Asset generation gating
+## QA findings (2026-05-31 round 1) — addenda
+
+QA agents audited Ch2-Ch7 specs first 6 lessons. Cross-chapter systemic issues:
+
+### Critical fixes for ALL JSON gen
+1. **correctIndex must be SHUFFLED** — every sample Q in agent specs has correctIndex:0 (predictable/gameable). JSON gen must randomize position 0/1/2/3 for each Q.
+2. **1+1+1+1 doctrine ≠ 4 phonetic cousins**. The pattern is: correct + same-category + partial-truth + obvious-miss. Phonetic-confuser cluster (4 words starting with same letter) is OK for listen-mc only when distractors also vary by semantic category. Don't stack 4 phonetic peers.
+3. **No near-synonym distractors in listen-emoji**: glad/happy/joyful/excited are unfair for A2 — they test L1 pedantry not L2 listening. Pick semantically distinct categories.
+4. **Avoid `listen-emoji` type going forward** — type confusing; user clarified no-emoji rule. Use `listen-comprehension` with text-only emotion options instead.
+
+### Type pacing — EXTEND (not enforce)
+Original template restricted read-mc-with-audio to L19-23. Multiple agents used it pedagogically well in main-story. **Update**: read-mc-with-audio + tap-tiles + listen-mc + listen-comprehension all usable in main-story L4-L18. Pacing table is GUIDE not LAW.
+
+### Per-spec follow-ups
+- **Ch2** (桃太郎): minor relabel pass on [C/S/P/O] tags
+- **Ch3** (醜小鴨): fix question stem misplaced in `sentence` field for L1q5/L3q5/L4q5/L6q5
+- **Ch4** (龜兔賽跑): replace synonym distractors with semantic-category peers in 7 Qs
+- **Ch5** (Kipling): L2-q3 duplicate "page" option — fix in JSON gen
+- **Ch6** (Baba Yaga): NIT — diversify distractor pool beyond phonetic
+- **Ch7** (Six Swans): bonus has 2 hard Q (20% local) vs 5% chapter budget — relabel medium
+
+JSON translator agents currently in flight — fixes applied in post-validation pass.
+
 
 Audio MP3 generation **deferred until user reviews questions** (user 2026-05-31 directive: "先不要生 明天給我題目後我再決定"). After content lock:
 - Mochi-POV sentences → ElevenLabs Lulu Lolipop
