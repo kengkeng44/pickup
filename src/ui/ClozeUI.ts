@@ -386,11 +386,19 @@ export class ClozeUI {
     // button red + disable it; leave all OTHER buttons enabled so the
     // player can keep trying until they hit the correct one. No reveal
     // panel until they actually answer correctly (or time out).
+    //
+    // v2.0.B.57: 2-strike override — read runStore.awaitingRetry. After 2
+    // cumulative wrong attempts runStore.answer() sets awaitingRetry=false
+    // so we FALL THROUGH to the reveal panel (show correct + explanationZh)
+    // instead of looping blindRetry forever. Memory rule:
+    // feedback-pickup-retry-reveal.
+    const storeWantsRetry = useRunStore.getState().awaitingRetry;
     const blindRetry =
       this.forceCorrectMode &&
       !correct &&
       selectedIndex >= 0 &&
-      selectedIndex !== correctIndex;
+      selectedIndex !== correctIndex &&
+      storeWantsRetry;
 
     if (blindRetry) {
       // Mark only the wrong button as wrong, keep all OTHER buttons

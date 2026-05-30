@@ -16,6 +16,7 @@
  */
 
 import { createSpeakerButton } from './SpeakerButton';
+import { useRunStore } from '../store/runStore';
 
 const COLOR_BORDER = '#e6dec9';
 const COLOR_BORDER_DARK = '#cbbf9c';
@@ -244,7 +245,11 @@ export function mountTapTiles(opts: {
         cursor: 'not-allowed',
       });
       if (tilesWrongCount >= 2) {
-        // 2-strike: escalate to outer answer flow → reveal panel shows correct
+        // v2.0.B.57: bump runStore wrongAttempts BEFORE escalating so answer()
+        // sees this as the 2nd cumulative wrong (off-by-one fix: handleAnswer
+        // is only called on the escalation, but the user already burned 2
+        // attempts in the component).
+        useRunStore.setState((s) => ({ wrongAttempts: Math.max(s.wrongAttempts, 1) }));
         window.setTimeout(() => opts.onComplete(false), 750);
       } else {
         // 1st wrong: stay for retry
@@ -399,7 +404,8 @@ export function mountTypeWhatYouHear(opts: {
         borderBottom: `4px solid #7a2a20`,
       });
       if (typeWrongCount >= 2) {
-        // 2-strike: escalate to outer → reveal panel shows correct answer
+        // v2.0.B.57: bump runStore wrongAttempts BEFORE escalating (off-by-one fix).
+        useRunStore.setState((s) => ({ wrongAttempts: Math.max(s.wrongAttempts, 1) }));
         window.setTimeout(() => opts.onComplete(false), 750);
       } else {
         // 1st wrong: keep text, allow edit + resubmit
