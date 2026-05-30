@@ -415,7 +415,7 @@ export class PlayScene extends Phaser.Scene {
                 cursor:pointer;user-select:none;
                 max-height:140px;overflow:hidden;
               ">${blanksHtml}</div>
-              ${round.question ? `<div style="font-size:17px;color:#3c2a1c;font-weight:800;line-height:1.8;margin-top:10px;">${round.question}</div>` : ''}
+              ${round.question ? `<div style="font-size:17px;color:#3c2a1c;font-weight:800;line-height:1.8;">${round.question}</div>` : ''}
             </div>
           </div>
         `;

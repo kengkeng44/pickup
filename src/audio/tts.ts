@@ -126,6 +126,17 @@ if (typeof window !== 'undefined') {
 
 let activeAudio: HTMLAudioElement | null = null;
 
+// v2.0.B.70: persistent Audio element reused across speak() calls. iOS
+// Safari allows audio.play() outside user-gesture context IF the SAME
+// audio element was previously played during a gesture. We prime this
+// element on first user gesture (unlockAudio) so subsequent setTimeout
+// autoSpeak calls can play() without NotAllowedError.
+let persistentAudio: HTMLAudioElement | null = null;
+function getPersistentAudio(): HTMLAudioElement {
+  if (!persistentAudio) persistentAudio = new Audio();
+  return persistentAudio;
+}
+
 function cleanText(text: string): string {
   return text.replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -173,11 +184,15 @@ export function speak(text: string, lang = 'en-US'): void {
         ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
         : `/audio/lessons/${audioId}.mp3`;
       debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
-      const audio = new Audio(url);
-      // v2.0.B.37: removed playbackRate=1.3 hack. Real Mochi child voice
-      // (ElevenLabs Quang Anh — young boy storyteller) plays at native pitch.
+      // v2.0.B.70: reuse the persistent audio element instead of new Audio().
+      // iOS Safari's gesture-token only attaches to an element that was
+      // play()'d during a gesture (unlockAudio primes this one). Reusing
+      // it lets setTimeout-scheduled play() succeed without NotAllowedError.
+      const audio = getPersistentAudio();
+      audio.src = url;
       audio.playbackRate = 1.0;
       audio.volume = 1.0;
+      audio.muted = false;
       activeAudio = audio;
       audio.play().then(() => {
         // v2.0.B.50: skip stale "OK" log when activeAudio has moved on.
@@ -265,22 +280,37 @@ let isAudioUnlocked = false;
 
 function unlockAudio(): void {
   if (isAudioUnlocked) return;
-  // Web Audio context resume (this is the iOS unlock signal)
+  // (a) Web Audio context resume — iOS unlock signal for AudioContext.
   try {
     const AC = (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext
       ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AC) return;
-    const ctx = new AC();
-    if (ctx.state === 'suspended') void ctx.resume();
-    const buf = ctx.createBuffer(1, 1, 22050);
-    const src = ctx.createBufferSource();
-    src.buffer = buf;
-    src.connect(ctx.destination);
-    src.start(0);
-    isAudioUnlocked = true;
-  } catch {
-    // ignore
-  }
+    if (AC) {
+      const ctx = new AC();
+      if (ctx.state === 'suspended') void ctx.resume();
+      const buf = ctx.createBuffer(1, 1, 22050);
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.connect(ctx.destination);
+      src.start(0);
+    }
+  } catch {}
+  // (b) Prime the persistent HTML5 Audio element so iOS allows future
+  // .play() calls from setTimeout contexts. Use a real existing MP3
+  // (mochi narration) muted+vol=0 so user hears nothing.
+  try {
+    const a = getPersistentAudio();
+    a.muted = true;
+    a.volume = 0;
+    a.src = '/audio/lessons/mochi-ch1-fullnarration.mp3';
+    void a.play().then(() => {
+      a.pause();
+      a.currentTime = 0;
+      a.muted = false;
+      a.volume = 1;
+      a.src = '';
+    }).catch(() => {});
+  } catch {}
+  isAudioUnlocked = true;
 }
 
 if (typeof window !== 'undefined') {
