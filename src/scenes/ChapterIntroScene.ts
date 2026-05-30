@@ -7,7 +7,7 @@ import {
 } from '../data/storyKitten';
 import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
-import { speak, stopSpeaking, mp3UrlFor, ensureLookupReady } from '../audio/tts';
+import { stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 import { createSpeakerButton } from '../ui/SpeakerButton';
 import { applyCatName } from '../data/catName';
