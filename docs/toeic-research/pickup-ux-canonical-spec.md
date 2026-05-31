@@ -114,13 +114,20 @@ Per `pickup-q-design-standard-v1.md` — applies to listen-comprehension + liste
 - `applyCatName` / `applyDogName` functions kept but loader is passthrough
 - Profile customization removed
 
-## R11 — 4-agent post-iteration audit
+## R11 — 5-agent post-iteration audit (B.160+)
 
-Every commit dispatches:
+Every commit dispatches **5 agents in parallel** (≤8 min total, slowest = Player Walkthrough):
+
 1. **QA agent** — content vs `pickup-q-design-standard-v1.md` R1-R8 + A1-A7
 2. **Bug-check agent** — code health: dead code / iOS / leak / race / schema sync
 3. **Audio-Text Consistency agent** — speakerText vs DOM vs explanationZh cross-check
 4. **UX Compliance agent** — verify every surface listed in this doc is in spec'd state
+5. **Player Walkthrough agent (NEW B.160)** — A2 玩家視角 + 時間軸 timing alignment + give-away 偵測 (negation mirror / identity / Jaccard leak between narration ↔ Q) + 第一印象 + 留存意願
+
+**Why 5th**: 前 4 agent 全是「靜態 snapshot」(對照 spec / lint 規則 / DOM 比對)。沒有「時間 + user 視角」軸。B.160 一次 walkthrough 抓到 5 個 P0 issue (narration 2s 腰斬 / Q1Q2 negation mirror / advance 3s 不夠讀) 是前 4 agent 全漏的。
+
+**Template**: `docs/agents/player-walkthrough.md`
+**Dispatch matrix**: `docs/agents/dispatch-matrix.md`
 
 Per `feedback-pickup-post-iteration-audit` memory rule.
 
