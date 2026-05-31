@@ -155,12 +155,24 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   const parsed = LessonsSchema.parse(raw);
 
   // v1.9.52 pattern: inject player catName at load time
+  // v2.0.B.124: ALSO substitute in `question` field + `options[]` array.
+  // Bug: B.121/B.123 agent rewrites introduced {catName}/{dogName} placeholders
+  // into question prompts (e.g. "What kind of cat is {catName}?"). The original
+  // loader only substituted sentence + explanationZh — question + options leaked
+  // raw tokens to the UI. User report: "題目跟問題中間好像夾雜奇怪的 cat name".
+  // Fix: cover EVERY user-visible string field on the Question.
+  const inj = (s: string | undefined): string | undefined =>
+    s === undefined ? s : applyDogName(applyCatName(s));
   const injected = parsed.map((l) => ({
     ...l,
     storyBeat: l.storyBeat ? applyDogName(applyCatName(l.storyBeat)) : l.storyBeat,
     questions: l.questions.map((q) => ({
       ...q,
       sentence: applyDogName(applyCatName(q.sentence)),
+      question: (q as any).question ? inj((q as any).question) : (q as any).question,
+      options: Array.isArray((q as any).options)
+        ? (q as any).options.map((o: string) => applyDogName(applyCatName(o)))
+        : (q as any).options,
       explanationZh: applyDogName(applyCatName(q.explanationZh)),
     })),
   })) as Lesson[];

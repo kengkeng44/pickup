@@ -128,8 +128,6 @@ export class ClozeUI {
    * it (TTS speech), double-taps same option to commit selection. Trains
    * pure listening discrimination per TOEIC Part 2 pattern. */
   private hideOptionText = false;
-  private lastTappedIdx = -1;
-  private lastTappedAt = 0;
 
   constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
@@ -193,25 +191,14 @@ export class ClozeUI {
         e.preventDefault();
         const idx = Number(btn.getAttribute('data-cloze-idx'));
 
-        // v2.0.B.101 blind-listening: for listen-mc / listen-comprehension,
-        // first tap = LISTEN to option via TTS (gesture-safe). Same option
-        // double-tap within 600ms = COMMIT as answer. Different option tap
-        // = switch + listen.
-        if (this.hideOptionText && !this.locked && !this.awaitingForceCorrect) {
-          const text = btn.getAttribute('data-text') ?? '';
-          const now = Date.now();
-          if (this.lastTappedIdx === idx && now - this.lastTappedAt < 800) {
-            // Double-tap commit
-            this.handlers.onAnswer(idx);
-            return;
-          }
-          // Single tap: speak via TTS + mark visual selection
-          this.speakOptionText(text);
-          this.markBlindSelected(idx);
-          this.lastTappedIdx = idx;
-          this.lastTappedAt = now;
-          return;
-        }
+        // v2.0.B.124 blind-listening commit model REPLACED.
+        // OLD (B.101): double-tap to commit; first tap = preview audio + yellow
+        // "selected" state. Confusing — user pressed C (correct), got yellow,
+        // tapped A expecting to "see options", that committed A as wrong.
+        // NEW: single tap on A/B/C/D = direct commit, same as sighted MC.
+        // User has already heard A-D contents in the speaker queue (B.119),
+        // so they know the letter↔word mapping before tapping. No re-preview
+        // needed (re-tap speaker icon for full replay).
 
         // v0.8.1 blind retry: in force-correct mode, after a wrong tap
         // the player keeps trying. Wrong tap → mark red locally (no
@@ -668,8 +655,6 @@ export class ClozeUI {
         // v2.0.B.101: detect blind-listening mode for listen-mc / listen-comprehension
         const qType = (round as unknown as { type?: string }).type;
         this.hideOptionText = qType === 'listen-mc' || qType === 'listen-comprehension';
-        this.lastTappedIdx = -1;
-        this.lastTappedAt = 0;
         for (let i = 0; i < this.buttons.length; i++) {
           const text = round.options[i];
           this.buttons[i].el.setAttribute('data-text', text);
@@ -686,34 +671,4 @@ export class ClozeUI {
     }
   }
 
-  /** v2.0.B.101: speak option text via Web Speech API. Gesture-safe since
-   * called inside button click handler. */
-  private speakOptionText(text: string): void {
-    if (typeof window === 'undefined' || !window.speechSynthesis) return;
-    try {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US';
-      u.rate = 0.85;
-      u.pitch = 1;
-      u.volume = 1;
-      window.speechSynthesis.speak(u);
-    } catch {
-      // ignore
-    }
-  }
-
-  /** v2.0.B.101: visual mark for currently-selected (but not committed) blind option. */
-  private markBlindSelected(idx: number): void {
-    for (let i = 0; i < this.buttons.length; i++) {
-      const { el } = this.buttons[i];
-      if (i === idx) {
-        el.style.background = '#fff4d4';
-        el.style.borderColor = '#e7a44a';
-      } else {
-        el.style.background = '#ffffff';
-        el.style.borderColor = COLOR_BORDER;
-      }
-    }
-  }
 }
