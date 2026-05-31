@@ -199,12 +199,9 @@ export class LessonScene extends Phaser.Scene {
   }
 
   private _mountIntroOverlay(_intro: { en: string; zh: string }): void {
-    // v2.0.B.134: redesigned per user screenshot ref — no "STORY SO FAR"
-    // header, no EN/ZH paragraph spam, no {catName} leak. Match the existing
-    // ChapterIntroScene visual: Lesson chip + title + mascot + Next button +
-    // sentence preview rows (mini-mascot + dashed underline per upcoming Q).
-    // The intro field is kept in JSON (future use / accessibility) but not
-    // shown as long paragraph. Title carries the story-beat context.
+    // v2.0.B.135: per user — kill duplicate HUD mascot (top), use English-only
+    // title (storyBeat 是中文 = 違反「中文永不顯示 pre-reveal」rule), make
+    // preview rows tappable (audio + reveal sentence text inline).
     void _intro;
 
     const slot = this.hud?.buttonsSlot();
@@ -213,21 +210,27 @@ export class LessonScene extends Phaser.Scene {
       this.renderQuestion(this.lesson!.questions[0]);
       return;
     }
+
+    // Hide HUD mascot during intro (duplicate visual with overlay mascot).
+    const hudMascotSlot = this.hud?.mascotSlot();
+    if (hudMascotSlot) hudMascotSlot.style.display = 'none';
+
     const ch = CHAPTER_META[this.chapter as ChapterId];
     const lessonNum = this.lesson.lessonInChapter;
-    const lessonTitle = this.lesson.storyBeat ?? ch.titleEn;
+    // English-only title per pre-reveal Chinese ban (no storyBeat — that's Chinese).
+    const lessonTitle = ch.titleEn;
 
-    // Sentence preview rows (first 4 Qs) — mini-mascot + dashed underline
-    // proportional to sentence word count. Same blind-listening principle:
-    // shapes only, no readable text.
-    const previewRows = this.lesson.questions.slice(0, 4).map((q) => {
+    // Sentence preview rows (first 4 Qs) — tappable: speak audio + reveal text.
+    const previewRows = this.lesson.questions.slice(0, 4).map((q, idx) => {
       const sentence = String((q as any).sentence ?? '');
       const wordCount = sentence.split(/\s+/).filter(Boolean).length;
       const dashLen = Math.min(Math.max(wordCount * 18, 60), 240);
-      return `<div style="display:flex;align-items:center;gap:10px;padding:4px 0;">
+      return `<button type="button" class="pickup-intro-preview-row" data-idx="${idx}" data-sentence="${sentence.replace(/"/g, '&quot;')}" style="display:flex;align-items:center;gap:10px;padding:6px 4px;background:transparent;border:none;cursor:pointer;width:100%;text-align:left;touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
         <img src="/mascots/calico-anchor.webp" width="32" height="32" alt="" style="pointer-events:none;flex:0 0 auto;" />
-        <div style="flex:0 0 ${dashLen}px;height:6px;border-bottom:3px dashed #c8a878;"></div>
-      </div>`;
+        <span class="pickup-intro-preview-text" style="flex:1 1 auto;font-size:14px;font-weight:700;color:#3c2a1c;">
+          <span class="pickup-intro-dash" style="display:inline-block;width:${dashLen}px;height:6px;border-bottom:3px dashed #c8a878;vertical-align:middle;"></span>
+        </span>
+      </button>`;
     }).join('');
 
     sentEl.innerHTML = `
@@ -238,6 +241,31 @@ export class LessonScene extends Phaser.Scene {
         <div style="width:100%;display:flex;flex-direction:column;gap:2px;margin-top:6px;">${previewRows}</div>
       </div>
     `;
+
+    // v2.0.B.135: wire preview-row taps — speak sentence + reveal text in row.
+    sentEl.querySelectorAll('.pickup-intro-preview-row').forEach((rowEl) => {
+      const btn = rowEl as HTMLButtonElement;
+      const sentence = btn.getAttribute('data-sentence') ?? '';
+      btn.addEventListener('click', () => {
+        // Reveal text (replace dashed underline with real sentence).
+        const textSpan = btn.querySelector('.pickup-intro-preview-text') as HTMLElement | null;
+        if (textSpan) {
+          textSpan.innerHTML = sentence;
+        }
+        // Play audio at unified A2 rate.
+        try {
+          if (typeof window !== 'undefined' && window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(sentence);
+            u.lang = 'en-US';
+            u.rate = SPEECH_RATE_SENTENCE;
+            window.speechSynthesis.speak(u);
+          } else {
+            speak(sentence);
+          }
+        } catch { speak(sentence); }
+      });
+    });
 
     // Hide ClozeUI's 4 buttons; show Next button.
     const existingChildren = Array.from(slot.children) as HTMLElement[];
@@ -265,6 +293,9 @@ export class LessonScene extends Phaser.Scene {
     next.addEventListener('click', () => {
       next.remove();
       existingChildren.forEach((c) => { c.style.display = ''; });
+      // v2.0.B.135: restore HUD mascot after intro dismissed
+      const hudMascot = this.hud?.mascotSlot();
+      if (hudMascot) hudMascot.style.display = '';
       this.renderQuestion(this.lesson!.questions[0]);
     });
     slot.appendChild(next);
