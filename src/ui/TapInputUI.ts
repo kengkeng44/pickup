@@ -291,17 +291,13 @@ export function mountTypeWhatYouHear(opts: {
   // sentence-with-blank + small 🔊 prefix — replay handled there. Avoids
   // double speaker visual that confused users (which one's the main listen?).
 
-  const promptEl = document.createElement('div');
-  promptEl.textContent = prompt;
-  Object.assign(promptEl.style, {
-    alignSelf: 'center',
-    fontSize: '13px',
-    fontWeight: '800',
-    color: COLOR_TEXT_MUTED,
-    letterSpacing: '1.2px',
-    textTransform: 'uppercase',
-  });
-  root.appendChild(promptEl);
+  // v2.0.B.127: blind-listening rule — prompt MUST be heard, not seen.
+  // Memory feedback-pickup-listening-format: 「文字應該都是隱形的」.
+  // Question prompt is now delivered via speaker queue from LessonScene
+  // (sentence -> 'Question. <prompt>'), no visible text leak.
+  // Kept the `prompt` parameter for backwards-compatibility (PlayScene path
+  // still passes it) but render is gated behind a flag for sighted tap-tiles.
+  void prompt; // intentionally unused — render path removed
 
   // Text input — Duolingo-style large, centered
   const input = document.createElement('input');

@@ -220,12 +220,13 @@ export class LessonScene extends Phaser.Scene {
     const round = q as any;
 
     // v2.0.B.118: blind-listening sentence card for listen-mc / listen-comprehension.
+    // v2.0.B.127: extended to type-what-you-hear — same blind rule, prompt heard not seen.
     // Mirrors PlayScene's useListeningUI block — sentence is replaced by N
     // underline word-blanks, speaker tap plays sentence + question via Web Speech.
     // Per user: 文字應該都是隱形的.
     if (
       this.hud &&
-      (qType === 'listen-mc' || qType === 'listen-comprehension')
+      (qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'type-what-you-hear')
     ) {
       const correctIndex = round.correctIndex ?? 0;
       const correctWord = round.options?.[correctIndex] ?? '';
@@ -366,9 +367,9 @@ export class LessonScene extends Phaser.Scene {
           onComplete: (correct) =>
             this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
         });
-        autoSpeak(audioText);
-        const sentEl = this.hud.getSentenceElement();
-        if (sentEl) sentEl.innerHTML = '';
+        // v2.0.B.127: do NOT clear sentEl — B.118 blind-listening block above
+        // already rendered word-blanks + speaker queue. Wiping it here breaks that.
+        // No autoSpeak — user must tap the speaker (B.30: iOS rejects auto-play).
       } else if (qType === 'tap-pairs' && round.pairs) {
         this.tapHandle = mountTapPairs({
           slot,
