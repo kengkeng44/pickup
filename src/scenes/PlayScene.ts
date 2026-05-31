@@ -434,20 +434,44 @@ export class PlayScene extends Phaser.Scene {
               window.speechSynthesis.cancel();
               // v2.0.B.108: longer pause between sentence and question via
               // onend + setTimeout. User: "問題跟題目要間隔長一點點".
+              // v2.0.B.120: TOEIC-aligned rates (memory: feedback-pickup-speech-rate)
+              // Sentence/options 0.75 (~115 wpm A2-friendly), question 0.85 (~130 wpm).
+              // Also extended queue: sentence → question → A-D options (memory: blind-listening).
+              const optionsText = Array.isArray(round.options)
+                ? ['A', 'B', 'C', 'D']
+                    .map((letter, i) => `${letter}. ${round.options[i] ?? ''}.`)
+                    .join(' ')
+                : '';
               const u1 = new SpeechSynthesisUtterance(sentenceText);
               u1.lang = 'en-US';
-              u1.rate = 0.85;
+              u1.rate = 0.75;
+              const chainOptions = (u: SpeechSynthesisUtterance): void => {
+                if (!optionsText) return;
+                u.onend = () => {
+                  window.setTimeout(() => {
+                    try {
+                      const u3 = new SpeechSynthesisUtterance(optionsText);
+                      u3.lang = 'en-US';
+                      u3.rate = 0.75;
+                      window.speechSynthesis.speak(u3);
+                    } catch {}
+                  }, 600);
+                };
+              };
               if (round.question) {
                 u1.onend = () => {
                   window.setTimeout(() => {
                     try {
                       const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
                       u2.lang = 'en-US';
-                      u2.rate = 0.9;
+                      u2.rate = 0.85;
+                      chainOptions(u2);
                       window.speechSynthesis.speak(u2);
                     } catch {}
-                  }, 1000); // 1s pause between sentence and "Question. ..."
+                  }, 1000);
                 };
+              } else {
+                chainOptions(u1);
               }
               window.speechSynthesis.speak(u1);
               return;

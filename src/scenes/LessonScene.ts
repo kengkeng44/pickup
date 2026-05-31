@@ -28,6 +28,17 @@ export type LessonSceneData = {
 
 const ADVANCE_CORRECT_MS = 1_400; // Story-mode pacing (matches PlayScene STORY_ADVANCE_CORRECT_MS)
 
+// v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
+// Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).
+// User reported B.119 still felt fast — dropped sentence/options from 0.85 → 0.75.
+// Question prompt kept slightly faster (0.85) since it's directive not content-bearing.
+// Source: academic TOEIC listening rate study tested 100/150/200 wpm; 100 wpm is the
+// "learner-comprehensible" floor, but choppy on Web Speech engines, so 0.75 ≈ 115 wpm
+// is the empirical sweet spot that's slow enough for A2 but still natural-sounding.
+const SPEECH_RATE_SENTENCE = 0.75;
+const SPEECH_RATE_QUESTION = 0.85;
+const SPEECH_RATE_OPTIONS = 0.75;
+
 /**
  * LessonScene — v2.0 single-lesson scope (forks PlayScene's question
  * sequencer pattern for the new Duolingo-nested model).
@@ -265,20 +276,20 @@ export class LessonScene extends Phaser.Scene {
             window.speechSynthesis.cancel();
             const u1 = new SpeechSynthesisUtterance(sentenceText);
             u1.lang = 'en-US';
-            u1.rate = 0.85;
+            u1.rate = SPEECH_RATE_SENTENCE;
             const speakQuestionThenOptions = (): void => {
               window.setTimeout(() => {
                 try {
                   const u2 = new SpeechSynthesisUtterance(`Question. ${round.question ?? ''}`);
                   u2.lang = 'en-US';
-                  u2.rate = 0.9;
+                  u2.rate = SPEECH_RATE_QUESTION;
                   if (optionsText) {
                     u2.onend = () => {
                       window.setTimeout(() => {
                         try {
                           const u3 = new SpeechSynthesisUtterance(optionsText);
                           u3.lang = 'en-US';
-                          u3.rate = 0.85;
+                          u3.rate = SPEECH_RATE_OPTIONS;
                           window.speechSynthesis.speak(u3);
                         } catch {}
                       }, 600);
@@ -296,7 +307,7 @@ export class LessonScene extends Phaser.Scene {
                   try {
                     const u3 = new SpeechSynthesisUtterance(optionsText);
                     u3.lang = 'en-US';
-                    u3.rate = 0.85;
+                    u3.rate = SPEECH_RATE_OPTIONS;
                     window.speechSynthesis.speak(u3);
                   } catch {}
                 }, 600);

@@ -219,8 +219,10 @@ function speakWebSpeech(text: string, lang: string): void {
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = lang;
-    // v1.9.38 audit-2 F10: rate 0.85 — A2 Taiwanese learners need slower
-    u.rate = 0.85;
+    // v2.0.B.120: rate 0.75 — A2 Taiwanese learners + TOEIC alignment
+    // (memory feedback-pickup-speech-rate). 0.75 ≈ 115 wpm, below TOEIC native ~150.
+    // Web Speech rate 1.0 ≈ 150-180 wpm; 0.5 chops on iOS. 0.75 = sweet spot.
+    u.rate = 0.75;
     u.pitch = 1;
     u.volume = 1;
     window.speechSynthesis.speak(u);
