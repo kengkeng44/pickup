@@ -223,6 +223,34 @@ export class AudioManager {
     return this.bgmGain;
   }
 
+  /**
+   * v2.0.B.140: BGM ducking — attenuate background music while voice plays.
+   * Per audio-debug agent finding: peace.mp3 piano overlay with grandma TTS
+   * caused user perception of '語音是錯的'. Duck BGM to ~10% during voice,
+   * smooth fade restore on release (300ms each direction).
+   * Idempotent: multiple speak() calls just nest; restore on last release.
+   */
+  private duckCount = 0;
+  duckBgm(): void {
+    this.duckCount += 1;
+    if (!this.bgmGain || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const g = this.bgmGain.gain;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(BGM_VOLUME * 0.1, now + 0.3);
+  }
+  unduckBgm(): void {
+    this.duckCount = Math.max(0, this.duckCount - 1);
+    if (this.duckCount > 0) return;
+    if (!this.bgmGain || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const g = this.bgmGain.gain;
+    g.cancelScheduledValues(now);
+    g.setValueAtTime(g.value, now);
+    g.linearRampToValueAtTime(BGM_VOLUME, now + 0.3);
+  }
+
   registerBgm(stop: BgmStopHandle): void {
     this.bgmStop?.();
     this.bgmStop = stop;

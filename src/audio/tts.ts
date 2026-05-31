@@ -199,7 +199,12 @@ function playBuffer(buf: AudioBuffer): boolean {
     const src = ctx.createBufferSource();
     src.buffer = buf;
     src.connect(ctx.destination);
-    src.onended = () => { if (currentSource === src) currentSource = null; };
+    // v2.0.B.140: duck BGM while voice plays — restore on end
+    try { audioMgr.duckBgm(); } catch {}
+    src.onended = () => {
+      if (currentSource === src) currentSource = null;
+      try { audioMgr.unduckBgm(); } catch {}
+    };
     src.start(0);
     currentSource = src;
     return true;

@@ -285,6 +285,15 @@ export class LessonScene extends Phaser.Scene {
       const hudMascot = this.hud?.mascotSlot();
       if (hudMascot) hudMascot.style.display = '';
       this.renderQuestion(this.lesson!.questions[0]);
+      // v2.0.B.140: auto-play Q1 sentence — synchronous inside Next click
+      // handler so iOS Safari gesture token is still valid for Web Audio.
+      // Per WebSearch + audio-debug agent: gesture chain survives sync calls.
+      // User: '沒辦法自動播放' — this restores auto-speak the safe way.
+      try {
+        const firstQ = this.lesson!.questions[0] as any;
+        const firstSentence = String(firstQ.sentence ?? '');
+        if (firstSentence) speak(firstSentence);
+      } catch {}
     });
     slot.appendChild(next);
   }
