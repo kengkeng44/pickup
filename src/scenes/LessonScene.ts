@@ -943,6 +943,38 @@ export class LessonScene extends Phaser.Scene {
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+
+    // v2.0.B.161: Lesson Review screen affordance per user B.159 第 6 條 deferred 指令
+    // '多加一個單元回顧 裡面才看得到完整的題目問題答案'. 資料層 lessonAnswerLog 已存。
+    const reviewBtn = document.createElement('button');
+    reviewBtn.type = 'button';
+    reviewBtn.className = 'pickup-stats-review';
+    reviewBtn.textContent = '📖 單元回顧 · Review';
+    Object.assign(reviewBtn.style, {
+      width: '100%',
+      padding: '12px 0',
+      background: '#fef8ed',
+      color: '#8b6f4a',
+      border: '2px solid #c8a878',
+      borderBottom: '3px solid #8b6f4a',
+      borderRadius: '12px',
+      fontSize: '15px',
+      fontWeight: '800',
+      letterSpacing: '0.5px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+      marginTop: '20px',
+    });
+    reviewBtn.addEventListener('click', () => {
+      try { this._showLessonReview(); } catch {
+        this.cleanupOverlay();
+        this.scene.start('StoryModeScene');
+      }
+    });
+    slot.appendChild(reviewBtn);
+
     const cont = document.createElement('button');
     cont.type = 'button';
     cont.className = 'pickup-stats-continue';
@@ -962,13 +994,114 @@ export class LessonScene extends Phaser.Scene {
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      marginTop: '20px',
+      marginTop: '10px',
     });
     cont.addEventListener('click', () => {
       this.cleanupOverlay();
       this.scene.start('StoryModeScene');
     });
     slot.appendChild(cont);
+  }
+
+  /**
+   * v2.0.B.161: Lesson Review screen — list every Q from this lesson with
+   * your answer / correct answer / explanation. User B.159 #6 deferred.
+   * Data already collected by snapshotTf / TfZh / AnsweredQ pushes into
+   * lessonAnswerLog. Back button returns to stat screen.
+   */
+  private _showLessonReview(): void {
+    if (!this.hud || !this.lesson) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+    const escapeHtml = (s: string) => String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+
+    const cards = this.lessonAnswerLog.map((entry, i) => {
+      const q = entry.q;
+      const sentence = String(q.sentence ?? '');
+      const question = String(q.questionEn ?? q.questionZh ?? q.question ?? '');
+      const options = (q.options ?? q.optionsZh ?? []) as string[];
+      const userIdx = entry.userIdx;
+      const correctIdx = entry.correctIdx;
+      const userAns = userIdx >= 0 && options[userIdx]
+        ? escapeHtml(options[userIdx])
+        : '(已作答)';
+      const correctAns = correctIdx >= 0 && options[correctIdx]
+        ? escapeHtml(options[correctIdx])
+        : '—';
+      const explZh = String(q.explanationZh ?? '');
+      const status = entry.isCorrect
+        ? '<span style="color:#5d9a35;font-weight:900;">✓ 正確</span>'
+        : '<span style="color:#c84a3a;font-weight:900;">✕ 錯了</span>';
+      const userRow = entry.isCorrect
+        ? ''
+        : `<div style="font-size:13px;color:#666;margin-top:4px;">你選: <span style="color:#c84a3a;font-weight:700;">${userAns}</span></div>`;
+      return `
+        <div style="background:#fff;border:1px solid #e0d0b8;border-radius:10px;padding:12px 14px;margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:11px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">Q${i + 1} · ${escapeHtml(String(q.type ?? ''))}</span>
+            ${status}
+          </div>
+          ${sentence ? `<div style="font-size:14px;color:#3c2a1c;font-weight:700;margin-bottom:6px;">${escapeHtml(sentence)}</div>` : ''}
+          ${question ? `<div style="font-size:13px;color:#5a4a3a;margin-bottom:6px;">Q: ${escapeHtml(question)}</div>` : ''}
+          ${userRow}
+          <div style="font-size:13px;color:#3c2a1c;margin-top:4px;">正解: <span style="color:#5d9a35;font-weight:800;">${correctAns}</span></div>
+          ${explZh ? `<div style="font-size:12px;color:#8b6f4a;background:#fef8ed;border-left:3px solid #c8a878;padding:6px 10px;margin-top:8px;border-radius:0 6px 6px 0;line-height:1.5;">${escapeHtml(explZh)}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    sentEl.innerHTML = `
+      <div style="padding:14px 6px 8px;">
+        <div style="text-align:center;font-size:18px;font-weight:900;color:#3c2a1c;margin-bottom:14px;">
+          📖 單元回顧 · Lesson Review
+        </div>
+        <div style="max-height:60vh;overflow-y:auto;padding:0 4px;">
+          ${cards || '<div style="text-align:center;color:#8b6f4a;padding:20px;">本單元沒有作答記錄。</div>'}
+        </div>
+      </div>
+    `;
+
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    const back = document.createElement('button');
+    back.type = 'button';
+    back.className = 'pickup-review-back';
+    back.textContent = '← 回結算 · Back';
+    Object.assign(back.style, {
+      width: '100%',
+      padding: '14px 0',
+      background: '#7ac74a',
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: '4px solid #5d9a35',
+      borderRadius: '14px',
+      fontSize: '16px',
+      fontWeight: '900',
+      letterSpacing: '0.5px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+      marginTop: '10px',
+    });
+    back.addEventListener('click', () => {
+      try { this._showLessonStats(); } catch {
+        this.cleanupOverlay();
+        this.scene.start('StoryModeScene');
+      }
+    });
+    slot.appendChild(back);
   }
 
   private _showCompletionArticle(): void {
