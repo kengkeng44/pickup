@@ -187,7 +187,62 @@ export class LessonScene extends Phaser.Scene {
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
     this.mascot.setMascotImage('/mascots/calico-anchor.webp');
 
-    this.renderQuestion(this.lesson.questions[0]);
+    // v2.0.C.2: lesson-level intro overlay (前情提要). User reported B.132
+    // paraphrase rule R1 left Qs answerable only with prior context.
+    // Show intro card before Q1 if lesson defines one; else skip straight to Q1.
+    const lessonIntro = (this.lesson as any).intro as { en: string; zh: string } | undefined;
+    if (lessonIntro && lessonIntro.en && lessonIntro.zh) {
+      this._mountIntroOverlay(lessonIntro);
+    } else {
+      this.renderQuestion(this.lesson.questions[0]);
+    }
+  }
+
+  private _mountIntroOverlay(intro: { en: string; zh: string }): void {
+    const slot = this.hud?.buttonsSlot();
+    const sentEl = this.hud?.getSentenceElement();
+    if (!slot || !sentEl) {
+      this.renderQuestion(this.lesson!.questions[0]);
+      return;
+    }
+    // Render intro inside sentence card area.
+    sentEl.innerHTML = `
+      <div style="padding:12px 8px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:13px;font-weight:800;color:#8b6f4a;letter-spacing:1px;text-transform:uppercase;text-align:center;">Story so far · 故事到這裡</div>
+        <div style="font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.55;text-align:left;">${intro.en}</div>
+        <div style="font-size:15px;font-weight:600;color:#5a4530;line-height:1.6;text-align:left;">${intro.zh}</div>
+      </div>
+    `;
+    // v2.0.B.133 fix: ClozeUI constructor already appended its 4 buttons to slot.
+    // DON'T wipe slot — hide them via display:none + overlay Begin on top.
+    const existingChildren = Array.from(slot.children) as HTMLElement[];
+    existingChildren.forEach((c) => { c.style.display = 'none'; });
+    const begin = document.createElement('button');
+    begin.type = 'button';
+    begin.id = 'pickup-intro-begin';
+    begin.textContent = '開始 · Begin';
+    Object.assign(begin.style, {
+      width: '100%',
+      padding: '16px 0',
+      background: '#7d9a4f',
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: '4px solid #5d7a3a',
+      borderRadius: '14px',
+      fontSize: '16px',
+      fontWeight: '900',
+      letterSpacing: '1.5px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+    });
+    begin.addEventListener('click', () => {
+      begin.remove();
+      existingChildren.forEach((c) => { c.style.display = ''; });
+      this.renderQuestion(this.lesson!.questions[0]);
+    });
+    slot.appendChild(begin);
   }
 
   private renderQuestion(q: Question): void {

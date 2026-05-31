@@ -6,6 +6,10 @@
     "segmentType": "outer-prologue",
     "storyId": "outer",
     "storyBeat": "{catName} 跳上矮牆",
+    "intro": {
+      "en": "{catName} is a stray cat with no home. Every night she sneaks into Grandma's quiet yard. Tonight the moon is out, and she jumps up to wait.",
+      "zh": "{catName} 是一隻沒有家的流浪貓。每天晚上她偷偷溜進奶奶安靜的小院子。今晚月光出來了,她跳上來等。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -364,6 +368,10 @@
     "segmentType": "outer-prologue",
     "storyId": "outer",
     "storyBeat": "{dogName} 搖尾巴迎接",
+    "intro": {
+      "en": "Grandma keeps a brown shiba dog named {dogName} in the yard. He waits by the wall after dark for {catName}. They have been friends a long time.",
+      "zh": "奶奶在院子裡養了一隻棕色的柴犬,叫 {dogName}。每天天黑後他都在牆邊等 {catName}。他們已經是好朋友很久了。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -722,6 +730,10 @@
     "segmentType": "outer-prologue",
     "storyId": "outer",
     "storyBeat": "奶奶打開故事書",
+    "intro": {
+      "en": "Grandma sits in her old wooden chair and holds a thick brown book. She tells {catName} and {dogName} one story every night. Tonight is a new one.",
+      "zh": "奶奶坐在她舊舊的木椅上,手裡拿著一本厚厚的棕色書。她每晚對 {catName} 和 {dogName} 說一個故事。今晚是新的。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -1083,6 +1095,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "故事開始 — 從前一個雨夜",
+    "intro": {
+      "en": "Grandma starts the new story. It happened many years back on a wet stormy night. The streets had no people, only rain and thunder.",
+      "zh": "奶奶開始說新故事。那是很多年前一個下大雨的夜晚。街上一個人都沒有,只有雨聲和雷聲。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -1446,6 +1462,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "小貓濕透又冷又怕",
+    "intro": {
+      "en": "In the story, a little kitten is out in the cold rain. Her mother went away last week and never came back. She has not eaten for two days.",
+      "zh": "故事裡,有一隻小小貓在冷雨中。她的媽媽上週離開後就再也沒回來。她已經兩天沒吃東西了。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -1804,6 +1824,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "她蜷縮在巷子角落",
+    "intro": {
+      "en": "The little kitten finds a narrow lane between two stone walls. She rolls her body small to keep warm. The smell of wet stone is around her.",
+      "zh": "小貓找到兩面石牆之間的窄巷子。她把身體縮成一團保暖。身邊都是濕石頭的味道。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -2162,6 +2186,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "大影子靠近 — 是奶奶",
+    "intro": {
+      "en": "A big dark figure walks down the lane. The kitten trembles. But the figure turns out to be a kind grey-haired lady in a long coat, holding an umbrella.",
+      "zh": "一個大大的黑影走進巷子。小貓在發抖。可是那個影子原來是一位頭髮花白、穿長外套、撐著傘的好心阿姨。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -2520,6 +2548,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "奶奶撐傘為她遮雨",
+    "intro": {
+      "en": "The lady steps right up to the kitten. She holds her wide umbrella over the little wet body. Her own arm gets soaked, but she does not move it.",
+      "zh": "阿姨走到小貓身邊。她把那把大傘撐在小小濕濕的身體上方。她自己的手臂被雨淋濕了,可是她沒移開。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -2878,6 +2910,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "奶奶溫柔說「不怕」",
+    "intro": {
+      "en": "Under the umbrella, the lady leans in. She speaks low, slowly, with a soft tone — like cotton. She tells the kitten there is nothing to fear.",
+      "zh": "在傘下,阿姨靠近一點。她壓低聲音,慢慢地、輕輕地說話 —— 像棉花一樣軟。她對小貓說沒什麼好怕的。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -3236,6 +3272,10 @@
     "segmentType": "main-story",
     "storyId": "rainy-night-cat",
     "storyBeat": "奶奶蹲下,輕輕問問",
+    "intro": {
+      "en": "Still under the umbrella, the lady lowers herself onto her knees on the wet road. She meets the kitten's eyes and asks why she is out alone.",
+      "zh": "還在傘下,阿姨把膝蓋放在濕地上跪下來。她對著小貓的眼睛,問她為什麼一個人在外面。"
+    },
     "questions": [
       {
         "type": "listen-mc",
@@ -3504,6 +3544,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The cat closes and opens her eyes with a calm pace.",
+        "contextHint": "貓信任訊號",
         "question": "At her eyelid pace — how is the blink?",
         "options": [
           "slowly",

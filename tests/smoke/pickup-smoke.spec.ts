@@ -52,6 +52,14 @@ test.describe('Pickup smoke', () => {
     await page.waitForTimeout(4000);
     await page.screenshot({ path: 'tests/smoke/screenshots/02-after-node-tap.png', fullPage: false });
 
+    // 5b. v2.0.B.133: lesson now opens with intro overlay (前情提要).
+    // Tap '開始 · Begin' to enter Q1. If lesson has no intro, this is a no-op.
+    const beginBtn = page.locator('button', { hasText: 'Begin' }).first();
+    if (await beginBtn.count() > 0) {
+      await beginBtn.click();
+      await page.waitForTimeout(1500);
+    }
+
     // Dump DOM for debug — see what actually rendered
     const bodyHTML = await page.locator('body').innerHTML();
     console.log('=== BODY HTML AFTER TAP (first 500 chars) ===');

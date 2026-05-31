@@ -126,6 +126,16 @@ export const ChapterIdSchema = z.union([
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 
+// v2.0.C.2: lesson-level intro overlay (前情提要). User reported B.132
+// paraphrase rule R1 left some Qs answerable only with prior context.
+// Intro shown on LessonScene mount, before Q1. EN + ZH side-by-side card,
+// user dismisses with 'Begin'. Optional — lessons without intro skip overlay.
+export const LessonIntroSchema = z.object({
+  en: z.string(),
+  zh: z.string(),
+});
+export type LessonIntro = z.infer<typeof LessonIntroSchema>;
+
 export const LessonSchema = z.object({
   id: z.string(),
   chapter: ChapterIdSchema,
@@ -133,6 +143,7 @@ export const LessonSchema = z.object({
   segmentType: SegmentTypeSchema,
   storyId: z.string().optional(),
   storyBeat: z.string().optional(),
+  intro: LessonIntroSchema.optional(),
   questions: z.array(QuestionSchema).min(3).max(15),
 });
 
