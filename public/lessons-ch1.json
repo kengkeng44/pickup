@@ -86,26 +86,26 @@
         "id": "kt-ch1-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mochi has no home.",
-        "questionEn": "Mochi has a home.",
+        "sentence": "Mochi sleeps under the old porch.",
+        "questionEn": "Mochi sleeps in a warm bed.",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "narration 說 Mochi 是 stray cat(流浪貓),所以這句陳述「有家」是錯的。",
+        "explanationZh": "Mochi 是流浪貓,睡在老屋簷下(under the old porch)躲雨,不是溫暖的床上。要靠語意推理,不是字面翻轉。",
         "tags": [
           "story",
           "ch1",
           "tf"
         ],
-        "subSkill": "gist"
+        "subSkill": "inference"
       },
       {
         "type": "narration",
         "id": "kt-ch1-l1-n3",
         "level": "A2",
-        "sentence": "She has no home of her own.",
+        "sentence": "Cold rain falls on her thin fur.",
         "explanationZh": "",
         "tags": [
           "story",
@@ -118,20 +118,20 @@
         "id": "kt-ch1-l1-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mochi has no home of her own.",
-        "questionEn": "Mochi has no home of her own.",
+        "sentence": "She finds shelter wherever she can.",
+        "questionEn": "Mochi always sleeps in the same place.",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "narration 直接說 She has no home of her own,「沒有自己的家」是對的。",
+        "correctIndex": 1,
+        "explanationZh": "She finds shelter wherever she can(到處找避雨處)= 沒固定的家,所以「總是睡在同一個地方」是錯的。",
         "tags": [
           "story",
           "ch1",
           "tf"
         ],
-        "subSkill": "gist"
+        "subSkill": "inference"
       },
       {
         "type": "listen-mc",

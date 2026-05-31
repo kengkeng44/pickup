@@ -32,7 +32,11 @@ export type LessonSceneData = {
 // Reveal panel now shows Q + correct A + Zh explanation (B.125), needs more time
 // to read. A2 learner average Chinese-reading speed ~3-4 chars/sec; explanationZh
 // is typically 12-20 chars + Q line + A line = ~25-40 chars total → ~3s comfort.
-const ADVANCE_CORRECT_MS = 3_000;
+// v2.0.B.160: 3s → 5s per agent verdict. A2 中文閱讀 ~250 字/分 ≈ 4 字/秒;
+// explanationZh 平均 25-40 字 = 6-10s read time. 3s 只夠讀 12 字, 5s 讀 20 字
+// still under but with the green-fade + manual Continue button hint user can
+// tap to skip. User: '答完 2 秒推進來不及讀'.
+const ADVANCE_CORRECT_MS = 5_000;
 
 // v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
 // Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).
@@ -240,15 +244,27 @@ export class LessonScene extends Phaser.Scene {
         </div>
       </div>
     `;
-    const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
-    spk?.addEventListener('click', () => { try { speak(text); } catch {} });
-    // Auto-play audio on mount
-    try { speak(text); } catch {}
-
-    // v2.0.B.159: NO Continue button, 2s auto-advance
-    slot.innerHTML = '';
-    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
-    window.setTimeout(() => {
+    // v2.0.B.160: audio-driven advance per agent verdict. Word-count
+    // estimation from earlier B.160 fix still left 6.9s MP3s under-timed.
+    // Real solution: hook speak()'s onEnd → advance(). Fallback timer at
+    // wordCount * 600ms + 2000ms (generous so it only fires if audio fails).
+    const wordCount = text.trim().split(/\s+/).filter(Boolean).length || 1;
+    const fallbackMs = Math.max(5000, wordCount * 600 + 2000);
+    slot.innerHTML = `
+      <div style="display:flex;justify-content:flex-end;padding:4px 6px;">
+        <button type="button" class="pickup-narration-skip" style="
+          background:transparent;border:1px solid #c8a878;color:#8a6a3a;
+          font-size:12px;font-weight:600;padding:4px 10px;border-radius:10px;
+          cursor:pointer;opacity:0.7;touch-action:manipulation;
+          -webkit-tap-highlight-color:transparent;">
+          跳過 · Skip ↓
+        </button>
+      </div>
+    `;
+    let advanced = false;
+    const advance = () => {
+      if (advanced) return;
+      advanced = true;
       try { this._snapshotNarration(q); } catch {}
       this.questionIdx += 1;
       if (this.questionIdx >= this.lesson.questions.length) {
@@ -256,7 +272,15 @@ export class LessonScene extends Phaser.Scene {
         return;
       }
       this.renderQuestion(this.lesson.questions[this.questionIdx]);
-    }, 2000);
+    };
+    const skipBtn = slot.querySelector('.pickup-narration-skip') as HTMLButtonElement | null;
+    skipBtn?.addEventListener('click', advance);
+    // Hook replay button + auto-play with onEnd → advance
+    const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
+    spk?.addEventListener('click', () => { try { speak(text); } catch {} });
+    try { speak(text, 'en-US', { onEnd: advance }); } catch { advance(); }
+    // Fallback in case audio fails / onEnd never fires
+    window.setTimeout(advance, fallbackMs);
   }
 
   /**

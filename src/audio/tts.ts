@@ -187,6 +187,15 @@ function fallbackWebSpeech(text: string, lang: string): void {
   speakWebSpeech(text, lang);
 }
 
+// v2.0.B.160: external onComplete callback registry. Set by speak(text, opt)
+// before playBuffer / WebSpeech fires. Cleared on stopSpeaking.
+let speechEndCallback: (() => void) | null = null;
+function fireSpeechEnd(): void {
+  const cb = speechEndCallback;
+  speechEndCallback = null;
+  if (cb) { try { cb(); } catch {} }
+}
+
 function playBuffer(buf: AudioBuffer): boolean {
   const ctx = getAudioCtx();
   if (!ctx) return false;
@@ -204,6 +213,7 @@ function playBuffer(buf: AudioBuffer): boolean {
     src.onended = () => {
       if (currentSource === src) currentSource = null;
       try { audioMgr.unduckBgm(); } catch {}
+      fireSpeechEnd();
     };
     src.start(0);
     currentSource = src;
@@ -230,9 +240,12 @@ function speakWebSpeech(text: string, lang: string): void {
     u.rate = 0.75;
     u.pitch = 1;
     u.volume = 1;
+    // v2.0.B.160: route onend → speechEndCallback (same registry as Web Audio)
+    u.onend = () => { fireSpeechEnd(); };
+    u.onerror = () => { fireSpeechEnd(); };
     window.speechSynthesis.speak(u);
   } catch {
-    // ignore
+    fireSpeechEnd();
   }
 }
 
@@ -247,14 +260,18 @@ function debugLog(msg: string) {
 // path is primary; HTML5 persistent Audio + WebSpeech are fallbacks.
 let activeBufferSource: AudioBufferSourceNode | null = null;
 
-export function speak(text: string, lang = 'en-US'): void {
+export function speak(text: string, lang = 'en-US', opts?: { onEnd?: () => void }): void {
   const cleaned = cleanText(text);
   if (!cleaned) {
     debugLog('speak: empty text');
+    if (opts?.onEnd) { try { opts.onEnd(); } catch {} }
     return;
   }
 
   stopSpeaking();
+  // v2.0.B.160: register onEnd BEFORE playBuffer / WebSpeech fires.
+  // stopSpeaking just cleared the previous callback (line above).
+  speechEndCallback = opts?.onEnd ?? null;
 
   const mapSize = audioLookup.size;
   const isMochi = mochiTexts.has(cleaned);
@@ -292,6 +309,9 @@ export function speak(text: string, lang = 'en-US'): void {
 }
 
 export function stopSpeaking(): void {
+  // v2.0.B.160: drop pending onEnd callback FIRST so cancelled audio
+  // doesn't fire stale advance() against new lesson state.
+  speechEndCallback = null;
   // v2.0.B.79: stop Web Audio source first
   if (activeBufferSource) {
     try { activeBufferSource.stop(); } catch {}
