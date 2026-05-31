@@ -64,6 +64,24 @@ export const TypeWhatYouHearSchema = FourOptionShape.extend({
   type: z.literal('type-what-you-hear'),
 });
 
+// v2.0.B.145: Duolingo Stories format — narration chunks + Chinese true/false.
+// Narration = story sentence, no answer, just listening + tap-reveal practice.
+export const NarrationSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('narration'),
+});
+
+// Chinese 對/錯 true-false comprehension. questionZh + optionsZh are Chinese
+// (carve-out from feedback-pickup-no-chinese-pre-reveal for this type).
+export const ListenTfZhSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('listen-tf-zh'),
+  questionZh: z.string(),
+  options: z.tuple([z.string(), z.string()]),
+  optionsZh: z.tuple([z.string(), z.string()]),
+  correctIndex: z.union([z.literal(0), z.literal(1)]),
+});
+
 // Variable-length tile bank, no max-4 constraint
 // NOTE: .refine() applied to the discriminated union below (z.discriminatedUnion
 // requires plain ZodObject members; ZodEffects from .refine() breaks it).
@@ -92,6 +110,8 @@ const QuestionUnion = z.discriminatedUnion('type', [
   TypeWhatYouHearSchema,
   TapTilesSchema,
   TapPairsSchema,
+  NarrationSchema,
+  ListenTfZhSchema,
 ]);
 
 // Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.

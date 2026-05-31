@@ -67,10 +67,23 @@ test.describe('Pickup smoke', () => {
     console.log('=== JS ERRORS ===');
     console.log(errors.join(' | ') || '(none)');
 
-    // 6. Verify lesson UI mounted: check for cloze buttons (4 ABCD)
-    const buttons = page.locator('[data-cloze-idx]');
-    const btnCount = await buttons.count();
-    expect(btnCount, 'Expected 4 cloze option buttons (A/B/C/D)').toBe(4);
+    // 6. v2.0.B.145: L1 now starts with narration entries (Duolingo Stories).
+    // Tap '繼續' Continue buttons until we reach a Q with cloze buttons OR
+    // 中文 對/錯 2-button Q. Allow up to 8 advance taps.
+    let buttons = page.locator('[data-cloze-idx]');
+    let btnCount = await buttons.count();
+    let advanceCount = 0;
+    while (btnCount === 0 && advanceCount < 8) {
+      const cont = page.locator('button.pickup-narration-continue').first();
+      if (await cont.count() === 0) break;
+      await cont.click();
+      await page.waitForTimeout(800);
+      buttons = page.locator('[data-cloze-idx]');
+      btnCount = await buttons.count();
+      advanceCount++;
+    }
+    const tfButtons = await page.locator('button', { hasText: /對|不是這樣/ }).count();
+    expect(btnCount === 4 || tfButtons >= 2, `Expected 4 cloze OR 2 TF buttons; got cloze=${btnCount} tf=${tfButtons}`).toBe(true);
 
     // 7. No silent JS errors should occur
     expect(errors, `Page errors: ${errors.join(' | ')}`).toEqual([]);

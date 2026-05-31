@@ -310,6 +310,213 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.144: NO auto-play — text-and-audio gated by user tap per spec.
   }
 
+  /**
+   * v2.0.B.145: narration chunk — story sentence rendering. No answer.
+   * Speaker + tap-to-reveal English text (same UX as B.144 opener).
+   * "繼續 ↓ Continue" button advances to next entry.
+   */
+  private _renderNarration(q: any): void {
+    if (!this.hud) return;
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) return;
+    const text = String(q.sentence ?? '');
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    sentEl.innerHTML = `
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;">
+        <button type="button" aria-label="Play narration" class="pickup-narration-speaker" style="
+          flex:0 0 auto; width:44px; height:44px; padding:0;
+          background:transparent; border:none; cursor:pointer;
+          display:inline-flex; align-items:center; justify-content:center;
+          touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+        ">
+          <img src="/mascots/icon-speaker.webp" width="40" height="40" alt="" style="pointer-events:none;" />
+        </button>
+        <div class="pickup-narration-text" style="flex:1 1 auto;font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.55;letter-spacing:0.2px;min-height:40px;display:flex;align-items:center;">
+          <span style="color:#b07a2a;font-style:italic;opacity:0.5;">${'· '.repeat(Math.min(wordCount * 2, 22)).trim()}</span>
+        </div>
+      </div>
+    `;
+    let revealed = false;
+    const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
+    const txtEl = sentEl.querySelector('.pickup-narration-text') as HTMLElement | null;
+    spk?.addEventListener('click', () => {
+      if (!revealed && txtEl) {
+        txtEl.textContent = text;
+        revealed = true;
+      }
+      try { speak(text); } catch {}
+    });
+
+    // "Continue" button advances to next entry — no answer required.
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    const cont = document.createElement('button');
+    cont.type = 'button';
+    cont.className = 'pickup-narration-continue';
+    cont.textContent = '繼續 ↓ Continue';
+    Object.assign(cont.style, {
+      width: '100%',
+      padding: '14px 0',
+      background: '#7ac74a',
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: '4px solid #5d9a35',
+      borderRadius: '14px',
+      fontSize: '16px',
+      fontWeight: '900',
+      letterSpacing: '1px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+    });
+    cont.addEventListener('click', () => {
+      // Snapshot narration to history then advance (no correct/wrong)
+      try { this._snapshotNarration(q); } catch {}
+      cont.remove();
+      this.questionIdx += 1;
+      if (this.questionIdx >= this.lesson.questions.length) {
+        this.finish();
+        return;
+      }
+      this.renderQuestion(this.lesson.questions[this.questionIdx]);
+    });
+    slot.appendChild(cont);
+  }
+
+  /**
+   * v2.0.B.145: 中文 對/錯 comprehension Q. questionZh + 2 Chinese buttons.
+   * No blind ABCD pill — Chinese visible per Duolingo Stories carve-out.
+   */
+  private _renderListenTfZh(q: any): void {
+    if (!this.hud) return;
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) return;
+    const en = String(q.sentence ?? '');
+    const qZh = String(q.questionZh ?? '');
+    const optsZh = (q.optionsZh ?? ['對,是這樣的', '不,不是這樣']) as string[];
+    const correctIdx = q.correctIndex ?? 0;
+
+    sentEl.innerHTML = `
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;margin-bottom:10px;">
+        <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
+          flex:0 0 auto; width:40px; height:40px; padding:0;
+          background:transparent; border:none; cursor:pointer;
+          display:inline-flex; align-items:center; justify-content:center;
+        ">
+          <img src="/mascots/icon-speaker.webp" width="36" height="36" alt="" style="pointer-events:none;" />
+        </button>
+        <div class="pickup-tf-en" style="flex:1 1 auto;font-size:14px;font-weight:700;color:#b07a2a;font-style:italic;opacity:0.5;display:flex;align-items:center;">
+          <span>${'· '.repeat(12).trim()}</span>
+        </div>
+      </div>
+      <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
+        ${qZh}
+      </div>
+    `;
+    let revealed = false;
+    const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
+    const enEl = sentEl.querySelector('.pickup-tf-en') as HTMLElement | null;
+    spk?.addEventListener('click', () => {
+      if (!revealed && enEl) {
+        enEl.innerHTML = `<span style="color:#3c2a1c;font-style:normal;opacity:1;">${en}</span>`;
+        revealed = true;
+      }
+      try { speak(en); } catch {}
+    });
+
+    // 2 Chinese buttons 對 / 不對
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    for (let i = 0; i < 2; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = optsZh[i] ?? '';
+      Object.assign(btn.style, {
+        width: '100%',
+        padding: '14px 16px',
+        background: '#ffffff',
+        color: '#3c2a1c',
+        border: '2px solid #c8a878',
+        borderBottom: '4px solid #b07a2a',
+        borderRadius: '14px',
+        fontSize: '16px',
+        fontWeight: '800',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        marginBottom: '8px',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+      });
+      const idx = i;
+      btn.addEventListener('click', () => {
+        if (this.locked) return;
+        const correct = idx === correctIdx;
+        try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+        // Mark + reveal
+        btn.style.background = correct ? '#eaf6d5' : '#fde0d2';
+        btn.style.borderColor = correct ? '#7ac74a' : '#c84a3a';
+        btn.style.color = correct ? '#5d9a35' : '#a23829';
+        this.locked = true;
+        try { this._snapshotTfZh(q, idx, correctIdx); } catch {}
+        this.scheduleAdvance(2000);
+      });
+      slot.appendChild(btn);
+    }
+  }
+
+  private _snapshotNarration(q: any): void {
+    const sentEl = this.hud?.getSentenceElement();
+    const rootEl = sentEl?.parentElement?.parentElement;
+    if (!rootEl || !sentEl) return;
+    let history = document.getElementById('pickup-lesson-history');
+    if (!history) {
+      history = document.createElement('div');
+      history.id = 'pickup-lesson-history';
+      Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
+      rootEl.insertBefore(history, sentEl.parentElement!);
+    }
+    const card = document.createElement('div');
+    Object.assign(card.style, {
+      background: 'rgba(231,164,74,0.08)',
+      border: '1px solid rgba(231,164,74,0.25)',
+      borderRadius: '12px',
+      padding: '8px 12px',
+      fontSize: '13px',
+      color: '#5a4530',
+      opacity: '0.88',
+    });
+    card.textContent = String(q.sentence ?? '');
+    history.appendChild(card);
+  }
+
+  private _snapshotTfZh(q: any, userIdx: number, correctIdx: number): void {
+    const sentEl = this.hud?.getSentenceElement();
+    const rootEl = sentEl?.parentElement?.parentElement;
+    if (!rootEl || !sentEl) return;
+    let history = document.getElementById('pickup-lesson-history');
+    if (!history) {
+      history = document.createElement('div');
+      history.id = 'pickup-lesson-history';
+      Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
+      rootEl.insertBefore(history, sentEl.parentElement!);
+    }
+    const isCorrect = userIdx === correctIdx;
+    const card = document.createElement('div');
+    Object.assign(card.style, {
+      background: isCorrect ? '#eaf6d5' : '#fde0d2',
+      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
+      borderRadius: '12px',
+      padding: '8px 12px',
+      fontSize: '13px',
+      opacity: '0.92',
+    });
+    card.innerHTML = `<div style="color:${isCorrect ? '#5d9a35' : '#a23829'};font-weight:800;">${isCorrect ? '✓' : '✕'} ${String(q.questionZh ?? '')}</div>`;
+    history.appendChild(card);
+  }
+
   private _showVocabPopup(zh: string, pos: string): void {
     let pop = document.getElementById('pickup-vocab-popup') as HTMLDivElement | null;
     if (!pop) {
@@ -463,6 +670,20 @@ export class LessonScene extends Phaser.Scene {
     // with PlayScene.ts:475-476.
     this.tapHandle?.destroy();
     this.tapHandle = undefined;
+
+    // v2.0.B.145: dispatch new Duolingo Stories types FIRST — they bypass
+    // ClozeUI entirely (narration has no answer; listen-tf-zh has 2 options
+    // not 4, which would crash ClozeUI.syncFromState).
+    const qType2 = (q as any).type;
+    if (qType2 === 'narration' || qType2 === 'listen-tf-zh') {
+      this.renderHud();
+      if (qType2 === 'narration') {
+        this._renderNarration(q as any);
+      } else {
+        this._renderListenTfZh(q as any);
+      }
+      return;
+    }
 
     // Push question into runStore so ClozeUI's subscription picks it up.
     // Cast to ClozeQuestion (permissive shape) — see header note re: types.

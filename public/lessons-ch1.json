@@ -58,11 +58,97 @@
     },
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "narration",
+        "id": "kt-ch1-l1-n1",
+        "level": "A2",
+        "sentence": "It is dark and cold tonight.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l1-n2",
+        "level": "A2",
+        "sentence": "{catName} is a stray cat.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
+        "type": "listen-tf-zh",
         "id": "kt-ch1-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I am {catName}. I have no home of my own.",
+        "sentence": "{catName} has no home.",
+        "question": "(unused)",
+        "questionZh": "{catName} 是一隻有家的貓。",
+        "options": [
+          "對",
+          "不對"
+        ],
+        "optionsZh": [
+          "對,是這樣的",
+          "不,不是這樣"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "narration 說 {catName} 是 stray cat(流浪貓),所以這句陳述「有家」是錯的。",
+        "tags": [
+          "story",
+          "ch1",
+          "tf-zh"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l1-n3",
+        "level": "A2",
+        "sentence": "She has no home of her own.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
+        "type": "listen-tf-zh",
+        "id": "kt-ch1-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She has no home of her own.",
+        "question": "(unused)",
+        "questionZh": "{catName} 自己沒有一個家。",
+        "options": [
+          "對",
+          "不對"
+        ],
+        "optionsZh": [
+          "對,是這樣的",
+          "不,不是這樣"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "narration 直接說 She has no home of her own,「沒有自己的家」是對的。",
+        "tags": [
+          "story",
+          "ch1",
+          "tf-zh"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{catName} is a stray cat with no home.",
         "question": "What kind of cat is {catName}?",
         "options": [
           "straw",
@@ -77,7 +163,7 @@
           "故事"
         ],
         "correctIndex": 2,
-        "explanationZh": "stray = 流浪的(沒有固定家的)。每晚我自己找東西吃。",
+        "explanationZh": "stray = 流浪的(沒有固定家的)。每晚她自己找東西吃。",
         "tags": [
           "story",
           "ch1",
@@ -87,11 +173,23 @@
         "subSkill": "vocab"
       },
       {
+        "type": "narration",
+        "id": "kt-ch1-l1-n4",
+        "level": "A2",
+        "sentence": "Every night she visits Grandma's small yard.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q2",
+        "id": "kt-ch1-l1-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Every night I visit one place.",
+        "sentence": "Every night she visits Grandma's small yard.",
         "question": "Where does {catName} go every night?",
         "options": [
           "road",
@@ -106,7 +204,7 @@
           "院子"
         ],
         "correctIndex": 3,
-        "explanationZh": "yard = 院子。每晚我去奶奶家的小院子落腳。",
+        "explanationZh": "yard = 院子。每晚她去奶奶家的小院子落腳。",
         "tags": [
           "story",
           "ch1",
@@ -116,11 +214,23 @@
         "subSkill": "detail"
       },
       {
+        "type": "narration",
+        "id": "kt-ch1-l1-n5",
+        "level": "A2",
+        "sentence": "Tonight she jumps up the low wall.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q3",
+        "id": "kt-ch1-l1-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "My paws spring up to the low wall.",
+        "sentence": "Tonight she jumps up the low wall.",
         "question": "Onto the wall — what move?",
         "options": [
           "run",
@@ -135,7 +245,7 @@
           "坐"
         ],
         "correctIndex": 2,
-        "explanationZh": "spring up = 一躍而起,也就是 jump(跳)。輕輕一躍就上了矮牆。",
+        "explanationZh": "jumps up = 一躍而上。輕輕一跳就上了矮牆。",
         "tags": [
           "story",
           "ch1",
@@ -145,142 +255,88 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The wall keeps the sun heat after dusk.",
-        "question": "Touching the wall, what is the temperature like?",
-        "options": [
-          "cold",
-          "hard",
-          "hot",
-          "warm"
-        ],
-        "optionsZh": [
-          "冷",
-          "硬的",
-          "燙",
-          "溫暖"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "矮牆白天曬過,黃昏還微溫,坐上去剛剛好。warm = 溫暖。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch1-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Every night I head to one quiet place.",
-        "question": "What is the main idea?",
-        "options": [
-          "I go to a shop",
-          "I visit Grandma's yard",
-          "I sleep on a street",
-          "I hunt for fish"
-        ],
-        "optionsZh": [
-          "我去商店",
-          "我去奶奶的院子",
-          "我睡在街上",
-          "我找魚"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "每晚我都去奶奶院子,那裡有飯有故事。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-mc",
+        "type": "listen-tf-zh",
         "id": "kt-ch1-l1-q6",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The yard is hers, not mine.",
-        "question": "Whose yard is it?",
+        "sentence": "Tonight she jumps up the low wall.",
+        "question": "(unused)",
+        "questionZh": "今晚 {catName} 跳上了矮牆。",
         "options": [
-          "Grandma's",
-          "the cat's",
-          "the dog's",
-          "nobody's"
+          "對",
+          "不對"
         ],
         "optionsZh": [
-          "奶奶的",
-          "貓的",
-          "狗的",
-          "沒有人的"
+          "對,是這樣的",
+          "不,不是這樣"
         ],
-        "correctIndex": 2,
-        "explanationZh": "院子的主人是奶奶,我只是來坐坐。",
+        "correctIndex": 0,
+        "explanationZh": "narration 說 she jumps up the low wall,「跳上矮牆」是對的。",
         "tags": [
           "story",
           "ch1",
-          "prologue",
-          "smoke"
+          "tf-zh"
         ],
         "subSkill": "gist"
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
+        "id": "kt-ch1-l1-n6",
+        "level": "A2",
+        "sentence": "She waits quietly for Grandma's story.",
+        "explanationZh": "",
+        "tags": [
+          "story",
+          "ch1",
+          "narration"
+        ]
+      },
+      {
+        "type": "listen-tf-zh",
         "id": "kt-ch1-l1-q7",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I have no home of my own.",
-        "question": "Why is {catName} a stray?",
+        "sentence": "She waits quietly for Grandma's story.",
+        "question": "(unused)",
+        "questionZh": "{catName} 在矮牆上大聲叫，吵醒奶奶。",
         "options": [
-          "she lost her family",
-          "she has no home there",
-          "she ran away today",
-          "she does not like home"
+          "對",
+          "不對"
         ],
         "optionsZh": [
-          "她失去了家人",
-          "她沒有家",
-          "她今天逃走",
-          "她不喜歡家"
+          "對,是這樣的",
+          "不,不是這樣"
         ],
         "correctIndex": 1,
-        "explanationZh": "stray cat 沒有固定的家。每晚我自己找地方睡。",
+        "explanationZh": "narration 說 She waits quietly,「安靜地等」才對,「大聲叫」是錯的。",
         "tags": [
           "story",
           "ch1",
-          "prologue",
-          "smoke"
+          "tf-zh"
         ],
-        "subSkill": "inference"
+        "subSkill": "gist"
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch1-l1-q8",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Tonight I want to know what story is coming.",
-        "question": "Tonight, what mood describes {catName}?",
+        "sentence": "She sits on the wall and waits for the story.",
+        "question": "What does {catName} do after jumping up?",
         "options": [
-          "sleepy",
-          "bored",
-          "angry",
-          "curious"
+          "leaves the yard",
+          "waits for the story",
+          "runs back home",
+          "looks for fish"
         ],
         "optionsZh": [
-          "想睡",
-          "無聊",
-          "生氣",
-          "好奇"
+          "離開院子",
+          "等故事開始",
+          "跑回家",
+          "找魚吃"
         ],
-        "correctIndex": 3,
-        "explanationZh": "curious = 好奇。今晚奶奶要說新故事,我特別期待。",
+        "correctIndex": 1,
+        "explanationZh": "她跳上矮牆後安靜地坐著,等奶奶開始說故事。",
         "tags": [
           "story",
           "ch1",
@@ -288,122 +344,6 @@
           "smoke"
         ],
         "subSkill": "gist"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The moon shines clearly tonight.",
-        "question": "How is the moon?",
-        "options": [
-          "bright",
-          "broken",
-          "brown",
-          "brave"
-        ],
-        "optionsZh": [
-          "明亮",
-          "破",
-          "棕色",
-          "勇敢"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "bright = 明亮的。月光照在矮牆上,看得很清楚。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch1-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "No car or voice fills the street tonight.",
-        "question": "How is the street tonight?",
-        "options": [
-          "quiet",
-          "crowded",
-          "muddy",
-          "shut"
-        ],
-        "optionsZh": [
-          "安靜",
-          "擁擠",
-          "泥濘",
-          "關上"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "quiet = 安靜的。沒人沒車,只有我的腳步。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch1-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My paws move fast and make no sound.",
-        "question": "In motion, how are her paws?",
-        "options": [
-          "loud and slow",
-          "quick and quiet",
-          "wet and cold",
-          "stuck and sore"
-        ],
-        "optionsZh": [
-          "大聲又慢",
-          "快又安靜",
-          "濕又冷",
-          "卡又痠"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "quick = 快、quiet = 安靜。我走路不發出聲音。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q12",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I rest my paws on the warm wall.",
-        "question": "After jumping up, what does {catName} do?",
-        "options": [
-          "sit",
-          "set",
-          "sat",
-          "send"
-        ],
-        "optionsZh": [
-          "坐",
-          "放",
-          "坐過",
-          "送"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "sit = 坐。我跳上去後就坐著等故事開始。rest paws = 把腳掌放著休息。",
-        "tags": [
-          "story",
-          "ch1",
-          "prologue",
-          "smoke"
-        ],
-        "subSkill": "inference"
       }
     ]
   },
