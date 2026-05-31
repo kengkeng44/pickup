@@ -58,10 +58,16 @@ document.addEventListener('click', (e) => {
   sfxCardPress();
 }, true);
 
-// v1.7.1: remove the tear-drop intro overlay after its full sequence.
-window.setTimeout(() => {
+// v2.0.B.157 bug-check #2 fix: gate intro removal on either fixed 3200ms
+// OR Phaser lazy mount,whichever fires first. Prevents blank screen on
+// slow phones where requestIdleCallback fires after 3200ms.
+let _introRemoved = false;
+function removeIntro(): void {
+  if (_introRemoved) return;
+  _introRemoved = true;
   document.getElementById('pickup-tear-intro')?.remove();
-}, 3200);
+}
+window.setTimeout(removeIntro, 3200);
 
 // v2.0.B.155 PWA: register service worker for offline shell + 'Add to Home
 // Screen' affordance. Wrapped in conditions so dev/preview doesn't try to
@@ -76,7 +82,11 @@ if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
 
 // v2.0.B.152: lazy-load Phaser + scenes after 'load' event.
 function bootPhaserLazy(): void {
-  void import('./bootGame').then(({ startGame }) => startGame());
+  void import('./bootGame').then(({ startGame }) => {
+    startGame();
+    // v2.0.B.157: chain intro removal so it doesn't fire before Phaser mounts
+    removeIntro();
+  });
 }
 if (document.readyState === 'complete') {
   bootPhaserLazy();

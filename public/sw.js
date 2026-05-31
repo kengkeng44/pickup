@@ -12,8 +12,11 @@ const CACHE_VERSION = 'pickup-v2.0.B.155';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
-// Pre-cache only the index. Hashed Vite chunks fetched + cached at runtime.
-const SHELL_URLS = ['/', '/index.html', '/manifest.webmanifest'];
+// v2.0.B.157 bug-check #1 fix: drop '/' duplicate. SW was caching BOTH '/'
+// AND '/index.html' as separate keys; network-first only updated whichever
+// URL user navigated with, the other stayed stale → returning users could
+// get cached-old shell loading new-hashed chunk URLs that 404.
+const SHELL_URLS = ['/index.html', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -23,7 +26,17 @@ self.addEventListener('install', (event) => {
       })
     )
   );
-  self.skipWaiting();
+  // v2.0.B.157 bug-check #1 fix: don't skipWaiting unconditionally — old
+  // SW activating mid-session can swap chunks under the page. Wait for
+  // page to send 'SKIP_WAITING' message via update prompt.
+  // (If we want auto-skip on first install, comment back in.)
+  // self.skipWaiting();
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 self.addEventListener('activate', (event) => {
