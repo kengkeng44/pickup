@@ -173,6 +173,11 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
       options: Array.isArray((q as any).options)
         ? (q as any).options.map((o: string) => applyDogName(applyCatName(o)))
         : (q as any).options,
+      // v2.0.B.130: optionsZh added by QA agent — bilingual button labels.
+      // Substitute {catName}/{dogName} so '我家的{catName}' gets rendered with real name.
+      optionsZh: Array.isArray((q as any).optionsZh)
+        ? (q as any).optionsZh.map((o: string) => applyDogName(applyCatName(o)))
+        : (q as any).optionsZh,
       explanationZh: applyDogName(applyCatName(q.explanationZh)),
     })),
   })) as Lesson[];

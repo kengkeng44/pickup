@@ -7,9 +7,14 @@ test.describe('Q2 debug', () => {
   test('walk Q1 -> Q2: verify Q2 mounts with 4 fresh buttons + new word-blanks', async ({ page }) => {
     const errors: string[] = [];
     const logs: string[] = [];
-    page.on('pageerror', (err) => errors.push(err.message));
+    const isCodecNoise = (s: string) => s.includes('Unable to decode audio data');
+    page.on('pageerror', (err) => {
+      if (isCodecNoise(err.message)) return;
+      errors.push(err.message);
+    });
     page.on('console', (msg) => {
       const text = msg.text();
+      if (isCodecNoise(text)) return;
       if (msg.type() === 'error') errors.push(`[ERR] ${text}`);
       if (text.includes('LessonScene') || text.includes('Q')) logs.push(`[LOG] ${text}`);
     });

@@ -20,6 +20,12 @@
           "quite",
           "quit"
         ],
+        "optionsZh": [
+          "快速",
+          "安靜",
+          "相當",
+          "放棄"
+        ],
         "correctIndex": 1,
         "explanationZh": "quiet = 安靜的。今晚院子特別靜,我也放輕腳步。",
         "tags": [
@@ -40,6 +46,12 @@
           "bump",
           "pump",
           "dump"
+        ],
+        "optionsZh": [
+          "跳",
+          "撞",
+          "幫浦",
+          "倒"
         ],
         "correctIndex": 0,
         "explanationZh": "jump = 跳。又是熟悉的矮牆,我輕輕一躍。",
@@ -62,6 +74,12 @@
           "her",
           "hair"
         ],
+        "optionsZh": [
+          "這裡",
+          "聽",
+          "她的",
+          "頭髮"
+        ],
         "correctIndex": 0,
         "explanationZh": "here = 在這裡。奶奶坐在老位置,我安心。",
         "tags": [
@@ -83,6 +101,12 @@
           "hot",
           "loud"
         ],
+        "optionsZh": [
+          "涼",
+          "濕",
+          "熱",
+          "大聲"
+        ],
         "correctIndex": 0,
         "explanationZh": "cool = 涼。晚風吹過,鬍鬚一抖。",
         "tags": [
@@ -103,6 +127,12 @@
           "to Grandma's yard",
           "to a market",
           "to the river"
+        ],
+        "optionsZh": [
+          "到森林",
+          "去奶奶的院子",
+          "去市場",
+          "到河邊"
         ],
         "correctIndex": 1,
         "explanationZh": "每晚的固定行程,奶奶的院子是我的港口。",
@@ -135,6 +165,12 @@
           "lights",
           "lies"
         ],
+        "optionsZh": [
+          "舉起",
+          "離開",
+          "燈 (複數)",
+          "躺"
+        ],
         "correctIndex": 3,
         "explanationZh": "lie down = 趴下。{dogName} 是熟練的聽眾,先就位。",
         "tags": [
@@ -156,6 +192,12 @@
           "on the wall",
           "on the floor"
         ],
+        "optionsZh": [
+          "在她椅子上",
+          "在門邊",
+          "在牆上",
+          "在地板"
+        ],
         "correctIndex": 0,
         "explanationZh": "sit = 坐。老椅子吱呀一聲,故事準備開始。",
         "tags": [
@@ -176,6 +218,12 @@
           "lost",
           "tired",
           "angry"
+        ],
+        "optionsZh": [
+          "準備好",
+          "輸過",
+          "累",
+          "生氣"
         ],
         "correctIndex": 0,
         "explanationZh": "ready = 準備好的。耳朵豎起來,眼睛半閉。",
@@ -228,6 +276,12 @@
           "sits and opens a book",
           "calls her daughter"
         ],
+        "optionsZh": [
+          "餵貓",
+          "煮晚餐",
+          "坐下打開書",
+          "叫她女兒"
+        ],
         "correctIndex": 2,
         "explanationZh": "她坐下,翻開書,動作很慢。我看了好幾遍,每次都安心。",
         "tags": [
@@ -259,6 +313,12 @@
           "tail",
           "tell"
         ],
+        "optionsZh": [
+          "故事",
+          "高",
+          "尾巴",
+          "說"
+        ],
         "correctIndex": 0,
         "explanationZh": "tale = 故事(古字)。今晚不是吵鬧的冒險,是一個慢慢的故事。",
         "tags": [
@@ -280,6 +340,12 @@
           "out and cold",
           "wild and big"
         ],
+        "optionsZh": [
+          "又高又熱",
+          "又低又暖",
+          "在外又冷",
+          "野又大"
+        ],
         "correctIndex": 1,
         "explanationZh": "low = 矮、小。爐火只剩一點,照在書頁上剛好。",
         "tags": [
@@ -300,6 +366,12 @@
           "sick",
           "sit",
           "see"
+        ],
+        "optionsZh": [
+          "六",
+          "生病",
+          "坐",
+          "看"
         ],
         "correctIndex": 0,
         "explanationZh": "six = 六。六隻天鵝,是今晚的主角。",
@@ -352,6 +424,12 @@
           "a small cat",
           "six swans"
         ],
+        "optionsZh": [
+          "一個熱鬧的鎮",
+          "一隻棕色的狗",
+          "一隻小貓",
+          "六隻天鵝"
+        ],
         "correctIndex": 3,
         "explanationZh": "奶奶說:今晚的故事是六隻天鵝。我豎起耳朵。",
         "tags": [
@@ -383,6 +461,12 @@
           "seven",
           "two"
         ],
+        "optionsZh": [
+          "六",
+          "十六",
+          "七",
+          "二"
+        ],
         "correctIndex": 0,
         "explanationZh": "six = 六。國王有六個兒子,個個明亮。",
         "tags": [
@@ -404,6 +488,12 @@
           "a friend",
           "a brother",
           "a daughter"
+        ],
+        "optionsZh": [
+          "一個侄兒",
+          "一個朋友",
+          "一個哥哥",
+          "一個女兒"
         ],
         "correctIndex": 3,
         "explanationZh": "daughter = 女兒。一個小女兒,是這個故事的安靜主角。",
@@ -427,6 +517,12 @@
           "she sang",
           "she died"
         ],
+        "optionsZh": [
+          "她留下",
+          "她跑",
+          "她唱了",
+          "她死了"
+        ],
         "correctIndex": 3,
         "explanationZh": "die = 過世。第一個王后年輕就走了,留下七個孩子。",
         "tags": [
@@ -448,6 +544,12 @@
           "married someone new",
           "found a job",
           "sold a horse"
+        ],
+        "optionsZh": [
+          "失去一個朋友",
+          "娶別人",
+          "找到工作",
+          "賣了一匹馬"
         ],
         "correctIndex": 1,
         "explanationZh": "take a wife = 娶妻(古英文用法)。國王再婚了。",
@@ -471,6 +573,12 @@
           "thin",
           "thing"
         ],
+        "optionsZh": [
+          "然後",
+          "比",
+          "瘦",
+          "東西"
+        ],
         "correctIndex": 0,
         "explanationZh": "then = 那時候。後來的事還沒發生,當時七個孩子都還快樂。",
         "tags": [
@@ -492,6 +600,12 @@
           "loved them",
           "missed them",
           "feared them"
+        ],
+        "optionsZh": [
+          "失去他們",
+          "愛他們",
+          "想念他們",
+          "怕他們"
         ],
         "correctIndex": 1,
         "explanationZh": "love = 愛。妹妹很愛六個哥哥,他們是她的全世界。",
@@ -525,6 +639,12 @@
           "a baker",
           "a queen's friend"
         ],
+        "optionsZh": [
+          "一個巫婆",
+          "一個守衛",
+          "一個麵包師",
+          "女王的朋友"
+        ],
         "correctIndex": 0,
         "explanationZh": "witch = 女巫。她藏著祕密,國王看不見。",
         "tags": [
@@ -546,6 +666,12 @@
           "in a tower",
           "in a barn",
           "in a cave"
+        ],
+        "optionsZh": [
+          "在森林",
+          "在塔裡",
+          "在穀倉裡",
+          "在洞穴"
         ],
         "correctIndex": 0,
         "explanationZh": "wood = 森林(古英文同 forest)。國王想保護兒子,把他們藏到森林裡。",
@@ -569,6 +695,12 @@
           "yes, he did",
           "he told the cook"
         ],
+        "optionsZh": [
+          "不，他沒有",
+          "他告訴狗",
+          "對，他有",
+          "他告訴廚師"
+        ],
         "correctIndex": 0,
         "explanationZh": "他知道新王后不可信,把藏匿地點瞞下來。",
         "tags": [
@@ -590,6 +722,12 @@
           "forgave him",
           "fell asleep",
           "ran away"
+        ],
+        "optionsZh": [
+          "發現",
+          "原諒了他",
+          "睡著了",
+          "逃走"
         ],
         "correctIndex": 0,
         "explanationZh": "find out = 發現、查到。女巫終究還是查到了森林的位置。",
@@ -644,6 +782,12 @@
           "light and kind",
           "warm and soft"
         ],
+        "optionsZh": [
+          "又冷又暗",
+          "大聲又驕傲",
+          "輕又善良",
+          "暖又軟"
+        ],
         "correctIndex": 0,
         "explanationZh": "cold = 冷的。她心裡只有惡意,沒有溫度。",
         "tags": [
@@ -676,6 +820,12 @@
           "wide hats",
           "white stones"
         ],
+        "optionsZh": [
+          "濕襪子",
+          "白襯衫",
+          "寬帽",
+          "白石頭"
+        ],
         "correctIndex": 1,
         "explanationZh": "shirt = 襯衫。她丟出六件白襯衫,每一件都帶著咒語。",
         "tags": [
@@ -697,6 +847,12 @@
           "feathers",
           "flowers",
           "fences"
+        ],
+        "optionsZh": [
+          "手指",
+          "羽毛",
+          "花",
+          "圍籬"
         ],
         "correctIndex": 1,
         "explanationZh": "feather = 羽毛。手臂上長出白羽毛,皮膚消失了。",
@@ -720,6 +876,12 @@
           "wings closed up",
           "wings spread out"
         ],
+        "optionsZh": [
+          "翅膀變紅",
+          "翅膀斷掉",
+          "翅膀合起來",
+          "翅膀張開"
+        ],
         "correctIndex": 3,
         "explanationZh": "open wide = 張開、展開。羽翼一張就到肩膀那麼長。",
         "tags": [
@@ -741,6 +903,12 @@
           "sheep",
           "snakes",
           "swords"
+        ],
+        "optionsZh": [
+          "天鵝",
+          "羊",
+          "蛇",
+          "劍"
         ],
         "correctIndex": 0,
         "explanationZh": "swan = 天鵝。六個哥哥,六隻天鵝,飛走了。",
@@ -764,6 +932,12 @@
           "they cried",
           "yes, they did"
         ],
+        "optionsZh": [
+          "他們笑",
+          "不，他們沒有",
+          "他們哭",
+          "對，他們有"
+        ],
         "correctIndex": 1,
         "explanationZh": "天鵝不會說話。咒語一落下,他們就連話都來不及說。",
         "tags": [
@@ -785,6 +959,12 @@
           "loud",
           "pink",
           "cold"
+        ],
+        "optionsZh": [
+          "溫暖",
+          "大聲",
+          "粉紅色",
+          "冷"
         ],
         "correctIndex": 3,
         "explanationZh": "cold = 冷的。秋末的天空,六隻白鳥飛入灰雲。",
@@ -818,6 +998,12 @@
           "rose",
           "rolled"
         ],
+        "optionsZh": [
+          "騎過",
+          "跑過",
+          "升起過",
+          "滾過"
+        ],
         "correctIndex": 2,
         "explanationZh": "rose = 升起。六隻白鳥拍動翅膀,一齊往上。",
         "tags": [
@@ -839,6 +1025,12 @@
           "fences",
           "flowers",
           "fingers"
+        ],
+        "optionsZh": [
+          "羽毛",
+          "圍籬",
+          "花",
+          "手指"
         ],
         "correctIndex": 0,
         "explanationZh": "shone = 閃耀(shine 過去式)。羽毛在天光下白得發亮。",
@@ -862,6 +1054,12 @@
           "alone",
           "sleepy"
         ],
+        "optionsZh": [
+          "驕傲",
+          "開心",
+          "獨自",
+          "想睡"
+        ],
         "correctIndex": 2,
         "explanationZh": "alone = 獨自一人。哥哥們全飛走了,只剩她站在空屋外。",
         "tags": [
@@ -884,6 +1082,12 @@
           "to the queen",
           "far away"
         ],
+        "optionsZh": [
+          "回家",
+          "進入河裡",
+          "到女王那",
+          "遠方"
+        ],
         "correctIndex": 3,
         "explanationZh": "fly away = 飛走。六個身影越來越小,最後變成一行白點。",
         "tags": [
@@ -905,6 +1109,12 @@
           "yes, right away",
           "only as wolves",
           "no, never again"
+        ],
+        "optionsZh": [
+          "還沒",
+          "對，馬上",
+          "只當作狼",
+          "不再"
         ],
         "correctIndex": 0,
         "explanationZh": "not yet = 還沒。咒語還沒解開,他們暫時回不來。",
@@ -971,6 +1181,12 @@
           "at the gate",
           "at the lake"
         ],
+        "optionsZh": [
+          "在家",
+          "在學校",
+          "在門口",
+          "在湖邊"
+        ],
         "correctIndex": 0,
         "explanationZh": "alone = 獨自。大房子空了,只剩她和回聲。",
         "tags": [
@@ -992,6 +1208,12 @@
           "no",
           "she slept",
           "yes"
+        ],
+        "optionsZh": [
+          "她唱了",
+          "不",
+          "她睡了",
+          "是"
         ],
         "correctIndex": 1,
         "explanationZh": "would not stay = 不肯留下。她下定決心要走。",
@@ -1015,6 +1237,12 @@
           "to find gold",
           "to find food"
         ],
+        "optionsZh": [
+          "找她的兄弟們",
+          "找國王",
+          "找金子",
+          "找食物"
+        ],
         "correctIndex": 0,
         "explanationZh": "find = 找到。她要把六個哥哥找回來,不能空等。",
         "tags": [
@@ -1036,6 +1264,12 @@
           "start a trip",
           "go to sleep",
           "set the table"
+        ],
+        "optionsZh": [
+          "坐下",
+          "開始旅行",
+          "去睡覺",
+          "擺桌"
         ],
         "correctIndex": 1,
         "explanationZh": "set out = 出發、上路。天剛亮,她就背起小包袱離開。",
@@ -1059,6 +1293,12 @@
           "wanted",
           "wished"
         ],
+        "optionsZh": [
+          "走過",
+          "等過",
+          "要過",
+          "希望"
+        ],
         "correctIndex": 0,
         "explanationZh": "walked = 走(過去式)。她一步一步,朝森林走去。",
         "tags": [
@@ -1080,6 +1320,12 @@
           "sleepy",
           "bored",
           "loud and angry"
+        ],
+        "optionsZh": [
+          "勇敢但害怕",
+          "想睡",
+          "無聊",
+          "大聲又生氣"
         ],
         "correctIndex": 0,
         "explanationZh": "brave = 勇敢。她也怕,但腳沒停下。",
@@ -1113,6 +1359,12 @@
           "out of town",
           "up a hill"
         ],
+        "optionsZh": [
+          "進入森林",
+          "沿著路",
+          "出城",
+          "上山"
+        ],
         "correctIndex": 0,
         "explanationZh": "deep = 深處。她越走越遠,光線越來越暗。",
         "tags": [
@@ -1134,6 +1386,12 @@
           "they ran",
           "they bled",
           "they grew"
+        ],
+        "optionsZh": [
+          "他們唱了",
+          "他們跑",
+          "他們流血",
+          "他們長大"
         ],
         "correctIndex": 2,
         "explanationZh": "bleed = 流血。鞋磨壞了,腳跟一道道紅。",
@@ -1157,6 +1415,12 @@
           "wet and warm",
           "loud and busy"
         ],
+        "optionsZh": [
+          "又高又暗",
+          "又小又亮",
+          "又濕又暖",
+          "吵又忙"
+        ],
         "correctIndex": 0,
         "explanationZh": "tall = 高的。樹遮住天,連風都被吸進葉子裡。",
         "tags": [
@@ -1179,6 +1443,12 @@
           "she cried and slept",
           "she lost her way"
         ],
+        "optionsZh": [
+          "對，她跑回家",
+          "沒，她繼續說",
+          "她哭著睡著",
+          "她迷路"
+        ],
         "correctIndex": 1,
         "explanationZh": "turn back = 折返。哥哥還沒找到,她不能回頭。",
         "tags": [
@@ -1200,6 +1470,12 @@
           "she fell asleep",
           "she sang too long",
           "she ate too much"
+        ],
+        "optionsZh": [
+          "她走太遠",
+          "她睡著了",
+          "她唱太久",
+          "她吃太多"
         ],
         "correctIndex": 0,
         "explanationZh": "hurt = 痛。路太長,鞋太薄,連石頭都認得她的腳印。",
@@ -1266,6 +1542,12 @@
           "a wide lake",
           "a small hut"
         ],
+        "optionsZh": [
+          "一座高塔",
+          "一條長路",
+          "一個大湖",
+          "一間小屋"
+        ],
         "correctIndex": 3,
         "explanationZh": "hut = 小屋。黃昏時分,她看見一盞燈。",
         "tags": [
@@ -1287,6 +1569,12 @@
           "ten",
           "seven",
           "six"
+        ],
+        "optionsZh": [
+          "二",
+          "十",
+          "七",
+          "六"
         ],
         "correctIndex": 2,
         "explanationZh": "seven = 七。六個哥哥加她自己,剛好七張床。",
@@ -1310,6 +1598,12 @@
           "shouted",
           "stood up"
         ],
+        "optionsZh": [
+          "躺下",
+          "用完",
+          "大叫過",
+          "站起來"
+        ],
         "correctIndex": 0,
         "explanationZh": "lay down = 躺下。她累壞了,挑了最小的床。",
         "tags": [
@@ -1331,6 +1625,12 @@
           "soon",
           "again",
           "loudly"
+        ],
+        "optionsZh": [
+          "最後",
+          "很快",
+          "再次",
+          "大聲地"
         ],
         "correctIndex": 0,
         "explanationZh": "at last = 終於。一整天走下來,她終於能闔上眼。",
@@ -1354,6 +1654,12 @@
           "walked",
           "watched"
         ],
+        "optionsZh": [
+          "等過",
+          "要過",
+          "走過",
+          "看過"
+        ],
         "correctIndex": 0,
         "explanationZh": "waited = 等待。她不睡,先撐著等天黑。",
         "tags": [
@@ -1375,6 +1681,12 @@
           "bright and big",
           "loud and busy",
           "small and warm"
+        ],
+        "optionsZh": [
+          "又冷又暗",
+          "又亮又大",
+          "吵又忙",
+          "又小又暖"
         ],
         "correctIndex": 3,
         "explanationZh": "warm = 暖的。屋裡有一點爐灰,擋住外頭的風。",
@@ -1408,6 +1720,12 @@
           "at midnight",
           "at dawn"
         ],
+        "optionsZh": [
+          "中午",
+          "日落時",
+          "在午夜",
+          "在黎明"
+        ],
         "correctIndex": 1,
         "explanationZh": "sundown = 日落。黃昏的光下,六隻白鳥落在門口。",
         "tags": [
@@ -1429,6 +1747,12 @@
           "flowers",
           "feathers",
           "fingers"
+        ],
+        "optionsZh": [
+          "圍籬",
+          "花",
+          "羽毛",
+          "手指"
         ],
         "correctIndex": 2,
         "explanationZh": "fall away = 掉落。羽毛一片一片落下,皮膚露出來。",
@@ -1452,6 +1776,12 @@
           "forever",
           "all night"
         ],
+        "optionsZh": [
+          "整天",
+          "一小段時間",
+          "永遠",
+          "整晚"
+        ],
         "correctIndex": 1,
         "explanationZh": "short time = 短暫的時間。只有一刻鐘,他們是兄弟。",
         "tags": [
@@ -1473,6 +1803,12 @@
           "the king",
           "their mother",
           "their sister"
+        ],
+        "optionsZh": [
+          "一個陌生人",
+          "那個國王",
+          "他們的媽媽",
+          "他們的姊妹"
         ],
         "correctIndex": 3,
         "explanationZh": "see = 看見。他們認出小妹,眼睛亮起來。",
@@ -1529,6 +1865,12 @@
           "bored",
           "happy"
         ],
+        "optionsZh": [
+          "輸過",
+          "累",
+          "無聊",
+          "開心"
+        ],
         "correctIndex": 3,
         "explanationZh": "happy = 快樂的。她想笑,但還沒得到答案。",
         "tags": [
@@ -1561,6 +1903,12 @@
           "sixteen",
           "one"
         ],
+        "optionsZh": [
+          "七",
+          "六",
+          "十六",
+          "一"
+        ],
         "correctIndex": 1,
         "explanationZh": "sew = 縫。她要縫六件,每件用星花做。",
         "tags": [
@@ -1582,6 +1930,12 @@
           "one night",
           "six days",
           "ten weeks"
+        ],
+        "optionsZh": [
+          "六年",
+          "一晚",
+          "六天",
+          "十週"
         ],
         "correctIndex": 0,
         "explanationZh": "silent = 沉默的。六年不能說一個字。",
@@ -1605,6 +1959,12 @@
           "laugh",
           "sleep"
         ],
+        "optionsZh": [
+          "走",
+          "吃",
+          "笑",
+          "睡覺"
+        ],
         "correctIndex": 2,
         "explanationZh": "laugh = 笑。不能說、不能笑,連忍不住的微笑都不行。",
         "tags": [
@@ -1626,6 +1986,12 @@
           "one word",
           "one step",
           "one laugh"
+        ],
+        "optionsZh": [
+          "一滴淚",
+          "一個字",
+          "一步",
+          "一個笑"
         ],
         "correctIndex": 1,
         "explanationZh": "spell = 咒語。一個字、一聲笑,所有努力就會碎。",
@@ -1649,6 +2015,12 @@
           "noted",
           "knotted"
         ],
+        "optionsZh": [
+          "點頭過",
+          "需要過",
+          "注意",
+          "打結"
+        ],
         "correctIndex": 0,
         "explanationZh": "nodded = 點頭。她答應,連聲音都壓住。",
         "tags": [
@@ -1670,6 +2042,12 @@
           "wait for help",
           "wear in winter",
           "make by hand"
+        ],
+        "optionsZh": [
+          "用水洗",
+          "等待救援",
+          "冬天穿",
+          "用手做"
         ],
         "correctIndex": 3,
         "explanationZh": "weave = 織。一針一線,六件襯衫,六年的功夫。",
@@ -1703,6 +2081,12 @@
           "on a hill",
           "by the river"
         ],
+        "optionsZh": [
+          "在洞穴",
+          "在穀倉裡",
+          "在山丘上",
+          "河邊"
+        ],
         "correctIndex": 3,
         "explanationZh": "gather = 採集。河邊長著最白的星花。",
         "tags": [
@@ -1724,6 +2108,12 @@
           "stones",
           "bees",
           "thorns"
+        ],
+        "optionsZh": [
+          "繩子",
+          "石頭",
+          "蜜蜂",
+          "荊棘"
         ],
         "correctIndex": 3,
         "explanationZh": "thorn = 刺。荊棘藏在花叢裡,她的手指一道道紅。",
@@ -1747,6 +2137,12 @@
           "she sang",
           "she laughed"
         ],
+        "optionsZh": [
+          "沒，她保持沉默",
+          "對，很大聲",
+          "她唱了",
+          "她笑了"
+        ],
         "correctIndex": 0,
         "explanationZh": "cry out = 出聲哭。她忍著,連嘶一聲都吞回去。",
         "tags": [
@@ -1768,6 +2164,12 @@
           "only in summer",
           "only at noon",
           "once a year"
+        ],
+        "optionsZh": [
+          "每晚",
+          "只在夏天",
+          "只在中午",
+          "一年一次"
         ],
         "correctIndex": 0,
         "explanationZh": "wove = weave 過去式。每個夜晚,燭光下她的手不停。",
@@ -1824,6 +2226,12 @@
           "problem",
           "process"
         ],
+        "optionsZh": [
+          "答應",
+          "禮物",
+          "問題",
+          "過程"
+        ],
         "correctIndex": 0,
         "explanationZh": "promise = 承諾。她答應了,就會撐住。",
         "tags": [
@@ -1856,6 +2264,12 @@
           "by a fire",
           "in a boat"
         ],
+        "optionsZh": [
+          "在樹上",
+          "在地上",
+          "在火邊",
+          "在船上"
+        ],
         "correctIndex": 0,
         "explanationZh": "in a tree = 在樹上。她把織具掛在樹枝上,離地遠一點才安全。",
         "tags": [
@@ -1877,6 +2291,12 @@
           "an old farmer",
           "a small boy",
           "a wild wolf"
+        ],
+        "optionsZh": [
+          "一位年輕的國王",
+          "一個老農夫",
+          "一個小男孩",
+          "一隻野狼"
         ],
         "correctIndex": 0,
         "explanationZh": "king = 國王。他打獵經過,抬頭看見樹上的影子。",
@@ -1900,6 +2320,12 @@
           "rode away",
           "fell down"
         ],
+        "optionsZh": [
+          "大聲喊",
+          "抬頭",
+          "騎走",
+          "跌倒"
+        ],
         "correctIndex": 1,
         "explanationZh": "look up = 抬頭。他停下馬,看著樹上那個沉默的女孩。",
         "tags": [
@@ -1921,6 +2347,12 @@
           "no, she did not",
           "yes, she did",
           "she sang softly"
+        ],
+        "optionsZh": [
+          "她逃走",
+          "不，她沒有",
+          "對，她有",
+          "她輕輕地唱"
         ],
         "correctIndex": 1,
         "explanationZh": "not a word = 一個字都沒。她搖頭,手裡的線沒斷。",
@@ -1944,6 +2376,12 @@
           "sent her away",
           "sold her food"
         ],
+        "optionsZh": [
+          "把她帶到他那裡",
+          "把她留在那",
+          "把她趕走",
+          "賣了她的食物"
+        ],
         "correctIndex": 0,
         "explanationZh": "take home = 帶回家。他把她抱下樹,放在馬背上。",
         "tags": [
@@ -1965,6 +2403,12 @@
           "loud",
           "wild",
           "angry"
+        ],
+        "optionsZh": [
+          "冷靜",
+          "大聲",
+          "狂野",
+          "生氣"
         ],
         "correctIndex": 0,
         "explanationZh": "calm = 安靜、沉穩的。她的臉沒有掙扎,只有一點點悲傷。",
@@ -1998,6 +2442,12 @@
           "fed her",
           "hired her"
         ],
+        "optionsZh": [
+          "把她趕走",
+          "娶了她",
+          "餵過她的",
+          "雇用她"
+        ],
         "correctIndex": 1,
         "explanationZh": "made her his wife = 娶她為妻。他不在乎她不說話。",
         "tags": [
@@ -2019,6 +2469,12 @@
           "wove shirts",
           "wrote letters",
           "sang songs"
+        ],
+        "optionsZh": [
+          "騎馬",
+          "編了襯衫",
+          "寫信",
+          "唱了歌"
         ],
         "correctIndex": 1,
         "explanationZh": "still wove = 還是織。皇宮裡也一樣,她不停手。",
@@ -2042,6 +2498,12 @@
           "her loud laugh",
           "her gold ring"
         ],
+        "optionsZh": [
+          "她安靜的臉",
+          "她明亮的歌",
+          "她大聲的笑",
+          "她的金戒指"
+        ],
         "correctIndex": 0,
         "explanationZh": "quiet face = 安靜的臉。她不說話,可是眼睛有故事。",
         "tags": [
@@ -2063,6 +2525,12 @@
           "had",
           "held",
           "heard"
+        ],
+        "optionsZh": [
+          "躲過",
+          "有過",
+          "拿著過",
+          "聽過"
         ],
         "correctIndex": 0,
         "explanationZh": "hid = 藏(hide 過去式)。她把六件白襯衫鎖在木箱裡。",
@@ -2117,6 +2585,12 @@
           "loud and busy",
           "quiet but kind"
         ],
+        "optionsZh": [
+          "又冷又暗",
+          "狂野自由",
+          "吵又忙",
+          "安靜但善良"
+        ],
         "correctIndex": 3,
         "explanationZh": "kind = 溫和的。沉默的日子也有溫度。",
         "tags": [
@@ -2149,6 +2623,12 @@
           "the king's brother",
           "the king's mother"
         ],
+        "optionsZh": [
+          "那個狗",
+          "那個煮",
+          "國王的哥哥",
+          "國王的母親"
+        ],
         "correctIndex": 3,
         "explanationZh": "the king's mother = 國王的母親。她覺得這個媳婦不對勁。",
         "tags": [
@@ -2170,6 +2650,12 @@
           "lies",
           "songs",
           "jokes"
+        ],
+        "optionsZh": [
+          "故事",
+          "躺",
+          "歌",
+          "笑話"
         ],
         "correctIndex": 1,
         "explanationZh": "lies = 謊話。她說了好多壞話,一句一句鑽進國王心裡。",
@@ -2193,6 +2679,12 @@
           "a sister",
           "a queen"
         ],
+        "optionsZh": [
+          "一個巫婆",
+          "一個maid",
+          "一個姊姊",
+          "一個女王"
+        ],
         "correctIndex": 0,
         "explanationZh": "witch = 女巫。她用最重的字,壓在沉默上面。",
         "tags": [
@@ -2214,6 +2706,12 @@
           "he laughed it off",
           "yes, at last",
           "no, never"
+        ],
+        "optionsZh": [
+          "他逃走",
+          "他笑笑帶過",
+          "終於",
+          "不，從來沒有"
         ],
         "correctIndex": 2,
         "explanationZh": "at last = 終於。國王也撐不住,信了。",
@@ -2237,6 +2735,12 @@
           "to harm her with fire",
           "to keep her warm"
         ],
+        "optionsZh": [
+          "洗她的衣服",
+          "餵她熱食",
+          "用火傷害她",
+          "讓她保暖"
+        ],
         "correctIndex": 2,
         "explanationZh": "burn = 燒。他們在廣場堆起木柴,要把她送上火。",
         "tags": [
@@ -2258,6 +2762,12 @@
           "calm",
           "red",
           "wild"
+        ],
+        "optionsZh": [
+          "大聲",
+          "冷靜",
+          "紅色",
+          "狂野"
         ],
         "correctIndex": 1,
         "explanationZh": "still calm = 依然安靜。她不喊冤,只把最後一件襯衫抱緊。",
@@ -2291,6 +2801,12 @@
           "soft and slow",
           "tall and hot"
         ],
+        "optionsZh": [
+          "又濕又暗",
+          "又低又涼",
+          "輕又慢",
+          "又高又熱"
+        ],
         "correctIndex": 3,
         "explanationZh": "tall = 高的。火焰從柴堆上竄起來。",
         "tags": [
@@ -2312,6 +2828,12 @@
           "a torch",
           "a stone",
           "a sword"
+        ],
+        "optionsZh": [
+          "那個襯衫",
+          "一個火把",
+          "一個石頭",
+          "一個劍"
         ],
         "correctIndex": 0,
         "explanationZh": "hold = 抱、拿。她把六件白襯衫抱得緊緊的。",
@@ -2335,6 +2857,12 @@
           "quiet and kind",
           "small and shy"
         ],
+        "optionsZh": [
+          "大聲又生氣",
+          "又累又無聊",
+          "安靜又善良",
+          "又小又害羞"
+        ],
         "correctIndex": 0,
         "explanationZh": "loud = 吵的。廣場上人聲像浪,沖著她而來。",
         "tags": [
@@ -2356,6 +2884,12 @@
           "one was lost",
           "one was not done",
           "one was wet"
+        ],
+        "optionsZh": [
+          "一個被燒了",
+          "一個不見了",
+          "一個沒做完",
+          "一個濕了"
         ],
         "correctIndex": 2,
         "explanationZh": "not done = 還沒織完。最後一件還少一隻袖子。",
@@ -2412,6 +2946,12 @@
           "smile",
           "snake"
         ],
+        "optionsZh": [
+          "煙",
+          "聞",
+          "笑容",
+          "蛇"
+        ],
         "correctIndex": 0,
         "explanationZh": "smoke = 煙。煙從柴堆冒上來,擋了她的眼睛。",
         "tags": [
@@ -2444,6 +2984,12 @@
           "six swans",
           "six stars"
         ],
+        "optionsZh": [
+          "六隻烏鴉",
+          "六隻火鳥",
+          "六隻天鵝",
+          "六顆星"
+        ],
         "correctIndex": 2,
         "explanationZh": "fly through = 穿過。六隻白鳥從煙裡落下來,翅膀全是灰。",
         "tags": [
@@ -2465,6 +3011,12 @@
           "the shirts",
           "the stones",
           "the smoke"
+        ],
+        "optionsZh": [
+          "那個木頭",
+          "那個襯衫",
+          "那個石頭",
+          "那個煙"
         ],
         "correctIndex": 1,
         "explanationZh": "throw = 丟、扔。她使盡最後力氣,把六件襯衫拋向天鵝。",
@@ -2488,6 +3040,12 @@
           "the cook",
           "the queen's friend"
         ],
+        "optionsZh": [
+          "國王的母親",
+          "那個兄弟 (複數)",
+          "那個煮",
+          "女王的朋友"
+        ],
         "correctIndex": 1,
         "explanationZh": "beside = 在旁邊。六個哥哥落下,變回少年,圍著她。",
         "tags": [
@@ -2509,6 +3067,12 @@
           "a silver sword",
           "a gold crown",
           "a swan wing"
+        ],
+        "optionsZh": [
+          "一把長鬍子",
+          "一把銀劍",
+          "一個金皇冠",
+          "一隻天鵝翅膀"
         ],
         "correctIndex": 3,
         "explanationZh": "swan wing = 天鵝翅膀。最小的哥哥手臂沒變回來,留下一道白羽。",
@@ -2532,6 +3096,12 @@
           "again",
           "loudly"
         ],
+        "optionsZh": [
+          "輕輕地",
+          "最後",
+          "再次",
+          "大聲地"
+        ],
         "correctIndex": 1,
         "explanationZh": "at last = 終於。六年沉默之後,她開口了。",
         "tags": [
@@ -2553,6 +3123,12 @@
           "turned blue",
           "moved away",
           "grew big"
+        ],
+        "optionsZh": [
+          "出去",
+          "變藍",
+          "搬走",
+          "長大"
         ],
         "correctIndex": 0,
         "explanationZh": "go out = 熄滅。她一說話,火堆好像也鬆口了。",
@@ -2586,6 +3162,12 @@
           "a short tale",
           "a loud joke"
         ],
+        "optionsZh": [
+          "一首長歌",
+          "一頓快餐",
+          "一個短故事",
+          "一個大聲的笑話"
+        ],
         "correctIndex": 2,
         "explanationZh": "short tale = 短篇故事。奶奶換口氣,要說一個小故事。",
         "tags": [
@@ -2607,6 +3189,12 @@
           "two",
           "ten",
           "three"
+        ],
+        "optionsZh": [
+          "五",
+          "二",
+          "十",
+          "三"
         ],
         "correctIndex": 3,
         "explanationZh": "three wishes = 三個願望。一個窮人撿到精靈送的三個機會。",
@@ -2630,6 +3218,12 @@
           "his dog",
           "his neighbor"
         ],
+        "optionsZh": [
+          "他的妻子",
+          "他的兒子",
+          "他的狗",
+          "他的鄰居"
+        ],
         "correctIndex": 0,
         "explanationZh": "wanted to choose = 想決定。妻子湊過來,兩個人就吵起來。",
         "tags": [
@@ -2652,6 +3246,12 @@
           "added",
           "asked"
         ],
+        "optionsZh": [
+          "爭吵過",
+          "同意過",
+          "加了",
+          "問過"
+        ],
         "correctIndex": 0,
         "explanationZh": "argued = 爭吵。一個想要金子,一個想要房子,誰也不讓。",
         "tags": [
@@ -2673,6 +3273,12 @@
           "soft and kind",
           "loud and hot",
           "tired and slow"
+        ],
+        "optionsZh": [
+          "又低又害羞",
+          "輕又善良",
+          "大聲又熱",
+          "又累又慢"
         ],
         "correctIndex": 2,
         "explanationZh": "loud = 大聲的。願望還沒許,先把感情用光。",
@@ -2706,6 +3312,12 @@
           "a house",
           "a hat"
         ],
+        "optionsZh": [
+          "一根香腸",
+          "一個馬",
+          "一個房子",
+          "一個帽子"
+        ],
         "correctIndex": 0,
         "explanationZh": "sausage = 香腸。肚子餓,願望就小,他先要一根香腸。",
         "tags": [
@@ -2728,6 +3340,12 @@
           "in the pot",
           "in his hand"
         ],
+        "optionsZh": [
+          "在地板",
+          "在他鼻子上",
+          "在鍋裡",
+          "在他手裡"
+        ],
         "correctIndex": 1,
         "explanationZh": "onto his nose = 黏到鼻子上。妻子一氣之下,把香腸黏在丈夫鼻頭。",
         "tags": [
@@ -2749,6 +3367,12 @@
           "removed the sausage",
           "built a house",
           "called a friend"
+        ],
+        "optionsZh": [
+          "造出金子",
+          "拿掉香腸",
+          "蓋了房子",
+          "叫了一個朋友"
         ],
         "correctIndex": 1,
         "explanationZh": "remove = 移除。第三個願望只能拿來把香腸從鼻子上拔下來。",
@@ -2801,6 +3425,12 @@
           "eat more sausage",
           "wish more loudly"
         ],
+        "optionsZh": [
+          "許願前先想",
+          "每天爭吵",
+          "吃更多香腸",
+          "更大聲許願"
+        ],
         "correctIndex": 0,
         "explanationZh": "think first = 先想。許願不難,難的是先把脾氣放下。",
         "tags": [
@@ -2833,6 +3463,12 @@
           "a cat uncle",
           "a fox father"
         ],
+        "optionsZh": [
+          "一個鳥阿姨",
+          "一隻老鼠媽媽",
+          "一隻貓叔叔",
+          "一隻狐狸爸爸"
+        ],
         "correctIndex": 1,
         "explanationZh": "mouse mother = 鼠媽媽。她想替女兒找最強的丈夫。",
         "tags": [
@@ -2854,6 +3490,12 @@
           "the oldest book",
           "the tallest tree",
           "the kindest cook"
+        ],
+        "optionsZh": [
+          "最強的新郎",
+          "最老的書",
+          "最高的樹",
+          "最善良的廚師"
         ],
         "correctIndex": 0,
         "explanationZh": "strongest = 最強的。她以為強就是好。",
@@ -2877,6 +3519,12 @@
           "the moon",
           "the king"
         ],
+        "optionsZh": [
+          "一個樹",
+          "那個太陽",
+          "那個月亮",
+          "那個國王"
+        ],
         "correctIndex": 1,
         "explanationZh": "the sun = 太陽。她抬頭問太陽:你是最強嗎?",
         "tags": [
@@ -2899,6 +3547,12 @@
           "cold",
           "could"
         ],
+        "optionsZh": [
+          "雲",
+          "人群",
+          "冷",
+          "能夠 (could 表禮貌)"
+        ],
         "correctIndex": 0,
         "explanationZh": "cloud = 雲。太陽說:雲一遮我就沒了,雲比我強。",
         "tags": [
@@ -2920,6 +3574,12 @@
           "angry",
           "sleepy",
           "determined"
+        ],
+        "optionsZh": [
+          "累",
+          "生氣",
+          "想睡",
+          "堅定"
         ],
         "correctIndex": 3,
         "explanationZh": "determined = 很堅持的。她不死心,繼續找。",
@@ -2953,6 +3613,12 @@
           "the rock",
           "the tree"
         ],
+        "optionsZh": [
+          "那個雨",
+          "那個風",
+          "那個石頭",
+          "那個樹"
+        ],
         "correctIndex": 1,
         "explanationZh": "wind = 風。雲一被風吹就散,風比雲強。",
         "tags": [
@@ -2975,6 +3641,12 @@
           "the wall",
           "the moon"
         ],
+        "optionsZh": [
+          "那個海",
+          "那個國王",
+          "那個牆",
+          "那個月亮"
+        ],
         "correctIndex": 2,
         "explanationZh": "wall = 牆。風吹不倒牆,牆比風強。",
         "tags": [
@@ -2996,6 +3668,12 @@
           "a mouse",
           "a star",
           "a man"
+        ],
+        "optionsZh": [
+          "一個馬",
+          "一個老鼠",
+          "一個星星",
+          "一個男人"
         ],
         "correctIndex": 1,
         "explanationZh": "mouse = 老鼠。牆說:小老鼠每天在我身上挖洞,我也擋不住。",
@@ -3052,6 +3730,12 @@
           "she lost the wedding",
           "she stayed alone"
         ],
+        "optionsZh": [
+          "最好的配對就在附近",
+          "最好的配對是太陽",
+          "她錯過婚禮",
+          "她獨自留下"
+        ],
         "correctIndex": 0,
         "explanationZh": "right match = 對的對象。她繞了一圈,才看見家門口的小老鼠。",
         "tags": [
@@ -3084,6 +3768,12 @@
           "opens the door",
           "feeds the cat"
         ],
+        "optionsZh": [
+          "點蠟燭",
+          "合上書",
+          "打開門",
+          "餵貓"
+        ],
         "correctIndex": 1,
         "explanationZh": "close = 合上。她合上書,動作和翻開時一樣慢。",
         "tags": [
@@ -3105,6 +3795,12 @@
           "never she smiled",
           "at last she spoke",
           "soon she slept"
+        ],
+        "optionsZh": [
+          "她很久以前就逃了",
+          "她從不笑",
+          "她終於說話",
+          "她很快就睡著"
         ],
         "correctIndex": 2,
         "explanationZh": "at last = 終於。奶奶輕輕點頭,像是替妹妹鬆口氣。",
@@ -3128,6 +3824,12 @@
           "loud and busy",
           "wild and angry"
         ],
+        "optionsZh": [
+          "假又快",
+          "真誠又安靜",
+          "吵又忙",
+          "野又生氣"
+        ],
         "correctIndex": 1,
         "explanationZh": "true = 真實的;quiet = 安靜的。今晚的故事一直很輕,但每一個字都有重量。",
         "tags": [
@@ -3150,6 +3852,12 @@
           "fast and dry",
           "cold and shaky"
         ],
+        "optionsZh": [
+          "又軟又暖",
+          "大聲又尖",
+          "又快又乾",
+          "又冷又抖"
+        ],
         "correctIndex": 0,
         "explanationZh": "soft = 輕的;warm = 暖的。她說最後一句的時候,像在哄睡。",
         "tags": [
@@ -3171,6 +3879,12 @@
           "steal",
           "stir",
           "stiff"
+        ],
+        "optionsZh": [
+          "仍然",
+          "偷",
+          "攪",
+          "僵硬"
         ],
         "correctIndex": 0,
         "explanationZh": "still = 靜止的、安靜的。院子外的世界也跟著安靜下來。",
@@ -3204,6 +3918,12 @@
           "look up",
           "run back"
         ],
+        "optionsZh": [
+          "跳下來",
+          "躺下",
+          "向上看",
+          "跑回去"
+        ],
         "correctIndex": 0,
         "explanationZh": "jump down = 跳下來。我從矮牆跳下,腳掌不出聲。",
         "tags": [
@@ -3225,6 +3945,12 @@
           "very quiet",
           "very loud",
           "very wet"
+        ],
+        "optionsZh": [
+          "很亮",
+          "很安靜",
+          "很大聲",
+          "很濕"
         ],
         "correctIndex": 1,
         "explanationZh": "quiet = 安靜的。今晚比平常更靜,連風都收起來。",
@@ -3248,6 +3974,12 @@
           "angry",
           "scared"
         ],
+        "optionsZh": [
+          "大聲",
+          "冷靜",
+          "生氣",
+          "嚇過"
+        ],
         "correctIndex": 1,
         "explanationZh": "calm = 平靜的。聽完六年沉默的故事,我也安靜了。",
         "tags": [
@@ -3269,6 +4001,12 @@
           "the light goes out",
           "the cat sings",
           "the door opens"
+        ],
+        "optionsZh": [
+          "風在吼",
+          "燈熄了",
+          "貓唱歌",
+          "門打開"
         ],
         "correctIndex": 1,
         "explanationZh": "go out = 熄滅。奶奶關了院子的燈,我也朝街角走。",
@@ -3501,6 +4239,12 @@
           "to sleep more",
           "to save her brothers"
         ],
+        "optionsZh": [
+          "贏獎品",
+          "討好國王",
+          "多睡",
+          "救她的兄弟"
+        ],
         "correctIndex": 3,
         "explanationZh": "她沉默不是因為害怕,是為了救六個哥哥。沉默是她的勇敢。",
         "tags": [
@@ -3522,6 +4266,12 @@
           "where is the moon",
           "do I want a bone",
           "should I bark louder"
+        ],
+        "optionsZh": [
+          "我能沉默這麼久嗎",
+          "月亮在哪",
+          "我想要骨頭嗎",
+          "應該我叫更大聲"
         ],
         "correctIndex": 0,
         "explanationZh": "{dogName} 想:六年不出聲,我做得到嗎?連看到松鼠都要忍住。",
@@ -3545,6 +4295,12 @@
           "a song",
           "a swan wing"
         ],
+        "optionsZh": [
+          "一隻有力的手臂",
+          "一個劍",
+          "一個歌",
+          "一隻天鵝翅膀"
+        ],
         "correctIndex": 3,
         "explanationZh": "最小的哥哥手臂沒變回來,留下一片白羽。是這個故事最溫柔的傷口。",
         "tags": [
@@ -3565,6 +4321,12 @@
           "she was lazy",
           "the cat took it",
           "she lost the cloth"
+        ],
+        "optionsZh": [
+          "她沒時間了",
+          "她懶",
+          "貓拿走了",
+          "她丟了布"
         ],
         "correctIndex": 0,
         "explanationZh": "火快點起來,她還沒織完最後一隻袖子。差一點就完美,但時間到了。",
@@ -3588,6 +4350,12 @@
           "softly",
           "loudly"
         ],
+        "optionsZh": [
+          "最後",
+          "再次",
+          "輕輕地",
+          "大聲地"
+        ],
         "correctIndex": 0,
         "explanationZh": "at last = 終於。六年的安靜,在火堆邊化成第一句話。",
         "tags": [
@@ -3609,6 +4377,12 @@
           "bright",
           "brown"
         ],
+        "optionsZh": [
+          "勇敢",
+          "寬",
+          "明亮",
+          "棕色"
+        ],
         "correctIndex": 0,
         "explanationZh": "brave = 勇敢。不出聲也可以是一種勇敢。",
         "tags": [
@@ -3629,6 +4403,12 @@
           "hungry",
           "angry",
           "thoughtful"
+        ],
+        "optionsZh": [
+          "想睡",
+          "餓",
+          "生氣",
+          "深思"
         ],
         "correctIndex": 3,
         "explanationZh": "我盯著矮牆外的月亮想了很久。六年。我的一生才幾個六年?",
@@ -3683,6 +4463,12 @@
           "love is always loud",
           "love does not need words"
         ],
+        "optionsZh": [
+          "愛只屬於國王",
+          "愛總是悲傷",
+          "愛總是大聲",
+          "愛不需要言語"
+        ],
         "correctIndex": 3,
         "explanationZh": "她沒有說過一個字,但救了哥哥。愛不一定要說出來,也可以一針一線織進襯衫裡。",
         "tags": [
@@ -3704,6 +4490,12 @@
           "Yes",
           "Never",
           "Maybe"
+        ],
+        "optionsZh": [
+          "不",
+          "是",
+          "從不",
+          "也許"
         ],
         "correctIndex": 1,
         "explanationZh": "Yes — 我每晚都會再來。明天還有新故事。",

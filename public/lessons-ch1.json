@@ -20,6 +20,12 @@
           "stray",
           "story"
         ],
+        "optionsZh": [
+          "稻草",
+          "留",
+          "流浪的",
+          "故事"
+        ],
         "correctIndex": 2,
         "explanationZh": "stray = 流浪的(沒有固定家的)。我每晚出去找東西吃。",
         "tags": [
@@ -41,6 +47,12 @@
           "yard",
           "house",
           "park"
+        ],
+        "optionsZh": [
+          "路",
+          "院子",
+          "房子",
+          "公園"
         ],
         "correctIndex": 1,
         "explanationZh": "yard = 院子。奶奶家的小院子是我固定的落腳點。",
@@ -64,6 +76,12 @@
           "run",
           "sit"
         ],
+        "optionsZh": [
+          "跳",
+          "走",
+          "跑",
+          "坐"
+        ],
         "correctIndex": 0,
         "explanationZh": "jump = 跳。打字練聽:輕輕一躍就上了矮牆。",
         "tags": [
@@ -74,7 +92,7 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch1-l1-q4",
         "level": "A2",
         "difficulty": "easy",
@@ -82,9 +100,15 @@
         "question": "How does the wall feel?",
         "options": [
           "cold",
-          "worried",
+          "hard",
           "hot",
-          "cozy"
+          "warm"
+        ],
+        "optionsZh": [
+          "冷",
+          "硬的",
+          "燙",
+          "溫暖"
         ],
         "correctIndex": 3,
         "explanationZh": "矮牆白天曬過,黃昏還微溫,坐上去剛剛好。",
@@ -108,8 +132,210 @@
           "to a station",
           "to a park"
         ],
+        "optionsZh": [
+          "去商店",
+          "去奶奶的院子",
+          "去車站",
+          "去公園"
+        ],
         "correctIndex": 1,
         "explanationZh": "每晚我都去奶奶院子,那裡有飯有故事。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The yard belongs to Grandma.",
+        "question": "Whose yard is it?",
+        "options": [
+          "Grandma's",
+          "mine",
+          "the dog's",
+          "nobody's"
+        ],
+        "optionsZh": [
+          "奶奶的",
+          "我的",
+          "狗的",
+          "沒有人的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "belong to = 屬於。院子是奶奶的,我只是來坐坐。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l1-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I have no home of my own.",
+        "question": "Why is {catName} a stray?",
+        "options": [
+          "she lost her family",
+          "she has no home",
+          "she ran away today",
+          "she does not like home"
+        ],
+        "optionsZh": [
+          "她失去了家人",
+          "她沒有家",
+          "她今天逃走",
+          "她不喜歡家"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "stray cat 沒有固定的家。每晚我自己找地方睡。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l1-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I feel curious tonight.",
+        "question": "How does {catName} feel?",
+        "options": [
+          "curious",
+          "bored",
+          "angry",
+          "sleepy"
+        ],
+        "optionsZh": [
+          "好奇",
+          "無聊",
+          "生氣",
+          "想睡"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "curious = 好奇。今晚奶奶要說新故事,我特別期待。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The moon is bright tonight.",
+        "question": "How is the moon?",
+        "options": [
+          "bright",
+          "broken",
+          "brown",
+          "brave"
+        ],
+        "optionsZh": [
+          "明亮",
+          "破",
+          "棕色",
+          "勇敢"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "bright = 明亮的。月光照在矮牆上,看得很清楚。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l1-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I walk down the quiet street.",
+        "question": "How is the street tonight?",
+        "options": [
+          "quiet",
+          "crowded",
+          "muddy",
+          "shut"
+        ],
+        "optionsZh": [
+          "安靜",
+          "擁擠",
+          "泥濘",
+          "關上"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "quiet = 安靜的。沒人沒車,只有我的腳步。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l1-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "My paws are quick and quiet.",
+        "question": "How are {catName}'s paws?",
+        "options": [
+          "loud and slow",
+          "quick and quiet",
+          "wet and cold",
+          "stuck and sore"
+        ],
+        "optionsZh": [
+          "大聲又慢",
+          "快又安靜",
+          "濕又冷",
+          "卡又痠"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "quick = 快、quiet = 安靜。我走路不發出聲音。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I sit on the warm wall.",
+        "question": "What does {catName} do on the wall?",
+        "options": [
+          "sit",
+          "set",
+          "sat",
+          "send"
+        ],
+        "optionsZh": [
+          "坐",
+          "放",
+          "坐過",
+          "送"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "sit = 坐。我跳上去後就坐著等故事開始。",
         "tags": [
           "story",
           "ch1",
@@ -140,6 +366,12 @@
           "bark",
           "jump"
         ],
+        "optionsZh": [
+          "搖",
+          "跑",
+          "叫",
+          "跳"
+        ],
         "correctIndex": 0,
         "explanationZh": "wag = 搖(尾巴)。柴犬看到我來都會搖尾巴。",
         "tags": [
@@ -161,6 +393,12 @@
           "red",
           "white",
           "brown"
+        ],
+        "optionsZh": [
+          "黑色",
+          "紅色",
+          "白色",
+          "棕色"
         ],
         "correctIndex": 3,
         "explanationZh": "brown = 棕色。柴犬就是這個顏色。",
@@ -184,6 +422,12 @@
           "farmers",
           "foreign"
         ],
+        "optionsZh": [
+          "朋友",
+          "家人",
+          "農夫們",
+          "外國的"
+        ],
         "correctIndex": 0,
         "explanationZh": "friends = 朋友。我跟 {dogName} 是好朋友。",
         "tags": [
@@ -205,6 +449,12 @@
           "safe",
           "angry",
           "sad"
+        ],
+        "optionsZh": [
+          "嚇過",
+          "安全",
+          "生氣",
+          "難過"
         ],
         "correctIndex": 1,
         "explanationZh": "跟 {dogName} 一起時感覺安全,不用怕別的動物。",
@@ -228,8 +478,210 @@
           "a stranger's",
           "Grandma's"
         ],
+        "optionsZh": [
+          "我的",
+          "沒有人的",
+          "陌生人的",
+          "奶奶的"
+        ],
         "correctIndex": 3,
         "explanationZh": "{dogName} 是奶奶養的,我只是來作客的流浪貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} runs to the wall.",
+        "question": "Where does {dogName} run?",
+        "options": [
+          "to the wall",
+          "to the gate",
+          "to the door",
+          "to the road"
+        ],
+        "optionsZh": [
+          "到牆邊",
+          "到大門",
+          "到門口",
+          "到馬路"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "to the wall = 到牆邊。{dogName} 一聽到我就衝過來。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l2-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} is happy to see me.",
+        "question": "How does {dogName} feel?",
+        "options": [
+          "happy",
+          "hungry",
+          "tired",
+          "shy"
+        ],
+        "optionsZh": [
+          "開心",
+          "餓",
+          "累",
+          "害羞"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "happy = 開心。柴犬每晚等我來,看到我就笑。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} licks my paw softly.",
+        "question": "What does {dogName} do?",
+        "options": [
+          "lick",
+          "lock",
+          "look",
+          "leak"
+        ],
+        "optionsZh": [
+          "舔",
+          "鎖",
+          "看",
+          "漏"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "lick = 舔。狗狗打招呼的方式就是舔一下。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l2-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He waits for me every night.",
+        "question": "When does {dogName} wait for {catName}?",
+        "options": [
+          "only on Sundays",
+          "every night",
+          "in the morning",
+          "after lunch"
+        ],
+        "optionsZh": [
+          "只有星期天",
+          "每晚",
+          "早上",
+          "午餐後"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "every night = 每晚。柴犬天天在院子等我來。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l2-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "His ears go up when he hears me.",
+        "question": "What do {dogName}'s ears do?",
+        "options": [
+          "go up",
+          "fall flat",
+          "shake fast",
+          "turn red"
+        ],
+        "optionsZh": [
+          "豎起來",
+          "貼平",
+          "快速搖",
+          "變紅"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "ears go up = 耳朵豎起來。他一聽到我就警覺又開心。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "We sit side by side.",
+        "question": "How do we sit?",
+        "options": [
+          "side by side",
+          "back to back",
+          "face to face",
+          "far apart"
+        ],
+        "optionsZh": [
+          "並排坐",
+          "背對背",
+          "面對面",
+          "遠遠分開"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "side by side = 並排。我跟 {dogName} 並肩坐著聽故事。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l2-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He never barks at me.",
+        "question": "Why does {dogName} not bark?",
+        "options": [
+          "he is mute",
+          "he is asleep",
+          "he likes me",
+          "he is angry"
+        ],
+        "optionsZh": [
+          "他是啞的",
+          "他睡著了",
+          "他喜歡我",
+          "他生氣"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他把我當朋友,所以從不對我叫。",
         "tags": [
           "story",
           "ch1",
@@ -260,6 +712,12 @@
           "holds",
           "drops"
         ],
+        "optionsZh": [
+          "關上",
+          "打開",
+          "拿著",
+          "掉"
+        ],
         "correctIndex": 1,
         "explanationZh": "opens = 打開。奶奶把故事書翻開,今晚要說新的故事。",
         "tags": [
@@ -281,6 +739,12 @@
           "tale",
           "song",
           "name"
+        ],
+        "optionsZh": [
+          "笑話",
+          "故事",
+          "歌",
+          "名字"
         ],
         "correctIndex": 1,
         "explanationZh": "tale = 故事(古字,跟 story 同義,書本裡常見)。",
@@ -335,6 +799,12 @@
           "worried",
           "ready"
         ],
+        "optionsZh": [
+          "想睡",
+          "在想",
+          "擔心",
+          "準備好"
+        ],
         "correctIndex": 3,
         "explanationZh": "ready = 準備好了。耳朵豎起來等著聽。",
         "tags": [
@@ -357,8 +827,210 @@
           "an old book",
           "a candle"
         ],
+        "optionsZh": [
+          "一個鑰匙",
+          "一個碗",
+          "一本舊書",
+          "一個蠟燭"
+        ],
         "correctIndex": 2,
         "explanationZh": "奶奶手上拿著她那本舊故事書。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The book has many pages.",
+        "question": "What does the book have?",
+        "options": [
+          "pages",
+          "pegs",
+          "pads",
+          "pies"
+        ],
+        "optionsZh": [
+          "頁面",
+          "釘子",
+          "墊",
+          "派"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "pages = 頁面。奶奶的書翻得很舊,頁角都捲了。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma sits in her chair.",
+        "question": "Where does Grandma sit?",
+        "options": [
+          "in her chair",
+          "on the floor",
+          "by the gate",
+          "at the table"
+        ],
+        "optionsZh": [
+          "在椅子上",
+          "在地板上",
+          "在大門邊",
+          "在桌邊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "in her chair = 在她的椅子上。每晚都是同一張木椅。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l3-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her face looks calm.",
+        "question": "How does Grandma's face look?",
+        "options": [
+          "calm",
+          "shocked",
+          "tense",
+          "rushed"
+        ],
+        "optionsZh": [
+          "平靜",
+          "震驚",
+          "緊繃",
+          "匆忙"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "calm = 平靜的。她準備好開始說故事。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She clears her throat.",
+        "question": "What does she clear?",
+        "options": [
+          "her throat",
+          "her hair",
+          "her cup",
+          "her hand"
+        ],
+        "optionsZh": [
+          "她的喉嚨",
+          "她的頭髮",
+          "她的杯子",
+          "她的手"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "clear one's throat = 清喉嚨。說故事前的小動作。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l3-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The book is old and brown.",
+        "question": "How does the book look?",
+        "options": [
+          "new and shiny",
+          "old and brown",
+          "small and red",
+          "thin and blue"
+        ],
+        "optionsZh": [
+          "新又亮",
+          "舊又棕",
+          "小又紅",
+          "薄又藍"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "old and brown = 又舊又棕。書皮的顏色磨成了深棕色。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She turns the first page.",
+        "question": "Which page does she turn?",
+        "options": [
+          "the first",
+          "the last",
+          "the lost",
+          "the worst"
+        ],
+        "optionsZh": [
+          "第一",
+          "最後",
+          "遺失的",
+          "最糟"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "first page = 第一頁。新故事從第一頁開始。",
+        "tags": [
+          "story",
+          "ch1",
+          "prologue",
+          "smoke"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l3-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I feel excited for the story.",
+        "question": "How does {catName} feel?",
+        "options": [
+          "excited",
+          "annoyed",
+          "lonely",
+          "hungry"
+        ],
+        "optionsZh": [
+          "興奮",
+          "煩",
+          "孤單",
+          "餓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "excited = 興奮的。我尾巴尖在微微抖,等不及聽。",
         "tags": [
           "story",
           "ch1",
@@ -389,6 +1061,12 @@
           "next year",
           "today"
         ],
+        "optionsZh": [
+          "很久以前",
+          "明天",
+          "明年",
+          "今天"
+        ],
         "correctIndex": 0,
         "explanationZh": "long ago = 很久以前。奶奶的故事都從這開始。",
         "tags": [
@@ -410,6 +1088,12 @@
           "soft",
           "hard",
           "warm"
+        ],
+        "optionsZh": [
+          "光",
+          "柔軟的",
+          "用力地",
+          "溫暖"
         ],
         "correctIndex": 2,
         "explanationZh": "hard 在這裡是「大力地」。雨下得很大。",
@@ -433,6 +1117,12 @@
           "deer",
           "done"
         ],
+        "optionsZh": [
+          "黑暗",
+          "深",
+          "鹿",
+          "做完"
+        ],
         "correctIndex": 0,
         "explanationZh": "dark = 黑暗的。沒月亮的夜。",
         "tags": [
@@ -454,6 +1144,12 @@
           "cool",
           "hot",
           "fun"
+        ],
+        "optionsZh": [
+          "冰凍",
+          "涼",
+          "熱",
+          "好玩"
         ],
         "correctIndex": 0,
         "explanationZh": "cold wind = 冷風,讓人 freezing(冷到發抖)。",
@@ -496,6 +1192,202 @@
           "main",
           "rainy-night-cat"
         ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sky is full of clouds.",
+        "question": "What fills the sky?",
+        "options": [
+          "clouds",
+          "clowns",
+          "claws",
+          "clocks"
+        ],
+        "optionsZh": [
+          "雲",
+          "小丑",
+          "爪子",
+          "時鐘"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "clouds = 雲。整片天都是厚雲,看不見星星。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Rain drops hit the road.",
+        "question": "What hits the road?",
+        "options": [
+          "rain drops",
+          "leaves",
+          "snow flakes",
+          "small stones"
+        ],
+        "optionsZh": [
+          "雨滴",
+          "葉子",
+          "雪花",
+          "小石頭"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "rain drops = 雨滴。一顆顆雨打在柏油路上。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l4-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The night feels lonely.",
+        "question": "How does the night feel?",
+        "options": [
+          "lonely",
+          "lively",
+          "lucky",
+          "loud"
+        ],
+        "optionsZh": [
+          "孤單",
+          "熱鬧",
+          "幸運",
+          "大聲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "lonely = 孤單的。雨夜的街道一個人都沒有。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l4-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The street lights look sad.",
+        "question": "How do the lights look?",
+        "options": [
+          "sad",
+          "bright",
+          "warm",
+          "wild"
+        ],
+        "optionsZh": [
+          "悲傷",
+          "明亮",
+          "溫暖",
+          "狂野"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "sad = 悲傷的。雨裡的路燈光暈暗暗的,像在哭。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l4-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It is many years ago.",
+        "question": "When does the story happen?",
+        "options": [
+          "this morning",
+          "many years ago",
+          "next week",
+          "right now"
+        ],
+        "optionsZh": [
+          "今天早上",
+          "很多年前",
+          "下週",
+          "現在"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "many years ago = 很多年前。奶奶說的是舊故事。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l4-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "No one walks on the street.",
+        "question": "Who walks on the street?",
+        "options": [
+          "no one",
+          "a postman",
+          "a child",
+          "two dogs"
+        ],
+        "optionsZh": [
+          "沒有人",
+          "一個郵差",
+          "一個小孩",
+          "兩隻狗"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "no one = 沒有人。下大雨,人都躲在家裡。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Thunder rolls in the sky.",
+        "question": "What rolls in the sky?",
+        "options": [
+          "thunder",
+          "thread",
+          "throat",
+          "thumb"
+        ],
+        "optionsZh": [
+          "雷",
+          "線",
+          "喉嚨",
+          "拇指"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "thunder = 雷。雷聲滾過天空,讓夜更可怕。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
       }
     ]
   },
@@ -520,6 +1412,12 @@
           "smart",
           "small"
         ],
+        "optionsZh": [
+          "聞",
+          "高",
+          "聰明",
+          "小"
+        ],
         "correctIndex": 3,
         "explanationZh": "small = 小的。一隻小貓,沒有人陪。",
         "tags": [
@@ -541,6 +1439,12 @@
           "fire",
           "far",
           "for"
+        ],
+        "optionsZh": [
+          "毛",
+          "火",
+          "遠",
+          "為了"
         ],
         "correctIndex": 0,
         "explanationZh": "fur = 毛(動物身上的)。雨把她的毛打濕了。",
@@ -564,6 +1468,12 @@
           "to",
           "tour"
         ],
+        "optionsZh": [
+          "二",
+          "太",
+          "到",
+          "旅行"
+        ],
         "correctIndex": 0,
         "explanationZh": "兩天沒吃了。小貓肚子好餓。",
         "tags": [
@@ -585,6 +1495,12 @@
           "happy",
           "scared",
           "sleepy"
+        ],
+        "optionsZh": [
+          "在想",
+          "開心",
+          "嚇過",
+          "想睡"
         ],
         "correctIndex": 2,
         "explanationZh": "scared = 害怕的。大影子讓她發抖。",
@@ -608,8 +1524,210 @@
           "shakes",
           "wakes"
         ],
+        "optionsZh": [
+          "烤",
+          "拿",
+          "搖",
+          "醒"
+        ],
         "correctIndex": 2,
         "explanationZh": "shake = 發抖。太冷了,身體一直抖。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her ears are flat with fear.",
+        "question": "How are her ears?",
+        "options": [
+          "flat",
+          "flip",
+          "flag",
+          "fluff"
+        ],
+        "optionsZh": [
+          "貼平",
+          "翻",
+          "旗",
+          "蓬鬆"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "ears flat = 耳朵貼平。貓害怕時耳朵會貼到頭上。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l5-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She feels hungry and cold.",
+        "question": "How does she feel?",
+        "options": [
+          "hungry and cold",
+          "warm and full",
+          "calm and proud",
+          "sleepy and safe"
+        ],
+        "optionsZh": [
+          "餓又冷",
+          "暖又飽",
+          "冷靜又驕傲",
+          "想睡又安全"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "兩天沒吃飯,雨又把她淋濕,身體又餓又冷。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l5-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her eyes are wide and worried.",
+        "question": "How do her eyes look?",
+        "options": [
+          "wide and worried",
+          "closed and calm",
+          "small and proud",
+          "happy and bright"
+        ],
+        "optionsZh": [
+          "睜大又擔心",
+          "閉上又平靜",
+          "小又驕傲",
+          "開心又明亮"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wide = 睜大、worried = 擔心。她警覺地看著四周。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l5-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She lost her mother last week.",
+        "question": "Why is she alone?",
+        "options": [
+          "she ran away today",
+          "she lost her mother",
+          "she dislikes cats",
+          "she is on a trip"
+        ],
+        "optionsZh": [
+          "她今天逃跑",
+          "她失去了媽媽",
+          "她不喜歡貓",
+          "她在旅行"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "lost her mother = 失去媽媽。上週開始她就一個人了。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l5-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her belly is empty.",
+        "question": "Why does her belly hurt?",
+        "options": [
+          "she ate too much",
+          "she has no food",
+          "she ran too fast",
+          "she drank ice"
+        ],
+        "optionsZh": [
+          "她吃太多",
+          "她沒有食物",
+          "她跑太快",
+          "她喝冰"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "belly empty = 肚子空。兩天沒進食,肚子在叫。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l5-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She wants a warm dry place.",
+        "question": "What does she want most?",
+        "options": [
+          "a warm dry place",
+          "more cold rain",
+          "a loud song",
+          "a fast car"
+        ],
+        "optionsZh": [
+          "溫暖乾燥的地方",
+          "更多冷雨",
+          "大聲的歌",
+          "快車"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "warm dry place = 溫暖乾燥的地方。雨夜裡最簡單的願望。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l5-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She cries a tiny meow.",
+        "question": "What kind of meow?",
+        "options": [
+          "tiny",
+          "tinny",
+          "tidy",
+          "tipsy"
+        ],
+        "optionsZh": [
+          "微小",
+          "尖細",
+          "整齊",
+          "微醺"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "tiny = 很小的。她只能發出細細一聲。",
         "tags": [
           "story",
           "ch1",
@@ -640,6 +1758,12 @@
           "kills",
           "calls"
         ],
+        "optionsZh": [
+          "涼",
+          "捲曲",
+          "殺",
+          "叫"
+        ],
         "correctIndex": 1,
         "explanationZh": "curl = 蜷縮成一團。小貓把自己縮起來取暖。",
         "tags": [
@@ -661,6 +1785,12 @@
           "corner",
           "kitchen",
           "garden"
+        ],
+        "optionsZh": [
+          "窗",
+          "角落",
+          "廚房",
+          "花園"
         ],
         "correctIndex": 1,
         "explanationZh": "corner = 角落。最黑的牆角是最安全的地方。",
@@ -684,6 +1814,12 @@
           "aloud",
           "around"
         ],
+        "optionsZh": [
+          "獨自",
+          "沿著",
+          "大聲",
+          "周圍"
+        ],
         "correctIndex": 0,
         "explanationZh": "alone = 獨自一個。沒有媽媽,沒有同伴。",
         "tags": [
@@ -705,6 +1841,12 @@
           "anger",
           "a smile",
           "silence"
+        ],
+        "optionsZh": [
+          "一個眼淚",
+          "憤怒",
+          "一個笑容",
+          "寂靜"
         ],
         "correctIndex": 0,
         "explanationZh": "tear = 眼淚。一滴淚從臉頰滑下來。",
@@ -728,8 +1870,210 @@
           "valley",
           "alley"
         ],
+        "optionsZh": [
+          "河",
+          "城市",
+          "山谷",
+          "巷子"
+        ],
         "correctIndex": 3,
         "explanationZh": "alley = 巷子。窄窄的小巷,只有雨聲。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She tucks her paws under her body.",
+        "question": "What does she tuck under?",
+        "options": [
+          "her paws",
+          "her toys",
+          "her food",
+          "her bed"
+        ],
+        "optionsZh": [
+          "她的腳掌",
+          "她的玩具",
+          "她的食物",
+          "她的床"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "tuck paws under = 把腳掌收進身體下。貓蜷縮時的招牌動作。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her body is a tiny ball.",
+        "question": "What shape is her body?",
+        "options": [
+          "a ball",
+          "a box",
+          "a bowl",
+          "a bear"
+        ],
+        "optionsZh": [
+          "一個球",
+          "一個盒子",
+          "一個碗",
+          "一隻熊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "ball = 球。把自己捲成一個小球可以保暖。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l6-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She feels very sad inside.",
+        "question": "How does she feel inside?",
+        "options": [
+          "very sad",
+          "very glad",
+          "very brave",
+          "very silly"
+        ],
+        "optionsZh": [
+          "非常悲傷",
+          "非常開心",
+          "非常勇敢",
+          "非常傻"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "very sad = 非常悲傷。一個人縮在牆角的心情。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l6-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She wishes for a kind hand.",
+        "question": "What does she wish for?",
+        "options": [
+          "a kind hand",
+          "a loud noise",
+          "a sharp claw",
+          "a big rock"
+        ],
+        "optionsZh": [
+          "溫暖的手",
+          "大聲音",
+          "尖爪子",
+          "大石頭"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "kind hand = 溫暖的手。她希望有人來摸摸她。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l6-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The corner smells like wet stone.",
+        "question": "What does the corner smell like?",
+        "options": [
+          "wet stone",
+          "fresh bread",
+          "warm milk",
+          "sweet fruit"
+        ],
+        "optionsZh": [
+          "濕石頭",
+          "新鮮麵包",
+          "溫牛奶",
+          "甜水果"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wet stone = 濕石頭。雨打在牆上的味道,很冷又苦。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l6-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She closes her eyes and waits.",
+        "question": "What does she do in the corner?",
+        "options": [
+          "runs out fast",
+          "calls for her mother",
+          "closes eyes and waits",
+          "climbs up the wall"
+        ],
+        "optionsZh": [
+          "快速跑出去",
+          "叫她媽媽",
+          "閉上眼等",
+          "爬上牆"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "closes eyes and waits = 閉上眼等。她沒力氣再做什麼了。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l6-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "No one passes the alley.",
+        "question": "Who passes the alley?",
+        "options": [
+          "no one",
+          "a baker",
+          "a child",
+          "two friends"
+        ],
+        "optionsZh": [
+          "沒有人",
+          "麵包師",
+          "一個小孩",
+          "兩個朋友"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "no one = 沒有人。深夜的巷子空蕩蕩。",
         "tags": [
           "story",
           "ch1",
@@ -760,6 +2104,12 @@
           "shower",
           "shadow"
         ],
+        "optionsZh": [
+          "羊",
+          "展示",
+          "淋浴",
+          "影子"
+        ],
         "correctIndex": 3,
         "explanationZh": "shadow = 影子。一個大影子慢慢靠近。",
         "tags": [
@@ -781,6 +2131,12 @@
           "afraid",
           "angry",
           "amazed"
+        ],
+        "optionsZh": [
+          "醒著",
+          "害怕",
+          "生氣",
+          "驚訝"
         ],
         "correctIndex": 1,
         "explanationZh": "afraid = 害怕的。她不知道影子是好人還是壞人。",
@@ -804,6 +2160,12 @@
           "warm",
           "wonder"
         ],
+        "optionsZh": [
+          "女人",
+          "女人們",
+          "溫暖",
+          "驚奇"
+        ],
         "correctIndex": 0,
         "explanationZh": "woman = 女人。原來是一位阿姨,不是壞東西。",
         "tags": [
@@ -825,6 +2187,12 @@
           "scared",
           "angry",
           "cold"
+        ],
+        "optionsZh": [
+          "善良",
+          "嚇過",
+          "生氣",
+          "冷"
         ],
         "correctIndex": 0,
         "explanationZh": "kind = 親切的。她的眼神很溫柔。",
@@ -848,8 +2216,210 @@
           "apple",
           "envelope"
         ],
+        "optionsZh": [
+          "制服",
+          "雨傘",
+          "蘋果",
+          "信封"
+        ],
         "correctIndex": 1,
         "explanationZh": "umbrella = 雨傘。她手上撐著一把傘。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Footsteps come slowly.",
+        "question": "How do the footsteps come?",
+        "options": [
+          "slowly",
+          "loudly",
+          "wildly",
+          "lazily"
+        ],
+        "optionsZh": [
+          "慢慢地",
+          "大聲地",
+          "狂野地",
+          "懶懶地"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "slowly = 慢慢地。腳步聲輕,聽得出對方不急。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her hair is grey and short.",
+        "question": "How is her hair?",
+        "options": [
+          "grey",
+          "great",
+          "grim",
+          "grain"
+        ],
+        "optionsZh": [
+          "灰色",
+          "很棒",
+          "嚴峻",
+          "穀物"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "grey = 灰色的。奶奶的頭髮已經白了大半。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l7-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She moves carefully toward the cat.",
+        "question": "How does she move?",
+        "options": [
+          "carefully",
+          "careless",
+          "carrots",
+          "carry on"
+        ],
+        "optionsZh": [
+          "小心地",
+          "粗心",
+          "胡蘿蔔",
+          "繼續"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "carefully = 小心地。她不想嚇到躲在牆角的小貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l7-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her eyes look soft.",
+        "question": "How do her eyes look?",
+        "options": [
+          "soft",
+          "sore",
+          "sour",
+          "sharp"
+        ],
+        "optionsZh": [
+          "溫和",
+          "痠痛",
+          "酸",
+          "尖銳"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "soft eyes = 溫和的眼神。她看小貓的眼神像看孫子。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l7-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The shadow is not a monster.",
+        "question": "What is the shadow?",
+        "options": [
+          "a kind woman",
+          "a hungry dog",
+          "a scary monster",
+          "a noisy car"
+        ],
+        "optionsZh": [
+          "善良的女人",
+          "餓狗",
+          "可怕怪物",
+          "吵車"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "影子原來是一位好心的阿姨,不是壞東西。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l7-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She walks under the rain to find me.",
+        "question": "Why did she come here?",
+        "options": [
+          "to find shelter",
+          "to find the cat",
+          "to find her keys",
+          "to find a phone"
+        ],
+        "optionsZh": [
+          "找避雨處",
+          "找這隻貓",
+          "找她的鑰匙",
+          "找電話"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "to find the cat = 來找這隻貓。她聽到了小貓的細聲叫。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l7-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She wears a long coat.",
+        "question": "What does she wear?",
+        "options": [
+          "a long coat",
+          "a short shirt",
+          "a thin scarf",
+          "a wide hat"
+        ],
+        "optionsZh": [
+          "長外套",
+          "短襯衫",
+          "薄圍巾",
+          "寬帽子"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "long coat = 長外套。雨夜出門她穿得很厚。",
         "tags": [
           "story",
           "ch1",
@@ -880,6 +2450,12 @@
           "closes",
           "throws"
         ],
+        "optionsZh": [
+          "打開",
+          "掉",
+          "關上",
+          "丟"
+        ],
         "correctIndex": 0,
         "explanationZh": "open = 打開。她把傘撐開。",
         "tags": [
@@ -901,6 +2477,12 @@
           "inside",
           "over",
           "behind"
+        ],
+        "optionsZh": [
+          "下面",
+          "裡面",
+          "上面",
+          "後面"
         ],
         "correctIndex": 2,
         "explanationZh": "over = 在上方。傘擋在小貓頭頂。",
@@ -924,6 +2506,12 @@
           "starts",
           "stays"
         ],
+        "optionsZh": [
+          "停",
+          "踏",
+          "開始",
+          "留"
+        ],
         "correctIndex": 0,
         "explanationZh": "stop = 停。雨不再打到她身上。",
         "tags": [
@@ -945,6 +2533,12 @@
           "up",
           "down",
           "back"
+        ],
+        "optionsZh": [
+          "離開",
+          "向上",
+          "向下",
+          "背"
         ],
         "correctIndex": 1,
         "explanationZh": "look up = 抬頭看。小貓抬起頭看著這位阿姨。",
@@ -968,8 +2562,210 @@
           "wickedly",
           "softly"
         ],
+        "optionsZh": [
+          "緊張地",
+          "大聲地",
+          "邪惡地",
+          "輕輕地"
+        ],
         "correctIndex": 3,
         "explanationZh": "softly = 輕輕地。她對小貓溫柔地笑。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l8-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The umbrella is wide and big.",
+        "question": "How is the umbrella?",
+        "options": [
+          "wide",
+          "wild",
+          "wise",
+          "weak"
+        ],
+        "optionsZh": [
+          "寬",
+          "狂野",
+          "聰明",
+          "虛弱"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wide = 寬的。傘大得可以蓋住小貓跟自己。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l8-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Now the cat stays dry.",
+        "question": "How is the cat now?",
+        "options": [
+          "dry",
+          "drop",
+          "draw",
+          "deep"
+        ],
+        "optionsZh": [
+          "乾",
+          "掉",
+          "畫",
+          "深"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "dry = 乾的。有傘擋著,雨打不到她了。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l8-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat feels a little safer.",
+        "question": "How does the cat feel now?",
+        "options": [
+          "a little safer",
+          "much more scared",
+          "still very wet",
+          "very angry"
+        ],
+        "optionsZh": [
+          "稍安心",
+          "更害怕",
+          "還很濕",
+          "很生氣"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "safer = 比較安心。傘下不冷,影子也沒攻擊她。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l8-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her heart beats a bit slower.",
+        "question": "How does her heart beat?",
+        "options": [
+          "a bit slower",
+          "much faster",
+          "wildly loud",
+          "totally still"
+        ],
+        "optionsZh": [
+          "稍微慢",
+          "更快",
+          "狂亂大聲",
+          "完全停"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "slower = 比較慢。她不再像剛才那麼害怕。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l8-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She covers the cat from the rain.",
+        "question": "What does the umbrella do?",
+        "options": [
+          "covers the cat",
+          "warms the cat",
+          "feeds the cat",
+          "carries the cat"
+        ],
+        "optionsZh": [
+          "為貓擋雨",
+          "為貓加熱",
+          "餵貓",
+          "抱貓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "covers the cat = 為貓擋雨。傘的工作就是這個。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l8-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her own arm is in the rain.",
+        "question": "Whose arm is in the rain?",
+        "options": [
+          "the cat's tail",
+          "the woman's arm",
+          "no one's arm",
+          "the woman's foot"
+        ],
+        "optionsZh": [
+          "貓的尾巴",
+          "女人的手臂",
+          "沒有人的手臂",
+          "女人的腳"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她把傘偏向小貓,自己的手臂淋濕了也不管。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l8-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The rain still falls outside the umbrella.",
+        "question": "What is outside the umbrella?",
+        "options": [
+          "the rain",
+          "the sun",
+          "the snow",
+          "the wind only"
+        ],
+        "optionsZh": [
+          "雨",
+          "太陽",
+          "雪",
+          "只有風"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "outside the umbrella = 傘外面。雨還在下,傘下才是乾的。",
         "tags": [
           "story",
           "ch1",
@@ -1000,6 +2796,12 @@
           "Do not come here",
           "Do not be afraid"
         ],
+        "optionsZh": [
+          "現在不要動",
+          "不要回頭看",
+          "不要過來",
+          "不要害怕"
+        ],
         "correctIndex": 3,
         "explanationZh": "Do not be afraid = 不要怕。她想讓小貓安心。",
         "tags": [
@@ -1021,6 +2823,12 @@
           "sharp",
           "fast",
           "soft"
+        ],
+        "optionsZh": [
+          "大聲",
+          "尖",
+          "快",
+          "柔軟的"
         ],
         "correctIndex": 3,
         "explanationZh": "soft = 輕柔的。她的聲音像棉花一樣軟。",
@@ -1044,6 +2852,12 @@
           "lists",
           "lifts"
         ],
+        "optionsZh": [
+          "聽",
+          "減少",
+          "列出",
+          "舉起"
+        ],
         "correctIndex": 0,
         "explanationZh": "listen = 聽。小貓豎起耳朵專心聽。",
         "tags": [
@@ -1065,6 +2879,12 @@
           "very sleepy",
           "colder",
           "more scared"
+        ],
+        "optionsZh": [
+          "有點暖",
+          "很想睡",
+          "更冷",
+          "更害怕"
         ],
         "correctIndex": 0,
         "explanationZh": "a little warm = 有點暖。心裡開始一點點不冷了。",
@@ -1088,8 +2908,210 @@
           "ready to run away",
           "not afraid anymore"
         ],
+        "optionsZh": [
+          "對女人生氣",
+          "還是很害怕",
+          "準備好逃跑",
+          "不再害怕"
+        ],
         "correctIndex": 3,
         "explanationZh": "not afraid anymore = 不再害怕了。溫柔的聲音讓她放心。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l9-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She speaks in a low tone.",
+        "question": "How does she speak?",
+        "options": [
+          "in a low tone",
+          "in a loud yell",
+          "in a high pitch",
+          "in a quick chant"
+        ],
+        "optionsZh": [
+          "低聲",
+          "大聲喊",
+          "高音",
+          "快速念"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "low tone = 低聲。她特意把聲音壓低,免得嚇到小貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l9-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her words are slow and kind.",
+        "question": "How are her words?",
+        "options": [
+          "slow and kind",
+          "fast and harsh",
+          "loud and rough",
+          "tight and short"
+        ],
+        "optionsZh": [
+          "慢又溫柔",
+          "快又嚴厲",
+          "大聲又粗",
+          "緊又短"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "slow and kind = 慢又溫柔。她讓小貓有時間理解。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l9-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She says, \"You are safe now.\"",
+        "question": "What does she promise?",
+        "options": [
+          "You are safe now",
+          "You must run away",
+          "You will go home",
+          "You should be brave"
+        ],
+        "optionsZh": [
+          "你現在安全",
+          "你必須逃跑",
+          "你會回家",
+          "你要勇敢"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "safe now = 現在安全。一句話讓小貓肩膀放下來。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l9-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her smile is gentle.",
+        "question": "How is her smile?",
+        "options": [
+          "gentle",
+          "general",
+          "genius",
+          "gigantic"
+        ],
+        "optionsZh": [
+          "溫柔",
+          "一般",
+          "天才",
+          "巨大"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "gentle smile = 溫柔的笑。眼角彎彎,嘴角微微上揚。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l9-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat feels her warm voice.",
+        "question": "How is her voice?",
+        "options": [
+          "warm",
+          "warn",
+          "worn",
+          "ward"
+        ],
+        "optionsZh": [
+          "溫暖",
+          "警告",
+          "破舊",
+          "病房"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "warm voice = 溫暖的聲音。聽起來像曬過太陽的毛毯。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l9-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She does not raise her voice.",
+        "question": "Does she shout?",
+        "options": [
+          "yes she shouts",
+          "no she stays soft",
+          "she barks",
+          "she sings loud"
+        ],
+        "optionsZh": [
+          "是的她大喊",
+          "不她保持輕聲",
+          "她吠",
+          "她大聲唱"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "stays soft = 保持輕聲。她知道大聲會嚇到貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l9-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her voice makes the cat calm.",
+        "question": "What does her voice do?",
+        "options": [
+          "makes the cat calm",
+          "makes the cat sleep",
+          "makes the cat run",
+          "makes the cat sing"
+        ],
+        "optionsZh": [
+          "讓貓平靜",
+          "讓貓睡",
+          "讓貓跑",
+          "讓貓唱"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "makes the cat calm = 讓貓平靜。聲音的魔法,比食物更先到。",
         "tags": [
           "story",
           "ch1",
@@ -1120,6 +3142,12 @@
           "quickly",
           "slowly"
         ],
+        "optionsZh": [
+          "大聲地",
+          "生氣地",
+          "快速地",
+          "慢慢地"
+        ],
         "correctIndex": 3,
         "explanationZh": "slowly = 慢慢地。她不想嚇到小貓,蹲下的動作很輕。",
         "tags": [
@@ -1141,6 +3169,12 @@
           "into the wet road",
           "into the dark sky",
           "into the cat's eyes"
+        ],
+        "optionsZh": [
+          "進她自己的袋子",
+          "走進濕路",
+          "進入黑暗的天空",
+          "看向貓的眼睛"
         ],
         "correctIndex": 3,
         "explanationZh": "look into = 看進。她想跟小貓的眼神接上線。",
@@ -1164,6 +3198,12 @@
           "general",
           "genuine"
         ],
+        "optionsZh": [
+          "溫柔",
+          "外邦人",
+          "將軍",
+          "真實"
+        ],
         "correctIndex": 0,
         "explanationZh": "gentle = 溫柔的。她說話的聲音像棉花一樣軟。",
         "tags": [
@@ -1185,6 +3225,12 @@
           "Why are you out here",
           "Where are you going now",
           "When did you come here"
+        ],
+        "optionsZh": [
+          "誰帶你回家",
+          "你為什麼在外面",
+          "你現在要去哪",
+          "你什麼時候來的"
         ],
         "correctIndex": 1,
         "explanationZh": "Why are you out here = 你怎麼在外面?她想知道小貓的故事。",
@@ -1208,8 +3254,210 @@
           "answers loudly",
           "stays quiet"
         ],
+        "optionsZh": [
+          "開心地呼嚕",
+          "快速逃走",
+          "大聲回答",
+          "保持安靜"
+        ],
         "correctIndex": 3,
         "explanationZh": "quiet = 安靜的。小貓沒出聲,只是看著她。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l10-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her knees touch the wet ground.",
+        "question": "What touches the ground?",
+        "options": [
+          "her knees",
+          "her cheeks",
+          "her wrists",
+          "her elbows"
+        ],
+        "optionsZh": [
+          "她的膝蓋",
+          "她的臉頰",
+          "她的手腕",
+          "她的手肘"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "knees = 膝蓋。她蹲下時,膝蓋直接碰到濕地。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l10-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She stays low to look small.",
+        "question": "Why does she stay low?",
+        "options": [
+          "to look small",
+          "to look tall",
+          "to look fast",
+          "to look loud"
+        ],
+        "optionsZh": [
+          "看起來小",
+          "看起來高",
+          "看起來快",
+          "看起來大聲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "look small = 看起來小。蹲低不會嚇到牆角的小貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l10-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her question sounds soft.",
+        "question": "How does her question sound?",
+        "options": [
+          "soft",
+          "salt",
+          "sort",
+          "sand"
+        ],
+        "optionsZh": [
+          "輕柔",
+          "鹽",
+          "種類",
+          "沙"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "soft = 輕柔。她不想用任何尖銳的字。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l10-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her eyes are full of care.",
+        "question": "What fills her eyes?",
+        "options": [
+          "care",
+          "card",
+          "carp",
+          "cash"
+        ],
+        "optionsZh": [
+          "關心",
+          "卡片",
+          "鯉魚",
+          "現金"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "care = 關心。眼神裡是想照顧人的心情。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch1-l10-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cat blinks at her slowly.",
+        "question": "How does the cat blink?",
+        "options": [
+          "slowly",
+          "sadly",
+          "sourly",
+          "sharply"
+        ],
+        "optionsZh": [
+          "慢慢地",
+          "悲傷地",
+          "酸地",
+          "尖銳地"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "blink slowly = 慢慢眨眼。貓的「我信任你」訊號。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l10-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She does not reach to grab her.",
+        "question": "What does she not do?",
+        "options": [
+          "she does not grab",
+          "she does not look",
+          "she does not stay",
+          "she does not breathe"
+        ],
+        "optionsZh": [
+          "她沒抓",
+          "她沒看",
+          "她沒留",
+          "她沒呼吸"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "does not grab = 沒有抓。她讓小貓自己決定要不要靠近。",
+        "tags": [
+          "story",
+          "ch1",
+          "main",
+          "rainy-night-cat"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l10-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She waits for the cat to answer.",
+        "question": "What does she wait for?",
+        "options": [
+          "the cat to answer",
+          "the rain to stop",
+          "the bus to come",
+          "the sun to rise"
+        ],
+        "optionsZh": [
+          "貓回答",
+          "雨停",
+          "公車來",
+          "太陽升"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wait for the cat = 等貓。她有耐心,願意等。",
         "tags": [
           "story",
           "ch1",
@@ -1240,6 +3488,12 @@
           "from sleep",
           "from cold"
         ],
+        "optionsZh": [
+          "因生氣",
+          "因為開心",
+          "從睡夢中",
+          "因為冷"
+        ],
         "correctIndex": 3,
         "explanationZh": "shake from cold = 冷到發抖。雨水讓她全身打顫。",
         "tags": [
@@ -1261,6 +3515,12 @@
           "speak",
           "smile",
           "sleep"
+        ],
+        "optionsZh": [
+          "站",
+          "說",
+          "笑容",
+          "睡覺"
         ],
         "correctIndex": 1,
         "explanationZh": "cannot speak = 沒辦法說話。她太怕了,聲音卡在喉嚨。",
@@ -1284,6 +3544,12 @@
           "sullen",
           "simple"
         ],
+        "optionsZh": [
+          "沉默",
+          "銀",
+          "陰沉",
+          "簡單"
+        ],
         "correctIndex": 0,
         "explanationZh": "silent = 沉默的。一點聲音也沒有。",
         "tags": [
@@ -1306,6 +3572,12 @@
           "wet and low",
           "wild and fast"
         ],
+        "optionsZh": [
+          "暖又起來",
+          "又乾又高",
+          "又濕又低",
+          "野又快"
+        ],
         "correctIndex": 2,
         "explanationZh": "wet and low = 又濕又垂。尾巴貼在地上,顯得很沒精神。",
         "tags": [
@@ -1327,6 +3599,12 @@
           "down",
           "away",
           "back"
+        ],
+        "optionsZh": [
+          "向上",
+          "向下",
+          "離開",
+          "背"
         ],
         "correctIndex": 1,
         "explanationZh": "look down = 往下看。她不敢看奶奶的眼睛。",
@@ -1360,6 +3638,12 @@
           "a big box",
           "a wide hat"
         ],
+        "optionsZh": [
+          "一根長棍",
+          "一個小袋子",
+          "一個大盒子",
+          "一頂寬帽"
+        ],
         "correctIndex": 1,
         "explanationZh": "small bag = 小袋子。她出門總帶著一個布包。",
         "tags": [
@@ -1381,6 +3665,12 @@
           "a sharp key",
           "a small phone",
           "a soft towel"
+        ],
+        "optionsZh": [
+          "一杯熱飲",
+          "一把尖鑰匙",
+          "一支小電話",
+          "一條軟毛巾"
         ],
         "correctIndex": 3,
         "explanationZh": "take out = 拿出來。她從袋子裡找出一條毛巾。",
@@ -1404,6 +3694,12 @@
           "close",
           "cream"
         ],
+        "optionsZh": [
+          "乾淨",
+          "清楚",
+          "關上",
+          "奶油色"
+        ],
         "correctIndex": 0,
         "explanationZh": "clean = 乾淨的。毛巾沒髒,還是乾的。",
         "tags": [
@@ -1426,6 +3722,12 @@
           "walks away",
           "kneels closer"
         ],
+        "optionsZh": [
+          "站得更高",
+          "轉身",
+          "走開",
+          "跪近一點"
+        ],
         "correctIndex": 3,
         "explanationZh": "kneel = 跪。她跪下來,離小貓更近一些。",
         "tags": [
@@ -1447,6 +3749,12 @@
           "open for the cat",
           "back in her bag",
           "tight in her hand"
+        ],
+        "optionsZh": [
+          "高高在空中",
+          "為貓打開",
+          "回到她袋子裡",
+          "緊抓在手裡"
         ],
         "correctIndex": 1,
         "explanationZh": "hold it open = 攤開拿著。她把毛巾打開,像在邀請小貓。",
@@ -1480,6 +3788,12 @@
           "quickly",
           "roughly"
         ],
+        "optionsZh": [
+          "溫柔地",
+          "大聲地",
+          "快速地",
+          "粗魯地"
+        ],
         "correctIndex": 0,
         "explanationZh": "gently = 輕柔地。她不用力,只是輕輕擦。",
         "tags": [
@@ -1501,6 +3815,12 @@
           "slow",
           "fast",
           "wild"
+        ],
+        "optionsZh": [
+          "用力地",
+          "慢",
+          "快",
+          "狂野"
         ],
         "correctIndex": 1,
         "explanationZh": "slow = 慢。她的動作慢慢的,不慌不忙。",
@@ -1524,6 +3844,12 @@
           "weak",
           "wide"
         ],
+        "optionsZh": [
+          "溫暖",
+          "破舊",
+          "虛弱",
+          "寬"
+        ],
         "correctIndex": 0,
         "explanationZh": "warm = 暖。冷雨還在,但她身上開始有了溫度。",
         "tags": [
@@ -1546,6 +3872,12 @@
           "pull or push",
           "talk or shout"
         ],
+        "optionsZh": [
+          "站或坐",
+          "離開或留下",
+          "拉或推",
+          "說或喊"
+        ],
         "correctIndex": 2,
         "explanationZh": "pull or push = 拉或推。她沒硬拉硬推,只是慢慢擦。",
         "tags": [
@@ -1567,6 +3899,12 @@
           "frozen",
           "dry",
           "burning"
+        ],
+        "optionsZh": [
+          "還濕",
+          "結凍",
+          "乾",
+          "燃燒"
         ],
         "correctIndex": 2,
         "explanationZh": "dry = 乾的。沒多久,小貓的毛就不再滴水。",
@@ -1600,6 +3938,12 @@
           "thinks for a moment",
           "sleeps for a nap"
         ],
+        "optionsZh": [
+          "聊了一陣子",
+          "跑了一下",
+          "想了一下",
+          "睡一覺"
+        ],
         "correctIndex": 2,
         "explanationZh": "think for a moment = 想了一下。她停下來考慮要怎麼辦。",
         "tags": [
@@ -1621,6 +3965,12 @@
           "find the cat owner",
           "feed the cat now",
           "bring the cat home"
+        ],
+        "optionsZh": [
+          "提貓袋",
+          "找貓主人",
+          "現在餵貓",
+          "帶貓回家"
         ],
         "correctIndex": 3,
         "explanationZh": "cannot bring home = 不能帶回家。她有自己的難處。",
@@ -1644,6 +3994,12 @@
           "her family is sleeping now",
           "her door is broken today"
         ],
+        "optionsZh": [
+          "她的房子現在太小",
+          "她的狗不喜歡新貓",
+          "她家人現在在睡",
+          "她的門今天壞了"
+        ],
         "correctIndex": 1,
         "explanationZh": "her dog does not like new cats = 她家的狗不喜歡新貓。這就是原因。",
         "tags": [
@@ -1666,6 +4022,12 @@
           "item",
           "image"
         ],
+        "optionsZh": [
+          "想法",
+          "理想",
+          "東西",
+          "圖像"
+        ],
         "correctIndex": 0,
         "explanationZh": "idea = 想法。她突然想到一個辦法。",
         "tags": [
@@ -1687,6 +4049,12 @@
           "kind",
           "cold",
           "worried"
+        ],
+        "optionsZh": [
+          "生氣",
+          "善良",
+          "冷",
+          "擔心"
         ],
         "correctIndex": 1,
         "explanationZh": "kind = 親切的。她想到辦法後,臉上又有了笑意。",
@@ -1720,6 +4088,12 @@
           "next month",
           "every morning"
         ],
+        "optionsZh": [
+          "只有星期天",
+          "每晚",
+          "下個月",
+          "每天早上"
+        ],
         "correctIndex": 1,
         "explanationZh": "every night = 每晚。奶奶給了一個固定的時間。",
         "tags": [
@@ -1741,6 +4115,12 @@
           "toys",
           "keys",
           "food"
+        ],
+        "optionsZh": [
+          "水",
+          "玩具",
+          "鑰匙",
+          "食物"
         ],
         "correctIndex": 3,
         "explanationZh": "leave food = 留下食物。她答應每天備好一份。",
@@ -1764,6 +4144,12 @@
           "wealthy",
           "weekly"
         ],
+        "optionsZh": [
+          "歡迎",
+          "天空",
+          "富有",
+          "每週"
+        ],
         "correctIndex": 0,
         "explanationZh": "welcome = 受歡迎的。隨時來都可以。",
         "tags": [
@@ -1786,6 +4172,12 @@
           "down at ground",
           "back to wall"
         ],
+        "optionsZh": [
+          "回到街上",
+          "看向她",
+          "看著地面",
+          "回到牆邊"
+        ],
         "correctIndex": 1,
         "explanationZh": "look up at = 抬頭看。小貓終於敢看奶奶的眼睛了。",
         "tags": [
@@ -1807,6 +4199,12 @@
           "more afraid now",
           "ready to fight",
           "no longer afraid"
+        ],
+        "optionsZh": [
+          "還是很冷",
+          "更怕了",
+          "準備好戰鬥",
+          "不再害怕"
         ],
         "correctIndex": 3,
         "explanationZh": "no longer afraid = 不再害怕。奶奶的承諾讓她安心。",
@@ -1840,6 +4238,12 @@
           "other",
           "and"
         ],
+        "optionsZh": [
+          "一個",
+          "另一個",
+          "其他的",
+          "和"
+        ],
         "correctIndex": 1,
         "explanationZh": "another = 再一個。奶奶今晚要多講一個小故事給我們聽。",
         "tags": [
@@ -1862,6 +4266,12 @@
           "spring",
           "summer",
           "autumn"
+        ],
+        "optionsZh": [
+          "冬天",
+          "春天",
+          "夏天",
+          "秋天"
         ],
         "correctIndex": 2,
         "explanationZh": "summer = 夏天。這個小故事發生在熱熱的夏天。",
@@ -1886,6 +4296,12 @@
           "grace",
           "gross"
         ],
+        "optionsZh": [
+          "草",
+          "玻璃",
+          "優雅",
+          "噁心"
+        ],
         "correctIndex": 0,
         "explanationZh": "grass = 草。綠綠的草叢裡住著一隻螞蟻和一隻蚱蜢。",
         "tags": [
@@ -1909,6 +4325,12 @@
           "angry",
           "worried"
         ],
+        "optionsZh": [
+          "開心",
+          "想睡",
+          "生氣",
+          "擔心"
+        ],
         "correctIndex": 0,
         "explanationZh": "love to sing = 喜歡唱歌。蚱蜢整天開開心心地哼歌。",
         "tags": [
@@ -1931,6 +4353,12 @@
           "around",
           "apart",
           "alone"
+        ],
+        "optionsZh": [
+          "一起",
+          "周圍",
+          "分開",
+          "獨自"
         ],
         "correctIndex": 0,
         "explanationZh": "together = 一起。螞蟻和蚱蜢住在同一片草地上,是鄰居。",
@@ -1965,6 +4393,12 @@
           "sings",
           "sits"
         ],
+        "optionsZh": [
+          "游泳",
+          "睡覺",
+          "唱",
+          "坐"
+        ],
         "correctIndex": 2,
         "explanationZh": "sings all day = 整天唱歌。蚱蜢一邊跳一邊唱,玩個不停。",
         "tags": [
@@ -1987,6 +4421,12 @@
           "soft",
           "slow",
           "hard"
+        ],
+        "optionsZh": [
+          "難過",
+          "柔軟的",
+          "慢",
+          "用力地"
         ],
         "correctIndex": 3,
         "explanationZh": "work hard = 努力工作。螞蟻一趟一趟搬東西,從早忙到晚。",
@@ -2011,6 +4451,12 @@
           "good",
           "wood"
         ],
+        "optionsZh": [
+          "食物",
+          "腳",
+          "好",
+          "木頭"
+        ],
         "correctIndex": 0,
         "explanationZh": "food = 食物。螞蟻一粒一粒地把食物搬回家存起來。",
         "tags": [
@@ -2034,6 +4480,12 @@
           "to eat",
           "to sleep"
         ],
+        "optionsZh": [
+          "一起唱",
+          "打架",
+          "吃",
+          "睡覺"
+        ],
         "correctIndex": 0,
         "explanationZh": "蚱蜢想找螞蟻一起玩,一起唱歌,不想一個人。",
         "tags": [
@@ -2056,6 +4508,12 @@
           "angry",
           "sad",
           "busy"
+        ],
+        "optionsZh": [
+          "累",
+          "生氣",
+          "難過",
+          "忙"
         ],
         "correctIndex": 3,
         "explanationZh": "save food for winter = 為冬天存糧。螞蟻沒空玩,她在為以後做準備。",
@@ -2090,6 +4548,12 @@
           "warm",
           "here"
         ],
+        "optionsZh": [
+          "濕",
+          "去了",
+          "溫暖",
+          "這裡"
+        ],
         "correctIndex": 1,
         "explanationZh": "gone = 不見了。冬天一到,綠草都枯了,什麼都沒了。",
         "tags": [
@@ -2112,6 +4576,12 @@
           "many",
           "much",
           "some"
+        ],
+        "optionsZh": [
+          "不",
+          "許多",
+          "很多",
+          "一些"
         ],
         "correctIndex": 0,
         "explanationZh": "no food = 沒有食物。夏天只顧唱歌,現在什麼都沒存到。",
@@ -2136,6 +4606,12 @@
           "hurry",
           "honey"
         ],
+        "optionsZh": [
+          "餓",
+          "生氣",
+          "趕快",
+          "蜂蜜"
+        ],
         "correctIndex": 0,
         "explanationZh": "hungry = 餓。蚱蜢又冷又餓,在雪地裡發抖。",
         "tags": [
@@ -2159,6 +4635,12 @@
           "worried",
           "freezing"
         ],
+        "optionsZh": [
+          "想睡",
+          "舒適",
+          "擔心",
+          "冰凍"
+        ],
         "correctIndex": 1,
         "explanationZh": "warm and full = 又暖又飽。螞蟻夏天的辛苦,讓她現在不怕冬天。",
         "tags": [
@@ -2181,6 +4663,12 @@
           "sing more songs",
           "make friends with bugs",
           "work hard before winter"
+        ],
+        "optionsZh": [
+          "待在外面",
+          "多唱幾首歌",
+          "和蟲做朋友",
+          "冬天前努力工作"
         ],
         "correctIndex": 3,
         "explanationZh": "wise = 有智慧的。奶奶輕輕說:該玩的時候玩,該準備的時候也別忘了準備。",
@@ -2215,6 +4703,12 @@
           "tomorrow",
           "yesterday"
         ],
+        "optionsZh": [
+          "今天",
+          "今晚",
+          "明天",
+          "昨天"
+        ],
         "correctIndex": 1,
         "explanationZh": "tonight = 今晚。奶奶輕拍膝蓋,還想再講一個小故事。",
         "tags": [
@@ -2237,6 +4731,12 @@
           "sang",
           "slept",
           "agreed"
+        ],
+        "optionsZh": [
+          "爭吵過",
+          "唱過",
+          "睡過",
+          "同意過"
         ],
         "correctIndex": 0,
         "explanationZh": "argued = 爭吵。很久以前,北風和太陽吵起來了:誰才是真正的強者?",
@@ -2261,6 +4761,12 @@
           "smaller",
           "slower"
         ],
+        "optionsZh": [
+          "更強",
+          "更輕",
+          "更小",
+          "更慢"
+        ],
         "correctIndex": 0,
         "explanationZh": "stronger = 比較強。兩個都不服輸,各自喊著自己最強。",
         "tags": [
@@ -2284,6 +4790,12 @@
           "traveler",
           "baker"
         ],
+        "optionsZh": [
+          "老師",
+          "農夫",
+          "旅人",
+          "麵包師"
+        ],
         "correctIndex": 2,
         "explanationZh": "traveler = 旅人。路上正好有個人經過,他們決定拿他來比一比。",
         "tags": [
@@ -2306,6 +4818,12 @@
           "outdoors",
           "worried",
           "dressed"
+        ],
+        "optionsZh": [
+          "冰凍",
+          "戶外",
+          "擔心",
+          "洋裝過"
         ],
         "correctIndex": 3,
         "explanationZh": "wore a warm coat = 穿著暖外套。旅人裹得緊緊的,準備走他的路。",
@@ -2340,6 +4858,12 @@
           "sings",
           "rains"
         ],
+        "optionsZh": [
+          "吹",
+          "走",
+          "唱",
+          "下雨 (第三人稱)"
+        ],
         "correctIndex": 0,
         "explanationZh": "blows = 吹。北風使勁吹,要把外套吹掉。",
         "tags": [
@@ -2362,6 +4886,12 @@
           "warm",
           "soft",
           "strong"
+        ],
+        "optionsZh": [
+          "安靜",
+          "溫暖",
+          "柔軟的",
+          "強壯"
         ],
         "correctIndex": 3,
         "explanationZh": "strong = 強的。風又冷又強,可是用力不一定有用。",
@@ -2386,6 +4916,12 @@
           "right",
           "night"
         ],
+        "optionsZh": [
+          "緊",
+          "光",
+          "對的",
+          "夜晚"
+        ],
         "correctIndex": 0,
         "explanationZh": "tight = 緊緊地。風越吹,旅人越把外套抓得更緊。",
         "tags": [
@@ -2409,6 +4945,12 @@
           "under",
           "around"
         ],
+        "optionsZh": [
+          "裡面",
+          "跨越",
+          "下面",
+          "周圍"
+        ],
         "correctIndex": 3,
         "explanationZh": "around = 環繞、包住。他把外套裹在身上,風吹不進來。",
         "tags": [
@@ -2431,6 +4973,12 @@
           "happy",
           "bored",
           "loved"
+        ],
+        "optionsZh": [
+          "沮喪",
+          "開心",
+          "無聊",
+          "愛過"
         ],
         "correctIndex": 0,
         "explanationZh": "cannot win = 沒辦法贏。風吹得再大也拉不下外套,只好認輸。",
@@ -2465,6 +5013,12 @@
           "rain",
           "shine"
         ],
+        "optionsZh": [
+          "掉",
+          "吹",
+          "雨",
+          "光輝"
+        ],
         "correctIndex": 3,
         "explanationZh": "shine = 發光、照耀。換太陽出場了,他不用力,只是慢慢照亮路面。",
         "tags": [
@@ -2487,6 +5041,12 @@
           "dark",
           "warm",
           "cold"
+        ],
+        "optionsZh": [
+          "大聲",
+          "黑暗",
+          "溫暖",
+          "冷"
         ],
         "correctIndex": 2,
         "explanationZh": "warm = 溫暖的。空氣不再冷颼颼,旅人放鬆了。",
@@ -2511,6 +5071,12 @@
           "wakes",
           "bakes"
         ],
+        "optionsZh": [
+          "拿",
+          "做",
+          "醒",
+          "烤"
+        ],
         "correctIndex": 0,
         "explanationZh": "takes off = 脫下。他自己把外套脫了 — 太陽沒拉,他自己想脫。",
         "tags": [
@@ -2534,6 +5100,12 @@
           "lost",
           "cold and tired"
         ],
+        "optionsZh": [
+          "暖又開心",
+          "嚇過",
+          "輸過",
+          "又冷又累"
+        ],
         "correctIndex": 0,
         "explanationZh": "smiles = 微笑。陽光暖暖的,旅人臉上有笑容,腳步也輕了。",
         "tags": [
@@ -2556,6 +5128,12 @@
           "wind wins",
           "gentle wins",
           "stay cold"
+        ],
+        "optionsZh": [
+          "穿兩件外套",
+          "風贏",
+          "溫和能贏",
+          "保持冷"
         ],
         "correctIndex": 2,
         "explanationZh": "gentle = 溫和的。奶奶輕輕說:有時候溫柔比用力更能讓人心打開 — 就像她對 {catName} 和 {dogName} 一樣。",
@@ -2590,6 +5168,12 @@
           "welcome",
           "goodnight"
         ],
+        "optionsZh": [
+          "早上",
+          "再見",
+          "歡迎",
+          "晚安"
+        ],
         "correctIndex": 3,
         "explanationZh": "goodnight = 晚安。睡覺前說的。",
         "tags": [
@@ -2612,6 +5196,12 @@
           "closes",
           "holds",
           "drops"
+        ],
+        "optionsZh": [
+          "打開",
+          "關上",
+          "拿著",
+          "掉"
         ],
         "correctIndex": 1,
         "explanationZh": "close = 關上、合上。故事說完了。",
@@ -2636,6 +5226,12 @@
           "last",
           "lake"
         ],
+        "optionsZh": [
+          "晚",
+          "光",
+          "最後",
+          "湖"
+        ],
         "correctIndex": 0,
         "explanationZh": "late = 晚了。月亮已經高。",
         "tags": [
@@ -2659,6 +5255,12 @@
           "angry",
           "worried"
         ],
+        "optionsZh": [
+          "開心",
+          "想睡",
+          "生氣",
+          "擔心"
+        ],
         "correctIndex": 1,
         "explanationZh": "sleepy = 想睡的。{dogName} 趴在地上眼睛快閉了。",
         "tags": [
@@ -2681,6 +5283,12 @@
           "in",
           "up",
           "down"
+        ],
+        "optionsZh": [
+          "外面",
+          "在裡面",
+          "向上",
+          "向下"
         ],
         "correctIndex": 0,
         "explanationZh": "out = 熄了。蠟燭快滅了,表示夜深該散。",
@@ -2715,6 +5323,12 @@
           "sit",
           "walk"
         ],
+        "optionsZh": [
+          "睡覺",
+          "跳",
+          "坐",
+          "走"
+        ],
         "correctIndex": 1,
         "explanationZh": "jump down = 跳下來。我從矮牆跳下,動作輕。",
         "tags": [
@@ -2737,6 +5351,12 @@
           "bright",
           "quiet",
           "loud"
+        ],
+        "optionsZh": [
+          "忙",
+          "明亮",
+          "安靜",
+          "大聲"
         ],
         "correctIndex": 2,
         "explanationZh": "quiet = 安靜的。夜深街上沒人。",
@@ -2761,6 +5381,12 @@
           "up",
           "down"
         ],
+        "optionsZh": [
+          "背",
+          "向前",
+          "向上",
+          "向下"
+        ],
         "correctIndex": 0,
         "explanationZh": "back = 回去。我慢慢走回我睡的角落。",
         "tags": [
@@ -2784,6 +5410,12 @@
           "freezing",
           "cozy"
         ],
+        "optionsZh": [
+          "擔心",
+          "想睡",
+          "冰凍",
+          "舒適"
+        ],
         "correctIndex": 3,
         "explanationZh": "warm inside = 心裡暖。聽完故事像吃飽一樣。",
         "tags": [
@@ -2806,6 +5438,12 @@
           "tomorrow",
           "never",
           "once"
+        ],
+        "optionsZh": [
+          "今天",
+          "明天",
+          "從不",
+          "一次"
         ],
         "correctIndex": 1,
         "explanationZh": "tomorrow = 明天。我明晚還會來奶奶院子。",
@@ -2939,6 +5577,12 @@
           "a recipe",
           "her name"
         ],
+        "optionsZh": [
+          "一個歌",
+          "一個雨夜故事",
+          "一份食譜",
+          "她的名字"
+        ],
         "correctIndex": 1,
         "explanationZh": "奶奶今晚說的是雨夜小貓 + 螞蟻 + 北風太陽的故事。",
         "tags": [
@@ -2960,6 +5604,12 @@
           "Never",
           "Yes",
           "No"
+        ],
+        "optionsZh": [
+          "也許",
+          "從不",
+          "是",
+          "不"
         ],
         "correctIndex": 2,
         "explanationZh": "Yes — 我每晚都會再來。明天還有新故事。",

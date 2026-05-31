@@ -20,6 +20,12 @@
           "the first night",
           "the longest night"
         ],
+        "optionsZh": [
+          "最後一晚",
+          "最吵的夜",
+          "第一晚",
+          "最長的夜"
+        ],
         "correctIndex": 0,
         "explanationZh": "last = 最後的。今晚不一樣, 有種要說再見的感覺。",
         "tags": [
@@ -41,6 +47,12 @@
           "dry",
           "loud",
           "wet"
+        ],
+        "optionsZh": [
+          "溫暖",
+          "乾",
+          "大聲",
+          "濕"
         ],
         "correctIndex": 1,
         "explanationZh": "dry = 乾燥的。風吹過來不黏不濕, 是秋末的味道。",
@@ -64,6 +76,12 @@
           "three",
           "four"
         ],
+        "optionsZh": [
+          "一",
+          "二",
+          "三",
+          "四"
+        ],
         "correctIndex": 0,
         "explanationZh": "one more time = 再一次。今晚是「再一次」也是「最後一次」。",
         "tags": [
@@ -84,6 +102,12 @@
           "empty",
           "light",
           "heavy"
+        ],
+        "optionsZh": [
+          "生氣",
+          "空",
+          "光",
+          "重的"
         ],
         "correctIndex": 3,
         "explanationZh": "heavy = 沉重的。捨不得就會這樣, 胸口有點悶。",
@@ -106,6 +130,12 @@
           "it is raining hard",
           "Grandma is sick",
           "{dogName} is missing"
+        ],
+        "optionsZh": [
+          "這是最後一個故事夜",
+          "雨下得很大",
+          "奶奶生病了",
+          "{dogName}是錯過中"
         ],
         "correctIndex": 0,
         "explanationZh": "今晚是最後一次故事夜, 跟其他晚上都不同。",
@@ -139,6 +169,12 @@
           "quietly",
           "quickly"
         ],
+        "optionsZh": [
+          "慢慢地",
+          "大聲地",
+          "安靜地",
+          "快速地"
+        ],
         "correctIndex": 2,
         "explanationZh": "quietly = 安靜地。{dogName} 今晚特別安靜, 好像也知道是最後一夜。",
         "tags": [
@@ -160,6 +196,12 @@
           "shines",
           "closes",
           "cries"
+        ],
+        "optionsZh": [
+          "眨眼",
+          "光輝",
+          "關上",
+          "哭"
         ],
         "correctIndex": 0,
         "explanationZh": "blink = 眨眼。{dogName} 沒叫, 只是慢慢眨眼看我。",
@@ -217,6 +259,12 @@
           "scary",
           "busy"
         ],
+        "optionsZh": [
+          "吵",
+          "平靜",
+          "嚇人的",
+          "忙"
+        ],
         "correctIndex": 1,
         "explanationZh": "peaceful = 平靜的。沒有蟲叫, 連風都很輕。",
         "tags": [
@@ -238,6 +286,12 @@
           "he is asleep",
           "he is hungry",
           "he is angry at me"
+        ],
+        "optionsZh": [
+          "他知道是最後一晚",
+          "他睡著",
+          "他餓",
+          "他對我生氣"
         ],
         "correctIndex": 0,
         "explanationZh": "狗也會感覺氣氛, {dogName} 知道今晚不一樣, 所以安靜陪著。",
@@ -271,6 +325,12 @@
           "white string",
           "blue paper"
         ],
+        "optionsZh": [
+          "金漆",
+          "紅絲",
+          "白線",
+          "藍色紙"
+        ],
         "correctIndex": 1,
         "explanationZh": "silk = 絲。封面是紅色絲線, 看起來很舊很珍貴。「紅」就是 red 的意思。",
         "tags": [
@@ -292,6 +352,12 @@
           "next week",
           "very long ago",
           "last year"
+        ],
+        "optionsZh": [
+          "今天早上",
+          "下週",
+          "很久很久以前",
+          "去年"
         ],
         "correctIndex": 2,
         "explanationZh": "long ago = 很久以前。「唐朝」是中國一個古代王朝, 一千多年前。",
@@ -348,6 +414,12 @@
           "tired and angry",
           "sharp and cold"
         ],
+        "optionsZh": [
+          "輕又慢",
+          "大聲又快",
+          "又累又生氣",
+          "又尖又冷"
+        ],
         "correctIndex": 0,
         "explanationZh": "soft = 溫柔的, slow = 慢的。最後一夜奶奶讀得特別慢, 像不想讀完。",
         "tags": [
@@ -369,6 +441,12 @@
           "it has no slipper",
           "it has no king",
           "it is from Europe"
+        ],
+        "optionsZh": [
+          "比灰姑娘更老",
+          "沒有拖鞋",
+          "沒有國王",
+          "它來自歐洲"
         ],
         "correctIndex": 0,
         "explanationZh": "葉限比歐洲灰姑娘早一千年, 是世界上最早的灰姑娘故事。",
@@ -402,6 +480,12 @@
           "rich",
           "quiet"
         ],
+        "optionsZh": [
+          "高",
+          "大聲",
+          "富有",
+          "安靜"
+        ],
         "correctIndex": 3,
         "explanationZh": "quiet = 安靜的。葉限不愛說話, 心事都自己藏著。",
         "tags": [
@@ -423,6 +507,12 @@
           "he is sleeping",
           "he moved away",
           "he died"
+        ],
+        "optionsZh": [
+          "他去上班了",
+          "他在睡覺",
+          "他搬走了",
+          "他死了"
         ],
         "correctIndex": 3,
         "explanationZh": "died = 死了 (die 的過去式)。葉限小時候父親就走了, 只剩她一個。",
@@ -446,6 +536,12 @@
           "mother",
           "uncle"
         ],
+        "optionsZh": [
+          "哥哥",
+          "爸爸",
+          "媽媽",
+          "叔叔"
+        ],
         "correctIndex": 0,
         "explanationZh": "brother = 兄弟。葉限沒有親兄弟姊妹, 只有後母帶來的女兒。",
         "tags": [
@@ -467,6 +563,12 @@
           "rich",
           "proud",
           "lonely"
+        ],
+        "optionsZh": [
+          "懶",
+          "富有",
+          "驕傲",
+          "孤單"
         ],
         "correctIndex": 3,
         "explanationZh": "lonely = 寂寞的。沒有人說話, 屋子裡很空。",
@@ -524,6 +626,12 @@
           "her father died and she has no real family",
           "she ran away"
         ],
+        "optionsZh": [
+          "她父親在打仗",
+          "她住在森林",
+          "父親死了她沒有真正家人",
+          "她逃走"
+        ],
         "correctIndex": 2,
         "explanationZh": "父親去世, 她沒有親人, 後母跟姊姊也不疼她, 所以孤單。",
         "tags": [
@@ -557,6 +665,12 @@
           "sleepy",
           "unkind"
         ],
+        "optionsZh": [
+          "有趣",
+          "善良",
+          "想睡",
+          "不善"
+        ],
         "correctIndex": 3,
         "explanationZh": "unkind = 不友善的。後母總是兇葉限, 從不微笑。",
         "tags": [
@@ -578,6 +692,12 @@
           "a black hat",
           "a red dress",
           "old shoes"
+        ],
+        "optionsZh": [
+          "一件藍外套",
+          "一頂黑帽子",
+          "一件紅洋裝",
+          "舊鞋"
         ],
         "correctIndex": 2,
         "explanationZh": "dress = 洋裝。「紅」就是 red, 後母的女兒穿紅洋裝, 看起來神氣。",
@@ -601,6 +721,12 @@
           "buy",
           "wash"
         ],
+        "optionsZh": [
+          "搬",
+          "喝",
+          "買",
+          "洗"
+        ],
         "correctIndex": 0,
         "explanationZh": "carry = 搬、提。葉限每天要提水, 手都磨破了。",
         "tags": [
@@ -622,6 +748,12 @@
           "angry and shouts",
           "scared and runs",
           "happy and dances"
+        ],
+        "optionsZh": [
+          "累但不哭",
+          "生氣又大叫",
+          "嚇得逃跑",
+          "開心地跳舞"
         ],
         "correctIndex": 0,
         "explanationZh": "tired = 累的。葉限累歸累, 不在後母面前哭, 跟我們的小貓很像。",
@@ -645,6 +777,12 @@
           "thick and new",
           "bright and clean"
         ],
+        "optionsZh": [
+          "又軟又暖",
+          "瘦又老",
+          "厚又新",
+          "明亮乾淨"
+        ],
         "correctIndex": 1,
         "explanationZh": "thin = 薄的。冬天還穿薄衣服, 後母不給她做新的。",
         "tags": [
@@ -666,6 +804,12 @@
           "she begs the neighbors",
           "she keeps working without complaining",
           "she fights her stepmother"
+        ],
+        "optionsZh": [
+          "她跑去森林",
+          "她求鄰居",
+          "她不抱怨繼續工作",
+          "她對抗繼母"
         ],
         "correctIndex": 2,
         "explanationZh": "葉限被欺負還是默默做事, 是「忍耐 + 不放棄」的人, 跟堅韌的貓一樣。",
@@ -700,6 +844,12 @@
           "a dark cave",
           "an old wall"
         ],
+        "optionsZh": [
+          "一個小池塘",
+          "一個大路",
+          "一個黑暗的洞",
+          "一面舊牆"
+        ],
         "correctIndex": 0,
         "explanationZh": "pond = 池塘。「池」就是 pond, 屋後有個小池子, 水很清。",
         "tags": [
@@ -722,6 +872,12 @@
           "a frog with long legs",
           "a fish with gold eyes",
           "a snake with red skin"
+        ],
+        "optionsZh": [
+          "一隻綠殼烏龜",
+          "一隻長腿青蛙",
+          "一隻金眼睛的魚",
+          "一條紅皮蛇"
         ],
         "correctIndex": 2,
         "explanationZh": "fish = 魚, gold = 金色。「金魚」字面就是 gold fish, 葉限這條魚眼睛會發光。",
@@ -746,6 +902,12 @@
           "bread",
           "fruit"
         ],
+        "optionsZh": [
+          "米",
+          "肉",
+          "麵包",
+          "水果"
+        ],
         "correctIndex": 0,
         "explanationZh": "rice = 米飯。葉限把自己的飯分一點給魚, 雖然自己也餓。",
         "tags": [
@@ -767,6 +929,12 @@
           "more angry",
           "more afraid",
           "less alone"
+        ],
+        "optionsZh": [
+          "更傷心",
+          "更生氣",
+          "更害怕",
+          "比較不孤單"
         ],
         "correctIndex": 3,
         "explanationZh": "less alone = 比較不孤單。有個朋友會聽她說話, 就算只是條魚。",
@@ -824,6 +992,12 @@
           "it is her only friend in a cruel home",
           "her father bought it"
         ],
+        "optionsZh": [
+          "國王送的",
+          "很貴",
+          "在殘忍的家裡是她唯一的朋友",
+          "她父親買的"
+        ],
         "correctIndex": 2,
         "explanationZh": "在後母家沒人疼葉限, 這條魚是她唯一聽她說話的朋友, 所以特別重要。",
         "tags": [
@@ -857,6 +1031,12 @@
           "meat from the kitchen",
           "rice from her own bowl"
         ],
+        "optionsZh": [
+          "樹上的水果",
+          "桌上的麵包",
+          "廚房裡的肉",
+          "她自己碗裡的飯"
+        ],
         "correctIndex": 3,
         "explanationZh": "feed = 餵。葉限自己的飯都不多, 還是分一點給魚。「金魚」= gold fish。",
         "tags": [
@@ -880,6 +1060,12 @@
           "she writes them",
           "she whispers them"
         ],
+        "optionsZh": [
+          "她大聲喊",
+          "她唱出來",
+          "她寫下來",
+          "她低聲說"
+        ],
         "correctIndex": 3,
         "explanationZh": "whisper = 低聲說。葉限不敢大聲, 怕後母聽到, 只在池邊輕輕說。",
         "tags": [
@@ -902,6 +1088,12 @@
           "genuine",
           "gentle's"
         ],
+        "optionsZh": [
+          "溫柔",
+          "將軍",
+          "真實",
+          "溫柔的"
+        ],
         "correctIndex": 0,
         "explanationZh": "gentle = 溫柔的。葉限對魚的聲音, 跟對人不一樣, 像在哄小寶寶。",
         "tags": [
@@ -923,6 +1115,12 @@
           "swims close",
           "swims away",
           "jumps out"
+        ],
+        "optionsZh": [
+          "沉下去",
+          "靠近游",
+          "游走",
+          "跳出來"
         ],
         "correctIndex": 1,
         "explanationZh": "swim close = 游近。魚認得葉限的腳步聲, 一聽就靠過來。",
@@ -981,6 +1179,12 @@
           "she is afraid her stepmother will hear",
           "the village is sleeping"
         ],
+        "optionsZh": [
+          "她喉嚨痛",
+          "魚不喜歡吵聲",
+          "她怕繼母聽到",
+          "村莊在睡"
+        ],
         "correctIndex": 2,
         "explanationZh": "後母如果聽到葉限有朋友, 一定不開心。所以葉限只能低聲。",
         "tags": [
@@ -1014,6 +1218,12 @@
           "smaller each week",
           "bigger each week"
         ],
+        "optionsZh": [
+          "每天更瘦",
+          "每晚更大聲",
+          "每週更小",
+          "每週變大"
+        ],
         "correctIndex": 3,
         "explanationZh": "grow bigger = 越長越大。魚一週週變大, 像被愛養著。",
         "tags": [
@@ -1035,6 +1245,12 @@
           "like ice",
           "like gold",
           "like wood"
+        ],
+        "optionsZh": [
+          "像玻璃",
+          "像冰",
+          "像金子",
+          "像木頭"
         ],
         "correctIndex": 2,
         "explanationZh": "shine = 發亮。「月光」= moonlight, 魚鱗在月光下像金子。",
@@ -1058,6 +1274,12 @@
           "moan",
           "noon"
         ],
+        "optionsZh": [
+          "月亮",
+          "很快",
+          "呻吟",
+          "中午"
+        ],
         "correctIndex": 0,
         "explanationZh": "moon = 月亮。滿月夜, 池水亮亮的, 魚的影子又長又圓。",
         "tags": [
@@ -1079,6 +1301,12 @@
           "with empty eyes",
           "with angry eyes",
           "with proud eyes"
+        ],
+        "optionsZh": [
+          "睡眼惺忪",
+          "空洞的眼神",
+          "用生氣的眼神",
+          "驕傲的眼神"
         ],
         "correctIndex": 3,
         "explanationZh": "proud = 驕傲的。葉限把魚當成自己的孩子, 看著牠長大很開心。",
@@ -1102,6 +1330,12 @@
           "the bowl is broken",
           "the water is dirty"
         ],
+        "optionsZh": [
+          "魚生氣",
+          "魚長太大",
+          "碗壞了",
+          "水髒"
+        ],
         "correctIndex": 1,
         "explanationZh": "too big = 太大了。連大碗都裝不下牠, 只能留在池裡。",
         "tags": [
@@ -1122,6 +1356,12 @@
           "the king's wealth",
           "Ye Xian's hope and love",
           "a wish for revenge"
+        ],
+        "optionsZh": [
+          "繼母的驕傲",
+          "國王的財富",
+          "葉限的希望和愛",
+          "一個復仇的願望"
         ],
         "correctIndex": 2,
         "explanationZh": "魚發光是因為被愛餵大。葉限的希望和溫柔都在魚身上。",
@@ -1156,6 +1396,12 @@
           "the moon",
           "the fish"
         ],
+        "optionsZh": [
+          "那個牆",
+          "那個路",
+          "那個月亮",
+          "那個魚"
+        ],
         "correctIndex": 3,
         "explanationZh": "see = 看見。後母從窗口偷看, 發現池裡有條大魚。",
         "tags": [
@@ -1177,6 +1423,12 @@
           "Ye Xian's old clothes",
           "Ye Xian's gold ring",
           "Ye Xian's small bowl"
+        ],
+        "optionsZh": [
+          "葉限的紅鞋",
+          "葉限的舊衣服",
+          "葉限的金戒指",
+          "葉限的小碗"
         ],
         "correctIndex": 1,
         "explanationZh": "borrow = 借。「衣」= clothes。後母穿上葉限的舊衣, 想騙魚靠近。",
@@ -1201,6 +1453,12 @@
           "leaves",
           "leaps"
         ],
+        "optionsZh": [
+          "倚靠",
+          "學",
+          "離開",
+          "躍"
+        ],
         "correctIndex": 0,
         "explanationZh": "lean = 彎腰、靠。後母假裝葉限, 慢慢走到池邊彎下身。",
         "tags": [
@@ -1222,6 +1480,12 @@
           "shy and small",
           "wide and bright",
           "cold and sharp"
+        ],
+        "optionsZh": [
+          "暖又軟",
+          "又害羞又小",
+          "又寬又亮",
+          "又冷又尖"
         ],
         "correctIndex": 3,
         "explanationZh": "cold = 冷的, sharp = 銳利的。後母臉上的笑不是真的, 像刀一樣。",
@@ -1246,6 +1510,12 @@
           "it sees food",
           "it hears music"
         ],
+        "optionsZh": [
+          "它相信那件洋裝",
+          "水冷",
+          "它看到食物",
+          "聽到音樂"
+        ],
         "correctIndex": 0,
         "explanationZh": "trust = 信任。魚以為是葉限, 因為認得那件舊衣。",
         "tags": [
@@ -1266,6 +1536,12 @@
           "the fish cannot see in dark",
           "the fish is too small",
           "the fish only trusts Ye Xian"
+        ],
+        "optionsZh": [
+          "池塘太深",
+          "魚在黑暗中看不見",
+          "魚太小",
+          "魚只信任葉限"
         ],
         "correctIndex": 3,
         "explanationZh": "魚只認葉限。後母得騙牠, 不然魚不肯靠近。",
@@ -1300,6 +1576,12 @@
           "a small bowl",
           "a soft net"
         ],
+        "optionsZh": [
+          "一條長繩",
+          "一個尖鉤",
+          "一個小碗",
+          "一張軟網"
+        ],
         "correctIndex": 1,
         "explanationZh": "hook = 鉤子。後母用鉤子把魚拉上來, 魚再也回不去。",
         "tags": [
@@ -1321,6 +1603,12 @@
           "puts it back home",
           "feeds it to the dog",
           "cooks it for dinner"
+        ],
+        "optionsZh": [
+          "把它給葉限",
+          "把它放回家",
+          "餵狗",
+          "煮來當晚餐"
         ],
         "correctIndex": 3,
         "explanationZh": "kill = 殺, cook = 煮。後母把葉限的朋友變成了晚餐。",
@@ -1344,6 +1632,12 @@
           "wish",
           "fist"
         ],
+        "optionsZh": [
+          "魚",
+          "新鮮",
+          "願望",
+          "拳頭"
+        ],
         "correctIndex": 0,
         "explanationZh": "fish = 魚。廚房滿是魚和煙的味道, 那是葉限再也不想聞的味道。",
         "tags": [
@@ -1364,6 +1658,12 @@
           "happy and laughing",
           "sad and crying",
           "tired and quiet"
+        ],
+        "optionsZh": [
+          "害怕又發抖",
+          "又開心又笑",
+          "傷心又哭",
+          "又累又安靜"
         ],
         "correctIndex": 1,
         "explanationZh": "laugh = 笑。後姊不知道這是葉限的朋友, 還吃得很開心。",
@@ -1387,6 +1687,12 @@
           "nothing as usual",
           "fresh rice"
         ],
+        "optionsZh": [
+          "最多魚",
+          "熱湯",
+          "一切如常",
+          "新鮮的飯"
+        ],
         "correctIndex": 2,
         "explanationZh": "empty = 空的。後母煮了魚卻不給葉限吃, 葉限的碗永遠是空的。",
         "tags": [
@@ -1407,6 +1713,12 @@
           "the food is too hot",
           "the bowl is broken",
           "she lost her only friend tonight"
+        ],
+        "optionsZh": [
+          "她很飽",
+          "食物太熱",
+          "碗壞了",
+          "今晚她失去唯一朋友"
         ],
         "correctIndex": 3,
         "explanationZh": "不是因為餓, 是因為她失去了池邊那個唯一的朋友。",
@@ -1441,6 +1753,12 @@
           "at the front door",
           "at the empty pond"
         ],
+        "optionsZh": [
+          "桌子下",
+          "在廚房",
+          "在前門",
+          "在空池塘邊"
+        ],
         "correctIndex": 3,
         "explanationZh": "weep = 哭, empty = 空的。「池」= pond, 葉限跪在空空的池邊。",
         "tags": [
@@ -1464,6 +1782,12 @@
           "on the soft grass",
           "on the cold stones"
         ],
+        "optionsZh": [
+          "在乾葉子上",
+          "在溫熱的米上",
+          "在軟草地",
+          "在冷石頭上"
+        ],
         "correctIndex": 3,
         "explanationZh": "tears = 眼淚。眼淚一滴滴落在池邊的冷石頭上。",
         "tags": [
@@ -1486,6 +1810,12 @@
           "scratches",
           "stretches"
         ],
+        "optionsZh": [
+          "搜尋",
+          "尋找者",
+          "抓痕",
+          "伸展"
+        ],
         "correctIndex": 0,
         "explanationZh": "search = 尋找。她翻遍池水, 什麼也找不到, 朋友真的不見了。",
         "tags": [
@@ -1507,6 +1837,12 @@
           "from crying",
           "from cold",
           "from running"
+        ],
+        "optionsZh": [
+          "因為唱歌",
+          "因為哭",
+          "因為冷",
+          "因為跑步"
         ],
         "correctIndex": 1,
         "explanationZh": "shake = 發抖。哭得太用力, 整個肩膀都在抖。",
@@ -1565,6 +1901,12 @@
           "her dress is dirty",
           "her one friend is gone forever"
         ],
+        "optionsZh": [
+          "月亮藏起來",
+          "她餓",
+          "她的洋裝髒了",
+          "她唯一的朋友永遠不見了"
+        ],
         "correctIndex": 3,
         "explanationZh": "其他苦她忍得住, 但失去唯一的朋友, 沒人能忍。",
         "tags": [
@@ -1598,6 +1940,12 @@
           "an old man with white hair",
           "a tall king with crown"
         ],
+        "optionsZh": [
+          "一個背袋子的小男孩",
+          "一個帶著貓的小女孩",
+          "一個白髮老人",
+          "一位戴皇冠的高國王"
+        ],
         "correctIndex": 2,
         "explanationZh": "appear = 出現。「白髮」= white hair。一位白髮老人忽然站在她旁邊。",
         "tags": [
@@ -1619,6 +1967,12 @@
           "tired and red",
           "bright and angry",
           "sharp and cold"
+        ],
+        "optionsZh": [
+          "明智又善良",
+          "又累又紅",
+          "亮且生氣",
+          "又尖又冷"
         ],
         "correctIndex": 0,
         "explanationZh": "wise = 有智慧的, kind = 親切的。老人的眼神告訴葉限不用怕。",
@@ -1642,6 +1996,12 @@
           "buy",
           "barely"
         ],
+        "optionsZh": [
+          "埋",
+          "燒",
+          "買",
+          "幾乎沒有"
+        ],
         "correctIndex": 0,
         "explanationZh": "bury = 埋。老人告訴她: 把魚骨頭埋進洞裡, 它會聽你的願望。",
         "tags": [
@@ -1663,6 +2023,12 @@
           "anger",
           "fear",
           "pain"
+        ],
+        "optionsZh": [
+          "希望",
+          "憤怒",
+          "恐懼",
+          "痛"
         ],
         "correctIndex": 0,
         "explanationZh": "hope = 希望。葉限聽著老人的話, 胸口又有一點點光。",
@@ -1686,6 +2052,12 @@
           "hear every wish",
           "find a friend"
         ],
+        "optionsZh": [
+          "種一棵樹",
+          "唱歌",
+          "聽到每個願望",
+          "找朋友"
+        ],
         "correctIndex": 2,
         "explanationZh": "wish = 願望。魚骨頭會聽她每一個悄悄話。",
         "tags": [
@@ -1707,6 +2079,12 @@
           "the king sent him",
           "Ye Xian called him",
           "help often comes when someone is truly kind"
+        ],
+        "optionsZh": [
+          "他路過",
+          "國王派他來",
+          "葉限叫了他",
+          "真誠善良時常常會有幫助"
         ],
         "correctIndex": 3,
         "explanationZh": "故事告訴我們: 善良不會白費, 最暗的時候會有人來。",
@@ -1742,6 +2120,12 @@
           "in a tall tree",
           "in a deep well"
         ],
+        "optionsZh": [
+          "在寬闊田野",
+          "在小洞",
+          "在高樹上",
+          "在深井裡"
+        ],
         "correctIndex": 1,
         "explanationZh": "hide = 藏。「洞穴」= cave。她偷偷把魚骨帶到山後的小洞穴。",
         "tags": [
@@ -1765,6 +2149,12 @@
           "soft brown earth",
           "wet green leaves"
         ],
+        "optionsZh": [
+          "冷灰色的石頭",
+          "乾白沙",
+          "軟棕色的土",
+          "濕的綠葉"
+        ],
         "correctIndex": 2,
         "explanationZh": "earth = 泥土。她蓋上一層軟軟的褐色土, 像給魚一個被子。",
         "tags": [
@@ -1785,6 +2175,12 @@
           "wash",
           "watch",
           "witch"
+        ],
+        "optionsZh": [
+          "願望",
+          "洗",
+          "看守",
+          "巫婆"
         ],
         "correctIndex": 0,
         "explanationZh": "wish = 願望。她對魚骨頭講出心裡的小心願。",
@@ -1807,6 +2203,12 @@
           "a heavy red glow",
           "a bright blue flame",
           "a faint gold light"
+        ],
+        "optionsZh": [
+          "一個冷白的火花",
+          "一團沉重的紅光",
+          "一團亮藍色火焰",
+          "一道淡金色的光"
         ],
         "correctIndex": 3,
         "explanationZh": "faint = 微弱的。「金」= gold, 一點點金色光從土裡透出來。",
@@ -1865,6 +2267,12 @@
           "the cave is too big",
           "she is losing her voice"
         ],
+        "optionsZh": [
+          "她從沒要求過很多",
+          "骨頭在睡",
+          "洞穴太大",
+          "她快沒聲音"
+        ],
         "correctIndex": 0,
         "explanationZh": "葉限從小沒人疼, 不敢要太多, 願望也輕輕的。",
         "tags": [
@@ -1898,6 +2306,12 @@
           "last winter",
           "this morning"
         ],
+        "optionsZh": [
+          "下週",
+          "明年",
+          "去年冬天",
+          "今天早上"
+        ],
         "correctIndex": 0,
         "explanationZh": "festival = 慶典。「洞節」= cave festival, 下週是村裡最熱鬧的日子。",
         "tags": [
@@ -1921,6 +2335,12 @@
           "you may come",
           "you should come"
         ],
+        "optionsZh": [
+          "你不能來",
+          "你必須來",
+          "你可以來",
+          "你應該來"
+        ],
         "correctIndex": 0,
         "explanationZh": "cannot = 不能。後母又一次把葉限關在家。",
         "tags": [
@@ -1943,6 +2363,12 @@
           "begins",
           "begged"
         ],
+        "optionsZh": [
+          "懇求",
+          "袋子",
+          "開始",
+          "懇求過"
+        ],
         "correctIndex": 0,
         "explanationZh": "beg = 求。葉限跑去洞穴跪在魚骨前, 第一次大聲說出願望。",
         "tags": [
@@ -1964,6 +2390,12 @@
           "a wooden cup",
           "a gold robe",
           "a glass shoe"
+        ],
+        "optionsZh": [
+          "一本紙書",
+          "一個木杯",
+          "一件金袍",
+          "一隻玻璃鞋"
         ],
         "correctIndex": 2,
         "explanationZh": "robe = 長袍。「金」= gold。手裡突然出現一件閃亮的金袍。",
@@ -1988,6 +2420,12 @@
           "tiny gold slippers",
           "big silver boots"
         ],
+        "optionsZh": [
+          "軟布鞋",
+          "小木鞋",
+          "小金拖鞋",
+          "一雙大銀靴"
+        ],
         "correctIndex": 2,
         "explanationZh": "slipper = 拖鞋, tiny = 小巧的。連一雙小巧的金鞋都有。",
         "tags": [
@@ -2008,6 +2446,12 @@
           "stepmothers always win",
           "festivals are dangerous",
           "kindness is repaid in time"
+        ],
+        "optionsZh": [
+          "有錢人運氣更好",
+          "繼母總是贏",
+          "節慶很危險",
+          "善意總會回報"
         ],
         "correctIndex": 3,
         "explanationZh": "葉限對魚的好, 終於有回報。善良不會白費。",
@@ -2043,6 +2487,12 @@
           "wet socks",
           "black boots"
         ],
+        "optionsZh": [
+          "舊涼鞋",
+          "金色拖鞋",
+          "濕襪子",
+          "黑色靴子"
+        ],
         "correctIndex": 1,
         "explanationZh": "slipper = 拖鞋。「金」= gold, 她穿著一雙會發光的金鞋。",
         "tags": [
@@ -2064,6 +2514,12 @@
           "letters",
           "lanterns",
           "ladders"
+        ],
+        "optionsZh": [
+          "離開",
+          "信",
+          "燈籠",
+          "梯子"
         ],
         "correctIndex": 2,
         "explanationZh": "lantern = 燈籠。「燈籠」= lantern, 廣場上掛了好幾百盞燈籠。",
@@ -2088,6 +2544,12 @@
           "ducks",
           "dares"
         ],
+        "optionsZh": [
+          "跳舞",
+          "衝",
+          "鴨子",
+          "敢"
+        ],
         "correctIndex": 0,
         "explanationZh": "dance = 跳舞。她從沒跳過舞, 卻在燈籠下慢慢轉圈。",
         "tags": [
@@ -2109,6 +2571,12 @@
           "with shouts",
           "with anger",
           "in silence"
+        ],
+        "optionsZh": [
+          "睡著",
+          "大聲喊",
+          "生氣地",
+          "在沉默中"
         ],
         "correctIndex": 3,
         "explanationZh": "silence = 安靜。整個廣場都停下來看她, 沒人敢出聲。",
@@ -2166,6 +2634,12 @@
           "she wants to find a husband",
           "she is escaping"
         ],
+        "optionsZh": [
+          "她在炫耀",
+          "魔法給她一個勇敢的夜",
+          "她想找丈夫",
+          "她在逃"
+        ],
         "correctIndex": 1,
         "explanationZh": "今晚是她唯一可以被當人看的夜, 她不想浪費。",
         "tags": [
@@ -2199,6 +2673,12 @@
           "a poor farmer",
           "her own father"
         ],
+        "optionsZh": [
+          "村裡的老師",
+          "鄰國的國王",
+          "一個窮農夫",
+          "她自己的父親"
+        ],
         "correctIndex": 1,
         "explanationZh": "king = 國王。「國王」= king。旁邊王國的國王正好在場。",
         "tags": [
@@ -2222,6 +2702,12 @@
           "her quiet grace",
           "her sharp words"
         ],
+        "optionsZh": [
+          "她快快的腳",
+          "她大聲的聲音",
+          "她安靜的優雅",
+          "她尖銳的話"
+        ],
         "correctIndex": 2,
         "explanationZh": "grace = 優雅。國王第一眼就被她安靜的優雅迷住。",
         "tags": [
@@ -2243,6 +2729,12 @@
           "ruined",
           "rises",
           "rents"
+        ],
+        "optionsZh": [
+          "跑",
+          "毀壞",
+          "升起",
+          "出租"
         ],
         "correctIndex": 0,
         "explanationZh": "run = 跑。葉限怕被認出, 拔腿就跑。",
@@ -2266,6 +2758,12 @@
           "her ring",
           "a lantern"
         ],
+        "optionsZh": [
+          "一件紅袍",
+          "一隻拖鞋",
+          "她的戒指",
+          "一個燈籠"
+        ],
         "correctIndex": 1,
         "explanationZh": "drop = 掉。跑太快, 一隻金鞋從腳上掉下來。",
         "tags": [
@@ -2286,6 +2784,12 @@
           "with one foot",
           "with both hands",
           "with a stick"
+        ],
+        "optionsZh": [
+          "用一塊布",
+          "用一隻腳",
+          "用兩手",
+          "用一根棍子"
         ],
         "correctIndex": 2,
         "explanationZh": "both hands = 雙手。國王用雙手捧著, 像捧著寶物。",
@@ -2308,6 +2812,12 @@
           "she fears the magic will end at midnight",
           "she dislikes the king",
           "she wants to win a race"
+        ],
+        "optionsZh": [
+          "她跳舞跳累了",
+          "她怕魔法午夜結束",
+          "她不喜歡國王",
+          "她想贏比賽"
         ],
         "correctIndex": 1,
         "explanationZh": "魔法只能撐一晚, 她怕被看穿真實的身分。",
@@ -2342,6 +2852,12 @@
           "every village",
           "every mountain"
         ],
+        "optionsZh": [
+          "每條河",
+          "每朵雲",
+          "每個村",
+          "每座山"
+        ],
         "correctIndex": 2,
         "explanationZh": "search = 尋找。「村」= village。國王挨家挨戶找。",
         "tags": [
@@ -2365,6 +2881,12 @@
           "the king's lost crown",
           "the foot that fits the slipper"
         ],
+        "optionsZh": [
+          "一匹新馬",
+          "一張舊地圖",
+          "國王遺失的皇冠",
+          "合腳的那隻"
+        ],
         "correctIndex": 3,
         "explanationZh": "fit = 合適。哪雙腳穿得進那隻小金鞋, 哪雙就是她。",
         "tags": [
@@ -2386,6 +2908,12 @@
           "smile",
           "smart"
         ],
+        "optionsZh": [
+          "小",
+          "聞",
+          "笑容",
+          "聰明"
+        ],
         "correctIndex": 0,
         "explanationZh": "small = 小。每個試的人腳都太大, 鞋穿不下。",
         "tags": [
@@ -2406,6 +2934,12 @@
           "she sits quietly",
           "she laughs softly",
           "she stands still"
+        ],
+        "optionsZh": [
+          "她用力推",
+          "她安靜地坐",
+          "她輕輕地笑",
+          "她站著不動"
         ],
         "correctIndex": 0,
         "explanationZh": "push = 推、塞。後姊用力塞腳, 還是不合。",
@@ -2429,6 +2963,12 @@
           "the village teacher",
           "the king's young brother"
         ],
+        "optionsZh": [
+          "一個穿舊衣的安靜女孩",
+          "最大聲的繼姊",
+          "村裡的老師",
+          "國王的小弟弟"
+        ],
         "correctIndex": 0,
         "explanationZh": "step forward = 走上前。最後出來的是穿舊衣的葉限。",
         "tags": [
@@ -2449,6 +2989,12 @@
           "the king gave her a hint",
           "she has practiced for years",
           "she has the smallest feet ever"
+        ],
+        "optionsZh": [
+          "拖鞋是她骨頭魔法做的",
+          "國王給她暗示",
+          "她練了好幾年",
+          "她的腳最小"
         ],
         "correctIndex": 0,
         "explanationZh": "鞋是魚骨頭的魔法做的, 本來就只屬於葉限一個人。",
@@ -2484,6 +3030,12 @@
           "to leave home",
           "to dance again"
         ],
+        "optionsZh": [
+          "嫁給他",
+          "為了給他煮飯",
+          "離家",
+          "再次跳舞"
+        ],
         "correctIndex": 0,
         "explanationZh": "marry = 結婚。國王請葉限做他的王后。",
         "tags": [
@@ -2506,6 +3058,12 @@
           "no with anger",
           "yes after a quiet moment"
         ],
+        "optionsZh": [
+          "對，很大聲",
+          "不要馬上",
+          "生氣地說不",
+          "靜了一下後說好"
+        ],
         "correctIndex": 3,
         "explanationZh": "quiet moment = 一個安靜的片刻。葉限想了想, 才點頭。",
         "tags": [
@@ -2526,6 +3084,12 @@
           "burned",
           "borrowed",
           "barely"
+        ],
+        "optionsZh": [
+          "埋葬",
+          "燒過",
+          "借過",
+          "幾乎沒有"
         ],
         "correctIndex": 0,
         "explanationZh": "bury = 埋。「石頭」= stones。後母最後被一堆石頭壓住, 不能再害人。",
@@ -2550,6 +3114,12 @@
           "loud in the river",
           "bright like fire"
         ],
+        "optionsZh": [
+          "迷失在風中",
+          "在洞穴裡很安靜",
+          "在河裡很大聲",
+          "亮得像火"
+        ],
         "correctIndex": 1,
         "explanationZh": "quiet = 安靜。願望都實現了, 魚骨頭從此安靜地睡在洞裡。",
         "tags": [
@@ -2572,6 +3142,12 @@
           "gives food to poor children",
           "hides all her gold"
         ],
+        "optionsZh": [
+          "買很多洋裝",
+          "蓋大塔",
+          "把食物給窮孩子",
+          "把她的金子全藏起"
+        ],
         "correctIndex": 2,
         "explanationZh": "give food = 給食物。葉限沒忘記餓的滋味, 當王后後常幫窮孩子。",
         "tags": [
@@ -2593,6 +3169,12 @@
           "the kind got kindness back and the cruel got stopped",
           "the village voted on it",
           "the king was the strongest"
+        ],
+        "optionsZh": [
+          "月亮決定了",
+          "善有善報壞有惡報",
+          "村莊投票決定",
+          "國王最強"
         ],
         "correctIndex": 1,
         "explanationZh": "fairness = 公平。對人好的有好報, 害人的被擋下來, 這就是公平。",
@@ -2629,6 +3211,12 @@
           "a horse",
           "a snake"
         ],
+        "optionsZh": [
+          "一個兔子",
+          "一個蝸牛",
+          "一個馬",
+          "一個蛇"
+        ],
         "correctIndex": 1,
         "explanationZh": "snail = 蝸牛 / 螺。「田螺」= river snail, 田裡撿到的螺。",
         "tags": [
@@ -2652,6 +3240,12 @@
           "an old farmer",
           "a small child"
         ],
+        "optionsZh": [
+          "一位孤獨的漁夫",
+          "一位年輕的國王",
+          "一個老農夫",
+          "一個小孩"
+        ],
         "correctIndex": 0,
         "explanationZh": "fisherman = 漁夫, lonely = 寂寞的。一位寂寞的漁夫在河邊撿到大田螺。",
         "tags": [
@@ -2673,6 +3267,12 @@
           "jam",
           "jaw",
           "jet"
+        ],
+        "optionsZh": [
+          "罐子",
+          "果醬",
+          "下顎",
+          "噴射"
         ],
         "correctIndex": 0,
         "explanationZh": "jar = 罐子。漁夫把田螺放進陶罐, 蓋上蓋子。",
@@ -2696,6 +3296,12 @@
           "more dark",
           "more cold"
         ],
+        "optionsZh": [
+          "更空",
+          "比較不空",
+          "更暗",
+          "更冷"
+        ],
         "correctIndex": 1,
         "explanationZh": "less empty = 比較不空。有了田螺陪, 屋子裡好像多了點什麼。",
         "tags": [
@@ -2718,6 +3324,12 @@
           "it is too small",
           "it is too pretty and rare to eat",
           "his pot is broken"
+        ],
+        "optionsZh": [
+          "村裡禁止",
+          "太小了",
+          "太美又稀有不忍心吃",
+          "他的鍋壞了"
         ],
         "correctIndex": 2,
         "explanationZh": "漁夫覺得這隻田螺特別漂亮, 捨不得吃, 想留下。",
@@ -2753,6 +3365,12 @@
           "cold soup",
           "raw fish"
         ],
+        "optionsZh": [
+          "熱飯",
+          "乾麵包",
+          "冷湯",
+          "生魚"
+        ],
         "correctIndex": 0,
         "explanationZh": "rice = 米飯。漁夫一早起來看到熱飯已經煮好。",
         "tags": [
@@ -2774,6 +3392,12 @@
           "in the jar",
           "on the roof",
           "behind the door"
+        ],
+        "optionsZh": [
+          "床下",
+          "在罐子裡",
+          "在屋頂",
+          "門後"
         ],
         "correctIndex": 3,
         "explanationZh": "hide = 躲。他躲在門後想看誰來煮飯。",
@@ -2797,6 +3421,12 @@
           "sell",
           "shelf"
         ],
+        "optionsZh": [
+          "殼",
+          "將",
+          "賣",
+          "架子"
+        ],
         "correctIndex": 0,
         "explanationZh": "shell = 殼。從田螺的殼裡走出一位善良的姑娘。",
         "tags": [
@@ -2818,6 +3448,12 @@
           "with quiet care",
           "with fast feet",
           "with loud song"
+        ],
+        "optionsZh": [
+          "兩手空空",
+          "輕輕地照顧",
+          "用快腳步",
+          "大聲唱歌"
         ],
         "correctIndex": 1,
         "explanationZh": "sweep = 掃, quiet care = 靜靜地用心。她默默把地板掃乾淨。",
@@ -2841,6 +3477,12 @@
           "always keep snails as pets",
           "never go fishing alone",
           "hot rice is the best food"
+        ],
+        "optionsZh": [
+          "不求也有善意回報",
+          "把蝸牛當寵物",
+          "別自己一個人去釣魚",
+          "熱飯是最好的食物"
         ],
         "correctIndex": 0,
         "explanationZh": "對人對動物善良, 不一定當下被看到, 但會用別的方式回來。",
@@ -2877,6 +3519,12 @@
           "twenty",
           "two"
         ],
+        "optionsZh": [
+          "十二",
+          "十",
+          "二十",
+          "二"
+        ],
         "correctIndex": 1,
         "explanationZh": "ten = 十。古時候天上有十個太陽, 地都快烤焦了。",
         "tags": [
@@ -2898,6 +3546,12 @@
           "eleven",
           "nine",
           "five"
+        ],
+        "optionsZh": [
+          "一",
+          "十一",
+          "九",
+          "五"
         ],
         "correctIndex": 2,
         "explanationZh": "shoot down = 射下。后羿用弓箭射掉九個, 留一個給地球。",
@@ -2921,6 +3575,12 @@
           "medium",
           "messenger"
         ],
+        "optionsZh": [
+          "藥",
+          "冥想",
+          "中等",
+          "信使"
+        ],
         "correctIndex": 0,
         "explanationZh": "medicine = 藥。神為了謝謝他, 給了一瓶仙藥。",
         "tags": [
@@ -2943,6 +3603,12 @@
           "the king",
           "his wife Chang'e"
         ],
+        "optionsZh": [
+          "他的老父親",
+          "他的獵犬",
+          "那個國王",
+          "他的妻子嫦娥"
+        ],
         "correctIndex": 3,
         "explanationZh": "wife = 妻子。后羿把仙藥交給妻子嫦娥保管。",
         "tags": [
@@ -2964,6 +3630,12 @@
           "they love earth and each other too much",
           "they lost the bottle",
           "they think it tastes bad"
+        ],
+        "optionsZh": [
+          "神告訴他們不可以",
+          "他們太愛地球和彼此",
+          "他們丟了瓶子",
+          "他們覺得不好吃"
         ],
         "correctIndex": 1,
         "explanationZh": "他們捨不得對方, 也不想離開人間。",
@@ -2999,6 +3671,12 @@
           "a kind queen",
           "a tired farmer"
         ],
+        "optionsZh": [
+          "一個窮孩子",
+          "一個壞男人",
+          "一位善良的女王",
+          "一個累的農夫"
+        ],
         "correctIndex": 1,
         "explanationZh": "steal = 偷。一個壞人趁后羿不在家來搶仙藥。",
         "tags": [
@@ -3020,6 +3698,12 @@
           "she is curious",
           "she is hungry",
           "to keep it safe"
+        ],
+        "optionsZh": [
+          "她生病",
+          "她好奇",
+          "她餓",
+          "保護它"
         ],
         "correctIndex": 3,
         "explanationZh": "safe = 安全。嫦娥怕仙藥被搶走, 自己喝下去。",
@@ -3043,6 +3727,12 @@
           "moan",
           "moor"
         ],
+        "optionsZh": [
+          "月亮",
+          "中午",
+          "呻吟",
+          "停泊"
+        ],
         "correctIndex": 0,
         "explanationZh": "moon = 月亮。她的身體變輕, 慢慢飄到月亮上。",
         "tags": [
@@ -3065,6 +3755,12 @@
           "a young child",
           "a quiet swan"
         ],
+        "optionsZh": [
+          "一條金龍",
+          "一隻小玉兔",
+          "一個小孩",
+          "一隻安靜的天鵝"
+        ],
         "correctIndex": 1,
         "explanationZh": "rabbit = 兔子, jade = 玉。月亮上有一隻玉兔陪著她。",
         "tags": [
@@ -3086,6 +3782,12 @@
           "Chang'e misses Houyi and the earth",
           "the moon is hungry",
           "the rabbit is lost"
+        ],
+        "optionsZh": [
+          "神關掉燈",
+          "嫦娥想念后羿和地球",
+          "月亮餓了",
+          "兔子迷路"
         ],
         "correctIndex": 1,
         "explanationZh": "月亮看起來孤單, 是因為嫦娥在上面想著地球上的人。",
@@ -3122,6 +3824,12 @@
           "with a loud bang",
           "with anger"
         ],
+        "optionsZh": [
+          "匆忙",
+          "很輕地",
+          "砰一聲",
+          "生氣地"
+        ],
         "correctIndex": 1,
         "explanationZh": "softly = 輕輕地。奶奶合書的動作慢得像捨不得。",
         "tags": [
@@ -3143,6 +3851,12 @@
           "the start of school",
           "the end of summer",
           "the end of our eight nights"
+        ],
+        "optionsZh": [
+          "我們旅行的開始",
+          "開學",
+          "夏天結束",
+          "我們八晚的結束"
         ],
         "correctIndex": 3,
         "explanationZh": "end = 結束, eight nights = 八個夜晚。奶奶說: 我們的八夜講完了。",
@@ -3166,6 +3880,12 @@
           "ice",
           "size"
         ],
+        "optionsZh": [
+          "眼睛",
+          "耳朵",
+          "冰",
+          "大小"
+        ],
         "correctIndex": 0,
         "explanationZh": "eyes = 眼睛。{dogName} 抬頭看我, 圓滾滾的眼睛裡有疑問。",
         "tags": [
@@ -3187,6 +3907,12 @@
           "very light",
           "extra warm",
           "totally cold"
+        ],
+        "optionsZh": [
+          "有點重",
+          "很輕",
+          "特別暖",
+          "完全冷"
         ],
         "correctIndex": 0,
         "explanationZh": "heavy = 沉重的。連耳朵都垂下來一點, 像在說: 我也捨不得。",
@@ -3211,6 +3937,12 @@
           "in her lap",
           "on the book"
         ],
+        "optionsZh": [
+          "在我頭上",
+          "在門上",
+          "在她大腿上",
+          "在書上"
+        ],
         "correctIndex": 3,
         "explanationZh": "rest = 停放。奶奶的手在書上多停了一會, 也在告別。",
         "tags": [
@@ -3232,6 +3964,12 @@
           "the moon",
           "the sun",
           "the lamp"
+        ],
+        "optionsZh": [
+          "那個蠟燭",
+          "那個月亮",
+          "那個太陽",
+          "那個燈"
         ],
         "correctIndex": 1,
         "explanationZh": "blow out = 吹熄, bright = 亮。蠟燭滅了, 但月亮還亮著。",
@@ -3256,6 +3994,12 @@
           "yesterday",
           "together"
         ],
+        "optionsZh": [
+          "明天",
+          "今天",
+          "昨天",
+          "一起"
+        ],
         "correctIndex": 0,
         "explanationZh": "tomorrow = 明天。我不確定明天還會不會跳上這面矮牆。",
         "tags": [
@@ -3278,6 +4022,12 @@
           "rice",
           "jasmine",
           "smoke"
+        ],
+        "optionsZh": [
+          "雨",
+          "米",
+          "茉莉",
+          "煙"
         ],
         "correctIndex": 2,
         "explanationZh": "jasmine = 茉莉花。最後一夜的院子有淡淡的茉莉香。",
@@ -3340,6 +4090,12 @@
           "{dogName} is angry",
           "the eight-night routine is ending"
         ],
+        "optionsZh": [
+          "月亮太亮",
+          "奶奶把她趕走",
+          "{dogName}是生氣",
+          "八個夜晚就要結束"
+        ],
         "correctIndex": 3,
         "explanationZh": "故事夜結束了, 我不知道沒有故事的日子會長什麼樣。",
         "tags": [
@@ -3374,6 +4130,12 @@
           "was she scared",
           "was she sleeping"
         ],
+        "optionsZh": [
+          "她漂亮嗎",
+          "她有錢嗎",
+          "她害怕嗎",
+          "她在睡嗎"
+        ],
         "correctIndex": 2,
         "explanationZh": "scared = 害怕的。{dogName} 想知道葉限那麼苦會不會怕。",
         "tags": [
@@ -3396,6 +4158,12 @@
           "she was tired",
           "no she was happy"
         ],
+        "optionsZh": [
+          "她生氣",
+          "對她很害怕",
+          "她累",
+          "沒，她很開心"
+        ],
         "correctIndex": 1,
         "explanationZh": "我老實回答, 葉限當然會怕, 跟我們一樣會怕的人才是真的人。",
         "tags": [
@@ -3416,6 +4184,12 @@
           "she stayed home",
           "she still went to the festival",
           "she cried all night"
+        ],
+        "optionsZh": [
+          "她逃走",
+          "她留在家",
+          "她還是去了節慶",
+          "她哭了一整晚"
         ],
         "correctIndex": 2,
         "explanationZh": "shaking = 顫抖的。怕歸怕, 葉限還是出發了, 這就是勇敢。",
@@ -3439,6 +4213,12 @@
           "smart",
           "small"
         ],
+        "optionsZh": [
+          "勇敢",
+          "富有",
+          "聰明",
+          "小"
+        ],
         "correctIndex": 0,
         "explanationZh": "brave = 勇敢的。重點: 勇敢 ≠ 不害怕, 是「害怕但還是去做」。",
         "tags": [
@@ -3460,6 +4240,12 @@
           "a magic fish bone",
           "a warm bowl",
           "a tall tree"
+        ],
+        "optionsZh": [
+          "一個大房子",
+          "一根魔法魚骨",
+          "一個熱碗",
+          "一棵高樹"
         ],
         "correctIndex": 1,
         "explanationZh": "wish = 希望。我也想要一根能許願的魚骨頭, 流浪貓也會累的時候。",
@@ -3484,6 +4270,12 @@
           "a warm yard every night",
           "a long red robe"
         ],
+        "optionsZh": [
+          "一座高塔",
+          "一個金皇冠",
+          "每晚一個溫暖的院子",
+          "一件長紅袍"
+        ],
         "correctIndex": 2,
         "explanationZh": "我的願望比較小, 不要金子不要王冠, 只想要一個能停下來的地方。",
         "tags": [
@@ -3506,6 +4298,12 @@
           "bites my tail",
           "licks my paw"
         ],
+        "optionsZh": [
+          "叫大聲",
+          "跑開",
+          "咬我的尾巴",
+          "舔我的爪子"
+        ],
         "correctIndex": 3,
         "explanationZh": "lick = 舔。{dogName} 用最溫柔的方式安慰我, 像在說: 我們也是家。",
         "tags": [
@@ -3527,6 +4325,12 @@
           "they get hot",
           "they get wet",
           "they close fast"
+        ],
+        "optionsZh": [
+          "他們閃亮",
+          "他們會熱",
+          "他們會濕",
+          "他們很快合上"
         ],
         "correctIndex": 2,
         "explanationZh": "wet = 濕的。眼眶濕了但不出聲, 愛哭鬼貓還是有她的尊嚴。",
@@ -3584,6 +4388,12 @@
           "always wear gold",
           "go even when you are scared",
           "find a king to save you"
+        ],
+        "optionsZh": [
+          "別相信繼母",
+          "永遠穿金衣",
+          "害怕也要走",
+          "找國王救你"
         ],
         "correctIndex": 2,
         "explanationZh": "葉限教我的不是「等王子」, 是「會怕也要走出門」。這是貓和女孩共同的事。",
@@ -3653,6 +4463,12 @@
           "two",
           "eight"
         ],
+        "optionsZh": [
+          "十",
+          "六",
+          "二",
+          "八"
+        ],
         "correctIndex": 3,
         "explanationZh": "eight = 八。八個夜晚 = 八個故事, 一晚一個, 不多不少。",
         "tags": [
@@ -3674,6 +4490,12 @@
           "rain",
           "jasmine",
           "smoke"
+        ],
+        "optionsZh": [
+          "米",
+          "雨",
+          "茉莉",
+          "煙"
         ],
         "correctIndex": 2,
         "explanationZh": "jasmine = 茉莉花。夏末的院子有茉莉香, 跟 Ch1 的雨味、Ch6 的冬風一樣, 是季節的記號。",
@@ -3697,6 +4519,12 @@
           "slowly",
           "high"
         ],
+        "optionsZh": [
+          "大聲",
+          "快",
+          "慢慢地",
+          "高"
+        ],
         "correctIndex": 2,
         "explanationZh": "slowly = 慢慢地。前七晚我都是輕輕一躍就走, 今晚走得慢, 想多看一眼。",
         "tags": [
@@ -3718,6 +4546,12 @@
           "the one that made me feel less alone",
           "the one with the most magic",
           "the one with the biggest king"
+        ],
+        "optionsZh": [
+          "有最大聲打架的那個",
+          "讓我比較不孤單的那個",
+          "有最多魔法的那個",
+          "有最大國王的那個"
         ],
         "correctIndex": 1,
         "explanationZh": "這題沒有錯答案。每個學生會記住不同的故事。最重要的不是哪個對, 是「你還記得」。明天還是會有夜晚, 我可能會回來。也可能不會。但故事已經在你身上了。",

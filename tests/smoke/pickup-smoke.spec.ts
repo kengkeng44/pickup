@@ -16,9 +16,17 @@ const PROD_URL: string = (typeof process !== 'undefined' && process?.env?.PICKUP
 test.describe('Pickup smoke', () => {
   test('Ch1 map renders + first node tap loads LessonScene', async ({ page }) => {
     const errors: string[] = [];
-    page.on('pageerror', (err) => errors.push(err.message));
+    // v2.0.B.130: Chromium-headless lacks proprietary MP3 codec, so peace.mp3
+    // BGM decode rejects with "Unable to decode audio data". Production
+    // Chrome/Safari/Firefox decode fine. Filter at BOTH pageerror + console.
+    const isCodecNoise = (s: string) => s.includes('Unable to decode audio data');
+    page.on('pageerror', (err) => {
+      if (isCodecNoise(err.message)) return;
+      errors.push(err.message);
+    });
     page.on('console', (msg) => {
       const text = msg.text();
+      if (isCodecNoise(text)) return;
       if (msg.type() === 'error') errors.push(`[ERR] ${text}`);
       if (text.includes('LessonScene')) errors.push(`[LOG] ${text}`);
     });

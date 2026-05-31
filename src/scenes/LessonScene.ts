@@ -194,6 +194,16 @@ export class LessonScene extends Phaser.Scene {
     this.locked = false;
     this.cancelAdvanceTimer();
 
+    // v2.0.B.130: kill any in-flight speech from the PREVIOUS question.
+    // User: '太快回答完 跳到下一題 上一題的語音還沒播放 就會在下一題繼續播放完'.
+    // Web Speech queue persists across renderQuestion() calls; without cancel
+    // here, leftover utterances from Qn play over Qn+1's sentence card.
+    try {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    } catch {}
+
     // Tear down any prior tap UI from the previous question — symmetric
     // with PlayScene.ts:475-476.
     this.tapHandle?.destroy();
@@ -238,7 +248,7 @@ export class LessonScene extends Phaser.Scene {
     // Per user: 文字應該都是隱形的.
     if (
       this.hud &&
-      (qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'type-what-you-hear')
+      (qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'type-what-you-hear' || qType === 'listen-emoji')
     ) {
       const correctIndex = round.correctIndex ?? 0;
       const correctWord = round.options?.[correctIndex] ?? '';
