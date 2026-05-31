@@ -659,17 +659,22 @@ export class ClozeUI {
     const { el, letter, label } = btn;
     el.disabled = true;
     el.style.cursor = 'default';
-    el.style.background = COLOR_RED_TINT;
-    el.style.borderColor = COLOR_RED;
-    el.style.borderBottomColor = COLOR_RED_DARK;
-    el.style.color = COLOR_RED_DARK;
-    letter.style.background = COLOR_RED;
-    letter.style.borderColor = COLOR_RED;
+    // v2.0.B.156: 1st-strike YELLOW (warning, not error) per user '不小心打錯
+    // 一個字 可以跳黃色提醒 記得用黃色標明錯誤地方 第二次還錯就變紅然後 reveal'.
+    // 2nd-strike path (line 431 blindRetry false) falls through to RED + reveal
+    // panel — covered by existing 2-strike logic.
+    const YELLOW_BG = '#fff6d8';
+    const YELLOW_BORDER = '#e7a44a';
+    const YELLOW_BORDER_DARK = '#b07a2a';
+    const YELLOW_TEXT = '#8b6f4a';
+    el.style.background = YELLOW_BG;
+    el.style.borderColor = YELLOW_BORDER;
+    el.style.borderBottomColor = YELLOW_BORDER_DARK;
+    el.style.color = YELLOW_TEXT;
+    letter.style.background = YELLOW_BORDER;
+    letter.style.borderColor = YELLOW_BORDER;
     letter.style.color = '#ffffff';
-    el.setAttribute('aria-label', `Your wrong choice: ${label.textContent ?? ''}`);
-    // v0.10 — gentle wobble (Duolingo pacing principle) replaces the
-    // harsher shake on blind-retry follow-up taps. PlayScene still
-    // shakes the entire app on the first wrong tap.
+    el.setAttribute('aria-label', `Wrong on first try: ${label.textContent ?? ''}`);
     el.classList.remove('pickup-wobble');
     void el.offsetWidth;
     el.classList.add('pickup-wobble');
