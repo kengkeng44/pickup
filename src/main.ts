@@ -99,14 +99,67 @@ function bootAnalyticsLazy(): void {
   }).catch(() => { /* analytics is optional */ });
 }
 
+// v2.0.B.161.5: consent banner per posthog event spec § H. Only shows
+// if (1) PostHog key present (no key = nothing to consent to) + (2) no
+// prior decision. Decline = full opt-out; accept = enable + bootAnalytics.
+function showConsentBannerIfNeeded(): void {
+  const hasKey = !!(import.meta as ImportMeta & { env?: { VITE_POSTHOG_KEY?: string } }).env?.VITE_POSTHOG_KEY;
+  if (!hasKey) return;
+  void import('./analytics/posthog').then((m) => {
+    if (m.getConsent() != null) {
+      // Already decided — boot analytics now if granted
+      if (m.getConsent() === 'granted') bootAnalyticsLazy();
+      return;
+    }
+    const banner = document.createElement('div');
+    banner.id = 'pickup-consent-banner';
+    banner.style.cssText = [
+      'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:9998',
+      'background:#fff7e8', 'border-top:3px solid #e7a44a',
+      'padding:14px 18px 18px', 'box-shadow:0 -4px 12px rgba(0,0,0,0.10)',
+      'font-family:"Noto Sans TC","Nunito",system-ui,sans-serif',
+      'color:#3c2a1c',
+    ].join(';');
+    banner.innerHTML = `
+      <div style="font-size:13px;line-height:1.5;margin-bottom:10px;">
+        我們用<b>匿名數據</b>幫助改善拾光 (不含個資 / 不會分享給第三方)。<br/>
+        <span style="color:#8b6f4a;font-size:12px;">We use anonymous analytics to improve Pickup.</span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button type="button" id="pickup-consent-deny" style="
+          flex:1;padding:10px 0;background:#fef8ed;color:#8b6f4a;
+          border:2px solid #c8a878;border-radius:10px;font-size:13px;
+          font-weight:700;cursor:pointer;font-family:inherit;
+        ">拒絕 · Deny</button>
+        <button type="button" id="pickup-consent-accept" style="
+          flex:1;padding:10px 0;background:#7ac74a;color:#ffffff;
+          border:none;border-bottom:3px solid #5d9a35;border-radius:10px;
+          font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;
+        ">同意 · Accept</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+    banner.querySelector('#pickup-consent-accept')?.addEventListener('click', () => {
+      m.setConsent(true);
+      banner.remove();
+      bootAnalyticsLazy();
+    });
+    banner.querySelector('#pickup-consent-deny')?.addEventListener('click', () => {
+      m.setConsent(false);
+      banner.remove();
+    });
+  }).catch(() => { /* analytics optional */ });
+}
+
 // v2.0.B.152: lazy-load Phaser + scenes after 'load' event.
 function bootPhaserLazy(): void {
   void import('./bootGame').then(({ startGame }) => {
     startGame();
     // v2.0.B.157: chain intro removal so it doesn't fire before Phaser mounts
     removeIntro();
-    // v2.0.B.161.4: analytics after Phaser so MPS not contended
-    bootAnalyticsLazy();
+    // v2.0.B.161.5: consent banner first; analytics boots only on accept
+    // (or if user previously granted). No key = no banner = no analytics.
+    showConsentBannerIfNeeded();
   });
 }
 if (document.readyState === 'complete') {

@@ -826,6 +826,19 @@ export class LessonScene extends Phaser.Scene {
     // the answered card to #pickup-lesson-history container.
     // v2.0.B.159: log answer instead of DOM snapshot
     this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx: correctIndex, isCorrect: correct });
+    // v2.0.B.161.5: PostHog ANSWER_SUBMIT event — core funnel + completion analytics
+    try {
+      track(EVENT.ANSWER_SUBMIT, {
+        lesson_id: this.lesson.id,
+        question_id: (q as any).id,
+        question_type: (q as any).type,
+        question_idx: this.questionIdx,
+        user_answer_idx: idx,
+        correct_idx: correctIndex,
+        is_correct: correct,
+        attempt_number: 1,
+      });
+    } catch {}
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user
