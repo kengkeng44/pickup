@@ -854,12 +854,20 @@ export class StoryMapView {
       row.addEventListener('touchstart', press, { passive: true });
       row.addEventListener('touchend', release);
       row.addEventListener('touchcancel', release);
-      row.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (opts.chapter !== null) {
-          this.handlers.onPlayChapter(opts.chapter);
-        }
-      });
+      // v2.0.B.112 CRITICAL: skip default onPlayChapter click for V2 nodes
+      // (positionOverride set). V2 caller attaches its own scene.start('LessonScene')
+      // click handler with specific lesson.id. Without this skip, BOTH handlers
+      // fire on tap → LessonScene starts then onPlayChapter immediately routes
+      // to ChapterIntro → PlayScene v1.x with story-kitten.json (the OLD 8 Q)
+      // → user sees same content regardless of which node clicked.
+      if (!opts.positionOverride) {
+        row.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (opts.chapter !== null) {
+            this.handlers.onPlayChapter(opts.chapter);
+          }
+        });
+      }
     }
 
     return {
