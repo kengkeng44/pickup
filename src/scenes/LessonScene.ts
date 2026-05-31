@@ -128,7 +128,7 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.159: lesson stat tracking + dead-method TS6133 suppress
     this.lessonStartTime = Date.now();
     this.lessonAnswerLog = [];
-    void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
+    void this._snapshotTf; void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
 
     // Defensively kill any leftover bottom nav (matches PlayScene v1.8.7).
     document.getElementById('pickup-bottom-nav')?.remove();
