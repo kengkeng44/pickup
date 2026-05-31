@@ -184,17 +184,11 @@ export class LessonScene extends Phaser.Scene {
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
     this.mascot.setMascotImage('/mascots/calico-anchor.webp');
 
-    // v2.0.B.143: story opener (Duolingo-radio-mode) per user '先一兩句話馬上
-    // 帶玩家進入情緒跟狀況 然後在情節裡面穿插問題 參考多鄰國的電台模式'.
-    // Render 1-2 short English sentences above Q1; each content word tappable
-    // → popup ZH + POS from openerVocab. Audio auto-plays on mount.
-    // _mountIntroOverlay kept for back-compat (deprecated).
-    void this._mountIntroOverlay; // suppress TS6133
-    const lessonOpener = (this.lesson as any).intro?.en as string | undefined;
-    const openerVocab = (this.lesson as any).openerVocab as Record<string, {zh: string; pos: string}> | undefined;
-    if (lessonOpener) {
-      this._mountStoryOpener(lessonOpener, openerVocab);
-    }
+    // v2.0.B.146: removed B.143 _mountStoryOpener call per user '不能有兩個喇叭'.
+    // Opener block was rendering ALONGSIDE Q1 chunk = 2 speakers visible.
+    // New flow: narration entry questions[0] IS the opener — single speaker.
+    void this._mountIntroOverlay; // TS6133 suppress
+    void this._mountStoryOpener;
     this.renderQuestion(this.lesson.questions[0]);
   }
 
@@ -321,10 +315,17 @@ export class LessonScene extends Phaser.Scene {
     const slot = this.hud.buttonsSlot();
     if (!sentEl || !slot) return;
     const text = String(q.sentence ?? '');
-    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    // v2.0.B.146: text shown IMMEDIATELY + audio auto-plays. No tap-to-reveal.
+    // Per user '不要用點的 而是語音自動說一句話 他自動跳一段話出來'.
+    // Dashed underline UNDER words = Duolingo Stories decoration.
+    const tokens = text.split(/(\s+)/);
+    const wordHtml = tokens.map(t => {
+      if (!t || /^\s+$/.test(t)) return t;
+      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
+    }).join('');
     sentEl.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;">
-        <button type="button" aria-label="Play narration" class="pickup-narration-speaker" style="
+        <button type="button" aria-label="Replay narration" class="pickup-narration-speaker" style="
           flex:0 0 auto; width:44px; height:44px; padding:0;
           background:transparent; border:none; cursor:pointer;
           display:inline-flex; align-items:center; justify-content:center;
@@ -332,21 +333,15 @@ export class LessonScene extends Phaser.Scene {
         ">
           <img src="/mascots/icon-speaker.webp" width="40" height="40" alt="" style="pointer-events:none;" />
         </button>
-        <div class="pickup-narration-text" style="flex:1 1 auto;font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.55;letter-spacing:0.2px;min-height:40px;display:flex;align-items:center;">
-          <span style="color:#b07a2a;font-style:italic;opacity:0.5;">${'· '.repeat(Math.min(wordCount * 2, 22)).trim()}</span>
+        <div class="pickup-narration-text" style="flex:1 1 auto;font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.7;letter-spacing:0.2px;display:flex;align-items:center;">
+          <span>${wordHtml}</span>
         </div>
       </div>
     `;
-    let revealed = false;
     const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
-    const txtEl = sentEl.querySelector('.pickup-narration-text') as HTMLElement | null;
-    spk?.addEventListener('click', () => {
-      if (!revealed && txtEl) {
-        txtEl.textContent = text;
-        revealed = true;
-      }
-      try { speak(text); } catch {}
-    });
+    spk?.addEventListener('click', () => { try { speak(text); } catch {} });
+    // Auto-play audio on mount (gesture chain from prior click survives sync call)
+    try { speak(text); } catch {}
 
     // "Continue" button advances to next entry — no answer required.
     slot.innerHTML = '';
@@ -399,6 +394,12 @@ export class LessonScene extends Phaser.Scene {
     const optsZh = (q.optionsZh ?? ['對,是這樣的', '不,不是這樣']) as string[];
     const correctIdx = q.correctIndex ?? 0;
 
+    // v2.0.B.146: English sentence shown IMMEDIATELY + audio auto-plays.
+    const enTokens = en.split(/(\s+)/);
+    const enWordHtml = enTokens.map(t => {
+      if (!t || /^\s+$/.test(t)) return t;
+      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
+    }).join('');
     sentEl.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;margin-bottom:10px;">
         <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
@@ -408,24 +409,18 @@ export class LessonScene extends Phaser.Scene {
         ">
           <img src="/mascots/icon-speaker.webp" width="36" height="36" alt="" style="pointer-events:none;" />
         </button>
-        <div class="pickup-tf-en" style="flex:1 1 auto;font-size:14px;font-weight:700;color:#b07a2a;font-style:italic;opacity:0.5;display:flex;align-items:center;">
-          <span>${'· '.repeat(12).trim()}</span>
+        <div class="pickup-tf-en" style="flex:1 1 auto;font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.6;display:flex;align-items:center;">
+          <span>${enWordHtml}</span>
         </div>
       </div>
       <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
         ${qZh}
       </div>
     `;
-    let revealed = false;
     const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
-    const enEl = sentEl.querySelector('.pickup-tf-en') as HTMLElement | null;
-    spk?.addEventListener('click', () => {
-      if (!revealed && enEl) {
-        enEl.innerHTML = `<span style="color:#3c2a1c;font-style:normal;opacity:1;">${en}</span>`;
-        revealed = true;
-      }
-      try { speak(en); } catch {}
-    });
+    spk?.addEventListener('click', () => { try { speak(en); } catch {} });
+    // Auto-play English sentence audio on mount
+    try { speak(en); } catch {}
 
     // 2 Chinese buttons 對 / 不對
     slot.innerHTML = '';
