@@ -40,6 +40,11 @@ const QuestionBaseFields = {
 export const FourOptionShape = z.object({
   ...QuestionBaseFields,
   options: z.tuple([z.string(), z.string(), z.string(), z.string()]),
+  // v2.0.B.137 bug-check #5: optionsZh was substituted at runtime + read by
+  // ClozeUI but never in Zod. The B.124/B.130/B.134 phantom-field cycle keeps
+  // repeating because schema is permissive. Locking shape here so future drift
+  // is caught by validate-lessons.js.
+  optionsZh: z.tuple([z.string(), z.string(), z.string(), z.string()]).optional(),
   correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
 });
 

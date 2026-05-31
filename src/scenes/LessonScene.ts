@@ -250,18 +250,9 @@ export class LessonScene extends Phaser.Scene {
         if (textSpan) {
           textSpan.innerHTML = sentence;
         }
-        // Play audio at unified A2 rate.
-        try {
-          if (typeof window !== 'undefined' && window.speechSynthesis) {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(sentence);
-            u.lang = 'en-US';
-            u.rate = SPEECH_RATE_SENTENCE;
-            window.speechSynthesis.speak(u);
-          } else {
-            speak(sentence);
-          }
-        } catch { speak(sentence); }
+        // v2.0.B.137 bug-check #3: route via tts.ts speak() instead of bypassing
+        // pipeline — stopSpeaking + cancel + cache discipline lives in speak().
+        speak(sentence);
       });
     });
 
@@ -662,6 +653,13 @@ export class LessonScene extends Phaser.Scene {
   }
 
   private cleanupOverlay(): void {
+    // v2.0.B.137 bug-check #1: stop in-flight speech on scene exit. B.136 concat
+    // utterance ~12s; without this it bleeds into StoryModeScene after Quit.
+    try {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    } catch {}
     this.cancelAdvanceTimer();
     this.tapHandle?.destroy();
     this.tapHandle = undefined;
@@ -671,5 +669,7 @@ export class LessonScene extends Phaser.Scene {
     this.mascot = undefined;
     this.hud?.destroy();
     this.hud = undefined;
+    // Clean up lesson history container too
+    document.getElementById('pickup-lesson-history')?.remove();
   }
 }
