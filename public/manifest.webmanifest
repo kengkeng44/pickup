@@ -1,0 +1,28 @@
+{
+  "name": "Pickup · 拾光",
+  "short_name": "Pickup",
+  "description": "A cozy after-work English game. Listen to Grandma's bedtime stories, learn A2 vocab with Mochi the stray cat.",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ed5a2e",
+  "background_color": "#fef8ed",
+  "lang": "en-US",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "/mascots/calico-anchor.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

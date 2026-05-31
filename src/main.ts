@@ -63,6 +63,17 @@ window.setTimeout(() => {
   document.getElementById('pickup-tear-intro')?.remove();
 }, 3200);
 
+// v2.0.B.155 PWA: register service worker for offline shell + 'Add to Home
+// Screen' affordance. Wrapped in conditions so dev/preview doesn't try to
+// install on file:// or unsupported browsers.
+if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // Silent fail — PWA install is progressive enhancement.
+    });
+  });
+}
+
 // v2.0.B.152: lazy-load Phaser + scenes after 'load' event.
 function bootPhaserLazy(): void {
   void import('./bootGame').then(({ startGame }) => startGame());
