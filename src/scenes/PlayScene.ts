@@ -452,7 +452,7 @@ export class PlayScene extends Phaser.Scene {
                     try {
                       const u3 = new SpeechSynthesisUtterance(optionsText);
                       u3.lang = 'en-US';
-                      u3.rate = 0.75;
+                      u3.rate = 0.65; // v2.0.B.122 — options slower than sentence for ABCD discrimination
                       window.speechSynthesis.speak(u3);
                     } catch {}
                   }, 600);

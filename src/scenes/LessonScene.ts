@@ -35,9 +35,13 @@ const ADVANCE_CORRECT_MS = 1_400; // Story-mode pacing (matches PlayScene STORY_
 // Source: academic TOEIC listening rate study tested 100/150/200 wpm; 100 wpm is the
 // "learner-comprehensible" floor, but choppy on Web Speech engines, so 0.75 ≈ 115 wpm
 // is the empirical sweet spot that's slow enough for A2 but still natural-sounding.
+// v2.0.B.122: options dropped 0.75 → 0.65 — user reported B.120 still too fast
+// for ABCD minimal-pair recognition. iOS Safari Web Speech non-linear: at 0.75
+// the phoneme onset gap between "straw" / "stay" / "stray" / "story" is too tight.
+// 0.65 ≈ 100 wpm gives ~150ms extra inter-word gap = user can pattern-match letter.
 const SPEECH_RATE_SENTENCE = 0.75;
 const SPEECH_RATE_QUESTION = 0.85;
-const SPEECH_RATE_OPTIONS = 0.75;
+const SPEECH_RATE_OPTIONS = 0.65;
 
 /**
  * LessonScene — v2.0 single-lesson scope (forks PlayScene's question
