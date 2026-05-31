@@ -95,8 +95,11 @@ describe('loadChapterLessons', () => {
     (localStorage.getItem as any).mockReturnValue('Mochi');
 
     const lessons = await loadChapterLessons(1);
-    expect(lessons[0].questions[0].sentence).toBe('I am Mochi.');
-    expect(lessons[0].questions[0].explanationZh).toBe('I am Mochi.');
+    // v2.0.B.148: placeholder system retired. Loader is passthrough now.
+    // JSON has 'Mochi' hardcoded literal; if `{catName}` still in JSON it
+    // ships as-is. This test now asserts passthrough behavior.
+    expect(lessons[0].questions[0].sentence).toBe('I am {catName}.');
+    expect(lessons[0].questions[0].explanationZh).toBe('I am {catName}.');
   });
 
   it('throws on fetch failure', async () => {
