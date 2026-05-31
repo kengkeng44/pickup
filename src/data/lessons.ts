@@ -26,6 +26,11 @@ const QuestionBaseFields = {
   // voice per speaker. 'narrator' is the default (uses奶奶 voice). Mochi
   // uses a per-gender voice (player-selected). Hana uses a young voice.
   speaker: z.enum(['grandma', 'mochi', 'hana', 'narrator']).optional(),
+  // v2.0.C.1: TOEIC-aligned sub-skill tag per question. Used for R6
+  // variety balancing per 12-Q lesson (≥3 gist + ≥5 detail + ≥2
+  // inference + ≥2 vocab/function). Optional — only L1-L10 of Ch1
+  // tagged at introduction; future lessons add as they're written.
+  subSkill: z.enum(['gist', 'detail', 'inference', 'vocab', 'function']).optional(),
 };
 
 // 4-option multiple choice shape (5 types share this).
