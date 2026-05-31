@@ -438,13 +438,24 @@ export class ClozeUI {
     this.locked = true;
     this.awaitingForceCorrect = forceCorrectRetry;
 
-    // v2.0.B.125: blind-listening reveal — restore option labels so user sees
-    // what they picked + what correct was. Without this, A/B/C/D pills stay
-    // empty and user can't learn from the reveal.
+    // v2.0.B.131: blind-listening reveal — restore option labels in BILINGUAL
+    // form (English + Chinese) from data-text + data-zh attrs set in syncFromState.
+    // B.125 only restored English; user now wants Chinese visible on reveal too.
     if (this.hideOptionText) {
       for (let i = 0; i < this.buttons.length; i++) {
         const text = this.buttons[i].el.getAttribute('data-text') ?? '';
-        this.buttons[i].label.textContent = text;
+        const zh = this.buttons[i].el.getAttribute('data-zh') ?? '';
+        this.buttons[i].label.innerHTML = zh
+          ? `<span style="flex:1 1 auto;text-align:left;">${text}</span><span style="flex:0 0 auto;color:${COLOR_TEXT_MUTED};font-weight:700;font-size:13px;margin-left:12px;">${zh}</span>`
+          : text;
+        if (zh) {
+          Object.assign(this.buttons[i].label.style, {
+            display: 'flex',
+            alignItems: 'baseline',
+            justifyContent: 'space-between',
+            gap: '8px',
+          });
+        }
       }
     }
 
@@ -669,38 +680,39 @@ export class ClozeUI {
     if (round !== this.currentQuestion) {
       this.currentQuestion = round;
       if (round) {
-        // v2.0.B.130: Duolingo-style bilingual option labels.
-        // User: '每個按鈕裡面也都要跟多鄰國一樣 要有左右中英文的互相對齊選擇'.
-        // Per-button render: English (left flex) + Chinese (right, muted color).
-        // hideOptionText DEPRECATED — was blind-listening UX (B.101 → B.124),
-        // but user now wants visible Duolingo-style cards. Sentence card still
-        // shows underline word-blanks via LessonScene B.118 block (listening
-        // still part of the answer flow, just not on the option buttons).
-        this.hideOptionText = false;
+        // v2.0.B.131: REVERT B.130 bilingual-always. User: '題目中不能有英文或
+        // 中文直接顯現出來 要等回答完了才顯現'. Pre-answer = full blind (only
+        // A/B/C/D letter pills visible). Post-answer reveal = bilingual labels
+        // restored (handled in revealAnswer via data-text + data-zh attrs).
+        const qType = (round as unknown as { type?: string }).type;
+        this.hideOptionText = qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'listen-emoji';
         const optionsZh = (round as unknown as { optionsZh?: string[] }).optionsZh;
         for (let i = 0; i < this.buttons.length; i++) {
           const text = round.options[i];
           const zh = optionsZh?.[i] ?? '';
           this.buttons[i].el.setAttribute('data-text', text);
-          // Render bilingual: English (flex:1) | Chinese (flex:0, muted)
-          this.buttons[i].label.innerHTML = zh
-            ? `<span style="flex:1 1 auto;text-align:left;">${text}</span><span style="flex:0 0 auto;color:${COLOR_TEXT_MUTED};font-weight:700;font-size:13px;margin-left:12px;">${zh}</span>`
-            : text;
-          // Make the label a flex row so English + Chinese sit on the same line
-          if (zh) {
-            Object.assign(this.buttons[i].label.style, {
-              display: 'flex',
-              alignItems: 'baseline',
-              justifyContent: 'space-between',
-              gap: '8px',
-            });
-          } else {
+          this.buttons[i].el.setAttribute('data-zh', zh);
+          if (this.hideOptionText) {
+            // Blind: only A/B/C/D pill visible
+            this.buttons[i].label.textContent = '';
+            this.buttons[i].label.innerHTML = '';
             Object.assign(this.buttons[i].label.style, {
               display: '',
               alignItems: '',
               justifyContent: '',
               gap: '',
             });
+          } else {
+            // Sighted Q types: bilingual visible always
+            this.buttons[i].label.innerHTML = zh
+              ? `<span style="flex:1 1 auto;text-align:left;">${text}</span><span style="flex:0 0 auto;color:${COLOR_TEXT_MUTED};font-weight:700;font-size:13px;margin-left:12px;">${zh}</span>`
+              : text;
+            Object.assign(this.buttons[i].label.style, zh ? {
+              display: 'flex',
+              alignItems: 'baseline',
+              justifyContent: 'space-between',
+              gap: '8px',
+            } : { display: '', alignItems: '', justifyContent: '', gap: '' });
           }
         }
         this.resetForRound();
