@@ -254,42 +254,60 @@ export class LessonScene extends Phaser.Scene {
       color: '#3c2a1c',
       lineHeight: '1.55',
       letterSpacing: '0.2px',
+      minHeight: '40px',
+      display: 'flex',
+      alignItems: 'center',
     });
 
-    // Tokenise + wrap words with tap-to-popup
-    const tokens = text.split(/(\s+)/);
-    tokens.forEach((tok) => {
-      if (!tok) return;
-      if (/^\s+$/.test(tok)) {
-        textBox.appendChild(document.createTextNode(tok));
-        return;
+    // v2.0.B.144: Duolingo radio mode — text HIDDEN on mount, revealed on
+    // speaker tap. User: '一進去不會有任何字 就算是劇情也要點了才顯現出來'.
+    // Initially show muted dashed shape only (word-count hint without revealing).
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    textBox.innerHTML = `<span style="color:#b07a2a;font-style:italic;opacity:0.5;">${'· '.repeat(Math.min(wordCount * 2, 18)).trim()}</span>`;
+    let revealed = false;
+
+    const renderTokens = (): void => {
+      textBox.innerHTML = '';
+      const tokens = text.split(/(\s+)/);
+      tokens.forEach((tok) => {
+        if (!tok) return;
+        if (/^\s+$/.test(tok)) {
+          textBox.appendChild(document.createTextNode(tok));
+          return;
+        }
+        const clean = tok.replace(/[.,!?;:'"()]/g, '');
+        const lookup = vocab?.[clean] ?? vocab?.[clean.toLowerCase()];
+        if (lookup && lookup.zh) {
+          const span = document.createElement('span');
+          span.textContent = tok;
+          Object.assign(span.style, {
+            borderBottom: '1px dashed #b07a2a',
+            cursor: 'pointer',
+            padding: '0 1px',
+          });
+          span.addEventListener('click', (e) => {
+            e.preventDefault();
+            this._showVocabPopup(lookup.zh, lookup.pos);
+          });
+          textBox.appendChild(span);
+        } else {
+          textBox.appendChild(document.createTextNode(tok));
+        }
+      });
+    };
+
+    speaker.addEventListener('click', () => {
+      if (!revealed) {
+        renderTokens();
+        revealed = true;
       }
-      const clean = tok.replace(/[.,!?;:'"()]/g, '');
-      const lookup = vocab?.[clean] ?? vocab?.[clean.toLowerCase()];
-      if (lookup && lookup.zh) {
-        const span = document.createElement('span');
-        span.textContent = tok;
-        Object.assign(span.style, {
-          borderBottom: '1px dashed #b07a2a',
-          cursor: 'pointer',
-          padding: '0 1px',
-        });
-        span.addEventListener('click', (e) => {
-          e.preventDefault();
-          this._showVocabPopup(lookup.zh, lookup.pos);
-        });
-        textBox.appendChild(span);
-      } else {
-        textBox.appendChild(document.createTextNode(tok));
-      }
+      try { speak(text); } catch {}
     });
 
     opener.appendChild(speaker);
     opener.appendChild(textBox);
     rootEl.insertBefore(opener, sentEl.parentElement!);
-
-    // Auto-play opener audio synchronously to keep gesture token alive
-    try { speak(text); } catch {}
+    // v2.0.B.144: NO auto-play — text-and-audio gated by user tap per spec.
   }
 
   private _showVocabPopup(zh: string, pos: string): void {
@@ -708,10 +726,11 @@ export class LessonScene extends Phaser.Scene {
       else sfxWrong();
     } catch {}
 
-    // v2.0.B.142: REVERT B.136 frozen Q snapshot per user '答對的題目答案
-    // 紀錄不要留在上面'. New Q replaces old in-place; no accumulated history.
-    // _snapshotAnsweredQ kept as method for future re-enable but not called.
-    void this._snapshotAnsweredQ; // suppress unused warning
+    // v2.0.B.144: RESTORE B.136 frozen Q snapshot per user latest direction
+    // '是要往下! 請嚴格參考多鄰國電台模式'. Duolingo Podcasts scroll log: past
+    // chunks stay above, new chunks append below. _snapshotAnsweredQ appends
+    // the answered card to #pickup-lesson-history container.
+    this._snapshotAnsweredQ(q, idx, correctIndex);
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user
