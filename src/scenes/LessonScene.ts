@@ -184,12 +184,148 @@ export class LessonScene extends Phaser.Scene {
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
     this.mascot.setMascotImage('/mascots/calico-anchor.webp');
 
-    // v2.0.B.142: intro overlay REMOVED per user '甚至 mascot 都可以先不要給
-    // 由題目去推動進度'. Lesson opens straight at Q1 — no Lesson# title, no
-    // mascot, no preview rows, no Next CTA. Question drives the experience.
-    // _mountIntroOverlay kept for back-compat but no longer called.
-    void this._mountIntroOverlay; // suppress TS6133 unused-method warning
+    // v2.0.B.143: story opener (Duolingo-radio-mode) per user '先一兩句話馬上
+    // 帶玩家進入情緒跟狀況 然後在情節裡面穿插問題 參考多鄰國的電台模式'.
+    // Render 1-2 short English sentences above Q1; each content word tappable
+    // → popup ZH + POS from openerVocab. Audio auto-plays on mount.
+    // _mountIntroOverlay kept for back-compat (deprecated).
+    void this._mountIntroOverlay; // suppress TS6133
+    const lessonOpener = (this.lesson as any).intro?.en as string | undefined;
+    const openerVocab = (this.lesson as any).openerVocab as Record<string, {zh: string; pos: string}> | undefined;
+    if (lessonOpener) {
+      this._mountStoryOpener(lessonOpener, openerVocab);
+    }
     this.renderQuestion(this.lesson.questions[0]);
+  }
+
+  /**
+   * v2.0.B.143: story opener block — 1-2 English sentences with tappable words.
+   * Inserts ABOVE the sentence card. Speaker icon + auto-play on first mount.
+   * Word taps show vocab popup with ZH + POS from lesson.openerVocab map.
+   */
+  private _mountStoryOpener(text: string, vocab?: Record<string, {zh: string; pos: string}>): void {
+    if (!this.hud) return;
+    const sentEl = this.hud.getSentenceElement();
+    const rootEl = sentEl?.parentElement?.parentElement;
+    if (!rootEl || !sentEl) return;
+
+    // Tear down any prior opener block (re-mount safe)
+    document.getElementById('pickup-lesson-opener')?.remove();
+
+    const opener = document.createElement('div');
+    opener.id = 'pickup-lesson-opener';
+    Object.assign(opener.style, {
+      background: 'rgba(231,164,74,0.08)',
+      borderRadius: '14px',
+      padding: '12px 14px',
+      margin: '0 0 12px 0',
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '12px',
+      width: '100%',
+      boxSizing: 'border-box',
+    });
+
+    const speaker = document.createElement('button');
+    speaker.type = 'button';
+    speaker.setAttribute('aria-label', 'Replay opener');
+    Object.assign(speaker.style, {
+      flex: '0 0 auto',
+      width: '36px',
+      height: '36px',
+      padding: '0',
+      background: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+    });
+    speaker.innerHTML = '<img src="/mascots/icon-speaker.webp" width="34" height="34" alt="" style="pointer-events:none;"/>';
+    speaker.addEventListener('click', () => { try { speak(text); } catch {} });
+
+    const textBox = document.createElement('div');
+    Object.assign(textBox.style, {
+      flex: '1 1 auto',
+      fontSize: '15px',
+      fontWeight: '700',
+      color: '#3c2a1c',
+      lineHeight: '1.55',
+      letterSpacing: '0.2px',
+    });
+
+    // Tokenise + wrap words with tap-to-popup
+    const tokens = text.split(/(\s+)/);
+    tokens.forEach((tok) => {
+      if (!tok) return;
+      if (/^\s+$/.test(tok)) {
+        textBox.appendChild(document.createTextNode(tok));
+        return;
+      }
+      const clean = tok.replace(/[.,!?;:'"()]/g, '');
+      const lookup = vocab?.[clean] ?? vocab?.[clean.toLowerCase()];
+      if (lookup && lookup.zh) {
+        const span = document.createElement('span');
+        span.textContent = tok;
+        Object.assign(span.style, {
+          borderBottom: '1px dashed #b07a2a',
+          cursor: 'pointer',
+          padding: '0 1px',
+        });
+        span.addEventListener('click', (e) => {
+          e.preventDefault();
+          this._showVocabPopup(lookup.zh, lookup.pos);
+        });
+        textBox.appendChild(span);
+      } else {
+        textBox.appendChild(document.createTextNode(tok));
+      }
+    });
+
+    opener.appendChild(speaker);
+    opener.appendChild(textBox);
+    rootEl.insertBefore(opener, sentEl.parentElement!);
+
+    // Auto-play opener audio synchronously to keep gesture token alive
+    try { speak(text); } catch {}
+  }
+
+  private _showVocabPopup(zh: string, pos: string): void {
+    let pop = document.getElementById('pickup-vocab-popup') as HTMLDivElement | null;
+    if (!pop) {
+      pop = document.createElement('div');
+      pop.id = 'pickup-vocab-popup';
+      Object.assign(pop.style, {
+        position: 'fixed',
+        bottom: '38%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        background: '#3c2a1c',
+        color: '#ffffff',
+        padding: '12px 22px',
+        borderRadius: '14px',
+        fontSize: '16px',
+        fontWeight: '800',
+        zIndex: '9999',
+        boxShadow: '0 6px 24px rgba(0,0,0,0.3)',
+        opacity: '0',
+        transition: 'opacity 180ms ease',
+        pointerEvents: 'none',
+        maxWidth: '85vw',
+        textAlign: 'center',
+      });
+      document.body.appendChild(pop);
+    }
+    pop.innerHTML = `<span>${zh}</span><span style="color:#e7a44a;font-size:13px;font-weight:700;margin-left:10px;">${pos}</span>`;
+    pop.style.opacity = '1';
+    pop.style.display = 'block';
+    const popRef = pop;
+    window.clearTimeout((popRef as any)._timer);
+    (popRef as any)._timer = window.setTimeout(() => {
+      popRef.style.opacity = '0';
+    }, 2400);
   }
 
   private _mountIntroOverlay(_intro: { en: string; zh: string }): void {
