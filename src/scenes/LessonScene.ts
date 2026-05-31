@@ -26,7 +26,11 @@ export type LessonSceneData = {
   lessonId: string;
 };
 
-const ADVANCE_CORRECT_MS = 1_400; // Story-mode pacing (matches PlayScene STORY_ADVANCE_CORRECT_MS)
+// v2.0.B.126: 1400ms → 3000ms. User: '打對後跳出下一題的時間可以再長一點'.
+// Reveal panel now shows Q + correct A + Zh explanation (B.125), needs more time
+// to read. A2 learner average Chinese-reading speed ~3-4 chars/sec; explanationZh
+// is typically 12-20 chars + Q line + A line = ~25-40 chars total → ~3s comfort.
+const ADVANCE_CORRECT_MS = 3_000;
 
 // v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
 // Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).

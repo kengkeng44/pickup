@@ -160,7 +160,7 @@ export class ClozeUI {
         userSelect: 'none',
         display: 'flex',
         alignItems: 'center',
-        gap: '14px',
+        gap: '20px', // v2.0.B.126: 14 → 20px so ABCD pill is clearly separated from option text
         textAlign: 'left',
         boxSizing: 'border-box',
       });
@@ -168,8 +168,8 @@ export class ClozeUI {
       const letter = document.createElement('span');
       letter.textContent = LETTERS[i];
       applyStyle(letter, {
-        width: '28px',
-        height: '28px',
+        width: '32px', // v2.0.B.126: 28 → 32 — bigger pill = stronger visual anchor for the letter
+        height: '32px',
         borderRadius: '50%',
         border: `2px solid ${COLOR_BORDER}`,
         background: '#ffffff',
@@ -177,14 +177,18 @@ export class ClozeUI {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '14px',
+        fontSize: '15px',
         fontWeight: '800',
         flex: '0 0 auto',
+        marginRight: '4px', // v2.0.B.126: extra cushion in addition to flex gap so letter never reads as part of the word
       });
       btn.appendChild(letter);
 
       const label = document.createElement('span');
-      applyStyle(label, { flex: '1 1 auto' });
+      applyStyle(label, {
+        flex: '1 1 auto',
+        paddingLeft: '6px', // v2.0.B.126: separate label start from letter pill edge
+      });
       btn.appendChild(label);
 
       btn.addEventListener('click', (e) => {
