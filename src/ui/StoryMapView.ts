@@ -309,11 +309,20 @@ export class StoryMapView {
               chapter: chapterParam,
               positionOverride: pos,
             });
-            // v2.0.B.99: node tap → LessonScene direct-start with chapter+lessonId.
-            node.el.addEventListener('click', () => {
+            // v2.0.B.113: node tap → STOP StoryModeScene + START LessonScene.
+            // game.scene.start alone doesn't stop the calling scene → DOM
+            // overlap → user sees nothing change. Get StoryModeScene instance
+            // and use ITS scene.start which properly transitions.
+            node.el.addEventListener('click', (e) => {
+              e.preventDefault();
               if (!isUnlocked) return;
               const g = (window as unknown as { pickupGame?: Phaser.Game }).pickupGame;
-              if (g && g.scene) {
+              const storyScene = g?.scene.getScene('StoryModeScene');
+              if (storyScene) {
+                storyScene.scene.start('LessonScene', { chapter: chapterParam, lessonId: lesson.id });
+              } else if (g && g.scene) {
+                // Fallback: stop then start
+                g.scene.stop('StoryModeScene');
                 g.scene.start('LessonScene', { chapter: chapterParam, lessonId: lesson.id });
               } else {
                 this.handlers.onPlayChapter(chapterParam);
