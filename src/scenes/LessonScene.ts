@@ -45,10 +45,9 @@ const ADVANCE_CORRECT_MS = 3_000;
 // for ABCD minimal-pair recognition. iOS Safari Web Speech non-linear: at 0.75
 // the phoneme onset gap between "straw" / "stay" / "stray" / "story" is too tight.
 // 0.65 ≈ 100 wpm gives ~150ms extra inter-word gap = user can pattern-match letter.
-// v2.0.B.128: A2 sustainable rate ~108 wpm (single utterance now per B.136).
-// Question + options sub-rates removed in B.136 — single concatenated utterance
-// uses sentence rate throughout, prosody pauses via periods.
-const SPEECH_RATE_SENTENCE = 0.7;
+// v2.0.B.139: SPEECH_RATE_SENTENCE removed — speak() in tts.ts owns the rate
+// internally (MP3 plays at recorded speed, WebSpeech fallback uses tts.ts default).
+// LessonScene no longer constructs raw SpeechSynthesisUtterance anywhere.
 
 /**
  * LessonScene — v2.0 single-lesson scope (forks PlayScene's question
@@ -397,29 +396,19 @@ export class LessonScene extends Phaser.Scene {
               .map((letter, i) => `${letter}. ${round.options[i] ?? ''}.`)
               .join(' ')
           : '';
-        // v2.0.B.136: kill onend chain race — concatenate into SINGLE utterance.
-        // User: 'I am Mochi 後面就完全沒聲音了'. iOS Safari onend chain (u1 → u2
-        // → u3) breaks mid-stream on multi-sentence content; periods inside one
-        // utterance create natural prosody pauses + no race.
-        // Format: '<sentence>. Question. <question>. A. <opt1>. B. <opt2>. C. <opt3>. D. <opt4>.'
+        // v2.0.B.139: root cause from audio-text agent — Q1 speakerQueue bypassed
+        // tts.ts speak() MP3 lookup, going straight to raw SpeechSynthesisUtterance.
+        // Result: intro preview plays MP3 grandma voice; Q1 plays robot WebSpeech +
+        // possibly truncates mid-stream at first period (iOS WebKit bugs 230106/209294).
+        // User: '第一句就不一樣了'.
+        //
+        // Fix: route through speak() → MP3 path → grandma voice (same as preview).
+        // Q + ABCD WebSpeech readout (B.119) temporarily removed to ensure
+        // audio-text consistency. Re-add later via tts.ts onended hook OR second-tap.
+        // Tracked: docs/superpowers/_next-plans.md or B.140 follow-up.
+        void optionsText;
         const speakQueue = (): void => {
-          const parts: string[] = [sentenceText.replace(/\.\s*$/, '') + '.'];
-          if (round.question) parts.push(`Question. ${String(round.question).replace(/\?\s*$/, '?')}`);
-          if (optionsText) parts.push(optionsText);
-          const fullText = parts.join(' ');
-          if (!(typeof window !== 'undefined' && window.speechSynthesis)) {
-            speak(fullText);
-            return;
-          }
-          try {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(fullText);
-            u.lang = 'en-US';
-            u.rate = SPEECH_RATE_SENTENCE;
-            window.speechSynthesis.speak(u);
-          } catch {
-            speak(fullText);
-          }
+          speak(sentenceText);
         };
         spk?.addEventListener('click', (e) => {
           e.preventDefault();
