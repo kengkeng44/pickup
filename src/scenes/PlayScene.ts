@@ -444,7 +444,7 @@ export class PlayScene extends Phaser.Scene {
                 : '';
               const u1 = new SpeechSynthesisUtterance(sentenceText);
               u1.lang = 'en-US';
-              u1.rate = 0.75;
+              u1.rate = 0.7; // v2.0.B.128 unified rate
               const chainOptions = (u: SpeechSynthesisUtterance): void => {
                 if (!optionsText) return;
                 u.onend = () => {
@@ -452,7 +452,7 @@ export class PlayScene extends Phaser.Scene {
                     try {
                       const u3 = new SpeechSynthesisUtterance(optionsText);
                       u3.lang = 'en-US';
-                      u3.rate = 0.65; // v2.0.B.122 — options slower than sentence for ABCD discrimination
+                      u3.rate = 0.7; // v2.0.B.128 unified rate (was 0.65, removed for consistency)
                       window.speechSynthesis.speak(u3);
                     } catch {}
                   }, 600);
@@ -464,7 +464,7 @@ export class PlayScene extends Phaser.Scene {
                     try {
                       const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
                       u2.lang = 'en-US';
-                      u2.rate = 0.85;
+                      u2.rate = 0.7; // v2.0.B.128 unified rate
                       chainOptions(u2);
                       window.speechSynthesis.speak(u2);
                     } catch {}

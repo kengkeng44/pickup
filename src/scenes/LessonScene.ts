@@ -6,6 +6,8 @@ import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
 import { speak, autoSpeak } from '../audio/tts';
+import { startBgm } from '../audio/bgm';
+import { sfxCorrect, sfxWrong } from '../audio/sfx';
 import {
   mountTapTiles,
   mountTapPairs,
@@ -43,9 +45,12 @@ const ADVANCE_CORRECT_MS = 3_000;
 // for ABCD minimal-pair recognition. iOS Safari Web Speech non-linear: at 0.75
 // the phoneme onset gap between "straw" / "stay" / "stray" / "story" is too tight.
 // 0.65 ≈ 100 wpm gives ~150ms extra inter-word gap = user can pattern-match letter.
-const SPEECH_RATE_SENTENCE = 0.75;
-const SPEECH_RATE_QUESTION = 0.85;
-const SPEECH_RATE_OPTIONS = 0.65;
+// v2.0.B.128: user reported '語速還是忽快忽慢'. Unified all 3 utterances to
+// 0.7 (single sustainable A2 pace ~108 wpm). The previous 0.75/0.85/0.65
+// split broke prosody expectation at every rate switch — felt inconsistent.
+const SPEECH_RATE_SENTENCE = 0.7;
+const SPEECH_RATE_QUESTION = 0.7;
+const SPEECH_RATE_OPTIONS = 0.7;
 
 /**
  * LessonScene — v2.0 single-lesson scope (forks PlayScene's question
@@ -122,6 +127,13 @@ export class LessonScene extends Phaser.Scene {
 
     // Defensively kill any leftover bottom nav (matches PlayScene v1.8.7).
     document.getElementById('pickup-bottom-nav')?.remove();
+
+    // v2.0.B.128: BGM not wired into v2.0 LessonScene previously (PlayScene
+    // had it at line 703 but new scene path missed it). User: '沒有背景音樂'.
+    // startBgm is idempotent + race-safe; safe to call every lesson mount.
+    // On iOS first call may no-op until first user gesture unlocks the
+    // AudioContext, but subsequent mounts (post-unlock) will play.
+    try { startBgm(); } catch {}
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.cleanupOverlay();
@@ -256,7 +268,7 @@ export class LessonScene extends Phaser.Scene {
               display:inline-flex; align-items:center; justify-content:center;
               touch-action:manipulation; -webkit-tap-highlight-color:transparent;
             ">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+              <img src="/mascots/icon-speaker.webp" width="32" height="32" alt="" style="pointer-events:none;" />
             </button>
             <div style="flex:1 1 auto;min-width:0;">
               <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.8;max-height:140px;overflow:hidden;">${blanksHtml}</div>
@@ -413,6 +425,12 @@ export class LessonScene extends Phaser.Scene {
     const correctIndex = (q as any).correctIndex ?? 0;
     const correct = idx === correctIndex;
     this.locked = true;
+
+    // v2.0.B.128: SFX on commit (user reported missing correct/wrong audio cues)
+    try {
+      if (correct) sfxCorrect();
+      else sfxWrong();
+    } catch {}
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user
