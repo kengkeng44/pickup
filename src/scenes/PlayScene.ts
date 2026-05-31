@@ -421,7 +421,23 @@ export class PlayScene extends Phaser.Scene {
           </div>
         `;
         const spk = sentenceEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
-        spk?.addEventListener('click', (e) => { e.preventDefault(); speak(sentenceText); });
+        spk?.addEventListener('click', (e) => {
+          e.preventDefault();
+          speak(sentenceText);
+          // v2.0.B.105: for blind-listening, also speak the question prompt
+          // via Web Speech after a ~2s pause so user hears it too. TOEIC
+          // Part 3-4 pattern: sentence → question → user picks.
+          if (isBlindListen && round.question && typeof window !== 'undefined' && window.speechSynthesis) {
+            window.setTimeout(() => {
+              try {
+                const u = new SpeechSynthesisUtterance(round.question);
+                u.lang = 'en-US';
+                u.rate = 0.9;
+                window.speechSynthesis.speak(u);
+              } catch {}
+            }, 2200);
+          }
+        });
         const sentRow = sentenceEl.querySelector('.pickup-listen-sentence') as HTMLDivElement | null;
         sentRow?.addEventListener('click', () => {
           if (sentRow.getAttribute('data-revealed') === 'true') return;

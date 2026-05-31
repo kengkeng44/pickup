@@ -103,8 +103,10 @@ export class Mascot {
     // In-flow flex child. Width/height inherit from CSS var so changes
     // flow through; `margin: 0 auto` centers within the parent slot.
     applyStyle(this.root, {
-      width: 'calc(160px * var(--mascot-scale, 1))',
-      height: 'calc(180px * var(--mascot-scale, 1))',
+      // v2.0.B.105: shrunk 160×180 → 120×135 per user "貓咪的額度切掉麻煩縮小".
+      // Smaller container = less head/ear crop by the circular mask.
+      width: 'calc(120px * var(--mascot-scale, 1))',
+      height: 'calc(135px * var(--mascot-scale, 1))',
       margin: '0 auto',
       pointerEvents: 'none',
       display: 'flex',
