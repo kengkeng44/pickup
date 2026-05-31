@@ -82,6 +82,9 @@ export class LessonScene extends Phaser.Scene {
   // v2.0.B.159: track answer log for completion stat screen + future review
   private lessonAnswerLog: Array<{q: any; userIdx: number; correctIdx: number; isCorrect: boolean}> = [];
   private lessonStartTime = 0;
+  // v2.0.B.161.1: cache end time on first stat show — fixes TIME stat
+  // recomputing every time user opens review then returns (bug-check P1 #1)
+  private lessonEndTime?: number;
   private chapter!: number;
   private questionIdx = 0;
   private hud?: GameHUD;
@@ -915,7 +918,9 @@ export class LessonScene extends Phaser.Scene {
     const correct = this.lessonAnswerLog.filter(a => a.isCorrect).length;
     const accuracy = total > 0 ? Math.round((correct / total) * 100) : 100;
     const xpEarned = correct * 10;
-    const elapsedMs = Date.now() - this.lessonStartTime;
+    // v2.0.B.161.1: freeze elapsed at first stat-show so Back/review doesn't inflate it
+    if (this.lessonEndTime == null) this.lessonEndTime = Date.now();
+    const elapsedMs = this.lessonEndTime - this.lessonStartTime;
     const minutes = Math.floor(elapsedMs / 60000);
     const seconds = Math.floor((elapsedMs % 60000) / 1000);
     const timeStr = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')}` : `${seconds}s`;
@@ -1026,19 +1031,46 @@ export class LessonScene extends Phaser.Scene {
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 
+    // v2.0.B.161.1: Player Walkthrough agent P0-1 — Chinese type label
+    // (A2 看不懂 raw `narration`/`listen-mc`/`tap-pairs`/`cloze` jargon)
+    const typeLabel: Record<string, string> = {
+      'narration': '旁白',
+      'listen-tf': '聽力對錯',
+      'listen-tf-zh': '聽力對錯',
+      'listen-mc': '聽力選擇',
+      'listen-emoji': '圖示聽力',
+      'listen-comprehension': '聽力理解',
+      'read-mc-with-audio': '閱讀理解',
+      'type-what-you-hear': '聽寫',
+      'tap-tiles': '排列句子',
+      'tap-pairs': '配對',
+    };
     const cards = this.lessonAnswerLog.map((entry, i) => {
       const q = entry.q;
-      const sentence = String(q.sentence ?? '');
-      const question = String(q.questionEn ?? q.questionZh ?? q.question ?? '');
-      const options = (q.options ?? q.optionsZh ?? []) as string[];
+      const tStr = String(q.type ?? '');
+      const tCn = typeLabel[tStr] ?? tStr;
+      // v2.0.B.161.1: cover schema variants (bug-check P1 #4)
+      const sentence = String(q.sentence ?? q.sentenceEn ?? q.text ?? '');
+      const question = String(q.questionEn ?? q.questionZh ?? q.question ?? q.prompt ?? '');
+      const rawOptions = (q.options ?? q.optionsZh ?? []) as string[];
+      const tilesEn = Array.isArray(q.tilesEn) ? q.tilesEn.join(' ') : '';
+      const pairsEn = Array.isArray(q.pairsEn) ? q.pairsEn.map((p: unknown) => Array.isArray(p) ? p.join(' = ') : String(p)).join(' / ') : '';
+      const isPairsOrTiles = tStr === 'tap-tiles' || tStr === 'tap-pairs' || tStr === 'type-what-you-hear';
+      const options = rawOptions;
       const userIdx = entry.userIdx;
       const correctIdx = entry.correctIdx;
-      const userAns = userIdx >= 0 && options[userIdx]
-        ? escapeHtml(options[userIdx])
-        : '(已作答)';
-      const correctAns = correctIdx >= 0 && options[correctIdx]
-        ? escapeHtml(options[correctIdx])
-        : '—';
+      // v2.0.B.161.1: bug-check P1 #2 — split userIdx < 0 case + Walkthrough P0-2
+      // tap-pairs/tap-tiles 不適用 4 選 1 模型, 改顯示「✓ 已完成」或結構
+      const userAns = isPairsOrTiles
+        ? (entry.isCorrect ? '✓ 已完成' : '✕ 未完成')
+        : (userIdx < 0
+          ? '(已作答)'
+          : (options[userIdx] ? escapeHtml(options[userIdx]) : '(已作答)'));
+      const correctAns = isPairsOrTiles
+        ? (tilesEn ? escapeHtml(tilesEn) : pairsEn ? escapeHtml(pairsEn) : '—')
+        : (correctIdx >= 0 && options[correctIdx]
+          ? escapeHtml(options[correctIdx])
+          : '—');
       const explZh = String(q.explanationZh ?? '');
       const status = entry.isCorrect
         ? '<span style="color:#5d9a35;font-weight:900;">✓ 正確</span>'
@@ -1046,28 +1078,38 @@ export class LessonScene extends Phaser.Scene {
       const userRow = entry.isCorrect
         ? ''
         : `<div style="font-size:13px;color:#666;margin-top:4px;">你選: <span style="color:#c84a3a;font-weight:700;">${userAns}</span></div>`;
+      // v2.0.B.161.1: Walkthrough P0-3 — 答錯卡左紅條 + 淡紅底, 5 秒掃描可見錯題
+      const cardStyle = entry.isCorrect
+        ? 'background:#fff;border:1px solid #e0d0b8;'
+        : 'background:#fef2f0;border:1px solid #e0d0b8;border-left:4px solid #c84a3a;';
       return `
-        <div style="background:#fff;border:1px solid #e0d0b8;border-radius:10px;padding:12px 14px;margin-bottom:10px;">
+        <div style="${cardStyle}border-radius:10px;padding:12px 14px;margin-bottom:10px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <span style="font-size:11px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">Q${i + 1} · ${escapeHtml(String(q.type ?? ''))}</span>
+            <span style="font-size:11px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">Q${i + 1} · ${tCn}</span>
             ${status}
           </div>
           ${sentence ? `<div style="font-size:14px;color:#3c2a1c;font-weight:700;margin-bottom:6px;">${escapeHtml(sentence)}</div>` : ''}
           ${question ? `<div style="font-size:13px;color:#5a4a3a;margin-bottom:6px;">Q: ${escapeHtml(question)}</div>` : ''}
           ${userRow}
           <div style="font-size:13px;color:#3c2a1c;margin-top:4px;">正解: <span style="color:#5d9a35;font-weight:800;">${correctAns}</span></div>
-          ${explZh ? `<div style="font-size:12px;color:#8b6f4a;background:#fef8ed;border-left:3px solid #c8a878;padding:6px 10px;margin-top:8px;border-radius:0 6px 6px 0;line-height:1.5;">${escapeHtml(explZh)}</div>` : ''}
+          ${explZh ? `<div style="font-size:13px;color:#8b6f4a;background:#fef8ed;border-left:3px solid #c8a878;padding:7px 10px;margin-top:8px;border-radius:0 6px 6px 0;line-height:1.6;">${escapeHtml(explZh)}</div>` : ''}
         </div>
       `;
     }).join('');
+    // v2.0.B.161.1: Walkthrough P2-7 — 結尾提示「全部回顧完畢」
+    const total = this.lessonAnswerLog.length;
+    const endNote = total > 0
+      ? `<div style="text-align:center;color:#8b6f4a;padding:12px;font-size:12px;letter-spacing:1px;">— 本單元 ${total} 題回顧完畢 —</div>`
+      : '';
 
     sentEl.innerHTML = `
       <div style="padding:14px 6px 8px;">
         <div style="text-align:center;font-size:18px;font-weight:900;color:#3c2a1c;margin-bottom:14px;">
           📖 單元回顧 · Lesson Review
         </div>
-        <div style="max-height:60vh;overflow-y:auto;padding:0 4px;">
+        <div style="max-height:60vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0 4px;">
           ${cards || '<div style="text-align:center;color:#8b6f4a;padding:20px;">本單元沒有作答記錄。</div>'}
+          ${endNote}
         </div>
       </div>
     `;
