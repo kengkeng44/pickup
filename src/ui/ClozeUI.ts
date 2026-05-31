@@ -680,40 +680,30 @@ export class ClozeUI {
     if (round !== this.currentQuestion) {
       this.currentQuestion = round;
       if (round) {
-        // v2.0.B.131: REVERT B.130 bilingual-always. User: '題目中不能有英文或
-        // 中文直接顯現出來 要等回答完了才顯現'. Pre-answer = full blind (only
-        // A/B/C/D letter pills visible). Post-answer reveal = bilingual labels
-        // restored (handled in revealAnswer via data-text + data-zh attrs).
-        const qType = (round as unknown as { type?: string }).type;
-        this.hideOptionText = qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'listen-emoji';
+        // v2.0.B.141: Duolingo hybrid mode per consolidated UX spec
+        // (docs/toeic-research/pickup-ux-canonical-spec.md R1).
+        // English option text VISIBLE pre-reveal (sentence still blind-shape;
+        // question prompt rendered by LessonScene). Chinese remains HIDDEN
+        // pre-reveal — appended on revealAnswer via data-zh attr (R2).
+        // User: '第一題沒有問題也沒有答案 為什麼越來越倒退了'.
+        // hideOptionText is now ALWAYS false — kept as field for B.125 reveal
+        // restoration code path (still toggles English+Chinese on reveal).
+        this.hideOptionText = false;
         const optionsZh = (round as unknown as { optionsZh?: string[] }).optionsZh;
         for (let i = 0; i < this.buttons.length; i++) {
           const text = round.options[i];
           const zh = optionsZh?.[i] ?? '';
           this.buttons[i].el.setAttribute('data-text', text);
           this.buttons[i].el.setAttribute('data-zh', zh);
-          if (this.hideOptionText) {
-            // Blind: only A/B/C/D pill visible
-            this.buttons[i].label.textContent = '';
-            this.buttons[i].label.innerHTML = '';
-            Object.assign(this.buttons[i].label.style, {
-              display: '',
-              alignItems: '',
-              justifyContent: '',
-              gap: '',
-            });
-          } else {
-            // Sighted Q types: bilingual visible always
-            this.buttons[i].label.innerHTML = zh
-              ? `<span style="flex:1 1 auto;text-align:left;">${text}</span><span style="flex:0 0 auto;color:${COLOR_TEXT_MUTED};font-weight:700;font-size:13px;margin-left:12px;">${zh}</span>`
-              : text;
-            Object.assign(this.buttons[i].label.style, zh ? {
-              display: 'flex',
-              alignItems: 'baseline',
-              justifyContent: 'space-between',
-              gap: '8px',
-            } : { display: '', alignItems: '', justifyContent: '', gap: '' });
-          }
+          // R1 pre-reveal: English text only. Chinese rendered on reveal via
+          // revealAnswer hideOptionText branch (B.125 reads data-zh attr).
+          this.buttons[i].label.textContent = text;
+          Object.assign(this.buttons[i].label.style, {
+            display: '',
+            alignItems: '',
+            justifyContent: '',
+            gap: '',
+          });
         }
         this.resetForRound();
       }

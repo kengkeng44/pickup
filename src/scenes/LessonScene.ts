@@ -373,7 +373,14 @@ export class LessonScene extends Phaser.Scene {
       }).join('');
       const sentEl = this.hud.getSentenceElement();
       if (sentEl) {
+        // v2.0.B.141: per consolidated UX spec R1 — English question prompt
+        // VISIBLE above sentence card. User: '第一題沒有問題' — was audio-only,
+        // now also rendered as visible text. Chinese still hidden pre-reveal.
+        const questionPromptHtml = round.question
+          ? `<div style="font-size:15px;font-weight:800;color:#5a4530;line-height:1.4;padding:8px 4px 6px;text-align:center;">${String(round.question)}</div>`
+          : '';
         sentEl.innerHTML = `
+          ${questionPromptHtml}
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
             <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
               flex:0 0 auto; width:44px; height:44px; padding:0;
