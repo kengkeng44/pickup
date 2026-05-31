@@ -423,20 +423,29 @@ export class PlayScene extends Phaser.Scene {
         const spk = sentenceEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
         spk?.addEventListener('click', (e) => {
           e.preventDefault();
-          speak(sentenceText);
-          // v2.0.B.105: for blind-listening, also speak the question prompt
-          // via Web Speech after a ~2s pause so user hears it too. TOEIC
-          // Part 3-4 pattern: sentence → question → user picks.
-          if (isBlindListen && round.question && typeof window !== 'undefined' && window.speechSynthesis) {
-            window.setTimeout(() => {
-              try {
-                const u = new SpeechSynthesisUtterance(round.question);
-                u.lang = 'en-US';
-                u.rate = 0.9;
-                window.speechSynthesis.speak(u);
-              } catch {}
-            }, 2200);
+          // v2.0.B.106: for blind-listening, use Web Speech for BOTH question
+          // (with "Question." prefix per TOEIC Part 1-4 convention) and
+          // sentence — both queued synchronously in this gesture click.
+          // Sacrifices Mochi voice for sentence, but ensures iOS plays both
+          // sequentially without setTimeout gesture-token loss. Question
+          // plays FIRST (TOEIC pattern: announce Q, then listen, then pick).
+          if (isBlindListen && typeof window !== 'undefined' && window.speechSynthesis) {
+            try {
+              window.speechSynthesis.cancel();
+              if (round.question) {
+                const u1 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
+                u1.lang = 'en-US';
+                u1.rate = 0.9;
+                window.speechSynthesis.speak(u1);
+              }
+              const u2 = new SpeechSynthesisUtterance(sentenceText);
+              u2.lang = 'en-US';
+              u2.rate = 0.85;
+              window.speechSynthesis.speak(u2);
+              return;
+            } catch {}
           }
+          speak(sentenceText);
         });
         const sentRow = sentenceEl.querySelector('.pickup-listen-sentence') as HTMLDivElement | null;
         sentRow?.addEventListener('click', () => {
