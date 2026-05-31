@@ -97,9 +97,9 @@ Per `pickup-q-design-standard-v1.md` — applies to listen-comprehension + liste
 
 ## R8 — Speech rate
 
-- All TTS at 0.7 rate (~108 wpm A2 sustainable)
+- WebSpeech fallback: `u.rate = 0.75` (~115 wpm, B.120 empirical A2 sweet spot — slightly faster than 0.7 sustains prosody on iOS Safari)
 - MP3 plays at native speed (~120 wpm grandma OpenAI TTS)
-- Consistent across narration / listen-tf / listen-mc
+- Consistent across narration / listen-tf / listen-mc question types — actual perceived rate depends on whether MP3 hits cache or falls back to WebSpeech
 
 ## R9 — Speaker icon
 
