@@ -5,7 +5,7 @@
     "lessonInChapter": 1,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "最後一晚, {catName} 跳上矮牆",
+    "storyBeat": "最後一晚, Mochi 跳上矮牆",
     "questions": [
       {
         "type": "listen-mc",
@@ -129,13 +129,13 @@
           "it is the last story night",
           "it is raining hard",
           "Grandma is sick",
-          "{dogName} is missing"
+          "Hana is missing"
         ],
         "optionsZh": [
           "這是最後一個故事夜",
           "雨下得很大",
           "奶奶生病了",
-          "{dogName}是錯過中"
+          "Hana是錯過中"
         ],
         "correctIndex": 0,
         "explanationZh": "今晚是最後一次故事夜, 跟其他晚上都不同。",
@@ -154,15 +154,15 @@
     "lessonInChapter": 2,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "{dogName} 安靜趴下, 風很乾",
+    "storyBeat": "Hana 安靜趴下, 風很乾",
     "questions": [
       {
         "type": "listen-mc",
         "id": "kt-ch8-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} lies down quietly near my paws.",
-        "question": "How did {dogName} lie down?",
+        "sentence": "Hana lies down quietly near my paws.",
+        "question": "How did Hana lie down?",
         "options": [
           "slowly",
           "loudly",
@@ -176,7 +176,7 @@
           "快速地"
         ],
         "correctIndex": 2,
-        "explanationZh": "quietly = 安靜地。{dogName} 今晚特別安靜, 好像也知道是最後一夜。",
+        "explanationZh": "quietly = 安靜地。Hana 今晚特別安靜, 好像也知道是最後一夜。",
         "tags": [
           "story",
           "ch8",
@@ -190,7 +190,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "He does not bark; he just blinks at me.",
-        "question": "What does {dogName} do with his eyes?",
+        "question": "What does Hana do with his eyes?",
         "options": [
           "blinks",
           "shines",
@@ -204,7 +204,7 @@
           "哭"
         ],
         "correctIndex": 0,
-        "explanationZh": "blink = 眨眼。{dogName} 沒叫, 只是慢慢眨眼看我。",
+        "explanationZh": "blink = 眨眼。Hana 沒叫, 只是慢慢眨眼看我。",
         "tags": [
           "story",
           "ch8",
@@ -238,7 +238,7 @@
           5,
           6
         ],
-        "explanationZh": "together = 一起。最後一晚我跟 {dogName} 坐在乾乾的風裡。",
+        "explanationZh": "together = 一起。最後一晚我跟 Hana 坐在乾乾的風裡。",
         "tags": [
           "story",
           "ch8",
@@ -279,8 +279,8 @@
         "id": "kt-ch8-l2-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Why does {dogName} stay so quiet tonight?",
-        "question": "Why is {dogName} quiet?",
+        "sentence": "Why does Hana stay so quiet tonight?",
+        "question": "Why is Hana quiet?",
         "options": [
           "he senses it is the last night",
           "he is asleep",
@@ -294,7 +294,7 @@
           "他對我生氣"
         ],
         "correctIndex": 0,
-        "explanationZh": "狗也會感覺氣氛, {dogName} 知道今晚不一樣, 所以安靜陪著。",
+        "explanationZh": "狗也會感覺氣氛, Hana 知道今晚不一樣, 所以安靜陪著。",
         "tags": [
           "story",
           "ch8",
@@ -3872,7 +3872,7 @@
         "id": "kt-ch8-l23-q3",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "{dogName} looks up at me with round eyes.",
+        "sentence": "Hana looks up at me with round eyes.",
         "question": "What body word do you hear?",
         "options": [
           "eyes",
@@ -3887,7 +3887,7 @@
           "大小"
         ],
         "correctIndex": 0,
-        "explanationZh": "eyes = 眼睛。{dogName} 抬頭看我, 圓滾滾的眼睛裡有疑問。",
+        "explanationZh": "eyes = 眼睛。Hana 抬頭看我, 圓滾滾的眼睛裡有疑問。",
         "tags": [
           "story",
           "ch8",
@@ -3987,7 +3987,7 @@
         "level": "A2",
         "difficulty": "medium",
         "sentence": "I do not know if I will come back tomorrow.",
-        "question": "When might {catName} return?",
+        "question": "When might Mochi return?",
         "options": [
           "tomorrow",
           "today",
@@ -4087,13 +4087,13 @@
         "options": [
           "the moon is too bright",
           "Grandma sent her away",
-          "{dogName} is angry",
+          "Hana is angry",
           "the eight-night routine is ending"
         ],
         "optionsZh": [
           "月亮太亮",
           "奶奶把她趕走",
-          "{dogName}是生氣",
+          "Hana是生氣",
           "八個夜晚就要結束"
         ],
         "correctIndex": 3,
@@ -4115,15 +4115,15 @@
     "lessonInChapter": 24,
     "segmentType": "outer-outro",
     "storyId": "bonus",
-    "storyBeat": "{dogName} 問: 葉限她怕嗎?",
+    "storyBeat": "Hana 問: 葉限她怕嗎?",
     "questions": [
       {
         "type": "listen-mc",
         "id": "kt-ch8-l24-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} looks at me with round eyes and asks: was Ye Xian scared?",
-        "question": "What does {dogName} ask?",
+        "sentence": "Hana looks at me with round eyes and asks: was Ye Xian scared?",
+        "question": "What does Hana ask?",
         "options": [
           "was she pretty",
           "was she rich",
@@ -4137,7 +4137,7 @@
           "她在睡嗎"
         ],
         "correctIndex": 2,
-        "explanationZh": "scared = 害怕的。{dogName} 想知道葉限那麼苦會不會怕。",
+        "explanationZh": "scared = 害怕的。Hana 想知道葉限那麼苦會不會怕。",
         "tags": [
           "story",
           "ch8",
@@ -4263,7 +4263,7 @@
         "level": "A2",
         "difficulty": "medium",
         "sentence": "If I had a wish, what would I want most?",
-        "question": "If {catName} could wish, for what?",
+        "question": "If Mochi could wish, for what?",
         "options": [
           "a tall tower",
           "a gold crown",
@@ -4290,8 +4290,8 @@
         "id": "kt-ch8-l24-q7",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} licks my paw very gently.",
-        "question": "What does {dogName} do?",
+        "sentence": "Hana licks my paw very gently.",
+        "question": "What does Hana do?",
         "options": [
           "barks loud",
           "runs away",
@@ -4305,7 +4305,7 @@
           "舔我的爪子"
         ],
         "correctIndex": 3,
-        "explanationZh": "lick = 舔。{dogName} 用最溫柔的方式安慰我, 像在說: 我們也是家。",
+        "explanationZh": "lick = 舔。Hana 用最溫柔的方式安慰我, 像在說: 我們也是家。",
         "tags": [
           "story",
           "ch8",
@@ -4414,7 +4414,7 @@
     "lessonInChapter": 25,
     "segmentType": "review",
     "storyId": "epilogue",
-    "storyBeat": "畢業: 八個夜晚, 八個故事, {catName} 記得",
+    "storyBeat": "畢業: 八個夜晚, 八個故事, Mochi 記得",
     "questions": [
       {
         "type": "tap-pairs",

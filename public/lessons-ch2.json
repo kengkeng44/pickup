@@ -5,7 +5,7 @@
     "lessonInChapter": 1,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "{catName} 跳上矮牆,看到新書",
+    "storyBeat": "Mochi 跳上矮牆,看到新書",
     "questions": [
       {
         "type": "listen-mc",
@@ -13,7 +13,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "I jump on the wall again tonight.",
-        "question": "When does {catName} jump on the wall?",
+        "question": "When does Mochi jump on the wall?",
         "options": [
           "midnight",
           "tonight",
@@ -68,8 +68,8 @@
         "id": "kt-ch2-l1-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} is waiting by her chair.",
-        "question": "Where is {dogName}?",
+        "sentence": "Hana is waiting by her chair.",
+        "question": "Where is Hana?",
         "options": [
           "by her chair",
           "near the gate",
@@ -83,7 +83,7 @@
           "在房子裡"
         ],
         "correctIndex": 0,
-        "explanationZh": "{dogName} 早就在奶奶椅子旁等了。",
+        "explanationZh": "Hana 早就在奶奶椅子旁等了。",
         "tags": [
           "story",
           "ch2",
@@ -96,7 +96,7 @@
         "id": "kt-ch2-l1-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I see Grandma open a blue book tonight. {dogName} sits by her foot.",
+        "sentence": "I see Grandma open a blue book tonight. Hana sits by her foot.",
         "question": "What is new tonight?",
         "options": [
           "Grandma's chair",
@@ -155,15 +155,15 @@
     "lessonInChapter": 2,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "{dogName} 尾巴拍地等故事",
+    "storyBeat": "Hana 尾巴拍地等故事",
     "questions": [
       {
         "type": "listen-mc",
         "id": "kt-ch2-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} thumps her tail on the floor.",
-        "question": "What does {dogName}'s tail do?",
+        "sentence": "Hana thumps her tail on the floor.",
+        "question": "What does Hana's tail do?",
         "options": [
           "wags",
           "thumps",
@@ -177,7 +177,7 @@
           "停"
         ],
         "correctIndex": 1,
-        "explanationZh": "thump = 拍打發出聲音。{dogName} 太開心,尾巴啪啪打地板。",
+        "explanationZh": "thump = 拍打發出聲音。Hana 太開心,尾巴啪啪打地板。",
         "tags": [
           "story",
           "ch2",
@@ -218,13 +218,13 @@
         "id": "kt-ch2-l2-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I sit beside {dogName} on the floor.",
+        "sentence": "I sit beside Hana on the floor.",
         "question": "Tap the tiles in order.",
         "tiles": [
           "I",
           "sit",
           "beside",
-          "{dogName}",
+          "Hana",
           "on",
           "the",
           "floor",
@@ -240,7 +240,7 @@
           5,
           6
         ],
-        "explanationZh": "我坐在 {dogName} 旁邊的地板上。wall / fast 是干擾。",
+        "explanationZh": "我坐在 Hana 旁邊的地板上。wall / fast 是干擾。",
         "tags": [
           "story",
           "ch2",
@@ -253,7 +253,7 @@
         "id": "kt-ch2-l2-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} sees me and her tail starts to move fast.",
+        "sentence": "Hana sees me and her tail starts to move fast.",
         "question": "Why does her tail move?",
         "options": [
           "she hears a car",
@@ -296,7 +296,7 @@
           "故事開始"
         ],
         "correctIndex": 3,
-        "explanationZh": "我跟 {dogName} 都在等故事開始。",
+        "explanationZh": "我跟 Hana 都在等故事開始。",
         "tags": [
           "story",
           "ch2",
@@ -3578,7 +3578,7 @@
           "穩穩往前走"
         ],
         "correctIndex": 3,
-        "explanationZh": "steady = 穩定。慢也沒關係,別停就好。我跟 {dogName} 都點點頭。",
+        "explanationZh": "steady = 穩定。慢也沒關係,別停就好。我跟 Hana 都點點頭。",
         "tags": [
           "story",
           "ch2",
@@ -3910,7 +3910,7 @@
     "lessonInChapter": 23,
     "segmentType": "outer-outro",
     "storyId": "outer",
-    "storyBeat": "{catName} 聽完故事,奶奶合上書",
+    "storyBeat": "Mochi 聽完故事,奶奶合上書",
     "questions": [
       {
         "type": "listen-mc",
@@ -3946,22 +3946,22 @@
         "id": "kt-ch2-l23-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I look at {dogName}. {dogName} looks back.",
+        "sentence": "I look at Hana. Hana looks back.",
         "question": "Who do I look at?",
         "options": [
           "the moon",
           "the book",
           "Grandma",
-          "{dogName}"
+          "Hana"
         ],
         "optionsZh": [
           "那個月亮",
           "那個書",
           "奶奶",
-          "{dogName}"
+          "Hana"
         ],
         "correctIndex": 3,
-        "explanationZh": "故事剛講完狗的角色,我跟 {dogName} 對望,想笑又不敢笑出聲。",
+        "explanationZh": "故事剛講完狗的角色,我跟 Hana 對望,想笑又不敢笑出聲。",
         "tags": [
           "story",
           "ch2",
@@ -3993,7 +3993,7 @@
           3,
           4
         ],
-        "explanationZh": "奶奶輕輕搔 {dogName} 的耳朵。loudly / fast 是干擾。",
+        "explanationZh": "奶奶輕輕搔 Hana 的耳朵。loudly / fast 是干擾。",
         "tags": [
           "story",
           "ch2",
@@ -4097,29 +4097,29 @@
     "lessonInChapter": 24,
     "segmentType": "review",
     "storyId": "outer",
-    "storyBeat": "番外:{dogName} 和 {catName} 問奶奶問題",
+    "storyBeat": "番外:Hana 和 Mochi 問奶奶問題",
     "questions": [
       {
         "type": "listen-mc",
         "id": "kt-ch2-l24-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} asks, \"Why was the dog in the story?\"",
+        "sentence": "Hana asks, \"Why was the dog in the story?\"",
         "question": "Who is asking the question?",
         "options": [
           "the old man",
-          "{dogName}",
-          "{catName}",
+          "Hana",
+          "Mochi",
           "Grandma"
         ],
         "optionsZh": [
           "老人",
-          "{dogName}",
-          "{catName}",
+          "Hana",
+          "Mochi",
           "奶奶"
         ],
         "correctIndex": 1,
-        "explanationZh": "{dogName} 先問:故事裡為什麼有狗?",
+        "explanationZh": "Hana 先問:故事裡為什麼有狗?",
         "tags": [
           "story",
           "ch2",
@@ -4148,7 +4148,7 @@
           "狗很大"
         ],
         "correctIndex": 1,
-        "explanationZh": "loyal = 忠心。奶奶說因為狗很忠誠,就像 {dogName} 一樣。",
+        "explanationZh": "loyal = 忠心。奶奶說因為狗很忠誠,就像 Hana 一樣。",
         "tags": [
           "story",
           "ch2",
@@ -4162,8 +4162,8 @@
         "id": "kt-ch2-l24-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{catName} asks, \"Was the boy real?\"",
-        "question": "What does {catName} want to know?",
+        "sentence": "Mochi asks, \"Was the boy real?\"",
+        "question": "What does Mochi want to know?",
         "options": [
           "if the peach was sweet",
           "if it rained",
@@ -4177,7 +4177,7 @@
           "如果男孩是真的"
         ],
         "correctIndex": 3,
-        "explanationZh": "{catName} 想知道桃太郎是不是真的人。",
+        "explanationZh": "Mochi 想知道桃太郎是不是真的人。",
         "tags": [
           "story",
           "ch2",
@@ -4220,8 +4220,8 @@
         "id": "kt-ch2-l24-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{dogName} asks, \"Why did the peach float?\"",
-        "question": "What is {dogName}'s next question?",
+        "sentence": "Hana asks, \"Why did the peach float?\"",
+        "question": "What is Hana's next question?",
         "options": [
           "why did the dog bark",
           "why did the peach float",
@@ -4235,7 +4235,7 @@
           "為什麼是粉紅"
         ],
         "correctIndex": 1,
-        "explanationZh": "{dogName} 想知道桃子為什麼會漂。",
+        "explanationZh": "Hana 想知道桃子為什麼會漂。",
         "tags": [
           "story",
           "ch2",
@@ -4278,8 +4278,8 @@
         "id": "kt-ch2-l24-q7",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{catName} asks, \"Were the demons all bad?\"",
-        "question": "What does {catName} ask about?",
+        "sentence": "Mochi asks, \"Were the demons all bad?\"",
+        "question": "What does Mochi ask about?",
         "options": [
           "the boat",
           "the dog",
@@ -4293,7 +4293,7 @@
           "那個妖怪"
         ],
         "correctIndex": 3,
-        "explanationZh": "{catName} 在想:妖怪是不是都壞?",
+        "explanationZh": "Mochi 在想:妖怪是不是都壞?",
         "tags": [
           "story",
           "ch2",

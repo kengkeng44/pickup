@@ -213,34 +213,14 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   // loader only substituted sentence + explanationZh — question + options leaked
   // raw tokens to the UI. User report: "題目跟問題中間好像夾雜奇怪的 cat name".
   // Fix: cover EVERY user-visible string field on the Question.
-  const inj = (s: string | undefined): string | undefined =>
-    s === undefined ? s : applyDogName(applyCatName(s));
-  const injected = parsed.map((l) => ({
-    ...l,
-    storyBeat: l.storyBeat ? applyDogName(applyCatName(l.storyBeat)) : l.storyBeat,
-    // v2.0.B.134: intro field also needs placeholder substitution.
-    // Bug: B.133 added intro field but loader never ran applyCatName on it,
-    // so '{catName} is a stray cat' shipped to UI as raw token. User screenshot
-    // showed the leak.
-    intro: l.intro ? {
-      en: applyDogName(applyCatName(l.intro.en)),
-      zh: applyDogName(applyCatName(l.intro.zh)),
-    } : l.intro,
-    questions: l.questions.map((q) => ({
-      ...q,
-      sentence: applyDogName(applyCatName(q.sentence)),
-      question: (q as any).question ? inj((q as any).question) : (q as any).question,
-      options: Array.isArray((q as any).options)
-        ? (q as any).options.map((o: string) => applyDogName(applyCatName(o)))
-        : (q as any).options,
-      // v2.0.B.130: optionsZh added by QA agent — bilingual button labels.
-      // Substitute {catName}/{dogName} so '我家的{catName}' gets rendered with real name.
-      optionsZh: Array.isArray((q as any).optionsZh)
-        ? (q as any).optionsZh.map((o: string) => applyDogName(applyCatName(o)))
-        : (q as any).optionsZh,
-      explanationZh: applyDogName(applyCatName(q.explanationZh)),
-    })),
-  })) as Lesson[];
+  // v2.0.B.148: placeholder system retired per user '不要給他們自訂 就固定叫
+  // mochi'. All {catName}/{dogName} now hardcoded 'Mochi'/'Hana' literal in
+  // JSON (sed-replaced across 8 lessons-ch*.json). Loader is pure passthrough.
+  // applyCatName/applyDogName functions kept in src/data/{cat,dog}Name.ts for
+  // back-compat with non-lesson modules (Profile / mascot wiring) but no
+  // longer called here. Resolves B.124 → B.130 → B.134 phantom-field cycle
+  // structurally — no more loader/schema sync drift.
+  const injected = parsed as Lesson[];
 
   cache.set(ch, injected);
   return injected;
