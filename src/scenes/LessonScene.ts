@@ -244,33 +244,72 @@ export class LessonScene extends Phaser.Scene {
           </div>
         `;
         const spk = sentEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
-        spk?.addEventListener('click', (e) => {
-          e.preventDefault();
-          if (typeof window !== 'undefined' && window.speechSynthesis) {
-            try {
-              window.speechSynthesis.cancel();
-              const u1 = new SpeechSynthesisUtterance(sentenceText);
-              u1.lang = 'en-US';
-              u1.rate = 0.85;
-              if (round.question) {
-                u1.onend = () => {
-                  window.setTimeout(() => {
-                    try {
-                      const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
-                      u2.lang = 'en-US';
-                      u2.rate = 0.9;
-                      window.speechSynthesis.speak(u2);
-                    } catch {}
-                  }, 1000);
-                };
-              }
-              window.speechSynthesis.speak(u1);
-            } catch {
-              speak(sentenceText);
+        // v2.0.B.119: speaker queue extended — TOEIC Part 2/3-4 standard.
+        // Without A-D being spoken, blind-listening user has NO cue which
+        // letter button is which option. User reported: "問題跟答案對不上"
+        // — root cause was missing options audio.
+        //
+        // Queue: sentence → 1s pause → "Question. <prompt>" → 0.6s pause →
+        //        "A. <opt1>. B. <opt2>. C. <opt3>. D. <opt4>."
+        const optionsText = Array.isArray(round.options)
+          ? ['A', 'B', 'C', 'D']
+              .map((letter, i) => `${letter}. ${round.options[i] ?? ''}.`)
+              .join(' ')
+          : '';
+        const speakQueue = (): void => {
+          if (!(typeof window !== 'undefined' && window.speechSynthesis)) {
+            speak(sentenceText);
+            return;
+          }
+          try {
+            window.speechSynthesis.cancel();
+            const u1 = new SpeechSynthesisUtterance(sentenceText);
+            u1.lang = 'en-US';
+            u1.rate = 0.85;
+            const speakQuestionThenOptions = (): void => {
+              window.setTimeout(() => {
+                try {
+                  const u2 = new SpeechSynthesisUtterance(`Question. ${round.question ?? ''}`);
+                  u2.lang = 'en-US';
+                  u2.rate = 0.9;
+                  if (optionsText) {
+                    u2.onend = () => {
+                      window.setTimeout(() => {
+                        try {
+                          const u3 = new SpeechSynthesisUtterance(optionsText);
+                          u3.lang = 'en-US';
+                          u3.rate = 0.85;
+                          window.speechSynthesis.speak(u3);
+                        } catch {}
+                      }, 600);
+                    };
+                  }
+                  window.speechSynthesis.speak(u2);
+                } catch {}
+              }, 1000);
+            };
+            if (round.question) {
+              u1.onend = speakQuestionThenOptions;
+            } else if (optionsText) {
+              u1.onend = () => {
+                window.setTimeout(() => {
+                  try {
+                    const u3 = new SpeechSynthesisUtterance(optionsText);
+                    u3.lang = 'en-US';
+                    u3.rate = 0.85;
+                    window.speechSynthesis.speak(u3);
+                  } catch {}
+                }, 600);
+              };
             }
-          } else {
+            window.speechSynthesis.speak(u1);
+          } catch {
             speak(sentenceText);
           }
+        };
+        spk?.addEventListener('click', (e) => {
+          e.preventDefault();
+          speakQueue();
         });
       }
     }
