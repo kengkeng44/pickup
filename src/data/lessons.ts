@@ -182,6 +182,14 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   const injected = parsed.map((l) => ({
     ...l,
     storyBeat: l.storyBeat ? applyDogName(applyCatName(l.storyBeat)) : l.storyBeat,
+    // v2.0.B.134: intro field also needs placeholder substitution.
+    // Bug: B.133 added intro field but loader never ran applyCatName on it,
+    // so '{catName} is a stray cat' shipped to UI as raw token. User screenshot
+    // showed the leak.
+    intro: l.intro ? {
+      en: applyDogName(applyCatName(l.intro.en)),
+      zh: applyDogName(applyCatName(l.intro.zh)),
+    } : l.intro,
     questions: l.questions.map((q) => ({
       ...q,
       sentence: applyDogName(applyCatName(q.sentence)),

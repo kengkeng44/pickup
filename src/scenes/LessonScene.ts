@@ -198,51 +198,76 @@ export class LessonScene extends Phaser.Scene {
     }
   }
 
-  private _mountIntroOverlay(intro: { en: string; zh: string }): void {
+  private _mountIntroOverlay(_intro: { en: string; zh: string }): void {
+    // v2.0.B.134: redesigned per user screenshot ref — no "STORY SO FAR"
+    // header, no EN/ZH paragraph spam, no {catName} leak. Match the existing
+    // ChapterIntroScene visual: Lesson chip + title + mascot + Next button +
+    // sentence preview rows (mini-mascot + dashed underline per upcoming Q).
+    // The intro field is kept in JSON (future use / accessibility) but not
+    // shown as long paragraph. Title carries the story-beat context.
+    void _intro;
+
     const slot = this.hud?.buttonsSlot();
     const sentEl = this.hud?.getSentenceElement();
-    if (!slot || !sentEl) {
+    if (!slot || !sentEl || !this.lesson) {
       this.renderQuestion(this.lesson!.questions[0]);
       return;
     }
-    // Render intro inside sentence card area.
+    const ch = CHAPTER_META[this.chapter as ChapterId];
+    const lessonNum = this.lesson.lessonInChapter;
+    const lessonTitle = this.lesson.storyBeat ?? ch.titleEn;
+
+    // Sentence preview rows (first 4 Qs) — mini-mascot + dashed underline
+    // proportional to sentence word count. Same blind-listening principle:
+    // shapes only, no readable text.
+    const previewRows = this.lesson.questions.slice(0, 4).map((q) => {
+      const sentence = String((q as any).sentence ?? '');
+      const wordCount = sentence.split(/\s+/).filter(Boolean).length;
+      const dashLen = Math.min(Math.max(wordCount * 18, 60), 240);
+      return `<div style="display:flex;align-items:center;gap:10px;padding:4px 0;">
+        <img src="/mascots/calico-anchor.webp" width="32" height="32" alt="" style="pointer-events:none;flex:0 0 auto;" />
+        <div style="flex:0 0 ${dashLen}px;height:6px;border-bottom:3px dashed #c8a878;"></div>
+      </div>`;
+    }).join('');
+
     sentEl.innerHTML = `
-      <div style="padding:12px 8px;display:flex;flex-direction:column;gap:10px;">
-        <div style="font-size:13px;font-weight:800;color:#8b6f4a;letter-spacing:1px;text-transform:uppercase;text-align:center;">Story so far · 故事到這裡</div>
-        <div style="font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.55;text-align:left;">${intro.en}</div>
-        <div style="font-size:15px;font-weight:600;color:#5a4530;line-height:1.6;text-align:left;">${intro.zh}</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 8px;">
+        <div style="font-size:14px;font-weight:800;color:#b07a2a;letter-spacing:1.5px;">Lesson ${lessonNum}</div>
+        <div style="font-size:24px;font-weight:900;color:#3c2a1c;line-height:1.25;text-align:center;">${lessonTitle}</div>
+        <img src="/mascots/calico-anchor.webp" width="160" height="160" alt="" style="pointer-events:none;margin:6px 0 2px;" />
+        <div style="width:100%;display:flex;flex-direction:column;gap:2px;margin-top:6px;">${previewRows}</div>
       </div>
     `;
-    // v2.0.B.133 fix: ClozeUI constructor already appended its 4 buttons to slot.
-    // DON'T wipe slot — hide them via display:none + overlay Begin on top.
+
+    // Hide ClozeUI's 4 buttons; show Next button.
     const existingChildren = Array.from(slot.children) as HTMLElement[];
     existingChildren.forEach((c) => { c.style.display = 'none'; });
-    const begin = document.createElement('button');
-    begin.type = 'button';
-    begin.id = 'pickup-intro-begin';
-    begin.textContent = '開始 · Begin';
-    Object.assign(begin.style, {
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.id = 'pickup-intro-begin';
+    next.textContent = '下一步 · Next →';
+    Object.assign(next.style, {
       width: '100%',
       padding: '16px 0',
-      background: '#7d9a4f',
+      background: '#7ac74a',
       color: '#ffffff',
       border: 'none',
-      borderBottom: '4px solid #5d7a3a',
+      borderBottom: '4px solid #5d9a35',
       borderRadius: '14px',
-      fontSize: '16px',
+      fontSize: '17px',
       fontWeight: '900',
-      letterSpacing: '1.5px',
+      letterSpacing: '1px',
       cursor: 'pointer',
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
     });
-    begin.addEventListener('click', () => {
-      begin.remove();
+    next.addEventListener('click', () => {
+      next.remove();
       existingChildren.forEach((c) => { c.style.display = ''; });
       this.renderQuestion(this.lesson!.questions[0]);
     });
-    slot.appendChild(begin);
+    slot.appendChild(next);
   }
 
   private renderQuestion(q: Question): void {
