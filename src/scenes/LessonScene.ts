@@ -961,6 +961,14 @@ export class LessonScene extends Phaser.Scene {
           review_opened: false,
         });
       } catch {}
+      // v2.0.B.161.6: PostHog STREAK_UPDATE event — fires once on lesson finish
+      try {
+        const state = useRunStore.getState();
+        track(EVENT.STREAK_UPDATE, {
+          streak_days: (state as any).dailyStreak ?? (state as any).streak ?? 0,
+          event: correct > 0 ? 'gained' : 'no_change',
+        });
+      } catch {}
     }
     const minutes = Math.floor(elapsedMs / 60000);
     const seconds = Math.floor((elapsedMs % 60000) / 1000);
