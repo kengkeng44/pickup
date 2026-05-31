@@ -1,6 +1,17 @@
-import Phaser from 'phaser';
-import { BootScene } from './scenes/BootScene';
+/**
+ * v2.0.B.152: tiny entry — splash + critical inits only.
+ *
+ * Phaser + all 9 scenes lazy-loaded via dynamic import('./bootGame')
+ * AFTER 'load' event fires. Per memory rule feedback-perf-budget.
+ *
+ * Earlier B.149-B.151 attempt FAILED because main.ts kept the static
+ * imports (Write tool errored on 'File has not been read yet' and the
+ * silent failure shipped to prod claiming perf was fixed). Bug-check
+ * agent caught this; B.152 actually removes them.
+ */
+import { audio } from './audio/AudioManager';
 import { sfxCardPress } from './audio/sfx';
+import './style.css';
 
 // v1.9.48 audit-4 #4: detect blocked localStorage (Safari Private,
 // quota-exceeded, etc.) so user knows their progress will silently revert
@@ -25,62 +36,12 @@ if (typeof window !== 'undefined' && detectStorageBlocked()) {
   banner.textContent = '⚠️ 進度無法儲存 — 請關閉私密瀏覽以保留 XP / 連勝紀錄';
   document.body.appendChild(banner);
 }
-import { audio } from './audio/AudioManager';
-import { MenuScene } from './scenes/MenuScene';
-import { PlayScene } from './scenes/PlayScene';
-import { EndScene } from './scenes/EndScene';
-import { StoryModeScene } from './scenes/StoryModeScene';
-import { ChapterIntroScene } from './scenes/ChapterIntroScene';
-import { ChapterEndScene } from './scenes/ChapterEndScene';
-import { StoryEndingScene } from './scenes/StoryEndingScene';
-import { LessonScene } from './scenes/LessonScene';
-import './style.css';
 
-/**
- * Portrait phone-app layout (v0.3 rework).
- *
- * 400 × 800 reference resolution, FIT scaled so the canvas centers in the
- * #app container (which is itself capped at 480px wide). On desktop the
- * surrounding cream bezel shows the "phone" framing; on mobile the canvas
- * fills the screen edge-to-edge.
- */
+// v0.3 reference resolution constants. Re-exported here for any modules
+// importing them via { PHASER_WIDTH, PHASER_HEIGHT } from 'main.ts'.
+// The actual Phaser config + Phaser.Game live in bootGame.ts (lazy).
 export const PHASER_WIDTH = 400;
 export const PHASER_HEIGHT = 800;
-
-const config: Phaser.Types.Core.GameConfig = {
-  type: Phaser.HEADLESS,
-  parent: 'app',
-  width: PHASER_WIDTH,
-  height: PHASER_HEIGHT,
-  backgroundColor: '#fef8ed',
-  scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH,
-  },
-  input: {
-    activePointers: 2,
-    touch: {
-      capture: true,
-    },
-  },
-  scene: [
-    BootScene,
-    MenuScene,
-    StoryModeScene,
-    ChapterIntroScene,
-    PlayScene,
-    ChapterEndScene,
-    StoryEndingScene,
-    EndScene,
-    LessonScene,  // v2.0 — single-lesson scope, called from StoryMapView click
-  ],
-};
-
-// v2.0.B.99: expose game globally so StoryMapView can scene.start('LessonScene')
-// directly (per Task 10 e2e wiring). Replaces the v1.x flow that routed every
-// node tap through ChapterIntro → PlayScene.
-const game = new Phaser.Game(config);
-(window as unknown as { pickupGame: Phaser.Game }).pickupGame = game;
 
 // v1.9.12: global click SFX. Any <button> tap fires a subtle press
 // sound (sfxCardPress). User has audio mute toggle in Profile if too
@@ -98,11 +59,23 @@ document.addEventListener('click', (e) => {
 }, true);
 
 // v1.7.1: remove the tear-drop intro overlay after its full sequence.
-// Timeline: 0.05s cat fade-in (0.55s) + tear fall 0.55→1.55s + disc
-// expand 1.55→2.65s + orange shell fade 2.65→3.0s = ends at 3.0s.
-// Pad to 3200ms so we never yank the element mid-fade on slow devices.
-// (Old preboot skeleton removed in v1.7.1 — tear-intro IS the new
-// preboot, paints on first frame.)
 window.setTimeout(() => {
   document.getElementById('pickup-tear-intro')?.remove();
 }, 3200);
+
+// v2.0.B.152: lazy-load Phaser + scenes after 'load' event.
+function bootPhaserLazy(): void {
+  void import('./bootGame').then(({ startGame }) => startGame());
+}
+if (document.readyState === 'complete') {
+  bootPhaserLazy();
+} else {
+  window.addEventListener('load', () => {
+    const ric = (window as unknown as { requestIdleCallback?: (cb: () => void) => void }).requestIdleCallback;
+    if (ric) {
+      ric(bootPhaserLazy);
+    } else {
+      setTimeout(bootPhaserLazy, 50);
+    }
+  });
+}
