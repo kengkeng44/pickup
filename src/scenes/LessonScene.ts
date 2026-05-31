@@ -262,13 +262,12 @@ export class LessonScene extends Phaser.Scene {
         sentEl.innerHTML = `
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
             <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
-              flex:0 0 auto; width:40px; height:40px; padding:0;
-              background:#e7a44a; border:none; border-bottom:3px solid #b07a2a;
-              border-radius:50%; cursor:pointer;
+              flex:0 0 auto; width:44px; height:44px; padding:0;
+              background:transparent; border:none; cursor:pointer;
               display:inline-flex; align-items:center; justify-content:center;
               touch-action:manipulation; -webkit-tap-highlight-color:transparent;
             ">
-              <img src="/mascots/icon-speaker.webp" width="32" height="32" alt="" style="pointer-events:none;" />
+              <img src="/mascots/icon-speaker.webp" width="40" height="40" alt="" style="pointer-events:none;" />
             </button>
             <div style="flex:1 1 auto;min-width:0;">
               <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.8;max-height:140px;overflow:hidden;">${blanksHtml}</div>
