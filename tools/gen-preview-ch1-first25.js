@@ -32,8 +32,13 @@ for (const q of flat) {
   }
   const diffClass = `diff-${q.difficulty ?? 'easy'}`;
   const opts = q.options ?? [];
-  const optsHtml = opts
-    .map((o, i) => `<div class="opt ${i === q.correctIndex ? 'correct' : ''}">${escape(o)}</div>`)
+  // Reorder for review: correct first, then 3 distractors in original order.
+  // Preserves "正解最先" preview readability without affecting game JSON.
+  const reordered = q.correctIndex != null && opts.length === 4
+    ? [opts[q.correctIndex], ...opts.filter((_, i) => i !== q.correctIndex)]
+    : opts;
+  const optsHtml = reordered
+    .map((o, i) => `<div class="opt ${i === 0 ? 'correct' : ''}">${escape(o)}</div>`)
     .join('');
   body += `
     <div class="q">
