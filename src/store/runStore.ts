@@ -574,8 +574,9 @@ export function isLessonUnlocked(
   lessonInChapter: number,
   totalCompleted: number
 ): boolean {
-  // Lesson 1 always unlocked if chapter is unlocked.
-  // Lesson N unlocks when N-1 is completed.
-  if (lessonInChapter === 1) return true;
+  // v2.0.B.109: dev/preview — unlock first 10 lessons so user can jump
+  // straight to any of them for testing without grinding through L1-L9.
+  // Lessons 11+ still require completion progression.
+  if (lessonInChapter <= 10) return true;
   return totalCompleted >= lessonInChapter - 1;
 }
