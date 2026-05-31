@@ -434,6 +434,16 @@ export class ClozeUI {
     this.locked = true;
     this.awaitingForceCorrect = forceCorrectRetry;
 
+    // v2.0.B.125: blind-listening reveal — restore option labels so user sees
+    // what they picked + what correct was. Without this, A/B/C/D pills stay
+    // empty and user can't learn from the reveal.
+    if (this.hideOptionText) {
+      for (let i = 0; i < this.buttons.length; i++) {
+        const text = this.buttons[i].el.getAttribute('data-text') ?? '';
+        this.buttons[i].label.textContent = text;
+      }
+    }
+
     for (let i = 0; i < this.buttons.length; i++) {
       const { el, letter, label } = this.buttons[i];
       el.disabled = true;
@@ -528,6 +538,9 @@ export class ClozeUI {
         : 'Continue →';
     }
 
+    // v2.0.B.125: render newlines as line breaks (LessonScene passes
+    // multi-line text "Q: ...\nA: ...\n\n<explanationZh>" for blind-listen).
+    this.revealText.style.whiteSpace = 'pre-line';
     this.revealText.textContent = explanationZh;
     this.revealPanel.style.display = 'block';
     void this.revealPanel.offsetHeight;

@@ -409,7 +409,25 @@ export class LessonScene extends Phaser.Scene {
     const correct = idx === correctIndex;
     this.locked = true;
 
-    this.clozeUI?.revealAnswer(idx, correctIndex, q.explanationZh, correct);
+    // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
+    // Sentence card was showing underline blanks; replace with real text so user
+    // can read what they just heard. Prepend question + sentence to explanationZh
+    // so the reveal panel surfaces all 3 (question / sentence / Zh explanation).
+    const qType = (q as any).type;
+    const isBlindListen = qType === 'listen-mc' || qType === 'listen-comprehension';
+    if (isBlindListen && this.hud) {
+      const sentEl = this.hud.getSentenceElement();
+      const correctWord = (q as any).options?.[correctIndex] ?? '';
+      const fullSentence = String((q as any).sentence ?? '').replace(/_{2,}/g, correctWord);
+      if (sentEl) {
+        sentEl.innerHTML = `<div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.6;padding:6px 4px;text-align:center;">${fullSentence}</div>`;
+      }
+    }
+    const revealText = isBlindListen
+      ? `Q: ${(q as any).question ?? ''}\nA: ${(q as any).options?.[correctIndex] ?? ''}\n\n${q.explanationZh}`
+      : q.explanationZh;
+
+    this.clozeUI?.revealAnswer(idx, correctIndex, revealText, correct);
 
     if (correct) {
       this.mascot?.setAnim('happy');
