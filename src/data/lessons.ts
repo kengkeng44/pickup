@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import { applyCatName } from './catName';
-import { applyDogName } from './dogName';
+// v2.0.B.148: applyCatName/applyDogName imports retired — loader is passthrough now.
 
 // v2.0: ClozeLevelSchema + DifficultySchema previously lived in
 // `./sentences.ts`, but `sentences.ts` now re-exports `QuestionSchema`

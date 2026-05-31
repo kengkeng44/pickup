@@ -324,7 +324,7 @@ export class LessonScene extends Phaser.Scene {
       return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
     }).join('');
     sentEl.innerHTML = `
-      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;">
         <button type="button" aria-label="Replay narration" class="pickup-narration-speaker" style="
           flex:0 0 auto; width:44px; height:44px; padding:0;
           background:transparent; border:none; cursor:pointer;
@@ -401,7 +401,7 @@ export class LessonScene extends Phaser.Scene {
       return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
     }).join('');
     sentEl.innerHTML = `
-      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;margin-bottom:10px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;margin-bottom:10px;">
         <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
           flex:0 0 auto; width:40px; height:40px; padding:0;
           background:transparent; border:none; cursor:pointer;
@@ -482,7 +482,7 @@ export class LessonScene extends Phaser.Scene {
       return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
     }).join('');
     sentEl.innerHTML = `
-      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;margin-bottom:10px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;margin-bottom:10px;">
         <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
           flex:0 0 auto; width:40px; height:40px; padding:0;
           background:transparent; border:none; cursor:pointer;
@@ -551,17 +551,17 @@ export class LessonScene extends Phaser.Scene {
       Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
       rootEl.insertBefore(history, sentEl.parentElement!);
     }
-    const isCorrect = userIdx === correctIdx;
+    // v2.0.B.150: drop green/red highlights per user '不要有綠色答對標註'.
+    void userIdx; void correctIdx;
     const card = document.createElement('div');
     Object.assign(card.style, {
-      background: isCorrect ? '#eaf6d5' : '#fde0d2',
-      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
-      borderRadius: '12px',
-      padding: '8px 12px',
-      fontSize: '13px',
-      opacity: '0.92',
+      padding: '4px 0',
+      fontSize: '14px',
+      color: '#5a4530',
+      lineHeight: '1.55',
+      fontWeight: '500',
     });
-    card.innerHTML = `<div style="color:${isCorrect ? '#5d9a35' : '#a23829'};font-weight:800;">${isCorrect ? '✓' : '✕'} ${String(q.questionEn ?? '')}</div>`;
+    card.textContent = String(q.questionEn ?? '');
     history.appendChild(card);
   }
 
@@ -576,15 +576,15 @@ export class LessonScene extends Phaser.Scene {
       Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
       rootEl.insertBefore(history, sentEl.parentElement!);
     }
+    // v2.0.B.150: plain text per user '不要有框框 嚴格規定跟第二張圖一樣'.
+    // No card frame, no border. Just sentence text in flow.
     const card = document.createElement('div');
     Object.assign(card.style, {
-      background: 'rgba(231,164,74,0.08)',
-      border: '1px solid rgba(231,164,74,0.25)',
-      borderRadius: '12px',
-      padding: '8px 12px',
-      fontSize: '13px',
-      color: '#5a4530',
-      opacity: '0.88',
+      padding: '4px 0',
+      fontSize: '15px',
+      color: '#3c2a1c',
+      lineHeight: '1.55',
+      fontWeight: '600',
     });
     card.textContent = String(q.sentence ?? '');
     history.appendChild(card);
@@ -601,17 +601,18 @@ export class LessonScene extends Phaser.Scene {
       Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
       rootEl.insertBefore(history, sentEl.parentElement!);
     }
-    const isCorrect = userIdx === correctIdx;
+    // v2.0.B.150: drop green/red highlights per user '不要有綠色答對標註'.
+    // Plain text question only. User's correctness not visually re-asserted.
+    void userIdx; void correctIdx;
     const card = document.createElement('div');
     Object.assign(card.style, {
-      background: isCorrect ? '#eaf6d5' : '#fde0d2',
-      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
-      borderRadius: '12px',
-      padding: '8px 12px',
-      fontSize: '13px',
-      opacity: '0.92',
+      padding: '4px 0',
+      fontSize: '14px',
+      color: '#5a4530',
+      lineHeight: '1.55',
+      fontWeight: '500',
     });
-    card.innerHTML = `<div style="color:${isCorrect ? '#5d9a35' : '#a23829'};font-weight:800;">${isCorrect ? '✓' : '✕'} ${String(q.questionZh ?? '')}</div>`;
+    card.textContent = String(q.questionZh ?? '');
     history.appendChild(card);
   }
 
