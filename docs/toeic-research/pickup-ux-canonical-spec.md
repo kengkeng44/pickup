@@ -1,130 +1,165 @@
-# Pickup UX Canonical Spec (consolidated)
+# Pickup UX Canonical Spec v2 (Duolingo Stories direction)
 
-> Single source of truth. Every commit's 3-agent audit checks against THIS doc. Updated 2026-05-31 to consolidate B.118 → B.140 accumulated rules.
+> Single source of truth. Every commit's 4-agent audit checks against THIS doc. Updated 2026-06-01 to consolidate B.118 → B.153 + Duolingo Stories pivot (B.145+).
+>
+> **v1 archived. Active spec is v2.**
 
 ## North Star
 
-A2 Taiwanese learner enters Pickup, taps a paw on the chapter map → lesson opens → 12 TOEIC-style listen-mc questions → completes in ~2-4 min → progress saved → next lesson unlocks.
+A2 Taiwanese learner enters Pickup, taps a paw on the chapter map → lesson opens **directly to first narration chunk** → completes ~14-entry Duolingo Stories flow in ~2-4 min → sees completion article (story paragraph) → next lesson unlocks.
 
 **Audio path** = grandma OpenAI TTS MP3 (pre-recorded). **WebSpeech** = fallback when MP3 missing.
-**Visual paradigm** = Duolingo hybrid (listen audio + read options).
+**Visual paradigm** = Duolingo Stories (audio-driven narration + interspersed comprehension Qs).
 
-## R1 — Question card pre-reveal state
+## R1 — Lesson entry state
 
-When a Q mounts (before user answers):
-
-| Surface | Visible? | Content |
-|---------|----------|---------|
-| **Sentence card** | Shape only | Word-blank tokens (dashed underline per word, no readable text) + speaker icon |
-| **Question prompt text** | ✅ **VISIBLE** | English WH-question ≤8 words, rendered above buttons |
-| **Option buttons (A/B/C/D)** | ✅ **VISIBLE** | English option text on each button (lowercase, 1-3 words) |
-| **Chinese (optionsZh)** | ❌ HIDDEN | Only show post-reveal |
-| **explanationZh** | ❌ HIDDEN | Only show post-reveal |
-| **Lesson title / chip** | ✅ English only | "Lesson N" + chapter titleEn |
-
-**Audio (on speaker tap OR auto-play after Next):**
-- Pre-recorded grandma MP3 plays sentence
-- BGM ducks to 10% during voice, restores after
-- (Future B.141+) Chain WebSpeech for "Question. <prompt>" + ABCD readout
-
-## R2 — Post-reveal state (after user taps an option)
+When a lesson loads:
 
 | Surface | Visible? | Content |
 |---------|----------|---------|
-| **Sentence card** | ✅ VISIBLE | Full English sentence text |
-| **Question prompt** | ✅ VISIBLE | Same as pre-reveal |
-| **Option buttons** | ✅ Bilingual | English (left) + 中文 (right, muted color) on each |
-| **Correct highlight** | ✅ Green pill | Green background + ✓ on correct option |
-| **User's wrong pick** | Red pill | Red background + ✕ on user's wrong (blindRetry first strike) |
-| **Reveal panel** | ✅ Slide-up | Q + A + explanationZh (Chinese OK here) |
-| **Continue → button** | ✅ Visible | Manual advance (auto-advance fires after 3s) |
+| **Intro overlay** | ❌ removed (B.142) | No Lesson N chip, no mascot card, no Next CTA. Lesson opens straight to first entry. |
+| **Cream sentence-card frame** | ❌ removed (B.142) | GameHUD card background transparent + no border. |
+| **HUD mascot pink halo** | ✅ Kept | Mochi mascot at top center. |
+| **Progress chip** | ✅ "qN/total" | Shows entry index against lesson length (e.g. "q3/14"). |
 
-## R3 — Lesson intro overlay (前情提要)
+## R2 — Per-entry rendering (dispatched by `q.type` in `renderQuestion`)
 
-When lesson loads (before Q1):
+### narration entries (~6 per lesson)
+- **Speaker icon** 44×44 transparent button + `/mascots/icon-speaker.webp` 40×40
+- **Sentence text** visible immediately (B.146 — auto-reveal, NOT tap-gated)
+- **Dashed underline under each word** (Duolingo Stories decoration)
+- **Audio auto-plays** on mount via `speak(sentence)` synchronously
+- **"繼續 ↓ Continue" green button** (`.pickup-narration-continue` class) advances to next entry
+- **No answer required** (not a question)
 
-- Top: amber "Lesson N" chip(English only)
-- Big title: chapter `titleEn`(English only, e.g. "A Story in the Yard")— NOT storyBeat(那個是中文)
-- Centered mascot 160×160(/mascots/calico-anchor.webp)
-- 4 sentence-preview rows(mini-mascot + dashed underline per Q,word-count-scaled)
-- Preview row tap → speak() that Q's sentence MP3 + reveal text on the row
-- Green "下一步 · Next →" button at bottom
-- Next click → auto-play Q1 sentence(gesture chain valid)
+### listen-tf entries (~4 per lesson) — English true/false
+- Speaker icon 40×40 + English sentence visible immediately + auto-play audio
+- `questionEn` rendered as bold centered prompt
+- **2 white buttons** ("Yes" / "No") with amber border-bottom
+- Tap commits → ~2s auto-advance to next entry
+- No reveal panel — just visual button color change (green/red) inline
 
-NO "STORY SO FAR" header. NO long EN/ZH paragraph.
+### listen-mc entries (~4 per lesson) — English blind ABCD
+- Speaker icon + sentence as word-blank shapes (B.118 blind-listening style)
+- 4 ABCD pill buttons (NO text pre-reveal — blind)
+- Speaker queue: sentence MP3 only (B.139 — no extended A-D readout per B.146 single-call rule)
+- Post-reveal: pills show English option + ZH (B.131 bilingual reveal)
+- Auto-advance after 3s (`ADVANCE_CORRECT_MS = 3000`)
 
-## R4 — Vertical scroll lesson history
+### Chinese in pre-reveal (R3 — strict)
+- All pre-reveal English-only (per memory `feedback-pickup-no-chinese-pre-reveal`)
+- Chinese appears only on:
+  - listen-mc post-reveal pill labels (bilingual EN+ZH)
+  - listen-mc reveal panel `explanationZh`
+  - listen-tf post-reveal explanation (if shown)
+  - History snapshots `explanationZh` inline note
+- ❌ NO Chinese in narration text, listen-tf questionEn, sentence audio captions
 
-After Q1 is answered + advance fires:
-- Q1 snapshots into a "frozen card" in `#pickup-lesson-history` container above current Q area
-- Card shows: Q# + ✓/✕ / sentence (full) / question / 4 options with bilingual labels + user pick + correct highlight / explanationZh
-- User scrolls up to see Q1 after they're on Q2
-- New Q (Q2) renders in original sentEl + buttons slot below history
+## R4 — Scroll history (vertical Duolingo radio)
 
-## R5 — Audio architecture
+After each answer commit + Continue advance:
+- Past entries SNAPSHOTTED to `#pickup-lesson-history` container above current chunk
+- Snapshot format (B.150 + B.153 — strict plain text, no frames, no green/red):
+  - narration: `<div>sentence text</div>` plain
+  - listen-tf: `<div>questionEn text</div>` plain
+  - listen-tf-zh (legacy): `<div>questionZh text</div>` plain
+  - listen-mc: `<div>sentence + question + — explanationZh</div>` plain
+- ❌ NO `background: green/red`, NO ✓/✕ icons, NO bordered cards
+- ✅ Plain reading flow — past entries available for user scroll-up
 
-- All speak calls route through `tts.ts speak()` → MP3 lookup → Web Audio playback
-- `AudioManager.duckBgm() / unduckBgm()` ramps BGM gain 100% ↔ 10% on speak start/end
-- `stopSpeaking()` cancels Web Audio + WebSpeech atomically — called in `cleanupOverlay` + `renderQuestion`
-- BGM auto-starts on LessonScene mount (idempotent, race-safe per bgm.ts contract)
+## R5 — Completion article view (`_showCompletionArticle`)
 
-## R6 — TOEIC question quality (lint rules — must pass)
+When `advance()` reaches end of `questions[]`:
+- `_showCompletionArticle` fires (B.147)
+- HUD mascot slot hidden
+- History container cleared (no Q/A clutter on completion)
+- Concatenates all `type === 'narration'` entries' `sentence` into clean paragraph
+- "THE STORY" amber header label + paragraph + center speaker icon (replay) + "完成 · Done" green CTA
+- Auto-plays full article on mount
+- Done CTA → `cleanupOverlay()` + `scene.start('StoryModeScene')`
 
-Per `pickup-q-design-standard-v1.md`:
+## R6 — Audio architecture
 
-- **R1-paraphrase**: correct option MUST NOT be substring of sentence (Buck 1991/2001 verbatim ban)
-- **A6**: option MUST NOT be substring of question
-- **A7**: repeated content-word from sentence should be a distractor, not correct
-- **R3**: correctIndex distribution ~3 each per 12-Q lesson
-- **R6**: sub-skill variety ≥3 gist + ≥5 detail + ≥2 inference + ≥2 vocab per lesson
-- **R7**: WH-question 5-8 words single sentence
-- **R8**: A2 vocab (GSL-2000)
-- **No emoji** in question/options/optionsZh
-- **No Chinese in question/options/sentence** (English only pre-reveal)
-- **`{catName}`/`{dogName}`** placeholders OK in JSON, loader substitutes at runtime
+- All speak calls route through `tts.ts speak()` → MP3 lookup → Web Audio fallback to WebSpeech
+- `AudioManager.duckBgm() / unduckBgm()` ramps BGM gain 100% ↔ 10% during voice (B.140)
+- `stopSpeaking()` cancels Web Audio + WebSpeech atomically (B.139.1)
+- Called in `cleanupOverlay` + at start of `renderQuestion`
+- BGM auto-starts on LessonScene mount (idempotent per `bgm.ts`)
+- `_renderNarration` + `_renderListenTf` auto-play synchronously (gesture chain from prior click)
 
-## R7 — Speech rate
+## R7 — TOEIC question quality (R1 paraphrase)
+
+Per `pickup-q-design-standard-v1.md` — applies to listen-comprehension + listen-emoji + listen-mc with `subSkill !== 'vocab'`:
+
+- **R1 paraphrase**: correct option MUST NOT be substring of sentence (Buck 1991/2001 ban)
+- **Exception** — `subSkill: 'vocab'` listen-mc Qs are minimal-pair phonetic identification (e.g. straw/stay/stray) and are R1 EXEMPT by design
+- Other rules R2-R8 + anti-patterns A1-A7 apply universally
+
+## R8 — Speech rate
 
 - All TTS at 0.7 rate (~108 wpm A2 sustainable)
-- Pre-recorded MP3 plays at native speed (~120 wpm grandma OpenAI TTS)
-- Consistent across sentence / question / options
+- MP3 plays at native speed (~120 wpm grandma OpenAI TTS)
+- Consistent across narration / listen-tf / listen-mc
 
-## R8 — Speaker icon
+## R9 — Speaker icon
 
-- /mascots/icon-speaker.webp(cute-eyes flat icon),no orange disc background
-- 44×44 transparent button(Apple HIG touch target)+ 40×40 inner img
+- `/mascots/icon-speaker.webp`
+- 44×44 transparent button + 40×40 inner img(narration + listen-mc)
+- 40×40 transparent button + 36×36 inner img(listen-tf — smaller for inline TF row)
 
-## R9 — Post-iteration audit (3-agent rule)
+## R10 — Cat / dog names
+
+- `Mochi` / `Hana` hardcoded literal in all 8 JSON files (B.148)
+- `{catName}` / `{dogName}` placeholder system retired
+- `applyCatName` / `applyDogName` functions kept but loader is passthrough
+- Profile customization removed
+
+## R11 — 4-agent post-iteration audit
 
 Every commit dispatches:
-1. **QA agent** — content vs this doc + pickup-q-design-standard-v1.md R1-R8 + A1-A7
+1. **QA agent** — content vs `pickup-q-design-standard-v1.md` R1-R8 + A1-A7
 2. **Bug-check agent** — code health: dead code / iOS / leak / race / schema sync
-3. **Audio-Text Consistency agent** — speakerText vs DOM vs explanationZh tri-cross
-4. (Optional) **UX compliance agent** — verify every surface listed in this doc is in the spec'd state
+3. **Audio-Text Consistency agent** — speakerText vs DOM vs explanationZh cross-check
+4. **UX Compliance agent** — verify every surface listed in this doc is in spec'd state
 
-If any blocks ship → must fix before next commit. Per `feedback-pickup-post-iteration-audit` memory rule.
+Per `feedback-pickup-post-iteration-audit` memory rule.
 
-## R10 — Capacitor / mobile target
+## R12 — Performance budget
 
-- Final target = iOS + Android native via Capacitor + Codemagic CI
+- First visit LCP ≤ 3000ms (per memory `feedback-perf-budget`)
+- Repeat visit ≤ 1000ms (cached)
+- Phaser 1.2 MB lazy-loaded via dynamic `import('./bootGame')` after 'load' event (B.152)
+- `vite.config.modulePreload: false` to prevent Vite auto-preload hint regression (B.151)
+
+## R13 — Capacitor / mobile target (deferred)
+
+- iOS + Android native via Capacitor + Codemagic CI (per memory `project-pickup-ios-distribution`)
 - MP3 only (Ogg/Opus iOS support only landed Safari 18.4)
-- Audio session: use `capacitor-media-session` plugin for Android lock-screen
-- Lesson packs: `@capacitor/filesystem` (NOT IndexedDB — iOS evicts)
+- Audio session: `capacitor-media-session` plugin
+- Lesson packs: `@capacitor/filesystem` (NOT IndexedDB)
 
-## R11 — Memory rules referenced (all must hold)
+## R14 — Memory rules referenced
 
-- `feedback-pickup-listening-format` — listening UI shape
-- `feedback-pickup-no-emoji-qa` — no emoji in Q/A content
-- `feedback-pickup-bilingual-options` — bilingual on reveal
-- `feedback-pickup-no-chinese-pre-reveal` — Chinese hidden pre-reveal
-- `feedback-pickup-q-prompt-quality` — TOEIC standard
-- `feedback-pickup-speech-rate` — 0.7 unified
-- `feedback-pickup-placeholder-substitution` — `{catName}`/`{dogName}` loader cover
-- `feedback-pickup-post-iteration-audit` — 3-agent rule
-- `feedback-pickup-retry-reveal` — 2-strike blindRetry → reveal
-- `feedback-perf-budget` — ≤3s first load / ≤1s repeat
+- `feedback-pickup-listening-format`
+- `feedback-pickup-no-emoji-qa`
+- `feedback-pickup-bilingual-options`
+- `feedback-pickup-no-chinese-pre-reveal` (with listen-tf-zh legacy carve-out)
+- `feedback-pickup-q-prompt-quality`
+- `feedback-pickup-speech-rate`
+- `feedback-pickup-placeholder-substitution` (semi-retired after B.148)
+- `feedback-pickup-post-iteration-audit`
+- `feedback-pickup-retry-reveal`
+- `feedback-perf-budget`
 
 ## Change log
 
-- 2026-05-31 — initial consolidation from B.118-B.140 user feedback iterations
-- R1 clarified: **English question + English options ARE visible pre-reveal**(was ambiguous between B.131 hideOptionText vs Duolingo hybrid)
+- 2026-05-31 — initial v1 consolidation from B.118-B.140
+- 2026-06-01 — **v2 rewrite** post-Duolingo-Stories pivot (B.142-B.153):
+  - R3 intro overlay deprecated (B.142)
+  - R1/R2 split into entry types (narration + listen-tf + listen-mc)
+  - R4 history strip frames + ✓/✕ (B.150 + B.153)
+  - R5 completion article view (B.147)
+  - R6 audio path + BGM ducking (B.140)
+  - R7 R1 vocab exemption clarified
+  - R10 placeholder retirement (B.148)
+  - R12 perf budget + lazy-load gates (B.149-B.152)
