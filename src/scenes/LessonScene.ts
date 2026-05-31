@@ -187,122 +187,13 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.146: removed B.143 _mountStoryOpener call per user '不能有兩個喇叭'.
     // Opener block was rendering ALONGSIDE Q1 chunk = 2 speakers visible.
     // New flow: narration entry questions[0] IS the opener — single speaker.
-    void this._mountIntroOverlay; // TS6133 suppress
-    void this._mountStoryOpener;
     this.renderQuestion(this.lesson.questions[0]);
   }
 
   /**
-   * v2.0.B.143: story opener block — 1-2 English sentences with tappable words.
-   * Inserts ABOVE the sentence card. Speaker icon + auto-play on first mount.
-   * Word taps show vocab popup with ZH + POS from lesson.openerVocab map.
+   * v2.0.B.143-B.146: _mountStoryOpener DELETED in B.153 (S4). Dead since
+   * B.146 removed the call site. ~110 lines bundle waste removed.
    */
-  private _mountStoryOpener(text: string, vocab?: Record<string, {zh: string; pos: string}>): void {
-    if (!this.hud) return;
-    const sentEl = this.hud.getSentenceElement();
-    const rootEl = sentEl?.parentElement?.parentElement;
-    if (!rootEl || !sentEl) return;
-
-    // Tear down any prior opener block (re-mount safe)
-    document.getElementById('pickup-lesson-opener')?.remove();
-
-    const opener = document.createElement('div');
-    opener.id = 'pickup-lesson-opener';
-    Object.assign(opener.style, {
-      background: 'rgba(231,164,74,0.08)',
-      borderRadius: '14px',
-      padding: '12px 14px',
-      margin: '0 0 12px 0',
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: '12px',
-      width: '100%',
-      boxSizing: 'border-box',
-    });
-
-    const speaker = document.createElement('button');
-    speaker.type = 'button';
-    speaker.setAttribute('aria-label', 'Replay opener');
-    Object.assign(speaker.style, {
-      flex: '0 0 auto',
-      width: '36px',
-      height: '36px',
-      padding: '0',
-      background: 'transparent',
-      border: 'none',
-      cursor: 'pointer',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      touchAction: 'manipulation',
-      WebkitTapHighlightColor: 'transparent',
-    });
-    speaker.innerHTML = '<img src="/mascots/icon-speaker.webp" width="34" height="34" alt="" style="pointer-events:none;"/>';
-    speaker.addEventListener('click', () => { try { speak(text); } catch {} });
-
-    const textBox = document.createElement('div');
-    Object.assign(textBox.style, {
-      flex: '1 1 auto',
-      fontSize: '15px',
-      fontWeight: '700',
-      color: '#3c2a1c',
-      lineHeight: '1.55',
-      letterSpacing: '0.2px',
-      minHeight: '40px',
-      display: 'flex',
-      alignItems: 'center',
-    });
-
-    // v2.0.B.144: Duolingo radio mode — text HIDDEN on mount, revealed on
-    // speaker tap. User: '一進去不會有任何字 就算是劇情也要點了才顯現出來'.
-    // Initially show muted dashed shape only (word-count hint without revealing).
-    const wordCount = text.split(/\s+/).filter(Boolean).length;
-    textBox.innerHTML = `<span style="color:#b07a2a;font-style:italic;opacity:0.5;">${'· '.repeat(Math.min(wordCount * 2, 18)).trim()}</span>`;
-    let revealed = false;
-
-    const renderTokens = (): void => {
-      textBox.innerHTML = '';
-      const tokens = text.split(/(\s+)/);
-      tokens.forEach((tok) => {
-        if (!tok) return;
-        if (/^\s+$/.test(tok)) {
-          textBox.appendChild(document.createTextNode(tok));
-          return;
-        }
-        const clean = tok.replace(/[.,!?;:'"()]/g, '');
-        const lookup = vocab?.[clean] ?? vocab?.[clean.toLowerCase()];
-        if (lookup && lookup.zh) {
-          const span = document.createElement('span');
-          span.textContent = tok;
-          Object.assign(span.style, {
-            borderBottom: '1px dashed #b07a2a',
-            cursor: 'pointer',
-            padding: '0 1px',
-          });
-          span.addEventListener('click', (e) => {
-            e.preventDefault();
-            this._showVocabPopup(lookup.zh, lookup.pos);
-          });
-          textBox.appendChild(span);
-        } else {
-          textBox.appendChild(document.createTextNode(tok));
-        }
-      });
-    };
-
-    speaker.addEventListener('click', () => {
-      if (!revealed) {
-        renderTokens();
-        revealed = true;
-      }
-      try { speak(text); } catch {}
-    });
-
-    opener.appendChild(speaker);
-    opener.appendChild(textBox);
-    rootEl.insertBefore(opener, sentEl.parentElement!);
-    // v2.0.B.144: NO auto-play — text-and-audio gated by user tap per spec.
-  }
 
   /**
    * v2.0.B.145: narration chunk — story sentence rendering. No answer.
@@ -616,144 +507,10 @@ export class LessonScene extends Phaser.Scene {
     history.appendChild(card);
   }
 
-  private _showVocabPopup(zh: string, pos: string): void {
-    let pop = document.getElementById('pickup-vocab-popup') as HTMLDivElement | null;
-    if (!pop) {
-      pop = document.createElement('div');
-      pop.id = 'pickup-vocab-popup';
-      Object.assign(pop.style, {
-        position: 'fixed',
-        bottom: '38%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        background: '#3c2a1c',
-        color: '#ffffff',
-        padding: '12px 22px',
-        borderRadius: '14px',
-        fontSize: '16px',
-        fontWeight: '800',
-        zIndex: '9999',
-        boxShadow: '0 6px 24px rgba(0,0,0,0.3)',
-        opacity: '0',
-        transition: 'opacity 180ms ease',
-        pointerEvents: 'none',
-        maxWidth: '85vw',
-        textAlign: 'center',
-      });
-      document.body.appendChild(pop);
-    }
-    pop.innerHTML = `<span>${zh}</span><span style="color:#e7a44a;font-size:13px;font-weight:700;margin-left:10px;">${pos}</span>`;
-    pop.style.opacity = '1';
-    pop.style.display = 'block';
-    const popRef = pop;
-    window.clearTimeout((popRef as any)._timer);
-    (popRef as any)._timer = window.setTimeout(() => {
-      popRef.style.opacity = '0';
-    }, 2400);
-  }
-
-  private _mountIntroOverlay(_intro: { en: string; zh: string }): void {
-    // v2.0.B.135: per user — kill duplicate HUD mascot (top), use English-only
-    // title (storyBeat 是中文 = 違反「中文永不顯示 pre-reveal」rule), make
-    // preview rows tappable (audio + reveal sentence text inline).
-    void _intro;
-
-    const slot = this.hud?.buttonsSlot();
-    const sentEl = this.hud?.getSentenceElement();
-    if (!slot || !sentEl || !this.lesson) {
-      this.renderQuestion(this.lesson!.questions[0]);
-      return;
-    }
-
-    // Hide HUD mascot during intro (duplicate visual with overlay mascot).
-    const hudMascotSlot = this.hud?.mascotSlot();
-    if (hudMascotSlot) hudMascotSlot.style.display = 'none';
-
-    const ch = CHAPTER_META[this.chapter as ChapterId];
-    const lessonNum = this.lesson.lessonInChapter;
-    // English-only title per pre-reveal Chinese ban (no storyBeat — that's Chinese).
-    const lessonTitle = ch.titleEn;
-
-    // Sentence preview rows (first 4 Qs) — tappable: speak audio + reveal text.
-    const previewRows = this.lesson.questions.slice(0, 4).map((q, idx) => {
-      const sentence = String((q as any).sentence ?? '');
-      const wordCount = sentence.split(/\s+/).filter(Boolean).length;
-      const dashLen = Math.min(Math.max(wordCount * 18, 60), 240);
-      return `<button type="button" class="pickup-intro-preview-row" data-idx="${idx}" data-sentence="${sentence.replace(/"/g, '&quot;')}" style="display:flex;align-items:center;gap:10px;padding:6px 4px;background:transparent;border:none;cursor:pointer;width:100%;text-align:left;touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
-        <img src="/mascots/calico-anchor.webp" width="32" height="32" alt="" style="pointer-events:none;flex:0 0 auto;" />
-        <span class="pickup-intro-preview-text" style="flex:1 1 auto;font-size:14px;font-weight:700;color:#3c2a1c;">
-          <span class="pickup-intro-dash" style="display:inline-block;width:${dashLen}px;height:6px;border-bottom:3px dashed #c8a878;vertical-align:middle;"></span>
-        </span>
-      </button>`;
-    }).join('');
-
-    sentEl.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 8px;">
-        <div style="font-size:14px;font-weight:800;color:#b07a2a;letter-spacing:1.5px;">Lesson ${lessonNum}</div>
-        <div style="font-size:24px;font-weight:900;color:#3c2a1c;line-height:1.25;text-align:center;">${lessonTitle}</div>
-        <img src="/mascots/calico-anchor.webp" width="160" height="160" alt="" style="pointer-events:none;margin:6px 0 2px;" />
-        <div style="width:100%;display:flex;flex-direction:column;gap:2px;margin-top:6px;">${previewRows}</div>
-      </div>
-    `;
-
-    // v2.0.B.135: wire preview-row taps — speak sentence + reveal text in row.
-    sentEl.querySelectorAll('.pickup-intro-preview-row').forEach((rowEl) => {
-      const btn = rowEl as HTMLButtonElement;
-      const sentence = btn.getAttribute('data-sentence') ?? '';
-      btn.addEventListener('click', () => {
-        // Reveal text (replace dashed underline with real sentence).
-        const textSpan = btn.querySelector('.pickup-intro-preview-text') as HTMLElement | null;
-        if (textSpan) {
-          textSpan.innerHTML = sentence;
-        }
-        // v2.0.B.137 bug-check #3: route via tts.ts speak() instead of bypassing
-        // pipeline — stopSpeaking + cancel + cache discipline lives in speak().
-        speak(sentence);
-      });
-    });
-
-    // Hide ClozeUI's 4 buttons; show Next button.
-    const existingChildren = Array.from(slot.children) as HTMLElement[];
-    existingChildren.forEach((c) => { c.style.display = 'none'; });
-    const next = document.createElement('button');
-    next.type = 'button';
-    next.id = 'pickup-intro-begin';
-    next.textContent = '下一步 · Next →';
-    Object.assign(next.style, {
-      width: '100%',
-      padding: '16px 0',
-      background: '#7ac74a',
-      color: '#ffffff',
-      border: 'none',
-      borderBottom: '4px solid #5d9a35',
-      borderRadius: '14px',
-      fontSize: '17px',
-      fontWeight: '900',
-      letterSpacing: '1px',
-      cursor: 'pointer',
-      fontFamily: 'inherit',
-      touchAction: 'manipulation',
-      WebkitTapHighlightColor: 'transparent',
-    });
-    next.addEventListener('click', () => {
-      next.remove();
-      existingChildren.forEach((c) => { c.style.display = ''; });
-      // v2.0.B.135: restore HUD mascot after intro dismissed
-      const hudMascot = this.hud?.mascotSlot();
-      if (hudMascot) hudMascot.style.display = '';
-      this.renderQuestion(this.lesson!.questions[0]);
-      // v2.0.B.140: auto-play Q1 sentence — synchronous inside Next click
-      // handler so iOS Safari gesture token is still valid for Web Audio.
-      // Per WebSearch + audio-debug agent: gesture chain survives sync calls.
-      // User: '沒辦法自動播放' — this restores auto-speak the safe way.
-      try {
-        const firstQ = this.lesson!.questions[0] as any;
-        const firstSentence = String(firstQ.sentence ?? '');
-        if (firstSentence) speak(firstSentence);
-      } catch {}
-    });
-    slot.appendChild(next);
-  }
+  // v2.0.B.143: _showVocabPopup DELETED in B.153 (S4). Only caller was
+  // _mountStoryOpener which also got deleted. ~35 lines removed.
+  // v2.0.B.133-B.142: _mountIntroOverlay DELETED in B.153 (S4). Dead since
+  // B.142 removed the call site. ~100 lines bundle waste removed.
 
   private renderQuestion(q: Question): void {
     this.locked = false;
@@ -997,39 +754,26 @@ export class LessonScene extends Phaser.Scene {
     const optionsZh = (q as any).optionsZh as string[] | undefined;
     const explanationZh = String((q as any).explanationZh ?? '');
 
+    // v2.0.B.153 (S1): UX agent flagged 4/14 mixed UX — listen-mc frozen
+    // cards still had green/red colored borders while narration/listen-tf
+    // had plain text per B.150. Match B.150 — plain text, no frames,
+    // no green ✓, no red ✕. Question only; correctness not visually
+    // re-asserted. userIdx/correctIdx unused but kept on signature.
+    void isCorrect; void userIdx; void correctIdx; void options; void optionsZh;
     const card = document.createElement('div');
-    card.className = 'pickup-frozen-q-card';
     Object.assign(card.style, {
-      background: isCorrect ? '#eaf6d5' : '#fde0d2',
-      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
-      borderRadius: '12px',
-      padding: '10px 12px',
-      fontSize: '13px',
-      lineHeight: '1.5',
-      opacity: '0.92',
+      padding: '4px 0',
+      fontSize: '14px',
+      color: '#5a4530',
+      lineHeight: '1.55',
+      fontWeight: '500',
     });
-    const optionRows = options.map((o, i) => {
-      const zh = optionsZh?.[i] ?? '';
-      const isC = i === correctIdx;
-      const isU = i === userIdx;
-      const mark = isC ? '✓' : isU ? '✕' : '';
-      const bg = isC ? '#7ac74a33' : isU ? '#c84a3a33' : 'transparent';
-      const fontW = isC || isU ? '800' : '500';
-      return `<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;background:${bg};padding:2px 6px;border-radius:4px;font-weight:${fontW};">
-        <span style="color:#3c2a1c;"><span style="display:inline-block;width:16px;color:#8b6f4a;">${'ABCD'[i]}</span>${o}</span>
-        <span style="color:#7a6850;font-size:12px;">${zh} ${mark}</span>
-      </div>`;
-    }).join('');
-    card.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">
-        <span style="font-weight:800;color:${isCorrect ? '#5d9a35' : '#a23829'};">Q${this.questionIdx + 1} ${isCorrect ? '✓' : '✕'}</span>
-        <span style="color:#8b6f4a;font-size:11px;">${isCorrect ? 'Correct' : 'See answer'}</span>
-      </div>
-      <div style="color:#3c2a1c;margin-bottom:4px;">${sentence}</div>
-      <div style="color:#5a4530;font-style:italic;margin-bottom:6px;">${question}</div>
-      <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:6px;">${optionRows}</div>
-      ${explanationZh ? `<div style="color:#5a4530;font-size:12px;border-top:1px dashed #c8a878;padding-top:5px;">${explanationZh}</div>` : ''}
-    `;
+    // Show only the question text (sentence + question) — reading flow
+    // like Duolingo Stories. explanationZh visible inline as note.
+    const noteHtml = explanationZh
+      ? `<span style="color:#8b6f4a;font-size:12px;margin-left:8px;">— ${explanationZh}</span>`
+      : '';
+    card.innerHTML = `<span style="color:#3c2a1c;">${sentence}</span> <span style="font-style:italic;">${question}</span>${noteHtml}`;
     history.appendChild(card);
   }
 
