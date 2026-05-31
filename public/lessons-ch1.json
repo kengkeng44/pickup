@@ -13,7 +13,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "I am {catName}. I am a stray cat.",
-        "question": "Which word did you hear?",
+        "question": "{catName} has no home. What kind of cat is he?",
         "options": [
           "straw",
           "stay",
@@ -35,7 +35,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Every night I visit one yard.",
-        "question": "Which place did you hear?",
+        "question": "Where does {catName} go every night?",
         "options": [
           "road",
           "yard",
@@ -57,7 +57,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "I jump on the low wall.",
-        "question": "Type the verb you hear.",
+        "question": "Type what {catName} does to get on the wall.",
         "options": [
           "jump",
           "walk",
@@ -133,7 +133,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "{dogName} wags his tail.",
-        "question": "Which verb did you hear?",
+        "question": "Type what {dogName}'s tail does when {catName} arrives.",
         "options": [
           "wag",
           "run",
@@ -177,7 +177,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "We are friends.",
-        "question": "Type the word you hear.",
+        "question": "Type the word for what {catName} and {dogName} are to each other.",
         "options": [
           "friends",
           "family",
@@ -426,7 +426,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "It is a dark night.",
-        "question": "Type the word you hear.",
+        "question": "Type the word that describes the night in the story.",
         "options": [
           "dark",
           "deep",
@@ -535,7 +535,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Her fur is all wet.",
-        "question": "Which word did you hear?",
+        "question": "What part of the kitten's body is soaked by the rain?",
         "options": [
           "fur",
           "fire",
@@ -557,7 +557,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She has not eaten in two days.",
-        "question": "Type the number you hear.",
+        "question": "Type the number of days the kitten has not eaten.",
         "options": [
           "two",
           "too",
@@ -601,7 +601,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She shakes from cold.",
-        "question": "Which verb did you hear?",
+        "question": "What does the kitten do because she is so cold?",
         "options": [
           "bakes",
           "takes",
@@ -633,7 +633,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She curls into a small ball.",
-        "question": "Which verb did you hear?",
+        "question": "What does the kitten do with her body to keep warm?",
         "options": [
           "cools",
           "curls",
@@ -677,7 +677,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She is alone.",
-        "question": "Type the word you hear.",
+        "question": "Type the word that says she has no one with her.",
         "options": [
           "alone",
           "along",
@@ -721,7 +721,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The alley is wet and quiet.",
-        "question": "Which place did you hear?",
+        "question": "Where is the kitten hiding in the rain?",
         "options": [
           "river",
           "city",
@@ -753,7 +753,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "A big shadow comes closer.",
-        "question": "Which word did you hear?",
+        "question": "What does the kitten see coming closer in the dark?",
         "options": [
           "sheep",
           "show",
@@ -797,7 +797,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "It is a woman.",
-        "question": "Type the word you hear.",
+        "question": "Type the word for who the big shadow really is.",
         "options": [
           "woman",
           "women",
@@ -917,7 +917,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The rain stops on the cat.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb that says the rain no longer hits the cat.",
         "options": [
           "stops",
           "steps",
@@ -1037,7 +1037,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The cat listens to her.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb for what the cat does with her ears.",
         "options": [
           "listens",
           "lessens",
@@ -1157,7 +1157,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Her voice is gentle.",
-        "question": "Type the adjective you hear.",
+        "question": "Type the adjective that describes Grandma's voice.",
         "options": [
           "gentle",
           "gentile",
@@ -1277,7 +1277,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She is silent.",
-        "question": "Type the adjective you hear.",
+        "question": "Type the adjective for a cat who says nothing.",
         "options": [
           "silent",
           "silver",
@@ -1397,7 +1397,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The towel is clean and dry.",
-        "question": "Type the adjective you hear first.",
+        "question": "Type the word that tells you the towel is not dirty.",
         "options": [
           "clean",
           "clear",
@@ -1517,7 +1517,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The cat begins to feel warm.",
-        "question": "Type the adjective you hear.",
+        "question": "Type the word for how the cat starts to feel after drying off.",
         "options": [
           "warm",
           "worn",
@@ -1659,7 +1659,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "But she has an idea.",
-        "question": "Type the noun you hear.",
+        "question": "Type the word for what Grandma suddenly has in her head.",
         "options": [
           "idea",
           "ideal",
@@ -1757,7 +1757,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "You are welcome any time.",
-        "question": "Type the adjective you hear.",
+        "question": "Type the word that says the cat may come whenever she likes.",
         "options": [
           "welcome",
           "welkin",
@@ -1833,7 +1833,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Grandma says, \"I have another story for you.\"",
-        "question": "Which word did you hear?",
+        "question": "Grandma already told one story. What does she want to tell?",
         "options": [
           "an",
           "another",
@@ -1856,7 +1856,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "It is a short story about summer.",
-        "question": "Which season did you hear?",
+        "question": "In what season does the ant and grasshopper story happen?",
         "options": [
           "winter",
           "spring",
@@ -1879,7 +1879,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "In the green grass live an ant and a grasshopper.",
-        "question": "Type the word you hear.",
+        "question": "Type where the ant and grasshopper live.",
         "options": [
           "grass",
           "glass",
@@ -2004,7 +2004,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The ant carries food to her home.",
-        "question": "Type the word you hear.",
+        "question": "Type what the ant carries back home.",
         "options": [
           "food",
           "foot",
@@ -2129,7 +2129,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "He is cold and hungry.",
-        "question": "Type the word you hear.",
+        "question": "Type how the grasshopper feels in winter with no food.",
         "options": [
           "hungry",
           "angry",
@@ -2254,7 +2254,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Both said, \"I am stronger than you.\"",
-        "question": "Type the word you hear.",
+        "question": "Type the word for how the wind and the sun describe themselves.",
         "options": [
           "stronger",
           "softer",
@@ -2379,7 +2379,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The traveler holds his coat tight.",
-        "question": "Type the word you hear.",
+        "question": "Type how hard the traveler holds his coat in the wind.",
         "options": [
           "tight",
           "light",
@@ -2504,7 +2504,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The traveler takes off his coat.",
-        "question": "Type the word you hear.",
+        "question": "Type the verb for what the traveler does with his coat in the sun.",
         "options": [
           "takes",
           "makes",
@@ -2629,7 +2629,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "It is late.",
-        "question": "Type the word you hear.",
+        "question": "Type the word that means the hour is no longer early.",
         "options": [
           "late",
           "light",
@@ -2754,7 +2754,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "I walk back slowly.",
-        "question": "Type the word you hear.",
+        "question": "Type the direction {catName} walks at the end of the night.",
         "options": [
           "back",
           "forth",

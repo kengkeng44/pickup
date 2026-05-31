@@ -13,7 +13,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Tonight feels colder than other nights.",
-        "question": "Which word did you hear?",
+        "question": "How does tonight feel to {catName} compared to other nights?",
         "options": [
           "smaller",
           "softer",
@@ -34,7 +34,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "I jump on the low wall.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb {catName} does to get up on the wall.",
         "options": [
           "jump",
           "jog",
@@ -170,7 +170,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "His ears bend back.",
-        "question": "Type the body part you hear.",
+        "question": "Type the body part of {dogName} that bends back when he is scared.",
         "options": [
           "ears",
           "eyes",
@@ -294,7 +294,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "It is a little scary.",
-        "question": "Type the adjective you hear.",
+        "question": "Type how Grandma's dark old book feels to {catName}.",
         "options": [
           "scary",
           "starry",
@@ -423,7 +423,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She works hard every day.",
-        "question": "Type the adverb you hear.",
+        "question": "Type the adverb that says Vasilisa works a lot every day.",
         "options": [
           "hard",
           "hardly",
@@ -937,7 +937,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She holds the doll tight.",
-        "question": "Type the verb you hear.",
+        "question": "Type what Vasilisa does with the little doll in her pocket.",
         "options": [
           "holds",
           "hopes",
@@ -1035,7 +1035,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She walks for many hours.",
-        "question": "Type the time word you hear.",
+        "question": "Type the time word that says she walks a very long time.",
         "options": [
           "hours",
           "houses",
@@ -1341,7 +1341,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The hut can turn around.",
-        "question": "Type the verb you hear.",
+        "question": "Type what the chicken-leg hut can do on its legs.",
         "options": [
           "turn",
           "tear",
@@ -1473,7 +1473,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Her teeth are old and sharp.",
-        "question": "Type the adjective you hear.",
+        "question": "Type the adjective that describes Baba Yaga's teeth.",
         "options": [
           "sharp",
           "shape",
@@ -1955,7 +1955,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The doll opens her tiny mouth.",
-        "question": "Type the body part you hear.",
+        "question": "Type the body part the doll opens to eat the bread.",
         "options": [
           "mouth",
           "mouse",
@@ -2086,7 +2086,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The doll works while she sleeps.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb for what the doll does while Vasilisa sleeps.",
         "options": [
           "works",
           "walks",
@@ -2261,7 +2261,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The yard is clean and bright.",
-        "question": "Type the adjective you hear.",
+        "question": "Type how the yard looks after the doll's secret work.",
         "options": [
           "clean",
           "calm",
@@ -2546,7 +2546,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The skull lights every tree.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb for what the skull does to every tree in the forest.",
         "options": [
           "lights",
           "likes",
@@ -2721,7 +2721,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "One day he caught a magic fish.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb that says the fisherman got the magic fish.",
         "options": [
           "caught",
           "called",
@@ -2973,7 +2973,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The child tried each bed slowly.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb for what the child does to each of the seven beds.",
         "options": [
           "tried",
           "tied",
@@ -3093,7 +3093,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The child woke and ran away fast.",
-        "question": "Type the verb you hear.",
+        "question": "Type the verb for what the child does to escape.",
         "options": [
           "ran",
           "rang",
@@ -3222,7 +3222,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Grandma smiles softly at us.",
-        "question": "Type the adverb you hear.",
+        "question": "Type how Grandma smiles at {catName} and {dogName}.",
         "options": [
           "softly",
           "swiftly",
@@ -3285,7 +3285,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Why does the hut have chicken legs?",
-        "question": "Type the body part you hear.",
+        "question": "Type the body part of the chicken-leg hut.",
         "options": [
           "legs",
           "logs",
@@ -3571,7 +3571,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "The night feels softer now.",
-        "question": "Type the adjective you hear.",
+        "question": "Type how the night now feels after the scary story is done.",
         "options": [
           "softer",
           "sober",
