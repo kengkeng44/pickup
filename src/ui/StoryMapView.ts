@@ -45,6 +45,9 @@ export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
   /** v1.9.15: HUD icon taps need to switch tabs via the parent scene. */
   onSwitchTab?: (tab: 'home' | 'tasks' | 'profile' | 'alerts') => void;
+  /** v2.0.B.115: V2 lesson-node tap fires via parent scene (StoryModeScene)
+   * which owns the Phaser scene instance + can transition properly. */
+  onPlayLesson?: (chapter: ChapterId, lessonId: string) => void;
 }
 
 const COLOR_BG = '#f1ebe1'; // v1.9.53: ~5% darker cream (was #fef8ed)
@@ -309,21 +312,16 @@ export class StoryMapView {
               chapter: chapterParam,
               positionOverride: pos,
             });
-            // v2.0.B.113: node tap → STOP StoryModeScene + START LessonScene.
-            // game.scene.start alone doesn't stop the calling scene → DOM
-            // overlap → user sees nothing change. Get StoryModeScene instance
-            // and use ITS scene.start which properly transitions.
+            // v2.0.B.115: node tap → bubble up via onPlayLesson callback so
+            // StoryModeScene (the actual Phaser.Scene) handles transition.
+            // B.113 had two failure modes (getScene from global vs DOM
+            // teardown race); callback approach lets the owning scene fire
+            // its own scene.start in proper Phaser lifecycle context.
             node.el.addEventListener('click', (e) => {
               e.preventDefault();
               if (!isUnlocked) return;
-              const g = (window as unknown as { pickupGame?: Phaser.Game }).pickupGame;
-              const storyScene = g?.scene.getScene('StoryModeScene');
-              if (storyScene) {
-                storyScene.scene.start('LessonScene', { chapter: chapterParam, lessonId: lesson.id });
-              } else if (g && g.scene) {
-                // Fallback: stop then start
-                g.scene.stop('StoryModeScene');
-                g.scene.start('LessonScene', { chapter: chapterParam, lessonId: lesson.id });
+              if (this.handlers.onPlayLesson) {
+                this.handlers.onPlayLesson(chapterParam, lesson.id);
               } else {
                 this.handlers.onPlayChapter(chapterParam);
               }

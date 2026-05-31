@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+declare const process: { env: Record<string, string | undefined> };
+
 /**
  * Playwright config for Pickup smoke tests.
  * Run: npx playwright test
@@ -18,8 +20,8 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'mobile-safari',
-      use: { ...devices['iPhone 14'] },
+      name: 'mobile-chrome',
+      use: { ...devices['Pixel 7'] }, // chromium engine, ready immediately
     },
   ],
 });

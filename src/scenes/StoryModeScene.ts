@@ -123,8 +123,12 @@ export class StoryModeScene extends Phaser.Scene {
           onPlayChapter: (chapter: ChapterId) => {
             this.openActivitySheet(chapter);
           },
-          // v1.9.15: HUD icons route to other tabs via this callback
           onSwitchTab: (next) => this.switchTab(next),
+          // v2.0.B.115: V2 lesson direct-start via Phaser.Scene's own scene.start
+          onPlayLesson: (chapter, lessonId) => {
+            this.cleanup();
+            this.scene.start('LessonScene', { chapter, lessonId });
+          },
         });
         break;
       case 'tasks':

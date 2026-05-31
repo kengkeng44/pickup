@@ -10,14 +10,17 @@ import { test, expect } from '@playwright/test';
  * Run: npx playwright test tests/smoke
  */
 
-const PROD_URL = process.env.PICKUP_URL ?? 'https://pickupwords.pages.dev';
+// @ts-expect-error - Node global, tsc doesn't have @types/node
+const PROD_URL: string = (typeof process !== 'undefined' && process?.env?.PICKUP_URL) || 'https://pickupwords.pages.dev';
 
 test.describe('Pickup smoke', () => {
   test('Ch1 map renders + first node tap loads LessonScene', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', (err) => errors.push(err.message));
     page.on('console', (msg) => {
-      if (msg.type() === 'error') errors.push(`[console.error] ${msg.text()}`);
+      const text = msg.text();
+      if (msg.type() === 'error') errors.push(`[ERR] ${text}`);
+      if (text.includes('LessonScene')) errors.push(`[LOG] ${text}`);
     });
 
     // 1. Open Ch1 map (skip splash via sessionStorage flag from prior visit)
@@ -37,10 +40,16 @@ test.describe('Pickup smoke', () => {
     await expect(firstNode).toBeVisible();
     await firstNode.click();
 
-    // 5. Wait for lesson UI — sentence card or 🔊 speaker
-    // GameHUD mounts sentence/buttons within ~500ms
-    await page.waitForTimeout(1500);
+    // 5. Wait for lesson UI longer — async init + JSON fetch + DOM mount
+    await page.waitForTimeout(4000);
     await page.screenshot({ path: 'tests/smoke/screenshots/02-after-node-tap.png', fullPage: false });
+
+    // Dump DOM for debug — see what actually rendered
+    const bodyHTML = await page.locator('body').innerHTML();
+    console.log('=== BODY HTML AFTER TAP (first 500 chars) ===');
+    console.log(bodyHTML.slice(0, 500));
+    console.log('=== JS ERRORS ===');
+    console.log(errors.join(' | ') || '(none)');
 
     // 6. Verify lesson UI mounted: check for cloze buttons (4 ABCD)
     const buttons = page.locator('[data-cloze-idx]');

@@ -69,26 +69,36 @@ export class LessonScene extends Phaser.Scene {
     super({ key: LessonScene.KEY });
   }
 
-  async init(data: LessonSceneData) {
+  private pendingLessonId = '';
+
+  init(data: LessonSceneData) {
+    // v2.0.B.117: sync init only — async load moved to create() with .then.
+    // Phaser doesn't await async init() before create() (Phaser 3.90 quirk
+    // — caught via Playwright smoke test). create() ran with lesson=undefined.
     this.chapter = data.chapter;
+    this.pendingLessonId = data.lessonId;
     this.questionIdx = 0;
-    try {
-      const lessons = await loadChapterLessons(data.chapter as ChapterId);
-      const found = findLesson(lessons, data.lessonId);
+  }
+
+  create(): void {
+    // Async load lessons + then mount UI. Phaser allows create() to start
+    // async work but UI mount happens inside the .then() block.
+    void loadChapterLessons(this.chapter as ChapterId).then((lessons) => {
+      const found = findLesson(lessons, this.pendingLessonId);
       if (!found) {
-        console.error(`Lesson ${data.lessonId} not found in chapter ${data.chapter}`);
+        console.error(`[LessonScene] Lesson ${this.pendingLessonId} not found in ch${this.chapter}`);
         this.scene.start('StoryModeScene');
         return;
       }
       this.lesson = found;
-    } catch (e) {
-      console.error('LessonScene init failed:', e);
+      this._mountLessonUI();
+    }).catch((e) => {
+      console.error('[LessonScene] load failed:', e);
       this.scene.start('StoryModeScene');
-      return;
-    }
+    });
   }
 
-  create(): void {
+  private _mountLessonUI(): void {
     if (!this.lesson) return;
 
     // Defensively kill any leftover bottom nav (matches PlayScene v1.8.7).
