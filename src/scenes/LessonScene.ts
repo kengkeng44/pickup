@@ -45,12 +45,10 @@ const ADVANCE_CORRECT_MS = 3_000;
 // for ABCD minimal-pair recognition. iOS Safari Web Speech non-linear: at 0.75
 // the phoneme onset gap between "straw" / "stay" / "stray" / "story" is too tight.
 // 0.65 ≈ 100 wpm gives ~150ms extra inter-word gap = user can pattern-match letter.
-// v2.0.B.128: user reported '語速還是忽快忽慢'. Unified all 3 utterances to
-// 0.7 (single sustainable A2 pace ~108 wpm). The previous 0.75/0.85/0.65
-// split broke prosody expectation at every rate switch — felt inconsistent.
+// v2.0.B.128: A2 sustainable rate ~108 wpm (single utterance now per B.136).
+// Question + options sub-rates removed in B.136 — single concatenated utterance
+// uses sentence rate throughout, prosody pauses via periods.
 const SPEECH_RATE_SENTENCE = 0.7;
-const SPEECH_RATE_QUESTION = 0.7;
-const SPEECH_RATE_OPTIONS = 0.7;
 
 /**
  * LessonScene — v2.0 single-lesson scope (forks PlayScene's question
@@ -408,55 +406,28 @@ export class LessonScene extends Phaser.Scene {
               .map((letter, i) => `${letter}. ${round.options[i] ?? ''}.`)
               .join(' ')
           : '';
+        // v2.0.B.136: kill onend chain race — concatenate into SINGLE utterance.
+        // User: 'I am Mochi 後面就完全沒聲音了'. iOS Safari onend chain (u1 → u2
+        // → u3) breaks mid-stream on multi-sentence content; periods inside one
+        // utterance create natural prosody pauses + no race.
+        // Format: '<sentence>. Question. <question>. A. <opt1>. B. <opt2>. C. <opt3>. D. <opt4>.'
         const speakQueue = (): void => {
+          const parts: string[] = [sentenceText.replace(/\.\s*$/, '') + '.'];
+          if (round.question) parts.push(`Question. ${String(round.question).replace(/\?\s*$/, '?')}`);
+          if (optionsText) parts.push(optionsText);
+          const fullText = parts.join(' ');
           if (!(typeof window !== 'undefined' && window.speechSynthesis)) {
-            speak(sentenceText);
+            speak(fullText);
             return;
           }
           try {
             window.speechSynthesis.cancel();
-            const u1 = new SpeechSynthesisUtterance(sentenceText);
-            u1.lang = 'en-US';
-            u1.rate = SPEECH_RATE_SENTENCE;
-            const speakQuestionThenOptions = (): void => {
-              window.setTimeout(() => {
-                try {
-                  const u2 = new SpeechSynthesisUtterance(`Question. ${round.question ?? ''}`);
-                  u2.lang = 'en-US';
-                  u2.rate = SPEECH_RATE_QUESTION;
-                  if (optionsText) {
-                    u2.onend = () => {
-                      window.setTimeout(() => {
-                        try {
-                          const u3 = new SpeechSynthesisUtterance(optionsText);
-                          u3.lang = 'en-US';
-                          u3.rate = SPEECH_RATE_OPTIONS;
-                          window.speechSynthesis.speak(u3);
-                        } catch {}
-                      }, 600);
-                    };
-                  }
-                  window.speechSynthesis.speak(u2);
-                } catch {}
-              }, 1000);
-            };
-            if (round.question) {
-              u1.onend = speakQuestionThenOptions;
-            } else if (optionsText) {
-              u1.onend = () => {
-                window.setTimeout(() => {
-                  try {
-                    const u3 = new SpeechSynthesisUtterance(optionsText);
-                    u3.lang = 'en-US';
-                    u3.rate = SPEECH_RATE_OPTIONS;
-                    window.speechSynthesis.speak(u3);
-                  } catch {}
-                }, 600);
-              };
-            }
-            window.speechSynthesis.speak(u1);
+            const u = new SpeechSynthesisUtterance(fullText);
+            u.lang = 'en-US';
+            u.rate = SPEECH_RATE_SENTENCE;
+            window.speechSynthesis.speak(u);
           } catch {
-            speak(sentenceText);
+            speak(fullText);
           }
         };
         spk?.addEventListener('click', (e) => {
@@ -537,6 +508,70 @@ export class LessonScene extends Phaser.Scene {
     });
   }
 
+  private _snapshotAnsweredQ(q: Question, userIdx: number, correctIdx: number): void {
+    if (!this.hud) return;
+    const sentEl = this.hud.getSentenceElement();
+    if (!sentEl) return;
+    const rootEl = sentEl.parentElement?.parentElement;
+    if (!rootEl) return;
+
+    let history = document.getElementById('pickup-lesson-history');
+    if (!history) {
+      history = document.createElement('div');
+      history.id = 'pickup-lesson-history';
+      Object.assign(history.style, {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        marginBottom: '12px',
+        width: '100%',
+      });
+      rootEl.insertBefore(history, sentEl.parentElement!);
+    }
+
+    const isCorrect = userIdx === correctIdx;
+    const sentence = String((q as any).sentence ?? '');
+    const question = String((q as any).question ?? '');
+    const options = ((q as any).options as string[]) ?? [];
+    const optionsZh = (q as any).optionsZh as string[] | undefined;
+    const explanationZh = String((q as any).explanationZh ?? '');
+
+    const card = document.createElement('div');
+    card.className = 'pickup-frozen-q-card';
+    Object.assign(card.style, {
+      background: isCorrect ? '#eaf6d5' : '#fde0d2',
+      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
+      borderRadius: '12px',
+      padding: '10px 12px',
+      fontSize: '13px',
+      lineHeight: '1.5',
+      opacity: '0.92',
+    });
+    const optionRows = options.map((o, i) => {
+      const zh = optionsZh?.[i] ?? '';
+      const isC = i === correctIdx;
+      const isU = i === userIdx;
+      const mark = isC ? '✓' : isU ? '✕' : '';
+      const bg = isC ? '#7ac74a33' : isU ? '#c84a3a33' : 'transparent';
+      const fontW = isC || isU ? '800' : '500';
+      return `<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;background:${bg};padding:2px 6px;border-radius:4px;font-weight:${fontW};">
+        <span style="color:#3c2a1c;"><span style="display:inline-block;width:16px;color:#8b6f4a;">${'ABCD'[i]}</span>${o}</span>
+        <span style="color:#7a6850;font-size:12px;">${zh} ${mark}</span>
+      </div>`;
+    }).join('');
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">
+        <span style="font-weight:800;color:${isCorrect ? '#5d9a35' : '#a23829'};">Q${this.questionIdx + 1} ${isCorrect ? '✓' : '✕'}</span>
+        <span style="color:#8b6f4a;font-size:11px;">${isCorrect ? 'Correct' : 'See answer'}</span>
+      </div>
+      <div style="color:#3c2a1c;margin-bottom:4px;">${sentence}</div>
+      <div style="color:#5a4530;font-style:italic;margin-bottom:6px;">${question}</div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:6px;">${optionRows}</div>
+      ${explanationZh ? `<div style="color:#5a4530;font-size:12px;border-top:1px dashed #c8a878;padding-top:5px;">${explanationZh}</div>` : ''}
+    `;
+    history.appendChild(card);
+  }
+
   private handleAnswer(idx: number): void {
     if (this.locked) return;
     const q = this.lesson.questions[this.questionIdx];
@@ -551,6 +586,12 @@ export class LessonScene extends Phaser.Scene {
       if (correct) sfxCorrect();
       else sfxWrong();
     } catch {}
+
+    // v2.0.B.136: snapshot answered Q to history container — vertical scroll.
+    // User: '不要這樣一題一題翻譯 用往下延伸的形式 這樣往上翻還可以翻到題目'.
+    // Snapshot fires after answer commit so frozen card carries user's pick +
+    // correct + sentence reveal. New Q renders in-place; old Q stays scrolled up.
+    this._snapshotAnsweredQ(q, idx, correctIndex);
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user
