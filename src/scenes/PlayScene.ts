@@ -394,10 +394,11 @@ export class PlayScene extends Phaser.Scene {
         return `<span class="word">${word}</span>${punct}`;
       }).join('');
       if (sentenceEl) {
-        // v2.0.B.68: reverted B.67's hasCloze gate — user reported Q4 looks
-        // empty without blank-row. Always render word-blanks-row matching
-        // audio word count (per memory rule feedback-pickup-listening-format:
-        // sentence-with-N-blanks visual structure regardless of cloze gap).
+        // v2.0.B.103: hide question prompt for listen-mc / listen-comprehension
+        // — user wants ONLY blank-row + ABCD buttons visible. Question prompt
+        // is implicit "listen + pick".
+        const qType = (round as unknown as { type?: string }).type;
+        const isBlindListen = qType === 'listen-mc' || qType === 'listen-comprehension';
         sentenceEl.innerHTML = `
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
             <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
@@ -415,7 +416,7 @@ export class PlayScene extends Phaser.Scene {
                 cursor:pointer;user-select:none;
                 max-height:140px;overflow:hidden;
               ">${blanksHtml}</div>
-              ${round.question ? `<div style="font-size:17px;color:#3c2a1c;font-weight:800;line-height:1.8;">${round.question}</div>` : ''}
+              ${(!isBlindListen && round.question) ? `<div style="font-size:17px;color:#3c2a1c;font-weight:800;line-height:1.8;">${round.question}</div>` : ''}
             </div>
           </div>
         `;
