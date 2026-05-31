@@ -250,19 +250,19 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Tonight Mochi jumps up the low wall.",
-        "questionEn": "Tonight Mochi jumps up the low wall.",
+        "questionEn": "Mochi climbs the tall tree to reach Grandma.",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "narration 說 Mochi jumps up the low wall,「跳上矮牆」是對的。",
+        "correctIndex": 1,
+        "explanationZh": "故事說 Mochi 跳上矮牆 (low wall),不是爬高樹 (tall tree),她在等奶奶說故事不是去找奶奶。要靠語意推理才能答。",
         "tags": [
           "story",
           "ch1",
           "tf"
         ],
-        "subSkill": "gist"
+        "subSkill": "inference"
       },
       {
         "type": "narration",
