@@ -82,7 +82,7 @@ test.describe('Pickup smoke', () => {
       btnCount = await buttons.count();
       advanceCount++;
     }
-    const tfButtons = await page.locator('button', { hasText: /對|不是這樣/ }).count();
+    const tfButtons = await page.locator('button', { hasText: /對|不是這樣|^Yes$|^No$/ }).count();
     expect(btnCount === 4 || tfButtons >= 2, `Expected 4 cloze OR 2 TF buttons; got cloze=${btnCount} tf=${tfButtons}`).toBe(true);
 
     // 7. No silent JS errors should occur

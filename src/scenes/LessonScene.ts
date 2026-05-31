@@ -462,6 +462,109 @@ export class LessonScene extends Phaser.Scene {
     }
   }
 
+  /**
+   * v2.0.B.147: English-only true/false (replaces listen-tf-zh).
+   * questionEn visible; options ["Yes","No"]; no Chinese.
+   */
+  private _renderListenTf(q: any): void {
+    if (!this.hud) return;
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) return;
+    const en = String(q.sentence ?? '');
+    const qEn = String(q.questionEn ?? q.question ?? '');
+    const opts = (q.options ?? ['Yes', 'No']) as string[];
+    const correctIdx = q.correctIndex ?? 0;
+
+    const enTokens = en.split(/(\s+)/);
+    const enWordHtml = enTokens.map(t => {
+      if (!t || /^\s+$/.test(t)) return t;
+      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
+    }).join('');
+    sentEl.innerHTML = `
+      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;background:rgba(231,164,74,0.06);border-radius:12px;margin-bottom:10px;">
+        <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
+          flex:0 0 auto; width:40px; height:40px; padding:0;
+          background:transparent; border:none; cursor:pointer;
+          display:inline-flex; align-items:center; justify-content:center;
+        ">
+          <img src="/mascots/icon-speaker.webp" width="36" height="36" alt="" style="pointer-events:none;" />
+        </button>
+        <div style="flex:1 1 auto;font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.6;display:flex;align-items:center;">
+          <span>${enWordHtml}</span>
+        </div>
+      </div>
+      <div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
+        ${qEn}
+      </div>
+    `;
+    const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
+    spk?.addEventListener('click', () => { try { speak(en); } catch {} });
+    try { speak(en); } catch {}
+
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    for (let i = 0; i < 2; i++) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = opts[i] ?? '';
+      Object.assign(btn.style, {
+        width: '100%',
+        padding: '14px 16px',
+        background: '#ffffff',
+        color: '#3c2a1c',
+        border: '2px solid #c8a878',
+        borderBottom: '4px solid #b07a2a',
+        borderRadius: '14px',
+        fontSize: '16px',
+        fontWeight: '800',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        marginBottom: '8px',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+      });
+      const idx = i;
+      btn.addEventListener('click', () => {
+        if (this.locked) return;
+        const correct = idx === correctIdx;
+        try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+        btn.style.background = correct ? '#eaf6d5' : '#fde0d2';
+        btn.style.borderColor = correct ? '#7ac74a' : '#c84a3a';
+        btn.style.color = correct ? '#5d9a35' : '#a23829';
+        this.locked = true;
+        try { this._snapshotTf(q, idx, correctIdx); } catch {}
+        this.scheduleAdvance(2000);
+      });
+      slot.appendChild(btn);
+    }
+  }
+
+  private _snapshotTf(q: any, userIdx: number, correctIdx: number): void {
+    const sentEl = this.hud?.getSentenceElement();
+    const rootEl = sentEl?.parentElement?.parentElement;
+    if (!rootEl || !sentEl) return;
+    let history = document.getElementById('pickup-lesson-history');
+    if (!history) {
+      history = document.createElement('div');
+      history.id = 'pickup-lesson-history';
+      Object.assign(history.style, { display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px', width: '100%' });
+      rootEl.insertBefore(history, sentEl.parentElement!);
+    }
+    const isCorrect = userIdx === correctIdx;
+    const card = document.createElement('div');
+    Object.assign(card.style, {
+      background: isCorrect ? '#eaf6d5' : '#fde0d2',
+      border: `2px solid ${isCorrect ? '#7ac74a' : '#c84a3a'}`,
+      borderRadius: '12px',
+      padding: '8px 12px',
+      fontSize: '13px',
+      opacity: '0.92',
+    });
+    card.innerHTML = `<div style="color:${isCorrect ? '#5d9a35' : '#a23829'};font-weight:800;">${isCorrect ? '✓' : '✕'} ${String(q.questionEn ?? '')}</div>`;
+    history.appendChild(card);
+  }
+
   private _snapshotNarration(q: any): void {
     const sentEl = this.hud?.getSentenceElement();
     const rootEl = sentEl?.parentElement?.parentElement;
@@ -670,10 +773,12 @@ export class LessonScene extends Phaser.Scene {
     // ClozeUI entirely (narration has no answer; listen-tf-zh has 2 options
     // not 4, which would crash ClozeUI.syncFromState).
     const qType2 = (q as any).type;
-    if (qType2 === 'narration' || qType2 === 'listen-tf-zh') {
+    if (qType2 === 'narration' || qType2 === 'listen-tf-zh' || qType2 === 'listen-tf') {
       this.renderHud();
       if (qType2 === 'narration') {
         this._renderNarration(q as any);
+      } else if (qType2 === 'listen-tf') {
+        this._renderListenTf(q as any);
       } else {
         this._renderListenTfZh(q as any);
       }
@@ -1012,8 +1117,99 @@ export class LessonScene extends Phaser.Scene {
 
   private finish(): void {
     markLessonCompleted(this.chapter, this.lesson.id);
-    this.cleanupOverlay();
-    this.scene.start('StoryModeScene');
+    // v2.0.B.147: show completion article per user '最後完成一按鈕 是一整片的
+    // 文章 而不是夾雜題目跟答案'. Concatenate narration entries into a clean
+    // paragraph + Continue button to StoryModeScene.
+    try { this._showCompletionArticle(); } catch {
+      // fallback: route immediately
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+    }
+  }
+
+  private _showCompletionArticle(): void {
+    if (!this.hud || !this.lesson) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+
+    // Concatenate all narration sentences into a clean paragraph.
+    const narrationSentences = this.lesson.questions
+      .filter((q: any) => q.type === 'narration')
+      .map((q: any) => String(q.sentence ?? ''))
+      .filter(Boolean);
+    const articleText = narrationSentences.join(' ');
+
+    // Clear history (we don't want Q/A clutter on completion)
+    document.getElementById('pickup-lesson-history')?.remove();
+
+    // Hide HUD mascot slot for clean view
+    const mascotSlot = this.hud.mascotSlot();
+    if (mascotSlot) mascotSlot.style.display = 'none';
+
+    // Render article in sentEl
+    const tokens = articleText.split(/(\s+)/);
+    const wordHtml = tokens.map(t => {
+      if (!t || /^\s+$/.test(t)) return t;
+      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
+    }).join('');
+    sentEl.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:14px;padding:18px 12px;">
+        <div style="font-size:13px;font-weight:800;color:#b07a2a;letter-spacing:1.5px;text-align:center;">THE STORY</div>
+        <div style="font-size:16px;font-weight:600;color:#3c2a1c;line-height:1.8;text-align:left;">
+          ${wordHtml}
+        </div>
+        <button type="button" aria-label="Replay story" class="pickup-article-speaker" style="
+          align-self:center; width:48px; height:48px; padding:0;
+          background:transparent; border:none; cursor:pointer;
+          display:inline-flex; align-items:center; justify-content:center;
+        ">
+          <img src="/mascots/icon-speaker.webp" width="44" height="44" alt="" style="pointer-events:none;" />
+        </button>
+      </div>
+    `;
+    const spk = sentEl.querySelector('.pickup-article-speaker') as HTMLButtonElement | null;
+    spk?.addEventListener('click', () => { try { speak(articleText); } catch {} });
+    // Auto-play article on completion
+    try { speak(articleText); } catch {}
+
+    // Continue → StoryModeScene
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    const cont = document.createElement('button');
+    cont.type = 'button';
+    cont.className = 'pickup-article-continue';
+    cont.textContent = '完成 · Done';
+    Object.assign(cont.style, {
+      width: '100%',
+      padding: '16px 0',
+      background: '#7ac74a',
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: '4px solid #5d9a35',
+      borderRadius: '14px',
+      fontSize: '17px',
+      fontWeight: '900',
+      letterSpacing: '1px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+      marginTop: '12px',
+    });
+    cont.addEventListener('click', () => {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+    });
+    slot.appendChild(cont);
   }
 
   private cleanupOverlay(): void {

@@ -82,6 +82,16 @@ export const ListenTfZhSchema = z.object({
   correctIndex: z.union([z.literal(0), z.literal(1)]),
 });
 
+// v2.0.B.147: English-only true/false (replaces listen-tf-zh per user '中文也是
+// 永遠不出現'). questionEn visible English; options ["Yes","No"]; no Chinese.
+export const ListenTfSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('listen-tf'),
+  questionEn: z.string(),
+  options: z.tuple([z.string(), z.string()]),
+  correctIndex: z.union([z.literal(0), z.literal(1)]),
+});
+
 // Variable-length tile bank, no max-4 constraint
 // NOTE: .refine() applied to the discriminated union below (z.discriminatedUnion
 // requires plain ZodObject members; ZodEffects from .refine() breaks it).
@@ -112,6 +122,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   TapPairsSchema,
   NarrationSchema,
   ListenTfZhSchema,
+  ListenTfSchema,
 ]);
 
 // Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.

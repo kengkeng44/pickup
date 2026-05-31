@@ -5,10 +5,10 @@
     "lessonInChapter": 1,
     "segmentType": "outer-prologue",
     "storyId": "outer",
-    "storyBeat": "{catName} 跳上矮牆",
+    "storyBeat": "她跳上矮牆",
     "intro": {
-      "en": "It is dark and cold. {catName} the stray cat jumps up the wall.",
-      "zh": "{catName} 是一隻沒有家的流浪貓。每天晚上她偷偷溜進奶奶安靜的小院子。今晚月光出來了,她跳上來等。"
+      "en": "It is dark and cold. The stray cat jumps up the wall.",
+      "zh": "她是一隻沒有家的流浪貓。每天晚上她偷偷溜進奶奶安靜的小院子。今晚月光出來了,她跳上來等。"
     },
     "openerVocab": {
       "it": {
@@ -73,7 +73,7 @@
         "type": "narration",
         "id": "kt-ch1-l1-n2",
         "level": "A2",
-        "sentence": "{catName} is a stray cat.",
+        "sentence": "She is a stray cat.",
         "explanationZh": "",
         "tags": [
           "story",
@@ -82,27 +82,22 @@
         ]
       },
       {
-        "type": "listen-tf-zh",
+        "type": "listen-tf",
         "id": "kt-ch1-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{catName} has no home.",
-        "question": "(unused)",
-        "questionZh": "{catName} 是一隻有家的貓。",
+        "sentence": "The cat has no home.",
+        "questionEn": "The cat has a home.",
         "options": [
-          "對",
-          "不對"
-        ],
-        "optionsZh": [
-          "對,是這樣的",
-          "不,不是這樣"
+          "Yes",
+          "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "narration 說 {catName} 是 stray cat(流浪貓),所以這句陳述「有家」是錯的。",
+        "explanationZh": "narration 說她是 stray cat(流浪貓),所以這句陳述「有家」是錯的。",
         "tags": [
           "story",
           "ch1",
-          "tf-zh"
+          "tf"
         ],
         "subSkill": "gist"
       },
@@ -119,27 +114,22 @@
         ]
       },
       {
-        "type": "listen-tf-zh",
+        "type": "listen-tf",
         "id": "kt-ch1-l1-q2",
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She has no home of her own.",
-        "question": "(unused)",
-        "questionZh": "{catName} 自己沒有一個家。",
+        "questionEn": "She has no home of her own.",
         "options": [
-          "對",
-          "不對"
-        ],
-        "optionsZh": [
-          "對,是這樣的",
-          "不,不是這樣"
+          "Yes",
+          "No"
         ],
         "correctIndex": 0,
         "explanationZh": "narration 直接說 She has no home of her own,「沒有自己的家」是對的。",
         "tags": [
           "story",
           "ch1",
-          "tf-zh"
+          "tf"
         ],
         "subSkill": "gist"
       },
@@ -148,8 +138,8 @@
         "id": "kt-ch1-l1-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "{catName} is a stray cat with no home.",
-        "question": "What kind of cat is {catName}?",
+        "sentence": "She is a stray cat with no home.",
+        "question": "What kind of cat is she?",
         "options": [
           "straw",
           "stay",
@@ -190,7 +180,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Every night she visits Grandma's small yard.",
-        "question": "Where does {catName} go every night?",
+        "question": "Where does she go every night?",
         "options": [
           "road",
           "park",
@@ -255,27 +245,22 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf-zh",
+        "type": "listen-tf",
         "id": "kt-ch1-l1-q6",
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Tonight she jumps up the low wall.",
-        "question": "(unused)",
-        "questionZh": "今晚 {catName} 跳上了矮牆。",
+        "questionEn": "Tonight she jumps up the low wall.",
         "options": [
-          "對",
-          "不對"
-        ],
-        "optionsZh": [
-          "對,是這樣的",
-          "不,不是這樣"
+          "Yes",
+          "No"
         ],
         "correctIndex": 0,
         "explanationZh": "narration 說 she jumps up the low wall,「跳上矮牆」是對的。",
         "tags": [
           "story",
           "ch1",
-          "tf-zh"
+          "tf"
         ],
         "subSkill": "gist"
       },
@@ -292,27 +277,22 @@
         ]
       },
       {
-        "type": "listen-tf-zh",
+        "type": "listen-tf",
         "id": "kt-ch1-l1-q7",
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She waits quietly for Grandma's story.",
-        "question": "(unused)",
-        "questionZh": "{catName} 在矮牆上大聲叫，吵醒奶奶。",
+        "questionEn": "She shouts loudly on the wall and wakes Grandma up.",
         "options": [
-          "對",
-          "不對"
-        ],
-        "optionsZh": [
-          "對,是這樣的",
-          "不,不是這樣"
+          "Yes",
+          "No"
         ],
         "correctIndex": 1,
         "explanationZh": "narration 說 She waits quietly,「安靜地等」才對,「大聲叫」是錯的。",
         "tags": [
           "story",
           "ch1",
-          "tf-zh"
+          "tf"
         ],
         "subSkill": "gist"
       },
@@ -322,7 +302,7 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She sits on the wall and waits for the story.",
-        "question": "What does {catName} do after jumping up?",
+        "question": "What does she do after jumping up?",
         "options": [
           "leaves the yard",
           "waits for the story",
