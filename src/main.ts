@@ -80,12 +80,33 @@ if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
   });
 }
 
+// v2.0.B.161.4: lazy analytics init (no-op without VITE_POSTHOG_KEY).
+// Spec: docs/product/posthog-event-taxonomy-2026-06.md. Fires APP_OPEN
+// once analytics ready.
+function bootAnalyticsLazy(): void {
+  void import('./analytics/posthog').then((m) => {
+    void m.initAnalytics().then(() => {
+      const deviceId = m.getOrCreateDeviceId();
+      m.identifyUser(deviceId, {
+        language: typeof navigator !== 'undefined' ? navigator.language : 'unknown',
+      });
+      m.track(m.EVENT.APP_OPEN, {
+        is_pwa: window.matchMedia?.('(display-mode: standalone)')?.matches ?? false,
+        ua_mobile: /Mobi|Android|iPhone|iPad/.test(typeof navigator !== 'undefined' ? navigator.userAgent : ''),
+        source: 'cold_start',
+      });
+    });
+  }).catch(() => { /* analytics is optional */ });
+}
+
 // v2.0.B.152: lazy-load Phaser + scenes after 'load' event.
 function bootPhaserLazy(): void {
   void import('./bootGame').then(({ startGame }) => {
     startGame();
     // v2.0.B.157: chain intro removal so it doesn't fire before Phaser mounts
     removeIntro();
+    // v2.0.B.161.4: analytics after Phaser so MPS not contended
+    bootAnalyticsLazy();
   });
 }
 if (document.readyState === 'complete') {

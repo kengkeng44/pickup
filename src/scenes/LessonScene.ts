@@ -6,6 +6,7 @@ import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
 import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
+import { track, EVENT } from '../analytics/posthog';
 import { startBgm } from '../audio/bgm';
 import { sfxCorrect, sfxWrong } from '../audio/sfx';
 import {
@@ -134,8 +135,19 @@ export class LessonScene extends Phaser.Scene {
 
     // v2.0.B.159: lesson stat tracking + dead-method TS6133 suppress
     this.lessonStartTime = Date.now();
+    this.lessonEndTime = undefined;
     this.lessonAnswerLog = [];
     void this._snapshotTf; void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
+    // v2.0.B.161.4: PostHog event
+    try {
+      track(EVENT.LESSON_START, {
+        chapter: this.chapter,
+        lesson_id: this.lesson.id,
+        lesson_in_chapter: this.lesson.lessonInChapter,
+        segment_type: this.lesson.segmentType,
+        question_count: this.lesson.questions.length,
+      });
+    } catch {}
 
     // Defensively kill any leftover bottom nav (matches PlayScene v1.8.7).
     document.getElementById('pickup-bottom-nav')?.remove();
@@ -919,8 +931,24 @@ export class LessonScene extends Phaser.Scene {
     const accuracy = total > 0 ? Math.round((correct / total) * 100) : 100;
     const xpEarned = correct * 10;
     // v2.0.B.161.1: freeze elapsed at first stat-show so Back/review doesn't inflate it
-    if (this.lessonEndTime == null) this.lessonEndTime = Date.now();
-    const elapsedMs = this.lessonEndTime - this.lessonStartTime;
+    const firstTime = this.lessonEndTime == null;
+    if (firstTime) this.lessonEndTime = Date.now();
+    const elapsedMs = (this.lessonEndTime ?? Date.now()) - this.lessonStartTime;
+    // v2.0.B.161.4: PostHog LESSON_COMPLETE event (first show only)
+    if (firstTime) {
+      try {
+        track(EVENT.LESSON_COMPLETE, {
+          lesson_id: this.lesson.id,
+          chapter: this.chapter,
+          question_count: total,
+          correct_count: correct,
+          accuracy,
+          xp_earned: xpEarned,
+          elapsed_ms: elapsedMs,
+          review_opened: false,
+        });
+      } catch {}
+    }
     const minutes = Math.floor(elapsedMs / 60000);
     const seconds = Math.floor((elapsedMs % 60000) / 1000);
     const timeStr = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')}` : `${seconds}s`;
@@ -973,6 +1001,7 @@ export class LessonScene extends Phaser.Scene {
       marginTop: '20px',
     });
     reviewBtn.addEventListener('click', () => {
+      try { track(EVENT.LESSON_REVIEW_OPEN, { lesson_id: this.lesson.id, trigger: 'stat_screen_button' }); } catch {}
       try { this._showLessonReview(); } catch {
         this.cleanupOverlay();
         this.scene.start('StoryModeScene');
