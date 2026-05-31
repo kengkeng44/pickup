@@ -75,6 +75,9 @@ export class LessonScene extends Phaser.Scene {
   static KEY = 'LessonScene';
 
   private lesson!: Lesson;
+  // v2.0.B.159: track answer log for completion stat screen + future review
+  private lessonAnswerLog: Array<{q: any; userIdx: number; correctIdx: number; isCorrect: boolean}> = [];
+  private lessonStartTime = 0;
   private chapter!: number;
   private questionIdx = 0;
   private hud?: GameHUD;
@@ -121,6 +124,11 @@ export class LessonScene extends Phaser.Scene {
 
   private _mountLessonUI(): void {
     if (!this.lesson) return;
+
+    // v2.0.B.159: lesson stat tracking + dead-method TS6133 suppress
+    this.lessonStartTime = Date.now();
+    this.lessonAnswerLog = [];
+    void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
 
     // Defensively kill any leftover bottom nav (matches PlayScene v1.8.7).
     document.getElementById('pickup-bottom-nav')?.remove();
@@ -206,9 +214,9 @@ export class LessonScene extends Phaser.Scene {
     const slot = this.hud.buttonsSlot();
     if (!sentEl || !slot) return;
     const text = String(q.sentence ?? '');
-    // v2.0.B.146: text shown IMMEDIATELY + audio auto-plays. No tap-to-reveal.
-    // Per user '不要用點的 而是語音自動說一句話 他自動跳一段話出來'.
-    // Dashed underline UNDER words = Duolingo Stories decoration.
+    // v2.0.B.159: Duolingo Stories character-bubble style per user '背景說明也
+    // 要夾雜貓咪頭像說話'. Mascot avatar on LEFT + speech bubble with sentence.
+    // No Continue button — 2s auto-advance per '答完兩秒就跳下一題'.
     const tokens = text.split(/(\s+)/);
     const wordHtml = tokens.map(t => {
       if (!t || /^\s+$/.test(t)) return t;
@@ -216,59 +224,39 @@ export class LessonScene extends Phaser.Scene {
     }).join('');
     sentEl.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;">
-        <button type="button" aria-label="Replay narration" class="pickup-narration-speaker" style="
-          flex:0 0 auto; width:44px; height:44px; padding:0;
-          background:transparent; border:none; cursor:pointer;
-          display:inline-flex; align-items:center; justify-content:center;
-          touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-        ">
-          <img src="/mascots/icon-speaker.webp" width="40" height="40" alt="" style="pointer-events:none;" />
-        </button>
-        <div class="pickup-narration-text" style="flex:1 1 auto;font-size:16px;font-weight:700;color:#3c2a1c;line-height:1.7;letter-spacing:0.2px;display:flex;align-items:center;">
-          <span>${wordHtml}</span>
+        <img src="/mascots/calico-anchor.webp" width="44" height="44" alt="" style="flex:0 0 auto;pointer-events:none;border-radius:50%;" />
+        <div style="flex:1 1 auto;position:relative;background:#fff7e8;border:2px solid #e7a44a;border-radius:14px;padding:10px 14px;">
+          <span style="position:absolute;left:-8px;top:14px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:10px solid #e7a44a;"></span>
+          <span style="position:absolute;left:-5px;top:15px;width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:9px solid #fff7e8;"></span>
+          <button type="button" aria-label="Replay narration" class="pickup-narration-speaker" style="
+            float:left;margin-right:8px; width:28px; height:28px; padding:0;
+            background:transparent; border:none; cursor:pointer;
+            display:inline-flex; align-items:center; justify-content:center;
+            touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+          ">
+            <img src="/mascots/icon-speaker.webp" width="24" height="24" alt="" style="pointer-events:none;" />
+          </button>
+          <span style="font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.6;">${wordHtml}</span>
         </div>
       </div>
     `;
     const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
     spk?.addEventListener('click', () => { try { speak(text); } catch {} });
-    // Auto-play audio on mount (gesture chain from prior click survives sync call)
+    // Auto-play audio on mount
     try { speak(text); } catch {}
 
-    // "Continue" button advances to next entry — no answer required.
+    // v2.0.B.159: NO Continue button, 2s auto-advance
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
-    const cont = document.createElement('button');
-    cont.type = 'button';
-    cont.className = 'pickup-narration-continue';
-    cont.textContent = '繼續 ↓ Continue';
-    Object.assign(cont.style, {
-      width: '100%',
-      padding: '14px 0',
-      background: '#7ac74a',
-      color: '#ffffff',
-      border: 'none',
-      borderBottom: '4px solid #5d9a35',
-      borderRadius: '14px',
-      fontSize: '16px',
-      fontWeight: '900',
-      letterSpacing: '1px',
-      cursor: 'pointer',
-      fontFamily: 'inherit',
-      touchAction: 'manipulation',
-      WebkitTapHighlightColor: 'transparent',
-    });
-    cont.addEventListener('click', () => {
-      // Snapshot narration to history then advance (no correct/wrong)
+    window.setTimeout(() => {
       try { this._snapshotNarration(q); } catch {}
-      cont.remove();
       this.questionIdx += 1;
       if (this.questionIdx >= this.lesson.questions.length) {
         this.finish();
         return;
       }
       this.renderQuestion(this.lesson.questions[this.questionIdx]);
-    });
-    slot.appendChild(cont);
+    }, 2000);
   }
 
   /**
@@ -346,7 +334,8 @@ export class LessonScene extends Phaser.Scene {
         btn.style.borderColor = correct ? '#7ac74a' : '#c84a3a';
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
-        try { this._snapshotTfZh(q, idx, correctIdx); } catch {}
+        // v2.0.B.159: log answer, don't snapshot to DOM (user '閱讀理解題問完就自己刪掉')
+        this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
         this.scheduleAdvance(2000);
       });
       slot.appendChild(btn);
@@ -424,7 +413,7 @@ export class LessonScene extends Phaser.Scene {
         btn.style.borderColor = correct ? '#7ac74a' : '#c84a3a';
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
-        try { this._snapshotTf(q, idx, correctIdx); } catch {}
+        this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
         this.scheduleAdvance(2000);
       });
       slot.appendChild(btn);
@@ -796,7 +785,8 @@ export class LessonScene extends Phaser.Scene {
     // '是要往下! 請嚴格參考多鄰國電台模式'. Duolingo Podcasts scroll log: past
     // chunks stay above, new chunks append below. _snapshotAnsweredQ appends
     // the answered card to #pickup-lesson-history container.
-    this._snapshotAnsweredQ(q, idx, correctIndex);
+    // v2.0.B.159: log answer instead of DOM snapshot
+    this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx: correctIndex, isCorrect: correct });
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user
@@ -865,11 +855,96 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.147: show completion article per user '最後完成一按鈕 是一整片的
     // 文章 而不是夾雜題目跟答案'. Concatenate narration entries into a clean
     // paragraph + Continue button to StoryModeScene.
-    try { this._showCompletionArticle(); } catch {
+    try { this._showLessonStats(); } catch {
       // fallback: route immediately
       this.cleanupOverlay();
       this.scene.start('StoryModeScene');
     }
+  }
+
+  /**
+   * v2.0.B.159: Duolingo-style lesson stat screen — replaces article view.
+   * Per user '完成後有一個結算畫面 請嚴格參考多鄰國 加這個新功能'.
+   * Shows XP earned + accuracy + time + Continue → StoryModeScene.
+   * Article view kept as _showCompletionArticle dead method for future
+   * lesson-review screen (deferred).
+   */
+  private _showLessonStats(): void {
+    if (!this.hud || !this.lesson) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+    const sentEl = this.hud.getSentenceElement();
+    const slot = this.hud.buttonsSlot();
+    if (!sentEl || !slot) {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+      return;
+    }
+
+    document.getElementById('pickup-lesson-history')?.remove();
+    const mascotSlot = this.hud.mascotSlot();
+    if (mascotSlot) mascotSlot.style.display = 'none';
+
+    const total = this.lessonAnswerLog.length;
+    const correct = this.lessonAnswerLog.filter(a => a.isCorrect).length;
+    const accuracy = total > 0 ? Math.round((correct / total) * 100) : 100;
+    const xpEarned = correct * 10;
+    const elapsedMs = Date.now() - this.lessonStartTime;
+    const minutes = Math.floor(elapsedMs / 60000);
+    const seconds = Math.floor((elapsedMs % 60000) / 1000);
+    const timeStr = minutes > 0 ? `${minutes}:${seconds.toString().padStart(2, '0')}` : `${seconds}s`;
+
+    sentEl.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;gap:18px;padding:30px 20px 20px;">
+        <div style="font-size:48px;line-height:1;">🎉</div>
+        <div style="font-size:22px;font-weight:900;color:#3c2a1c;text-align:center;">Lesson complete!</div>
+        <div style="display:flex;gap:10px;width:100%;justify-content:space-between;margin-top:12px;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#fef3c7;border:2px solid #e7a44a;border-bottom:4px solid #b07a2a;border-radius:14px;">
+            <div style="font-size:12px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">XP</div>
+            <div style="font-size:24px;font-weight:900;color:#b07a2a;">${xpEarned}</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#eaf6d5;border:2px solid #7ac74a;border-bottom:4px solid #5d9a35;border-radius:14px;">
+            <div style="font-size:12px;font-weight:800;color:#5d9a35;letter-spacing:1px;">ACCURACY</div>
+            <div style="font-size:24px;font-weight:900;color:#5d9a35;">${accuracy}%</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#fef8ed;border:2px solid #c8a878;border-bottom:4px solid #8b6f4a;border-radius:14px;">
+            <div style="font-size:12px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">TIME</div>
+            <div style="font-size:24px;font-weight:900;color:#8b6f4a;">${timeStr}</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    slot.innerHTML = '';
+    Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
+    const cont = document.createElement('button');
+    cont.type = 'button';
+    cont.className = 'pickup-stats-continue';
+    cont.textContent = '完成 · Continue →';
+    Object.assign(cont.style, {
+      width: '100%',
+      padding: '16px 0',
+      background: '#7ac74a',
+      color: '#ffffff',
+      border: 'none',
+      borderBottom: '4px solid #5d9a35',
+      borderRadius: '14px',
+      fontSize: '17px',
+      fontWeight: '900',
+      letterSpacing: '1px',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+      marginTop: '20px',
+    });
+    cont.addEventListener('click', () => {
+      this.cleanupOverlay();
+      this.scene.start('StoryModeScene');
+    });
+    slot.appendChild(cont);
   }
 
   private _showCompletionArticle(): void {
