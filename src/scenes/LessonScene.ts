@@ -184,15 +184,12 @@ export class LessonScene extends Phaser.Scene {
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
     this.mascot.setMascotImage('/mascots/calico-anchor.webp');
 
-    // v2.0.C.2: lesson-level intro overlay (前情提要). User reported B.132
-    // paraphrase rule R1 left Qs answerable only with prior context.
-    // Show intro card before Q1 if lesson defines one; else skip straight to Q1.
-    const lessonIntro = (this.lesson as any).intro as { en: string; zh: string } | undefined;
-    if (lessonIntro && lessonIntro.en && lessonIntro.zh) {
-      this._mountIntroOverlay(lessonIntro);
-    } else {
-      this.renderQuestion(this.lesson.questions[0]);
-    }
+    // v2.0.B.142: intro overlay REMOVED per user '甚至 mascot 都可以先不要給
+    // 由題目去推動進度'. Lesson opens straight at Q1 — no Lesson# title, no
+    // mascot, no preview rows, no Next CTA. Question drives the experience.
+    // _mountIntroOverlay kept for back-compat but no longer called.
+    void this._mountIntroOverlay; // suppress TS6133 unused-method warning
+    this.renderQuestion(this.lesson.questions[0]);
   }
 
   private _mountIntroOverlay(_intro: { en: string; zh: string }): void {
@@ -373,14 +370,10 @@ export class LessonScene extends Phaser.Scene {
       }).join('');
       const sentEl = this.hud.getSentenceElement();
       if (sentEl) {
-        // v2.0.B.141: per consolidated UX spec R1 — English question prompt
-        // VISIBLE above sentence card. User: '第一題沒有問題' — was audio-only,
-        // now also rendered as visible text. Chinese still hidden pre-reveal.
-        const questionPromptHtml = round.question
-          ? `<div style="font-size:15px;font-weight:800;color:#5a4530;line-height:1.4;padding:8px 4px 6px;text-align:center;">${String(round.question)}</div>`
-          : '';
+        // v2.0.B.142: REVERT B.141 visible question prompt per user '答案應該
+        // 是空白的 要用講的 跟之前模式一樣'. Pre-reveal sentence card = speaker
+        // icon + word-blank shapes only. Question prompt heard via audio queue.
         sentEl.innerHTML = `
-          ${questionPromptHtml}
           <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
             <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
               flex:0 0 auto; width:44px; height:44px; padding:0;
@@ -579,11 +572,10 @@ export class LessonScene extends Phaser.Scene {
       else sfxWrong();
     } catch {}
 
-    // v2.0.B.136: snapshot answered Q to history container — vertical scroll.
-    // User: '不要這樣一題一題翻譯 用往下延伸的形式 這樣往上翻還可以翻到題目'.
-    // Snapshot fires after answer commit so frozen card carries user's pick +
-    // correct + sentence reveal. New Q renders in-place; old Q stays scrolled up.
-    this._snapshotAnsweredQ(q, idx, correctIndex);
+    // v2.0.B.142: REVERT B.136 frozen Q snapshot per user '答對的題目答案
+    // 紀錄不要留在上面'. New Q replaces old in-place; no accumulated history.
+    // _snapshotAnsweredQ kept as method for future re-enable but not called.
+    void this._snapshotAnsweredQ; // suppress unused warning
 
     // v2.0.B.125: also reveal the sentence + question prompt for blind-listen Qs.
     // Sentence card was showing underline blanks; replace with real text so user

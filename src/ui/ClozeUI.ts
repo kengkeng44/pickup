@@ -680,24 +680,24 @@ export class ClozeUI {
     if (round !== this.currentQuestion) {
       this.currentQuestion = round;
       if (round) {
-        // v2.0.B.141: Duolingo hybrid mode per consolidated UX spec
-        // (docs/toeic-research/pickup-ux-canonical-spec.md R1).
-        // English option text VISIBLE pre-reveal (sentence still blind-shape;
-        // question prompt rendered by LessonScene). Chinese remains HIDDEN
-        // pre-reveal — appended on revealAnswer via data-zh attr (R2).
-        // User: '第一題沒有問題也沒有答案 為什麼越來越倒退了'.
-        // hideOptionText is now ALWAYS false — kept as field for B.125 reveal
-        // restoration code path (still toggles English+Chinese on reveal).
-        this.hideOptionText = false;
+        // v2.0.B.142: blind A/B/C/D pills per user '答案應該是空白的 要用講的
+        // 跟之前模式一樣'. REVERT B.141 visible-options. Only letter pill shown
+        // pre-reveal; English + Chinese restored on revealAnswer via data-text/
+        // data-zh attrs (B.125 path).
+        const qType = (round as unknown as { type?: string }).type;
+        this.hideOptionText = qType === 'listen-mc' || qType === 'listen-comprehension' || qType === 'listen-emoji';
         const optionsZh = (round as unknown as { optionsZh?: string[] }).optionsZh;
         for (let i = 0; i < this.buttons.length; i++) {
           const text = round.options[i];
           const zh = optionsZh?.[i] ?? '';
           this.buttons[i].el.setAttribute('data-text', text);
           this.buttons[i].el.setAttribute('data-zh', zh);
-          // R1 pre-reveal: English text only. Chinese rendered on reveal via
-          // revealAnswer hideOptionText branch (B.125 reads data-zh attr).
-          this.buttons[i].label.textContent = text;
+          if (this.hideOptionText) {
+            this.buttons[i].label.textContent = '';
+            this.buttons[i].label.innerHTML = '';
+          } else {
+            this.buttons[i].label.textContent = text;
+          }
           Object.assign(this.buttons[i].label.style, {
             display: '',
             alignItems: '',

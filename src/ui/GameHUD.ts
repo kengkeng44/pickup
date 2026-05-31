@@ -470,14 +470,15 @@ export class GameHUD {
   private buildSentenceCard(): void {
     this.card = document.createElement('div');
     this.card.classList.add('pickup-breathing');
+    // v2.0.B.142: cream 框框 stripped per user '把框框刪掉'.
+    // No background fill, no amber border, no border-bottom-shadow. Card
+    // now framed only by parent #pickup-hud spacing. Padding reduced.
     applyStyle(this.card, {
       width: '100%',
-      background: 'var(--pickup-surface)',
-      borderRadius: '18px',
-      border: '2px solid var(--pickup-border)',
-      borderBottom: '4px solid var(--pickup-border-dark)',
-      padding: '20px 20px 16px 20px',
-      // v1.9.44 Duo flat: blur halo stripped.
+      background: 'transparent',
+      borderRadius: '0',
+      border: 'none',
+      padding: '12px 4px 8px 4px',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
