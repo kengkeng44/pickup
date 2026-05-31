@@ -12,7 +12,7 @@
         "id": "kt-ch3-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The autumn wind is cool tonight.",
+        "sentence": "The leaf-fall months wind is cool tonight.",
         "question": "What season is tonight?",
         "options": [
           "answer",
@@ -33,7 +33,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -61,7 +62,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
@@ -89,14 +91,15 @@
           "ch3",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l1-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The leaves are red and yellow.",
+        "sentence": "The leaves are cherry-toned and corn-toned.",
         "question": "Which two colors did you hear?",
         "options": [
           "black and white",
@@ -117,7 +120,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -145,7 +149,8 @@
           "ch3",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -162,7 +167,7 @@
         "id": "kt-ch3-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana is already on the grass.",
+        "sentence": "Hana is already on the green ground cover.",
         "question": "Where is Hana?",
         "options": [
           "on the wall",
@@ -183,7 +188,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -211,7 +217,8 @@
           "ch3",
           "prologue",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
@@ -239,14 +246,15 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l2-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I sit down next to him.",
+        "sentence": "I sit down right after to him.",
         "question": "Where do I sit?",
         "options": [
           "behind the wall",
@@ -267,14 +275,15 @@
           "ch3",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l2-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He is warm. I am cold.",
+        "sentence": "He is cozy. I am cold.",
         "question": "How is Hana different from me?",
         "options": [
           "he is wet",
@@ -295,7 +304,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -312,7 +322,7 @@
         "id": "kt-ch3-l3-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma opens the book to a new page.",
+        "sentence": "Grandma opens the volume to a new page.",
         "question": "What does Grandma open?",
         "options": [
           "the book",
@@ -333,14 +343,15 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l3-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "On the page I see a pond.",
+        "sentence": "On the page I see a small water.",
         "question": "What is on the page?",
         "options": [
           "a pond",
@@ -361,7 +372,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -426,7 +438,8 @@
           "ch3",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
@@ -454,7 +467,8 @@
           "ch3",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -471,7 +485,7 @@
         "id": "kt-ch3-l4-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Long ago, a mother duck sits on five eggs.",
+        "sentence": "A handful.",
         "question": "How many eggs are there?",
         "options": [
           "fifty",
@@ -493,14 +507,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l4-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I am still inside my egg.",
+        "sentence": "I am still within my shell-ball.",
         "question": "Where is the duckling?",
         "options": [
           "in the pond",
@@ -522,7 +537,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -551,7 +567,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -580,7 +597,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -609,7 +627,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -638,7 +657,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -655,7 +675,7 @@
         "id": "kt-ch3-l5-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "One day the small eggs crack.",
+        "sentence": "One day the small eggs split open.",
         "question": "What happens to the eggs?",
         "options": [
           "they fly",
@@ -677,14 +697,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l5-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Four little yellow ducklings come out.",
+        "sentence": "Four little corn-toned ducklings come out.",
         "question": "What color are the ducklings?",
         "options": [
           "yellow",
@@ -706,7 +727,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -735,14 +757,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l5-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother duck looks worried.",
+        "sentence": "Mother duck looks uneasy.",
         "question": "How does Mother feel?",
         "options": [
           "tired",
@@ -764,14 +787,15 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l5-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I push from inside. I am tired.",
+        "sentence": "I push from inside. I am worn out.",
         "question": "How does the duckling feel inside?",
         "options": [
           "shy",
@@ -793,7 +817,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -822,7 +847,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -875,7 +901,7 @@
         "id": "kt-ch3-l6-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I am big and gray.",
+        "sentence": "I am huge and cloud-toned.",
         "question": "How does the duckling look?",
         "options": [
           "tall and white",
@@ -897,14 +923,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l6-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "My brothers and sisters are all yellow.",
+        "sentence": "My brothers and sisters are all corn-toned.",
         "question": "What color are my siblings?",
         "options": [
           "gray",
@@ -926,14 +953,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l6-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother looks at me with surprise.",
+        "sentence": "Mother looks at me with sudden start.",
         "question": "How does Mother look at me?",
         "options": [
           "with a smile",
@@ -955,14 +983,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l6-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Why does Mother look surprised?",
+        "sentence": "Why does Mother gaze surprised?",
         "question": "Why is Mother surprised?",
         "options": [
           "I look different",
@@ -984,14 +1013,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l6-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "I feel small and shy.",
+        "sentence": "I feel small and soft-spoken.",
         "question": "How do I feel right now?",
         "options": [
           "angry",
@@ -1013,7 +1043,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1030,7 +1061,7 @@
         "id": "kt-ch3-l7-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother leads us to the pond.",
+        "sentence": "Mother leads us to the small water.",
         "question": "Where does Mother lead us?",
         "options": [
           "to the pot",
@@ -1052,14 +1083,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l7-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I step into the cold water.",
+        "sentence": "I step into the chilly water.",
         "question": "How does the water feel?",
         "options": [
           "warm",
@@ -1081,7 +1113,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -1110,7 +1143,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -1139,7 +1173,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1168,14 +1203,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l7-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "My feet move under the water.",
+        "sentence": "My paws move under the water.",
         "question": "What moves under the water?",
         "options": [
           "my beak",
@@ -1197,7 +1233,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1236,7 +1273,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
@@ -1265,14 +1303,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l8-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "You are so ugly.",
+        "sentence": "You are so plain-looking.",
         "question": "What do the ducklings call him?",
         "options": [
           "ugly",
@@ -1294,7 +1333,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -1323,7 +1363,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1352,7 +1393,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -1381,7 +1423,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1398,7 +1441,7 @@
         "id": "kt-ch3-l9-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I walk into an old hen house.",
+        "sentence": "I walk into an old mother bird home.",
         "question": "Where does the duckling go?",
         "options": [
           "a hen house",
@@ -1420,14 +1463,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l9-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "An old hen looks down at me.",
+        "sentence": "An aged mother bird looks down at me.",
         "question": "Who looks at me first?",
         "options": [
           "an old hat",
@@ -1449,7 +1493,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -1478,14 +1523,15 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l9-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "\"Can you lay eggs?\" asks the hen.",
+        "sentence": "\"Can you rested shell-balls?\" asks the hen.",
         "question": "What does the hen ask?",
         "options": [
           "if I sing songs",
@@ -1507,14 +1553,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l9-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Why do they not like me?",
+        "sentence": "Why do they not enjoy me?",
         "question": "Why do the hen and cat reject him?",
         "options": [
           "he is too clean",
@@ -1536,14 +1583,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l9-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "I am tired of being judged.",
+        "sentence": "I am worn out of being judged.",
         "question": "How does the duckling feel?",
         "options": [
           "proud",
@@ -1565,7 +1613,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1604,14 +1653,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l10-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "\"You should go far away, child.\"",
+        "sentence": "\"You should go a long way off off in the distance, child.\"",
         "question": "What does Mother tell me to do?",
         "options": [
           "go to school",
@@ -1633,7 +1683,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1694,7 +1745,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1723,14 +1775,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l10-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The yard is far behind me.",
+        "sentence": "The yard is a long way off at the rear me.",
         "question": "Where is the yard now?",
         "options": [
           "far behind",
@@ -1752,7 +1805,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1769,7 +1823,7 @@
         "id": "kt-ch3-l11-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I walk alone through a wet swamp.",
+        "sentence": "I walk alone through a wet wet ground.",
         "question": "Where does the duckling walk?",
         "options": [
           "a stove",
@@ -1791,7 +1845,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -1820,7 +1875,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -1849,7 +1905,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "tap-tiles",
@@ -1914,7 +1971,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1943,7 +2001,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1960,7 +2019,7 @@
         "id": "kt-ch3-l12-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A loud bang shakes the marsh.",
+        "sentence": "A loud loud sound shakes the marsh.",
         "question": "What sound does he hear?",
         "options": [
           "a bark",
@@ -1982,7 +2041,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2011,7 +2071,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
@@ -2040,7 +2101,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -2069,7 +2131,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -2098,7 +2161,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2127,7 +2191,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2178,7 +2243,7 @@
         "id": "kt-ch3-l13-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She gives me some warm bread.",
+        "sentence": "She gives me some cozy baked loaf.",
         "question": "What does she give him?",
         "options": [
           "raw fish",
@@ -2200,14 +2265,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l13-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Her cat does not like me.",
+        "sentence": "Her small furry creature does not like me.",
         "question": "Who does not like him at her house?",
         "options": [
           "her dog",
@@ -2229,7 +2295,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2258,7 +2325,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -2287,7 +2355,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2316,7 +2385,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2333,7 +2403,7 @@
         "id": "kt-ch3-l14-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I look up at the sky.",
+        "sentence": "I look up at the blue above.",
         "question": "Where does he look?",
         "options": [
           "at the snow",
@@ -2355,14 +2425,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l14-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Big white birds fly over me.",
+        "sentence": "Big snow-toned birds fly over me.",
         "question": "What color are the big birds?",
         "options": [
           "brown",
@@ -2384,7 +2455,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2413,7 +2485,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -2442,7 +2515,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2471,14 +2545,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l14-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The birds disappear in the clouds.",
+        "sentence": "The birds disappear in the sky-puffs.",
         "question": "Where do the birds go?",
         "options": [
           "into a cage",
@@ -2500,7 +2575,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2517,7 +2593,7 @@
         "id": "kt-ch3-l15-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Winter comes hard this year.",
+        "sentence": "Cold months comes hard this year.",
         "question": "Which season comes?",
         "options": [
           "spring",
@@ -2539,7 +2615,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2568,7 +2645,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
@@ -2597,7 +2675,8 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -2626,7 +2705,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -2655,7 +2735,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2684,7 +2765,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -2701,7 +2783,7 @@
         "id": "kt-ch3-l16-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A kind farmer finds me on the ice.",
+        "sentence": "A kind land-tiller finds me on the ice.",
         "question": "Who finds him?",
         "options": [
           "a forester",
@@ -2723,14 +2805,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l16-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He breaks the ice and lifts me out.",
+        "sentence": "He snaps the frozen water and lifts me out.",
         "question": "How does the farmer save him?",
         "options": [
           "he runs away",
@@ -2752,7 +2835,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2781,14 +2865,15 @@
           "main",
           "ugly-duckling",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l16-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "By the fire I feel warm again.",
+        "sentence": "By the fire I feel cozy again.",
         "question": "How does the duckling feel by the fire?",
         "options": [
           "cold and stiff",
@@ -2810,7 +2895,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2839,14 +2925,15 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l16-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "I sleep deep through the night.",
+        "sentence": "I sleep far down through the night.",
         "question": "How does he sleep?",
         "options": [
           "loud",
@@ -2868,7 +2955,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2885,7 +2973,7 @@
         "id": "kt-ch3-l17-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Spring comes to the lake.",
+        "sentence": "Flower months comes to the lake.",
         "question": "Which season comes now?",
         "options": [
           "winter",
@@ -2907,14 +2995,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l17-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I bend down to drink.",
+        "sentence": "I bend down to take a sip of.",
         "question": "Why does he bend down?",
         "options": [
           "to dance",
@@ -2936,14 +3025,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l17-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I see my reflection in the water.",
+        "sentence": "I see my mirror image in the water.",
         "question": "What does he see in the water?",
         "options": [
           "my dinner",
@@ -2965,14 +3055,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l17-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The reflection is a white swan.",
+        "sentence": "The reflection is a snow-toned long-necked bird.",
         "question": "What is the reflection?",
         "options": [
           "a small bird",
@@ -2994,14 +3085,15 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l17-q5",
         "level": "A2",
         "difficulty": "hard",
-        "sentence": "Was I ever an ugly duckling?",
+        "sentence": "Was I ever an plain-looking duckling?",
         "question": "What does he understand now?",
         "options": [
           "he was never really ugly",
@@ -3023,7 +3115,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3052,7 +3145,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3103,7 +3197,7 @@
         "id": "kt-ch3-l18-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "They lower their long necks.",
+        "sentence": "They drop down their long necks.",
         "question": "What do they do with their necks?",
         "options": [
           "raise them",
@@ -3125,7 +3219,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3154,7 +3249,8 @@
           "main",
           "ugly-duckling",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3183,7 +3279,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3212,7 +3309,8 @@
           "main",
           "ugly-duckling",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3241,7 +3339,8 @@
           "main",
           "ugly-duckling",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3258,7 +3357,7 @@
         "id": "kt-ch3-l19-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A big lion sleeps under a tree.",
+        "sentence": "A big mane-cat sleeps under a tree.",
         "question": "Which animal is sleeping?",
         "options": [
           "a leopard",
@@ -3280,14 +3379,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l19-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A small mouse runs over his nose.",
+        "sentence": "A small mouse runs past the top of his sniffing part.",
         "question": "Where does the mouse run?",
         "options": [
           "over his foot",
@@ -3309,7 +3409,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3338,14 +3439,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l19-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He catches the mouse in his paw.",
+        "sentence": "He catches the mouse in his small foot.",
         "question": "How does the lion catch the mouse?",
         "options": [
           "in his paw",
@@ -3367,14 +3469,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l19-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Why does the lion let the mouse go?",
+        "sentence": "Why does the lion let the tiny squeaker go?",
         "question": "Why does the lion free the mouse?",
         "options": [
           "the mouse runs too fast",
@@ -3396,14 +3499,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l19-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The mouse says thank you and runs home.",
+        "sentence": "The mouse says show glad debt you and go fast on foot house.",
         "question": "What does the mouse do after?",
         "options": [
           "falls asleep",
@@ -3425,7 +3529,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3442,7 +3547,7 @@
         "id": "kt-ch3-l20-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hunters catch the lion in a net.",
+        "sentence": "Hunters catch the lion in a rope mesh.",
         "question": "How do they catch the lion?",
         "options": [
           "in a hole",
@@ -3464,7 +3569,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3493,7 +3599,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -3522,14 +3629,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l20-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The mouse bites through the rope.",
+        "sentence": "The mouse snaps teeth on through the thick cord.",
         "question": "How does the mouse free the lion?",
         "options": [
           "lifts the net",
@@ -3551,14 +3659,15 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l20-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The lion is free again.",
+        "sentence": "The lion is unbound again.",
         "question": "How is the lion now?",
         "options": [
           "afraid",
@@ -3580,7 +3689,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3609,7 +3719,8 @@
           "aesop",
           "lion-and-mouse",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3626,7 +3737,7 @@
         "id": "kt-ch3-l21-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A young boy keeps sheep on a hill.",
+        "sentence": "A young boy holds on to wool beasts on a hill.",
         "question": "What does the boy do?",
         "options": [
           "keep sheep",
@@ -3648,7 +3759,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3677,7 +3789,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "tap-tiles",
@@ -3718,7 +3831,7 @@
         "id": "kt-ch3-l21-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The boy laughs at them.",
+        "sentence": "The boy chuckles at them.",
         "question": "How does the boy react?",
         "options": [
           "he hides",
@@ -3740,7 +3853,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3769,14 +3883,15 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l21-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "How many times does he lie?",
+        "sentence": "How many occasions does he lie?",
         "question": "How many times does the boy lie?",
         "options": [
           "five times",
@@ -3798,7 +3913,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3815,7 +3931,7 @@
         "id": "kt-ch3-l22-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "One day a real wolf comes.",
+        "sentence": "One day a true wolf comes.",
         "question": "What kind of wolf is it now?",
         "options": [
           "real",
@@ -3837,14 +3953,15 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l22-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The boy shouts again, \"Wolf! Wolf!\"",
+        "sentence": "The boy cries out loud again, \"Wolf! Wolf!\"",
         "question": "What does the boy do?",
         "options": [
           "climbs a tree",
@@ -3866,14 +3983,15 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l22-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "No one comes up.",
+        "sentence": "Not a single soul.",
         "question": "What phrase do you hear?",
         "options": [
           "no one",
@@ -3895,7 +4013,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3924,7 +4043,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3953,7 +4073,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3982,7 +4103,8 @@
           "aesop",
           "shepherd-boy-wolf",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3999,7 +4121,7 @@
         "id": "kt-ch3-l23-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma closes the book.",
+        "sentence": "She brings the cover shut.",
         "question": "What does Grandma do?",
         "options": [
           "covers the chair",
@@ -4020,14 +4142,15 @@
           "ch3",
           "outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l23-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The yard is quiet now.",
+        "sentence": "The yard is hushed now.",
         "question": "How is the yard?",
         "options": [
           "quiet",
@@ -4048,7 +4171,8 @@
           "ch3",
           "outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4076,7 +4200,8 @@
           "ch3",
           "outro",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -4104,7 +4229,8 @@
           "ch3",
           "outro",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -4132,14 +4258,15 @@
           "ch3",
           "outro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l23-q6",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I will come back tomorrow night.",
+        "sentence": "The evening of the day after.",
         "question": "When will Mochi come back?",
         "options": [
           "next year",
@@ -4160,7 +4287,8 @@
           "ch3",
           "outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -4177,7 +4305,7 @@
         "id": "kt-ch3-l24-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana lifts his head and asks.",
+        "sentence": "Hana lifts his head and calls to.",
         "question": "What does Hana do?",
         "options": [
           "asks",
@@ -4199,14 +4327,15 @@
           "outro",
           "bonus",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l24-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma, was the mother duck a bad mother?",
+        "sentence": "Grandma, was the mama duck a rotten mama?",
         "question": "What does Hana want to know?",
         "options": [
           "if winter was long",
@@ -4228,7 +4357,8 @@
           "outro",
           "bonus",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4257,14 +4387,15 @@
           "outro",
           "bonus",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l24-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "No, she was not bad. She just did not understand.",
+        "sentence": "No, she was not bad. She just carried out not grasp the meaning of.",
         "question": "What does Grandma say about Mother duck?",
         "options": [
           "she was very tired",
@@ -4286,14 +4417,15 @@
           "outro",
           "bonus",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch3-l24-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She had never seen a swan child before.",
+        "sentence": "She had never seen a long-necked bird small one before.",
         "question": "What had she never seen?",
         "options": [
           "a fish",
@@ -4315,7 +4447,8 @@
           "outro",
           "bonus",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -4380,14 +4513,15 @@
           "outro",
           "bonus",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l24-q8",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Was I a swan, too? I ask quietly.",
+        "sentence": "Was I a long-necked bird, too? I ask quietly.",
         "question": "What does Mochi ask?",
         "options": [
           "if I was loud",
@@ -4409,14 +4543,15 @@
           "outro",
           "bonus",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch3-l24-q9",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says, You are Mochi. That is enough.",
+        "sentence": "Grandma says, You are Mochi. That is just sufficient.",
         "question": "What does Grandma say?",
         "options": [
           "that is far",
@@ -4438,14 +4573,15 @@
           "outro",
           "bonus",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch3-l24-q10",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I feel warm inside.",
+        "sentence": "I feel cozy inside.",
         "question": "How does Mochi feel?",
         "options": [
           "cold and small",
@@ -4467,7 +4603,8 @@
           "outro",
           "bonus",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -4604,7 +4741,8 @@
           "ch3",
           "review",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4632,7 +4770,8 @@
           "ch3",
           "review",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   }

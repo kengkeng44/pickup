@@ -12,7 +12,7 @@
         "id": "kt-ch2-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I jump on the wall again tonight.",
+        "sentence": "I jump on the wall again this evening.",
         "question": "When does Mochi jump on the wall?",
         "options": [
           "midnight",
@@ -33,14 +33,15 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l1-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma has a new book in blue.",
+        "sentence": "Grandma has a new book in sky-toned.",
         "question": "What color is the book?",
         "options": [
           "open",
@@ -61,14 +62,15 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l1-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana is waiting by her chair.",
+        "sentence": "Hana is waiting by her seat.",
         "question": "Where is Hana?",
         "options": [
           "by her chair",
@@ -89,14 +91,15 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l1-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I see Grandma open a blue book tonight. Hana sits by her foot.",
+        "sentence": "The volume with the sky-toned cover.",
         "question": "What is new tonight?",
         "options": [
           "Grandma's chair",
@@ -117,14 +120,15 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l1-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma opens the book. She is ready to tell a story.",
+        "sentence": "Grandma opens the book. She is ready to say to a tale.",
         "question": "Why does she open the book?",
         "options": [
           "to read alone",
@@ -145,7 +149,8 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -162,7 +167,7 @@
         "id": "kt-ch2-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana thumps her tail on the floor.",
+        "sentence": "Hana drums her tail on the floor.",
         "question": "What does Hana's tail do?",
         "options": [
           "wags",
@@ -183,14 +188,15 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l2-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She is ready for the story.",
+        "sentence": "She is set to go for the story.",
         "question": "How does she feel?",
         "options": [
           "ready",
@@ -211,7 +217,8 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -274,14 +281,15 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l2-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "We both look at Grandma. She is about to begin.",
+        "sentence": "We both look at Grandma. She is about to set off on.",
         "question": "What are we waiting for?",
         "options": [
           "the wall to dry",
@@ -302,7 +310,8 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -319,7 +328,7 @@
         "id": "kt-ch2-l3-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says, \"Tonight is Momotaro.\"",
+        "sentence": "They called the peach hero by a fruit name.",
         "question": "Whose name did you hear?",
         "options": [
           "Mochi",
@@ -340,14 +349,15 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l3-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The story is from a far country.",
+        "sentence": "A land many miles from here.",
         "question": "Where is the story from?",
         "options": [
           "a far country",
@@ -368,7 +378,8 @@
           "ch2",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -408,7 +419,7 @@
         "id": "kt-ch2-l3-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma reads slowly so we can hear every word.",
+        "sentence": "In order for us to catch each sound clearly.",
         "question": "Why does she read slowly?",
         "options": [
           "the book is heavy",
@@ -429,14 +440,15 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l3-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She says the story is long ago, in a small village.",
+        "sentence": "In a time very far back.",
         "question": "When does the story happen?",
         "options": [
           "this morning",
@@ -457,7 +469,8 @@
           "ch2",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -474,7 +487,7 @@
         "id": "kt-ch2-l4-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Long ago, an old man and an old woman lived in a small village.",
+        "sentence": "A couple who had lived many years.",
         "question": "Who lived in the village?",
         "options": [
           "a king",
@@ -496,14 +509,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l4-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The old man went to the hills to cut grass.",
+        "sentence": "Up to the high ground.",
         "question": "Where did he go?",
         "options": [
           "to the river",
@@ -525,14 +539,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l4-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The old woman went to the river to wash clothes.",
+        "sentence": "To clean the family's garments.",
         "question": "Why did she go to the river?",
         "options": [
           "to wash clothes",
@@ -554,14 +569,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l4-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "They had no child. They worked hard every day.",
+        "sentence": "A small one of their own.",
         "question": "What did the couple wish for?",
         "options": [
           "a new house",
@@ -583,14 +599,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l4-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The river was wide and clear. Birds flew above it.",
+        "sentence": "Broad and easy to see through.",
         "question": "What kind of river was it?",
         "options": [
           "frozen",
@@ -612,14 +629,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l4-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "She washed clothes by the water. Then she saw something pink.",
+        "sentence": "A wonder was about to come her way.",
         "question": "What was about to happen?",
         "options": [
           "she would see something special",
@@ -641,7 +659,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -658,7 +677,7 @@
         "id": "kt-ch2-l5-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A giant peach was floating down the river.",
+        "sentence": "A pink round fruit.",
         "question": "What was in the river?",
         "options": [
           "a paper boat",
@@ -680,14 +699,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l5-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "It was pink and round and very big.",
+        "sentence": "It was flower-toned and round and very big.",
         "question": "What color was it?",
         "options": [
           "small",
@@ -709,14 +729,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l5-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The peach floated toward her hands.",
+        "sentence": "The peach rode the water toward her hands.",
         "question": "What does the giant peach do?",
         "options": [
           "floated",
@@ -738,7 +759,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -803,14 +825,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l5-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "She thought, \"This peach will be a treat for my husband.\"",
+        "sentence": "For her partner to enjoy.",
         "question": "Why did she want the peach?",
         "options": [
           "to throw away",
@@ -832,7 +855,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -849,7 +873,7 @@
         "id": "kt-ch2-l6-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She lifted the peach out of the water.",
+        "sentence": "She rose up the peach out of the water.",
         "question": "What does the old woman do?",
         "options": [
           "lit",
@@ -871,14 +895,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l6-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The peach was heavy in her arms.",
+        "sentence": "The peach was with much weight in her arms.",
         "question": "How did the peach feel?",
         "options": [
           "light",
@@ -900,7 +925,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -977,7 +1003,7 @@
         "id": "kt-ch2-l6-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She put the peach on the kitchen table. She smiled at her husband.",
+        "sentence": "Sitting up on the kitchen surface.",
         "question": "Where did she put the peach?",
         "options": [
           "outside the door",
@@ -999,7 +1025,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1028,7 +1055,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1045,7 +1073,7 @@
         "id": "kt-ch2-l7-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The old man took a knife to cut the peach.",
+        "sentence": "A sharp blade with a handle.",
         "question": "What did he take?",
         "options": [
           "a plate",
@@ -1067,14 +1095,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l7-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The peach opened by itself with a soft crack.",
+        "sentence": "The peach opened by on its own with a soft crack.",
         "question": "How did the peach open?",
         "options": [
           "by itself",
@@ -1096,14 +1125,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l7-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Inside was a small baby boy.",
+        "sentence": "A tiny new son.",
         "question": "Who was inside?",
         "options": [
           "a bird",
@@ -1125,14 +1155,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l7-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The baby cried softly. The couple held him close.",
+        "sentence": "The baby wept gentle. The couple held him close.",
         "question": "What did the baby do?",
         "options": [
           "ate the peach",
@@ -1154,7 +1185,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1183,7 +1215,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1212,7 +1245,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1229,7 +1263,7 @@
         "id": "kt-ch2-l8-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "They named the boy Momotaro.",
+        "sentence": "They called the peach hero by a fruit name.",
         "question": "What name did they choose?",
         "options": [
           "Tomato",
@@ -1251,14 +1285,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l8-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro means Peach Boy.",
+        "sentence": "The hero born from a fruit by the stream.",
         "question": "What does the name mean?",
         "options": [
           "Brave Boy",
@@ -1280,7 +1315,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1341,7 +1377,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1370,7 +1407,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1399,7 +1437,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1416,7 +1455,7 @@
         "id": "kt-ch2-l9-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro grew up fast.",
+        "sentence": "Momotaro grew up quick.",
         "question": "How did he grow?",
         "options": [
           "fast",
@@ -1438,14 +1477,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l9-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He was strong and brave.",
+        "sentence": "He was with much force and fear-less.",
         "question": "Which two words did you hear?",
         "options": [
           "soft and slow",
@@ -1467,14 +1507,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l9-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He could lift heavy stones with his hands.",
+        "sentence": "Pick up rocks of much weight.",
         "question": "What could he do?",
         "options": [
           "swim the river",
@@ -1496,7 +1537,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1525,7 +1567,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1554,14 +1597,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l9-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Years passed. He was now a young man.",
+        "sentence": "Twelve-month span passed. He was now a young man.",
         "question": "How much time passed?",
         "options": [
           "one season",
@@ -1583,7 +1627,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1600,7 +1645,7 @@
         "id": "kt-ch2-l10-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "One day, bad news came to the village.",
+        "sentence": "One day, rotten fresh came to the village.",
         "question": "What kind of news was it?",
         "options": [
           "funny news",
@@ -1622,14 +1667,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l10-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Demons came from the sea to steal food and gold.",
+        "sentence": "Demons came from the sea to steal meal and shiny yellow.",
         "question": "What did the demons steal?",
         "options": [
           "books and pens",
@@ -1651,7 +1697,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1692,7 +1739,7 @@
         "id": "kt-ch2-l10-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The villagers were too afraid to fight them.",
+        "sentence": "Fear had taken over the town.",
         "question": "Why did no one fight the demons?",
         "options": [
           "the villagers were afraid",
@@ -1714,14 +1761,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l10-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The island was called Onigashima, the Demon Island.",
+        "sentence": "The far place of the bad ones.",
         "question": "What does Onigashima mean?",
         "options": [
           "Demon Island",
@@ -1743,7 +1791,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1772,7 +1821,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1789,7 +1839,7 @@
         "id": "kt-ch2-l11-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro said, \"I will go to the island.\"",
+        "sentence": "Travel across the sea to the bad ones.",
         "question": "What did he say he would do?",
         "options": [
           "send a letter",
@@ -1811,14 +1861,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l11-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "His mother was worried but proud.",
+        "sentence": "Uneasy yet pleased with him.",
         "question": "How did his mother feel?",
         "options": [
           "worried but proud",
@@ -1840,14 +1891,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l11-q3",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "He said, \"I must help the village.\"",
+        "sentence": "In order to save the town.",
         "question": "Why did he want to go?",
         "options": [
           "to find gold for himself",
@@ -1869,7 +1921,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1898,14 +1951,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l11-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "His parents said, \"Come back safe. We will wait for you.\"",
+        "sentence": "His parents said, \"Arrive back unhurt. We will wait for you.\"",
         "question": "What did they want most?",
         "options": [
           "him to come home safe",
@@ -1927,14 +1981,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l11-q6",
         "level": "A2",
         "difficulty": "hard",
-        "sentence": "Momotaro looked at the road. The journey would be long.",
+        "sentence": "A lengthy walk to somewhere far.",
         "question": "What is a journey?",
         "options": [
           "a song",
@@ -1956,7 +2011,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1973,7 +2029,7 @@
         "id": "kt-ch2-l12-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "His mother made millet dumplings for him.",
+        "sentence": "His mother made millet small food parcels for him.",
         "question": "What did she make?",
         "options": [
           "noodles",
@@ -1995,14 +2051,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l12-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She packed them in a soft cloth.",
+        "sentence": "She packed them in a gentle fabric.",
         "question": "How did she pack them?",
         "options": [
           "in a paper bag",
@@ -2024,14 +2081,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l12-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "These dumplings were the best in the country.",
+        "sentence": "The finest in all the land.",
         "question": "How good were the dumplings?",
         "options": [
           "the cheapest",
@@ -2053,7 +2111,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -2098,7 +2157,7 @@
         "id": "kt-ch2-l12-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He put the cloth bag on his back.",
+        "sentence": "Riding behind his shoulders.",
         "question": "Where did he put the bag?",
         "options": [
           "on his back",
@@ -2120,14 +2179,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l12-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "He waved goodbye and walked down the road.",
+        "sentence": "Gave a parting motion.",
         "question": "What did he do as he left?",
         "options": [
           "covered his face",
@@ -2149,7 +2209,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2166,7 +2227,7 @@
         "id": "kt-ch2-l13-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "On the road, he met a dog.",
+        "sentence": "A pup.",
         "question": "Who did he meet first?",
         "options": [
           "a cat",
@@ -2188,7 +2249,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2217,14 +2279,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l13-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro gave the dog a dumpling to share.",
+        "sentence": "They split the small food in two.",
         "question": "What did Momotaro do?",
         "options": [
           "kept all the food",
@@ -2246,7 +2309,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2275,14 +2339,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l13-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Now they were two friends walking together.",
+        "sentence": "A pair.",
         "question": "How many were they now?",
         "options": [
           "one",
@@ -2304,14 +2369,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l13-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The dog said his nose was sharp. He could smell danger.",
+        "sentence": "His nose picks up trouble.",
         "question": "What was the dog good at?",
         "options": [
           "running fast",
@@ -2333,7 +2399,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2350,7 +2417,7 @@
         "id": "kt-ch2-l14-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A monkey jumped down from a tree.",
+        "sentence": "A tree-climber jumped down from a tree.",
         "question": "Who came down?",
         "options": [
           "a monkey",
@@ -2372,14 +2439,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l14-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The monkey was quick and clever.",
+        "sentence": "Both fast and sharp-minded.",
         "question": "How was the monkey?",
         "options": [
           "quick and clever",
@@ -2401,14 +2469,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l14-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro shared a dumpling with him too.",
+        "sentence": "Momotaro shared a small food parcel with him too.",
         "question": "What did Momotaro share again?",
         "options": [
           "a dumpling",
@@ -2430,14 +2499,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l14-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The monkey said, \"I will climb the demon wall for you.\"",
+        "sentence": "Go up the stone barrier.",
         "question": "What would the monkey do?",
         "options": [
           "dig the ground",
@@ -2459,7 +2529,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2488,7 +2559,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2517,7 +2589,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2534,7 +2607,7 @@
         "id": "kt-ch2-l15-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A pheasant flew down from the sky.",
+        "sentence": "A tail-bird flew down from the sky.",
         "question": "What kind of bird was it?",
         "options": [
           "a sparrow",
@@ -2556,14 +2629,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l15-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Her feathers were green and gold.",
+        "sentence": "Leaf-toned and shiny.",
         "question": "What colors were her feathers?",
         "options": [
           "blue and white",
@@ -2585,14 +2659,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l15-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro shared his last dumpling with her.",
+        "sentence": "The very final piece.",
         "question": "Which dumpling did he share?",
         "options": [
           "the last one",
@@ -2614,14 +2689,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l15-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The pheasant said, \"I can fly above the demons and watch.\"",
+        "sentence": "For looking down from high up.",
         "question": "What was her job in the team?",
         "options": [
           "to watch from above",
@@ -2643,14 +2719,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l15-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Each one had a different skill. Together they made a strong team.",
+        "sentence": "Each one with a fresh strength, side by side.",
         "question": "Why were they a strong team?",
         "options": [
           "different skills together",
@@ -2672,14 +2749,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l15-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "They reached the seashore at sunset.",
+        "sentence": "When the sky turned red.",
         "question": "When did they reach the sea?",
         "options": [
           "at noon",
@@ -2701,7 +2779,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2718,7 +2797,7 @@
         "id": "kt-ch2-l16-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "They got into a small boat and sailed.",
+        "sentence": "They got into a small boat and rode the sea.",
         "question": "How does Momotaro's team cross the ocean?",
         "options": [
           "flew",
@@ -2740,14 +2819,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l16-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The sea was wide and blue.",
+        "sentence": "Broad and sky-toned.",
         "question": "What was the sea like?",
         "options": [
           "wide and blue",
@@ -2769,7 +2849,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -2870,7 +2951,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2899,7 +2981,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2916,7 +2999,7 @@
         "id": "kt-ch2-l17-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Before them stood a tall iron gate.",
+        "sentence": "A tall barrier of dark metal.",
         "question": "What stood before them?",
         "options": [
           "an iron gate",
@@ -2938,14 +3021,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l17-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The gate was locked and strong.",
+        "sentence": "Held shut with great force.",
         "question": "How was the gate?",
         "options": [
           "open and weak",
@@ -2967,7 +3051,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -3008,7 +3093,7 @@
         "id": "kt-ch2-l17-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The monkey opened the gate from inside.",
+        "sentence": "For unlocking the door from within.",
         "question": "Why did the team need the monkey?",
         "options": [
           "to open the gate from inside",
@@ -3030,14 +3115,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l17-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The pheasant flew over the wall and watched the demons.",
+        "sentence": "For keeping eyes on the bad ones.",
         "question": "Why did the pheasant fly?",
         "options": [
           "to watch the demons",
@@ -3059,7 +3145,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3088,7 +3175,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3105,7 +3193,7 @@
         "id": "kt-ch2-l18-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Momotaro raised his sword and shouted.",
+        "sentence": "Momotaro raised his long blade and shouted.",
         "question": "What did Momotaro raise?",
         "options": [
           "his hat",
@@ -3127,14 +3215,15 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l18-q2",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The team fought together and won.",
+        "sentence": "The team fought as one and won.",
         "question": "How did they win?",
         "options": [
           "by luck",
@@ -3156,7 +3245,8 @@
           "main",
           "momotaro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3185,14 +3275,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l18-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "They returned the gold and food they had stolen.",
+        "sentence": "They returned the shiny yellow and meal they had stolen.",
         "question": "What did the demons give back?",
         "options": [
           "gold and food",
@@ -3214,14 +3305,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l18-q5",
         "level": "A2",
         "difficulty": "hard",
-        "sentence": "The demons promised never to hurt the village again.",
+        "sentence": "The demons promised never to cause harm to the town again.",
         "question": "What did the demons promise?",
         "options": [
           "to give more gold every year",
@@ -3243,14 +3335,15 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l18-q6",
         "level": "A2",
         "difficulty": "hard",
-        "sentence": "Momotaro and his friends sailed home rich and proud.",
+        "sentence": "Momotaro and his friends sailed home rich and head-high.",
         "question": "How did Momotaro feel going home?",
         "options": [
           "proud",
@@ -3272,7 +3365,8 @@
           "main",
           "momotaro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3289,7 +3383,7 @@
         "id": "kt-ch2-l19-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says, \"That reminds me of the tortoise and the hare.\"",
+        "sentence": "Grandma says, \"That reminds me of the slow-footed one and the fast-footed one.\"",
         "question": "Whose story did Grandma start?",
         "options": [
           "the sun and the wind",
@@ -3311,14 +3405,15 @@
           "aesop",
           "tortoise-and-hare",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l19-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A hare and a tortoise started a race.",
+        "sentence": "A speed contest.",
         "question": "What did they start?",
         "options": [
           "a meal",
@@ -3340,7 +3435,8 @@
           "aesop",
           "tortoise-and-hare",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -3401,14 +3497,15 @@
           "aesop",
           "tortoise-and-hare",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l19-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The hare thought he had plenty of time. He sat down to rest.",
+        "sentence": "The hare wondered he had plenty of time. He sat down to rest.",
         "question": "Why did the hare rest?",
         "options": [
           "he thought he was far ahead",
@@ -3430,7 +3527,8 @@
           "aesop",
           "tortoise-and-hare",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3447,7 +3545,7 @@
         "id": "kt-ch2-l20-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The hare fell asleep under a tree.",
+        "sentence": "The hare dropped down in a deep rest under a tree.",
         "question": "What did the hare do?",
         "options": [
           "called the tortoise",
@@ -3469,14 +3567,15 @@
           "aesop",
           "tortoise-and-hare",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l20-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The tortoise kept walking step by step.",
+        "sentence": "The tortoise kept walking pace forward by pace forward.",
         "question": "How did the tortoise move?",
         "options": [
           "jump by jump",
@@ -3498,14 +3597,15 @@
           "aesop",
           "tortoise-and-hare",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l20-q3",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The tortoise crossed the line first.",
+        "sentence": "The slow-footed one crossed the line first.",
         "question": "Who won the race?",
         "options": [
           "the hare",
@@ -3527,7 +3627,8 @@
           "aesop",
           "tortoise-and-hare",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3556,7 +3657,8 @@
           "aesop",
           "tortoise-and-hare",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3585,7 +3687,8 @@
           "aesop",
           "tortoise-and-hare",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3602,7 +3705,7 @@
         "id": "kt-ch2-l21-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A shepherd boy watched sheep on the hill.",
+        "sentence": "A shepherd boy watched wool beasts on the hill.",
         "question": "What did the boy watch?",
         "options": [
           "ducks",
@@ -3624,7 +3727,8 @@
           "aesop",
           "wolf-cry",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3653,7 +3757,8 @@
           "aesop",
           "wolf-cry",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "tap-tiles",
@@ -3716,7 +3821,8 @@
           "aesop",
           "wolf-cry",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3745,7 +3851,8 @@
           "aesop",
           "wolf-cry",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3784,14 +3891,15 @@
           "aesop",
           "wolf-cry",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l22-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Then one day, a real wolf came.",
+        "sentence": "Then one day, a true gray hunter came.",
         "question": "What came that day?",
         "options": [
           "a real dog",
@@ -3813,7 +3921,8 @@
           "aesop",
           "wolf-cry",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3842,14 +3951,15 @@
           "aesop",
           "wolf-cry",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l22-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The wolf ate some sheep and ran away.",
+        "sentence": "The wolf ate a small share of sheep and ran away.",
         "question": "What happened to the sheep?",
         "options": [
           "some were lost",
@@ -3871,7 +3981,8 @@
           "aesop",
           "wolf-cry",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3900,7 +4011,8 @@
           "aesop",
           "wolf-cry",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3917,7 +4029,7 @@
         "id": "kt-ch2-l23-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma closes the blue book softly.",
+        "sentence": "Grandma shuts the blue book softly.",
         "question": "What does Grandma do with the book?",
         "options": [
           "reads it again",
@@ -3939,14 +4051,15 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l23-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I look at Hana. Hana looks back.",
+        "sentence": "I look at the brown pup. The pup looks back.",
         "question": "Who do I look at?",
         "options": [
           "the moon",
@@ -3968,7 +4081,8 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -4007,7 +4121,7 @@
         "id": "kt-ch2-l23-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says, \"Goodnight, little ones.\"",
+        "sentence": "Grandma says, \"Evening parting words, little ones.\"",
         "question": "What does Grandma wish us?",
         "options": [
           "a goodnight",
@@ -4029,14 +4143,15 @@
           "closing",
           "outer-outro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l23-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "I jump off the wall and walk home in the moonlight.",
+        "sentence": "I leap off the stone barrier and walk home in the moonlight.",
         "question": "How do I leave?",
         "options": [
           "open the gate",
@@ -4058,14 +4173,15 @@
           "closing",
           "outer-outro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l23-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Tomorrow night she will tell another story.",
+        "sentence": "The evening of the day after.",
         "question": "When will the next story come?",
         "options": [
           "next week",
@@ -4087,7 +4203,8 @@
           "closing",
           "outer-outro",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -4104,7 +4221,7 @@
         "id": "kt-ch2-l24-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana asks, \"Why was the dog in the story?\"",
+        "sentence": "I look at the brown pup. The pup looks back.",
         "question": "Who is asking the question?",
         "options": [
           "the old man",
@@ -4126,14 +4243,15 @@
           "bonus",
           "qa",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l24-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says, \"Because dogs are loyal friends, like you.\"",
+        "sentence": "Grandma says, \"Because pups are always-by-side pals, like you.\"",
         "question": "Why was the dog in the story?",
         "options": [
           "dogs are fast",
@@ -4155,14 +4273,15 @@
           "bonus",
           "qa",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l24-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mochi asks, \"Was the boy real?\"",
+        "sentence": "Mochi asks, \"Was the young lad true?\"",
         "question": "What does Mochi want to know?",
         "options": [
           "if the peach was sweet",
@@ -4184,14 +4303,15 @@
           "bonus",
           "qa",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l24-q4",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Grandma smiles, \"He lives in the story. That makes him real to us.\"",
+        "sentence": "Grandma smiles, \"He lives in the tale. That crafts him true to us.\"",
         "question": "What does Grandma mean?",
         "options": [
           "he is a ghost",
@@ -4213,14 +4333,15 @@
           "bonus",
           "qa",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l24-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana asks, \"Why did the peach float?\"",
+        "sentence": "Hana asks, \"Why carried out the pink round fruit ride the water?\"",
         "question": "What is Hana's next question?",
         "options": [
           "why did the dog bark",
@@ -4242,14 +4363,15 @@
           "bonus",
           "qa",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l24-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Grandma says, \"Peaches are full of air inside. Air is lighter than water.\"",
+        "sentence": "Grandma says, \"Peaches are full of breath stuff within. Breath stuff is glow than water.\"",
         "question": "Why did the peach float?",
         "options": [
           "the river was slow",
@@ -4271,14 +4393,15 @@
           "bonus",
           "qa",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l24-q7",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mochi asks, \"Were the demons all bad?\"",
+        "sentence": "Mochi asks, \"Were the bad ones all bad?\"",
         "question": "What does Mochi ask about?",
         "options": [
           "the boat",
@@ -4300,14 +4423,15 @@
           "bonus",
           "qa",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch2-l24-q8",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Grandma says, \"They took things from people. So in the story, yes, they were bad.\"",
+        "sentence": "Grandma says, \"They took things from folks. So in the story, yes, they were bad.\"",
         "question": "Why were the demons called bad?",
         "options": [
           "they stole from people",
@@ -4329,7 +4453,8 @@
           "bonus",
           "qa",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-pairs",

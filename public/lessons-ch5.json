@@ -12,7 +12,7 @@
         "id": "kt-ch5-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Tonight the wind is dry and warm.",
+        "sentence": "Tonight the wind is without wet and warm.",
         "question": "How is the wind tonight?",
         "options": [
           "dry",
@@ -33,14 +33,15 @@
           "ch5",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l1-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The night smells like sand.",
+        "sentence": "The night smells like fine grit.",
         "question": "What does the night smell like?",
         "options": [
           "soup",
@@ -61,14 +62,15 @@
           "ch5",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l1-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I jump up on the wall.",
+        "sentence": "I leap up on the wall.",
         "question": "What does Mochi do to the wall?",
         "options": [
           "jump",
@@ -89,14 +91,15 @@
           "ch5",
           "prologue",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l1-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I feel curious about the story.",
+        "sentence": "I feel wondering about the story.",
         "question": "How do I feel?",
         "options": [
           "curious",
@@ -117,14 +120,15 @@
           "ch5",
           "prologue",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l1-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Where is the desert wind from?",
+        "sentence": "Where is the sand land wind from?",
         "question": "Where does tonight's wind come from?",
         "options": [
           "from a desert",
@@ -145,7 +149,8 @@
           "ch5",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -162,7 +167,7 @@
         "id": "kt-ch5-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana lies at her feet.",
+        "sentence": "Hana lies at her paws.",
         "question": "Where does Hana lie?",
         "options": [
           "in the book",
@@ -183,14 +188,15 @@
           "ch5",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l2-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma opens an old book.",
+        "sentence": "Grandma opens an aged book.",
         "question": "What is the book like?",
         "options": [
           "loud",
@@ -211,7 +217,8 @@
           "ch5",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -239,14 +246,15 @@
           "ch5",
           "prologue",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l2-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana feels sleepy already.",
+        "sentence": "Hana feels drowsy already.",
         "question": "How does Hana feel?",
         "options": [
           "bored",
@@ -267,14 +275,15 @@
           "ch5",
           "prologue",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l2-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "What page does Grandma open?",
+        "sentence": "What paper sheet does Grandma open?",
         "question": "What page is Grandma reading?",
         "options": [
           "a snow page",
@@ -295,7 +304,8 @@
           "ch5",
           "prologue",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -312,7 +322,7 @@
         "id": "kt-ch5-l3-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "She says, \"O Best Beloved, listen.\"",
+        "sentence": "She says, \"O Best Beloved, lend an ear.\"",
         "question": "Whom is Grandma speaking to?",
         "options": [
           "the listener",
@@ -334,14 +344,15 @@
           "prologue",
           "listen-mc",
           "kipling-voice"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l3-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "This is a tale from long ago.",
+        "sentence": "In a time very far back.",
         "question": "When did this story happen?",
         "options": [
           "tonight",
@@ -362,7 +373,8 @@
           "ch5",
           "prologue",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -402,7 +414,7 @@
         "id": "kt-ch5-l3-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I sit still and listen.",
+        "sentence": "I sit all the same and listen.",
         "question": "How do I sit?",
         "options": [
           "running",
@@ -423,7 +435,8 @@
           "ch5",
           "prologue",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -452,7 +465,8 @@
           "prologue",
           "listen-comprehension",
           "kipling-voice"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -469,7 +483,7 @@
         "id": "kt-ch5-l4-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "This was the beginning of the world.",
+        "sentence": "This was the setting off on of the world.",
         "question": "When did the story happen?",
         "options": [
           "at the end",
@@ -490,7 +504,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -518,7 +533,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "tap-tiles",
@@ -577,14 +593,15 @@
           "ch5",
           "main",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l4-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Everyone is busy at work.",
+        "sentence": "Everyone is with much to do at work.",
         "question": "How is everyone?",
         "options": [
           "lost",
@@ -605,7 +622,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -633,7 +651,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -650,7 +669,7 @@
         "id": "kt-ch5-l5-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A Camel lives in the desert.",
+        "sentence": "A Camel lives in the sand land.",
         "question": "Where does the Camel live?",
         "options": [
           "in a yard",
@@ -672,14 +691,15 @@
           "main",
           "listen-mc",
           "vocab-desert"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l5-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The desert is hot and dry.",
+        "sentence": "The desert is burning and dry.",
         "question": "What is the desert like?",
         "options": [
           "wet",
@@ -700,7 +720,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -729,7 +750,8 @@
           "main",
           "type-what-you-hear",
           "vocab-lazy"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -757,7 +779,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -785,7 +808,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -813,7 +837,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -851,7 +876,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "tap-tiles",
@@ -892,7 +918,7 @@
         "id": "kt-ch5-l6-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Horse wants to trot together.",
+        "sentence": "The Horse wants to jog along together.",
         "question": "What does the Horse want?",
         "options": [
           "to swim",
@@ -913,14 +939,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l6-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Horse is friendly and kind.",
+        "sentence": "The Horse is pal-like and kind.",
         "question": "How is the Horse?",
         "options": [
           "angry",
@@ -941,7 +968,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -970,7 +998,8 @@
           "main",
           "type-what-you-hear",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
@@ -998,7 +1027,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1037,14 +1067,15 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l7-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He says no more than that.",
+        "sentence": "He says no a greater share than that.",
         "question": "How much does the Camel say?",
         "options": [
           "two words",
@@ -1065,14 +1096,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l7-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Horse goes away sad.",
+        "sentence": "The Horse goes away low-hearted.",
         "question": "How does the Horse leave?",
         "options": [
           "sad",
@@ -1093,14 +1125,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l7-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel feels proud of his \"Humph!\"",
+        "sentence": "The Camel feels head-high of his \"Humph!\"",
         "question": "How does the Camel feel?",
         "options": [
           "proud",
@@ -1121,14 +1154,15 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l7-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Why does the Camel say only \"Humph!\"?",
+        "sentence": "Why carries out the Camel say only \"Humph!\"?",
         "question": "Why only \"Humph!\"?",
         "options": [
           "he does not want to talk",
@@ -1149,7 +1183,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1177,7 +1212,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1194,7 +1230,7 @@
         "id": "kt-ch5-l8-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "On Tuesday the Dog came to him.",
+        "sentence": "On One of those the Dog came to him.",
         "question": "What day was it?",
         "options": [
           "Tuesday",
@@ -1215,14 +1251,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l8-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Dog has a stick in his mouth.",
+        "sentence": "The Dog has a thin wood in his mouth.",
         "question": "What is in the Dog's mouth?",
         "options": [
           "a stick",
@@ -1243,7 +1280,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1306,14 +1344,15 @@
           "main",
           "type-what-you-hear",
           "vocab-carry"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l8-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Dog wags his tail kindly.",
+        "sentence": "The Dog wags his tail gently-hearted.",
         "question": "How does the Dog look?",
         "options": [
           "lost",
@@ -1334,14 +1373,15 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l8-q6",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel only said, \"Humph!\"",
+        "sentence": "(\"Hmph!\")",
         "question": "What does the Camel say again?",
         "options": [
           "Humph",
@@ -1363,7 +1403,8 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1380,7 +1421,7 @@
         "id": "kt-ch5-l9-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Dog feels angry now.",
+        "sentence": "The Dog feels cross now.",
         "question": "How does the Dog feel?",
         "options": [
           "happy",
@@ -1401,14 +1442,15 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l9-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Dog drops his stick.",
+        "sentence": "The Dog drops his thin wood.",
         "question": "What does the Dog drop?",
         "options": [
           "his bone",
@@ -1429,14 +1471,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l9-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel goes back to eat grass.",
+        "sentence": "The Camel goes back to put in the mouth green ground cover.",
         "question": "What does the Camel do?",
         "options": [
           "swim away",
@@ -1457,14 +1500,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l9-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel feels free and lazy.",
+        "sentence": "The Camel feels free and work-shy.",
         "question": "How does the Camel feel?",
         "options": [
           "busy",
@@ -1486,7 +1530,8 @@
           "main",
           "listen-emoji",
           "vocab-lazy"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1514,7 +1559,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1542,7 +1588,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1580,14 +1627,15 @@
           "ch5",
           "main",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l10-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Ox has a yoke on his neck.",
+        "sentence": "The Ox has a beast-pulling beam on his neck.",
         "question": "What is on the Ox's neck?",
         "options": [
           "a yoke",
@@ -1609,7 +1657,8 @@
           "main",
           "listen-mc",
           "vocab-yoke"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1671,14 +1720,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l10-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Ox is patient and slow.",
+        "sentence": "The Ox is in calm-wait and slow.",
         "question": "How is the Ox?",
         "options": [
           "fast",
@@ -1699,14 +1749,15 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l10-q6",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel only said, \"Humph!\"",
+        "sentence": "(\"Hmph!\")",
         "question": "What does the Camel say a third time?",
         "options": [
           "Sure",
@@ -1728,7 +1779,8 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1766,7 +1818,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -1804,7 +1857,7 @@
         "id": "kt-ch5-l11-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Three are tired of him.",
+        "sentence": "The Three are worn out of him.",
         "question": "How do the Three feel?",
         "options": [
           "in love with him",
@@ -1825,7 +1878,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -1853,14 +1907,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l11-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Three feel angry and tired.",
+        "sentence": "The Three feel cross and tired.",
         "question": "How do the Three feel now?",
         "options": [
           "shy",
@@ -1881,7 +1936,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -1909,7 +1965,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1947,14 +2004,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l12-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "They told him about the lazy Camel.",
+        "sentence": "The desert-walker.",
         "question": "Whom did they tell about?",
         "options": [
           "the Camel",
@@ -1975,7 +2033,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2004,14 +2063,15 @@
           "main",
           "type-what-you-hear",
           "vocab-camel"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l12-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Man hears them and frowns.",
+        "sentence": "Man hears them and low-face looks.",
         "question": "How does Man look?",
         "options": [
           "sleeps",
@@ -2032,14 +2092,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l12-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Three feel hopeful now.",
+        "sentence": "The Three feel with hope inside now.",
         "question": "How do the Three feel?",
         "options": [
           "hopeful",
@@ -2060,7 +2121,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2088,7 +2150,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2105,7 +2168,7 @@
         "id": "kt-ch5-l13-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Man calls the Djinn of All Deserts.",
+        "sentence": "Man calls the Spirit being of All Deserts.",
         "question": "Whom does Man call?",
         "options": [
           "the Dog",
@@ -2127,14 +2190,15 @@
           "main",
           "listen-mc",
           "vocab-djinn"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l13-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn is in charge of all the deserts.",
+        "sentence": "The Djinn is in charge of all the sand lands.",
         "question": "What is the Djinn in charge of?",
         "options": [
           "all the deserts",
@@ -2155,7 +2219,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -2196,7 +2261,7 @@
         "id": "kt-ch5-l13-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Man asks for help with the Camel.",
+        "sentence": "The desert-walker.",
         "question": "Whom does Man ask about?",
         "options": [
           "the Coat",
@@ -2217,14 +2282,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l13-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn listens with a calm face.",
+        "sentence": "The Djinn listens with a easy face.",
         "question": "How does the Djinn look?",
         "options": [
           "shy",
@@ -2245,7 +2311,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2273,7 +2340,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2290,7 +2358,7 @@
         "id": "kt-ch5-l14-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn rolls up in a cloud of dust.",
+        "sentence": "The Djinn rolls up in a sky-puff of fine dirt powder.",
         "question": "What is the Djinn in?",
         "options": [
           "a box of stones",
@@ -2313,14 +2381,15 @@
           "listen-mc",
           "vocab-cloud",
           "vocab-dust"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l14-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He goes across the desert.",
+        "sentence": "He goes over to the other side of the sand land.",
         "question": "Where does the Djinn go?",
         "options": [
           "across the sky",
@@ -2341,14 +2410,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l14-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel looks at his own reflection.",
+        "sentence": "The Camel looks at his own mirror image.",
         "question": "What is the Camel looking at?",
         "options": [
           "his shadow",
@@ -2370,7 +2440,8 @@
           "main",
           "listen-mc",
           "vocab-reflection"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2399,14 +2470,15 @@
           "main",
           "type-what-you-hear",
           "vocab-pool"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l14-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn looks serious now.",
+        "sentence": "The Djinn looks no joking now.",
         "question": "How does the Djinn look?",
         "options": [
           "afraid",
@@ -2427,14 +2499,15 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l14-q6",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel does nothing at all.",
+        "sentence": "The Camel does not a thing at all.",
         "question": "What does the Camel do?",
         "options": [
           "everything",
@@ -2455,7 +2528,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2494,14 +2568,15 @@
           "main",
           "type-what-you-hear",
           "kipling-voice"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l15-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn calls the Camel \"friend\".",
+        "sentence": "The Djinn calls the Camel \"pal\".",
         "question": "What word does the Djinn use?",
         "options": [
           "foe",
@@ -2522,14 +2597,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l15-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "What is this I hear of your doing no work?",
+        "sentence": "What is this I hear of your doing no put in effort?",
         "question": "What does the Djinn ask?",
         "options": [
           "about no sleep",
@@ -2550,14 +2626,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l15-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel only says, \"Humph!\"",
+        "sentence": "(\"Hmph!\")",
         "question": "What does the Camel say to the Djinn?",
         "options": [
           "Please",
@@ -2579,7 +2656,8 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2607,14 +2685,15 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l15-q6",
         "level": "A2",
         "difficulty": "hard",
-        "sentence": "What is wrong with saying \"Humph!\" to the Djinn?",
+        "sentence": "What is wrong with saying \"Humph!\" to the Spirit being?",
         "question": "Why is this dangerous?",
         "options": [
           "the Djinn is shy",
@@ -2635,7 +2714,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2674,14 +2754,15 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l16-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Djinn sits down with his chin in his hand.",
+        "sentence": "The Djinn rests the body toward the ground with his chin in his hand.",
         "question": "What does the Djinn do?",
         "options": [
           "sits down",
@@ -2702,14 +2783,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l16-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He begins to think a Great Magic.",
+        "sentence": "He begins to think a Huge Spell-work.",
         "question": "What does the Djinn think?",
         "options": [
           "a long song",
@@ -2731,14 +2813,15 @@
           "main",
           "listen-mc",
           "vocab-magic"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l16-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel feels very proud.",
+        "sentence": "The Camel feels very head-high.",
         "question": "How does the Camel feel?",
         "options": [
           "ashamed",
@@ -2759,7 +2842,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -2787,7 +2871,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -2815,7 +2900,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -2832,7 +2918,7 @@
         "id": "kt-ch5-l17-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel's flat back begins to swell.",
+        "sentence": "The Camel's flat back begins to puff out.",
         "question": "What happens to his back?",
         "options": [
           "it sleeps",
@@ -2855,7 +2941,8 @@
           "listen-mc",
           "vocab-swell",
           "vocab-back"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -2930,7 +3017,7 @@
         "id": "kt-ch5-l17-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "We now call it a hump.",
+        "sentence": "We now call it a back bump.",
         "question": "What do we call it now?",
         "options": [
           "a hat",
@@ -2952,14 +3039,15 @@
           "main",
           "listen-mc",
           "vocab-humph"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l17-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The Camel feels shocked and confused.",
+        "sentence": "The Camel feels stunned and confused.",
         "question": "How does the Camel feel?",
         "options": [
           "calm",
@@ -2980,7 +3068,8 @@
           "ch5",
           "main",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3009,7 +3098,8 @@
           "main",
           "listen-comprehension",
           "kipling-voice"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3047,14 +3137,15 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l18-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "From this day on you will work.",
+        "sentence": "From this day on you will put in effort.",
         "question": "What must the Camel do now?",
         "options": [
           "rest",
@@ -3075,7 +3166,8 @@
           "ch5",
           "main",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3104,14 +3196,15 @@
           "main",
           "type-what-you-hear",
           "vocab-feed"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l18-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The humph will feed you.",
+        "sentence": "The humph will give food you.",
         "question": "What does the humph do?",
         "options": [
           "it cools him",
@@ -3133,7 +3226,8 @@
           "main",
           "listen-mc",
           "vocab-feed"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3162,14 +3256,15 @@
           "main",
           "listen-mc",
           "vocab-behave"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l18-q6",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Why three days without eating?",
+        "sentence": "Why a trio bright spans without eating?",
         "question": "Why three days?",
         "options": [
           "he missed three days of work",
@@ -3190,7 +3285,8 @@
           "ch5",
           "main",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3207,7 +3303,7 @@
         "id": "kt-ch5-l19-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma turns to a small story now.",
+        "sentence": "Grandma turns to a tiny tale now.",
         "question": "What does Grandma do?",
         "options": [
           "a soft nap",
@@ -3229,7 +3325,8 @@
           "aesop",
           "reed-and-oak",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3260,7 +3357,8 @@
           "listen-mc",
           "vocab-oak",
           "vocab-reed"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -3323,7 +3421,8 @@
           "aesop",
           "reed-and-oak",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
@@ -3352,7 +3451,8 @@
           "aesop",
           "reed-and-oak",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3369,7 +3469,7 @@
         "id": "kt-ch5-l20-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A big storm comes that night.",
+        "sentence": "A huge fierce weather comes that night.",
         "question": "What comes that night?",
         "options": [
           "a small bird",
@@ -3391,14 +3491,15 @@
           "aesop",
           "reed-and-oak",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l20-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The oak stands stiff and breaks.",
+        "sentence": "The oak stands stiff and snaps.",
         "question": "What happens to the oak?",
         "options": [
           "sings",
@@ -3420,7 +3521,8 @@
           "aesop",
           "reed-and-oak",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3449,14 +3551,15 @@
           "aesop",
           "reed-and-oak",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l20-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Now the reed is still tall.",
+        "sentence": "Now the tall grass is still tall.",
         "question": "Who is left standing?",
         "options": [
           "the reed",
@@ -3478,7 +3581,8 @@
           "aesop",
           "reed-and-oak",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -3507,7 +3611,8 @@
           "aesop",
           "reed-and-oak",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3524,7 +3629,7 @@
         "id": "kt-ch5-l21-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The mice meet at night.",
+        "sentence": "The mice meet at dark hours.",
         "question": "When do the mice meet?",
         "options": [
           "in summer",
@@ -3546,7 +3651,8 @@
           "aesop",
           "belling-the-cat",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3575,7 +3681,8 @@
           "aesop",
           "belling-the-cat",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -3619,7 +3726,7 @@
         "id": "kt-ch5-l21-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Then we can hear the cat coming.",
+        "sentence": "Then we can catch the sound of the small furry creature coming.",
         "question": "What does the bell let them do?",
         "options": [
           "build a house",
@@ -3641,7 +3748,8 @@
           "aesop",
           "belling-the-cat",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3670,7 +3778,8 @@
           "aesop",
           "belling-the-cat",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3687,7 +3796,7 @@
         "id": "kt-ch5-l22-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "An old mouse asks one question.",
+        "sentence": "An aged tiny squeaker asks one question.",
         "question": "Who speaks next?",
         "options": [
           "a small bird",
@@ -3709,7 +3818,8 @@
           "aesop",
           "belling-the-cat",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3738,7 +3848,8 @@
           "aesop",
           "belling-the-cat",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3767,7 +3878,8 @@
           "aesop",
           "belling-the-cat",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
@@ -3796,14 +3908,15 @@
           "aesop",
           "belling-the-cat",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
         "id": "kt-ch5-l22-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "Grandma says, \"An idea is not a plan.\"",
+        "sentence": "Grandma says, \"An idea is not a set-out step.\"",
         "question": "What is the lesson?",
         "options": [
           "cats are kind",
@@ -3825,7 +3938,8 @@
           "aesop",
           "belling-the-cat",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3842,7 +3956,7 @@
         "id": "kt-ch5-l23-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma closes the old book.",
+        "sentence": "She brings the cover shut.",
         "question": "What does Grandma do?",
         "options": [
           "turns the light",
@@ -3864,7 +3978,8 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -3893,14 +4008,15 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l23-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Her chest rises slow and soft.",
+        "sentence": "Her chest rises unhurried and soft.",
         "question": "How does Hana breathe?",
         "options": [
           "slow",
@@ -3922,14 +4038,15 @@
           "closing",
           "outer-outro",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l23-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma smiles and turns off the lamp.",
+        "sentence": "Grandma smiles and turns off the small light.",
         "question": "What does Grandma turn off?",
         "options": [
           "the lamp",
@@ -3951,14 +4068,15 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l23-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The room feels quiet and safe.",
+        "sentence": "The room feels hushed and safe.",
         "question": "How does the room feel?",
         "options": [
           "quiet",
@@ -3980,7 +4098,8 @@
           "closing",
           "outer-outro",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -3997,7 +4116,7 @@
         "id": "kt-ch5-l24-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I jump down from the wall.",
+        "sentence": "I drop off and land on the street.",
         "question": "What do I do?",
         "options": [
           "run home",
@@ -4019,14 +4138,15 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l24-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The desert wind is gone.",
+        "sentence": "The desert wind is no longer here.",
         "question": "What about the wind?",
         "options": [
           "warm",
@@ -4048,7 +4168,8 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4077,14 +4198,15 @@
           "closing",
           "outer-outro",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-emoji",
         "id": "kt-ch5-l24-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I feel a little wiser tonight.",
+        "sentence": "I feel a little more old-knowing tonight.",
         "question": "How do I feel?",
         "options": [
           "wiser",
@@ -4106,14 +4228,15 @@
           "closing",
           "outer-outro",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l24-q5",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "I will come back tomorrow night.",
+        "sentence": "The evening of the day after.",
         "question": "When will I be back?",
         "options": [
           "never",
@@ -4135,7 +4258,8 @@
           "closing",
           "outer-outro",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -4251,7 +4375,7 @@
         "id": "kt-ch5-l25-q4",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana wakes up and asks Grandma.",
+        "sentence": "Hana wakes up and calls to Old lady.",
         "question": "What does Hana do?",
         "options": [
           "barks loud",
@@ -4272,7 +4396,8 @@
           "ch5",
           "review",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4300,7 +4425,8 @@
           "ch5",
           "review",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
@@ -4328,7 +4454,8 @@
           "ch5",
           "review",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "listen-comprehension",
@@ -4356,14 +4483,15 @@
           "ch5",
           "review",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l25-q8",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma says it was magic, not pain.",
+        "sentence": "Grandma says it was spell-work, not pain.",
         "question": "Did it hurt?",
         "options": [
           "Yes, a lot",
@@ -4384,7 +4512,8 @@
           "ch5",
           "review",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "tap-tiles",
@@ -4424,7 +4553,7 @@
         "id": "kt-ch5-l25-q10",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana feels glad for the Camel.",
+        "sentence": "Hana feels pleased for the Camel.",
         "question": "How does Hana feel now?",
         "options": [
           "sleepy",
@@ -4445,14 +4574,15 @@
           "ch5",
           "review",
           "listen-emoji"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l25-q11",
         "level": "A2",
         "difficulty": "medium",
-        "sentence": "The lesson is: do not be lazy.",
+        "sentence": "The lesson is: do not be work-shy.",
         "question": "What is the lesson of the tale?",
         "options": [
           "do not stay home",
@@ -4473,7 +4603,8 @@
           "ch5",
           "review",
           "listen-mc"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -4501,7 +4632,8 @@
           "ch5",
           "review",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -4529,7 +4661,8 @@
           "ch5",
           "review",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-comprehension",
@@ -4557,14 +4690,15 @@
           "ch5",
           "review",
           "listen-comprehension"
-        ]
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "listen-mc",
         "id": "kt-ch5-l25-q15",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Good night, my little friend.",
+        "sentence": "Fine dark hours, my little friend.",
         "question": "What greeting closes the night?",
         "options": [
           "good night",
@@ -4585,7 +4719,8 @@
           "ch5",
           "review",
           "type-what-you-hear"
-        ]
+        ],
+        "subSkill": "detail"
       }
     ]
   }
