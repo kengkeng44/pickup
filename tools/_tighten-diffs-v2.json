@@ -1,0 +1,1406 @@
+{
+  "stats": {
+    "checked": 1039,
+    "tightened": 154,
+    "perChapter": {
+      "1": 30,
+      "2": 3,
+      "3": 14,
+      "4": 23,
+      "5": 14,
+      "6": 27,
+      "7": 17,
+      "8": 26
+    },
+    "unmapped": [],
+    "badRewrites": []
+  },
+  "diffs": [
+    {
+      "id": "kt-ch1-l1-q1",
+      "chapter": 1,
+      "before": "{catName} has no home. What kind of cat is he?",
+      "after": "What kind of cat is {catName}?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch1-l1-q3",
+      "chapter": 1,
+      "before": "Type what {catName} does to get on the wall.",
+      "after": "How does {catName} get on the wall?",
+      "beforeWc": 9,
+      "afterWc": 7,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch1-l2-q1",
+      "chapter": 1,
+      "before": "Type what {dogName}'s tail does when {catName} arrives.",
+      "after": "What does {dogName}'s tail do?",
+      "beforeWc": 8,
+      "afterWc": 5,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch1-l2-q3",
+      "chapter": 1,
+      "before": "Type the word for what {catName} and {dogName} are to each other.",
+      "after": "What are {catName} and {dogName}?",
+      "beforeWc": 12,
+      "afterWc": 5,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch1-l4-q3",
+      "chapter": 1,
+      "before": "Type the word that describes the night in the story.",
+      "after": "How does the night feel?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l5-q2",
+      "chapter": 1,
+      "before": "What part of the kitten's body is soaked by the rain?",
+      "after": "What part of the kitten is wet?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch1-l5-q3",
+      "chapter": 1,
+      "before": "Type the number of days the kitten has not eaten.",
+      "after": "How many days without food?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l5-q5",
+      "chapter": 1,
+      "before": "What does the kitten do because she is so cold?",
+      "after": "What does the cold kitten do?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch1-l6-q1",
+      "chapter": 1,
+      "before": "What does the kitten do with her body to keep warm?",
+      "after": "How does the kitten stay warm?",
+      "beforeWc": 11,
+      "afterWc": 6,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l6-q3",
+      "chapter": 1,
+      "before": "Type the word that says she has no one with her.",
+      "after": "How is the kitten by herself?",
+      "beforeWc": 11,
+      "afterWc": 6,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l7-q1",
+      "chapter": 1,
+      "before": "What does the kitten see coming closer in the dark?",
+      "after": "What does the kitten see in the dark?",
+      "beforeWc": 10,
+      "afterWc": 8,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch1-l7-q3",
+      "chapter": 1,
+      "before": "Type the word for who the big shadow really is.",
+      "after": "Who is the big shadow?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l8-q3",
+      "chapter": 1,
+      "before": "Type the verb that says the rain no longer hits the cat.",
+      "after": "What does the rain now do?",
+      "beforeWc": 12,
+      "afterWc": 6,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch1-l9-q3",
+      "chapter": 1,
+      "before": "Type the verb for what the cat does with her ears.",
+      "after": "What does the cat do?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch1-l10-q3",
+      "chapter": 1,
+      "before": "Type the adjective that describes Grandma's voice.",
+      "after": "How is Grandma's voice?",
+      "beforeWc": 7,
+      "afterWc": 4,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch1-l11-q3",
+      "chapter": 1,
+      "before": "Type the adjective for a cat who says nothing.",
+      "after": "How is the kitten with no voice?",
+      "beforeWc": 9,
+      "afterWc": 7,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch1-l12-q3",
+      "chapter": 1,
+      "before": "Type the word that tells you the towel is not dirty.",
+      "after": "How is the towel?",
+      "beforeWc": 11,
+      "afterWc": 4,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch1-l13-q3",
+      "chapter": 1,
+      "before": "Type the word for how the cat starts to feel after drying off.",
+      "after": "How does the cat now feel?",
+      "beforeWc": 13,
+      "afterWc": 6,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch1-l14-q4",
+      "chapter": 1,
+      "before": "Type the word for what Grandma suddenly has in her head.",
+      "after": "What does Grandma suddenly have?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch1-l15-q3",
+      "chapter": 1,
+      "before": "Type the word that says the cat may come whenever she likes.",
+      "after": "How does Grandma greet the cat?",
+      "beforeWc": 12,
+      "afterWc": 6,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch1-l16-q1",
+      "chapter": 1,
+      "before": "Grandma already told one story. What does she want to tell?",
+      "after": "What does Grandma want to tell?",
+      "beforeWc": 11,
+      "afterWc": 6,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l16-q2",
+      "chapter": 1,
+      "before": "In what season does the ant and grasshopper story happen?",
+      "after": "In what season is the story?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch1-l16-q3",
+      "chapter": 1,
+      "before": "Type where the ant and grasshopper live.",
+      "after": "Where do the ant and grasshopper live?",
+      "beforeWc": 7,
+      "afterWc": 7,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch1-l17-q3",
+      "chapter": 1,
+      "before": "Type what the ant carries back home.",
+      "after": "What does the ant carry home?",
+      "beforeWc": 7,
+      "afterWc": 6,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch1-l18-q3",
+      "chapter": 1,
+      "before": "Type how the grasshopper feels in winter with no food.",
+      "after": "How does the grasshopper feel in winter?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch1-l19-q3",
+      "chapter": 1,
+      "before": "Type the word for how the wind and the sun describe themselves.",
+      "after": "How do the wind and sun feel?",
+      "beforeWc": 12,
+      "afterWc": 7,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch1-l20-q3",
+      "chapter": 1,
+      "before": "Type how hard the traveler holds his coat in the wind.",
+      "after": "How does the traveler hold his coat?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch1-l21-q3",
+      "chapter": 1,
+      "before": "Type the verb for what the traveler does with his coat in the sun.",
+      "after": "What does the traveler do?",
+      "beforeWc": 14,
+      "afterWc": 5,
+      "delta": 9
+    },
+    {
+      "id": "kt-ch1-l22-q3",
+      "chapter": 1,
+      "before": "Type the word that means the hour is no longer early.",
+      "after": "How is the hour now?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch1-l23-q3",
+      "chapter": 1,
+      "before": "Type the direction {catName} walks at the end of the night.",
+      "after": "Which way does {catName} walk?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch2-l2-q1",
+      "chapter": 2,
+      "before": "{dogName} is excited. What does her tail do on the floor?",
+      "after": "What does {dogName}'s tail do?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch2-l5-q3",
+      "chapter": 2,
+      "before": "What does the giant peach do on the water?",
+      "after": "What does the giant peach do?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch2-l6-q1",
+      "chapter": 2,
+      "before": "What does the old woman do with the peach?",
+      "after": "What does the old woman do?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch3-l1-q1",
+      "chapter": 3,
+      "before": "What season is it on this autumn night in the yard?",
+      "after": "What season is tonight?",
+      "beforeWc": 11,
+      "afterWc": 4,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch3-l1-q2",
+      "chapter": 3,
+      "before": "How does {catName} get up onto the low wall?",
+      "after": "How does {catName} reach the wall?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch3-l2-q2",
+      "chapter": 3,
+      "before": "Type what {dogName} does with his eyes when {catName} arrives.",
+      "after": "What does {dogName} do with eyes?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch3-l4-q3",
+      "chapter": 3,
+      "before": "Type how the duckling feels inside the egg.",
+      "after": "How does the duckling feel inside?",
+      "beforeWc": 8,
+      "afterWc": 6,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch3-l7-q3",
+      "chapter": 3,
+      "before": "Type what the duckling can do well in the pond.",
+      "after": "What can the duckling do well?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch3-l8-q3",
+      "chapter": 3,
+      "before": "Type the word the other ducklings call him.",
+      "after": "What do the ducklings call him?",
+      "beforeWc": 8,
+      "afterWc": 6,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch3-l9-q3",
+      "chapter": 3,
+      "before": "Type the animal you hear.",
+      "after": "What animal do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch3-l9-q5",
+      "chapter": 3,
+      "before": "Why do the hen and cat not like him?",
+      "after": "Why do the hen and cat reject him?",
+      "beforeWc": 9,
+      "afterWc": 8,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch3-l11-q3",
+      "chapter": 3,
+      "before": "Type how the duckling feels walking through the swamp.",
+      "after": "How does the duckling feel walking?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch3-l12-q3",
+      "chapter": 3,
+      "before": "Type what the duckling does when he hears the hunters.",
+      "after": "What does the duckling do at hunters?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch3-l15-q3",
+      "chapter": 3,
+      "before": "Type the word for how the duckling's feet feel on the frozen lake.",
+      "after": "How do the duckling's feet feel?",
+      "beforeWc": 13,
+      "afterWc": 6,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch3-l16-q3",
+      "chapter": 3,
+      "before": "Type what the farmer does for the half-frozen duckling.",
+      "after": "What does the farmer do?",
+      "beforeWc": 9,
+      "afterWc": 5,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch3-l22-q3",
+      "chapter": 3,
+      "before": "Type the phrase you hear.",
+      "after": "What phrase do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch3-l23-q3",
+      "chapter": 3,
+      "before": "Type what {catName} does about himself after the story.",
+      "after": "What does {catName} now do?",
+      "beforeWc": 9,
+      "afterWc": 5,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l1-q1",
+      "chapter": 4,
+      "before": "Type what {catName} does to get onto the wall tonight.",
+      "after": "How does {catName} reach the wall?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l1-q3",
+      "chapter": 4,
+      "before": "Type what Grandma does as {catName} arrives.",
+      "after": "What does Grandma do for him?",
+      "beforeWc": 7,
+      "afterWc": 6,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch4-l2-q1",
+      "chapter": 4,
+      "before": "What does {dogName}'s tail do on the grass tonight?",
+      "after": "What does {dogName}'s tail do?",
+      "beforeWc": 9,
+      "afterWc": 5,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l2-q3",
+      "chapter": 4,
+      "before": "Type what Grandma is holding tonight.",
+      "after": "What is Grandma holding?",
+      "beforeWc": 6,
+      "afterWc": 4,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch4-l4-q2",
+      "chapter": 4,
+      "before": "What does the Hare do about his own speed?",
+      "after": "What does the Hare do about speed?",
+      "beforeWc": 9,
+      "afterWc": 7,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch4-l6-q2",
+      "chapter": 4,
+      "before": "What does the Tortoise say to the Hare's challenge?",
+      "after": "What does the Tortoise say back?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l7-q3",
+      "chapter": 4,
+      "before": "Type the verb phrase you hear.",
+      "after": "What verb phrase do you hear?",
+      "beforeWc": 6,
+      "afterWc": 6,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch4-l8-q3",
+      "chapter": 4,
+      "before": "Type how the Hare runs at the start of the race.",
+      "after": "How does the Hare start running?",
+      "beforeWc": 11,
+      "afterWc": 6,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch4-l10-q3",
+      "chapter": 4,
+      "before": "Type the word the Hare thinks he has plenty of.",
+      "after": "What does the Hare think he has?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l11-q3",
+      "chapter": 4,
+      "before": "Type the word for what the Hare quickly becomes under the bush.",
+      "after": "What does the Hare quickly become?",
+      "beforeWc": 12,
+      "afterWc": 6,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch4-l12-q3",
+      "chapter": 4,
+      "before": "Type the place the Tortoise walks past.",
+      "after": "Where does the Tortoise walk past?",
+      "beforeWc": 7,
+      "afterWc": 6,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch4-l14-q3",
+      "chapter": 4,
+      "before": "Type how the Tortoise feels but keeps going.",
+      "after": "How does the Tortoise feel inside?",
+      "beforeWc": 8,
+      "afterWc": 6,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch4-l15-q3",
+      "chapter": 4,
+      "before": "Type the word for the end of the race.",
+      "after": "What is the end of the race?",
+      "beforeWc": 9,
+      "afterWc": 7,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch4-l16-q3",
+      "chapter": 4,
+      "before": "Type the verb the Tortoise says when he reaches the tree.",
+      "after": "What does the Tortoise say?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch4-l17-q3",
+      "chapter": 4,
+      "before": "Type what the Hare does when he finally wakes up.",
+      "after": "What does the Hare do awake?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l19-q3",
+      "chapter": 4,
+      "before": "Type what the Crow is holding in his beak.",
+      "after": "What is in the Crow's beak?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l20-q2",
+      "chapter": 4,
+      "before": "How does the Fox trick the Crow with sweet words?",
+      "after": "How does the Fox trick the Crow?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l20-q3",
+      "chapter": 4,
+      "before": "Type what the Crow does with his beak to sing.",
+      "after": "What does the Crow do to sing?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l21-q3",
+      "chapter": 4,
+      "before": "Type the word that describes the country mouse's food.",
+      "after": "How is the country mouse's food?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch4-l23-q3",
+      "chapter": 4,
+      "before": "Type what {dogName} does as the story ends.",
+      "after": "What does {dogName} do?",
+      "beforeWc": 8,
+      "afterWc": 4,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l24-q3",
+      "chapter": 4,
+      "before": "Type the place {catName} walks back to at the end.",
+      "after": "Where does {catName} walk back?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch4-l25-q4",
+      "chapter": 4,
+      "before": "Why did the tortoise keep going if he was tired?",
+      "after": "Why did the Tortoise keep going?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch4-l25-q6",
+      "chapter": 4,
+      "before": "Type the word Grandma calls the tortoise's small magic.",
+      "after": "What is the tortoise's small magic?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l1-q3",
+      "chapter": 5,
+      "before": "Type what {catName} does up onto the wall.",
+      "after": "What does {catName} do to the wall?",
+      "beforeWc": 8,
+      "afterWc": 7,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch5-l2-q3",
+      "chapter": 5,
+      "before": "Type what Grandma turns slowly in the book.",
+      "after": "What does Grandma slowly turn?",
+      "beforeWc": 8,
+      "afterWc": 5,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l4-q4",
+      "chapter": 5,
+      "before": "Type what the Dog wears around his neck.",
+      "after": "What does the Dog wear?",
+      "beforeWc": 8,
+      "afterWc": 5,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l5-q3",
+      "chapter": 5,
+      "before": "Type the word that says the Camel will not work.",
+      "after": "How is the Camel about work?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch5-l6-q5",
+      "chapter": 5,
+      "before": "Type the word the Camel says.",
+      "after": "What does the Camel say?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch5-l8-q4",
+      "chapter": 5,
+      "before": "Type the verb the Dog asks the Camel to do.",
+      "after": "What does the Dog ask the Camel?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l10-q1",
+      "chapter": 5,
+      "before": "Type the day you hear.",
+      "after": "What day do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch5-l12-q3",
+      "chapter": 5,
+      "before": "Type which animal the three complain about to Man.",
+      "after": "Which animal do the three blame?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l14-q4",
+      "chapter": 5,
+      "before": "Type what the Camel stares at on the ground.",
+      "after": "What does the Camel stare at?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch5-l15-q1",
+      "chapter": 5,
+      "before": "Type the adjective the Djinn uses for the Camel's neck.",
+      "after": "How is the Camel's neck?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch5-l18-q3",
+      "chapter": 5,
+      "before": "Type what the Camel may not do for three days.",
+      "after": "What can the Camel not do?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch5-l24-q3",
+      "chapter": 5,
+      "before": "Type where {catName} walks back to at the end of the night.",
+      "after": "Where does {catName} walk back?",
+      "beforeWc": 12,
+      "afterWc": 5,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch5-l25-q6",
+      "chapter": 5,
+      "before": "Type the adjective Grandma uses.",
+      "after": "What word does Grandma use?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch5-l25-q15",
+      "chapter": 5,
+      "before": "Type the closing greeting.",
+      "after": "What greeting closes the night?",
+      "beforeWc": 4,
+      "afterWc": 5,
+      "delta": -1
+    },
+    {
+      "id": "kt-ch6-l1-q1",
+      "chapter": 6,
+      "before": "How does tonight feel to {catName} compared to other nights?",
+      "after": "How does tonight feel?",
+      "beforeWc": 10,
+      "afterWc": 4,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch6-l1-q2",
+      "chapter": 6,
+      "before": "Type the verb {catName} does to get up on the wall.",
+      "after": "What does {catName} do to the wall?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l2-q3",
+      "chapter": 6,
+      "before": "Type the body part of {dogName} that bends back when he is scared.",
+      "after": "What body part of {dogName} bends?",
+      "beforeWc": 13,
+      "afterWc": 6,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch6-l3-q3",
+      "chapter": 6,
+      "before": "Type how Grandma's dark old book feels to {catName}.",
+      "after": "How does Grandma's old book feel?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch6-l4-q3",
+      "chapter": 6,
+      "before": "Type the adverb that says Vasilisa works a lot every day.",
+      "after": "How does Vasilisa work each day?",
+      "beforeWc": 11,
+      "afterWc": 6,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch6-l5-q3",
+      "chapter": 6,
+      "before": "Type the place you hear.",
+      "after": "What place do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch6-l6-q2",
+      "chapter": 6,
+      "before": "Type the size word you hear.",
+      "after": "What size do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch6-l7-q5",
+      "chapter": 6,
+      "before": "Type what Vasilisa does with the little doll in her pocket.",
+      "after": "What does Vasilisa do with the doll?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l8-q3",
+      "chapter": 6,
+      "before": "Type the time word that says she walks a very long time.",
+      "after": "How long does she walk?",
+      "beforeWc": 12,
+      "afterWc": 5,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch6-l9-q3",
+      "chapter": 6,
+      "before": "Type the color you hear.",
+      "after": "What color do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch6-l10-q3",
+      "chapter": 6,
+      "before": "Type what the chicken-leg hut can do on its legs.",
+      "after": "What can the chicken-leg hut do?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l11-q2",
+      "chapter": 6,
+      "before": "Type the adjective that describes Baba Yaga's teeth.",
+      "after": "How are Baba Yaga's teeth?",
+      "beforeWc": 8,
+      "afterWc": 5,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch6-l12-q3",
+      "chapter": 6,
+      "before": "Type the tool you hear.",
+      "after": "What tool do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch6-l13-q2",
+      "chapter": 6,
+      "before": "Type the size word you hear.",
+      "after": "What size do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch6-l14-q3",
+      "chapter": 6,
+      "before": "Type the body part the doll opens to eat the bread.",
+      "after": "What does the doll open to eat?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l15-q2",
+      "chapter": 6,
+      "before": "Type the verb for what the doll does while Vasilisa sleeps.",
+      "after": "What does the doll do at night?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l16-q3",
+      "chapter": 6,
+      "before": "Type how the yard looks after the doll's secret work.",
+      "after": "How does the yard look after?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l17-q3",
+      "chapter": 6,
+      "before": "Type the feeling word you hear.",
+      "after": "What feeling do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch6-l18-q2",
+      "chapter": 6,
+      "before": "Type the verb for what the skull does to every tree in the forest.",
+      "after": "What does the skull do to trees?",
+      "beforeWc": 14,
+      "afterWc": 7,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch6-l19-q3",
+      "chapter": 6,
+      "before": "Type the verb that says the fisherman got the magic fish.",
+      "after": "What did the fisherman do?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch6-l20-q3",
+      "chapter": 6,
+      "before": "Type the color you hear.",
+      "after": "What color do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch6-l21-q3",
+      "chapter": 6,
+      "before": "Type the verb for what the child does to each of the seven beds.",
+      "after": "What did the child do to beds?",
+      "beforeWc": 14,
+      "afterWc": 7,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch6-l22-q3",
+      "chapter": 6,
+      "before": "Type the verb for what the child does to escape.",
+      "after": "What did the child do to escape?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch6-l23-q3",
+      "chapter": 6,
+      "before": "Type how Grandma smiles at {catName} and {dogName}.",
+      "after": "How does Grandma smile?",
+      "beforeWc": 8,
+      "afterWc": 4,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch6-l23-q6",
+      "chapter": 6,
+      "before": "Type the body part of the chicken-leg hut.",
+      "after": "What part of the hut moves?",
+      "beforeWc": 8,
+      "afterWc": 6,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch6-l24-q2",
+      "chapter": 6,
+      "before": "Type the feeling word you hear.",
+      "after": "What feeling do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch6-l24-q8",
+      "chapter": 6,
+      "before": "Type how the night now feels after the scary story is done.",
+      "after": "How does the night now feel?",
+      "beforeWc": 12,
+      "afterWc": 6,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch7-l1-q2",
+      "chapter": 7,
+      "before": "Type what {catName} does onto the low wall.",
+      "after": "What does {catName} do to the wall?",
+      "beforeWc": 8,
+      "afterWc": 7,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch7-l1-q3",
+      "chapter": 7,
+      "before": "Type the word that says Grandma is already on her chair.",
+      "after": "How does Grandma wait tonight?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch7-l3-q3",
+      "chapter": 7,
+      "before": "Type the number of swans in tonight's story.",
+      "after": "How many swans tonight?",
+      "beforeWc": 8,
+      "afterWc": 4,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch7-l4-q4",
+      "chapter": 7,
+      "before": "Choose the best meaning of 'took a new wife'.",
+      "after": "What does 'took a new wife' mean?",
+      "beforeWc": 9,
+      "afterWc": 7,
+      "delta": 2
+    },
+    {
+      "id": "kt-ch7-l4-q5",
+      "chapter": 7,
+      "before": "Type the time word for when the king's children were still happy.",
+      "after": "When were the children happy?",
+      "beforeWc": 12,
+      "afterWc": 5,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch7-l6-q4",
+      "chapter": 7,
+      "before": "Type the animal you hear.",
+      "after": "What animal do you hear?",
+      "beforeWc": 5,
+      "afterWc": 5,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch7-l7-q1",
+      "chapter": 7,
+      "before": "What do the six swans do into the sky?",
+      "after": "What did the six swans do?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch7-l8-q5",
+      "chapter": 7,
+      "before": "Type the verb for how the sister leaves toward the wood.",
+      "after": "How does the sister go to the wood?",
+      "beforeWc": 11,
+      "afterWc": 8,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch7-l10-q5",
+      "chapter": 7,
+      "before": "Type what the sister does for her brothers at dusk.",
+      "after": "What does the sister do at dusk?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch7-l12-q5",
+      "chapter": 7,
+      "before": "Type the verb for how she answers the deal silently.",
+      "after": "How does she answer silently?",
+      "beforeWc": 10,
+      "afterWc": 5,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch7-l13-q6",
+      "chapter": 7,
+      "before": "Type the noun for what she made and is keeping.",
+      "after": "What did she make and keep?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch7-l15-q4",
+      "chapter": 7,
+      "before": "Type the verb for what she does with the six shirts.",
+      "after": "What does she do with the shirts?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch7-l17-q6",
+      "chapter": 7,
+      "before": "Type the noun that rises fast from the fire.",
+      "after": "What rises fast from the fire?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch7-l19-q4",
+      "chapter": 7,
+      "before": "Type the verb for what the woodcutter and his wife do about every wish.",
+      "after": "What do the woodcutters do?",
+      "beforeWc": 14,
+      "afterWc": 5,
+      "delta": 9
+    },
+    {
+      "id": "kt-ch7-l21-q4",
+      "chapter": 7,
+      "before": "Type what the sun says is stronger than him.",
+      "after": "What is stronger than the sun?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch7-l23-q5",
+      "chapter": 7,
+      "before": "Type the word for how the night feels at the end of the tale.",
+      "after": "How does the night feel at the end?",
+      "beforeWc": 14,
+      "afterWc": 8,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch7-l25-q11",
+      "chapter": 7,
+      "before": "Type the adjective that says silence can also be a kind of courage.",
+      "after": "How is silence a courage?",
+      "beforeWc": 13,
+      "afterWc": 5,
+      "delta": 8
+    },
+    {
+      "id": "kt-ch8-l1-q3",
+      "chapter": 8,
+      "before": "Type the number word you hear.",
+      "after": "What number do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l4-q3",
+      "chapter": 8,
+      "before": "Type the family word you hear.",
+      "after": "What family word do you hear?",
+      "beforeWc": 6,
+      "afterWc": 6,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch8-l5-q3",
+      "chapter": 8,
+      "before": "Type the verb Ye Xian must do with water from the well.",
+      "after": "What must Ye Xian do?",
+      "beforeWc": 12,
+      "afterWc": 5,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch8-l5-q4",
+      "chapter": 8,
+      "before": "How is Ye Xian, but what does she not do?",
+      "after": "How is Ye Xian?",
+      "beforeWc": 10,
+      "afterWc": 4,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch8-l6-q3",
+      "chapter": 8,
+      "before": "Type the food word you hear.",
+      "after": "What food do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l7-q3",
+      "chapter": 8,
+      "before": "Type the adjective that describes Ye Xian's voice by the pond.",
+      "after": "How is Ye Xian's voice?",
+      "beforeWc": 11,
+      "afterWc": 5,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch8-l8-q3",
+      "chapter": 8,
+      "before": "Type the celestial word you hear.",
+      "after": "What sky word do you hear?",
+      "beforeWc": 6,
+      "afterWc": 6,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch8-l9-q3",
+      "chapter": 8,
+      "before": "Type what the stepmother does next to the pond, pretending to be Ye Xian.",
+      "after": "What does the stepmother do?",
+      "beforeWc": 14,
+      "afterWc": 5,
+      "delta": 9
+    },
+    {
+      "id": "kt-ch8-l10-q3",
+      "chapter": 8,
+      "before": "Type the food word you hear.",
+      "after": "What food do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l11-q3",
+      "chapter": 8,
+      "before": "Type the verb for what Ye Xian does in the empty water.",
+      "after": "What does Ye Xian do in the water?",
+      "beforeWc": 12,
+      "afterWc": 8,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch8-l12-q3",
+      "chapter": 8,
+      "before": "Type the verb the old man tells her to do with the fish bones.",
+      "after": "What must Ye Xian do with bones?",
+      "beforeWc": 14,
+      "afterWc": 7,
+      "delta": 7
+    },
+    {
+      "id": "kt-ch8-l13-q3",
+      "chapter": 8,
+      "before": "Type what Ye Xian whispers to the bones.",
+      "after": "What does Ye Xian whisper?",
+      "beforeWc": 8,
+      "afterWc": 5,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch8-l14-q3",
+      "chapter": 8,
+      "before": "Type the verb for how Ye Xian asks the bones for help.",
+      "after": "How does Ye Xian ask the bones?",
+      "beforeWc": 12,
+      "afterWc": 7,
+      "delta": 5
+    },
+    {
+      "id": "kt-ch8-l15-q3",
+      "chapter": 8,
+      "before": "Type the verb for what Ye Xian does under the lanterns.",
+      "after": "What does Ye Xian do at lanterns?",
+      "beforeWc": 11,
+      "afterWc": 7,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch8-l16-q3",
+      "chapter": 8,
+      "before": "Type the verb for how Ye Xian leaves the festival.",
+      "after": "How does Ye Xian leave the festival?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch8-l17-q3",
+      "chapter": 8,
+      "before": "Type the adjective that says the golden slipper does not fit other women.",
+      "after": "How is the golden slipper?",
+      "beforeWc": 13,
+      "afterWc": 5,
+      "delta": 8
+    },
+    {
+      "id": "kt-ch8-l18-q3",
+      "chapter": 8,
+      "before": "Type the body-action verb you hear.",
+      "after": "What action do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l19-q3",
+      "chapter": 8,
+      "before": "Type the container word you hear.",
+      "after": "What container do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l20-q3",
+      "chapter": 8,
+      "before": "Type the part of the snail the kind girl steps out of.",
+      "after": "What does the kind girl exit?",
+      "beforeWc": 12,
+      "afterWc": 6,
+      "delta": 6
+    },
+    {
+      "id": "kt-ch8-l21-q3",
+      "chapter": 8,
+      "before": "Type the noun for what the gods give Hou Yi.",
+      "after": "What do the gods give Hou Yi?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch8-l22-q3",
+      "chapter": 8,
+      "before": "Type the place word you hear.",
+      "after": "What place do you hear?",
+      "beforeWc": 6,
+      "afterWc": 5,
+      "delta": 1
+    },
+    {
+      "id": "kt-ch8-l23-q3",
+      "chapter": 8,
+      "before": "Type the body word you hear.",
+      "after": "What body word do you hear?",
+      "beforeWc": 6,
+      "afterWc": 6,
+      "delta": 0
+    },
+    {
+      "id": "kt-ch8-l23-q7",
+      "chapter": 8,
+      "before": "Type the time word for when {catName} is not sure he will be back.",
+      "after": "When might {catName} return?",
+      "beforeWc": 14,
+      "afterWc": 4,
+      "delta": 10
+    },
+    {
+      "id": "kt-ch8-l24-q3",
+      "chapter": 8,
+      "before": "What did Ye Xian do even though she was scared?",
+      "after": "What did Ye Xian do scared?",
+      "beforeWc": 10,
+      "afterWc": 6,
+      "delta": 4
+    },
+    {
+      "id": "kt-ch8-l24-q4",
+      "chapter": 8,
+      "before": "Type the word that means scared but still doing it.",
+      "after": "What word means scared but doing it?",
+      "beforeWc": 10,
+      "afterWc": 7,
+      "delta": 3
+    },
+    {
+      "id": "kt-ch8-l24-q6",
+      "chapter": 8,
+      "before": "If I had a wish, what would I want?",
+      "after": "If {catName} could wish, for what?",
+      "beforeWc": 9,
+      "afterWc": 6,
+      "delta": 3
+    }
+  ]
+}
