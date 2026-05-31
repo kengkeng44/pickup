@@ -5,7 +5,7 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
-import { speak, autoSpeak } from '../audio/tts';
+import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
 import { startBgm } from '../audio/bgm';
 import { sfxCorrect, sfxWrong } from '../audio/sfx';
 import {
@@ -293,15 +293,11 @@ export class LessonScene extends Phaser.Scene {
     this.locked = false;
     this.cancelAdvanceTimer();
 
-    // v2.0.B.130: kill any in-flight speech from the PREVIOUS question.
-    // User: '太快回答完 跳到下一題 上一題的語音還沒播放 就會在下一題繼續播放完'.
-    // Web Speech queue persists across renderQuestion() calls; without cancel
-    // here, leftover utterances from Qn play over Qn+1's sentence card.
-    try {
-      if (typeof window !== 'undefined' && window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-      }
-    } catch {}
+    // v2.0.B.130 + B.139.1: kill in-flight audio from prior Q (BOTH WebSpeech
+    // AND Web Audio MP3 path). B.139 routes Q1 via speak() → MP3; if we only
+    // cancel WebSpeech, the grandma MP3 bleeds into Qn+1. Bug-check agent
+    // caught this gap. Use stopSpeaking() from tts.ts which handles both layers.
+    try { stopSpeaking(); } catch {}
 
     // Tear down any prior tap UI from the previous question — symmetric
     // with PlayScene.ts:475-476.
@@ -642,13 +638,10 @@ export class LessonScene extends Phaser.Scene {
   }
 
   private cleanupOverlay(): void {
-    // v2.0.B.137 bug-check #1: stop in-flight speech on scene exit. B.136 concat
-    // utterance ~12s; without this it bleeds into StoryModeScene after Quit.
-    try {
-      if (typeof window !== 'undefined' && window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-      }
-    } catch {}
+    // v2.0.B.137 + B.139.1 bug-check: stop ALL audio paths on scene exit.
+    // B.137 only canceled WebSpeech; B.139 added MP3 path so stopSpeaking()
+    // (from tts.ts) is the correct one-call cleanup that handles both.
+    try { stopSpeaking(); } catch {}
     this.cancelAdvanceTimer();
     this.tapHandle?.destroy();
     this.tapHandle = undefined;
