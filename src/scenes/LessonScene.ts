@@ -128,7 +128,7 @@ export class LessonScene extends Phaser.Scene {
       accent: meta.accent,
       tint: meta.tint,
       totalRounds: this.lesson.questions.length,
-      scenarioLabel: `Chapter ${this.chapter} · ${meta.labelEn}`,
+      scenarioLabel: '',
       emoji: meta.emoji,
       hideHp: true,
       hideStreak: true,
@@ -199,6 +199,82 @@ export class LessonScene extends Phaser.Scene {
     //   tap-pairs            → mountTapPairs
     const qType = q.type;
     const round = q as any;
+
+    // v2.0.B.118: blind-listening sentence card for listen-mc / listen-comprehension.
+    // Mirrors PlayScene's useListeningUI block — sentence is replaced by N
+    // underline word-blanks, speaker tap plays sentence + question via Web Speech.
+    // Per user: 文字應該都是隱形的.
+    if (
+      this.hud &&
+      (qType === 'listen-mc' || qType === 'listen-comprehension')
+    ) {
+      const correctIndex = round.correctIndex ?? 0;
+      const correctWord = round.options?.[correctIndex] ?? '';
+      const sentenceText = String(round.sentence ?? '').replace(/_{2,}/g, correctWord);
+      const tokens = String(round.sentence ?? '').split(/(\s+)/);
+      const isWord = (t: string) => /\S/.test(t);
+      const isCloze = (t: string) => /_{2,}/.test(t);
+      const blankSpan = (len: number, cloze: boolean) =>
+        `<span style="display:inline-block;border-bottom:${cloze ? '3px' : '2px'} solid ${cloze ? '#b07a2a' : '#c8a878'};min-width:${len}px;height:1.1em;vertical-align:-2px;margin:0 2px;border-radius:1px;"></span>`;
+      const blanksHtml = tokens.map(tok => {
+        if (!isWord(tok)) return tok;
+        const m = tok.match(/^(.+?)([.,!?;:'"]+)?$/);
+        const word = m?.[1] ?? tok;
+        const punct = m?.[2] ?? '';
+        const cloze = isCloze(word);
+        const wordLen = cloze ? 8 : Math.min(Math.max(word.length, 3), 8);
+        return blankSpan(wordLen * 8, cloze) + (punct ? `<span style="color:#8b6f4a;font-weight:800;">${punct}</span>` : '');
+      }).join('');
+      const sentEl = this.hud.getSentenceElement();
+      if (sentEl) {
+        sentEl.innerHTML = `
+          <div style="display:flex;align-items:flex-start;gap:10px;padding:6px 4px;">
+            <button type="button" aria-label="Replay audio" class="pickup-listen-speaker pickup-speaker-pulse" style="
+              flex:0 0 auto; width:40px; height:40px; padding:0;
+              background:#e7a44a; border:none; border-bottom:3px solid #b07a2a;
+              border-radius:50%; cursor:pointer;
+              display:inline-flex; align-items:center; justify-content:center;
+              touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+            ">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            </button>
+            <div style="flex:1 1 auto;min-width:0;">
+              <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.8;max-height:140px;overflow:hidden;">${blanksHtml}</div>
+            </div>
+          </div>
+        `;
+        const spk = sentEl.querySelector('.pickup-listen-speaker') as HTMLButtonElement | null;
+        spk?.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (typeof window !== 'undefined' && window.speechSynthesis) {
+            try {
+              window.speechSynthesis.cancel();
+              const u1 = new SpeechSynthesisUtterance(sentenceText);
+              u1.lang = 'en-US';
+              u1.rate = 0.85;
+              if (round.question) {
+                u1.onend = () => {
+                  window.setTimeout(() => {
+                    try {
+                      const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
+                      u2.lang = 'en-US';
+                      u2.rate = 0.9;
+                      window.speechSynthesis.speak(u2);
+                    } catch {}
+                  }, 1000);
+                };
+              }
+              window.speechSynthesis.speak(u1);
+            } catch {
+              speak(sentenceText);
+            }
+          } else {
+            speak(sentenceText);
+          }
+        });
+      }
+    }
+
     if (
       this.hud &&
       (qType === 'tap-tiles' || qType === 'tap-pairs' || qType === 'type-what-you-hear')
@@ -261,7 +337,7 @@ export class LessonScene extends Phaser.Scene {
       streak: 0,
       currentRound: qNum,
       totalRounds: total,
-      scenarioLabel: `Chapter ${this.chapter} · ${this.lesson.id}`,
+      scenarioLabel: '',
       sentence: this.lesson.questions[this.questionIdx].sentence,
       timerSeconds: 0,
       timerRatio: 0,
