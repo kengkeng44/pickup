@@ -9,6 +9,11 @@ import { defineConfig } from 'vite';
  */
 export default defineConfig({
   build: {
+    // v2.0.B.151: disable modulepreload polyfill — vite was injecting
+    // <link rel="modulepreload"> for phaser chunk even though main.ts
+    // uses dynamic import('./bootGame'), forcing eager fetch. Disabling
+    // lets browser fetch phaser only when import() resolves post-'load'.
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks(id: string) {
