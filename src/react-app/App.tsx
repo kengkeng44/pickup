@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
+import ChapterIntroPage from './pages/ChapterIntroPage';
 import ProfilePage from './pages/ProfilePage';
 import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
@@ -38,6 +39,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<MapPage />} />
           <Route path="/chapters" element={<ChaptersPage />} />
+          <Route path="/chapter/:chapter/intro" element={<ChapterIntroPage />} />
           <Route path="/lesson/:chapter/:lessonId" element={<LessonPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/tasks" element={<TasksPage />} />

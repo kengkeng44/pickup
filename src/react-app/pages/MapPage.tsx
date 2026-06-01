@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useRunStore, readCompletedLessons } from '../../store/runStore';
+import { useRunStore, readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 
 interface Lesson {
   id: string;
@@ -43,18 +43,15 @@ export default function MapPage() {
 
   return (
     <div style={{ padding: '14px 14px 24px' }}>
-      {/* Top HUD: streak + title chip */}
+      {/* Top HUD: 4 icon (Flag / Crown / Gem / Streak) — 對齊 Phaser v1.9.15 */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <span style={{ fontSize: 11, fontWeight: 800, color: '#8b6f4a', background: '#fef3c7', padding: '4px 10px', borderRadius: 10, letterSpacing: 1 }}>
-          L{chapter}
-        </span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#fef3c7', padding: '4px 10px', borderRadius: 14, border: '2px solid #e7a44a' }}>
-          <span style={{ fontSize: 14 }}>🔥</span>
-          <span style={{ fontSize: 14, fontWeight: 900, color: '#b07a2a' }}>{streak}</span>
-        </div>
+        <HudIcon icon="/mascots/flag-en.webp" value="EN" />
+        <HudIcon icon="/mascots/crown-gold.webp" value={Math.max(1, Math.floor(streak / 5)).toString()} />
+        <HudIcon icon="/mascots/coin-gold.webp" value="0" />
+        <HudIcon icon="/mascots/flame.webp" value={streak.toString()} accent />
       </div>
 
-      {/* Chapter title card with chapter switcher BUTTON on right (per user 圈起來位置) */}
+      {/* Chapter title card with switcher button RIGHT (per user 圈位置) */}
       <button
         onClick={() => navigate('/chapters')}
         style={{
@@ -83,50 +80,48 @@ export default function MapPage() {
         }}>≡</div>
       </button>
 
-      {/* Lessons + grandma layout */}
+      {/* Lessons + grandma + shiba layout */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: 40, color: '#8b6f4a' }}>載入中…</div>
       ) : lessons.length === 0 ? (
         <div style={{ textAlign: 'center', padding: 40, color: '#8b6f4a' }}>本章內容未上線</div>
       ) : (
         <div style={{ position: 'relative', paddingTop: 20 }}>
-          {/* Grandma mascot — top-left absolute, beside first node */}
-          <img
-            src="/mascots/iso-grandma.webp"
-            alt=""
-            style={{
-              position: 'absolute',
-              left: 14, top: 30, width: 110, height: 'auto',
-              zIndex: 1, pointerEvents: 'none',
-            }}
-          />
+          {/* Grandma + Shiba mascot duo — 對齊 Phaser v1.7.15 */}
+          <img src="/mascots/iso-grandma.webp" alt=""
+            style={{ position: 'absolute', left: 14, top: 30, width: 100, height: 'auto', zIndex: 1, pointerEvents: 'none' }} />
+          <img src="/mascots/iso-shiba.webp" alt=""
+            style={{ position: 'absolute', left: 110, top: 80, width: 64, height: 'auto', zIndex: 1, pointerEvents: 'none' }} />
 
           {/* Zigzag paw nodes */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18 }}>
             {lessons.map((l, i) => {
-              // Mimic Phaser zigzag: 4-cycle dx pattern
               const cyclePos = i % 4;
-              const offsets = [50, 90, 50, 10]; // right-shifted for grandma space
+              const offsets = [50, 90, 50, 10];
               const left = offsets[cyclePos];
               const done = completed.has(l.id);
+              const unlocked = isLessonUnlocked(chapter, l.lessonInChapter, completed.size);
               return (
                 <button
                   key={l.id}
-                  onClick={() => navigate(`/lesson/${chapter}/${l.id}`)}
-                  aria-label={`Lesson ${l.lessonInChapter}`}
+                  onClick={() => unlocked && navigate(`/lesson/${chapter}/${l.id}`)}
+                  disabled={!unlocked}
+                  aria-label={`Lesson ${l.lessonInChapter}${unlocked ? '' : ' (locked)'}`}
                   style={{
                     width: 96, height: 88,
                     marginLeft: left,
-                    background: done ? '#7d9a4f' : '#c8835f',
+                    background: !unlocked ? '#c8a878' : done ? '#7d9a4f' : '#c8835f',
                     border: 'none',
-                    borderBottom: `6px solid ${done ? '#5a7330' : '#8b5a3c'}`,
+                    borderBottom: `6px solid ${!unlocked ? '#8b6f4a' : done ? '#5a7330' : '#8b5a3c'}`,
                     borderRadius: '50%',
-                    cursor: 'pointer',
+                    cursor: unlocked ? 'pointer' : 'not-allowed',
+                    opacity: unlocked ? 1 : 0.5,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     touchAction: 'manipulation',
                     WebkitTapHighlightColor: 'transparent',
                     position: 'relative',
                     zIndex: 2,
+                    filter: unlocked ? 'none' : 'grayscale(1)',
                   }}
                 >
                   <img src="/mascots/icon-paw.webp" width={44} height={44} alt="" style={{ opacity: 0.9 }} />
@@ -139,6 +134,15 @@ export default function MapPage() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function HudIcon({ icon, value, accent }: { icon: string; value: string; accent?: boolean }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: accent ? '#fef3c7' : '#fff7e8', padding: '4px 10px', borderRadius: 14, border: `2px solid ${accent ? '#e7a44a' : '#c8a878'}` }}>
+      <img src={icon} alt="" width={20} height={20} style={{ display: 'block' }} />
+      <span style={{ fontSize: 13, fontWeight: 900, color: accent ? '#b07a2a' : '#8b6f4a' }}>{value}</span>
     </div>
   );
 }

@@ -29,7 +29,11 @@ export default function ChaptersPage() {
         {CHAPTERS.map(ch => (
           <button
             key={ch.id}
-            onClick={() => ch.unlocked && navigate(`/?ch=${ch.id}`)}
+            onClick={() => {
+              if (!ch.unlocked) return;
+              const seen = (() => { try { return localStorage.getItem(`pickup.chapter.${ch.id}.intro.seen`) === '1'; } catch { return false; } })();
+              navigate(seen ? `/?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
+            }}
             disabled={!ch.unlocked}
             style={{
               width: '100%', textAlign: 'left',
