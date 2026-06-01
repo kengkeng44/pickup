@@ -1,18 +1,18 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 /**
  * v1.7.10: code-split Phaser into its own chunk so the main app bundle
- * loads quickly + Phaser downloads in parallel. Phaser is ~700KB raw
- * which was the bulk of the original 1.4MB bundle.
+ * loads quickly + Phaser downloads in parallel.
  *
- * Note: rolldown-vite requires manualChunks as a FUNCTION not an object.
+ * v2.0.B.162: @vitejs/plugin-react added for React 18 migration (Phase 0).
+ * Both vanilla TS entry (src/main.ts) + React entry (src/main.tsx) coexist
+ * during migration. index.html still points to main.ts until Phase 1 cutover.
  */
 export default defineConfig({
+  plugins: [react()],
   build: {
-    // v2.0.B.151: disable modulepreload polyfill — vite was injecting
-    // <link rel="modulepreload"> for phaser chunk even though main.ts
-    // uses dynamic import('./bootGame'), forcing eager fetch. Disabling
-    // lets browser fetch phaser only when import() resolves post-'load'.
+    // v2.0.B.151: disable modulepreload polyfill (see git history)
     modulePreload: false,
     rollupOptions: {
       output: {
@@ -20,6 +20,8 @@ export default defineConfig({
           if (id.includes('node_modules/phaser')) return 'phaser';
           if (id.includes('node_modules/zustand')) return 'zustand';
           if (id.includes('node_modules/zod')) return 'zod';
+          if (id.includes('node_modules/react-router')) return 'react-router';
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) return 'react';
           return undefined;
         },
       },

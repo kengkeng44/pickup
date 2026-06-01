@@ -13,6 +13,9 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+    /* React 18 — v2.0.B.162 Phase 0 React migration */
+    "jsx": "react-jsx",
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
