@@ -33,7 +33,7 @@ export default function App() {
     };
   }, []);
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', maxWidth: 480, margin: '0 auto', background: '#fef8ed' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: '#fef8ed' }}>
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
         <Routes>
           <Route path="/" element={<MapPage />} />
