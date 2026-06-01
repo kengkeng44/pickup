@@ -5,7 +5,7 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
-import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
+import { speak, autoSpeak, stopSpeaking, preloadLessonAudio } from '../audio/tts';
 import { track, EVENT } from '../analytics/posthog';
 import { wireSentenceHints, preloadHints } from '../ui/WordHint';
 
@@ -156,6 +156,15 @@ export class LessonScene extends Phaser.Scene {
     void this._snapshotTf; void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
     // v2.0.B.161.9: preload WordHint dict ONCE per lesson (was per-narration = redundant)
     try { void preloadHints(); } catch {}
+    // v2.0.B.161.22 per user '聲音有延遲': preload lesson MP3 buffers so
+    // first speak() per Q hits cache (no 500-800ms async fetch).
+    // Non-blocking (no await) — runs in background while UI mounts.
+    try {
+      const sentences = this.lesson.questions
+        .map((q: any) => String(q.sentence ?? ''))
+        .filter(Boolean);
+      void preloadLessonAudio(sentences);
+    } catch {}
     // v2.0.B.161.4: PostHog event
     try {
       track(EVENT.LESSON_START, {

@@ -360,6 +360,34 @@ export function ensureLookupReady(): Promise<void> {
   return ensureLookup();
 }
 
+/**
+ * v2.0.B.161.22 per user '聲音有延遲': preload current lesson sentence
+ * MP3s into audioBufferCache so first speak() per Q hits cache instantly
+ * (no async fetch + decode 500-800ms delay). Non-blocking caller.
+ *
+ * Called from LessonScene._mountLessonUI. Lighter than warmUpChapterAudio
+ * (only current lesson's ~14 sentences, not full chapter 200+).
+ */
+export async function preloadLessonAudio(sentences: string[]): Promise<void> {
+  await ensureLookup();
+  const ctx = getAudioCtx();
+  if (ctx && ctx.state === 'suspended') {
+    try { await ctx.resume(); } catch {}
+  }
+  const urls = new Set<string>();
+  for (const raw of sentences) {
+    const cleaned = cleanText(raw);
+    if (!cleaned) continue;
+    const audioId = audioLookup.get(cleaned);
+    if (!audioId) continue;
+    const url = mochiTexts.has(cleaned)
+      ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
+      : `/audio/lessons/${audioId}.mp3`;
+    urls.add(url);
+  }
+  await Promise.allSettled(Array.from(urls).map(u => loadBuffer(u)));
+}
+
 // v2.0.B.76: synchronous warm-up — called from a user-gesture click handler
 // (e.g. ChapterIntro Next CTA). Fetches + decodes ALL chapter audio into
 // AudioBuffer cache while we still have the gesture token. Returns Promise
