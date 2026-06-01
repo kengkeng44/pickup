@@ -528,35 +528,38 @@ export class LessonScene extends Phaser.Scene {
         const replaySpk = sentEl.querySelector('.pickup-tf-speaker-post') as HTMLButtonElement | null;
         replaySpk?.addEventListener('click', () => { try { speak(en); } catch {} });
         try { wireSentenceHints(sentEl); } catch {}
-        // v2.0.B.161.18: post-reveal Yes/No 換成「繼續 → · Continue」button.
-        // User '答完那個字浮出來要停留久一點' — 4s advance + manual skip 折衷.
+        // v2.0.B.161.19 per Duolingo timing agent + user B.159 '按 next 刪掉':
+        //   - 答對 2500ms / 答錯 4000ms (Duolingo pattern, 對快錯慢)
+        //   - 移除 visible Continue button (對齊 user B.159 + Duolingo 不拖視覺)
+        //   - sentEl tap-anywhere-to-skip + subtle hint text
         slot.innerHTML = '';
-        const cont = document.createElement('button');
-        cont.type = 'button';
-        cont.textContent = '繼續 → · Continue';
-        Object.assign(cont.style, {
-          width: '100%',
-          padding: '14px 0',
-          background: '#7ac74a',
-          color: '#ffffff',
-          border: 'none',
-          borderBottom: '4px solid #5d9a35',
-          borderRadius: '14px',
-          fontSize: '15px',
-          fontWeight: '900',
-          letterSpacing: '0.5px',
-          cursor: 'pointer',
-          fontFamily: 'inherit',
-          touchAction: 'manipulation',
-          WebkitTapHighlightColor: 'transparent',
-          marginTop: '4px',
+        // Append subtle skip hint
+        const hint = document.createElement('div');
+        hint.textContent = '⬇ 點任何地方跳到下一題 · Tap anywhere to skip';
+        Object.assign(hint.style, {
+          textAlign: 'center',
+          fontSize: '11px',
+          color: '#8b6f4a',
+          padding: '8px 6px',
+          opacity: '0.7',
+          fontWeight: '600',
         });
-        cont.addEventListener('click', () => {
+        slot.appendChild(hint);
+        // Tap-anywhere skip — bind on sentEl AND slot (whole reveal area)
+        const tapSkip = () => {
           this.cancelAdvanceTimer();
           this.advance();
+        };
+        sentEl.style.cursor = 'pointer';
+        sentEl.addEventListener('click', (e) => {
+          // Don't intercept clicks on .word (WordHint) or speaker button
+          const target = e.target as HTMLElement;
+          if (target.closest('.word, .pickup-tf-speaker-post, button')) return;
+          tapSkip();
         });
-        slot.appendChild(cont);
-        this.scheduleAdvance(4000);
+        hint.addEventListener('click', tapSkip);
+        // Differential advance: 答對 2.5s / 答錯 4s
+        this.scheduleAdvance(correct ? 2500 : 4000);
       });
       slot.appendChild(btn);
     }
