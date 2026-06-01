@@ -86,12 +86,21 @@ function noiseBurst(opts: {
   src.stop(now + dur + 0.02);
 }
 
+// ─── Haptic vibration (B.161.17 per user '網頁有辦法震動嗎') ───────────────
+// Android Chrome ✅ / iOS Safari ❌ (Apple block since 2015). Graceful no-op.
+// Capacitor wrap 上之後可改 @capacitor/haptics 用 native API.
+function vibrate(pattern: number | number[]): void {
+  if (typeof navigator === 'undefined' || !navigator.vibrate) return;
+  try { navigator.vibrate(pattern); } catch {}
+}
+
 // ─── Public SFX library ─────────────────────────────────────────────────────
 
-/** Soft click on card press (~50ms). */
+/** Soft click on card press (~50ms) + 10ms vibrate. */
 export function sfxCardPress(): void {
   audio.ensureContext();
   tone({ freq: 880, type: 'triangle', duration: 0.05, attack: 0.002, gain: 0.18 });
+  vibrate(10);
 }
 
 /**
@@ -153,6 +162,8 @@ export function sfxCorrect(): void {
   tone({ freq: 523.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.1 }, 0.02);
   tone({ freq: 659.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.08 }, 0.02);
   tone({ freq: 783.99, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.07 }, 0.02);
+  // B.161.17: positive haptic pattern (Android) — 雙短 pulse 正向感受
+  vibrate([25, 40, 25]);
 }
 
 /**
@@ -163,6 +174,8 @@ export function sfxCorrect(): void {
  */
 export function sfxWrong(): void {
   audio.ensureContext();
+  // B.161.17: negative haptic pattern (Android) — 較長 pulse 提示錯誤
+  vibrate([60, 40, 60]);
   const ctx = audio.ctx;
   const dest = audio.getSfxDestination();
   if (!ctx || !dest) return;

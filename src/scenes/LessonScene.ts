@@ -479,6 +479,9 @@ export class LessonScene extends Phaser.Scene {
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
         this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
+        // v2.0.B.161.17: Duolingo Stories chat-narrative persistence —
+        // sentence 答完進 history archive (上方故事流), 下題往下推
+        try { this._snapshotNarration(q); } catch {}
         // v2.0.B.161.10: PostHog ANSWER_SUBMIT for listen-tf
         try {
           track(EVENT.ANSWER_SUBMIT, {
