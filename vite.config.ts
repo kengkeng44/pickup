@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'node:path';
 
 /**
  * v1.7.10: code-split Phaser into its own chunk so the main app bundle
@@ -15,6 +16,13 @@ export default defineConfig({
     // v2.0.B.151: disable modulepreload polyfill (see git history)
     modulePreload: false,
     rollupOptions: {
+      // v2.0.B.163 Phase 1: multi-page — index.html (Phaser vanilla) +
+      // react.html (React sandbox). User can side-by-side compare perf
+      // before Phase 2 cutover.
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        react: resolve(__dirname, 'react.html'),
+      },
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules/phaser')) return 'phaser';
