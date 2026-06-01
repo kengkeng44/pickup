@@ -16,13 +16,9 @@ export default defineConfig({
     // v2.0.B.151: disable modulepreload polyfill (see git history)
     modulePreload: false,
     rollupOptions: {
-      // v2.0.B.163 Phase 1: multi-page — index.html (Phaser vanilla) +
-      // react.html (React sandbox). User can side-by-side compare perf
-      // before Phase 2 cutover.
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        react: resolve(__dirname, 'react.html'),
-      },
+      // v2.0.B.164 Phase 2: cutover — index.html now loads main.tsx (React).
+      // react.html sandbox deleted. Phaser still lazy-imported on demand
+      // from LessonPage (interop bridge until Phase 3 renderers port).
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules/phaser')) return 'phaser';

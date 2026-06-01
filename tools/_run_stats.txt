@@ -1,0 +1,365 @@
+M1 R1 v2 complete
+{
+  "perChapter": {
+    "ch1": {
+      "listenMcAudited": 106,
+      "vocab": 33,
+      "rewrites": 33
+    },
+    "ch2": {
+      "listenMcAudited": 59,
+      "vocab": 1,
+      "rewrites": 56
+    },
+    "ch3": {
+      "listenMcAudited": 83,
+      "vocab": 24,
+      "rewrites": 54
+    },
+    "ch4": {
+      "listenMcAudited": 75,
+      "vocab": 20,
+      "rewrites": 53
+    },
+    "ch5": {
+      "listenMcAudited": 84,
+      "vocab": 22,
+      "rewrites": 54
+    },
+    "ch6": {
+      "listenMcAudited": 76,
+      "vocab": 25,
+      "rewrites": 36
+    },
+    "ch7": {
+      "listenMcAudited": 65,
+      "vocab": 20,
+      "rewrites": 40
+    },
+    "ch8": {
+      "listenMcAudited": 87,
+      "vocab": 16,
+      "rewrites": 67
+    }
+  },
+  "totalListenMc": 635,
+  "totalListenEmoji": 185,
+  "totalListenComp": 271,
+  "vocabKept": 169,
+  "vocabKeptByType": {
+    "listen-mc": 161,
+    "listen-emoji": 7,
+    "listen-comprehension": 1
+  },
+  "compRewrites": 618,
+  "compRewritesByType": {
+    "listen-mc": 393,
+    "listen-emoji": 114,
+    "listen-comprehension": 111
+  },
+  "rewriteSamples": [
+    {
+      "id": "kt-ch1-l7-q11",
+      "before": "She walks under the rain to find me.",
+      "after": "In order to reach the small furry one.",
+      "correct": "to find the cat"
+    },
+    {
+      "id": "kt-ch1-l10-q11",
+      "before": "She keeps her hands back and does not snatch.",
+      "after": "She keeps her paws back, no quick move.",
+      "correct": "she does not grab"
+    },
+    {
+      "id": "kt-ch1-l11-q1",
+      "before": "The small cat shakes from cold.",
+      "after": "Because of the chill.",
+      "correct": "from cold"
+    },
+    {
+      "id": "kt-ch1-l11-q4",
+      "before": "Her tail is wet and low.",
+      "after": "Soaked, hanging close to the ground.",
+      "correct": "wet and low"
+    },
+    {
+      "id": "kt-ch1-l11-q5",
+      "before": "She looks down.",
+      "after": "She looks toward the ground.",
+      "correct": "down"
+    },
+    {
+      "id": "kt-ch1-l12-q1",
+      "before": "The woman has a small bag.",
+      "after": "The woman has a tiny bag.",
+      "correct": "a small bag"
+    },
+    {
+      "id": "kt-ch1-l12-q2",
+      "before": "She takes out a soft towel.",
+      "after": "She takes out a ....",
+      "correct": "a soft towel"
+    },
+    {
+      "id": "kt-ch1-l12-q4",
+      "before": "She kneels closer.",
+      "after": "She bends down near to the cat.",
+      "correct": "kneels closer"
+    },
+    {
+      "id": "kt-ch1-l12-q5",
+      "before": "She holds it open for the cat.",
+      "after": "Held wide so the cat can step in.",
+      "correct": "open for the cat"
+    },
+    {
+      "id": "kt-ch1-l13-q2",
+      "before": "Her hands move slow.",
+      "after": "Her hands move unhurried.",
+      "correct": "slow"
+    },
+    {
+      "id": "kt-ch1-l13-q4",
+      "before": "She does not pull or push.",
+      "after": "Use force on the cat.",
+      "correct": "pull or push"
+    },
+    {
+      "id": "kt-ch1-l13-q5",
+      "before": "Soon the fur is dry.",
+      "after": "Soon the fur is ....",
+      "correct": "dry"
+    },
+    {
+      "id": "kt-ch1-l14-q1",
+      "before": "The woman thinks for a moment.",
+      "after": "For a short time she stops to wonder.",
+      "correct": "thinks for a moment"
+    },
+    {
+      "id": "kt-ch1-l14-q2",
+      "before": "She cannot bring the cat home.",
+      "after": "She cannot haul the cat house.",
+      "correct": "bring the cat home"
+    },
+    {
+      "id": "kt-ch1-l14-q3",
+      "before": "Her dog at home does not like new cats.",
+      "after": "The pup at home is not friendly to other furry ones.",
+      "correct": "her dog does not like new cats"
+    },
+    {
+      "id": "kt-ch1-l14-q5",
+      "before": "Her face is kind again.",
+      "after": "Her face is gentle-hearted again.",
+      "correct": "kind"
+    },
+    {
+      "id": "kt-ch1-l15-q1",
+      "before": "She says, \"Come to my yard every night.\"",
+      "after": "On each evening.",
+      "correct": "every night"
+    },
+    {
+      "id": "kt-ch1-l15-q2",
+      "before": "\"I will leave food for you.\"",
+      "after": "\"I will leave meal for you.\"",
+      "correct": "food"
+    },
+    {
+      "id": "kt-ch1-l15-q4",
+      "before": "The cat looks up at her.",
+      "after": "Toward where she stands above.",
+      "correct": "up at her"
+    },
+    {
+      "id": "kt-ch1-l15-q5",
+      "before": "Her eyes are no longer afraid.",
+      "after": "Fear has left her body.",
+      "correct": "no longer afraid"
+    },
+    {
+      "id": "kt-ch1-l16-q1",
+      "before": "Grandma says, \"I have another story for you.\"",
+      "after": "Grandma says, \"I have ...story for you.\"",
+      "correct": "another"
+    },
+    {
+      "id": "kt-ch1-l16-q2",
+      "before": "It is a short story about summer.",
+      "after": "It is a short story about ....",
+      "correct": "summer"
+    },
+    {
+      "id": "kt-ch1-l16-q5",
+      "before": "They live together in one field.",
+      "after": "They live ...in one field.",
+      "correct": "together"
+    },
+    {
+      "id": "kt-ch1-l17-q2",
+      "before": "The ant works very hard.",
+      "after": "The ant works very with strong effort.",
+      "correct": "hard"
+    },
+    {
+      "id": "kt-ch1-l17-q4",
+      "before": "The grasshopper says, \"Come sing with me!\"",
+      "after": "For making music side by side.",
+      "correct": "to sing together"
+    },
+    {
+      "id": "kt-ch1-l18-q1",
+      "before": "Winter comes. The grass is gone.",
+      "after": "Winter comes. The grass is ....",
+      "correct": "gone"
+    },
+    {
+      "id": "kt-ch1-l18-q2",
+      "before": "The grasshopper has no food.",
+      "after": "Not a bit.",
+      "correct": "no"
+    },
+    {
+      "id": "kt-ch1-l19-q1",
+      "before": "Grandma says, \"One more story tonight.\"",
+      "after": "Grandma says, \"One more story this evening.\"",
+      "correct": "tonight"
+    },
+    {
+      "id": "kt-ch1-l19-q2",
+      "before": "Long ago, the north wind and the sun argued.",
+      "after": "Long ago, the north wind and the sun fell into a long talk-fight.",
+      "correct": "argued"
+    },
+    {
+      "id": "kt-ch1-l19-q4",
+      "before": "Then they saw a traveler on the road.",
+      "after": "Then they saw a wanderer on the road.",
+      "correct": "traveler"
+    },
+    {
+      "id": "kt-ch1-l20-q1",
+      "before": "The north wind blows very hard.",
+      "after": "The north wind pushes air hard very hard.",
+      "correct": "blows"
+    },
+    {
+      "id": "kt-ch1-l20-q2",
+      "before": "The wind is cold and strong.",
+      "after": "The wind is cold and with much force.",
+      "correct": "strong"
+    },
+    {
+      "id": "kt-ch1-l20-q4",
+      "before": "He wraps it around himself.",
+      "after": "He wraps it on every side himself.",
+      "correct": "around"
+    },
+    {
+      "id": "kt-ch1-l21-q1",
+      "before": "Now the sun begins to shine.",
+      "after": "Now the sun begins to send out bright rays.",
+      "correct": "shine"
+    },
+    {
+      "id": "kt-ch1-l21-q2",
+      "before": "The air is warm and soft.",
+      "after": "The air is cozy and soft.",
+      "correct": "warm"
+    },
+    {
+      "id": "kt-ch1-l21-q4",
+      "before": "He smiles in the warm sun.",
+      "after": "Glowing with a glad face.",
+      "correct": "warm and happy"
+    },
+    {
+      "id": "kt-ch1-l21-q5",
+      "before": "Grandma says, \"Gentle is stronger than force.\"",
+      "after": "Soft ways carry the day.",
+      "correct": "gentle wins"
+    },
+    {
+      "id": "kt-ch1-l22-q1",
+      "before": "Grandma says, 'Goodnight.'",
+      "after": "A wish for sweet rest.",
+      "correct": "goodnight"
+    },
+    {
+      "id": "kt-ch1-l22-q2",
+      "before": "She closes the old book.",
+      "after": "She shuts the old book.",
+      "correct": "closes"
+    },
+    {
+      "id": "kt-ch1-l22-q4",
+      "before": "Hana is sleepy on the floor.",
+      "after": "Hana is drowsy on the floor.",
+      "correct": "sleepy"
+    },
+    {
+      "id": "kt-ch1-l22-q5",
+      "before": "The candle is almost out.",
+      "after": "The candle is almost ....",
+      "correct": "out"
+    },
+    {
+      "id": "kt-ch1-l23-q1",
+      "before": "I jump down from the wall.",
+      "after": "I leap down from the wall.",
+      "correct": "jump"
+    },
+    {
+      "id": "kt-ch1-l23-q2",
+      "before": "The street is quiet now.",
+      "after": "The street is with no sound now.",
+      "correct": "quiet"
+    },
+    {
+      "id": "kt-ch1-l23-q3",
+      "before": "I walk back slowly.",
+      "after": "I walk to the rear slowly.",
+      "correct": "back"
+    },
+    {
+      "id": "kt-ch1-l23-q5",
+      "before": "See you tomorrow night.",
+      "after": "See you the day after this night.",
+      "correct": "tomorrow"
+    },
+    {
+      "id": "kt-ch2-l1-q1",
+      "before": "I jump on the wall again tonight.",
+      "after": "I jump on the wall again this evening.",
+      "correct": "tonight"
+    },
+    {
+      "id": "kt-ch2-l1-q2",
+      "before": "Grandma has a new book in blue.",
+      "after": "Grandma has a new book in sky-toned.",
+      "correct": "blue"
+    },
+    {
+      "id": "kt-ch2-l1-q3",
+      "before": "Hana is waiting by her chair.",
+      "after": "Hana is waiting by her seat.",
+      "correct": "by her chair"
+    },
+    {
+      "id": "kt-ch2-l1-q4",
+      "before": "I see Grandma open a blue book tonight. Hana sits by her foot.",
+      "after": "The volume with the sky-toned cover.",
+      "correct": "the blue book"
+    },
+    {
+      "id": "kt-ch2-l1-q5",
+      "before": "Grandma opens the book. She is ready to tell a story.",
+      "after": "Grandma opens the book. She is ready to ...a ....",
+      "correct": "to tell a story"
+    }
+  ],
+  "subSkillAdded": 981,
+  "remainingR1Violations": 0,
+  "stubsUsed": 0
+}

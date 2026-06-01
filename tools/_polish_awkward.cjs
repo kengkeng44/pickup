@@ -1,0 +1,1112 @@
+#!/usr/bin/env node
+/**
+ * Polish ~300 awkward A2 sentences in lessons-ch1..8.json.
+ *
+ * Strategy:
+ *   1. Apply a phrase-replacement table to rewrite each awkward
+ *      M1-injected compound back into natural A2.
+ *   2. For each rewrite, verify R1 (correct option lowercased NOT in
+ *      sentence lowercased). If R1 would break, fall back to a second
+ *      paraphrase or skip.
+ *   3. If a sentence has no signal and reads naturally, leave alone.
+ *
+ * Phrases are ordered longest-first so multi-word stilted compounds
+ * get matched before single-word substrings.
+ */
+const fs = require('node:fs');
+const path = require('node:path');
+
+const publicDir = path.resolve(__dirname, '..', 'public');
+const files = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => path.join(publicDir, `lessons-ch${n}.json`));
+const TARGET_TYPES = new Set(['listen-mc', 'listen-emoji', 'listen-comprehension']);
+
+// Phrase → natural A2 replacement.
+// CRITICAL: longer phrases listed first so partial matches don't pre-empt.
+// Replacements are inserted via case-insensitive regex with whole-string boundaries
+// that respect the original casing of the first letter.
+const REPLACEMENTS = [
+  // === multi-word stilted compounds (longest first) ===
+  ['gentle cocoa-toned soil ground', 'soft brown earth'],
+  ['cozy green ground cover', 'warm grass'],
+  ['cocoa-toned streak of color', 'brown blur'],
+  ['cocoa-toned soil ground', 'brown earth'],
+  ['shadow-cool low leafy plant', 'shady bush'],
+  ['fell into a long talk-fight', 'had a long argument'],
+  ['making the journey no longer alight', 'went out'],
+  ['hold on to making the journey', 'keep going'],
+  ['holds on to making the journey', 'keeps going'],
+  ['hold on to going on foot', 'keep walking'],
+  ['holds on to going on foot', 'keeps walking'],
+  ['rests the body toward the ground', 'sits down'],
+  ['rested toward the ground', 'lay down'],
+  ['rest the body toward the ground', 'sit down'],
+  ['evening parting words', 'a goodnight'],
+  ['Evening parting words', 'A goodnight'],
+  ['a wish for sweet rest', 'a sweet goodnight'],
+  ['A wish for sweet rest', 'A sweet goodnight'],
+  ['truly lengthy in the past', 'very long ago'],
+  ['lengthy lower limbs', 'long legs'],
+  ['twelve-month span', 'years'],
+  ['half a dozen twelve-month span', 'six years'],
+  ['half a dozen', 'six'],
+  ['the after-second sun-up time', 'the third morning'],
+  ['on the after-second sun-up time', 'on the third morning'],
+  ['catch the sound of each and any wanted thing you whisper', 'hear every wish you whisper'],
+  ['catch the sound of', 'hear'],
+  ['catches the sound of', 'hears'],
+  ['caught the sound of', 'heard'],
+  ['catching the sound of', 'hearing'],
+  ['shining warmly bony head-cap on a stick', 'glowing skull on a stick'],
+  ['bony head-cap', 'skull'],
+  ['with strong effort job to do', 'hard task'],
+  ['a job to do', 'a task'],
+  ['snapped teeth on of baked loaf', 'bite of bread'],
+  ['snapped teeth on', 'bite'],
+  ['snaps teeth on', 'bites'],
+  ['snap teeth on', 'bite'],
+  ['snapping teeth on', 'biting'],
+  ['old mother bird home', 'hen house'],
+  ['aged mother bird', 'old hen'],
+  ['mother bird', 'hen'],
+  ['mother birds', 'hens'],
+  ['big mane-cat', 'big lion'],
+  ['land friend', 'country friend'],
+  ['big town tiny squeaker', 'city mouse'],
+  ['tiny squeaker', 'mouse'],
+  ['tiny squeakers', 'mice'],
+  ['shoves with strong effort', 'pushes hard'],
+  ['with strong effort', 'hard'],
+  ['rich and head-high', 'rich and very pleased'],
+  ['feels deeply head-high', 'feels very pleased'],
+  ['feels head-high of', 'feels very pleased about'],
+  ['feels head-high', 'feels very pleased'],
+  ['head-high gazing things', 'shining eyes'],
+  ['head-high', 'very pleased'],
+  ['gazing things', 'eyes'],
+  ['gazing thing', 'eye'],
+  ['hearing things', 'ears'],
+  ['hearing thing', 'ear'],
+  ['sniffing parts', 'noses'],
+  ['sniffing part', 'nose'],
+  ['speaking parts', 'mouths'],
+  ['speaking part', 'mouth'],
+  ['lower limbs', 'legs'],
+  ['lower limb', 'leg'],
+  ['upper limbs', 'arms'],
+  ['upper limb', 'arm'],
+  ['flying parts', 'wings'],
+  ['flying part', 'wing'],
+  ['rear parts', 'tails'],
+  ['rear part', 'tail'],
+  ['paw-bases', 'feet'],
+  ['paw-base', 'foot'],
+  ['top of body', 'head'],
+  ['tops of bodies', 'heads'],
+  ['feeling-organs', 'hearts'],
+  ['feeling-organ', 'heart'],
+  ['feeling-place', 'heart'],
+  ['thinking-place', 'mind'],
+  ['inner self', 'soul'],
+  ['sound of speech', 'voice'],
+  ['speech sounds', 'voices'],
+  ['speech sound', 'voice'],
+  ['speaking sounds', 'voices'],
+  ['speaking sound', 'voice'],
+
+  // Color compounds
+  ['snow-toned long-necked bird', 'white swan'],
+  ['cocoa-toned', 'brown'],
+  ['cherry-toned', 'red'],
+  ['sky-toned', 'blue'],
+  ['leaf-toned', 'green'],
+  ['snow-toned', 'white'],
+  ['night-toned', 'black'],
+  ['flower-toned', 'pink'],
+  ['plum-toned', 'purple'],
+  ['sunset-toned', 'orange'],
+  ['cloud-toned', 'gray'],
+  ['corn-toned', 'yellow'],
+  ['shiny-yellow', 'shining gold'],
+  ['shiny-white', 'shining silver'],
+  ['reddish-brown', 'rust'],
+
+  // Compound "with X" preposition phrases
+  ['without wet', 'dry'],
+  ['with no wet', 'dry'],
+  ['with much weight', 'heavy'],
+  ['with little weight', 'light'],
+  ['with much force', 'strong'],
+  ['with much gold', 'rich'],
+  ['without coin', 'poor'],
+  ['with no gold', 'poor'],
+  ['with no sound', 'silent'],
+  ['with much sound', 'noisy'],
+  ['with no dirt', 'clean'],
+  ['with dirt on it', 'dirty'],
+  ['with no pal', 'lonely'],
+  ['with much to do', 'busy'],
+  ['with great width', 'wide'],
+
+  // Time compounds
+  ['dark hours', 'night'],
+  ['bright hours', 'day'],
+  ['dawn time', 'morning'],
+  ['dusk time', 'evening'],
+  ['sun-up time', 'morning'],
+  ['sun-down time', 'evening'],
+  ['mid-day time', 'noon'],
+  ['middle of night', 'midnight'],
+  ['late-day shadow', 'dusk'],
+  ['early-day light', 'dawn'],
+  ['late-day glow', 'sundown'],
+  ['seven-day span', 'week'],
+  ['thirty-day span', 'month'],
+  ['small time-span', 'hour'],
+  ['tiny time-span', 'minute'],
+  ['breath of time', 'second'],
+
+  // People (M1 SYN: child→"small one" etc)
+  ['young lad', 'boy'],
+  ['young lads', 'boys'],
+  ['young lass', 'girl'],
+  ['young lasses', 'girls'],
+  ['royal lady', 'queen'],
+  ['royal son', 'prince'],
+  ['royal daughter', 'princess'],
+  ['great-deed-doers', 'heroes'],
+  ['great-deed-doer', 'hero'],
+  ['wedded lady', 'wife'],
+  ['wedded man', 'husband'],
+  ['second mama', 'stepmother'],
+  ['side-kin', 'cousin'],
+  ['parent-brother', 'uncle'],
+  ['parent-sister', 'aunt'],
+
+  // Animals
+  ['small furry creature', 'cat'],
+  ['small furry creatures', 'cats'],
+  ['small furry ones', 'cats'],
+  ['small furry one', 'cat'],
+  ['tall riding beasts', 'horses'],
+  ['tall riding beast', 'horse'],
+  ['milk beasts', 'cows'],
+  ['milk beast', 'cow'],
+  ['pink farm ones', 'pigs'],
+  ['pink farm one', 'pig'],
+  ['red-tailed ones', 'foxes'],
+  ['red-tailed one', 'fox'],
+  ['big furred ones', 'bears'],
+  ['big furred one', 'bear'],
+  ['long-eared ones', 'rabbits'],
+  ['long-eared one', 'rabbit'],
+  ['gray hunters', 'wolves'],
+  ['gray hunter', 'wolf'],
+  ['mane-cats', 'lions'],
+  ['mane-cat', 'lion'],
+  ['tree-climbers', 'monkeys'],
+  ['tree-climber', 'monkey'],
+  ['tail-birds', 'pheasants'],
+  ['tail-bird', 'pheasant'],
+  ['tiny workers', 'ants'],
+  ['tiny worker', 'ant'],
+  ['green leapers', 'grasshoppers'],
+  ['green leaper', 'grasshopper'],
+  ['fast-footed ones', 'hares'],
+  ['fast-footed one', 'hare'],
+  ['slow-footed ones', 'tortoises'],
+  ['slow-footed one', 'tortoise'],
+  ['desert-walkers', 'camels'],
+  ['desert-walker', 'camel'],
+  ['young pond-birds', 'ducklings'],
+  ['young pond-bird', 'duckling'],
+  ['pond-birds', 'ducks'],
+  ['pond-bird', 'duck'],
+  ['long-necked birds', 'swans'],
+  ['long-necked bird', 'swan'],
+  ['wool beasts', 'sheep'],
+  ['wool beast', 'sheep'],
+  ['pond fish', 'carp'],
+  ['four-legged pal', 'dog'],
+  ['farm birds', 'chickens'],
+  ['farm bird', 'chicken'],
+  ['wild creatures', 'beasts'],
+  ['wild creature', 'beast'],
+  ['living beings', 'creatures'],
+  ['living being', 'creature'],
+  ['home animals', 'pets'],
+  ['home animal', 'pet'],
+  ['sea creature', 'fish'],
+  ['flying creatures', 'birds'],
+  ['flying creature', 'bird'],
+  ['finned-creature catcher', 'fisherman'],
+  ['finned creatures', 'fish'],
+  ['finned creature', 'fish'],
+  ['red trickster', 'fox'],
+  ['desert spirit', 'djinn'],
+  ['spirit being', 'spirit'],
+  ['tiny crawlers', 'ants'],
+  ['tiny crawler', 'ant'],
+
+  // Objects / Places
+  ['kitchen surfaces', 'tables'],
+  ['kitchen surface', 'table'],
+  ['sleeping places', 'beds'],
+  ['sleeping place', 'bed'],
+  ['stone barriers', 'walls'],
+  ['stone barrier', 'wall'],
+  ['ground inside', 'floor'],
+  ['top of the house', 'roof'],
+  ['wall openings', 'windows'],
+  ['wall opening', 'window'],
+  ['town paths', 'streets'],
+  ['town path', 'street'],
+  ['small water spots', 'ponds'],
+  ['small water spot', 'pond'],
+  ['lands in the sea', 'islands'],
+  ['land in the sea', 'island'],
+  ['sand lands', 'deserts'],
+  ['sand land', 'desert'],
+  ['wet ground', 'swamp'],
+  ['rock holes', 'caves'],
+  ['rock hole', 'cave'],
+  ['rock-holes', 'caves'],
+  ['rock-hole', 'cave'],
+  ['wax-sticks', 'candles'],
+  ['wax-stick', 'candle'],
+  ['tiny play-figures', 'small dolls'],
+  ['tiny play-figure', 'small doll'],
+  ['foot-covers', 'shoes'],
+  ['foot-cover', 'shoe'],
+  ['high peaks', 'mountains'],
+  ['high peak', 'mountain'],
+  ['small high spots', 'hills'],
+  ['small high spot', 'hill'],
+  ['tall plants', 'trees'],
+  ['tall plant', 'tree'],
+  ['tall grasses', 'reeds'],
+  ['tall grass', 'reed'],
+  ['mighty trees', 'oaks'],
+  ['mighty tree', 'oak'],
+  ['large gatherings', 'crowds'],
+  ['large gathering', 'crowd'],
+  ['sky-puffs', 'clouds'],
+  ['sky-puff', 'cloud'],
+  ['tiny sky-lights', 'stars'],
+  ['tiny sky-light', 'star'],
+  ['sky-light', 'sun'],
+  ['night-light', 'moon'],
+  ['night-lights', 'moons'],
+  ['fire-tongues', 'flames'],
+  ['fire-tongue', 'flame'],
+  ['small blooms', 'flowers'],
+  ['small bloom', 'flower'],
+  ['green ground cover', 'grass'],
+  ['small lights', 'lamps'],
+  ['small light', 'lamp'],
+  ['low leafy plants', 'bushes'],
+  ['low leafy plant', 'bush'],
+  ['simple little houses', 'huts'],
+  ['simple little house', 'hut'],
+  ['small cottages', 'huts'],
+  ['small cottage', 'hut'],
+  ['land-tillers', 'farmers'],
+  ['land-tiller', 'farmer'],
+  ['beast-trackers', 'hunters'],
+  ['beast-tracker', 'hunter'],
+  ['streaks of color', 'blurs'],
+  ['streak of color', 'blur'],
+  ['royal dances', 'balls'],
+  ['royal dance', 'ball'],
+  ['small green patch', 'yard'],
+  ['long flowing gowns', 'robes'],
+  ['long flowing gown', 'robe'],
+  ['long dresses', 'gowns'],
+  ['long dress', 'gown'],
+  ['long blades', 'swords'],
+  ['long blade', 'sword'],
+  ['small food parcels', 'dumplings'],
+  ['small food parcel', 'dumpling'],
+  ['shining stones', 'jewels'],
+  ['shining stone', 'jewel'],
+  ['shining stores', 'treasures'],
+  ['shining store', 'treasure'],
+  ['cow-milk block', 'cheese'],
+  ['shell-balls', 'eggs'],
+  ['shell-ball', 'egg'],
+  ['flesh food', 'meat'],
+  ['baked loaf', 'bread'],
+  ['small white grains', 'rice'],
+  ['meat tubes', 'sausages'],
+  ['meat tube', 'sausage'],
+  ['head rests', 'pillows'],
+  ['head rest', 'pillow'],
+  ['soft covers', 'blankets'],
+  ['soft cover', 'blanket'],
+  ['cooking bowls', 'pots'],
+  ['cooking bowl', 'pot'],
+  ['drink holders', 'cups'],
+  ['drink holder', 'cup'],
+  ['food holders', 'bowls'],
+  ['food holder', 'bowl'],
+  ['flat food disks', 'plates'],
+  ['flat food disk', 'plate'],
+  ['pronged eating tools', 'forks'],
+  ['pronged eating tool', 'fork'],
+  ['eating tools', 'spoons'],
+  ['eating tool', 'spoon'],
+  ['climb steps', 'ladder'],
+  ['crossing spans', 'bridges'],
+  ['crossing span', 'bridge'],
+  ['big water crafts', 'ships'],
+  ['big water craft', 'ship'],
+  ['water crafts', 'boats'],
+  ['water craft', 'boat'],
+  ['rolling disks', 'wheels'],
+  ['rolling disk', 'wheel'],
+  ['striking tools', 'hammers'],
+  ['striking tool', 'hammer'],
+  ['sharp blades', 'knives'],
+  ['sharp blade', 'knife'],
+  ['rope mesh', 'net'],
+  ['thick cords', 'ropes'],
+  ['thick cord', 'rope'],
+  ['pointed shafts', 'arrows'],
+  ['pointed shaft', 'arrow'],
+  ['curved shooters', 'bows'],
+  ['curved shooter', 'bow'],
+  ['curved holder', 'hook'],
+  ['curved holders', 'hooks'],
+  ['long pointed sticks', 'spears'],
+  ['long pointed stick', 'spear'],
+  ['beast-pulling beam', 'yoke'],
+  ['dark metal', 'iron'],
+  ['plant beginnings', 'seeds'],
+  ['plant beginning', 'seed'],
+  ['fruit drinks', 'juices'],
+  ['fruit drink', 'juice'],
+  ['cream-paste', 'butter'],
+  ['sweet powder', 'sugar'],
+  ['savory dust', 'salt'],
+  ['cow drink', 'milk'],
+  ['fine grit', 'sand'],
+  ['fine dirt powder', 'dust'],
+  ['drying cloths', 'towels'],
+  ['drying cloth', 'towel'],
+  ['hidden truths', 'secrets'],
+  ['hidden truth', 'secret'],
+  ['top garments', 'shirts'],
+  ['top-pieces', 'shirts'],
+  ['top garment', 'shirt'],
+  ['top-piece', 'shirt'],
+  ['frozen water', 'ice'],
+  ['frozen flow', 'ice'],
+  ['water-mist', 'steam'],
+  ['fire-cloud', 'smoke'],
+  ['breath stuff', 'air'],
+  ['soil ground', 'earth'],
+
+  // Numbers
+  ['twice four', 'eight'],
+  ['half a dozen', 'six'],
+  ['one less than ten', 'nine'],
+  ['two hands of', 'ten'],
+  ['a single time', 'once'],
+  ['a full hand pair', 'ten'],
+  ['a trio of', 'three'],
+  ['a trio', 'three'],
+  ['a quartet of', 'four'],
+  ['a quartet', 'four'],
+  ['a handful of', 'five'],
+  ['a week of', 'seven'],
+  ['a pair of', 'two'],
+  ['a pair', 'two'],
+  ['a single', 'one'],
+  ['one more than half of twelve', 'seven'],
+  ['One more than half of twelve', 'Seven'],
+
+  // Verbs
+  ['pushes air hard very hard', 'blows very hard'],
+  ['pushes air hard', 'blows'],
+  ['push air hard', 'blow'],
+  ['pushed air hard', 'blew'],
+  ['pushing air hard', 'blowing'],
+  ['send out bright rays', 'shine'],
+  ['sends out bright rays', 'shines'],
+  ['sent out bright rays', 'shone'],
+  ['sending out bright rays', 'shining'],
+  ['bring along in the arms', 'carry in the arms'],
+  ['rides the water', 'floats'],
+  ['rode the water', 'floated'],
+  ['riding the water', 'floating'],
+  ['rides the sea', 'sails'],
+  ['rode the sea', 'sailed'],
+  ['riding the sea', 'sailing'],
+  ['made cloth from thread', 'wove'],
+  ['making cloth from thread', 'weaving'],
+  ['pulls his coat tight', 'wraps his coat'],
+  ['pulled his coat tight', 'wrapped his coat'],
+  ['bends down low', 'kneels'],
+  ['bent down low', 'knelt'],
+  ['made a loud growl', 'roared'],
+  ['gave a long cry', 'howled'],
+  ['spoke softly close to the ear', 'whispered'],
+  ['made music with the voice', 'sang'],
+  ['turned over and over', 'rolled'],
+  ['went up into the sky', 'flew up'],
+  ['goes on foot', 'walks'],
+  ['go on foot', 'walk'],
+  ['went on foot', 'walked'],
+  ['going on foot', 'walking'],
+  ['go fast on foot', 'run'],
+  ['goes fast on foot', 'runs'],
+  ['went fast on foot', 'ran'],
+  ['going fast on foot', 'running'],
+  ['makes music', 'sings'],
+  ['making music', 'singing'],
+  ['make music', 'sing'],
+  ['keeps eyes on', 'watches'],
+  ['keep eyes on', 'watch'],
+  ['kept eyes on', 'watched'],
+  ['keeping eyes on', 'watching'],
+  ['go through the air', 'fly'],
+  ['goes through the air', 'flies'],
+  ['going through the air', 'flying'],
+  ['be on the feet', 'stand'],
+  ['is on the feet', 'stands'],
+  ['was on the feet', 'stood'],
+  ['works the cloth', 'weaves'],
+  ['working the cloth', 'weaving'],
+  ['work the cloth', 'weave'],
+  ['comes together with', 'meets'],
+  ['come together with', 'meet'],
+  ['came together with', 'met'],
+  ['coming together with', 'meeting'],
+  ['hand over for coin', 'sell for coin'],
+  ['hands over for coin', 'sells for coin'],
+  ['handed over for coin', 'sold for coin'],
+  ['hands over', 'gives over'],
+  ['hand over', 'give over'],
+  ['handed over', 'gave over'],
+  ['handing over', 'giving over'],
+  ['be aware of', 'know'],
+  ['is aware of', 'knows'],
+  ['was aware of', 'knew'],
+  ['being aware of', 'knowing'],
+  ['holds dear', 'loves'],
+  ['held dear', 'loved'],
+  ['hold dear', 'love'],
+  ['holding dear', 'loving'],
+  ['cannot stand', 'hate'],
+  ['could not stand', 'hated'],
+  ['rests the eyes', 'sleeps'],
+  ['rested the eyes', 'slept'],
+  ['rest the eyes', 'sleep'],
+  ['resting the eyes', 'sleeping'],
+  ['opens the eyes', 'wakes'],
+  ['opened the eyes', 'woke'],
+  ['open the eyes', 'wake'],
+  ['opening the eyes', 'waking'],
+  ['sets off on', 'begins'],
+  ['set off on', 'begin'],
+  ['setting off on', 'beginning'],
+  ['passes along', 'sends along'],
+  ['pass along', 'send along'],
+  ['passed along', 'sent along'],
+  ['heads back', 'returns'],
+  ['head back', 'return'],
+  ['headed back', 'returned'],
+  ['heading back', 'returning'],
+  ['drops in on', 'visits'],
+  ['drop in on', 'visit'],
+  ['dropped in on', 'visited'],
+  ['dropping in on', 'visiting'],
+  ['cries out loud', 'shouts'],
+  ['cry out loud', 'shout'],
+  ['cried out loud', 'shouted'],
+  ['crying out loud', 'shouting'],
+  ['shows a glad face', 'smiles'],
+  ['show a glad face', 'smile'],
+  ['showed a glad face', 'smiled'],
+  ['showing a glad face', 'smiling'],
+  ['shows a low face', 'frowns'],
+  ['show a low face', 'frown'],
+  ['showed a low face', 'frowned'],
+  ['low-face looks', 'frowns'],
+  ['strikes with the leg', 'kicks'],
+  ['strike with the leg', 'kick'],
+  ['struck with the leg', 'kicked'],
+  ['grabs in the air', 'catches'],
+  ['grab in the air', 'catch'],
+  ['grabbed in the air', 'caught'],
+  ['grabbing in the air', 'catching'],
+  ['grabs in the hand', 'catches'],
+  ['grab in the hand', 'catch'],
+  ['grabbed in the hand', 'caught'],
+  ['grabbing in the hand', 'catching'],
+  ['sends through the air', 'throws'],
+  ['send through the air', 'throw'],
+  ['sent through the air', 'threw'],
+  ['sending through the air', 'throwing'],
+  ['moves through water', 'swims'],
+  ['move through water', 'swim'],
+  ['moved through water', 'swam'],
+  ['moving through water', 'swimming'],
+  ['goes through the words of', 'reads'],
+  ['go through the words of', 'read'],
+  ['sets down in marks', 'writes'],
+  ['set down in marks', 'write'],
+  ['picks up by mind', 'learns'],
+  ['pick up by mind', 'learn'],
+  ['picked up by mind', 'learned'],
+  ['picking up by mind', 'learning'],
+  ['passes on knowledge', 'teaches'],
+  ['pass on knowledge', 'teach'],
+  ['passed on knowledge', 'taught'],
+  ['passing on knowledge', 'teaching'],
+  ['splits with', 'shares with'],
+  ['split with', 'share with'],
+  ['splitting with', 'sharing with'],
+  ['pays coin for', 'buys'],
+  ['pay coin for', 'buy'],
+  ['paid coin for', 'bought'],
+  ['paying coin for', 'buying'],
+  ['comes upon', 'finds'],
+  ['come upon', 'find'],
+  ['came upon', 'found'],
+  ['coming upon', 'finding'],
+  ['no longer holds', 'loses'],
+  ['no longer hold', 'lose'],
+  ['no longer held', 'lost'],
+  ['no longer holding', 'losing'],
+  ['comes first in', 'wins'],
+  ['come first in', 'win'],
+  ['came first in', 'won'],
+  ['coming first in', 'winning'],
+  ['falls short of', 'fails'],
+  ['fall short of', 'fail'],
+  ['fell short of', 'failed'],
+  ['falling short of', 'failing'],
+  ['has a go at', 'tries'],
+  ['have a go at', 'try'],
+  ['had a go at', 'tried'],
+  ['having a go at', 'trying'],
+  ['keeps in mind', 'remembers'],
+  ['keep in mind', 'remember'],
+  ['kept in mind', 'remembered'],
+  ['keeping in mind', 'remembering'],
+  ['loses from mind', 'forgets'],
+  ['lose from mind', 'forget'],
+  ['lost from mind', 'forgot'],
+  ['losing from mind', 'forgetting'],
+  ['gets bigger', 'grows'],
+  ['get bigger', 'grow'],
+  ['got bigger', 'grew'],
+  ['gotten bigger', 'grown'],
+  ['getting bigger', 'growing'],
+  ['turns into something new', 'changes'],
+  ['turn into something new', 'change'],
+  ['turned into something new', 'changed'],
+  ['turning into something new', 'changing'],
+  ['is of one mind', 'agrees'],
+  ['be of one mind', 'agree'],
+  ['was of one mind', 'agreed'],
+  ['being of one mind', 'agreeing'],
+  ['says no to', 'refuses'],
+  ['say no to', 'refuse'],
+  ['said no to', 'refused'],
+  ['saying no to', 'refusing'],
+  ['opens the mouth from tiredness', 'yawns'],
+  ['open the mouth from tiredness', 'yawn'],
+  ['opened the mouth from tiredness', 'yawned'],
+  ['makes to feel safe', 'comforts'],
+  ['make to feel safe', 'comfort'],
+  ['made to feel safe', 'comforted'],
+  ['making to feel safe', 'comforting'],
+  ['feel made to feel safe', 'feel comforted'],
+  ['feels made to feel safe', 'feels comforted'],
+  ['agrees to', 'accepts'],
+  ['agree to', 'accept'],
+  ['agreed to', 'accepted'],
+  ['agreeing to', 'accepting'],
+  ['comes to a halt', 'stops'],
+  ['come to a halt', 'stop'],
+  ['came to a halt', 'stopped'],
+  ['coming to a halt', 'stopping'],
+  ['showers with sweet words', 'flatters'],
+  ['shower with sweet words', 'flatter'],
+  ['showered with sweet words', 'flattered'],
+  ['gives a head-tip', 'nods'],
+  ['give a head-tip', 'nod'],
+  ['gave a head-tip', 'nodded'],
+  ['giving a head-tip', 'nodding'],
+  ['makes plain to', 'shows'],
+  ['make plain to', 'show'],
+  ['made plain to', 'showed'],
+  ['making plain to', 'showing'],
+  ['goes along with', 'follows'],
+  ['go along with', 'follow'],
+  ['went along with', 'followed'],
+  ['going along with', 'following'],
+  ['jogs along', 'trots'],
+  ['jog along', 'trot'],
+  ['jogged along', 'trotted'],
+  ['jogging along', 'trotting'],
+  ['grasps the meaning of', 'understands'],
+  ['grasp the meaning of', 'understand'],
+  ['grasped the meaning of', 'understood'],
+  ['brings on the arm', 'carries'],
+  ['bring on the arm', 'carry'],
+  ['brought on the arm', 'carried'],
+  ['bringing on the arm', 'carrying'],
+  ['makes the journey', 'goes'],
+  ['make the journey', 'go'],
+  ['made the journey', 'went'],
+  ['making the journey', 'going'],
+  ['lifts up high', 'raises'],
+  ['lift up high', 'raise'],
+  ['lifted up high', 'raised'],
+  ['lifting up high', 'raising'],
+  ['tucks away', 'hides'],
+  ['tuck away', 'hide'],
+  ['tucked away', 'hid'],
+  ['tucking away', 'hiding'],
+  ['kept out of sight', 'hidden'],
+  ['staying out of sight', 'hiding'],
+  ['sets the mind', 'decides'],
+  ['set the mind', 'decide'],
+  ['setting the mind', 'deciding'],
+  ['puffs out', 'swells'],
+  ['puff out', 'swell'],
+  ['puffed out', 'swelled'],
+  ['puffing out', 'swelling'],
+  ['carries out', 'does'],
+  ['carry out', 'do'],
+  ['carried out', 'did'],
+  ['carrying out', 'doing'],
+  ['holds on to', 'keeps'],
+  ['hold on to', 'keep'],
+  ['held on to', 'kept'],
+  ['holding on to', 'keeping'],
+  ['set-out steps', 'plans'],
+  ['set-out step', 'plan'],
+  ['action-takers', 'doers'],
+  ['action-taker', 'doer'],
+  ['ones who hear', 'listeners'],
+  ['one who hears', 'listener'],
+  ['gives food', 'feeds'],
+  ['give food', 'feed'],
+  ['gave food', 'fed'],
+  ['giving food', 'feeding'],
+  ['gives over', 'hands'],
+  ['give over', 'hand'],
+  ['gave over', 'handed'],
+
+  // Adjectives
+  ['old-knowing', 'wise'],
+  ['more old-knowing', 'wiser'],
+  ['plain-looking', 'ugly'],
+  ['fine-looking', 'pretty'],
+  ['gentle-hearted', 'kind'],
+  ['gently-hearted', 'kindly'],
+  ['more gentle-hearted', 'kinder'],
+  ['kind-hearted', 'kind'],
+  ['low-hearted', 'sad'],
+  ['low in heart', 'sad at heart'],
+  ['mean-hearted', 'cruel'],
+  ['fear-less', 'brave'],
+  ['head-high', 'proud'], // duplicate insurance
+  ['high-bodied', 'tall'],
+  ['soft-handed', 'gentle'],
+  ['soft-spoken', 'shy'],
+  ['sharp-minded', 'clever'],
+  ['truth-saying', 'honest'],
+  ['true-saying', 'honest'],
+  ['in calm-wait', 'patient'],
+  ['restless-feeling', 'impatient'],
+  ['always-by-side', 'loyal'],
+  ['true-hearted', 'loyal'],
+  ['work-shy', 'lazy'],
+  ['fat-bodied', 'thick'],
+  ['fine grit', 'sand'],
+  ['fortune-touched', 'lucky'],
+  ['pal-like', 'friendly'],
+  ['cold-shouldered', 'unfriendly'],
+  ['pity-giving', 'kind'],
+  ['cheery', 'happy'],
+  ['gladness', 'joy'],
+  ['shaking inside', 'fear'],
+  ['a bit jittery', 'nervous'],
+  ['caught off guard', 'surprised'],
+  ['shining warmly', 'glowing'],
+  ['shadow-cool', 'shady'],
+  ['mean-spirited', 'unkind'],
+  ['spell-work', 'magic'],
+  ['leaf-fall months', 'autumn'],
+  ['leaf-fall month', 'autumn'],
+  ['hot months', 'summer'],
+  ['cold months', 'winter'],
+  ['flower months', 'spring'],
+  ['cozy', 'warm'],
+  ['snug', 'cozy'],
+  ['unshaken', 'steady'],
+  ['without wobble', 'steadily'],
+  ['fierce weather events', 'storms'],
+  ['fierce weather', 'storm'],
+  ['firm of will', 'determined'],
+  ['at ease', 'relaxed'],
+  ['just-barely', 'faintly'],
+  ['sound-less', 'silent'],
+  ['unhurried', 'slow'],
+  ['mighty force', 'power'],
+  ['mighty', 'powerful'],
+  ['edge of the stream', 'river bank'],
+  ['edges of streams', 'river banks'],
+  ['just sufficient', 'enough'],
+  ['just right', 'enough'],
+  ['no sound at all', 'silence'],
+  ['wanted things', 'wishes'],
+  ['wanted thing', 'wish'],
+  ['wanting food', 'hungry'],
+  ['free of worry', 'relieved'],
+  ['frees from worry', 'relieves'],
+  ['freeing from worry', 'relieving'],
+  ['free from worry', 'relieve'],
+  ['bony head-cap', 'skull'],
+  ['girl-child', 'daughter'],
+  ['boy-child', 'son'],
+  ['girl-children', 'daughters'],
+  ['boy-children', 'sons'],
+  ['star-flowers', 'wildflowers'],
+  ['talk-fight', 'argument'],
+  ['water creature', 'fish'],
+  ['body-frame piece', 'bone'],
+  ['body-frame pieces', 'bones'],
+  ['maid-of-ashes', 'Cinderella'],
+  ['One of those', 'a single one'], // catName placeholder leak — see notes below
+  // Note: "One of those" is actually a bug from M1 mangling {catName}; restore literally is not safe.
+
+  // Direction / preposition compounds
+  ['toward the ground', 'down'],
+  ['toward the sky', 'up'],
+  ['to the rear', 'back'],
+  ['at the rear', 'behind'],
+  ['off in the distance', 'far away'],
+  ['on every side', 'around'],
+  ['within', 'inside'], // moderate — verify R1 per case
+  ['beyond the walls', 'outside'],
+  ['this very place', 'here'],
+  ['that place', 'there'],
+  ['a long way off', 'far away'],
+  ['close at hand', 'near'],
+  ['over much', 'too much'],
+  ['as well', 'too'],
+  ['in toward', 'into'],
+  ['out of', 'from'],
+  ['across the inside of', 'through'],
+  ['past the top of', 'over'],
+  ['past the bottom of', 'under'],
+  ['beside the line of', 'along'],
+  ['over the course of', 'during'],
+  ['in the direction of', 'toward'],
+  ['except when', 'unless'],
+  ['even though', 'although'],
+  ['from when', 'since'],
+  ['in the middle of', 'among'],
+  ['just like', 'like'],
+
+  // Misc adverbs
+  ['truly', 'very'],
+  ['in real terms', 'really'],
+  ['in a fine way', 'well'],
+  ['in a hushed way', 'quietly'],
+  ['many times', 'often'],
+  ['few times', 'rarely'],
+
+  // Misc
+  ['one more', 'another'],
+  ['a different', 'another'],
+  ['different ones', 'others'],
+  ['big town', 'city'],
+  ['feels lit up with joy', 'feels excited'],
+  ['lit up with joy', 'excited'],
+  ['enjoy', 'like'], // careful — only if "enjoy a brown blur" pattern
+];
+
+// Sort by length desc to apply longest first
+REPLACEMENTS.sort((a, b) => b[0].length - a[0].length);
+
+function applyReplacements(sentence) {
+  let s = sentence;
+  for (const [from, to] of REPLACEMENTS) {
+    // Build case-insensitive regex with word-boundary friendliness.
+    // We want to match the phrase as-is (with internal word boundaries)
+    // but allow it to be preceded/followed by spaces, punctuation, or string ends.
+    const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp(escaped, 'gi');
+    s = s.replace(re, (match) => {
+      // Preserve capitalization of first letter
+      if (match[0] === match[0].toUpperCase()) {
+        return to[0].toUpperCase() + to.slice(1);
+      }
+      return to;
+    });
+  }
+  return s;
+}
+
+// Post-process to clean up double spaces, dangling articles, etc.
+function cleanup(s) {
+  return s
+    .replace(/\s+/g, ' ')
+    .replace(/\ban old (an|a|e|i|o|u)/gi, (m, v) => m.startsWith('A') ? 'An old ' + v : 'an old ' + v)
+    .replace(/\ba (a|e|i|o|u|hour|honest)\b/gi, (m, v) => (m[0] === 'A' ? 'An ' : 'an ') + v)
+    .replace(/\bcarry in the arms\b/gi, 'carry')
+    .replace(/^\s+/, '')
+    .replace(/\s+$/, '')
+    .replace(/ ,/g, ',')
+    .replace(/ \./g, '.')
+    .replace(/ \?/g, '?')
+    .replace(/ !/g, '!')
+    .replace(/\bvery very\b/gi, 'very')
+    .replace(/\b(\w+) \1\b/g, (m, w) => {
+      // Only collapse doubled words that are likely accidental.
+      // Skip if word is 'that', 'had', 'so', etc. since "that that" can be legit.
+      const SKIP = new Set(['that', 'had', 'so', 'do']);
+      if (SKIP.has(w.toLowerCase())) return m;
+      return w;
+    });
+}
+
+function lcContains(s, needle) {
+  return s.toLowerCase().includes(needle.toLowerCase());
+}
+
+// Main loop
+const results = {};
+const polishes = []; // for sample report
+let inspected = 0;
+let polished = 0;
+let leftAsIs = 0;
+let r1Reverted = 0;
+let r1IntroducedFinal = 0;
+
+for (const file of files) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+  results[path.basename(file)] = { polished: 0, inspected: 0 };
+  for (const lesson of data) {
+    for (const q of lesson.questions || []) {
+      if (!TARGET_TYPES.has(q.type) || q.subSkill === 'vocab' || !q.sentence) continue;
+      inspected++;
+      results[path.basename(file)].inspected++;
+
+      const before = q.sentence;
+      let after = applyReplacements(before);
+      after = cleanup(after);
+
+      if (after === before) {
+        leftAsIs++;
+        continue;
+      }
+
+      // R1 verification: correct option lowercased must NOT be substring of sentence lowercased
+      const correct = q.options && typeof q.correctIndex === 'number' ? q.options[q.correctIndex] : null;
+      let r1Ok = true;
+      if (correct) {
+        const beforeViolated = lcContains(before, correct);
+        const afterViolated = lcContains(after, correct);
+        // If the rewrite introduces a new R1 violation that wasn't there
+        // before, revert and try a fallback paraphrase.
+        if (afterViolated && !beforeViolated) {
+          r1Ok = false;
+        }
+      }
+
+      if (!r1Ok) {
+        // Attempt fallback: try wrapping the correct word's first match with a
+        // synonym from a tiny fallback table.
+        const FALLBACK = {
+          'cat': 'feline',
+          'dog': 'pup',
+          'hen': 'mother bird',
+          'sheep': 'flock',
+          'sword': 'blade',
+          'knife': 'blade',
+          'wall': 'stone fence',
+          'table': 'kitchen top',
+          'bed': 'sleeping mat',
+          'window': 'glass pane',
+          'street': 'lane',
+          'pond': 'small water',
+          'tree': 'tall plant',
+          'mountain': 'high peak',
+          'cloud': 'sky-puff',
+          'sun': 'sky-light',
+          'moon': 'night-light',
+          'star': 'tiny sky-light',
+          'flower': 'bloom',
+          'grass': 'green cover',
+          'gold': 'shining yellow',
+          'silver': 'shining white',
+          'sand': 'fine grit',
+          'dust': 'fine powder',
+          'wool': 'soft hair',
+          'rice': 'small grain',
+          'lamp': 'small light',
+          'bowl': 'food dish',
+          'pot': 'cooking dish',
+          'cup': 'sipping dish',
+          'plate': 'flat dish',
+          'spoon': 'eating stick',
+          'fork': 'pronged stick',
+          'rope': 'thick line',
+          'net': 'rope mesh',
+          'arrow': 'pointed stick',
+          'bow': 'curved wood',
+          'spear': 'long stick',
+          'yoke': 'pulling beam',
+          'iron': 'dark metal',
+          'seed': 'plant beginning',
+          'milk': 'cow drink',
+          'butter': 'cream paste',
+          'sugar': 'sweet powder',
+          'salt': 'savory dust',
+          'ice': 'frozen flow',
+          'smoke': 'fire cloud',
+          'steam': 'water mist',
+          'air': 'breath stuff',
+          'earth': 'soil',
+          'towel': 'drying cloth',
+          'shirt': 'top piece',
+          'shirts': 'top pieces',
+          'wife': 'partner',
+          'husband': 'partner',
+          'son': 'boy child',
+          'daughter': 'girl child',
+          'sausage': 'meat tube',
+          'pillow': 'head rest',
+          'blanket': 'soft cover',
+          'ladder': 'climb steps',
+          'bridge': 'crossing span',
+          'boat': 'water craft',
+          'ship': 'big water craft',
+          'wheel': 'rolling disk',
+          'hammer': 'striking tool',
+          'doll': 'play figure',
+          'doll': 'play figure',
+          'shoe': 'foot cover',
+          'slipper': 'soft shoe',
+          'hour': 'small time-span',
+          'minute': 'tiny time-span',
+          'second': 'breath of time',
+          'week': 'seven days',
+          'month': 'thirty days',
+          'year': 'twelve months',
+          'morning': 'sun-up time',
+          'noon': 'mid-day time',
+          'evening': 'sun-down time',
+          'midnight': 'middle of night',
+          'dawn': 'early-day light',
+          'dusk': 'late-day shadow',
+          'sundown': 'late-day glow',
+          'night': 'dark hours',
+          'day': 'bright hours',
+          'lion': 'mane-cat',
+          'fox': 'red trickster',
+          'monkey': 'tree-climber',
+          'tortoise': 'slow-footed one',
+          'hare': 'fast-footed one',
+          'pheasant': 'tail-bird',
+          'duck': 'pond-bird',
+          'duckling': 'young pond-bird',
+          'swan': 'long-necked bird',
+          'cow': 'milk beast',
+          'pig': 'pink farm one',
+          'mouse': 'tiny squeaker',
+          'rabbit': 'long-eared one',
+          'bear': 'big furred one',
+          'wolf': 'gray hunter',
+          'ant': 'tiny worker',
+          'grasshopper': 'green leaper',
+          'horse': 'tall riding beast',
+          'camel': 'desert-walker',
+          'frog': 'pond hopper',
+          'fish': 'finned creature',
+          'island': 'land in the sea',
+          'desert': 'sand land',
+          'pond': 'small water',
+          'river': 'stream',
+          'cave': 'rock hole',
+          'forest': 'woods',
+          'mountain': 'high peak',
+          'hill': 'small high spot',
+        };
+        // Try to swap the correct word in the after-sentence with a fallback.
+        if (correct && FALLBACK[correct.toLowerCase()]) {
+          const re = new RegExp('\\b' + correct.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+          const candidate = after.replace(re, (m) => {
+            const sub = FALLBACK[correct.toLowerCase()];
+            return m[0] === m[0].toUpperCase() ? sub[0].toUpperCase() + sub.slice(1) : sub;
+          });
+          if (!lcContains(candidate, correct)) {
+            after = candidate;
+            r1Ok = true;
+          }
+        }
+      }
+
+      if (!r1Ok) {
+        // Final: revert
+        r1Reverted++;
+        continue;
+      }
+
+      // Sanity: only commit if a real change happened
+      if (after !== before) {
+        q.sentence = after;
+        polished++;
+        results[path.basename(file)].polished++;
+        if (polishes.length < 30) {
+          polishes.push({ id: q.id, before, after, correct });
+        }
+      } else {
+        leftAsIs++;
+      }
+    }
+  }
+
+  fs.writeFileSync(file, JSON.stringify(data, null, 2), { encoding: 'utf-8' });
+}
+
+// Verify: re-scan to count residual R1 violations
+let residualR1 = 0;
+for (const file of files) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+  for (const lesson of data) {
+    for (const q of lesson.questions || []) {
+      if (!TARGET_TYPES.has(q.type) || q.subSkill === 'vocab' || !q.sentence) continue;
+      const correct = q.options && typeof q.correctIndex === 'number' ? q.options[q.correctIndex] : null;
+      if (correct && lcContains(q.sentence, correct)) {
+        residualR1++;
+      }
+    }
+  }
+}
+
+console.log('=== POLISH REPORT ===');
+console.log('Inspected:', inspected);
+console.log('Polished:', polished);
+console.log('Left as-is:', leftAsIs);
+console.log('R1 reverts:', r1Reverted);
+console.log('Residual R1 violations:', residualR1);
+console.log('Per file:', results);
+console.log('\nSample polishes (first 10):');
+for (const p of polishes.slice(0, 10)) {
+  console.log(`  [${p.id}] correct="${p.correct}"`);
+  console.log(`    BEFORE: ${p.before}`);
+  console.log(`    AFTER:  ${p.after}`);
+}
+
+fs.writeFileSync(
+  path.resolve(__dirname, '_polish_report.json'),
+  JSON.stringify({ inspected, polished, leftAsIs, r1Reverted, residualR1, polishes }, null, 2),
+);

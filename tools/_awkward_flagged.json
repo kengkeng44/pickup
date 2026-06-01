@@ -1,0 +1,416 @@
+[
+  {
+    "id": "kt-ch1-l16-q1",
+    "sentence": "Grandma says, \"I have just one more tale for you.\"",
+    "signal": "one more",
+    "file": "lessons-ch1.json",
+    "li": 15,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "another",
+    "options": [
+      "an",
+      "another",
+      "other",
+      "and"
+    ]
+  },
+  {
+    "id": "kt-ch1-l17-q4",
+    "sentence": "For making music side by side.",
+    "signal": "making music",
+    "file": "lessons-ch1.json",
+    "li": 16,
+    "qi": 3,
+    "type": "listen-comprehension",
+    "subSkill": "detail",
+    "correctIdx": 0,
+    "correct": "to sing together",
+    "options": [
+      "to sing together",
+      "to fight",
+      "to eat",
+      "to sleep"
+    ]
+  },
+  {
+    "id": "kt-ch1-l19-q1",
+    "sentence": "Grandma says, \"Just one more tale this evening.\"",
+    "signal": "one more",
+    "file": "lessons-ch1.json",
+    "li": 18,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "tonight",
+    "options": [
+      "today",
+      "tonight",
+      "tomorrow",
+      "yesterday"
+    ]
+  },
+  {
+    "id": "kt-ch1-l22-q1",
+    "sentence": "A wish for sweet sleep.",
+    "signal": "wish for",
+    "file": "lessons-ch1.json",
+    "li": 21,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "goodnight",
+    "options": [
+      "morning",
+      "goodbye",
+      "welcome",
+      "goodnight"
+    ]
+  },
+  {
+    "id": "kt-ch2-l11-q5",
+    "sentence": "His parents said, \"Come back without harm. We will wait for you.\"",
+    "signal": "without harm",
+    "file": "lessons-ch2.json",
+    "li": 10,
+    "qi": 4,
+    "type": "listen-comprehension",
+    "subSkill": "detail",
+    "correctIdx": 0,
+    "correct": "him to come home safe",
+    "options": [
+      "him to come home safe",
+      "him to fight more demons",
+      "him to bring back gold",
+      "him to send letters"
+    ]
+  },
+  {
+    "id": "kt-ch2-l13-q5",
+    "sentence": "A pair, no more.",
+    "signal": "a pair",
+    "file": "lessons-ch2.json",
+    "li": 12,
+    "qi": 4,
+    "type": "listen-comprehension",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "two",
+    "options": [
+      "one",
+      "two",
+      "three",
+      "many"
+    ]
+  },
+  {
+    "id": "kt-ch2-l18-q1",
+    "sentence": "Momotaro raised his long sharp blade and shouted.",
+    "signal": "sharp blade",
+    "file": "lessons-ch2.json",
+    "li": 17,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 2,
+    "correct": "his sword",
+    "options": [
+      "his hat",
+      "his hand",
+      "his sword",
+      "his bag"
+    ]
+  },
+  {
+    "id": "kt-ch3-l4-q2",
+    "sentence": "I am still within my round shell.",
+    "signal": "within",
+    "file": "lessons-ch3.json",
+    "li": 3,
+    "qi": 1,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "inside the egg",
+    "options": [
+      "in the pond",
+      "inside the egg",
+      "in the grass",
+      "in the nest"
+    ]
+  },
+  {
+    "id": "kt-ch3-l9-q1",
+    "sentence": "I walk into an old farm bird home.",
+    "signal": "farm bird",
+    "file": "lessons-ch3.json",
+    "li": 8,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 0,
+    "correct": "a hen house",
+    "options": [
+      "a hen house",
+      "a hot pot",
+      "a horse barn",
+      "a hat shop"
+    ]
+  },
+  {
+    "id": "kt-ch3-l9-q2",
+    "sentence": "An aged farm bird looks down at me.",
+    "signal": "farm bird",
+    "file": "lessons-ch3.json",
+    "li": 8,
+    "qi": 1,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "an old hen",
+    "options": [
+      "an old hat",
+      "an old hill",
+      "an old hand",
+      "an old hen"
+    ]
+  },
+  {
+    "id": "kt-ch3-l16-q6",
+    "sentence": "I sleep very far down through the night.",
+    "signal": "far down",
+    "file": "lessons-ch3.json",
+    "li": 15,
+    "qi": 5,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 2,
+    "correct": "deep",
+    "options": [
+      "loud",
+      "wet",
+      "deep",
+      "short"
+    ]
+  },
+  {
+    "id": "kt-ch3-l17-q4",
+    "sentence": "The reflection is a snow-color long-necked bird.",
+    "signal": "long-necked bird",
+    "file": "lessons-ch3.json",
+    "li": 16,
+    "qi": 3,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "a white swan",
+    "options": [
+      "a small bird",
+      "a white swan",
+      "a big crow",
+      "a gray duck"
+    ]
+  },
+  {
+    "id": "kt-ch3-l20-q4",
+    "sentence": "The mouse cuts through the thick cord with his teeth.",
+    "signal": "thick cord",
+    "file": "lessons-ch3.json",
+    "li": 19,
+    "qi": 3,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "bites the rope",
+    "options": [
+      "lifts the net",
+      "digs a hole",
+      "calls a man",
+      "bites the rope"
+    ]
+  },
+  {
+    "id": "kt-ch3-l24-q5",
+    "sentence": "She had never seen a long-necked bird baby before.",
+    "signal": "long-necked bird",
+    "file": "lessons-ch3.json",
+    "li": 23,
+    "qi": 4,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "a swan child",
+    "options": [
+      "a fish",
+      "a fire",
+      "a fox",
+      "a swan child"
+    ]
+  },
+  {
+    "id": "kt-ch3-l24-q8",
+    "sentence": "Was I a long-necked bird too? I ask quietly.",
+    "signal": "long-necked bird",
+    "file": "lessons-ch3.json",
+    "li": 23,
+    "qi": 7,
+    "type": "listen-comprehension",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "if I was a swan",
+    "options": [
+      "if I was loud",
+      "if I was lost",
+      "if I was hungry",
+      "if I was a swan"
+    ]
+  },
+  {
+    "id": "kt-ch4-l14-q5",
+    "sentence": "Tortoise feels achy but very pleased.",
+    "signal": "achy",
+    "file": "lessons-ch4.json",
+    "li": 13,
+    "qi": 4,
+    "type": "listen-emoji",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "sore but proud",
+    "options": [
+      "scared and lonely",
+      "cold and lost",
+      "happy and rested",
+      "sore but proud"
+    ]
+  },
+  {
+    "id": "kt-ch4-l21-q1",
+    "sentence": "A town mouse drops in on his country friend.",
+    "signal": "drops in on",
+    "file": "lessons-ch4.json",
+    "li": 20,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 0,
+    "correct": "city mouse visits country mouse",
+    "options": [
+      "city mouse visits country mouse",
+      "two country mice meet",
+      "country mouse visits city mouse",
+      "two city mice meet"
+    ]
+  },
+  {
+    "id": "kt-ch5-l1-q2",
+    "sentence": "The night smells like fine, fine grit.",
+    "signal": "fine grit",
+    "file": "lessons-ch5.json",
+    "li": 0,
+    "qi": 1,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "sand",
+    "options": [
+      "soup",
+      "flowers",
+      "rain",
+      "sand"
+    ]
+  },
+  {
+    "id": "kt-ch6-l13-q1",
+    "sentence": "Next she must put the plant beginnings in order.",
+    "signal": "plant beginning",
+    "file": "lessons-ch6.json",
+    "li": 12,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "sort the seeds",
+    "options": [
+      "sell the soup",
+      "set the table",
+      "save the sheep",
+      "sort the seeds"
+    ]
+  },
+  {
+    "id": "kt-ch7-l19-q2",
+    "sentence": "A trio of wishes.",
+    "signal": "a trio",
+    "file": "lessons-ch7.json",
+    "li": 18,
+    "qi": 1,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "three",
+    "options": [
+      "five",
+      "two",
+      "ten",
+      "three"
+    ]
+  },
+  {
+    "id": "kt-ch7-l20-q1",
+    "sentence": "He wished for a long stick of meat.",
+    "signal": "wished for",
+    "file": "lessons-ch7.json",
+    "li": 19,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 0,
+    "correct": "a sausage",
+    "options": [
+      "a sausage",
+      "a horse",
+      "a house",
+      "a hat"
+    ]
+  },
+  {
+    "id": "kt-ch8-l10-q1",
+    "sentence": "She catches the fish with a pointed curved tool.",
+    "signal": "pointed",
+    "file": "lessons-ch8.json",
+    "li": 9,
+    "qi": 0,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 1,
+    "correct": "a sharp hook",
+    "options": [
+      "a long rope",
+      "a sharp hook",
+      "a small bowl",
+      "a soft net"
+    ]
+  },
+  {
+    "id": "kt-ch8-l23-q2",
+    "sentence": "She says, that is the close of our twice four dark skies.",
+    "signal": "twice four",
+    "file": "lessons-ch8.json",
+    "li": 22,
+    "qi": 1,
+    "type": "listen-mc",
+    "subSkill": "detail",
+    "correctIdx": 3,
+    "correct": "the end of our eight nights",
+    "options": [
+      "the start of our trip",
+      "the start of school",
+      "the end of summer",
+      "the end of our eight nights"
+    ]
+  }
+]

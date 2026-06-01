@@ -1,0 +1,1063 @@
+{
+  "totalRewrites": 131,
+  "perCh": {
+    "1": 32,
+    "2": 5,
+    "3": 11,
+    "4": 22,
+    "5": 10,
+    "6": 19,
+    "7": 18,
+    "8": 14
+  },
+  "diffs": [
+    {
+      "ch": 1,
+      "id": "kt-ch1-l1-q1",
+      "old": "Which word did you hear?",
+      "neu": "{catName} has no home. What kind of cat is he?",
+      "sent": "I am {catName}. I am a stray cat.",
+      "ans": "stray"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l1-q2",
+      "old": "Which place did you hear?",
+      "neu": "Where does {catName} go every night?",
+      "sent": "Every night I visit one yard.",
+      "ans": "yard"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l1-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what {catName} does to get on the wall.",
+      "sent": "I jump on the low wall.",
+      "ans": "jump"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l2-q1",
+      "old": "Which verb did you hear?",
+      "neu": "Type what {dogName}'s tail does when {catName} arrives.",
+      "sent": "{dogName} wags his tail.",
+      "ans": "wag"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l2-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word for what {catName} and {dogName} are to each other.",
+      "sent": "We are friends.",
+      "ans": "friends"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l4-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word that describes the night in the story.",
+      "sent": "It is a dark night.",
+      "ans": "dark"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l5-q2",
+      "old": "Which word did you hear?",
+      "neu": "What part of the kitten's body is soaked by the rain?",
+      "sent": "Her fur is all wet.",
+      "ans": "fur"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l5-q3",
+      "old": "Type the number you hear.",
+      "neu": "Type the number of days the kitten has not eaten.",
+      "sent": "She has not eaten in two days.",
+      "ans": "two"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l5-q5",
+      "old": "Which verb did you hear?",
+      "neu": "What does the kitten do because she is so cold?",
+      "sent": "She shakes from cold.",
+      "ans": "shakes"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l6-q1",
+      "old": "Which verb did you hear?",
+      "neu": "What does the kitten do with her body to keep warm?",
+      "sent": "She curls into a small ball.",
+      "ans": "curls"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l6-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word that says she has no one with her.",
+      "sent": "She is alone.",
+      "ans": "alone"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l6-q5",
+      "old": "Which place did you hear?",
+      "neu": "Where is the kitten hiding in the rain?",
+      "sent": "The alley is wet and quiet.",
+      "ans": "alley"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l7-q1",
+      "old": "Which word did you hear?",
+      "neu": "What does the kitten see coming closer in the dark?",
+      "sent": "A big shadow comes closer.",
+      "ans": "shadow"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l7-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word for who the big shadow really is.",
+      "sent": "It is a woman.",
+      "ans": "woman"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l8-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb that says the rain no longer hits the cat.",
+      "sent": "The rain stops on the cat.",
+      "ans": "stops"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l9-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the cat does with her ears.",
+      "sent": "The cat listens to her.",
+      "ans": "listens"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l10-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective that describes Grandma's voice.",
+      "sent": "Her voice is gentle.",
+      "ans": "gentle"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l11-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective for a cat who says nothing.",
+      "sent": "She is silent.",
+      "ans": "silent"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l12-q3",
+      "old": "Type the adjective you hear first.",
+      "neu": "Type the word that tells you the towel is not dirty.",
+      "sent": "The towel is clean and dry.",
+      "ans": "clean"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l13-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word for how the cat starts to feel after drying off.",
+      "sent": "The cat begins to feel warm.",
+      "ans": "warm"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l14-q4",
+      "old": "Type the noun you hear.",
+      "neu": "Type the word for what Grandma suddenly has in her head.",
+      "sent": "But she has an idea.",
+      "ans": "idea"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l15-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word that says the cat may come whenever she likes.",
+      "sent": "You are welcome any time.",
+      "ans": "welcome"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l16-q1",
+      "old": "Which word did you hear?",
+      "neu": "Grandma already told one story. What does she want to tell?",
+      "sent": "Grandma says, \"I have another story for you.\"",
+      "ans": "another"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l16-q2",
+      "old": "Which season did you hear?",
+      "neu": "In what season does the ant and grasshopper story happen?",
+      "sent": "It is a short story about summer.",
+      "ans": "summer"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l16-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type where the ant and grasshopper live.",
+      "sent": "In the green grass live an ant and a grasshopper.",
+      "ans": "grass"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l17-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type what the ant carries back home.",
+      "sent": "The ant carries food to her home.",
+      "ans": "food"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l18-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type how the grasshopper feels in winter with no food.",
+      "sent": "He is cold and hungry.",
+      "ans": "hungry"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l19-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word for how the wind and the sun describe themselves.",
+      "sent": "Both said, \"I am stronger than you.\"",
+      "ans": "stronger"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l20-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type how hard the traveler holds his coat in the wind.",
+      "sent": "The traveler holds his coat tight.",
+      "ans": "tight"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l21-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the verb for what the traveler does with his coat in the sun.",
+      "sent": "The traveler takes off his coat.",
+      "ans": "takes"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l22-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word that means the hour is no longer early.",
+      "sent": "It is late.",
+      "ans": "late"
+    },
+    {
+      "ch": 1,
+      "id": "kt-ch1-l23-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the direction {catName} walks at the end of the night.",
+      "sent": "I walk back slowly.",
+      "ans": "back"
+    },
+    {
+      "ch": 2,
+      "id": "kt-ch2-l1-q1",
+      "old": "Which word did you hear?",
+      "neu": "When does {catName} jump on the wall?",
+      "sent": "I jump on the wall again tonight.",
+      "ans": "tonight"
+    },
+    {
+      "ch": 2,
+      "id": "kt-ch2-l2-q1",
+      "old": "Which verb did you hear?",
+      "neu": "{dogName} is excited. What does her tail do on the floor?",
+      "sent": "{dogName} thumps her tail on the floor.",
+      "ans": "thumps"
+    },
+    {
+      "ch": 2,
+      "id": "kt-ch2-l5-q3",
+      "old": "Which verb did you hear?",
+      "neu": "What does the giant peach do on the water?",
+      "sent": "The peach floated toward her hands.",
+      "ans": "floated"
+    },
+    {
+      "ch": 2,
+      "id": "kt-ch2-l6-q1",
+      "old": "Which verb did you hear?",
+      "neu": "What does the old woman do with the peach?",
+      "sent": "She lifted the peach out of the water.",
+      "ans": "lifted"
+    },
+    {
+      "ch": 2,
+      "id": "kt-ch2-l16-q1",
+      "old": "Which verb did you hear?",
+      "neu": "How does Momotaro's team cross the ocean?",
+      "sent": "They got into a small boat and sailed.",
+      "ans": "sailed"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l1-q1",
+      "old": "Which season did you hear?",
+      "neu": "What season is it on this autumn night in the yard?",
+      "sent": "The autumn wind is cool tonight.",
+      "ans": "autumn"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l1-q2",
+      "old": "Which verb did you hear?",
+      "neu": "How does {catName} get up onto the low wall?",
+      "sent": "I climb the low wall again.",
+      "ans": "climb"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l2-q2",
+      "old": "Type the verb you hear.",
+      "neu": "Type what {dogName} does with his eyes when {catName} arrives.",
+      "sent": "He looks up at me.",
+      "ans": "looks"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l4-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type how the duckling feels inside the egg.",
+      "sent": "It is dark and warm here.",
+      "ans": "warm"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l7-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the duckling can do well in the pond.",
+      "sent": "I can swim very well.",
+      "ans": "swim"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l8-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word the other ducklings call him.",
+      "sent": "You are so ugly.",
+      "ans": "ugly"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l11-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type how the duckling feels walking through the swamp.",
+      "sent": "I feel alone.",
+      "ans": "alone"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l12-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the duckling does when he hears the hunters.",
+      "sent": "I hide in the tall grass.",
+      "ans": "hide"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l15-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word for how the duckling's feet feel on the frozen lake.",
+      "sent": "My feet are stuck.",
+      "ans": "stuck"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l16-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the farmer does for the half-frozen duckling.",
+      "sent": "He saves my life.",
+      "ans": "saves"
+    },
+    {
+      "ch": 3,
+      "id": "kt-ch3-l23-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what {catName} does about himself after the story.",
+      "sent": "I think about myself.",
+      "ans": "think"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l1-q1",
+      "old": "Which verb did you hear?",
+      "neu": "Type what {catName} does to get onto the wall tonight.",
+      "sent": "Tonight I climb the wall again.",
+      "ans": "climb"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l1-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what Grandma does as {catName} arrives.",
+      "sent": "Grandma waits for me.",
+      "ans": "waits"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l2-q1",
+      "old": "Which verb did you hear?",
+      "neu": "What does {dogName}'s tail do on the grass tonight?",
+      "sent": "{dogName} thumps his tail on the grass.",
+      "ans": "thumps"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l2-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type what Grandma is holding tonight.",
+      "sent": "She holds a story book.",
+      "ans": "book"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l4-q2",
+      "old": "Which word did you hear?",
+      "neu": "What does the Hare do about his own speed?",
+      "sent": "He brags about his speed.",
+      "ans": "brags"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l6-q2",
+      "old": "Which word did you hear?",
+      "neu": "What does the Tortoise say to the Hare's challenge?",
+      "sent": "Tortoise nods. \"I accept.\"",
+      "ans": "accept"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l8-q3",
+      "old": "Type the adverb you hear.",
+      "neu": "Type how the Hare runs at the start of the race.",
+      "sent": "He runs as fast as he can.",
+      "ans": "fast"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l10-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the word the Hare thinks he has plenty of.",
+      "sent": "I have plenty of time.",
+      "ans": "time"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l11-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word for what the Hare quickly becomes under the bush.",
+      "sent": "Hare falls asleep fast.",
+      "ans": "asleep"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l12-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the place the Tortoise walks past.",
+      "sent": "The river is wide and blue.",
+      "ans": "river"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l14-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type how the Tortoise feels but keeps going.",
+      "sent": "I am tired but I am okay.",
+      "ans": "tired"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l15-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the word for the end of the race.",
+      "sent": "I see the finish line.",
+      "ans": "finish"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l16-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb the Tortoise says when he reaches the tree.",
+      "sent": "I made it to the end.",
+      "ans": "made"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l17-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the Hare does when he finally wakes up.",
+      "sent": "Hare runs as fast as he can.",
+      "ans": "runs"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l19-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type what the Crow is holding in his beak.",
+      "sent": "The cheese smells very good.",
+      "ans": "cheese"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l20-q2",
+      "old": "Which verb did you hear?",
+      "neu": "How does the Fox trick the Crow with sweet words?",
+      "sent": "He flatters the crow with sweet words.",
+      "ans": "flatters"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l20-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the Crow does with his beak to sing.",
+      "sent": "The crow opens his beak to sing.",
+      "ans": "opens"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l21-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word that describes the country mouse's food.",
+      "sent": "The food is simple but warm.",
+      "ans": "simple"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l23-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what {dogName} does as the story ends.",
+      "sent": "{dogName} sighs and closes his eyes.",
+      "ans": "sighs"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l24-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the place {catName} walks back to at the end.",
+      "sent": "The alley is dark but safe tonight.",
+      "ans": "alley"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l25-q5",
+      "old": "Which verb did you hear?",
+      "neu": "What do slow steps still do for you?",
+      "sent": "Slow steps still carry you forward.",
+      "ans": "carry"
+    },
+    {
+      "ch": 4,
+      "id": "kt-ch4-l25-q6",
+      "old": "Type the noun you hear.",
+      "neu": "Type the word Grandma calls the tortoise's small magic.",
+      "sent": "Patience is a small magic.",
+      "ans": "patience"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l1-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what {catName} does up onto the wall.",
+      "sent": "I jump up on the wall.",
+      "ans": "jump"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l2-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type what Grandma turns slowly in the book.",
+      "sent": "She turns the page slowly.",
+      "ans": "page"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l4-q4",
+      "old": "Type the noun you hear.",
+      "neu": "Type what the Dog wears around his neck.",
+      "sent": "The Dog had his collar.",
+      "ans": "collar"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l5-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word that says the Camel will not work.",
+      "sent": "He is very lazy.",
+      "ans": "lazy"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l8-q4",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb the Dog asks the Camel to do.",
+      "sent": "The Dog asks him to carry too.",
+      "ans": "carry"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l12-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type which animal the three complain about to Man.",
+      "sent": "The Camel will not work for us.",
+      "ans": "Camel"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l14-q4",
+      "old": "Type the noun you hear.",
+      "neu": "Type what the Camel stares at on the ground.",
+      "sent": "He stares at a pool of water.",
+      "ans": "pool"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l15-q1",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective the Djinn uses for the Camel's neck.",
+      "sent": "My long and bubbling friend.",
+      "ans": "long"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l18-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the Camel may not do for three days.",
+      "sent": "You will work three days without eating.",
+      "ans": "eating"
+    },
+    {
+      "ch": 5,
+      "id": "kt-ch5-l24-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type where {catName} walks back to at the end of the night.",
+      "sent": "I walk back to my corner.",
+      "ans": "corner"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l1-q1",
+      "old": "Which word did you hear?",
+      "neu": "How does tonight feel to {catName} compared to other nights?",
+      "sent": "Tonight feels colder than other nights.",
+      "ans": "colder"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l1-q2",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb {catName} does to get up on the wall.",
+      "sent": "I jump on the low wall.",
+      "ans": "jump"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l2-q3",
+      "old": "Type the body part you hear.",
+      "neu": "Type the body part of {dogName} that bends back when he is scared.",
+      "sent": "His ears bend back.",
+      "ans": "ears"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l3-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type how Grandma's dark old book feels to {catName}.",
+      "sent": "It is a little scary.",
+      "ans": "scary"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l4-q3",
+      "old": "Type the adverb you hear.",
+      "neu": "Type the adverb that says Vasilisa works a lot every day.",
+      "sent": "She works hard every day.",
+      "ans": "hard"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l7-q5",
+      "old": "Type the verb you hear.",
+      "neu": "Type what Vasilisa does with the little doll in her pocket.",
+      "sent": "She holds the doll tight.",
+      "ans": "holds"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l8-q3",
+      "old": "Type the time word you hear.",
+      "neu": "Type the time word that says she walks a very long time.",
+      "sent": "She walks for many hours.",
+      "ans": "hours"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l10-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the chicken-leg hut can do on its legs.",
+      "sent": "The hut can turn around.",
+      "ans": "turn"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l11-q2",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective that describes Baba Yaga's teeth.",
+      "sent": "Her teeth are old and sharp.",
+      "ans": "sharp"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l14-q3",
+      "old": "Type the body part you hear.",
+      "neu": "Type the body part the doll opens to eat the bread.",
+      "sent": "The doll opens her tiny mouth.",
+      "ans": "mouth"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l15-q2",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the doll does while Vasilisa sleeps.",
+      "sent": "The doll works while she sleeps.",
+      "ans": "works"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l16-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type how the yard looks after the doll's secret work.",
+      "sent": "The yard is clean and bright.",
+      "ans": "clean"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l18-q2",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the skull does to every tree in the forest.",
+      "sent": "The skull lights every tree.",
+      "ans": "lights"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l19-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb that says the fisherman got the magic fish.",
+      "sent": "One day he caught a magic fish.",
+      "ans": "caught"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l21-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the child does to each of the seven beds.",
+      "sent": "The child tried each bed slowly.",
+      "ans": "tried"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l22-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the child does to escape.",
+      "sent": "The child woke and ran away fast.",
+      "ans": "ran"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l23-q3",
+      "old": "Type the adverb you hear.",
+      "neu": "Type how Grandma smiles at {catName} and {dogName}.",
+      "sent": "Grandma smiles softly at us.",
+      "ans": "softly"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l23-q6",
+      "old": "Type the body part you hear.",
+      "neu": "Type the body part of the chicken-leg hut.",
+      "sent": "Why does the hut have chicken legs?",
+      "ans": "legs"
+    },
+    {
+      "ch": 6,
+      "id": "kt-ch6-l24-q8",
+      "old": "Type the adjective you hear.",
+      "neu": "Type how the night now feels after the scary story is done.",
+      "sent": "The night feels softer now.",
+      "ans": "softer"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l1-q1",
+      "old": "Which word did you hear?",
+      "neu": "How is the yard tonight when {catName} arrives?",
+      "sent": "Tonight the yard is quiet.",
+      "ans": "quiet"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l1-q2",
+      "old": "Which verb did you hear?",
+      "neu": "Type what {catName} does onto the low wall.",
+      "sent": "I jump on the low wall again.",
+      "ans": "jump"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l1-q3",
+      "old": "Type the word you hear.",
+      "neu": "Type the word that says Grandma is already on her chair.",
+      "sent": "Grandma is here.",
+      "ans": "here"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l2-q1",
+      "old": "Which verb did you hear?",
+      "neu": "What does {dogName} do near Grandma's feet?",
+      "sent": "{dogName} lies down by her feet.",
+      "ans": "lies"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l3-q1",
+      "old": "Which word did you hear?",
+      "neu": "What does Grandma call tonight's story?",
+      "sent": "Tonight is a quiet tale.",
+      "ans": "tale"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l3-q3",
+      "old": "Type the number you hear.",
+      "neu": "Type the number of swans in tonight's story.",
+      "sent": "It is about six swans.",
+      "ans": "six"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l4-q5",
+      "old": "Type the time word you hear.",
+      "neu": "Type the time word for when the king's children were still happy.",
+      "sent": "The children were happy then.",
+      "ans": "then"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l7-q1",
+      "old": "Which verb did you hear?",
+      "neu": "What do the six swans do into the sky?",
+      "sent": "Six swans rose into the sky.",
+      "ans": "rose"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l8-q5",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for how the sister leaves toward the wood.",
+      "sent": "She walked toward the wood.",
+      "ans": "walked"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l10-q5",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the sister does for her brothers at dusk.",
+      "sent": "She waited for the swans.",
+      "ans": "waited"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l12-q5",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for how she answers the deal silently.",
+      "sent": "She nodded and said yes.",
+      "ans": "nodded"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l13-q6",
+      "old": "Type the noun you hear.",
+      "neu": "Type the noun for what she made and is keeping.",
+      "sent": "She kept her promise.",
+      "ans": "promise"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l15-q4",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what she does with the six shirts.",
+      "sent": "She hid the shirts in a chest.",
+      "ans": "hid"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l17-q6",
+      "old": "Type the noun you hear.",
+      "neu": "Type the noun that rises fast from the fire.",
+      "sent": "The smoke rose fast.",
+      "ans": "smoke"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l19-q4",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what the woodcutter and his wife do about every wish.",
+      "sent": "They argued about every wish.",
+      "ans": "argued"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l21-q4",
+      "old": "Type the word you hear.",
+      "neu": "Type what the sun says is stronger than him.",
+      "sent": "The sun said a cloud was stronger.",
+      "ans": "cloud"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l23-q5",
+      "old": "Type the word you hear.",
+      "neu": "Type the word for how the night feels at the end of the tale.",
+      "sent": "The night is still.",
+      "ans": "still"
+    },
+    {
+      "ch": 7,
+      "id": "kt-ch7-l25-q11",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective that says silence can also be a kind of courage.",
+      "sent": "Silence can be brave too.",
+      "ans": "brave"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l5-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb Ye Xian must do with water from the well.",
+      "sent": "Ye Xian must carry water from the well.",
+      "ans": "carry"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l7-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective that describes Ye Xian's voice by the pond.",
+      "sent": "Her voice is very gentle by the water.",
+      "ans": "gentle"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l9-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type what the stepmother does next to the pond, pretending to be Ye Xian.",
+      "sent": "She walks slowly to the pond and leans down.",
+      "ans": "leans"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l11-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what Ye Xian does in the empty water.",
+      "sent": "She searches the water but finds nothing.",
+      "ans": "searches"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l12-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb the old man tells her to do with the fish bones.",
+      "sent": "He says, bury the bones under the cave.",
+      "ans": "bury"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l13-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type what Ye Xian whispers to the bones.",
+      "sent": "She whispers a small wish to the bones.",
+      "ans": "wish"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l14-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for how Ye Xian asks the bones for help.",
+      "sent": "She runs to the cave and begs the bones.",
+      "ans": "begs"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l15-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for what Ye Xian does under the lanterns.",
+      "sent": "She dances slowly under the bright lanterns.",
+      "ans": "dances"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l16-q3",
+      "old": "Type the verb you hear.",
+      "neu": "Type the verb for how Ye Xian leaves the festival.",
+      "sent": "She runs as fast as her small feet allow.",
+      "ans": "runs"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l17-q3",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the adjective that says the golden slipper does not fit other women.",
+      "sent": "Many women try the slipper but it is too small.",
+      "ans": "small"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l20-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the part of the snail the kind girl steps out of.",
+      "sent": "A kind girl steps out of the shell.",
+      "ans": "shell"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l21-q3",
+      "old": "Type the noun you hear.",
+      "neu": "Type the noun for what the gods give Hou Yi.",
+      "sent": "The gods give him a small bottle of medicine.",
+      "ans": "medicine"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l23-q7",
+      "old": "Type the time word you hear.",
+      "neu": "Type the time word for when {catName} is not sure he will be back.",
+      "sent": "I do not know if I will come back tomorrow.",
+      "ans": "tomorrow"
+    },
+    {
+      "ch": 8,
+      "id": "kt-ch8-l24-q4",
+      "old": "Type the adjective you hear.",
+      "neu": "Type the word that means scared but still doing it.",
+      "sent": "Being brave is not the same as not being scared.",
+      "ans": "brave"
+    }
+  ]
+}

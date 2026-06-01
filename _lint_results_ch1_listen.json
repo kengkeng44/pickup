@@ -1,0 +1,46 @@
+{
+  "stats": {
+    "listen-mc": {
+      "total": 106,
+      "violations": 1,
+      "vocab_exempt": 33
+    },
+    "listen-comprehension": {
+      "total": 32,
+      "violations": 1,
+      "vocab_exempt": 0
+    }
+  },
+  "results": [
+    {
+      "lesson": "L22",
+      "qid": "kt-ch1-l22-q5",
+      "type": "listen-mc",
+      "snippet": "The candle is almost out.",
+      "correct": "out",
+      "violations": [
+        "A4-substr"
+      ],
+      "sentence": "The candle is almost out.",
+      "question": "What is happening to the candle?",
+      "sub_skill": "detail",
+      "jaccard": 0,
+      "shared_cw": []
+    },
+    {
+      "lesson": "L24",
+      "qid": "kt-ch1-l24-q4",
+      "type": "listen-comprehension",
+      "snippet": "What did Grandma tell tonight?",
+      "correct": "a rainy night story",
+      "violations": [
+        "A4-echo"
+      ],
+      "sentence": "What did Grandma tell tonight?",
+      "question": "What did Grandma tell tonight?",
+      "sub_skill": "detail",
+      "jaccard": 0.0,
+      "shared_cw": []
+    }
+  ]
+}

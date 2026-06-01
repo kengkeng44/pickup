@@ -1,19 +1,22 @@
 /**
- * v2.0.B.163 Phase 1 — React shell preview.
+ * v2.0.B.164 Phase 2 — React shell takes over as primary entry.
  *
- * Loaded from /react.html (multi-page vite). index.html still loads
- * src/main.ts (Phaser vanilla). Side-by-side preview lets user compare
- * perf and confirm React migration direction before Phase 2 cutover.
+ * Cutover from main.ts (Phaser vanilla). Phaser still lazy-loaded from
+ * LessonRoute as interop bridge until Phase 3 ports all 8 renderers.
  */
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './react-app/App';
+import './style.css';
 
-const rootEl = document.getElementById('root');
+const rootEl = document.getElementById('app');
 if (rootEl) {
   createRoot(rootEl).render(
     <StrictMode>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </StrictMode>
   );
 }
