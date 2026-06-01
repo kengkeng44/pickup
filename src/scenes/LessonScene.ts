@@ -418,37 +418,23 @@ export class LessonScene extends Phaser.Scene {
     // - 不 auto-speak, user 點喇叭才播 (force engagement)
     // - 答完: questionEn + buttons 消失, sentence 變完整英文 + explanationZh 跳出
     // - 2s 推進 (listen-tf 限定快速)
-    const blankSentence = en.split(/\s+/).filter(Boolean).map(() => '____').join(' ');
-    // v2.0.B.161.18: questionEn ALSO hidden pre-reveal per user '第二題的英文
-    // 問題又露出來了 要用聽的 嚴格執行'. Pure listening — both sentence + Q blind.
+    // v2.0.B.161.20 Duolingo Stories layout per user screenshot:
+    //   '不要喇叭 題目直接播出來 / 題目直接放到文章裡 / 問題才特別顯示'
+    //   - sentence 直接 push 進 history archive (跟 narration 同 chat flow)
+    //   - 自動播放 combined audio (sentence + question)
+    //   - sentEl 只顯示 question prompt 大字粗體 (不要大喇叭 button)
+    try { this._snapshotNarration(q); } catch {}
     sentEl.innerHTML = `
-      <div class="pickup-lesson-words" style="display:flex;flex-direction:column;gap:14px;padding:14px 6px;">
-        <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff7e8;border-radius:12px;border:1px solid #e0d0b8;">
-          <button type="button" aria-label="Tap to listen" class="pickup-tf-speaker" style="
-            flex:0 0 auto; width:48px; height:48px; padding:0;
-            background:#fef8ed; border:2px solid #e7a44a;
-            border-bottom-width:4px; border-bottom-color:#b07a2a;
-            border-radius:50%; cursor:pointer;
-            display:inline-flex; align-items:center; justify-content:center;
-            touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-          ">
-            <img src="/mascots/icon-speaker.webp" width="32" height="32" alt="" style="pointer-events:none;" />
-          </button>
-          <div style="flex:1;font-size:15px;font-weight:700;color:#8b6f4a;letter-spacing:0.1em;line-height:1.8;">
-            ${blankSentence}
-          </div>
-        </div>
-        <div style="font-size:13px;color:#8b6f4a;text-align:center;line-height:1.6;padding:4px 6px;font-weight:600;">
-          🎧 點喇叭聽完聲音再選答案<br>
-          <span style="font-size:11px;color:#a08868;">Tap the speaker, then choose Yes or No</span>
+      <div class="pickup-lesson-words" style="padding:18px 12px 6px;text-align:center;">
+        <div style="font-size:18px;font-weight:900;color:#3c2a1c;line-height:1.5;letter-spacing:0.02em;">
+          ${wrapWordsForHint(qEn)}
         </div>
       </div>
     `;
-    const combined = qEn ? `${en}. Question: ${qEn}.` : en;
-    const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
-    spk?.addEventListener('click', () => { try { speak(combined); } catch {} });
     try { wireSentenceHints(sentEl); } catch {}
-    // v2.0.B.161.16: NO auto-speak — user '問題沒有自動播放 要用點的'
+    const combined = qEn ? `${en}. Question: ${qEn}.` : en;
+    // Auto-play (B.161.20 user '題目直接播出來')
+    try { speak(combined); } catch {}
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
@@ -482,9 +468,8 @@ export class LessonScene extends Phaser.Scene {
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
         this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
-        // v2.0.B.161.17: Duolingo Stories chat-narrative persistence —
-        // sentence 答完進 history archive (上方故事流), 下題往下推
-        try { this._snapshotNarration(q); } catch {}
+        // v2.0.B.161.20: sentence 已在 mount 時 _snapshotNarration push 進
+        // history archive (chat-flow). Click 時不需重複 push.
         // v2.0.B.161.10: PostHog ANSWER_SUBMIT for listen-tf
         try {
           track(EVENT.ANSWER_SUBMIT, {
@@ -498,35 +483,20 @@ export class LessonScene extends Phaser.Scene {
             attempt_number: 1,
           });
         } catch {}
-        // v2.0.B.161.16 post-reveal per user spec:
-        //   questionEn + Yes/No buttons 消失, sentence 變完整英文 留下,
-        //   explanationZh (中文) 跳出, 2s 推進
+        // v2.0.B.161.20 post-reveal: sentence 已在 history archive (B.161.20
+        // pre-mount push), sentEl 只顯示 explanationZh + tap-skip hint.
+        // question + buttons 隱藏.
         const explZh = String(q.explanationZh ?? '');
         const escapeHtml = (s: string) => String(s)
           .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-        sentEl.innerHTML = `
-          <div class="pickup-lesson-words" style="padding:14px 6px 8px;">
-            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff7e8;border-radius:12px;border:1px solid #e0d0b8;margin-bottom:12px;">
-              <button type="button" aria-label="Replay" class="pickup-tf-speaker-post" style="
-                flex:0 0 auto; width:36px; height:36px; padding:0;
-                background:transparent; border:none; cursor:pointer;
-                display:inline-flex; align-items:center; justify-content:center;
-                touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-              ">
-                <img src="/mascots/icon-speaker.webp" width="28" height="28" alt="" style="pointer-events:none;" />
-              </button>
-              <div style="flex:1;font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.7;">
-                ${wrapWordsForHint(en)}
-              </div>
-            </div>
-            ${explZh ? `<div style="font-size:14px;color:#5a4530;line-height:1.6;padding:10px 12px;background:#fef8ed;border-left:3px solid #c8a878;border-radius:0 8px 8px 0;">
+        sentEl.innerHTML = explZh ? `
+          <div class="pickup-lesson-words" style="padding:14px 12px 6px;">
+            <div style="font-size:14px;color:#5a4530;line-height:1.7;padding:12px 14px;background:#fef8ed;border-left:3px solid #c8a878;border-radius:0 10px 10px 0;">
               ${escapeHtml(explZh)}
-            </div>` : ''}
+            </div>
           </div>
-        `;
-        const replaySpk = sentEl.querySelector('.pickup-tf-speaker-post') as HTMLButtonElement | null;
-        replaySpk?.addEventListener('click', () => { try { speak(en); } catch {} });
+        ` : '';
         try { wireSentenceHints(sentEl); } catch {}
         // v2.0.B.161.19 per Duolingo timing agent + user B.159 '按 next 刪掉':
         //   - 答對 2500ms / 答錯 4000ms (Duolingo pattern, 對快錯慢)
@@ -602,20 +572,40 @@ export class LessonScene extends Phaser.Scene {
       rootEl.insertBefore(history, sentEl.parentElement!);
     }
     // v2.0.B.150: plain text per user '不要有框框 嚴格規定跟第二張圖一樣'.
-    // No card frame, no border. Just sentence text in flow.
-    // v2.0.B.161.11: 加 WordHint tap-translate per user screenshot
-    // '我圈起來的地方也要有中文' — history snapshot 是 user 圈的位置.
+    // v2.0.B.161.11: WordHint tap-translate.
+    // v2.0.B.161.20 Duolingo Stories chat-flow per user 5-point spec:
+    //   '文章字太小了 / 文章每段旁邊都要有喇叭可以重聽 / 喇叭不要圈圈'
+    //   - 字 15→17px / lineHeight 1.55→1.7
+    //   - inline 20px 小喇叭 button (no border / no background / no 圈)
+    //   - icon-speaker.webp 點 → speak this sentence
+    const sentence = String(q.sentence ?? '');
     const card = document.createElement('div');
     card.className = 'pickup-lesson-words';
     Object.assign(card.style, {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '10px',
       padding: '4px 0',
-      fontSize: '15px',
+      fontSize: '17px',
       color: '#3c2a1c',
-      lineHeight: '1.55',
+      lineHeight: '1.7',
       fontWeight: '600',
     });
-    card.innerHTML = wrapWordsForHint(String(q.sentence ?? ''));
+    card.innerHTML = `
+      <button type="button" class="pickup-history-speaker" aria-label="Replay this line" style="
+        flex:0 0 auto;width:22px;height:22px;padding:0;
+        background:transparent;border:none;cursor:pointer;
+        display:inline-flex;align-items:center;justify-content:center;
+        touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+        margin-top:3px;
+      ">
+        <img src="/mascots/icon-speaker.webp" width="20" height="20" alt="" style="pointer-events:none;opacity:0.7;" />
+      </button>
+      <span style="flex:1 1 auto;">${wrapWordsForHint(sentence)}</span>
+    `;
     history.appendChild(card);
+    const spk = card.querySelector('.pickup-history-speaker') as HTMLButtonElement | null;
+    spk?.addEventListener('click', () => { try { speak(sentence); } catch {} });
     try { wireSentenceHints(card); } catch {}
   }
 
