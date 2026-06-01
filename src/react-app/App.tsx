@@ -1,8 +1,7 @@
 /**
- * Pickup React 18 — primary app shell. Replaces all 8 Phaser scenes
- * with React Router routes. Phaser still lazy-loaded from LessonRoute
- * as interop bridge until Phase 3 ports renderers natively.
+ * Pickup React 18 — primary app shell.
  */
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ProfilePage from './pages/ProfilePage';
@@ -10,8 +9,28 @@ import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
 import LessonPage from './pages/LessonPage';
 import BottomNav from './components/BottomNav';
+import { audio } from '../audio/AudioManager';
+import { startBgm } from '../audio/bgm';
+import { preloadHints } from '../ui/WordHint';
 
 export default function App() {
+  // v2.0.B.166: first-click audio unlock + BGM start + WordHint preload.
+  // Pickup audio chain needs first user gesture to unlock iOS WebAudio.
+  useEffect(() => {
+    void preloadHints();
+    const unlockOnce = () => {
+      try { audio.ensureContext(); } catch {}
+      try { startBgm(); } catch {}
+      document.removeEventListener('click', unlockOnce);
+      document.removeEventListener('touchstart', unlockOnce);
+    };
+    document.addEventListener('click', unlockOnce, { once: true });
+    document.addEventListener('touchstart', unlockOnce, { once: true });
+    return () => {
+      document.removeEventListener('click', unlockOnce);
+      document.removeEventListener('touchstart', unlockOnce);
+    };
+  }, []);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', maxWidth: 480, margin: '0 auto', background: '#fef8ed' }}>
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>

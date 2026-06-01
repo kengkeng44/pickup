@@ -5,11 +5,34 @@
  * (most common Ch1 types). Phase 3 will add 8-renderer registry for
  * listen-mc / listen-comprehension / tap-tiles / tap-pairs / etc.
  */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
-import { preloadHints } from '../../ui/WordHint';
+import { wireSentenceHints } from '../../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../../audio/sfx';
+
+/** v2.0.B.166: wrap each word as <span class="word"> so WordHint tap-translate
+ *  works. Mirror wrapWordsForHint from LessonScene.ts:14. */
+function wrapWords(text: string): string {
+  const esc = (s: string) => s
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  return String(text || '').split(/(\s+)/).map(tok => {
+    if (!tok) return '';
+    if (/^\s+$/.test(tok)) return tok;
+    const e = esc(tok);
+    return `<span class="word" data-word="${e}">${e}</span>`;
+  }).join('');
+}
+
+/** Bind WordHint after render — must run via ref because innerHTML  */
+function useWordHint(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    if (ref.current) {
+      try { wireSentenceHints(ref.current); } catch {}
+    }
+  });
+}
 
 interface RawQuestion {
   type: string;
@@ -42,7 +65,6 @@ export default function LessonPage() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
 
   useEffect(() => {
-    preloadHints().catch(() => {});
     fetch(`/lessons-ch${chapter}.json`)
       .then(r => r.json())
       .then((arr: Lesson[]) => {
@@ -109,13 +131,15 @@ export default function LessonPage() {
 }
 
 function NarrativeLine({ text }: { text: string }) {
+  const ref = useRef<HTMLDivElement>(null);
   const replay = () => { try { speak(text); } catch {} };
+  useWordHint(ref);
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: '#3c2a1c', lineHeight: 1.7, fontWeight: 600 }}>
+    <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: '#3c2a1c', lineHeight: 1.7, fontWeight: 600 }}>
       <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 22, height: 22, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', marginTop: 3 }}>
         <img src="/mascots/icon-speaker.webp" width={20} height={20} alt="" style={{ opacity: 0.7 }} />
       </button>
-      <span style={{ flex: '1 1 auto' }}>{text}</span>
+      <span ref={ref} style={{ flex: '1 1 auto' }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
     </div>
   );
 }
