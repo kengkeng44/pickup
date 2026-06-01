@@ -7,6 +7,23 @@ import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
 import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
 import { track, EVENT } from '../analytics/posthog';
+import { wireSentenceHints, preloadHints } from '../ui/WordHint';
+
+// v2.0.B.161.8: token wrap helper — every English word becomes a tappable
+// .word span so WordHint can show ZH gloss on tap. Per user feedback
+// '打完題目後沒有可以點的底線, 不知道中文怎麼辦'. Mirrors GameHUD.ts:765
+// pattern. Handles punctuation + preserves whitespace.
+function wrapWordsForHint(text: string): string {
+  const escape = (s: string) => s
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  return String(text || '').split(/(\s+)/).map((tok) => {
+    if (!tok) return '';
+    if (/^\s+$/.test(tok)) return tok;
+    const esc = escape(tok);
+    return `<span class="word" data-word="${esc}">${esc}</span>`;
+  }).join('');
+}
 import { startBgm } from '../audio/bgm';
 import { sfxCorrect, sfxWrong } from '../audio/sfx';
 import {
@@ -236,11 +253,9 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.159: Duolingo Stories character-bubble style per user '背景說明也
     // 要夾雜貓咪頭像說話'. Mascot avatar on LEFT + speech bubble with sentence.
     // No Continue button — 2s auto-advance per '答完兩秒就跳下一題'.
-    const tokens = text.split(/(\s+)/);
-    const wordHtml = tokens.map(t => {
-      if (!t || /^\s+$/.test(t)) return t;
-      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
-    }).join('');
+    // v2.0.B.161.8: WordHint tap-to-translate per user '打完題目後沒底線'.
+    void preloadHints();
+    const wordHtml = wrapWordsForHint(text);
     sentEl.innerHTML = `
       <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;">
         <img src="/mascots/calico-anchor.webp" width="44" height="44" alt="" style="flex:0 0 auto;pointer-events:none;border-radius:50%;" />
@@ -293,6 +308,8 @@ export class LessonScene extends Phaser.Scene {
     // Hook replay button + auto-play with onEnd → advance
     const spk = sentEl.querySelector('.pickup-narration-speaker') as HTMLButtonElement | null;
     spk?.addEventListener('click', () => { try { speak(text); } catch {} });
+    // v2.0.B.161.8: wire WordHint tap-to-translate after DOM mount
+    try { wireSentenceHints(sentEl); } catch {}
     try { speak(text, 'en-US', { onEnd: advance }); } catch { advance(); }
     // Fallback in case audio fails / onEnd never fires
     window.setTimeout(advance, fallbackMs);
@@ -851,7 +868,9 @@ export class LessonScene extends Phaser.Scene {
       const correctWord = (q as any).options?.[correctIndex] ?? '';
       const fullSentence = String((q as any).sentence ?? '').replace(/_{2,}/g, correctWord);
       if (sentEl) {
-        sentEl.innerHTML = `<div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.6;padding:6px 4px;text-align:center;">${fullSentence}</div>`;
+        // v2.0.B.161.8: wrap each word so WordHint tap-translate works on reveal
+        sentEl.innerHTML = `<div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.6;padding:6px 4px;text-align:center;">${wrapWordsForHint(fullSentence)}</div>`;
+        try { wireSentenceHints(sentEl); } catch {}
       }
     }
     const revealText = isBlindListen
@@ -1138,8 +1157,8 @@ export class LessonScene extends Phaser.Scene {
             <span style="font-size:11px;font-weight:800;color:#8b6f4a;letter-spacing:1px;">Q${i + 1} · ${tCn}</span>
             ${status}
           </div>
-          ${sentence ? `<div style="font-size:14px;color:#3c2a1c;font-weight:700;margin-bottom:6px;">${escapeHtml(sentence)}</div>` : ''}
-          ${question ? `<div style="font-size:13px;color:#5a4a3a;margin-bottom:6px;">Q: ${escapeHtml(question)}</div>` : ''}
+          ${sentence ? `<div style="font-size:14px;color:#3c2a1c;font-weight:700;margin-bottom:6px;">${wrapWordsForHint(sentence)}</div>` : ''}
+          ${question ? `<div style="font-size:13px;color:#5a4a3a;margin-bottom:6px;">Q: ${wrapWordsForHint(question)}</div>` : ''}
           ${userRow}
           <div style="font-size:13px;color:#3c2a1c;margin-top:4px;">正解: <span style="color:#5d9a35;font-weight:800;">${correctAns}</span></div>
           ${explZh ? `<div style="font-size:13px;color:#8b6f4a;background:#fef8ed;border-left:3px solid #c8a878;padding:7px 10px;margin-top:8px;border-radius:0 6px 6px 0;line-height:1.6;">${escapeHtml(explZh)}</div>` : ''}
@@ -1163,6 +1182,9 @@ export class LessonScene extends Phaser.Scene {
         </div>
       </div>
     `;
+
+    // v2.0.B.161.8: wire WordHint for all .word spans in review cards
+    try { void preloadHints(); wireSentenceHints(sentEl); } catch {}
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
