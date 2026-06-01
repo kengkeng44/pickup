@@ -8,7 +8,7 @@
  * No cache versioning yet — relies on filename-hashed Vite chunks for
  * cache busting. SW itself is updated by browser detecting byte diff.
  */
-const CACHE_VERSION = 'pickup-v2.0.B.155';
+const CACHE_VERSION = 'pickup-v2.0.B.161.24';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -26,11 +26,10 @@ self.addEventListener('install', (event) => {
       })
     )
   );
-  // v2.0.B.157 bug-check #1 fix: don't skipWaiting unconditionally — old
-  // SW activating mid-session can swap chunks under the page. Wait for
-  // page to send 'SKIP_WAITING' message via update prompt.
-  // (If we want auto-skip on first install, comment back in.)
-  // self.skipWaiting();
+  // v2.0.B.161.24: skipWaiting() force activate new SW + bust stale B.161.22
+  // chunks (preloadLessonAudio 14 parallel decode 卡 main thread).
+  // 累積到此 user 反 '更卡了 載入不進去', 強制 update.
+  self.skipWaiting();
 });
 
 self.addEventListener('message', (event) => {
