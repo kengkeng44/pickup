@@ -1,5 +1,10 @@
 import { z } from 'zod';
 import { ClozeLevelSchema, DifficultySchema, type ClozeQuestion } from './sentences';
+// v2.0.B.161.25: static-import name modules so Rollup splits chunks correctly.
+// Previously line 99 used dynamic import while ChapterIntro/End + StoryMapView
+// statically imported same modules → INEFFECTIVE_DYNAMIC_IMPORT warning.
+import * as catNameModule from './catName';
+import * as dogNameModule from './dogName';
 
 // Production v1.0: chapters unlock progressively (Ch1 free, rest via earned progression).
 // Set true during dev to test all chapters without playing through.
@@ -95,8 +100,11 @@ export async function loadStoryQuestions(): Promise<StoryQuestion[]> {
   const parsed = StoryQuestionsSchema.parse(raw);
   // v1.9.52: inject player's cat name into sentence + explanationZh at load.
   // Changing the name requires a reload to re-fire — acceptable trade-off.
-  const { applyCatName } = await import('./catName');
-  const { applyDogName } = await import('./dogName');
+  // v2.0.B.161.25: static import — was dynamic import but other files (Chapter
+  // Intro/End, StoryMapView) static import same modules → Rollup
+  // INEFFECTIVE_DYNAMIC_IMPORT warning + chunk wasn't actually split.
+  const { applyCatName } = catNameModule;
+  const { applyDogName } = dogNameModule;
   const injected = parsed.map((q) => ({
     ...q,
     sentence: applyDogName(applyCatName(q.sentence)),

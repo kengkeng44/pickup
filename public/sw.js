@@ -74,6 +74,8 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Cache-first for lessons + audio + images (heavy, rarely changed)
+  // v2.0.B.161.25: skip caching >500KB items + LRU cap 60 entries per
+  // code-reviewer audit (iOS 50MB SW quota — 200+ MP3 would evict all).
   if (
     url.pathname.startsWith('/lessons-') ||
     url.pathname.startsWith('/audio/') ||
@@ -85,8 +87,24 @@ self.addEventListener('fetch', (event) => {
         if (cached) return cached;
         return fetch(request).then((res) => {
           if (res.ok) {
-            const copy = res.clone();
-            caches.open(RUNTIME_CACHE).then((cache) => cache.put(request, copy));
+            const sizeHeader = res.headers.get('content-length');
+            const size = sizeHeader ? parseInt(sizeHeader, 10) : 0;
+            // Skip >500KB items (prevent iOS quota saturation)
+            if (size > 0 && size < 500 * 1024) {
+              const copy = res.clone();
+              caches.open(RUNTIME_CACHE).then((cache) => {
+                cache.put(request, copy);
+                // LRU: cap RUNTIME_CACHE 60 entries, delete oldest
+                cache.keys().then((keys) => {
+                  if (keys.length > 60) {
+                    const overflow = keys.length - 60;
+                    for (let i = 0; i < overflow; i++) {
+                      cache.delete(keys[i]).catch(() => {});
+                    }
+                  }
+                });
+              });
+            }
           }
           return res;
         });

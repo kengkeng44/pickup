@@ -46,8 +46,9 @@ function splitChunks(text: string): string[] {
 }
 
 async function loadAudioLookup(): Promise<void> {
-  // Only Ch1 ships with MP3s today. Add Ch2+ here as chapters land.
-  const chapters = [1];
+  // v2.0.B.161.25: Ch1 ships MP3, Ch2-8 fall back to WebSpeech. List 1-8 so
+  // when Ch2+ MP3s land they auto-register (otherwise miss → no speak() hit).
+  const chapters = [1, 2, 3, 4, 5, 6, 7, 8];
   for (const ch of chapters) {
     try {
       const res = await fetch(`/lessons-ch${ch}.json`);
