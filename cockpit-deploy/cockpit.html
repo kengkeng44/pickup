@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拾光 Pickup · 決策戰情室</title>
+<style>
+:root {
+  --bg: #fef8ed;
+  --card: #fff7e8;
+  --border: #c8a878;
+  --accent: #e7a44a;
+  --accent-dark: #b07a2a;
+  --text: #3c2a1c;
+  --muted: #8b6f4a;
+  --success: #5d9a35;
+  --danger: #c84a3a;
+  --soft: #fef3c7;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "Nunito", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+header {
+  background: var(--card);
+  border-bottom: 3px solid var(--accent);
+  padding: 14px 16px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+h1 { margin: 0 0 4px; font-size: 19px; font-weight: 900; letter-spacing: 0.5px; }
+.tagline { font-size: 12px; color: var(--muted); font-weight: 600; }
+.statbar {
+  display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap;
+  font-size: 11px; font-weight: 700;
+}
+.stat {
+  background: var(--soft); color: var(--accent-dark);
+  padding: 4px 9px; border-radius: 8px;
+  border: 1px solid var(--accent);
+}
+nav.tabs {
+  display: flex; overflow-x: auto; gap: 4px;
+  padding: 8px 12px; background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 70px; z-index: 9;
+}
+nav.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto; padding: 8px 14px;
+  background: transparent; color: var(--muted);
+  border: 2px solid transparent; border-radius: 10px;
+  font-size: 13px; font-weight: 800;
+  cursor: pointer; white-space: nowrap;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.tab:hover { background: var(--soft); }
+.tab.active {
+  background: var(--accent); color: white;
+  border-color: var(--accent-dark);
+}
+main { padding: 14px 16px 30px; max-width: 920px; margin: 0 auto; }
+article.doc {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px 22px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+article.doc h1 { font-size: 22px; margin: 0 0 10px; color: var(--accent-dark); }
+article.doc h2 { font-size: 17px; margin: 22px 0 8px; padding-bottom: 4px;
+  border-bottom: 2px solid var(--accent); color: var(--text); }
+article.doc h3 { font-size: 15px; margin: 16px 0 6px; color: var(--accent-dark); }
+article.doc h4 { font-size: 13px; margin: 12px 0 4px; color: var(--muted); }
+article.doc p { margin: 8px 0; font-size: 14px; }
+article.doc ul, article.doc ol { margin: 8px 0; padding-left: 22px; font-size: 14px; }
+article.doc li { margin: 4px 0; }
+article.doc code {
+  background: var(--soft); color: var(--accent-dark);
+  padding: 1px 5px; border-radius: 4px;
+  font-family: "SF Mono", "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+}
+article.doc pre {
+  background: #fef8ed; border-left: 3px solid var(--accent);
+  padding: 10px 12px; border-radius: 0 8px 8px 0;
+  overflow-x: auto; font-size: 12px;
+}
+article.doc pre code { background: transparent; padding: 0; }
+article.doc table {
+  border-collapse: collapse; width: 100%;
+  margin: 10px 0; font-size: 13px;
+  background: white;
+}
+article.doc thead { background: var(--soft); }
+article.doc th, article.doc td {
+  border: 1px solid #e0d0b8; padding: 6px 8px;
+  text-align: left; vertical-align: top;
+}
+article.doc th { font-weight: 800; color: var(--accent-dark); }
+article.doc strong { color: var(--text); font-weight: 800; }
+article.doc blockquote {
+  border-left: 4px solid var(--accent); margin: 12px 0;
+  padding: 6px 14px; background: var(--soft);
+  font-size: 13px; color: var(--muted); border-radius: 0 8px 8px 0;
+}
+article.doc hr { border: none; border-top: 1px dashed var(--border); margin: 18px 0; }
+article.doc a { color: var(--accent-dark); text-decoration: underline; }
+footer {
+  text-align: center; padding: 18px 16px;
+  font-size: 11px; color: var(--muted);
+  border-top: 1px dashed var(--border);
+  margin-top: 14px;
+}
+.deploy-link {
+  display: inline-block; margin: 6px;
+  padding: 6px 12px;
+  background: var(--success); color: white;
+  border-radius: 8px; font-weight: 700; font-size: 12px;
+  text-decoration: none;
+}
+.fallback { display: none; padding: 14px; font-size: 13px; color: var(--danger); }
+@media (max-width: 480px) {
+  article.doc { padding: 14px; }
+  article.doc table { font-size: 11px; }
+  article.doc th, article.doc td { padding: 4px 5px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎯 拾光 Pickup · 決策戰情室</h1>
+  <div class="tagline">Decision Cockpit · 2026-06-01 v2.0.B.161.6</div>
+  <div class="statbar">
+    <span class="stat">198 lessons</span>
+    <span class="stat">1233 Q</span>
+    <span class="stat">Ch1-8 ship</span>
+    <span class="stat">5-agent audit</span>
+    <span class="stat">6/8 PostHog event</span>
+    <span class="stat">Ch1 mirror-clean</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-target="master">🎯 主決策表</button>
+  <button class="tab" data-target="dispatch">🤖 Agent 派工</button>
+  <button class="tab" data-target="walkthrough">👤 玩家視角 agent</button>
+  <button class="tab" data-target="paywall">💰 Paywall 設計</button>
+  <button class="tab" data-target="posthog">📊 PostHog 事件</button>
+</nav>
+
+<main>
+  <article class="doc" id="content"></article>
+  <div class="fallback" id="fallback">
+    Markdown render 失敗 (沒網路或 CDN 擋了)。原始檔可從 GitHub 看:
+    <a href="https://github.com/kengkeng44/pickup/tree/master/docs">repo/docs</a>
+  </div>
+</main>
+
+<footer>
+  10 個 commit ship (B.160 → B.161.6) · 5 個 md doc synthesis · 8 background agent dispatch<br>
+  <a class="deploy-link" href="https://pickupwords.pages.dev/" target="_blank">🚀 玩拾光</a>
+  <a class="deploy-link" href="https://github.com/kengkeng44/pickup" target="_blank">📦 GitHub</a>
+</footer>
+
+<script type="text/markdown" id="md-master">
+# 🎯 主決策表 (Master Matrix)
+
+> 1-glance doc. 想知道「下一步做什麼」→ 看 § E.
+
+## A. 現狀 (snapshot)
+
+- **版本** v2.0.B.161.6 / SW v2.0.B.155 / ~300 commits / CLAUDE.md drift 已修齊
+- **部署** [pickupwords.pages.dev](https://pickupwords.pages.dev/) / repo `kengkeng44/pickup`
+- **章節** Ch1-8 ship 198 lessons / 1,233 Q. **僅 Ch1 符合 Duolingo Stories spec v2 R1-R2**
+- **MP3** 僅 Ch1 (~200 files). Ch2-8 全靠 WebSpeech fallback
+- **Telemetry** PostHog stub 接好 + consent banner ship, 6/8 event live (等 user 提 key)
+- **DEV_UNLOCK_ALL** = true (production 沒 gate, 待 paywall infra)
+
+## B. 競品 gap 排序 (ROI 高→低)
+
+| Rank | 功能 | 成本 | 效果 | 數據引用 |
+|---|---|---|---|---|
+| 1 | **Lesson Review screen** ✅ ship B.161 | 2 人天 | D7 +8-12% | 已 ship |
+| 2 | **Streak Freeze** (每週 1 張免費凍結卡) | 5 人天 | churn -21% | Duolingo case |
+| 3 | **Push notification** (Streak 提醒) | 3 人天 | D7 +15-25% | Mobile edu benchmark |
+| 4 | **完整 SRS** (forgetting curve) | 7 人天 | 30 天詞彙保留 20%→70% | SRS 文獻 |
+| 5 | **PostHog 分析** stub ✅ ship B.161.4-6 | 3 hr + user key | 解盲決策 | 6/8 event live |
+
+**Pickup 獨特優勢**: 奶奶說故事 / Mochi+Hana 雙寵物一致 / Ghibli 暖色 + BGM / 雙語 UI 預設
+
+**不要做**: Hearts/Energy (brand 衝突) · 公開 Leaderboard (氣場衝突) · AI free-talk (cost x10 + 破壞 narrative)
+
+## C. Spec compliance gap (P0)
+
+1. **Ch2-8 全部 0 narration / 0 listen-tf** — 違反 spec v2 R1-R2. 1100 Q 需 Duolingo Stories 格式重寫
+2. **Ch2-8 0 MP3** — fallback WebSpeech 體驗差. 需 ~$40-60 OpenAI grandma TTS budget
+3. **CLAUDE.md drift** ✅ 修齊 B.161.1
+4. **DEV_UNLOCK_ALL=true** — v1.0 ship 前 flip (paywall 規劃: 見 Paywall tab)
+5. **`listen-tf-zh` 死碼** — schema + 200 行 _renderListenTfZh 未用, 可刪
+
+## D. Audit-5 framework (B.160 ship)
+
+post-iteration 並行跑 5 agent (≤8 min):
+1. QA (content R1-R8) · 2. Bug-check (code health) · 3. UX Compliance (spec R1-R14) · 4. Audio-Text Consistency · 5. **Player Walkthrough (NEW B.160, 時間軸 + give-away + 第一印象)**
+
+詳見 Agent 派工 tab.
+
+## E. Top 5 Next Action — Master matrix § E
+
+| # | Action | 觸發 | ship | 阻礙 | 狀態 |
+|---|---|---|---|---|---|
+| 1 | Lesson Review screen | implementer | 2 hr | 無 | ✅ B.161 |
+| 2 | Ch1 全 8 lesson 鏡像 lint sweep | QA agent | 4 hr | 無 | ✅ B.161.2-4 |
+| 3 | CLAUDE.md sync to B.160+ | inline | 1 hr | 無 | ✅ B.161.1 |
+| 4 | DEV_UNLOCK_ALL flip 規劃 | brainstorm | 1 hr | DESIGN | ✅ doc B.161.2 |
+| 5 | PostHog event spec | PM agent | 2 hr | user 提 key | ✅ doc + stub + 6/8 event |
+
+**全部 5 個 ship**. 下一輪 backlog: Streak Freeze · Push notification · Ch2-8 重寫 · iOS App Store.
+
+## F. Decision routing (1-tap query)
+
+| 觸發                  | 派誰                              |
+| --------------------- | --------------------------------- |
+| 剛 ship               | Audit-5 (5 agent 並行)            |
+| 改 code               | Bug-check + Code reviewer         |
+| 改 content (JSON)     | QA + Audio-Text + Polish          |
+| User 抱怨 UI 怪       | UX Compliance                     |
+| User 抱怨太簡單/卡    | Player Walkthrough                |
+| User 抱怨當機         | Bug-check + Audio-debug           |
+| 加新功能              | PM RICE → Brainstorm → Code review|
+| 看 perf               | Performance engineer              |
+| 看競品                | Market research + TOEIC Research  |
+| 查文獻/標準           | TOEIC Research                    |
+
+## G. 此 session 9 個 commit ship list
+
+| commit | 主題 |
+|--------|------|
+| B.160 89d93f8 | audio onEnd + L1 Q1/Q2 anti-mirror + 5s advance |
+| B.161 6557af7 | Lesson Review screen |
+| B.161.1 5890aba | 10 audit fix + CLAUDE.md sync |
+| B.161.2 61a86ab | L1 Q6 fix + paywall + posthog doc |
+| B.161.3 3ce6eb0 | validate-lessons.js mirror lint guard |
+| B.161.4 2e40812 | posthog stub + 4 violation fix + 2 MP3 regen |
+| B.161.5 ff26a8e | consent banner + ANSWER_SUBMIT event |
+| B.161.6 7b98475 | STREAK_UPDATE event (6/8 PostHog) |
+
+Final deploy: [240f51ec.pickupwords.pages.dev](https://240f51ec.pickupwords.pages.dev/)
+</script>
+
+<script type="text/markdown" id="md-dispatch">
+# 🤖 Agent 派工表 (Dispatch Matrix)
+
+> 任何狀況 1 秒查表知道派誰 / 並行還順序 / 用哪個 model.
+
+## A. 決策路徑 (9 種觸發)
+
+```
+觸發狀態          → 派誰
+─────────────────────────────────────────────
+剛 ship           → Audit-5 (5 agent 並行)
+改 code           → Bug-check + Code reviewer 並行
+改 content (JSON) → QA + Audio-Text + Polish 並行
+User 抱怨 UI 怪   → UX Compliance
+User 抱怨聽不懂   → QA + Player Walkthrough
+User 抱怨玩不下去 → Player Walkthrough
+User 抱怨當機     → Bug-check + Audio-debug
+加新功能          → PM RICE → Brainstorm → Code review pre-merge
+看 perf           → Performance engineer
+看競品            → Market research + TOEIC Research 並行
+查文獻/標準       → TOEIC Research / Comprehensive researcher
+音訊不播          → Audio-debug 單派
+```
+
+## B. Agent Matrix (16 agent)
+
+| Agent | subagent_type | 主任務 | 跑時 | 必派 |
+|---|---|---|---|---|
+| QA | general-purpose | R1-R8/A1-A7 content audit | 3-5m | content + ship 前 |
+| Bug-check | general-purpose | TS/race/schema/iOS 健檢 | 3-5m | code 改完 |
+| UX Compliance | general-purpose | spec R1-R14 對照 | 2-4m | UI 改 + ship 前 |
+| Audio-Text | general-purpose | speakerText vs DOM 對齊 | 2-3m | 加聽力題 |
+| **Player Walkthrough** ⭐ | ui-ux-designer | 玩家視角 + 時間軸 + give-away | 5-8m | ship 後固定 |
+| TOEIC Research | comprehensive-researcher | listening 文獻 | 8-15m | 新題型 |
+| Polish | general-purpose | A2 sentence 平滑 | 5-10m | 大批 import |
+| PM | general-purpose | RICE roadmap | 5-8m | 季度規劃 |
+| Audio-debug | general-purpose | MP3/TTS 不播 root cause | 3-6m | 音訊壞 |
+| Comprehensive | comprehensive-researcher | 大盤點 | 10-20m | quarterly |
+| Market research | market-research-analyst | 競品 gap | 8-12m | roadmap 前 |
+| UI/UX designer | ui-ux-designer | 視覺 + 互動設計 | 8-15m | 新 surface |
+| Code reviewer | code-reviewer | 大改 second opinion | 3-5m | >200 行 diff |
+| Test automator | test-automator | Playwright smoke 加 case | 5-10m | 新 critical flow |
+| Performance engineer | performance-engineer | LCP / bundle audit | 5-10m | 跨 perf budget |
+| Spec drift | general-purpose | spec 漂移偵測 | 3-5m | 多人改 spec |
+
+## C. Parallel vs Sequential
+
+**Parallel 可並行 (single message 多 Agent call):**
+- Audit-5: QA + Bug-check + UX + Audio-Text + Player Walkthrough
+- Market + TOEIC Research
+- PM + UI/UX designer
+
+**Sequential 必須順序:**
+1. TOEIC Research → spec 改 → QA (research 餵 spec)
+2. Polish → QA (Polish 改的句子要重 audit)
+3. Code reviewer → push
+4. Bug-check → Audio-debug
+
+**Model 分配:**
+- `haiku`: Spec drift / Test automator
+- `sonnet`: 大部分 audit agent
+- `opus`: TOEIC Research / Comprehensive / Market / UI/UX designer
+
+## D. Audit-5 Pipeline (deploy 後固定)
+
+```
+step 1 (parallel single message 5 calls):
+  Agent(QA, lessons JSON + spec v1)
+  Agent(Bug-check, last diff scope)
+  Agent(UX Compliance, surface + spec v2)
+  Agent(Audio-Text, lesson + component)
+  Agent(Player Walkthrough subagent_type=ui-ux-designer, url+chapter+lesson)
+
+step 2 (等 5 個都回, ≤8 min):
+  FAIL 任一 = block 下個 milestone
+  WARN ≥ 2 = 開 follow-up issue
+  全 PASS = chapter green
+
+step 3: 寫 audit log → docs/audits/<date>-<chapter>.md
+```
+
+## E. Anti-pattern (別亂派)
+
+1. **單句改錯字派 QA** — 直接 edit + Playwright smoke 即可
+2. **每次改 code 都 Code reviewer** — <50 行 hotfix 自己讀 diff
+3. **Audio-debug 當第一招** — 先 Bug-check, 99% 是 race 不是 audio engine
+4. **TOEIC Research 重複問同題** — 半年內查過直接引用既有 doc
+5. **Player Walkthrough 跑後端改動** — DB/API-only 改沒玩家視角差異
+</script>
+
+<script type="text/markdown" id="md-walkthrough">
+# 👤 Player Walkthrough Agent
+
+> 第 5 個 audit agent (B.160 ship). 補前 4 agent 「時間軸 + give-away + 第一印象」缺軸.
+
+## A. Role 定義
+
+你是 A2 程度台灣英文學習者 (成人、下班想學英文、無留學經驗、手機螢幕、通勤捷運上).
+**不是 expert**: 不會看 DOM、看到英文長句卡 2-3 秒、聽 native speech 抓不到 2-3 個字、看到中文翻譯會鬆一口氣.
+
+模擬第一次打開拾光,玩 Ch{N} L{M}. 用三條軸找 UX 問題:
+1. **時間軸** — 每秒鐘螢幕上發生什麼、我來不來得及反應
+2. **給予資訊 vs 答題資訊** — narration 講過的東西, Q 是不是就直接問
+3. **第一印象** — 開 lesson 前 10 秒, 我看到什麼、我懂不懂、我想不想關掉
+
+寫「我看到 X、我聽到 Y、我覺得 Z」第一人稱.
+
+## B. 必查 Checklist (7 條)
+
+1. **時序對齊** — auto-advance timer ≥ audio duration + 500ms buffer
+2. **A2 readability** — 中文 250 字/分、英文 A2 80 字/分
+3. **Give-away detection (4 子項)**:
+   - Jaccard: narration 共享名詞/動詞 ≥ 3
+   - Negation mirror: "Mochi is NOT happy" + 選項 sad
+   - Grammar mirror: 直接出現完整片語
+   - Identity: 點名後問 "Who is X?"
+4. **第一印象** (0-10s)
+5. **挫折節點** — 連續 give-away / 卡住
+6. **留存意願** — 完成後有鉤子嗎?
+7. **跨 lesson 連接** — L{M} → L{M+1} 故事接得起來?
+
+## C. 必讀 Input
+
+- `public/lessons-ch{N}.json` lesson 全文
+- `public/audio/lessons/kt-ch{N}-l{M}-*.mp3` (ffprobe 量 duration)
+- `src/scenes/LessonScene.ts` timing constants
+- `docs/toeic-research/pickup-ux-canonical-spec.md`
+- `docs/toeic-research/pickup-q-design-standard-v1.md`
+
+## D. 輸出格式 (時間軸 table)
+
+| t (s) | 看到 | 聽到 | 可做 | 痛點 |
+|-------|------|------|------|------|
+| 0.0 | n1 bubble + 🔊 | "It is dark..." | 等 | (none) |
+| 2.0 | n1 還在 | 安靜 | 等 | audio 結束乾等 |
+| 3.8 | n2 出現 | "Mochi is a stray cat" | 等 | stray NGSL 3000 不懂 |
+| ... | ... | ... | ... | ... |
+
+末尾 P0-P2 issue list:
+- **P0** (30 秒內關 app): N 條
+- **P1** (1 lesson 後不回來): N 條
+- **P2** (polish): N 條
+
+每條附 root cause + 修法 (file path + line).
+
+## E. Dispatch 範例
+
+```ts
+Agent({
+  description: "Player walkthrough Ch3 L7",
+  subagent_type: "all-agents:ui-ux-designer",
+  prompt: `[A-D 全文, 把 {N}/{M} 替換]`,
+  run_in_background: true
+})
+```
+
+## 如何用
+
+User 說「跑 Ch3 L7 walkthrough」→ Claude 把 A-D section 複製, {N}→3 / {M}→7, 丟進 Agent prompt. 每次 deploy 4-agent audit 跑完, 5th agent 自動 dispatch (parallel, 不卡 deploy).
+
+## 實戰結果 (B.160 首次 dispatch)
+
+抓到 5 個 P0 issue 是前 4 agent 全漏的:
+1. narration 2s timer 把 6.9s MP3 切到 29%
+2. L1 Q1 negation mirror (Mochi has no home vs has a home)
+3. L1 Q2 identity mirror (sentence === questionEn)
+4. ADVANCE_CORRECT_MS 3s 對 A2 中文 25-40 字解釋不夠讀
+5. n3 重複 n2 語意
+
+全部已修 (B.160 + B.161.x).
+</script>
+
+<script type="text/markdown" id="md-paywall">
+# 💰 Paywall Gate Design
+
+> DEV_UNLOCK_ALL flip 規劃 + Free/Premium 切分.
+> Status: design draft. Implement 排在 Streak Freeze + PostHog 後.
+
+## A. 現狀 (B.161.6)
+
+- `DEV_UNLOCK_ALL = true` (`src/data/storyKitten.ts`)
+- B.109 額外 "open first 10 lessons per chapter" 邏輯
+- 所有 198 lessons 全部解鎖 — production 沒 gate
+- 無 account / login / 付費 / IAP 接線
+
+## B. Tier 切分 model 評估
+
+### Model A (推薦) — chapter gate (Ch1-2 free, Ch3-8 premium)
+
+| 維度 | 評估 |
+|---|---|
+| Conversion trigger | 玩完 Ch1+Ch2 (~3-5 hr playtime) 觸發 paywall |
+| Free 體驗充分? | ✅ 兩章故事完整 + Mochi/Hana 角色建立 |
+| Friction | 玩家 invested 時被擋, conversion ~5-8% |
+| Brand fit | 中等. 「下班逃逸」=低焦慮, 章節 gate 可接受 |
+| Implement cost | M (3-5 人天) |
+
+### Model B — daily lesson cap (每天 3 lesson)
+
+❌ **跳過** — 製造焦慮, 違反「下班逃逸」brand (Hearts/Energy 同類)
+
+### Model C — Cosmetic-only premium (服裝 / 場景包)
+
+✓ post-D90 補強, 不是主收入 (conversion ~1-2%)
+
+### Model D — SRS / Vocab Review tab 付費
+
+✓ post-Ch8 ship, 配 SRS 一起 (學習 power user)
+
+## C. 推薦組合 (3-tier)
+
+**Free:**
+- Ch1 + Ch2 全 chapter
+- Profile customization (cat/dog name)
+- Streak / XP / 8 achievements
+- BGM + grandma TTS
+- Lesson Review (B.161 ship)
+
+**Premium NT$129/月 or NT$988/年:**
+- 全 chapter unlock
+- 高階 SRS (forgetting curve)
+
+**Cosmetic IAP (post-D90):**
+- 貓咪服裝包 NT$60
+- 場景包 NT$90
+
+## D. Paywall trigger 點
+
+1. **Ch2 完成 outro** → 「下一章需要 Premium」全屏 cinematic CTA. **主轉換點**.
+2. **Profile tab** → 「升級 Premium」icon button (常駐, 非干擾)
+3. **Lesson Review** → 「啟用完整 SRS」soft prompt (P2)
+4. ❌ **不要** lesson 內 / map 上 / lesson-end 出現 paywall
+
+## E. Implementation 步驟
+
+1. **week 1**: Capacitor IAP plugin + RevenueCat wire
+2. **week 1**: Account system (Supabase auth)
+3. **week 2**: Chapter lock state in runStore + StoryMapView 加 lock icon
+4. **week 2**: Paywall scene (cinematic + plan compare)
+5. **week 3**: Server-side entitlement validation
+6. **week 3**: A/B test free chapter cap (Ch2 vs Ch3 boundary)
+7. **week 4**: DEV_UNLOCK_ALL flip + B.109 邏輯刪除
+
+## F. Migration (DEV_UNLOCK_ALL flip)
+
+| Phase | 動作 |
+|-------|------|
+| 0 (current) | DEV_UNLOCK_ALL=true, 所有 lesson 開 |
+| 1 | Paywall infra ready, 仍 true, anon mode work, PostHog 進場 |
+| 2 (soft launch) | flip=false, Ch3-8 lock, paywall scene 上, 早期使用者 grandfather |
+| 3 (full ship) | Server-side entitlement enforced, Cosmetic IAP 上 |
+
+## G. Risk + Mitigation
+
+| Risk | Mitigation |
+|---|---|
+| User 抱怨「以前免費現在收費」 | grandfather + email + 1 個月 free trial |
+| Apple 30% 拆帳 | Capacitor IAP 強制走 IAP |
+| RevenueCat $5/mo MTR fee 超 | 早期免費 tier 內運作 |
+| Brand 衝擊 | Ch1-2 完整 free + 雙語 = 軟著陸 |
+</script>
+
+<script type="text/markdown" id="md-posthog">
+# 📊 PostHog 事件規格
+
+> 接 PostHog (or Plausible / GA) 前的 event spec.
+> Status: stub code ship (B.161.4-6), 6/8 event live. user 動作 = sign up PostHog + 提供 key.
+
+## A. 為什麼接
+
+- 目前 0 telemetry, 所有 retention / 功能優先級決策瞎猜
+- B.161 → B.200 預估 50+ commit, 沒數據驗證 ROI 就是燒 token
+- PM agent 推薦為 P0
+
+## B. 接線 cost
+
+- **PostHog free tier**: 1M event/mo (Pickup ~100 user × 100 event/day = 300K/mo, 安全)
+- **Implement**: 3 hr ✅ ship B.161.4-6
+- **User 動作**: sign up + add `VITE_POSTHOG_KEY` 到 Cloudflare Pages env
+
+## C. 8 core event spec
+
+```ts
+// 1. app_open ✅ — session start
+posthog.capture('app_open', {
+  is_pwa, is_capacitor, ua_mobile, source
+});
+
+// 2. lesson_start ✅ — paw tap → lesson 開始
+posthog.capture('lesson_start', {
+  chapter, lesson_in_chapter, lesson_id, segment_type, question_count
+});
+
+// 3. answer_submit ✅ — 每次 commit
+posthog.capture('answer_submit', {
+  lesson_id, question_id, question_type, question_idx,
+  user_answer_idx, correct_idx, is_correct,
+  attempt_number, time_to_answer_ms, audio_played
+});
+
+// 4. lesson_complete ✅
+posthog.capture('lesson_complete', {
+  lesson_id, question_count, correct_count, accuracy,
+  xp_earned, elapsed_ms, review_opened
+});
+
+// 5. lesson_review_open ✅
+posthog.capture('lesson_review_open', { lesson_id, trigger });
+
+// 6. streak_update ✅
+posthog.capture('streak_update', {
+  streak_days, prev_streak, event: 'gained'|'broken'|'frozen'
+});
+
+// 7. paywall_view ❌ (待 paywall scene)
+posthog.capture('paywall_view', {
+  trigger, current_xp, highest_chapter_completed
+});
+
+// 8. error_caught ❌ (待 global error handler)
+posthog.capture('error_caught', {
+  error_type, context, ua
+});
+```
+
+## D. User properties
+
+```ts
+posthog.identify(deviceId, {
+  cat_name, dog_name, language, install_date,
+  difficulty_pref, is_pwa_installed,
+  highest_chapter_unlocked, total_lessons_completed,
+  current_streak
+});
+```
+
+## E. Funnel definitions
+
+### Funnel 1 — Onboarding (D0 → D1)
+`app_open (first) → lesson_start (ch1 l1) → lesson_complete → app_open (24h)`
+Target: D1 retention > 40%
+
+### Funnel 2 — Lesson completion rate
+`lesson_start → lesson_complete`
+Target: > 75% (Duolingo 60-70%)
+
+### Funnel 3 — Free → Premium conversion (post-paywall)
+`lesson_complete (ch2 l25) → paywall_view → [purchase]`
+Target: 5-8%
+
+### Funnel 4 — Streak retention (D7 / D30)
+`streak gain → ... → streak 7 → streak 30`
+Target: D7 > 15% / D30 > 5%
+
+## F. Critical events for dashboard
+
+1. **DAU** — distinct user × app_open per day
+2. **Lesson completion by question_type** — 看哪個題型過難
+3. **First-question abandonment** — lesson_start 沒任一 answer_submit
+4. **Review screen usage** — review_open / lesson_complete = adoption %
+5. **Streak distribution** — current_streak histogram
+6. **Audio play coverage** — answer_submit audio_played=true %
+7. **Error rate** — error_caught / app_open
+
+## G. 用戶提 key 之後生效流程
+
+1. **Sign up PostHog** [posthog.com](https://posthog.com) → 拿 Project API Key
+2. **Cloudflare Pages 設 env**: `VITE_POSTHOG_KEY=phc_xxx`
+3. **重 deploy** (env 在 build 時 inject)
+4. **第一個 user 打開 app** → 看到 consent banner → 同意 → analytics 開始送 event
+5. **PostHog dashboard** 開始有資料 (~5 分鐘 first event 進場)
+
+## H. Privacy + consent ✅ ship
+
+- Consent banner B.161.5 ship
+- localStorage flag `pickup.analytics-consent` = 'granted' / 'denied' / null
+- 首次 load 顯示雙語 banner: 「匿名數據改善 app」+ 同意 / 拒絕
+- 拒絕 = `posthog.opt_out_capturing()`
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" onerror="document.getElementById('fallback').style.display='block'"></script>
+<script>
+function getDoc(name) {
+  const el = document.getElementById('md-' + name);
+  return el ? el.textContent : '';
+}
+function render(name) {
+  const content = document.getElementById('content');
+  const fallback = document.getElementById('fallback');
+  const md = getDoc(name);
+  if (typeof marked === 'undefined') {
+    content.innerHTML = '<pre style="white-space:pre-wrap;font-size:13px;">' + md.replace(/[<>]/g, c => c === '<' ? '&lt;' : '&gt;') + '</pre>';
+    fallback.style.display = 'block';
+    return;
+  }
+  content.innerHTML = marked.parse(md);
+  content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  render(btn.dataset.target);
+});
+// initial render
+window.addEventListener('load', () => render('master'));
+</script>
+
+</body>
+</html>

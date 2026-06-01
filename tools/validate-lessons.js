@@ -64,6 +64,39 @@ function substring3(haystack, needle) {
   return h.includes(n.join(' '));
 }
 
+// v2.0.B.173: 3 new lint rules per content QA audit Section E.
+function lintExtended(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      // Rule X1: listen-comprehension sentence-is-question (TTS plays question)
+      if (q.type === 'listen-comprehension' && typeof q.sentence === 'string' && q.sentence.trim().endsWith('?')) {
+        issues.push(`${file} ${q.id}: X1_SENTENCE_IS_QUESTION ("${q.sentence.slice(0, 40)}")`);
+      }
+      // Rule X2: option-list-bias (all 4 options share first word)
+      if (Array.isArray(q.options) && q.options.length === 4) {
+        const firsts = q.options.map(o => String(o).trim().split(/\s+/)[0]?.toLowerCase() || '');
+        if (firsts.every(w => w && w === firsts[0])) {
+          issues.push(`${file} ${q.id}: X2_OPTION_LIST_BIAS (all start with "${firsts[0]}")`);
+        }
+      }
+      // Rule X3: R1 verbatim word-level — every word of correct option appears in sentence
+      if ((q.type === 'listen-mc' || q.type === 'listen-comprehension') && q.subSkill !== 'vocab') {
+        const correct = (q.options || [])[q.correctIndex];
+        const sentence = q.sentence || q.sentenceEn || q.text || '';
+        if (typeof correct === 'string' && correct.length > 3 && sentence) {
+          const words = correct.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+          const sentLower = sentence.toLowerCase();
+          if (words.length > 0 && words.every(w => sentLower.includes(w))) {
+            issues.push(`${file} ${q.id}: X3_R1_VERBATIM_WORDS ("${correct}" all words in sentence)`);
+          }
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -120,13 +153,15 @@ for (const file of files) {
       continue;
     }
     const mirrorIssues = lintMirror(raw, file);
-    totalIssues += mirrorIssues.length;
-    if (mirrorIssues.length > 0) {
-      console.warn(`WARN ${file}: ${mirrorIssues.length} mirror-lint issue(s):`);
-      for (const m of mirrorIssues) console.warn(`  ${m}`);
+    const extendedIssues = lintExtended(raw, file);
+    const allIssues = [...mirrorIssues, ...extendedIssues];
+    totalIssues += allIssues.length;
+    if (allIssues.length > 0) {
+      console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
+      for (const m of allIssues) console.warn(`  ${m}`);
       if (STRICT) allOk = false;
     } else {
-      console.log(`OK ${file}: ${raw.length} lessons (JSON shape + mirror lint)`);
+      console.log(`OK ${file}: ${raw.length} lessons (JSON shape + mirror + extended lint)`);
     }
   } catch (e) {
     console.error(`FAIL ${file}: ${e.message}`);
