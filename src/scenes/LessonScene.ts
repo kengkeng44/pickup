@@ -50,11 +50,10 @@ export type LessonSceneData = {
 // Reveal panel now shows Q + correct A + Zh explanation (B.125), needs more time
 // to read. A2 learner average Chinese-reading speed ~3-4 chars/sec; explanationZh
 // is typically 12-20 chars + Q line + A line = ~25-40 chars total → ~3s comfort.
-// v2.0.B.161.10: 5000 → 3500ms compromise. B.159 user '2 秒就跳下一題' = too
-// short for explanationZh read. B.160 5s = too long, user '玩起來很卡 答題完
-// 跳到下一題'. 3.5s sweet spot: ≥14 字 explanation OK for A2 中文 250 wpm,
-// fast enough not to drag pacing.
-const ADVANCE_CORRECT_MS = 3_500;
+// v2.0.B.161.12: 3500 → 3000ms unified. User '每一題完成後跳轉時間要一樣'.
+// All Q types now scheduleAdvance(ADVANCE_CORRECT_MS): listen-tf,
+// listen-tf-zh, listen-mc/comp (handleAnswer). Narration uses audio onEnd.
+const ADVANCE_CORRECT_MS = 3_000;
 
 // v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
 // Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).
@@ -394,7 +393,7 @@ export class LessonScene extends Phaser.Scene {
         this.locked = true;
         // v2.0.B.159: log answer, don't snapshot to DOM (user '閱讀理解題問完就自己刪掉')
         this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
-        this.scheduleAdvance(2000);
+        this.scheduleAdvance(ADVANCE_CORRECT_MS);
       });
       slot.appendChild(btn);
     }
@@ -414,31 +413,34 @@ export class LessonScene extends Phaser.Scene {
     const opts = (q.options ?? ['Yes', 'No']) as string[];
     const correctIdx = q.correctIndex ?? 0;
 
-    // v2.0.B.161.10: WordHint tap-to-translate for listen-tf sentence + Q
-    // (was inline border-bottom style → no .word class → WordHint blind).
-    const enWordHtml = wrapWordsForHint(en);
-    const qEnWordHtml = wrapWordsForHint(qEn);
+    // v2.0.B.161.12: BLIND listening per user '題目跟問題的英文不應該顯示
+    // 因為這是聽力題 但語音記得加上 question : ... 但答完要顯示
+    // 而且還要可以點開中文'.
+    // Pre-reveal: only speaker icon + 「聽聲音」cue (no sentence/Q text).
+    // Audio plays full: '${sentence}. Question: ${qEn}.'
+    // Post-reveal: reveal sentence + qEn with WordHint pickup-lesson-words.
     sentEl.innerHTML = `
-      <div class="pickup-lesson-words" style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;margin-bottom:10px;">
-        <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
-          flex:0 0 auto; width:40px; height:40px; padding:0;
-          background:transparent; border:none; cursor:pointer;
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 12px;">
+        <button type="button" aria-label="Replay" class="pickup-tf-speaker" style="
+          width:72px; height:72px; padding:0;
+          background:#fff7e8; border:3px solid #e7a44a;
+          border-bottom-width:5px; border-bottom-color:#b07a2a;
+          border-radius:50%; cursor:pointer;
           display:inline-flex; align-items:center; justify-content:center;
+          touch-action:manipulation; -webkit-tap-highlight-color:transparent;
         ">
-          <img src="/mascots/icon-speaker.webp" width="36" height="36" alt="" style="pointer-events:none;" />
+          <img src="/mascots/icon-speaker.webp" width="44" height="44" alt="" style="pointer-events:none;" />
         </button>
-        <div style="flex:1 1 auto;font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.6;display:flex;align-items:center;">
-          <span>${enWordHtml}</span>
+        <div style="font-size:13px;color:#8b6f4a;font-weight:700;letter-spacing:0.5px;">
+          🔊 點喇叭再聽一次 · Tap to replay
         </div>
       </div>
-      <div class="pickup-lesson-words" style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
-        ${qEnWordHtml}
-      </div>
     `;
+    const combined = qEn ? `${en}. Question: ${qEn}.` : en;
     const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
-    spk?.addEventListener('click', () => { try { speak(en); } catch {} });
+    spk?.addEventListener('click', () => { try { speak(combined); } catch {} });
     try { wireSentenceHints(sentEl); } catch {}
-    try { speak(en); } catch {}
+    try { speak(combined); } catch {}
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
@@ -486,7 +488,7 @@ export class LessonScene extends Phaser.Scene {
             attempt_number: 1,
           });
         } catch {}
-        this.scheduleAdvance(2000);
+        this.scheduleAdvance(ADVANCE_CORRECT_MS);
       });
       slot.appendChild(btn);
     }
