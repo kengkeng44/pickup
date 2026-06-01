@@ -82,16 +82,41 @@ export default function MapPage() {
 
       {/* Lessons + grandma + shiba layout */}
       {loading ? (
-        <div style={{ textAlign: 'center', padding: 40, color: '#8b6f4a' }}>載入中…</div>
+        <div style={{ textAlign: 'center', padding: 40 }}>
+          <img src="/mascots/calico-anchor.webp" width={80} height={80} alt="" className="pickup-mascot-bob" style={{ opacity: 0.7 }} />
+          <div style={{ marginTop: 12, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>載入中…</div>
+        </div>
       ) : lessons.length === 0 ? (
         <div style={{ textAlign: 'center', padding: 40, color: '#8b6f4a' }}>本章內容未上線</div>
       ) : (
         <div style={{ position: 'relative', paddingTop: 20 }}>
-          {/* Grandma + Shiba mascot duo — 對齊 Phaser v1.7.15 */}
-          <img src="/mascots/iso-grandma.webp" alt=""
-            style={{ position: 'absolute', left: 14, top: 30, width: 100, height: 'auto', zIndex: 1, pointerEvents: 'none' }} />
-          <img src="/mascots/iso-shiba.webp" alt=""
-            style={{ position: 'absolute', left: 110, top: 80, width: 64, height: 'auto', zIndex: 1, pointerEvents: 'none' }} />
+          {/* First-visit hint (only show when 0 completed) */}
+          {completed.size === 0 && (
+            <div style={{
+              position: 'absolute', top: 4, left: '50%', transform: 'translateX(-50%)',
+              background: '#fef3c7', color: '#8b6f4a',
+              fontSize: 11, fontWeight: 700, letterSpacing: 0.5,
+              padding: '4px 10px', borderRadius: 10,
+              border: '1px dashed #c8a878', zIndex: 5,
+              whiteSpace: 'nowrap',
+            }}>🐾 點任何節點開始 · Tap to begin</div>
+          )}
+
+          {/* Grandma + Shiba mascot duo (idle bob) */}
+          <div style={{ position: 'absolute', left: 14, top: 30, zIndex: 1, pointerEvents: 'none' }}>
+            <img src="/mascots/iso-grandma.webp" alt="" width={100} className="pickup-mascot-bob" />
+            <div style={{ width: 80, height: 8, background: 'rgba(60,42,28,0.18)', borderRadius: '50%', marginTop: -4, marginLeft: 8 }} />
+          </div>
+          <div style={{ position: 'absolute', left: 115, top: 80, zIndex: 1, pointerEvents: 'none' }}>
+            <img src="/mascots/iso-shiba.webp" alt="" width={64} className="pickup-mascot-bob" style={{ animationDelay: '0.4s' }} />
+            <div style={{ width: 54, height: 6, background: 'rgba(60,42,28,0.18)', borderRadius: '50%', marginTop: -2, marginLeft: 4 }} />
+          </div>
+
+          {/* Find first non-completed unlocked node for pulse */}
+          {(() => {
+            // Compute "next to do" index inline for renderless lookup
+            return null;
+          })()}
 
           {/* Zigzag paw nodes */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18 }}>
@@ -101,12 +126,14 @@ export default function MapPage() {
               const left = offsets[cyclePos];
               const done = completed.has(l.id);
               const unlocked = isLessonUnlocked(chapter, l.lessonInChapter, completed.size);
+              const isNextToDo = unlocked && !done && lessons.slice(0, i).every(prev => completed.has(prev.id));
               return (
                 <button
                   key={l.id}
                   onClick={() => unlocked && navigate(`/lesson/${chapter}/${l.id}`)}
                   disabled={!unlocked}
                   aria-label={`Lesson ${l.lessonInChapter}${unlocked ? '' : ' (locked)'}`}
+                  className={isNextToDo ? 'pickup-paw-next' : undefined}
                   style={{
                     width: 96, height: 88,
                     marginLeft: left,

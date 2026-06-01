@@ -1,10 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const TABS = [
-  { path: '/', label: 'Home', icon: '/mascots/node-paw.webp' },
-  { path: '/tasks', label: 'Tasks', icon: '/mascots/icon-star.webp' },
-  { path: '/profile', label: 'Profile', icon: '/mascots/calico-anchor.webp' },
-  { path: '/alerts', label: 'Alerts', icon: '/mascots/flame.webp' },
+  { path: '/', label: '首頁', icon: '/mascots/node-paw.webp' },
+  { path: '/tasks', label: '任務', icon: '/mascots/icon-star.webp' },
+  { path: '/profile', label: '我的', icon: '/mascots/calico-anchor.webp' },
+  { path: '/alerts', label: '成就', icon: '/mascots/flame.webp' },
 ] as const;
 
 export default function BottomNav() {
@@ -36,7 +36,8 @@ export default function BottomNav() {
               transition: 'transform 0.15s',
             }}
           >
-            <img src={tab.icon} width={32} height={32} alt="" style={{ display: 'block', margin: '0 auto', opacity: active ? 1 : 0.55 }} />
+            <img src={tab.icon} width={28} height={28} alt="" style={{ display: 'block', margin: '0 auto 2px', opacity: active ? 1 : 0.55 }} />
+            <div style={{ fontSize: 10, fontWeight: 800, color: active ? '#b07a2a' : '#8b6f4a', letterSpacing: 0.5 }}>{tab.label}</div>
           </button>
         );
       })}

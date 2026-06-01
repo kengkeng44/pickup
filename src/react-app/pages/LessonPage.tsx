@@ -150,7 +150,17 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
   const timeStr = min > 0 ? `${min}:${sec.toString().padStart(2, '0')}` : `${sec}s`;
 
   return (
-    <div style={{ padding: '30px 20px', textAlign: 'center' }}>
+    <div className="pickup-fade-up" style={{ padding: '30px 20px', textAlign: 'center', position: 'relative' }}>
+      {/* Confetti shower */}
+      {Array.from({ length: 12 }).map((_, i) => {
+        const emojis = ['🎉', '⭐', '✨', '🌟', '🎊'];
+        return (
+          <span key={i} className="pickup-confetti" style={{
+            left: `${5 + (i * 8)}%`,
+            animationDelay: `${(i % 6) * 0.15}s`,
+          }}>{emojis[i % emojis.length]}</span>
+        );
+      })}
       <div style={{ fontSize: 48 }}>🎉</div>
       <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
