@@ -4,6 +4,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
+import ChaptersPage from './pages/ChaptersPage';
 import ProfilePage from './pages/ProfilePage';
 import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
@@ -36,6 +37,7 @@ export default function App() {
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
         <Routes>
           <Route path="/" element={<MapPage />} />
+          <Route path="/chapters" element={<ChaptersPage />} />
           <Route path="/lesson/:chapter/:lessonId" element={<LessonPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/tasks" element={<TasksPage />} />
