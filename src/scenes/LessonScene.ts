@@ -50,11 +50,11 @@ export type LessonSceneData = {
 // Reveal panel now shows Q + correct A + Zh explanation (B.125), needs more time
 // to read. A2 learner average Chinese-reading speed ~3-4 chars/sec; explanationZh
 // is typically 12-20 chars + Q line + A line = ~25-40 chars total → ~3s comfort.
-// v2.0.B.160: 3s → 5s per agent verdict. A2 中文閱讀 ~250 字/分 ≈ 4 字/秒;
-// explanationZh 平均 25-40 字 = 6-10s read time. 3s 只夠讀 12 字, 5s 讀 20 字
-// still under but with the green-fade + manual Continue button hint user can
-// tap to skip. User: '答完 2 秒推進來不及讀'.
-const ADVANCE_CORRECT_MS = 5_000;
+// v2.0.B.161.10: 5000 → 3500ms compromise. B.159 user '2 秒就跳下一題' = too
+// short for explanationZh read. B.160 5s = too long, user '玩起來很卡 答題完
+// 跳到下一題'. 3.5s sweet spot: ≥14 字 explanation OK for A2 中文 250 wpm,
+// fast enough not to drag pacing.
+const ADVANCE_CORRECT_MS = 3_500;
 
 // v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
 // Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).
@@ -414,13 +414,12 @@ export class LessonScene extends Phaser.Scene {
     const opts = (q.options ?? ['Yes', 'No']) as string[];
     const correctIdx = q.correctIndex ?? 0;
 
-    const enTokens = en.split(/(\s+)/);
-    const enWordHtml = enTokens.map(t => {
-      if (!t || /^\s+$/.test(t)) return t;
-      return `<span style="border-bottom:1px dashed #c8a878;padding:0 1px;">${t}</span>`;
-    }).join('');
+    // v2.0.B.161.10: WordHint tap-to-translate for listen-tf sentence + Q
+    // (was inline border-bottom style → no .word class → WordHint blind).
+    const enWordHtml = wrapWordsForHint(en);
+    const qEnWordHtml = wrapWordsForHint(qEn);
     sentEl.innerHTML = `
-      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;margin-bottom:10px;">
+      <div class="pickup-lesson-words" style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;margin-bottom:10px;">
         <button type="button" aria-label="Replay sentence" class="pickup-tf-speaker" style="
           flex:0 0 auto; width:40px; height:40px; padding:0;
           background:transparent; border:none; cursor:pointer;
@@ -432,12 +431,13 @@ export class LessonScene extends Phaser.Scene {
           <span>${enWordHtml}</span>
         </div>
       </div>
-      <div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
-        ${qEn}
+      <div class="pickup-lesson-words" style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.5;padding:6px 4px;text-align:center;">
+        ${qEnWordHtml}
       </div>
     `;
     const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
     spk?.addEventListener('click', () => { try { speak(en); } catch {} });
+    try { wireSentenceHints(sentEl); } catch {}
     try { speak(en); } catch {}
 
     slot.innerHTML = '';
@@ -472,6 +472,20 @@ export class LessonScene extends Phaser.Scene {
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
         this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
+        // v2.0.B.161.10: PostHog ANSWER_SUBMIT for listen-tf (was missing — only
+        // listen-mc/comprehension via handleAnswer was tracked)
+        try {
+          track(EVENT.ANSWER_SUBMIT, {
+            lesson_id: this.lesson.id,
+            question_id: q.id,
+            question_type: q.type,
+            question_idx: this.questionIdx,
+            user_answer_idx: idx,
+            correct_idx: correctIdx,
+            is_correct: idx === correctIdx,
+            attempt_number: 1,
+          });
+        } catch {}
         this.scheduleAdvance(2000);
       });
       slot.appendChild(btn);
