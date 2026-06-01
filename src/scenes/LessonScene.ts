@@ -530,7 +530,10 @@ export class LessonScene extends Phaser.Scene {
     }
     // v2.0.B.150: plain text per user '不要有框框 嚴格規定跟第二張圖一樣'.
     // No card frame, no border. Just sentence text in flow.
+    // v2.0.B.161.11: 加 WordHint tap-translate per user screenshot
+    // '我圈起來的地方也要有中文' — history snapshot 是 user 圈的位置.
     const card = document.createElement('div');
+    card.className = 'pickup-lesson-words';
     Object.assign(card.style, {
       padding: '4px 0',
       fontSize: '15px',
@@ -538,8 +541,9 @@ export class LessonScene extends Phaser.Scene {
       lineHeight: '1.55',
       fontWeight: '600',
     });
-    card.textContent = String(q.sentence ?? '');
+    card.innerHTML = wrapWordsForHint(String(q.sentence ?? ''));
     history.appendChild(card);
+    try { wireSentenceHints(card); } catch {}
   }
 
   private _snapshotTfZh(q: any, userIdx: number, correctIdx: number): void {
