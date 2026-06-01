@@ -1061,6 +1061,22 @@ h1, h2 {
 .word:hover {
   border-bottom-color: var(--pickup-accent);
 }
+/* v2.0.B.161.9: 'pickup-lesson-words' wrapper class makes dashed
+ * underline visible by default for narration / reveal / Lesson Review.
+ * Mobile has no hover state so user couldn't see tappable affordance.
+ * Per user '有底線也沒有中文 文章上面連底線都沒有'. */
+.pickup-lesson-words .word {
+  border-bottom-color: #c8a878;
+  border-bottom-width: 1.5px;
+}
+.pickup-lesson-words .word:active,
+.pickup-lesson-words .word.is-hinted {
+  border-bottom-color: var(--pickup-accent);
+  background: rgba(231, 164, 74, 0.12);
+  border-radius: 4px;
+  padding: 0 2px;
+  margin: 0 -2px;
+}
 .word.is-hinted {
   border-bottom-color: var(--pickup-accent);
   background: var(--pickup-accent-tint);

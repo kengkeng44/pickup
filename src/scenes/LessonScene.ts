@@ -155,6 +155,8 @@ export class LessonScene extends Phaser.Scene {
     this.lessonEndTime = undefined;
     this.lessonAnswerLog = [];
     void this._snapshotTf; void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
+    // v2.0.B.161.9: preload WordHint dict ONCE per lesson (was per-narration = redundant)
+    try { void preloadHints(); } catch {}
     // v2.0.B.161.4: PostHog event
     try {
       track(EVENT.LESSON_START, {
@@ -253,11 +255,11 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.159: Duolingo Stories character-bubble style per user '背景說明也
     // 要夾雜貓咪頭像說話'. Mascot avatar on LEFT + speech bubble with sentence.
     // No Continue button — 2s auto-advance per '答完兩秒就跳下一題'.
-    // v2.0.B.161.8: WordHint tap-to-translate per user '打完題目後沒底線'.
-    void preloadHints();
+    // v2.0.B.161.8-9: WordHint tap-to-translate. Wrapper class
+    // 'pickup-lesson-words' makes dashed underline visible on mobile.
     const wordHtml = wrapWordsForHint(text);
     sentEl.innerHTML = `
-      <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;">
+      <div class="pickup-lesson-words" style="display:flex;align-items:flex-start;gap:10px;padding:8px 4px;">
         <img src="/mascots/calico-anchor.webp" width="44" height="44" alt="" style="flex:0 0 auto;pointer-events:none;border-radius:50%;" />
         <div style="flex:1 1 auto;position:relative;background:#fff7e8;border:2px solid #e7a44a;border-radius:14px;padding:10px 14px;">
           <span style="position:absolute;left:-8px;top:14px;width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:10px solid #e7a44a;"></span>
@@ -868,8 +870,8 @@ export class LessonScene extends Phaser.Scene {
       const correctWord = (q as any).options?.[correctIndex] ?? '';
       const fullSentence = String((q as any).sentence ?? '').replace(/_{2,}/g, correctWord);
       if (sentEl) {
-        // v2.0.B.161.8: wrap each word so WordHint tap-translate works on reveal
-        sentEl.innerHTML = `<div style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.6;padding:6px 4px;text-align:center;">${wrapWordsForHint(fullSentence)}</div>`;
+        // v2.0.B.161.8-9: wrap words + visible-underline class for mobile tap
+        sentEl.innerHTML = `<div class="pickup-lesson-words" style="font-size:16px;font-weight:800;color:#3c2a1c;line-height:1.6;padding:6px 4px;text-align:center;">${wrapWordsForHint(fullSentence)}</div>`;
         try { wireSentenceHints(sentEl); } catch {}
       }
     }
@@ -1172,7 +1174,7 @@ export class LessonScene extends Phaser.Scene {
       : '';
 
     sentEl.innerHTML = `
-      <div style="padding:14px 6px 8px;">
+      <div class="pickup-lesson-words" style="padding:14px 6px 8px;">
         <div style="text-align:center;font-size:18px;font-weight:900;color:#3c2a1c;margin-bottom:14px;">
           📖 單元回顧 · Lesson Review
         </div>
@@ -1183,8 +1185,9 @@ export class LessonScene extends Phaser.Scene {
       </div>
     `;
 
-    // v2.0.B.161.8: wire WordHint for all .word spans in review cards
-    try { void preloadHints(); wireSentenceHints(sentEl); } catch {}
+    // v2.0.B.161.8-9: wire WordHint for all .word spans in review cards.
+    // preloadHints removed (already triggered in _mountLessonUI once).
+    try { wireSentenceHints(sentEl); } catch {}
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
