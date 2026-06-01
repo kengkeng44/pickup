@@ -419,6 +419,8 @@ export class LessonScene extends Phaser.Scene {
     // - 答完: questionEn + buttons 消失, sentence 變完整英文 + explanationZh 跳出
     // - 2s 推進 (listen-tf 限定快速)
     const blankSentence = en.split(/\s+/).filter(Boolean).map(() => '____').join(' ');
+    // v2.0.B.161.18: questionEn ALSO hidden pre-reveal per user '第二題的英文
+    // 問題又露出來了 要用聽的 嚴格執行'. Pure listening — both sentence + Q blind.
     sentEl.innerHTML = `
       <div class="pickup-lesson-words" style="display:flex;flex-direction:column;gap:14px;padding:14px 6px;">
         <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff7e8;border-radius:12px;border:1px solid #e0d0b8;">
@@ -436,8 +438,9 @@ export class LessonScene extends Phaser.Scene {
             ${blankSentence}
           </div>
         </div>
-        <div style="font-size:16px;font-weight:800;color:#3c2a1c;text-align:center;line-height:1.5;padding:4px 6px;">
-          ${wrapWordsForHint(qEn)}
+        <div style="font-size:13px;color:#8b6f4a;text-align:center;line-height:1.6;padding:4px 6px;font-weight:600;">
+          🎧 點喇叭聽完聲音再選答案<br>
+          <span style="font-size:11px;color:#a08868;">Tap the speaker, then choose Yes or No</span>
         </div>
       </div>
     `;
@@ -525,9 +528,35 @@ export class LessonScene extends Phaser.Scene {
         const replaySpk = sentEl.querySelector('.pickup-tf-speaker-post') as HTMLButtonElement | null;
         replaySpk?.addEventListener('click', () => { try { speak(en); } catch {} });
         try { wireSentenceHints(sentEl); } catch {}
-        // Hide Yes/No buttons
+        // v2.0.B.161.18: post-reveal Yes/No 換成「繼續 → · Continue」button.
+        // User '答完那個字浮出來要停留久一點' — 4s advance + manual skip 折衷.
         slot.innerHTML = '';
-        this.scheduleAdvance(2000);
+        const cont = document.createElement('button');
+        cont.type = 'button';
+        cont.textContent = '繼續 → · Continue';
+        Object.assign(cont.style, {
+          width: '100%',
+          padding: '14px 0',
+          background: '#7ac74a',
+          color: '#ffffff',
+          border: 'none',
+          borderBottom: '4px solid #5d9a35',
+          borderRadius: '14px',
+          fontSize: '15px',
+          fontWeight: '900',
+          letterSpacing: '0.5px',
+          cursor: 'pointer',
+          fontFamily: 'inherit',
+          touchAction: 'manipulation',
+          WebkitTapHighlightColor: 'transparent',
+          marginTop: '4px',
+        });
+        cont.addEventListener('click', () => {
+          this.cancelAdvanceTimer();
+          this.advance();
+        });
+        slot.appendChild(cont);
+        this.scheduleAdvance(4000);
       });
       slot.appendChild(btn);
     }
