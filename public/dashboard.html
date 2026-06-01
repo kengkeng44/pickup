@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拾光 Pickup · 控制中心</title>
+<link rel="icon" href="/mascots/icon-paw.webp">
+<style>
+:root {
+  --bg: #fef8ed; --card: #fff7e8; --border: #c8a878;
+  --accent: #e7a44a; --accent-dark: #b07a2a;
+  --text: #3c2a1c; --muted: #8b6f4a;
+  --success: #5d9a35; --danger: #c84a3a; --soft: #fef3c7;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "Nunito", "Microsoft JhengHei", system-ui, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+header {
+  background: var(--card); border-bottom: 3px solid var(--accent);
+  padding: 14px 16px 12px; position: sticky; top: 0; z-index: 10;
+}
+h1 { margin: 0 0 4px; font-size: 19px; font-weight: 900; }
+.tagline { font-size: 12px; color: var(--muted); font-weight: 600; }
+.refresh-bar {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px;
+  font-size: 11px; color: var(--muted);
+}
+.refresh-bar button {
+  background: var(--accent); color: white; border: none;
+  padding: 4px 10px; border-radius: 8px; font-weight: 700;
+  cursor: pointer; font-family: inherit; font-size: 11px;
+}
+main { padding: 14px 16px 30px; max-width: 920px; margin: 0 auto; }
+section.cron-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px; margin-bottom: 20px;
+}
+.cron-card {
+  background: white; border: 1px solid var(--border); border-radius: 14px;
+  padding: 14px; cursor: pointer; transition: transform 0.15s;
+  position: relative;
+}
+.cron-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.cron-card.has-p0 { border: 2px solid var(--danger); background: #fef2f0; }
+.cron-card h3 { margin: 0 0 4px; font-size: 14px; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+.cron-card .interval { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+.cron-card .last-run { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.cron-card .counts { display: flex; gap: 6px; margin-bottom: 8px; }
+.count-pill {
+  font-size: 11px; font-weight: 800; padding: 3px 7px; border-radius: 6px;
+}
+.count-pill.p0 { background: #fde0d2; color: var(--danger); }
+.count-pill.p1 { background: var(--soft); color: var(--accent-dark); }
+.count-pill.p2 { background: #eaf6d5; color: var(--success); }
+.cron-card .top-item {
+  font-size: 12px; color: var(--text); background: var(--bg);
+  padding: 6px 8px; border-radius: 6px; border-left: 3px solid var(--accent);
+  margin-bottom: 8px;
+}
+.cron-card .actions {
+  display: flex; gap: 6px;
+}
+.cron-card .actions button {
+  flex: 1; background: var(--card); color: var(--accent-dark);
+  border: 1px solid var(--border); padding: 6px 8px; border-radius: 8px;
+  font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit;
+}
+.cron-card .actions button.primary { background: var(--accent); color: white; border: none; }
+.cron-card .actions button:hover { opacity: 0.85; }
+.empty {
+  text-align: center; padding: 30px; color: var(--muted); font-size: 13px;
+  border: 2px dashed var(--border); border-radius: 12px; background: var(--card);
+}
+section.quick-actions {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 14px; margin-bottom: 16px;
+}
+section.quick-actions h2 { margin: 0 0 10px; font-size: 14px; font-weight: 900; }
+.action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.action-grid button {
+  background: white; color: var(--text);
+  border: 1px solid var(--border); padding: 10px 8px;
+  border-radius: 10px; font-size: 12px; font-weight: 800;
+  cursor: pointer; font-family: inherit; text-align: left;
+  display: flex; align-items: center; gap: 6px;
+}
+.action-grid button .icon { font-size: 18px; }
+section.links {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.link-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 8px; background: var(--accent); color: white;
+  border-radius: 10px; font-size: 12px; font-weight: 800;
+  text-decoration: none; text-align: center;
+}
+footer {
+  text-align: center; padding: 18px 16px; font-size: 11px; color: var(--muted);
+  border-top: 1px dashed var(--border); margin-top: 14px;
+}
+
+#toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+  background: var(--text); color: white; padding: 10px 18px;
+  border-radius: 10px; font-size: 13px; font-weight: 700;
+  opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 100;
+}
+#toast.show { opacity: 1; }
+
+@media (max-width: 480px) {
+  section.cron-grid { grid-template-columns: 1fr; }
+  .action-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎮 拾光 · 控制中心</h1>
+  <div class="tagline">Cron audit dashboard · 5 agent 自動跑</div>
+  <div class="refresh-bar">
+    <button onclick="loadDashboard(true)">⟳ 重新整理</button>
+    <span id="last-fetched">尚未載入</span>
+  </div>
+</header>
+
+<main>
+  <!-- Cron card grid -->
+  <section class="cron-grid" id="cron-grid">
+    <div class="empty">載入中…</div>
+  </section>
+
+  <!-- Quick action -->
+  <section class="quick-actions">
+    <h2>🎯 一鍵指令 (複製 → 下次 session 貼)</h2>
+    <div class="action-grid">
+      <button onclick="copyPrompt('p0')">
+        <span class="icon">🔥</span>接最新 P0 修
+      </button>
+      <button onclick="copyPrompt('top3')">
+        <span class="icon">⭐</span>跑 Top 3 S-effort
+      </button>
+      <button onclick="copyPrompt('audit')">
+        <span class="icon">🔍</span>全套 5-agent audit
+      </button>
+      <button onclick="copyPrompt('snapshot')">
+        <span class="icon">📸</span>當前狀態 snapshot
+      </button>
+    </div>
+  </section>
+
+  <!-- Cron control links -->
+  <section class="links">
+    <a class="link-btn" href="https://pickupwords.pages.dev/" target="_blank">🎮 玩 app</a>
+    <a class="link-btn" href="https://pickupwords.pages.dev/cockpit.html" target="_blank">📂 docs hub</a>
+    <a class="link-btn" href="https://github.com/kengkeng44/pickup/tree/master/docs/audits" target="_blank">📁 audit 全列表</a>
+    <a class="link-btn" href="https://claude.ai/code/routines" target="_blank">⚙️ Cron 管理</a>
+  </section>
+</main>
+
+<footer>
+  v1 · React Pickup v2.0.B.171 · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+const REPO = 'kengkeng44/pickup';
+const CACHE_KEY = 'pickup.dashboard.cache';
+const CACHE_TTL = 5 * 60 * 1000; // 5 min
+
+const CRON_TYPES = {
+  'ui-ux':       { icon: '🎨', name: 'UI/UX',         interval: '每 3 小時',  routine: 'trig_01J5sPriYi16mNsHWuTWiLch' },
+  'content':     { icon: '📝', name: 'Content QA',    interval: '每 6 小時',  routine: 'trig_011nY46wHF8tkAtNB6XKSMQ7' },
+  'code':        { icon: '🐛', name: 'Code Health',   interval: '每 6 小時 (錯 30min)', routine: 'trig_01ULrGLvL88u7jp3T8ecFUCy' },
+  'walk':        { icon: '👤', name: 'Walkthrough',   interval: '每 12 小時', routine: 'trig_01FWgS7uacY4RbUQvZWKBwuB' },
+  'arch':        { icon: '🏗️', name: 'Architecture',  interval: '每天 20:00', routine: 'trig_01W1t3ZpUfrFTFbeRu2AuDv6' },
+};
+
+function timeAgo(iso) {
+  const ms = Date.now() - new Date(iso).getTime();
+  const m = Math.floor(ms / 60000);
+  if (m < 1) return '剛剛';
+  if (m < 60) return `${m} 分鐘前`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h} 小時前`;
+  const d = Math.floor(h / 24);
+  return `${d} 天前`;
+}
+
+function parseMessage(msg) {
+  // Parse commit msg for P0/P1/P2 counts + top item
+  const p0Match = msg.match(/P0[:\s]+(\d+)/i);
+  const p1Match = msg.match(/P1[:\s]+(\d+)/i);
+  const p2Match = msg.match(/P2[:\s]+(\d+)/i);
+  const violationMatch = msg.match(/Violations[:\s]+(\d+)/i);
+
+  const hasP0Prefix = /⚠️\s*P0|warning.*P0/i.test(msg.split('\n')[0]);
+
+  // Top item: first line after counts
+  const lines = msg.split('\n').filter(l => l.trim());
+  let topItem = '';
+  for (const l of lines.slice(1)) {
+    if (l.startsWith('-') || l.startsWith('Top')) {
+      topItem = l.replace(/^[-*\s]+/, '').replace(/^Top\s*\d*\s*[:：]?\s*/i, '');
+      if (topItem.length > 5) break;
+    }
+  }
+
+  return {
+    p0: p0Match ? parseInt(p0Match[1]) : (violationMatch ? parseInt(violationMatch[1]) : 0),
+    p1: p1Match ? parseInt(p1Match[1]) : 0,
+    p2: p2Match ? parseInt(p2Match[1]) : 0,
+    hasP0Prefix,
+    topItem,
+    cycleSkipped: /CYCLE: no new|skip commit/i.test(msg),
+  };
+}
+
+function classifyCommit(msg) {
+  const first = msg.split('\n')[0];
+  if (/cron-ui-ux|UI\/UX audit/i.test(first)) return 'ui-ux';
+  if (/cron-content|Content QA|QA \d/i.test(first)) return 'content';
+  if (/cron-code|code health|Code Health/i.test(first)) return 'code';
+  if (/cron-walk|walkthrough|Walkthrough/i.test(first)) return 'walk';
+  if (/cron-arch|architecture|Architecture/i.test(first)) return 'arch';
+  return null;
+}
+
+async function fetchCommits() {
+  const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+  if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+
+  const res = await fetch(`https://api.github.com/repos/${REPO}/commits?per_page=50`);
+  if (!res.ok) throw new Error('GitHub API ' + res.status);
+  const data = await res.json();
+  localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+  return data;
+}
+
+async function loadDashboard(forceFresh) {
+  if (forceFresh) localStorage.removeItem(CACHE_KEY);
+  const grid = document.getElementById('cron-grid');
+  const fetchedEl = document.getElementById('last-fetched');
+  grid.innerHTML = '<div class="empty">載入中…</div>';
+
+  try {
+    const commits = await fetchCommits();
+    const latestByType = {};
+    for (const c of commits) {
+      const type = classifyCommit(c.commit.message);
+      if (!type) continue;
+      if (!latestByType[type]) latestByType[type] = c;
+    }
+
+    grid.innerHTML = '';
+    for (const [type, meta] of Object.entries(CRON_TYPES)) {
+      const commit = latestByType[type];
+      const card = document.createElement('div');
+      card.className = 'cron-card';
+
+      if (!commit) {
+        card.innerHTML = `
+          <h3>${meta.icon} ${meta.name}</h3>
+          <div class="interval">${meta.interval}</div>
+          <div class="empty" style="margin-top:8px;font-size:11px;padding:14px;">尚未跑過 cron · 等首次 fire</div>
+          <div class="actions" style="margin-top:8px;">
+            <button onclick="window.open('https://claude.ai/code/routines/${meta.routine}', '_blank')">⚙️ 查看 cron</button>
+          </div>
+        `;
+        grid.appendChild(card);
+        continue;
+      }
+
+      const parsed = parseMessage(commit.commit.message);
+      if (parsed.p0 > 0 || parsed.hasP0Prefix) card.classList.add('has-p0');
+
+      const sha = commit.sha.substring(0, 7);
+      const auditFileMatch = commit.commit.message.match(/docs\/audits\/[^\s]+\.md/);
+      const auditFile = auditFileMatch ? auditFileMatch[0] : null;
+
+      card.innerHTML = `
+        <h3>${meta.icon} ${meta.name} ${parsed.hasP0Prefix ? '⚠️' : ''}</h3>
+        <div class="interval">${meta.interval}</div>
+        <div class="last-run">${timeAgo(commit.commit.author.date)} · <code style="font-family:monospace;">${sha}</code></div>
+        <div class="counts">
+          <span class="count-pill p0">P0 ${parsed.p0}</span>
+          <span class="count-pill p1">P1 ${parsed.p1}</span>
+          <span class="count-pill p2">P2 ${parsed.p2}</span>
+        </div>
+        ${parsed.topItem ? `<div class="top-item">${parsed.topItem.substring(0, 80)}${parsed.topItem.length > 80 ? '…' : ''}</div>` : ''}
+        <div class="actions">
+          <button class="primary" onclick="copyForCron('${type}', '${commit.sha}')">📋 接續 prompt</button>
+          ${auditFile ? `<button onclick="window.open('https://github.com/${REPO}/blob/master/${auditFile}', '_blank')">📄 看 audit</button>` : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    }
+
+    fetchedEl.textContent = '✓ 已載入 · ' + new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+  } catch (err) {
+    grid.innerHTML = `<div class="empty">載入失敗: ${err.message}<br><br>(GitHub API 限額 60/hr 用完? 等 1 小時 OR 直接看 <a href="https://github.com/${REPO}/tree/master/docs/audits">repo</a>)</div>`;
+    fetchedEl.textContent = '✕ 載入失敗';
+  }
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function copyText(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(
+      () => toast('✓ 已複製到剪貼簿'),
+      () => { fallbackCopy(text); }
+    );
+  } else fallbackCopy(text);
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); toast('✓ 已複製'); } catch { toast('✕ 複製失敗'); }
+  document.body.removeChild(ta);
+}
+
+function copyForCron(type, sha) {
+  const meta = CRON_TYPES[type];
+  const text = `請拉最新 master, 開 docs/audits/ 目錄找最新 ${meta.name} cron audit (sha ${sha.substring(0,7)}), 接 P0 第一條:
+1. Read 該 audit md
+2. 接 P0 修 (file 改動)
+3. npm run build 過
+4. 跑 5-agent audit (R11 既有)
+5. commit + push + deploy
+
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron ${type} P0)`;
+  copyText(text);
+}
+
+function copyPrompt(kind) {
+  let text = '';
+  if (kind === 'p0') {
+    text = `請拉最新 master, 打開 docs/audits/ 找最新 5 個 cron audit, 統合所有 ⚠️ P0 標的 item, 排優先序 (依 P0 effort S/M/L), 接 Top 3 P0:
+1. Read 5 個 cron audit
+2. 統合 P0 清單
+3. 對 Top 3 (priority by effort × impact) 各自:
+   - Read affected files
+   - Edit fix
+   - npm run build verify
+4. Commit all 3 fix + push + deploy
+5. 5-agent audit post-ship
+
+Output: 給我 P0 表 (table) + 每個 fix 對應 file:line + 整 batch URL`;
+  } else if (kind === 'top3') {
+    text = `請拉最新 master, 打開 docs/audits/ 找最新 5 cron audit, 提取每個 audit 的 'Top 3 actionable (S effort)', 統合成 1 個 S-effort 清單, 接做前 5 條:
+1. Read 5 audit
+2. 統合 S-effort 清單 (每條 < 1 hr)
+3. Implement top 5 (batch ship)
+4. Commit + push + deploy
+5. 確認 build clean
+
+Output: 5 fix 表 + deploy URL`;
+  } else if (kind === 'audit') {
+    text = `請對 Pickup React (latest master) 跑完整 5-agent audit 一輪:
+1. QA agent (lessons-ch*.json content R1-R8 + A1-A7)
+2. Bug-check (src/react-app/ TS/race/leak)
+3. UX Compliance (對 docs/toeic-research/pickup-ux-canonical-spec.md R1-R14)
+4. Audio-Text Consistency
+5. Player Walkthrough (A2 玩家視角)
+
+5 agent 並行 dispatch (single message 5 Agent calls), 等 verdict 後統合 P0/P1/P2 給我`;
+  } else if (kind === 'snapshot') {
+    text = `請給我 Pickup 當前狀態 dense snapshot:
+- 最新 commit + version
+- bundle 大小 (npm run build)
+- src/react-app/ 結構 (pages / components / renderers)
+- docs/audits/ 最近 5 cron audit P0/P1/P2 統計
+- master matrix § E Top 5 next action 還剩哪些
+- 推薦下一步 3 個 (依 impact × effort 排)
+
+Markdown 表 + dense, < 500 字`;
+  }
+  if (text) copyText(text);
+}
+
+loadDashboard();
+</script>
+
+</body>
+</html>
