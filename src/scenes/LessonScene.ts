@@ -156,15 +156,11 @@ export class LessonScene extends Phaser.Scene {
     void this._snapshotTf; void this._snapshotTfZh; void this._snapshotAnsweredQ; void this._showCompletionArticle;
     // v2.0.B.161.9: preload WordHint dict ONCE per lesson (was per-narration = redundant)
     try { void preloadHints(); } catch {}
-    // v2.0.B.161.22 per user '聲音有延遲': preload lesson MP3 buffers so
-    // first speak() per Q hits cache (no 500-800ms async fetch).
-    // Non-blocking (no await) — runs in background while UI mounts.
-    try {
-      const sentences = this.lesson.questions
-        .map((q: any) => String(q.sentence ?? ''))
-        .filter(Boolean);
-      void preloadLessonAudio(sentences);
-    } catch {}
+    // v2.0.B.161.23 REVERT B.161.22: preloadLessonAudio 14 MP3 parallel
+    // decodeAudioData() = main-thread block, made lesson load 更卡.
+    // 用 lazy on-demand: speak() 第一次 call 才 decode 該句, accept
+    // 500ms delay on Q1 over freezing whole lesson load.
+    // void preloadLessonAudio(...) — removed; keep export for future use.
     // v2.0.B.161.4: PostHog event
     try {
       track(EVENT.LESSON_START, {
