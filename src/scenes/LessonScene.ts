@@ -5,7 +5,7 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
-import { speak, autoSpeak, stopSpeaking, preloadLessonAudio } from '../audio/tts';
+import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
 import { track, EVENT } from '../analytics/posthog';
 import { wireSentenceHints, preloadHints } from '../ui/WordHint';
 
