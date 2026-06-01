@@ -413,26 +413,31 @@ export class LessonScene extends Phaser.Scene {
     const opts = (q.options ?? ['Yes', 'No']) as string[];
     const correctIdx = q.correctIndex ?? 0;
 
-    // v2.0.B.161.12: BLIND listening per user '題目跟問題的英文不應該顯示
-    // 因為這是聽力題 但語音記得加上 question : ... 但答完要顯示
-    // 而且還要可以點開中文'.
-    // Pre-reveal: only speaker icon + 「聽聲音」cue (no sentence/Q text).
-    // Audio plays full: '${sentence}. Question: ${qEn}.'
-    // Post-reveal: reveal sentence + qEn with WordHint pickup-lesson-words.
+    // v2.0.B.161.16: Duolingo Stories-style flow per user spec:
+    // - sentence 用空白格子(___)接續故事流, 不顯示英文
+    // - 不 auto-speak, user 點喇叭才播 (force engagement)
+    // - 答完: questionEn + buttons 消失, sentence 變完整英文 + explanationZh 跳出
+    // - 2s 推進 (listen-tf 限定快速)
+    const blankSentence = en.split(/\s+/).filter(Boolean).map(() => '____').join(' ');
     sentEl.innerHTML = `
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 12px;">
-        <button type="button" aria-label="Replay" class="pickup-tf-speaker" style="
-          width:72px; height:72px; padding:0;
-          background:#fff7e8; border:3px solid #e7a44a;
-          border-bottom-width:5px; border-bottom-color:#b07a2a;
-          border-radius:50%; cursor:pointer;
-          display:inline-flex; align-items:center; justify-content:center;
-          touch-action:manipulation; -webkit-tap-highlight-color:transparent;
-        ">
-          <img src="/mascots/icon-speaker.webp" width="44" height="44" alt="" style="pointer-events:none;" />
-        </button>
-        <div style="font-size:13px;color:#8b6f4a;font-weight:700;letter-spacing:0.5px;">
-          🔊 點喇叭再聽一次 · Tap to replay
+      <div class="pickup-lesson-words" style="display:flex;flex-direction:column;gap:14px;padding:14px 6px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff7e8;border-radius:12px;border:1px solid #e0d0b8;">
+          <button type="button" aria-label="Tap to listen" class="pickup-tf-speaker" style="
+            flex:0 0 auto; width:48px; height:48px; padding:0;
+            background:#fef8ed; border:2px solid #e7a44a;
+            border-bottom-width:4px; border-bottom-color:#b07a2a;
+            border-radius:50%; cursor:pointer;
+            display:inline-flex; align-items:center; justify-content:center;
+            touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+          ">
+            <img src="/mascots/icon-speaker.webp" width="32" height="32" alt="" style="pointer-events:none;" />
+          </button>
+          <div style="flex:1;font-size:15px;font-weight:700;color:#8b6f4a;letter-spacing:0.1em;line-height:1.8;">
+            ${blankSentence}
+          </div>
+        </div>
+        <div style="font-size:16px;font-weight:800;color:#3c2a1c;text-align:center;line-height:1.5;padding:4px 6px;">
+          ${wrapWordsForHint(qEn)}
         </div>
       </div>
     `;
@@ -440,7 +445,7 @@ export class LessonScene extends Phaser.Scene {
     const spk = sentEl.querySelector('.pickup-tf-speaker') as HTMLButtonElement | null;
     spk?.addEventListener('click', () => { try { speak(combined); } catch {} });
     try { wireSentenceHints(sentEl); } catch {}
-    try { speak(combined); } catch {}
+    // v2.0.B.161.16: NO auto-speak — user '問題沒有自動播放 要用點的'
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
@@ -474,8 +479,7 @@ export class LessonScene extends Phaser.Scene {
         btn.style.color = correct ? '#5d9a35' : '#a23829';
         this.locked = true;
         this.lessonAnswerLog.push({ q, userIdx: idx, correctIdx, isCorrect: idx === correctIdx });
-        // v2.0.B.161.10: PostHog ANSWER_SUBMIT for listen-tf (was missing — only
-        // listen-mc/comprehension via handleAnswer was tracked)
+        // v2.0.B.161.10: PostHog ANSWER_SUBMIT for listen-tf
         try {
           track(EVENT.ANSWER_SUBMIT, {
             lesson_id: this.lesson.id,
@@ -488,7 +492,39 @@ export class LessonScene extends Phaser.Scene {
             attempt_number: 1,
           });
         } catch {}
-        this.scheduleAdvance(ADVANCE_CORRECT_MS);
+        // v2.0.B.161.16 post-reveal per user spec:
+        //   questionEn + Yes/No buttons 消失, sentence 變完整英文 留下,
+        //   explanationZh (中文) 跳出, 2s 推進
+        const explZh = String(q.explanationZh ?? '');
+        const escapeHtml = (s: string) => String(s)
+          .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        sentEl.innerHTML = `
+          <div class="pickup-lesson-words" style="padding:14px 6px 8px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff7e8;border-radius:12px;border:1px solid #e0d0b8;margin-bottom:12px;">
+              <button type="button" aria-label="Replay" class="pickup-tf-speaker-post" style="
+                flex:0 0 auto; width:36px; height:36px; padding:0;
+                background:transparent; border:none; cursor:pointer;
+                display:inline-flex; align-items:center; justify-content:center;
+                touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+              ">
+                <img src="/mascots/icon-speaker.webp" width="28" height="28" alt="" style="pointer-events:none;" />
+              </button>
+              <div style="flex:1;font-size:15px;font-weight:700;color:#3c2a1c;line-height:1.7;">
+                ${wrapWordsForHint(en)}
+              </div>
+            </div>
+            ${explZh ? `<div style="font-size:14px;color:#5a4530;line-height:1.6;padding:10px 12px;background:#fef8ed;border-left:3px solid #c8a878;border-radius:0 8px 8px 0;">
+              ${escapeHtml(explZh)}
+            </div>` : ''}
+          </div>
+        `;
+        const replaySpk = sentEl.querySelector('.pickup-tf-speaker-post') as HTMLButtonElement | null;
+        replaySpk?.addEventListener('click', () => { try { speak(en); } catch {} });
+        try { wireSentenceHints(sentEl); } catch {}
+        // Hide Yes/No buttons
+        slot.innerHTML = '';
+        this.scheduleAdvance(2000);
       });
       slot.appendChild(btn);
     }
