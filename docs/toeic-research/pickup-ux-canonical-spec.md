@@ -32,28 +32,46 @@ When a lesson loads:
 - **"繼續 ↓ Continue" green button** (`.pickup-narration-continue` class) advances to next entry
 - **No answer required** (not a question)
 
-### listen-tf entries (~4 per lesson) — English true/false
-- Speaker icon 40×40 + English sentence visible immediately + auto-play audio
-- `questionEn` rendered as bold centered prompt
-- **2 white buttons** ("Yes" / "No") with amber border-bottom
-- Tap commits → ~2s auto-advance to next entry
-- No reveal panel — just visual button color change (green/red) inline
+### listen-tf entries (~4 per lesson) — English true/false (BLIND, B.161.12)
+- **Pre-reveal (B.161.12 rewrite per user '聽力題不應該顯示英文'):**
+  - 72×72 large round speaker button (cream bg `#fff7e8` + amber border `#e7a44a`, bottom-thicker)
+  - Bilingual cue label: `🔊 點喇叭再聽一次 · Tap to replay`
+  - **NO sentence text visible, NO questionEn text visible** (force listening; visible text = read-tf, defeats listening training)
+  - 2 white buttons ("Yes" / "No") with amber border-bottom
+- **Speaker queue:** combined `${sentence}. Question: ${questionEn}.` (B.161.12 — listen full)
+- **Post-reveal (B.161.12 new):**
+  - sentEl replaces to show `sentence` (centered bold, WordHint) + `Q: ${questionEn}` (amber blockquote, WordHint)
+  - Outer wrapper class `pickup-lesson-words` makes dashed underline visible on mobile (B.161.9)
+  - `wireSentenceHints` binds tap-to-translate Chinese tooltips
+- Auto-advance after 3s (`ADVANCE_CORRECT_MS = 3000`, B.161.12 unified across types)
 
 ### listen-mc entries (~4 per lesson) — English blind ABCD
 - Speaker icon + sentence as word-blank shapes (B.118 blind-listening style)
 - 4 ABCD pill buttons (NO text pre-reveal — blind)
 - Speaker queue: sentence MP3 only (B.139 — no extended A-D readout per B.146 single-call rule)
 - Post-reveal: pills show English option + ZH (B.131 bilingual reveal)
-- Auto-advance after 3s (`ADVANCE_CORRECT_MS = 3000`)
+  - Sentence + question revealed in sentEl wrapped in `pickup-lesson-words` → WordHint dashed underline visible + tap-to-translate (B.161.8-9)
+- Auto-advance after 3s (`ADVANCE_CORRECT_MS = 3000`, B.161.12 unified)
 
 ### Chinese in pre-reveal (R3 — strict)
 - All pre-reveal English-only (per memory `feedback-pickup-no-chinese-pre-reveal`)
+- **Bilingual cue label exception (B.161.12)**: pre-reveal control labels (`🔊 點喇叭再聽一次 · Tap to replay`) may use Chinese — these are UI chrome, not content
 - Chinese appears only on:
   - listen-mc post-reveal pill labels (bilingual EN+ZH)
   - listen-mc reveal panel `explanationZh`
   - listen-tf post-reveal explanation (if shown)
   - History snapshots `explanationZh` inline note
-- ❌ NO Chinese in narration text, listen-tf questionEn, sentence audio captions
+  - WordHint tap-to-translate tooltip on any `.word` span (post-reveal contexts)
+- ❌ NO Chinese in narration text, listen-tf questionEn (post-reveal English only; tap-word for ZH gloss), sentence audio captions
+
+### WordHint coverage (B.161.8-11)
+All English text surfaces inside a lesson must wrap each word in `<span class="word" data-word="...">` and outer container in `.pickup-lesson-words` class, then call `wireSentenceHints(container)`:
+- `_renderNarration` — current narration bubble (B.161.8)
+- `_renderListenTf` post-reveal sentence + questionEn (B.161.12)
+- `handleAnswer` reveal for listen-mc / listen-comprehension (B.161.8)
+- `_showLessonReview` card sentence + question (B.161.8)
+- `_snapshotNarration` history archive (B.161.11)
+- `ChapterIntroScene` narration (native since v1.9.0)
 
 ## R4 — Scroll history (vertical Duolingo radio)
 
