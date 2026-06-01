@@ -432,9 +432,20 @@ export class LessonScene extends Phaser.Scene {
       </div>
     `;
     try { wireSentenceHints(sentEl); } catch {}
-    const combined = qEn ? `${en}. Question: ${qEn}.` : en;
-    // Auto-play (B.161.20 user '題目直接播出來')
-    try { speak(combined); } catch {}
+    // v2.0.B.161.21: 分開 sentence + question audio chain.
+    // B.161.20 用 combined string speak() → audioLookup miss (map keyed on
+    // individual sentence/qEn) → fallback WebSpeech 念整段 → 失去 grandma
+    // MP3 配音 → user 聽不出有念 sentence (體感「題目沒自動念」).
+    // 拆兩段: speak(en) grandma MP3 → onEnd → 400ms gap → speak(qEn) WebSpeech.
+    try {
+      speak(en, 'en-US', {
+        onEnd: () => {
+          if (qEn) {
+            window.setTimeout(() => { try { speak(qEn); } catch {} }, 400);
+          }
+        }
+      });
+    } catch {}
 
     slot.innerHTML = '';
     Array.from(slot.children).forEach((c) => ((c as HTMLElement).style.display = 'none'));
@@ -528,8 +539,9 @@ export class LessonScene extends Phaser.Scene {
           tapSkip();
         });
         hint.addEventListener('click', tapSkip);
-        // Differential advance: 答對 2.5s / 答錯 4s
-        this.scheduleAdvance(correct ? 2500 : 4000);
+        // v2.0.B.161.21: 對 2500→4000 / 錯 4000→6000ms per user
+        // '跳下一題的時間再久一點'. 仍 tap-anywhere-skip 可快轉.
+        this.scheduleAdvance(correct ? 4000 : 6000);
       });
       slot.appendChild(btn);
     }
