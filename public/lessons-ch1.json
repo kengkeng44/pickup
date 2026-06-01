@@ -87,13 +87,13 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Mochi sleeps under the old porch.",
-        "questionEn": "Mochi sleeps in a warm bed.",
+        "questionEn": "Does Mochi sleep outside?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 1,
-        "explanationZh": "Mochi 是流浪貓,睡在老屋簷下(under the old porch)躲雨,不是溫暖的床上。要靠語意推理,不是字面翻轉。",
+        "correctIndex": 0,
+        "explanationZh": "Mochi 睡在老屋簷下(under the old porch),屋簷下算外面 outside,不是溫暖的家裡,所以答 Yes。",
         "tags": [
           "story",
           "ch1",
@@ -119,13 +119,13 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "She finds shelter wherever she can.",
-        "questionEn": "Mochi always sleeps in the same place.",
+        "questionEn": "Does Mochi always sleep in the same place?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "She finds shelter wherever she can(到處找避雨處)= 沒固定的家,所以「總是睡在同一個地方」是錯的。",
+        "explanationZh": "She finds shelter wherever she can(到處找避雨處)= 沒固定的家,所以「總是睡在同一個地方」是錯的,答 No。",
         "tags": [
           "story",
           "ch1",
@@ -250,13 +250,13 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Tonight Mochi jumps up the low wall.",
-        "questionEn": "Mochi climbs the tall tree to reach Grandma.",
+        "questionEn": "Does Mochi climb onto the wall to wait for Grandma?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 1,
-        "explanationZh": "故事說 Mochi 跳上矮牆 (low wall),不是爬高樹 (tall tree),她在等奶奶說故事不是去找奶奶。要靠語意推理才能答。",
+        "correctIndex": 0,
+        "explanationZh": "Mochi 今晚跳上 (jumps up = climb onto) 矮牆,目的是等奶奶說故事,所以答 Yes。",
         "tags": [
           "story",
           "ch1",
@@ -282,13 +282,13 @@
         "level": "A2",
         "difficulty": "easy",
         "sentence": "Mochi waits quietly for Grandma's story.",
-        "questionEn": "Mochi shouts loudly on the wall and wakes Grandma up.",
+        "questionEn": "Does Mochi shout loudly to wake Grandma up?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "narration 說 She waits quietly,「安靜地等」才對,「大聲叫」是錯的。",
+        "explanationZh": "Mochi 安靜地等 (waits quietly) 奶奶說故事,沒有大聲叫,所以答 No。",
         "tags": [
           "story",
           "ch1",
