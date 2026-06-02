@@ -117,7 +117,6 @@ function HudIcon({ src, value, valueColor, width = 24, ariaLabel, onClick, progr
         // v2.0.B.187 P1-D: tap area 38→48px senior thumb 友好
         padding: '12px 10px', borderRadius: 10, fontFamily: 'inherit',
         minWidth: 48, minHeight: 48,
-        WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
         display: 'flex', alignItems: 'center',
       }}
