@@ -239,7 +239,10 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <span dangerouslySetInnerHTML={{ __html: revealed ? wrapWords(en) : blanks(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: revealed ? '#3c2a1c' : '#8b6f4a', letterSpacing: revealed ? 0 : '0.1em', lineHeight: 1.8 }} />
       </div>
       {qPrompt && (
-        <div style={{ fontSize: 16, fontWeight: 800, color: '#3c2a1c', textAlign: 'center', marginBottom: 14, lineHeight: 1.5 }} dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+          <SpeakerBtn onClick={() => speak(qPrompt)} size={36} />
+          <span dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} style={{ flex: 1, fontSize: 16, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.5 }} />
+        </div>
       )}
       {opts.map((o, i) => {
         const isCorrect = i === correctIdx;
