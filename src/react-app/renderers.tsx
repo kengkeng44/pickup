@@ -197,8 +197,11 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <SpeakerBtn onClick={() => speak(en)} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#8b6f4a', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
-        <div style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 600 }}>🎧 點喇叭聽完聲音再選答案</div>
-        {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
+        <div style={{ fontSize: 14, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 點喇叭聽完聲音再選答案</div>
+        {/* v2.0.B.186 P0-C fix: sticky bottom 確保 Yes/No 永遠在視窗底 */}
+        <div className="pickup-answer-sticky">
+          {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
+        </div>
       </div>
     );
   }
@@ -268,13 +271,16 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <span dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} style={{ flex: 1, fontSize: 16, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.5 }} />
         </div>
       )}
-      {opts.map((o, i) => {
-        const isCorrect = i === correctIdx;
-        const isSel = i === selected;
-        const state: 'idle' | 'correct' | 'wrong' | 'shown' =
-          !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
-        return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
-      })}
+      {/* v2.0.B.186 P0-C fix: 4 options sticky-bottom 避免被 history 擠出視窗 */}
+      <div className="pickup-answer-sticky">
+        {opts.map((o, i) => {
+          const isCorrect = i === correctIdx;
+          const isSel = i === selected;
+          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
+        })}
+      </div>
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
     </div>
   );
