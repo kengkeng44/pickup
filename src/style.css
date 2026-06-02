@@ -182,6 +182,14 @@ body {
   }
 }
 
+/* v2.0.B.187 P2-A: iPad landscape (>=900px wide) 兩側白邊太大,
+ * 老師反映「App 沒用到我的螢幕」。把 #app 從 480 → 720,內容呼吸感 */
+@media (min-width: 900px) {
+  #app {
+    max-width: 720px;
+  }
+}
+
 /* ─── Accessibility: focus rings ────────────────────────────────────────
  * Visible keyboard focus using --pickup-info (Duolingo blue). Mouse
  * users won't see this thanks to :focus-visible. */

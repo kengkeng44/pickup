@@ -86,8 +86,10 @@ export default function LessonPage() {
   return (
     <div style={{ padding: '14px 14px 24px', minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 22, color: '#8b6f4a', cursor: 'pointer' }}>✕</button>
-        <span style={{ fontSize: 11, fontWeight: 800, color: '#8b6f4a', background: '#fef3c7', padding: '4px 10px', borderRadius: 10 }}>
+        {/* v2.0.B.187 P1: close ✕ tap area 22 → 44px HIG */}
+        <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer', width: 44, height: 44, padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>✕</button>
+        {/* v2.0.B.187 P2-C: q-counter 11 → 14px senior 老花可讀 */}
+        <span style={{ fontSize: 14, fontWeight: 800, color: '#7a5e25', background: '#fef3c7', padding: '6px 14px', borderRadius: 999 }}>
           q{idx + 1}/{lesson.questions.length}
         </span>
       </div>
@@ -111,8 +113,9 @@ function NarrativeLine({ text }: { text: string }) {
   });
   return (
     <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: '#3c2a1c', lineHeight: 1.7, fontWeight: 600 }}>
-      <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 22, height: 22, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', marginTop: 3 }}>
-        <img src="/mascots/icon-speaker.webp" width={20} height={20} alt="" style={{ opacity: 0.7 }} />
+      {/* v2.0.B.187 P1-A: speaker tap 22 → 44px HIG (內含 20px img + 12px halo padding) */}
+      <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 44, height: 44, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+        <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ opacity: 0.7 }} />
       </button>
       <span ref={ref} style={{ flex: '1 1 auto' }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
     </div>
@@ -168,10 +171,12 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         <Stat label="ACCURACY" value={`${accuracy}%`} color="#5d9a35" bg="#eaf6d5" />
         <Stat label="TIME" value={timeStr} color="#8b6f4a" bg="#fef8ed" />
       </div>
+      {/* v2.0.B.187 P2-D: Continue 全寬,senior instinct 對齊 */}
       <button onClick={onBack} style={{
-        padding: '14px 36px', background: '#7ac74a', color: '#fff', border: 'none',
-        borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 16, fontWeight: 900,
-        cursor: 'pointer', fontFamily: 'inherit',
+        padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
+        borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
+        cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
+        WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
       }}>完成 · Continue →</button>
     </div>
   );
