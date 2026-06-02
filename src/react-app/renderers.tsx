@@ -58,6 +58,27 @@ function blanks(text: string): string {
   return text.split(/\s+/).filter(Boolean).map(() => '____').join(' ');
 }
 
+// v2.0.B.185: Levenshtein edit distance for fuzzy typed-input matching.
+// Wagner-Fischer DP, O(a×b) time / O(b) space. Early-exit when length diff
+// already exceeds max tolerance (3) — avoids full DP for "totally wrong" input.
+function editDistance(a: string, b: string): number {
+  if (a === b) return 0;
+  const al = a.length, bl = b.length;
+  if (Math.abs(al - bl) > 3) return Infinity;
+  const dp = new Array(bl + 1);
+  for (let j = 0; j <= bl; j++) dp[j] = j;
+  for (let i = 1; i <= al; i++) {
+    let prev = dp[0];
+    dp[0] = i;
+    for (let j = 1; j <= bl; j++) {
+      const tmp = dp[j];
+      dp[j] = a[i - 1] === b[j - 1] ? prev : 1 + Math.min(dp[j - 1], dp[j], prev);
+      prev = tmp;
+    }
+  }
+  return dp[bl];
+}
+
 const SpeakerBtn = ({ onClick, size = 22 }: { onClick: () => void; size?: number }) => (
   <button onClick={onClick} aria-label="Replay" style={{
     flex: '0 0 auto', width: size, height: size, padding: 0,
@@ -110,8 +131,11 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
       advancedRef.current = true;
       onAdvance(text);
     };
-    try { speak(text, 'en-US', { onEnd: advanceOnce }); } catch { advanceOnce(); }
-    const fallbackMs = Math.max(5000, text.split(/\s+/).length * 600 + 2000);
+    // v2.0.B.185 P0-B fix (Walkthrough audit): TTS 結束後多等 2000ms 再 advance,
+    // 給 senior 讀者視覺確認窗口。fallback timer 同步 bump 2000ms (字數×600+4000)。
+    const dwellAdvance = () => window.setTimeout(advanceOnce, 2000);
+    try { speak(text, 'en-US', { onEnd: dwellAdvance }); } catch { dwellAdvance(); }
+    const fallbackMs = Math.max(7000, text.split(/\s+/).length * 600 + 4000);
     const timer = window.setTimeout(advanceOnce, fallbackMs);
     return () => window.clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -271,12 +295,21 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const submit = () => {
     if (revealed) return;
     const norm = (s: string) => s.toLowerCase().replace(/[.,!?'"]/g, '').replace(/\s+/g, ' ').trim();
-    const correct = norm(text) === norm(en);
+    const normText = norm(text);
+    const normEn = norm(en);
+    // v2.0.B.185 P0-D fix (Walkthrough audit): Levenshtein fuzzy match.
+    // Tolerance scales with sentence length (60+ A2 typing accuracy ≈ 92%):
+    //   ≤5 chars exact / ≤15 → 1 / ≤30 → 2 / >30 → 3
+    const len = Math.max(normText.length, normEn.length);
+    const tolerance = len <= 5 ? 0 : len <= 15 ? 1 : len <= 30 ? 2 : 3;
+    const dist = editDistance(normText, normEn);
+    const correct = dist <= tolerance;
     sfxCardPress();
     try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
     setRevealed(true);
     onAnswer(correct ? 0 : 1, correct);
-    window.setTimeout(() => onAdvance(en), correct ? 3000 : 5000);
+    // v2.0.B.185 dwell bump: 3s correct / 6s wrong (was 5s) — senior 需要看正解
+    window.setTimeout(() => onAdvance(en), correct ? 3000 : 6000);
   };
 
   return (
