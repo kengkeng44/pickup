@@ -3,9 +3,10 @@
  * Constants from src/ui/StoryMapView.ts. User: '嚴格遵守原版設計 不要有
  * 任何的不一樣'.
  */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useRunStore, readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
+import KeySentencesSheet from '../components/KeySentencesSheet';
 
 interface Lesson {
   id: string;
@@ -68,6 +69,40 @@ function lighten(hex: string, amount = 0.22): string {
   return `rgb(${m(r)}, ${m(g)}, ${m(b)})`;
 }
 
+// ─── Grandma (cat) positioning algorithm — strict port of positionCat() ──
+const CAT_W = 122;
+const CAT_H = 110;
+const CAT_CANDIDATES = [60, 100, 130, 180, 220, 380, 440, 500];
+const CAT_EDGE_MARGIN = 14;
+
+function computeCatPosition(currentNodeIdx: number): { x: number; y: number } | null {
+  if (currentNodeIdx < 0) return null;
+  // Use first 8 nodes for sparse-band scoring (same as Phaser)
+  const visible = NODE_PATH_V2.slice(0, 8);
+  const meanDx = visible.reduce((s, n) => s + n.dx, 0) / visible.length;
+  const charSide: 'L' | 'R' = meanDx >= 0 ? 'L' : 'R';
+  let bestCatY = 130;
+  let bestScore = Number.POSITIVE_INFINITY;
+  for (const cy of CAT_CANDIDATES) {
+    const top = cy, bot = cy + CAT_H;
+    let overlapCount = 0;
+    let minHorizontalGap = Number.POSITIVE_INFINITY;
+    for (const n of visible) {
+      const nTop = n.top, nBot = n.top + NODE_HEIGHT;
+      if (bot < nTop || top > nBot) continue;
+      overlapCount++;
+      const nLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + n.dx;
+      const nRight = nLeft + NODE_SIZE;
+      const gap = charSide === 'L' ? nLeft - CAT_W : (CONTAINER_W - nRight);
+      minHorizontalGap = Math.min(minHorizontalGap, gap);
+    }
+    const score = overlapCount * 100 - minHorizontalGap;
+    if (score < bestScore) { bestScore = score; bestCatY = cy; }
+  }
+  const catX = charSide === 'L' ? CAT_EDGE_MARGIN : CONTAINER_W - CAT_W - CAT_EDGE_MARGIN;
+  return { x: catX, y: bestCatY };
+}
+
 // ─── HUD icon ──────────────────────────────────────────────────────────────
 function HudIcon({ src, value, valueColor, width = 24, ariaLabel, onClick, progress, filter }: {
   src: string; value: string; valueColor: string; width?: number; ariaLabel: string;
@@ -105,9 +140,22 @@ export default function MapPage() {
   const chapter = Math.min(8, Math.max(1, Number(searchParams.get('ch') || 1)));
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
+  const [pressedId, setPressedId] = useState<string | null>(null);
+  const [showKeySheet, setShowKeySheet] = useState(false);
   const streak = useRunStore(s => s.streak);
   const completed = readCompletedLessons(chapter);
   const meta = CHAPTER_META[chapter];
+
+  // Derive current node = first non-completed unlocked (or -1 if all done)
+  const currentNodeIdx = useMemo(() => {
+    if (lessons.length === 0) return -1;
+    for (let i = 0; i < lessons.length; i++) {
+      if (!completed.has(lessons[i].id)) return i;
+    }
+    return -1;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lessons.length, chapter]);
+  const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
 
   // Crown tier per Phaser StoryMapView (L1-2 Silver, L3-4 Gold, L5+ Diamond)
   const xp = 0;
@@ -166,8 +214,8 @@ export default function MapPage() {
           </div>
           <button
             type="button"
-            aria-label="切換章節"
-            onClick={() => navigate('/chapters')}
+            aria-label="Chapter key sentences"
+            onClick={() => setShowKeySheet(true)}
             style={{
               width: 38, height: 38, borderRadius: 11,
               background: 'rgba(255,255,255,0.22)',
@@ -192,6 +240,32 @@ export default function MapPage() {
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',
           height: 2032 + NODE_HEIGHT + 80,
         }}>
+          {/* Grandma (cat anchor) — follows currentNodeIdx via positioning algorithm */}
+          {catPos && (
+            <div
+              style={{
+                position: 'absolute',
+                left: 0, top: 0,
+                width: CAT_W, height: CAT_H,
+                pointerEvents: 'none', zIndex: 5,
+                transform: `translate(${catPos.x}px, ${catPos.y}px)`,
+                transformOrigin: '50% 100%',
+                transition: 'transform 700ms cubic-bezier(0.4, -0.3, 0.55, 1.5)',
+                willChange: 'transform',
+              }}
+            >
+              <div style={{
+                position: 'absolute', left: 6, bottom: -2,
+                width: 78, height: 10,
+                background: 'rgba(60,42,28,0.30)', borderRadius: '50%', zIndex: 0,
+              }} />
+              <img src="/mascots/iso-grandma.webp" alt="" style={{
+                position: 'absolute', left: 0, bottom: 0,
+                width: 88, height: 'auto', display: 'block', zIndex: 2,
+              }} />
+            </div>
+          )}
+
           {/* Shiba — fixed anchor, left = CONTAINER_W/2 + 60, top = 480 */}
           <div style={{
             position: 'absolute',
@@ -223,6 +297,9 @@ export default function MapPage() {
             const iconFilter = !unlocked && !done ? 'grayscale(1)' : 'none';
             const iconOpacity = !unlocked && !done ? 0.65 : 1;
 
+            const isPressed = pressedId === l.id;
+            const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
+            const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
             return (
               <button
                 key={l.id}
@@ -230,6 +307,10 @@ export default function MapPage() {
                 disabled={!unlocked}
                 aria-label={`${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}`}
                 onClick={() => unlocked && navigate(`/lesson/${chapter}/${l.id}`)}
+                onPointerDown={() => unlocked && setPressedId(l.id)}
+                onPointerUp={() => setPressedId(null)}
+                onPointerLeave={() => setPressedId(null)}
+                onPointerCancel={() => setPressedId(null)}
                 style={{
                   position: 'absolute',
                   left: leftPx, top: slot.top,
@@ -237,7 +318,8 @@ export default function MapPage() {
                   borderRadius: '50% / 60%',
                   border: 'none',
                   background: baseColor,
-                  boxShadow: `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`,
+                  boxShadow: isPressed ? pressShadow : restShadow,
+                  transform: isPressed ? 'translateY(8px)' : 'none',
                   cursor: unlocked ? 'pointer' : 'not-allowed',
                   opacity: unlocked ? 1 : 0.7,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -258,6 +340,15 @@ export default function MapPage() {
             );
           })}
         </div>
+      )}
+
+      {/* Key Sentences overlay */}
+      {showKeySheet && (
+        <KeySentencesSheet
+          chapter={chapter}
+          titleEn={meta.titleEn}
+          onClose={() => setShowKeySheet(false)}
+        />
       )}
     </div>
   );

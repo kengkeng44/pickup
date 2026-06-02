@@ -204,7 +204,14 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   useEffect(() => {
     setRevealed(false); setSelected(null);
-    try { speak(en); } catch {}
+    // v2.0.B.176: chain sentence + question audio (sentence MP3 onEnd → 400ms gap → question WebSpeech)
+    try {
+      speak(en, 'en-US', {
+        onEnd: () => {
+          if (qPrompt) window.setTimeout(() => { try { speak(qPrompt); } catch {} }, 400);
+        }
+      });
+    } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
