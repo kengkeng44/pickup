@@ -8,7 +8,7 @@
  * No cache versioning yet — relies on filename-hashed Vite chunks for
  * cache busting. SW itself is updated by browser detecting byte diff.
  */
-const CACHE_VERSION = 'pickup-v2.0.B.165';
+const CACHE_VERSION = 'pickup-v2.0.B.174';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
