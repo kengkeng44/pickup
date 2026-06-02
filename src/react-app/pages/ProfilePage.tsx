@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import { useRunStore } from '../../store/runStore';
+import { readXp, levelForXp } from '../../data/xp';
+import { readCoins } from '../../data/coins';
 
 export default function ProfilePage() {
   const streak = useRunStore(s => s.streak);
+  // v2.0.B.191 P1 fix (UI/UX): wire stats to real data layer (was '—' literals)
+  const xp = readXp();
+  const coins = readCoins();
+  const level = levelForXp(xp);
   const [catName, setCatName] = useState(() => {
     try { return localStorage.getItem('pickup.catName') ?? 'Mochi'; } catch { return 'Mochi'; }
   });
@@ -37,9 +43,9 @@ export default function ProfilePage() {
         <h2 style={{ margin: '0 0 12px', fontSize: 15, fontWeight: 800, color: '#3c2a1c' }}>統計</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Stat label="連勝 Streak" value={`${streak} 🔥`} />
-          <Stat label="XP" value="—" />
-          <Stat label="Coins" value="—" />
-          <Stat label="Level" value="A2" />
+          <Stat label="XP" value={String(xp)} />
+          <Stat label="Coins" value={String(coins)} />
+          <Stat label="Crown Level" value={`L${level}`} />
         </div>
       </div>
     </div>
