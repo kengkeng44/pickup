@@ -156,4 +156,71 @@ A: 同 infisical dashboard → Machine Identity → Client Secrets → Revoke。
 
 ---
 
-*Last updated: 2026-06-02 by Claude (Opus 4.7) — 本 doc 在 Desktop\todo-永久token設定.md*
+---
+
+# 其他 Todos
+
+## ✏️ Sketch-to-Code workflow (Pencil + AI 工作流)
+
+> Inspired by this.web Instagram 2026-06-03: 「用 PENCIL 快速產出設計 PROTOTYPE 真的方便 / 有畫面後再給 AI 開發比較能對齊想法」
+> **核心理論**: 思考速度 > 工具學習成本。Figma 學 1 週,Pencil 手繪 5 分鐘。Claude 3.5+ 讀手繪 sketch ≈ 讀 Figma 高保真,因為 AI 抓「結構意圖」不抓像素。
+
+### 為什麼值得設
+
+| 痛點現況 | 改後 |
+|---------|------|
+| 想到 UI idea → 用文字描述給我 → 我猜 → 跑出來不是你想的 | 你畫 5 分鐘 sketch → 截圖貼給我 → 我直接 implement → 第 1 次接近 80% 對 |
+| 細節迭代 6-8 輪溝通 | 細節迭代 2-3 輪 |
+| 卡在 padding 8 vs 10 的 bikeshedding | 強迫粗顆粒,先 ship 大架構 |
+| 對動畫腳本說不清 | 畫 frame 1 / frame 2 / frame 3 直接看流程 |
+
+### Setup 步驟 (一次性 15 分鐘)
+
+- [ ] **Step 1**: iPad 開 App Store 裝 sketch 工具二選一
+  - **Procreate** ($13 USD,一次買斷) — 質感最好,有畫筆庫
+  - **Apple Notes** (內建免費) — 開新 note → 工具列點 Apple Pencil icon → 開始畫
+- [ ] **Step 2**: Apple Pencil 配對 iPad (若沒配過,iPad 設定 → 藍牙 → 把 pencil 靠近 iPad)
+- [ ] **Step 3**: 開 Pickup 想改的畫面 (e.g. 你的 MapPage 截圖) 設成參考圖層
+- [ ] **Step 4**: 畫 5 分鐘草稿 — 不用美觀,wireframe-level 即可
+- [ ] **Step 5**: iPad 截圖 (按電源 + 音量上鍵)
+- [ ] **Step 6**: 截圖傳 (AirDrop / iCloud / Telegram) 到你跟我對話的設備
+
+### 每次用法
+
+對話訊息貼上截圖 + 一行 prompt:
+
+```
+這是我想要的 [MapPage HUD redesign] 大致長相。
+照這結構在 React + 現有 #f1ebe1 色系實作。
+我有標的紅圈 = 必須對齊的細節,其他你發揮。
+```
+
+我看圖 → 寫 code → ship 進 dist/ → 你看實際效果。不對就再回:
+
+```
+banner 顏色太亮,降 15% 飽和
+中間那塊 padding 太擠
+```
+
+### Tooling 排序 (依適合度 + 學習門檻)
+
+1. **Apple Notes + Pencil** — 0 學習成本,iOS 內建。畫風偏簡單但夠用。**推薦從這開始**
+2. **Excalidraw** (web,免費,瀏覽器開 excalidraw.com) — 純線稿,AI 解析最乾淨。如果你不愛 iPad 可改 web
+3. **Procreate** — $13 一次買斷。當你開始覺得 Apple Notes 不夠細才升級
+4. **tldraw** (web,免費,tldraw.com) — 內建「Make it real」AI plugin 直接 sketch → code,但獨立於我們對話,token 計到他們 OpenAI 帳
+
+### Pickup 適用 / 不適用
+
+- ✅ 適合: 新題型 UI、Map / HUD layout、動畫 storyboard、章節介面 redesign
+- ❌ 不適合: 動態互動細節 (e.g. sticky-bottom 滑動行為,圖無法表達)、design system audit (color token 細修)
+
+### Token 成本估
+
+- 一張 1024×1024 image input ≈ 2000 tokens
+- 多輪 iteration × Claude 回 code (~5K tokens) ≈ 10-30K tokens 一個 component
+- 你 Max 5x ($100/月) 配額 ≈ 50M tokens/月,200-300 components/月,不會缺
+- 比起雇設計師 ($1500-3000/月) 是 token 成本佔 $1-2 的等級
+
+---
+
+*Last updated: 2026-06-03 by Claude (Opus 4.7) — 本 doc 在 Desktop\todo-永久token設定.md*
