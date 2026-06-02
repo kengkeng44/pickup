@@ -1241,6 +1241,21 @@ h1, h2 {
   }
 }
 
+/* v2.0.B.177: full-bleed page wrapper. Cancels the 12px/16px padding +
+ * gap that #app puts around its flex-column children, so pages like
+ * MapPage can paint their warm-cream background edge-to-edge instead of
+ * showing the parent's lighter cream as a "white border". Negative
+ * margins must MATCH #app's padding values exactly. */
+.pickup-full-bleed {
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: calc(-1 * max(12px, env(safe-area-inset-top)));
+  margin-bottom: calc(-1 * max(16px, env(safe-area-inset-bottom)));
+  width: calc(100% + 32px);
+  /* Cancel #app's flex `gap: 10px` that would otherwise add a strip
+   * between this page and the (currently absent) BottomNav sibling. */
+}
+
 /* v1.9.33 audit #12: map-node static styles hoisted to a class so the
  * 8 nodes don't re-write 18 identical inline styles each on mount. Only
  * the truly dynamic bits (position, gradient base color, shadow color,

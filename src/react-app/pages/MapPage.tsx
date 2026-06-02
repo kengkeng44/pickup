@@ -177,7 +177,7 @@ export default function MapPage() {
   }, [chapter]);
 
   return (
-    <div style={{
+    <div className="pickup-full-bleed" style={{
       background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
