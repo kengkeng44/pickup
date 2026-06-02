@@ -31,40 +31,74 @@
     font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
     font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 
-  /* Sticky header */
+  /* v2.0.B.180: compact sticky header. Was ~440px tall on mobile; now ~140px. */
   header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
-    backdrop-filter: blur(8px); border-bottom: 2px solid var(--border);
-    padding: max(12px, env(safe-area-inset-top)) 14px 10px; }
-  h1 { margin: 0 0 8px; font-size: 18px; font-weight: 900; color: var(--text); display: flex; align-items: center; gap: 8px; }
-  h1 .subtitle { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
-  .filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  .filter-chip { display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px;
+    backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
+    padding: max(8px, env(safe-area-inset-top)) 10px 6px; }
+  .head-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  h1 { margin: 0; font-size: 14px; font-weight: 900; color: var(--text);
+    display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0; }
+  h1 .emoji { font-size: 16px; }
+  h1 .stats-inline { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: 0.3px;
+    white-space: nowrap; }
+  .head-actions { display: flex; gap: 4px; flex: 0 0 auto; }
+  .head-btn { width: 30px; height: 30px; padding: 0; background: #fffbf2;
+    border: 1.5px solid var(--border); border-radius: 8px; color: var(--accent-dark);
+    font-size: 13px; cursor: pointer; font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .head-btn.active { background: var(--accent); color: #fff; border-color: var(--accent-dark); }
+
+  /* Horizontal-scroll chip strip — single row, snap-scroll */
+  .chip-strip { display: flex; flex-wrap: nowrap; gap: 5px;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px; margin: 0 -10px; padding-left: 10px; padding-right: 10px;
+    scrollbar-width: none; }
+  .chip-strip::-webkit-scrollbar { display: none; }
+  .filter-chip { display: inline-flex; align-items: center; gap: 3px; padding: 5px 9px;
     border-radius: 999px; border: 1.5px solid var(--border); background: #fffbf2;
-    color: var(--text); font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit;
+    color: var(--text); font-size: 11px; font-weight: 800; cursor: pointer; font-family: inherit;
+    white-space: nowrap; flex: 0 0 auto; scroll-snap-align: start;
     -webkit-tap-highlight-color: transparent; touch-action: manipulation;
     transition: background 120ms, border-color 120ms, color 120ms; }
   .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent-dark); }
-  .filter-chip:hover { border-color: var(--accent); }
-  .filter-chip .count { opacity: 0.7; font-weight: 600; }
-  #search { flex: 1; min-width: 140px; padding: 7px 10px; font-size: 13px;
+  .filter-chip .count { opacity: 0.7; font-weight: 600; font-size: 10px; }
+
+  /* Collapsible type-filter panel */
+  .type-panel { max-height: 0; overflow: hidden;
+    transition: max-height 200ms ease-out; }
+  .type-panel.expanded { max-height: 220px; overflow-y: auto; }
+  .type-panel .chip-strip { flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; gap: 4px; }
+
+  /* Search bar — slim inline */
+  .search-row { display: flex; gap: 6px; align-items: center; margin-top: 5px; }
+  #search { flex: 1; padding: 5px 9px; font-size: 12px;
     font-family: inherit; border: 1.5px solid var(--border); border-radius: 8px;
     background: #fffbf2; color: var(--text); }
   #search:focus { outline: none; border-color: var(--accent); }
-  .stats { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  #search::-webkit-search-cancel-button { -webkit-appearance: none;
+    width: 14px; height: 14px; background: var(--muted); border-radius: 50%;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center/14px no-repeat; cursor: pointer; }
 
-  /* Content */
-  main { padding: 14px; max-width: 720px; margin: 0 auto; }
-  .lesson-block { margin-bottom: 26px; }
-  .lesson-head { font-size: 13px; font-weight: 800; color: var(--accent-dark);
-    margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px dashed var(--border);
-    display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .lesson-head .lesson-id { font-family: ui-monospace, Consolas, monospace; font-size: 11px;
-    background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 999px; }
-  .lesson-head .lesson-beat { color: var(--text); font-weight: 700; }
-  .lesson-head .lesson-meta { font-size: 10px; color: var(--muted); font-weight: 600; margin-left: auto; }
+  /* Content — tightened density */
+  main { padding: 10px 12px 80px; max-width: 720px; margin: 0 auto; }
+  .lesson-block { margin-bottom: 18px; }
+  .lesson-head { font-size: 12px; font-weight: 800; color: var(--accent-dark);
+    margin-bottom: 6px; padding: 6px 10px; background: rgba(200,168,120,0.10);
+    border-radius: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    position: sticky; top: 140px; z-index: 5; backdrop-filter: blur(6px); }
+  .lesson-head .ch-prefix { font-family: ui-monospace, Consolas, monospace; font-size: 10px;
+    background: var(--accent-dark); color: #fff; padding: 2px 6px; border-radius: 4px;
+    font-weight: 900; letter-spacing: 0.3px; }
+  .lesson-head .lesson-id { font-family: ui-monospace, Consolas, monospace; font-size: 10px;
+    background: var(--accent); color: #fff; padding: 2px 7px; border-radius: 999px; font-weight: 700; }
+  .lesson-head .lesson-beat { color: var(--text); font-weight: 800; font-size: 13px; }
+  .lesson-head .lesson-meta { font-size: 9px; color: var(--muted); font-weight: 600; margin-left: auto; }
 
-  .q-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 12px;
-    padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 0 var(--border); }
+  .q-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 10px; margin-bottom: 6px; box-shadow: 0 1px 0 var(--border); }
   .q-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
   .type-chip { display: inline-block; padding: 2px 8px; border-radius: 999px;
     font-size: 10px; font-weight: 900; color: #fff; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -162,17 +196,30 @@
 </head>
 <body>
 <header>
-  <h1>📖 Pickup Q&A 對照表 <span class="subtitle">Source of Truth</span></h1>
-  <div class="filters" id="ch-filters">
+  <div class="head-row">
+    <h1>
+      <span class="emoji">📖</span>
+      <span>Q&A 對照</span>
+      <span class="stats-inline" id="stats">載入中…</span>
+    </h1>
+    <div class="head-actions">
+      <button id="prev-ch" class="head-btn" aria-label="上一章" title="上一章">◀</button>
+      <button id="next-ch" class="head-btn" aria-label="下一章" title="下一章">▶</button>
+      <button id="toggle-types" class="head-btn" aria-label="題型篩選" title="題型篩選">⚙</button>
+      <button id="scroll-top" class="head-btn" aria-label="回到頂端" title="回到頂端">▲</button>
+    </div>
+  </div>
+  <div class="chip-strip" id="ch-filters">
     <!-- chapter chips injected here -->
   </div>
-  <div class="filters" id="type-filters" style="margin-top:6px;">
-    <!-- type chips injected here -->
+  <div class="type-panel" id="type-panel">
+    <div class="chip-strip" id="type-filters">
+      <!-- type chips injected here -->
+    </div>
   </div>
-  <div class="filters" style="margin-top:6px;">
-    <input id="search" type="search" placeholder="🔍 搜 sentence / question / id …" autocomplete="off">
+  <div class="search-row">
+    <input id="search" type="search" placeholder="🔍 搜 sentence / question / id…" autocomplete="off">
   </div>
-  <div class="stats" id="stats">載入中…</div>
 </header>
 <main id="content">
   <div class="loading">載入 lessons JSON…</div>
@@ -278,10 +325,20 @@
       const total = (state.lessonsByChapter[ch] || []).reduce((s, l) => s + (l.questions?.length || 0), 0);
       const chip = document.createElement('button');
       chip.className = 'filter-chip' + (ch === state.activeChapter ? ' active' : '');
-      chip.innerHTML = `Ch${ch} · ${escapeHtml(CHAPTER_TITLES[ch] || '')} <span class="count">${total}</span>`;
-      chip.onclick = () => { state.activeChapter = ch; renderFilters(); render(); };
+      chip.dataset.ch = ch;
+      // v2.0.B.180: compact label — Ch# + abbreviated title (first 3 chars CJK)
+      const abbr = (CHAPTER_TITLES[ch] || '').slice(0, 4);
+      chip.innerHTML = `Ch${ch} ${escapeHtml(abbr)} <span class="count">${total}</span>`;
+      chip.onclick = () => { state.activeChapter = ch; renderFilters(); render(); scrollChipIntoView(); };
       chBar.appendChild(chip);
     }
+    // Auto-scroll active chip into view
+    requestAnimationFrame(scrollChipIntoView);
+  }
+
+  function scrollChipIntoView() {
+    const active = document.querySelector('#ch-filters .filter-chip.active');
+    if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
     const tBar = document.getElementById('type-filters');
     tBar.innerHTML = '';
@@ -424,10 +481,11 @@
 
       html.push(`<div class="lesson-block">`);
       html.push(`<div class="lesson-head">`);
+      // v2.0.B.180: ch prefix for visual chapter alignment when comparing
+      html.push(`<span class="ch-prefix">Ch${state.activeChapter}</span>`);
       html.push(`<span class="lesson-id">${escapeHtml(lesson.id)}</span>`);
       if (lesson.storyBeat) html.push(`<span class="lesson-beat">${escapeHtml(applyDefaults(lesson.storyBeat))}</span>`);
-      const intro = lesson.intro?.zh;
-      if (intro) html.push(`<span class="lesson-meta">${escapeHtml(applyDefaults(intro)).slice(0, 60)}</span>`);
+      html.push(`<span class="lesson-meta">${filteredQ.length}Q</span>`);
       html.push(`</div>`);
       for (const q of filteredQ) html.push(renderQCard(q));
       html.push(`</div>`);
@@ -439,7 +497,7 @@
       content.innerHTML = html.join('');
     }
     document.getElementById('stats').textContent =
-      `Ch${state.activeChapter}: 顯示 ${shownQ} / 共 ${totalQ} 題 · ${lessons.length} lessons`;
+      `· ${shownQ}/${totalQ} Q · ${lessons.length}L`;
 
     // wire speaker buttons + dashed-underline word taps (both speak their text)
     content.querySelectorAll('.speaker-btn').forEach(btn => {
@@ -455,6 +513,23 @@
     state.search = e.target.value;
     render();
   });
+
+  // ─── v2.0.B.180: header action buttons ─────────────────────────────────
+  document.getElementById('prev-ch').onclick = () => {
+    const idx = CHAPTERS.indexOf(state.activeChapter);
+    if (idx > 0) { state.activeChapter = CHAPTERS[idx - 1]; renderFilters(); render(); window.scrollTo({ top: 0 }); }
+  };
+  document.getElementById('next-ch').onclick = () => {
+    const idx = CHAPTERS.indexOf(state.activeChapter);
+    if (idx < CHAPTERS.length - 1) { state.activeChapter = CHAPTERS[idx + 1]; renderFilters(); render(); window.scrollTo({ top: 0 }); }
+  };
+  document.getElementById('toggle-types').onclick = () => {
+    const panel = document.getElementById('type-panel');
+    const btn = document.getElementById('toggle-types');
+    panel.classList.toggle('expanded');
+    btn.classList.toggle('active');
+  };
+  document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // ─── Boot ──────────────────────────────────────────────────────────────
   loadAll().catch(err => {
