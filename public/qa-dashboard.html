@@ -31,56 +31,114 @@
     font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
     font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 
-  /* v2.0.B.180: compact sticky header. Was ~440px tall on mobile; now ~140px. */
+  /* v2.0.B.181: ultra-compact 44px top bar + slide-out drawer */
   header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
     backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
-    padding: max(8px, env(safe-area-inset-top)) 10px 6px; }
-  .head-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-  h1 { margin: 0; font-size: 14px; font-weight: 900; color: var(--text);
-    display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0; }
-  h1 .emoji { font-size: 16px; }
-  h1 .stats-inline { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: 0.3px;
-    white-space: nowrap; }
-  .head-actions { display: flex; gap: 4px; flex: 0 0 auto; }
-  .head-btn { width: 30px; height: 30px; padding: 0; background: #fffbf2;
-    border: 1.5px solid var(--border); border-radius: 8px; color: var(--accent-dark);
-    font-size: 13px; cursor: pointer; font-family: inherit;
+    padding: max(8px, env(safe-area-inset-top)) 12px 8px;
+    display: flex; align-items: center; gap: 10px; min-height: 44px; }
+  .hamburger { width: 32px; height: 32px; padding: 0; background: transparent;
+    border: none; cursor: pointer; font-family: inherit;
     display: inline-flex; align-items: center; justify-content: center;
-    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-  .head-btn.active { background: var(--accent); color: #fff; border-color: var(--accent-dark); }
-
-  /* Horizontal-scroll chip strip — single row, snap-scroll */
-  .chip-strip { display: flex; flex-wrap: nowrap; gap: 5px;
-    overflow-x: auto; overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px; margin: 0 -10px; padding-left: 10px; padding-right: 10px;
-    scrollbar-width: none; }
-  .chip-strip::-webkit-scrollbar { display: none; }
-  .filter-chip { display: inline-flex; align-items: center; gap: 3px; padding: 5px 9px;
-    border-radius: 999px; border: 1.5px solid var(--border); background: #fffbf2;
-    color: var(--text); font-size: 11px; font-weight: 800; cursor: pointer; font-family: inherit;
-    white-space: nowrap; flex: 0 0 auto; scroll-snap-align: start;
     -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-    transition: background 120ms, border-color 120ms, color 120ms; }
-  .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent-dark); }
-  .filter-chip .count { opacity: 0.7; font-weight: 600; font-size: 10px; }
+    flex: 0 0 auto; color: var(--text); }
+  .hamburger svg { width: 22px; height: 22px; display: block; }
+  h1 { margin: 0; font-size: 15px; font-weight: 900; color: var(--text);
+    display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  h1 .emoji { font-size: 17px; }
+  h1 .stats-inline { font-size: 10px; color: var(--muted); font-weight: 700;
+    letter-spacing: 0.3px; white-space: nowrap; }
 
-  /* Collapsible type-filter panel */
-  .type-panel { max-height: 0; overflow: hidden;
-    transition: max-height 200ms ease-out; }
-  .type-panel.expanded { max-height: 220px; overflow-y: auto; }
-  .type-panel .chip-strip { flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; gap: 4px; }
+  /* Backdrop overlay */
+  .backdrop { position: fixed; inset: 0; background: rgba(60,42,28,0.45);
+    z-index: 90; opacity: 0; pointer-events: none;
+    transition: opacity 240ms ease-out; backdrop-filter: blur(2px); }
+  .backdrop.open { opacity: 1; pointer-events: auto; }
 
-  /* Search bar — slim inline */
-  .search-row { display: flex; gap: 6px; align-items: center; margin-top: 5px; }
-  #search { flex: 1; padding: 5px 9px; font-size: 12px;
+  /* Slide-out drawer */
+  .drawer { position: fixed; left: 0; top: 0; bottom: 0;
+    width: 65%; max-width: 320px; min-width: 240px;
+    background: var(--bg); z-index: 100;
+    transform: translateX(-100%); transition: transform 240ms ease-out;
+    box-shadow: 2px 0 20px rgba(60,42,28,0.18);
+    display: flex; flex-direction: column;
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .drawer.open { transform: translateX(0); }
+  .drawer-head { padding: 4px 14px 10px; display: flex; align-items: center;
+    border-bottom: 1.5px solid var(--border); margin-bottom: 4px; }
+  .drawer-head-title { flex: 1; font-size: 13px; font-weight: 900; color: var(--accent-dark);
+    letter-spacing: 0.5px; text-transform: uppercase; }
+  .close-btn { width: 32px; height: 32px; padding: 0; background: transparent;
+    border: none; cursor: pointer; font-family: inherit; color: var(--muted);
+    font-size: 22px; line-height: 1; display: inline-flex;
+    align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .close-btn:hover { color: var(--text); }
+
+  /* Drawer section (<details>) */
+  .drawer-section { border-bottom: 1px solid var(--border); padding: 0; }
+  .drawer-section[open] { background: rgba(200,168,120,0.05); }
+  .drawer-section summary { list-style: none; cursor: pointer;
+    padding: 12px 14px; font-size: 13px; font-weight: 900; color: var(--text);
+    display: flex; align-items: center; gap: 8px;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    user-select: none; }
+  .drawer-section summary::-webkit-details-marker { display: none; }
+  .drawer-section summary::after { content: '▾'; margin-left: auto;
+    color: var(--muted); font-size: 11px; transition: transform 160ms ease-out; }
+  .drawer-section[open] summary::after { transform: rotate(180deg); }
+  .drawer-section .emoji { font-size: 15px; }
+  .drawer-section .badge { font-size: 10px; color: var(--muted); font-weight: 700;
+    background: rgba(200,168,120,0.18); padding: 2px 7px; border-radius: 999px;
+    margin-left: 4px; }
+  .drawer-body { padding: 4px 12px 12px; }
+
+  /* Drawer list items (chapter + type rows) */
+  .drawer-item { display: flex; align-items: center; gap: 8px; padding: 9px 10px;
+    font-size: 13px; color: var(--text); cursor: pointer;
+    border-radius: 8px; margin-bottom: 2px;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    transition: background 100ms; }
+  .drawer-item:hover { background: rgba(200,168,120,0.10); }
+  .drawer-item.active { background: var(--accent); color: #fff; font-weight: 800; }
+  .drawer-item .check { flex: 0 0 18px; height: 18px; width: 18px;
+    border: 1.5px solid var(--border); border-radius: 4px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #fffbf2; font-size: 11px; color: transparent; transition: all 100ms; }
+  .drawer-item.active .check { background: #fff; color: var(--accent-dark);
+    border-color: var(--accent-dark); }
+  .drawer-item .check.radio { border-radius: 50%; }
+  .drawer-item .label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; }
+  .drawer-item .count { flex: 0 0 auto; font-size: 10px; opacity: 0.7;
+    font-family: ui-monospace, Consolas, monospace; }
+  .drawer-item.active .count { opacity: 0.9; }
+
+  /* Drawer search input */
+  #search { width: 100%; padding: 8px 12px; font-size: 13px;
     font-family: inherit; border: 1.5px solid var(--border); border-radius: 8px;
     background: #fffbf2; color: var(--text); }
   #search:focus { outline: none; border-color: var(--accent); }
-  #search::-webkit-search-cancel-button { -webkit-appearance: none;
-    width: 14px; height: 14px; background: var(--muted); border-radius: 50%;
-    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>") center/14px no-repeat; cursor: pointer; }
+
+  /* Drawer action buttons */
+  .drawer-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .drawer-actions button { padding: 9px 8px; font-size: 12px; font-weight: 800;
+    background: #fffbf2; border: 1.5px solid var(--border); border-radius: 8px;
+    color: var(--text); cursor: pointer; font-family: inherit;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    transition: background 100ms, border-color 100ms; }
+  .drawer-actions button:hover { border-color: var(--accent); }
+  .drawer-actions button:active { background: var(--accent); color: #fff; }
+
+  /* Active filter pill bar (shown when filter is non-default, in main view) */
+  .filter-summary { display: none; gap: 4px; padding: 6px 10px;
+    background: rgba(200,168,120,0.12); border-bottom: 1px solid var(--border);
+    font-size: 11px; color: var(--muted); }
+  .filter-summary.show { display: flex; flex-wrap: wrap; align-items: center; }
+  .filter-summary .chip { background: var(--accent); color: #fff;
+    padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 10px; }
 
   /* Content — tightened density */
   main { padding: 10px 12px 80px; max-width: 720px; margin: 0 auto; }
@@ -88,7 +146,7 @@
   .lesson-head { font-size: 12px; font-weight: 800; color: var(--accent-dark);
     margin-bottom: 6px; padding: 6px 10px; background: rgba(200,168,120,0.10);
     border-radius: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
-    position: sticky; top: 140px; z-index: 5; backdrop-filter: blur(6px); }
+    position: sticky; top: 44px; z-index: 5; backdrop-filter: blur(6px); }
   .lesson-head .ch-prefix { font-family: ui-monospace, Consolas, monospace; font-size: 10px;
     background: var(--accent-dark); color: #fff; padding: 2px 6px; border-radius: 4px;
     font-weight: 900; letter-spacing: 0.3px; }
@@ -196,31 +254,60 @@
 </head>
 <body>
 <header>
-  <div class="head-row">
-    <h1>
-      <span class="emoji">📖</span>
-      <span>Q&A 對照</span>
-      <span class="stats-inline" id="stats">載入中…</span>
-    </h1>
-    <div class="head-actions">
-      <button id="prev-ch" class="head-btn" aria-label="上一章" title="上一章">◀</button>
-      <button id="next-ch" class="head-btn" aria-label="下一章" title="下一章">▶</button>
-      <button id="toggle-types" class="head-btn" aria-label="題型篩選" title="題型篩選">⚙</button>
-      <button id="scroll-top" class="head-btn" aria-label="回到頂端" title="回到頂端">▲</button>
-    </div>
-  </div>
-  <div class="chip-strip" id="ch-filters">
-    <!-- chapter chips injected here -->
-  </div>
-  <div class="type-panel" id="type-panel">
-    <div class="chip-strip" id="type-filters">
-      <!-- type chips injected here -->
-    </div>
-  </div>
-  <div class="search-row">
-    <input id="search" type="search" placeholder="🔍 搜 sentence / question / id…" autocomplete="off">
-  </div>
+  <button class="hamburger" id="open-drawer" aria-label="開啟篩選選單">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+    </svg>
+  </button>
+  <h1>
+    <span class="emoji">📖</span>
+    <span>Q&A 對照</span>
+    <span class="stats-inline" id="stats">載入中…</span>
+  </h1>
 </header>
+
+<div class="filter-summary" id="filter-summary"></div>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-head-title">篩選 Filter</span>
+    <button class="close-btn" id="close-drawer" aria-label="關閉">×</button>
+  </div>
+
+  <details class="drawer-section" open>
+    <summary><span class="emoji">📚</span>章節 <span class="badge" id="ch-active-badge">Ch1</span></summary>
+    <div class="drawer-body" id="d-ch-list">
+      <!-- chapter rows injected -->
+    </div>
+  </details>
+
+  <details class="drawer-section">
+    <summary><span class="emoji">🎯</span>題型 <span class="badge" id="type-active-badge">全部</span></summary>
+    <div class="drawer-body" id="d-type-list">
+      <!-- type rows injected -->
+    </div>
+  </details>
+
+  <details class="drawer-section">
+    <summary><span class="emoji">🔍</span>搜尋</summary>
+    <div class="drawer-body">
+      <input id="search" type="search" placeholder="sentence / question / id…" autocomplete="off">
+    </div>
+  </details>
+
+  <details class="drawer-section">
+    <summary><span class="emoji">⚡</span>動作</summary>
+    <div class="drawer-body">
+      <div class="drawer-actions">
+        <button id="prev-ch">◀ 上一章</button>
+        <button id="next-ch">下一章 ▶</button>
+        <button id="scroll-top">▲ 回頂端</button>
+        <button id="reset-filter">⊘ 重置</button>
+      </div>
+    </div>
+  </details>
+</aside>
 <main id="content">
   <div class="loading">載入 lessons JSON…</div>
 </main>
@@ -319,46 +406,91 @@
 
   // ─── Filter chips ──────────────────────────────────────────────────────
   function renderFilters() {
-    const chBar = document.getElementById('ch-filters');
-    chBar.innerHTML = '';
+    // v2.0.B.181: chapter list inside drawer (radio-style, full-row)
+    const chList = document.getElementById('d-ch-list');
+    chList.innerHTML = '';
     for (const ch of CHAPTERS) {
       const total = (state.lessonsByChapter[ch] || []).reduce((s, l) => s + (l.questions?.length || 0), 0);
-      const chip = document.createElement('button');
-      chip.className = 'filter-chip' + (ch === state.activeChapter ? ' active' : '');
-      chip.dataset.ch = ch;
-      // v2.0.B.180: compact label — Ch# + abbreviated title (first 3 chars CJK)
-      const abbr = (CHAPTER_TITLES[ch] || '').slice(0, 4);
-      chip.innerHTML = `Ch${ch} ${escapeHtml(abbr)} <span class="count">${total}</span>`;
-      chip.onclick = () => { state.activeChapter = ch; renderFilters(); render(); scrollChipIntoView(); };
-      chBar.appendChild(chip);
+      const row = document.createElement('div');
+      row.className = 'drawer-item' + (ch === state.activeChapter ? ' active' : '');
+      row.innerHTML = `<span class="check radio">${ch === state.activeChapter ? '●' : ''}</span>
+        <span class="label">Ch${ch} · ${escapeHtml(CHAPTER_TITLES[ch] || '')}</span>
+        <span class="count">${total}</span>`;
+      row.onclick = () => {
+        state.activeChapter = ch;
+        renderFilters(); render(); updateFilterSummary();
+        closeDrawer();
+        window.scrollTo({ top: 0 });
+      };
+      chList.appendChild(row);
     }
-    // Auto-scroll active chip into view
-    requestAnimationFrame(scrollChipIntoView);
-  }
+    // Active badge in drawer summary
+    document.getElementById('ch-active-badge').textContent = `Ch${state.activeChapter}`;
 
-  function scrollChipIntoView() {
-    const active = document.querySelector('#ch-filters .filter-chip.active');
-    if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // v2.0.B.181: type list inside drawer (multi-checkbox, full-row)
+    const tList = document.getElementById('d-type-list');
+    tList.innerHTML = '';
+    // 'All' reset row
+    const allRow = document.createElement('div');
+    allRow.className = 'drawer-item' + (state.activeTypes.size === 0 ? ' active' : '');
+    allRow.innerHTML = `<span class="check">${state.activeTypes.size === 0 ? '✓' : ''}</span>
+      <span class="label">全部題型</span>`;
+    allRow.onclick = () => { state.activeTypes.clear(); renderFilters(); render(); updateFilterSummary(); };
+    tList.appendChild(allRow);
 
-    const tBar = document.getElementById('type-filters');
-    tBar.innerHTML = '';
-    const allChip = document.createElement('button');
-    allChip.className = 'filter-chip' + (state.activeTypes.size === 0 ? ' active' : '');
-    allChip.textContent = '全部題型';
-    allChip.onclick = () => { state.activeTypes.clear(); renderFilters(); render(); };
-    tBar.appendChild(allChip);
     const types = Object.keys(state.typeStats).sort();
     for (const t of types) {
-      const chip = document.createElement('button');
-      chip.className = 'filter-chip' + (state.activeTypes.has(t) ? ' active' : '');
-      chip.innerHTML = `${escapeHtml(t)} <span class="count">${state.typeStats[t]}</span>`;
-      chip.onclick = () => {
+      const row = document.createElement('div');
+      const on = state.activeTypes.has(t);
+      row.className = 'drawer-item' + (on ? ' active' : '');
+      row.innerHTML = `<span class="check">${on ? '✓' : ''}</span>
+        <span class="label">${escapeHtml(t)}</span>
+        <span class="count">${state.typeStats[t]}</span>`;
+      row.onclick = () => {
         if (state.activeTypes.has(t)) state.activeTypes.delete(t);
         else state.activeTypes.add(t);
-        renderFilters(); render();
+        renderFilters(); render(); updateFilterSummary();
       };
-      tBar.appendChild(chip);
+      tList.appendChild(row);
     }
+    // Active badge in drawer summary
+    document.getElementById('type-active-badge').textContent =
+      state.activeTypes.size === 0 ? '全部' : `${state.activeTypes.size}項`;
+  }
+
+  // v2.0.B.181: inline filter-summary bar under header (only when filter ≠ default)
+  function updateFilterSummary() {
+    const bar = document.getElementById('filter-summary');
+    const chips = [];
+    if (state.activeTypes.size > 0) {
+      for (const t of state.activeTypes) {
+        chips.push(`<span class="chip">${escapeHtml(t)}</span>`);
+      }
+    }
+    if (state.search.trim()) {
+      chips.push(`<span class="chip">🔍 ${escapeHtml(state.search.trim())}</span>`);
+    }
+    if (chips.length === 0) {
+      bar.classList.remove('show');
+      bar.innerHTML = '';
+    } else {
+      bar.classList.add('show');
+      bar.innerHTML = '篩選: ' + chips.join('');
+    }
+  }
+
+  // v2.0.B.181: drawer open/close
+  function openDrawer() {
+    document.getElementById('drawer').classList.add('open');
+    document.getElementById('drawer').setAttribute('aria-hidden', 'false');
+    document.getElementById('backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('drawer').setAttribute('aria-hidden', 'true');
+    document.getElementById('backdrop').classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   // ─── Q card builder ────────────────────────────────────────────────────
@@ -511,10 +643,17 @@
   // ─── Search wiring ─────────────────────────────────────────────────────
   document.getElementById('search').addEventListener('input', (e) => {
     state.search = e.target.value;
-    render();
+    render(); updateFilterSummary();
   });
 
-  // ─── v2.0.B.180: header action buttons ─────────────────────────────────
+  // ─── v2.0.B.181: drawer + action wiring ────────────────────────────────
+  document.getElementById('open-drawer').onclick = openDrawer;
+  document.getElementById('close-drawer').onclick = closeDrawer;
+  document.getElementById('backdrop').onclick = closeDrawer;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
   document.getElementById('prev-ch').onclick = () => {
     const idx = CHAPTERS.indexOf(state.activeChapter);
     if (idx > 0) { state.activeChapter = CHAPTERS[idx - 1]; renderFilters(); render(); window.scrollTo({ top: 0 }); }
@@ -523,13 +662,13 @@
     const idx = CHAPTERS.indexOf(state.activeChapter);
     if (idx < CHAPTERS.length - 1) { state.activeChapter = CHAPTERS[idx + 1]; renderFilters(); render(); window.scrollTo({ top: 0 }); }
   };
-  document.getElementById('toggle-types').onclick = () => {
-    const panel = document.getElementById('type-panel');
-    const btn = document.getElementById('toggle-types');
-    panel.classList.toggle('expanded');
-    btn.classList.toggle('active');
+  document.getElementById('scroll-top').onclick = () => { closeDrawer(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  document.getElementById('reset-filter').onclick = () => {
+    state.activeTypes.clear();
+    state.search = '';
+    document.getElementById('search').value = '';
+    renderFilters(); render(); updateFilterSummary();
   };
-  document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // ─── Boot ──────────────────────────────────────────────────────────────
   loadAll().catch(err => {
