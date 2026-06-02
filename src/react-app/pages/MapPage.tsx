@@ -7,6 +7,8 @@ import { useEffect, useState, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useRunStore, readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import KeySentencesSheet from '../components/KeySentencesSheet';
+import { readXp, levelForXp, levelProgress } from '../../data/xp';
+import { readCoins } from '../../data/coins';
 
 interface Lesson {
   id: string;
@@ -159,15 +161,17 @@ export default function MapPage() {
   }, [lessons.length, chapter]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
 
+  // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
+  // 從硬編 xp=0/level=1/coins=0 改成讀 localStorage 實際資料。
   // Crown tier per Phaser StoryMapView (L1-2 Silver, L3-4 Gold, L5+ Diamond)
-  const xp = 0;
-  const level = 1;
+  const xp = readXp();
+  const coins = readCoins();
+  const level = levelForXp(xp);
+  const progress = levelProgress(xp);
   const tierLabel = `L${level}`;
   const tierStroke = level >= 5 ? '#3a9eaa' : level >= 3 ? '#c79410' : '#7a8794';
   const tierFilter = level >= 5 ? 'hue-rotate(155deg) saturate(0.75)' : level >= 3 ? 'none' : 'saturate(0.12) brightness(0.95)';
-  const coins = 0;
   const firstTime = xp === 0;
-  void firstTime;
 
   useEffect(() => {
     setLoading(true);
@@ -190,7 +194,7 @@ export default function MapPage() {
         gap: 4, marginBottom: 8,
       }}>
         <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
-        <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level}`} onClick={() => navigate('/profile')} progress={0} />
+        <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
         <HudIcon src="/mascots/coin-gold.webp" value={firstTime ? '' : String(coins)} valueColor="#c79410" ariaLabel={`Coins ${coins}`} onClick={() => navigate('/profile')} />
         <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/tasks')} />
       </div>
