@@ -3,7 +3,7 @@
  * Constants from src/ui/StoryMapView.ts. User: '嚴格遵守原版設計 不要有
  * 任何的不一樣'.
  */
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useRunStore, readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import KeySentencesSheet from '../components/KeySentencesSheet';
@@ -160,6 +160,8 @@ export default function MapPage() {
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
   const [showKeySheet, setShowKeySheet] = useState(false);
+  // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
+  const currentNodeRef = useRef<HTMLButtonElement | null>(null);
   const streak = useRunStore(s => s.streak);
   const completed = readCompletedLessons(chapter);
   const meta = CHAPTER_META[chapter];
@@ -193,6 +195,24 @@ export default function MapPage() {
       .then(setLessons)
       .finally(() => setLoading(false));
   }, [chapter]);
+
+  // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view
+  // when lesson list ready. Senior 玩家完 lesson 回 map 直接看到下一個目標
+  // (vs 之前 24 個 node 中自己滑找)。300ms 等 layout settle + sticky header
+  // calc offset。
+  useEffect(() => {
+    if (!loading && currentNodeIdx >= 0 && currentNodeRef.current) {
+      const t = window.setTimeout(() => {
+        try {
+          currentNodeRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        } catch {}
+      }, 300);
+      return () => window.clearTimeout(t);
+    }
+  }, [loading, currentNodeIdx]);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -316,14 +336,17 @@ export default function MapPage() {
             const iconOpacity = !unlocked && !done ? 0.65 : 1;
 
             const isPressed = pressedId === l.id;
+            const isCurrent = i === currentNodeIdx;
             const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
             const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
             return (
               <button
                 key={l.id}
+                ref={isCurrent ? currentNodeRef : undefined}
+                className={isCurrent ? 'pickup-map-node-current' : undefined}
                 type="button"
                 disabled={!unlocked}
-                aria-label={`${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}`}
+                aria-label={`${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${isCurrent ? ' (current)' : ''}`}
                 onClick={() => unlocked && navigate(`/lesson/${chapter}/${l.id}`)}
                 onPointerDown={() => unlocked && setPressedId(l.id)}
                 onPointerUp={() => setPressedId(null)}
