@@ -36,6 +36,48 @@ h1 { margin: 0 0 4px; font-size: 19px; font-weight: 900; }
 }
 main { padding: 14px 16px 30px; max-width: 920px; margin: 0 auto; }
 
+/* v2.0.B.182: Q&A inspection shortcut tile (top of dashboard) */
+a.qa-shortcut {
+  display: flex; align-items: center; gap: 12px;
+  background: linear-gradient(135deg, #fff7e8 0%, #fef8ed 100%);
+  border: 2px solid var(--accent);
+  border-bottom: 4px solid var(--accent-dark);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 14px; text-decoration: none;
+  color: var(--text);
+  transition: transform 0.15s, box-shadow 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+a.qa-shortcut:hover, a.qa-shortcut:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(139, 111, 74, 0.18);
+}
+a.qa-shortcut .qa-icon {
+  flex: 0 0 44px; height: 44px; width: 44px;
+  background: var(--accent); color: white;
+  border-radius: 11px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 22px; box-shadow: 0 2px 0 var(--accent-dark);
+}
+a.qa-shortcut .qa-body { flex: 1; min-width: 0; }
+a.qa-shortcut .qa-title {
+  font-size: 15px; font-weight: 900; color: var(--text);
+  display: flex; align-items: center; gap: 6px;
+}
+a.qa-shortcut .qa-title .badge {
+  font-size: 9px; font-weight: 800; color: var(--accent-dark);
+  background: rgba(200,168,120,0.20); padding: 2px 6px;
+  border-radius: 999px; letter-spacing: 0.5px;
+}
+a.qa-shortcut .qa-desc {
+  font-size: 11px; color: var(--muted); font-weight: 600;
+  margin-top: 2px;
+}
+a.qa-shortcut .qa-arrow {
+  flex: 0 0 auto; color: var(--accent-dark); font-size: 20px;
+  font-weight: 900;
+}
+
 /* Top "next action" banner */
 section.next-action {
   background: linear-gradient(135deg, #fef3c7 0%, #fff7e8 100%);
@@ -217,6 +259,16 @@ footer {
 </header>
 
 <main>
+  <!-- v2.0.B.182: Q&A inspection shortcut (always at top) -->
+  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
+    <div class="qa-icon">📖</div>
+    <div class="qa-body">
+      <div class="qa-title">Q&A 對照表 <span class="badge">SOURCE OF TRUTH</span></div>
+      <div class="qa-desc">章節 / 題型 / 搜尋 · 對照遊戲 sentence / question / 答案</div>
+    </div>
+    <div class="qa-arrow">›</div>
+  </a>
+
   <!-- Next action banner -->
   <section class="next-action" id="next-action" style="display:none;">
     <h2 id="next-title">⚡ 下一步建議</h2>
