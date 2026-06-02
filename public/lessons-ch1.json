@@ -58,11 +58,39 @@
     },
     "questions": [
       {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l1-q0",
+        "level": "A1",
+        "difficulty": "easy",
+        "sentence": "Mochi is hungry. What can feed her?",
+        "question": "What can feed her?",
+        "options": [
+          "🐟 fish",
+          "🍬 candy",
+          "🍎 apple",
+          "🥛 milk"
+        ],
+        "optionsZh": [
+          "魚",
+          "糖",
+          "蘋果",
+          "牛奶"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 開心地吃了。她想跟你說個故事…",
+        "tags": [
+          "story",
+          "ch1",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "narration",
         "id": "kt-ch1-l1-n1",
         "level": "A2",
-        "sentence": "It is dark and cold tonight.",
-        "explanationZh": "",
+        "sentence": "It is dark and cold tonight. I am hungry.",
+        "explanationZh": "今晚又黑又冷。我餓了。",
         "tags": [
           "story",
           "ch1",

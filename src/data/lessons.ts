@@ -63,6 +63,13 @@ export const TypeWhatYouHearSchema = FourOptionShape.extend({
   type: z.literal('type-what-you-hear'),
 });
 
+// v2.0.B.197 (Ch1 hook): emoji-pick — 4 emoji 視覺選擇,A2 entry point.
+// 用於 Ch1 L1 Q0 開場 hook (3 秒情緒鉤 + 5 秒小勝利)。option string 格式
+// "🐟 fish" (emoji + space + EN label),renderer split 後分別大字 / 小字呈現。
+export const EmojiPickSchema = FourOptionShape.extend({
+  type: z.literal('emoji-pick'),
+});
+
 // v2.0.B.145: Duolingo Stories format — narration chunks + Chinese true/false.
 // Narration = story sentence, no answer, just listening + tap-reveal practice.
 export const NarrationSchema = z.object({
@@ -122,6 +129,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   NarrationSchema,
   ListenTfZhSchema,
   ListenTfSchema,
+  EmojiPickSchema,
 ]);
 
 // Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.

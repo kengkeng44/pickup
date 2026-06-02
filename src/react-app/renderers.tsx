@@ -483,6 +483,87 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── 7. emoji-pick (v2.0.B.197 Ch1 hook) ───────────────────────────────────
+// 開場 hook: 3 秒情緒 + 5 秒小勝利 + Zeigarnik 故事鉤。No TTS dependency
+// (emoji 視覺自帶 affordance),iOS first-tap audio unlock 靠這次 tap。
+const WRONG_POOL = [
+  'She shakes her head ✨',
+  'Not that one ✨',
+  'She wants something else ✨',
+];
+
+const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const prompt = q.sentence ?? '';
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const afterText = q.explanationZh ?? '';
+  const [phase, setPhase] = useState<'pick' | 'reveal'>('pick');
+  const [wrongCount, setWrongCount] = useState(0);
+  const [shakeIdx, setShakeIdx] = useState<number | null>(null);
+
+  const onTap = (i: number) => {
+    if (phase === 'reveal') return;
+    if (i === correctIdx) {
+      try { sfxCorrect(); } catch {}
+      onAnswer(i, true);
+      window.setTimeout(() => setPhase('reveal'), 800);
+    } else {
+      try { sfxWrong(); } catch {}
+      setShakeIdx(i);
+      setWrongCount(c => c + 1);
+      window.setTimeout(() => setShakeIdx(null), 400);
+    }
+  };
+
+  if (phase === 'reveal') {
+    return (
+      <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '30px 20px' }}>
+        <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" className="pickup-bounce" style={{ borderRadius: '50%', marginBottom: 18 }} />
+        <p style={{ fontSize: 16, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.7, marginBottom: 24 }}>{afterText}</p>
+        <button onClick={() => onAdvance(prompt)} style={{
+          padding: '16px 24px', background: '#e7a44a', color: '#fff', border: 'none',
+          borderBottom: '4px solid #b07a2a', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}>聽 Mochi 的故事 →</button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '20px 8px' }}>
+      <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" style={{ borderRadius: '50%', marginBottom: 16 }} />
+      <h2 style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c', lineHeight: 1.5, margin: '0 0 20px' }}>{prompt}</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, maxWidth: 360, margin: '0 auto' }}>
+        {opts.map((o, i) => {
+          const [emoji, ...labelParts] = o.split(' ');
+          const label = labelParts.join(' ');
+          const isShaking = shakeIdx === i;
+          return (
+            <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : ''} aria-label={`${label} ${optsZh[i] || ''}`} style={{
+              padding: '14px 8px', background: '#fff', border: '2px solid #e0d0b8',
+              borderBottom: '4px solid #c8a878', borderRadius: 14,
+              cursor: 'pointer', fontFamily: 'inherit',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
+              WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+              transition: 'transform 80ms ease',
+            }}>
+              <span style={{ fontSize: 38, lineHeight: 1 }}>{emoji}</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#3c2a1c' }}>{label}</span>
+            </button>
+          );
+        })}
+      </div>
+      {wrongCount > 0 && (
+        <p className="pickup-fade-up" key={wrongCount} style={{ marginTop: 16, fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>
+          {WRONG_POOL[(wrongCount - 1) % WRONG_POOL.length]}
+        </p>
+      )}
+    </div>
+  );
+};
+
 // ─── registry ───────────────────────────────────────────────────────────────
 export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'narration': NarrationRenderer,
@@ -495,6 +576,7 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'type-what-you-hear': TypeWhatYouHearRenderer,
   'tap-tiles': TapTilesRenderer,
   'tap-pairs': TapPairsRenderer,
+  'emoji-pick': EmojiPickRenderer,
 };
 
 // Fallback for unknown types
