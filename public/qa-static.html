@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Pickup QA Static — Index</title>
+
+<style>
+:root { --bg:#f1ebe1; --card:#fff; --border:#e0d0b8; --accent:#c8a878; --accent-dark:#8b6f4a; --text:#3c2a1c; --muted:#7a6850; --correct:#7ac74a; --correct-dark:#5d9a35; }
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; background: var(--bg); color: var(--text);
+  font-family: 'Nunito','Noto Sans TC',system-ui,-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;
+  font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
+  backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
+  padding: max(10px,env(safe-area-inset-top)) 14px 10px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 16px; font-weight: 900; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.actions { display: flex; gap: 6px; flex: 0 0 auto; }
+.btn { padding: 7px 12px; font-size: 12px; font-weight: 800; background: var(--accent);
+  color: #fff; border: none; border-radius: 999px; cursor: pointer; font-family: inherit;
+  -webkit-tap-highlight-color: transparent; }
+.btn.secondary { background: #fffbf2; color: var(--accent-dark); border: 1.5px solid var(--border); }
+main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
+.lesson-block { margin-bottom: 22px; }
+.lesson-head { font-size: 12px; font-weight: 800; color: var(--accent-dark);
+  margin-bottom: 8px; padding: 6px 10px; background: rgba(200,168,120,0.10);
+  border-radius: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.lesson-head .lesson-id { font-family: ui-monospace,Consolas,monospace; font-size: 10px;
+  background: var(--accent); color: #fff; padding: 2px 7px; border-radius: 999px; font-weight: 700; }
+.lesson-head .lesson-beat { color: var(--text); font-weight: 800; font-size: 13px; }
+.lesson-head .meta { font-size: 9px; color: var(--muted); margin-left: auto; }
+.q-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px; margin-bottom: 6px; }
+.q-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.type-chip { display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: 10px; font-weight: 900; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;
+  background: #94a3b8; }
+.type-chip[data-type="narration"] { background: #a78bfa; }
+.type-chip[data-type="listen-tf"], .type-chip[data-type="listen-tf-zh"] { background: #60a5fa; }
+.type-chip[data-type="listen-mc"] { background: #f59e0b; }
+.type-chip[data-type="listen-comprehension"] { background: #ef6b3d; }
+.type-chip[data-type="listen-emoji"] { background: #ec4899; }
+.type-chip[data-type="type-what-you-hear"] { background: #14b8a6; }
+.type-chip[data-type="tap-tiles"] { background: #84cc16; }
+.type-chip[data-type="tap-pairs"] { background: #3d8aae; }
+.type-chip[data-type="read-mc-with-audio"] { background: #b08838; }
+.q-id { font-family: ui-monospace,Consolas,monospace; font-size: 10px; color: var(--muted); }
+.q-tags { font-size: 10px; color: var(--muted); margin-left: auto; }
+
+.sentence-card { display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+  background: #fff7e8; border: 1.5px solid var(--accent); border-radius: 14px; margin: 6px 0 10px;
+  box-shadow: inset 0 4px 0 rgba(231,164,74,0.18); }
+.sentence-prose { flex:1; font-size:15px; font-weight:800; color:var(--text); line-height:1.7; }
+.sentence-blanks { flex: 1; font-size: 16px; font-weight: 900; color: var(--accent-dark);
+  line-height: 1.7; letter-spacing: 0.15em; font-family: ui-monospace,Consolas,monospace; }
+.sentence-truth { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 4px; font-weight: 600; }
+
+.question-pill { display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  background: #fff; border: 1.5px solid var(--border); border-bottom-width: 2.5px;
+  border-radius: 12px; margin-bottom: 10px; }
+.question-text { flex: 1; font-size: 15px; font-weight: 800; color: var(--text); line-height: 1.6; }
+
+.speaker-btn { flex: 0 0 30px; height: 30px; width: 30px; padding: 0;
+  background: var(--accent-dark); color: #fff; border: none; border-radius: 50%;
+  cursor: pointer; font-size: 14px; line-height: 1; }
+
+.opts { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 4px; }
+.opt { display: flex; align-items: center; gap: 8px; padding: 6px 10px;
+  border-radius: 8px; background: #fef8ed; border: 1px solid var(--border); font-size: 13px; }
+.opt.correct { background: #eaf6d5; border-color: var(--correct-dark);
+  box-shadow: inset 3px 0 0 var(--correct-dark); }
+.opt-num { flex: 0 0 18px; font-family: ui-monospace,Consolas,monospace; font-size: 11px; font-weight: 700; color: var(--muted); }
+.opt-en { flex: 1; color: var(--text); font-weight: 700; }
+.opt-zh { flex: 0 0 auto; font-size: 11px; color: var(--muted); font-weight: 600;
+  border-left: 1px solid var(--border); padding-left: 8px; max-width: 35%; text-align: right; }
+.opt.correct .opt-num::before { content: '✓ '; color: var(--correct-dark); }
+
+.explanation { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 8px;
+  padding: 6px 10px; background: #fef8ed; border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; }
+
+[contenteditable="true"] { outline: none; }
+[contenteditable="true"]:focus { background: #fef3c7; border-radius: 3px; padding: 0 2px; margin: 0 -2px; }
+[contenteditable="true"][data-dirty="1"] { background: #fde0d2; }
+.dirty-badge { display:none; position:fixed; bottom: 16px; right: 16px; z-index: 60;
+  padding: 10px 14px; background: var(--accent); color: #fff; border-radius: 999px;
+  font-weight: 900; font-size: 12px; box-shadow: 0 4px 16px rgba(60,42,28,0.25); }
+.dirty-badge.show { display: inline-flex; gap: 8px; align-items: center; }
+
+.toast { position: fixed; bottom: 70px; left: 50%; transform: translateX(-50%); z-index: 70;
+  padding: 10px 14px; background: var(--text); color: #fff; border-radius: 8px;
+  font-size: 12px; font-weight: 700; opacity: 0; pointer-events: none;
+  transition: opacity 200ms; }
+.toast.show { opacity: 1; }
+</style>
+
+<style>
+.ch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.ch-card { display: block; padding: 16px; background: #fff;
+  border: 1.5px solid var(--border); border-radius: 14px;
+  border-bottom: 4px solid var(--accent-dark);
+  text-decoration: none; color: var(--text);
+  box-shadow: inset 0 4px 0 rgba(231,164,74,0.10);
+  transition: transform 100ms; }
+.ch-card:hover, .ch-card:active { transform: translateY(-2px); }
+.ch-num { font-family: ui-monospace,Consolas,monospace; font-size: 11px; font-weight: 800; color: var(--accent-dark); }
+.ch-title { font-size: 18px; font-weight: 900; color: var(--text); margin-top: 4px; }
+.ch-stats { font-size: 11px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+.note { background: #fff7e8; border: 1px solid var(--accent);
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 14px;
+  font-size: 12px; color: var(--text); line-height: 1.6; }
+.note strong { color: var(--accent-dark); }
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 Pickup QA Static — Index</h1>
+  <a class="btn secondary" href="qa-dashboard">← 動態版</a>
+</header>
+<main>
+  <div class="note">
+    <strong>編輯流程</strong><br>
+    1. 點任一章節進入靜態頁<br>
+    2. 任何字 (sentence / question / option / explanation) 都可直接點下去編輯<br>
+    3. 改完按右下角 <strong>📤 export 改動</strong> 按鈕 → 自動 copy 改動清單到剪貼簿<br>
+    4. 貼給 Claude → 我跑 script 改 JSON + regen 靜態頁
+  </div>
+  <div class="ch-grid">
+    <a class="ch-card" href="qa-static-ch1.html">
+      <div class="ch-num">Ch1</div>
+      <div class="ch-title">院子裡的第一個故事</div>
+      <div class="ch-stats">24 lessons · 192 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch2.html">
+      <div class="ch-num">Ch2</div>
+      <div class="ch-title">桃太郎</div>
+      <div class="ch-stats">24 lessons · 141 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch3.html">
+      <div class="ch-num">Ch3</div>
+      <div class="ch-title">醜小鴨</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch4.html">
+      <div class="ch-num">Ch4</div>
+      <div class="ch-title">龜兔賽跑</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch5.html">
+      <div class="ch-num">Ch5</div>
+      <div class="ch-title">駱駝為什麼有駝峰</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch6.html">
+      <div class="ch-num">Ch6</div>
+      <div class="ch-title">Baba Yaga</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch7.html">
+      <div class="ch-num">Ch7</div>
+      <div class="ch-title">六隻天鵝</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  
+    <a class="ch-card" href="qa-static-ch8.html">
+      <div class="ch-num">Ch8</div>
+      <div class="ch-title">葉限</div>
+      <div class="ch-stats">25 lessons · 150 Q</div>
+    </a>
+  </div>
+</main>
+</body>
+</html>
