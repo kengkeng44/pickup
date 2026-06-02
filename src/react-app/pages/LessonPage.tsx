@@ -10,6 +10,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted } from '../../store/runStore';
+import { addXp } from '../../data/xp';
+import { addCoins } from '../../data/coins';
 import { track, EVENT } from '../../analytics/posthog';
 import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
 
@@ -125,29 +127,35 @@ function NarrativeLine({ text }: { text: string }) {
 function CompletePanel({ lesson, log, elapsedMs, onBack }: {
   lesson: Lesson; log: Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>; elapsedMs: number; onBack: () => void;
 }) {
+  // v2.0.B.192 (UI/UX P1 #35 + cron P0 latent): wire addXp + addCoins on
+  // lesson complete. React 從 v2.0.A onwards 沒呼叫過 addXp/addCoins,
+  // 導致 HUD readXp 永遠 0。連 audit P1 #35 寫的「公式不一致」其實是
+  // 因為根本沒寫入。修法:correct×10 XP + correct×3 Coins,formula
+  // consistent across CompletePanel display + persisted state。
+  const correct = log.filter(a => a.isCorrect).length;
+  const total = log.length;
+  const xp = correct * 10;
+  const coinDelta = correct * 3;
+  const accuracy = total > 0 ? Math.round(correct / total * 100) : 100;
+
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
-    const correct = log.filter(a => a.isCorrect).length;
-    const total = log.length;
+    try { addXp(xp); } catch {}
+    try { addCoins(coinDelta); } catch {}
     try {
       track(EVENT.LESSON_COMPLETE, {
         lesson_id: lesson.id,
         chapter: lesson.chapter,
         question_count: total,
         correct_count: correct,
-        accuracy: total > 0 ? Math.round(correct / total * 100) : 100,
-        xp_earned: correct * 10,
+        accuracy,
+        xp_earned: xp,
         elapsed_ms: elapsedMs,
         review_opened: false,
       });
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const correct = log.filter(a => a.isCorrect).length;
-  const total = log.length;
-  const accuracy = total > 0 ? Math.round(correct / total * 100) : 100;
-  const xp = correct * 10;
   const min = Math.floor(elapsedMs / 60000);
   const sec = Math.floor((elapsedMs % 60000) / 1000);
   const timeStr = min > 0 ? `${min}:${sec.toString().padStart(2, '0')}` : `${sec}s`;

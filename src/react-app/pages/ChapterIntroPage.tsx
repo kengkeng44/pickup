@@ -65,8 +65,9 @@ export default function ChapterIntroPage() {
         )}
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: 18, marginBottom: 24 }}>
-          <img src="/mascots/iso-grandma.webp" alt="" width={100} />
-          <img src="/mascots/iso-shiba.webp" alt="" width={70} style={{ alignSelf: 'flex-end' }} />
+          {/* v2.0.B.192 P2 fix: explicit height prevents CLS shift when slow-loading webp arrives */}
+          <img src="/mascots/iso-grandma.webp" alt="" width={100} height={110} />
+          <img src="/mascots/iso-shiba.webp" alt="" width={70} height={80} style={{ alignSelf: 'flex-end' }} />
         </div>
       </div>
 
