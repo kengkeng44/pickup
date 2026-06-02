@@ -84,6 +84,33 @@
   .speaker-btn:hover { background: var(--accent); }
   .speaker-btn:active { transform: translateY(1px); }
 
+  /* v2.0.B.179: prose-style sentence + question pill (game-mirror) */
+  .sentence-card { display: flex; align-items: center; gap: 10px; padding: 12px 14px;
+    background: #fff7e8; border: 1.5px solid var(--accent); border-radius: 14px;
+    margin: 6px 0 10px;
+    box-shadow: inset 0 4px 0 rgba(231,164,74,0.18); }
+  .sentence-prose { flex: 1; font-size: 15px; font-weight: 800; color: var(--text);
+    line-height: 1.7; letter-spacing: 0.02em; }
+  .sentence-blanks { flex: 1; font-size: 16px; font-weight: 900; color: var(--accent-dark);
+    line-height: 1.7; letter-spacing: 0.15em; font-family: ui-monospace, Consolas, monospace; }
+  .sentence-truth { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 4px;
+    font-weight: 600; letter-spacing: 0; font-family: inherit; }
+
+  .question-pill { display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    background: #fff; border: 1.5px solid var(--border); border-bottom-width: 2.5px;
+    border-radius: 12px; margin-bottom: 10px; }
+  .question-words { flex: 1; font-size: 15px; font-weight: 800; color: var(--text);
+    line-height: 1.6; }
+  .question-words .word { display: inline-block;
+    border-bottom: 1.5px dashed #c8a878;
+    padding-bottom: 1px; margin: 0 1px;
+    cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .question-words .word:active { border-bottom-color: var(--accent-dark);
+    background: rgba(200,168,120,0.18); border-radius: 3px; }
+
+  .question-zh { font-size: 12px; color: var(--muted); margin-top: 4px;
+    padding-left: 38px; }
+
   .opts { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 4px; }
   .opt { display: flex; align-items: center; gap: 8px; padding: 6px 10px;
     border-radius: 8px; background: #fef8ed; border: 1px solid var(--border);
@@ -199,6 +226,29 @@
     return s.replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
   }
 
+  // v2.0.B.179: game-mirror helpers
+  // Blind-cloze types: full sentence masked to underscores in game pre-reveal.
+  // Matches renderers.tsx blanks() = text.split(/\s+/).map(()=>'____').join(' ').
+  const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
+
+  function gameBlanks(text) {
+    return applyDefaults(text).split(/\s+/).filter(Boolean).map(() => '____').join(' ');
+  }
+
+  // wrapWords: split on whitespace, wrap each word (with trailing punct stripped
+  // outside the underline) into a tappable span. Matches game's WordHint affordance.
+  function wrapWords(text) {
+    const subbed = applyDefaults(text);
+    return subbed.split(/(\s+)/).map(token => {
+      if (/^\s+$/.test(token)) return token;
+      const m = token.match(/^([\p{L}\p{N}'-]+)(.*)$/u);
+      if (m) {
+        return `<span class="word" data-speak="${escapeHtml(m[1])}">${escapeHtml(m[1])}</span>${escapeHtml(m[2])}`;
+      }
+      return escapeHtml(token);
+    }).join('');
+  }
+
   // ─── Fetch all chapters ────────────────────────────────────────────────
   async function loadAll() {
     const results = await Promise.allSettled(
@@ -268,29 +318,34 @@
     parts.push(`<span class="q-tags">${escapeHtml(tags + subSkill + level + diff)}</span>`);
     parts.push(`</div>`);
 
-    // sentence
+    // sentence — game-mirror prose card (blanks for listen-mc family, full prose otherwise)
     if (q.sentence) {
-      parts.push(`<div class="field-row">`);
-      parts.push(`<div class="field-label">Sentence</div>`);
-      parts.push(`<button class="speaker-btn" data-speak="${escapeHtml(applyDefaults(q.sentence))}">🔊</button>`);
-      parts.push(`<div class="field-value">${escapeHtml(applyDefaults(q.sentence))}</div>`);
+      const isBlind = BLIND_CLOZE_TYPES.has(q.type);
+      const speakText = escapeHtml(applyDefaults(q.sentence));
+      parts.push(`<div class="sentence-card">`);
+      parts.push(`<button class="speaker-btn" data-speak="${speakText}">🔊</button>`);
+      if (isBlind) {
+        parts.push(`<div style="flex:1;">`);
+        parts.push(`<div class="sentence-blanks">${escapeHtml(gameBlanks(q.sentence))}</div>`);
+        parts.push(`<div class="sentence-truth">答案: ${escapeHtml(applyDefaults(q.sentence))}</div>`);
+        parts.push(`</div>`);
+      } else {
+        parts.push(`<div class="sentence-prose">${escapeHtml(applyDefaults(q.sentence))}</div>`);
+      }
       parts.push(`</div>`);
     }
 
-    // question prompt
+    // question prompt — framed pill with dashed-underline words + 🔊
     const qP = q.question || q.questionEn;
     if (qP) {
-      parts.push(`<div class="field-row">`);
-      parts.push(`<div class="field-label">Question</div>`);
-      parts.push(`<button class="speaker-btn" data-speak="${escapeHtml(applyDefaults(qP))}">🔊</button>`);
-      parts.push(`<div class="field-value">${escapeHtml(applyDefaults(qP))}</div>`);
+      const speakQ = escapeHtml(applyDefaults(qP));
+      parts.push(`<div class="question-pill">`);
+      parts.push(`<button class="speaker-btn" data-speak="${speakQ}">🔊</button>`);
+      parts.push(`<div class="question-words">${wrapWords(qP)}</div>`);
       parts.push(`</div>`);
-    }
-    if (q.questionZh) {
-      parts.push(`<div class="field-row">`);
-      parts.push(`<div class="field-label">問題中譯</div>`);
-      parts.push(`<div class="field-value" style="color:var(--muted);font-size:13px;">${escapeHtml(q.questionZh)}</div>`);
-      parts.push(`</div>`);
+      if (q.questionZh) {
+        parts.push(`<div class="question-zh">${escapeHtml(q.questionZh)}</div>`);
+      }
     }
 
     // options (listen-mc / listen-comprehension / listen-emoji / read-mc-with-audio / listen-tf-zh)
@@ -386,9 +441,12 @@
     document.getElementById('stats').textContent =
       `Ch${state.activeChapter}: 顯示 ${shownQ} / 共 ${totalQ} 題 · ${lessons.length} lessons`;
 
-    // wire speaker buttons (event delegation would be cleaner, but ok)
+    // wire speaker buttons + dashed-underline word taps (both speak their text)
     content.querySelectorAll('.speaker-btn').forEach(btn => {
-      btn.onclick = () => speak(btn.dataset.speak);
+      btn.onclick = (e) => { e.stopPropagation(); speak(btn.dataset.speak); };
+    });
+    content.querySelectorAll('.question-words .word').forEach(w => {
+      w.onclick = (e) => { e.stopPropagation(); speak(w.dataset.speak); };
     });
   }
 
