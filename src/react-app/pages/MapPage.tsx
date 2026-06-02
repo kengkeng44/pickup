@@ -20,6 +20,20 @@ interface Lesson {
   questions: unknown[];
 }
 
+// v2.0.B.190 LCP fix: module-level fetch cache. First MapPage mount kicks
+// off fetch; subsequent mounts (chapter switch + back navigation) hit cache
+// instantly. Audit P0: useEffect fetch was causing 3-render LCP cascade.
+const lessonCache: Record<number, Promise<Lesson[]>> = {};
+function loadChapterLessons(chapter: number): Promise<Lesson[]> {
+  if (!lessonCache[chapter]) {
+    lessonCache[chapter] = fetch(`/lessons-ch${chapter}.json`)
+      .then(r => r.ok ? r.json() : [])
+      .then(data => Array.isArray(data) ? data : [])
+      .catch(() => []);
+  }
+  return lessonCache[chapter];
+}
+
 // ─── strict constants from StoryMapView.ts ─────────────────────────────────
 const COLOR_BG = '#f1ebe1';
 const COLOR_NODE = '#a47148';
@@ -175,10 +189,8 @@ export default function MapPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/lessons-ch${chapter}.json`)
-      .then(r => r.json())
-      .then(data => setLessons(Array.isArray(data) ? data : []))
-      .catch(() => setLessons([]))
+    loadChapterLessons(chapter)
+      .then(setLessons)
       .finally(() => setLoading(false));
   }, [chapter]);
 

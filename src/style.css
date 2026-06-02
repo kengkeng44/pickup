@@ -510,7 +510,7 @@ button:focus-visible {
 .pickup-map-cat img {
   animation: pickup-map-cat-idle 3.8s ease-in-out infinite;
   transform-origin: 50% 100%;
-  will-change: transform;
+  /* v2.0.B.190: will-change stripped (Code Health P0 GPU layer thrashing) */
 }
 .pickup-map-cat img:nth-child(2) {
   animation-delay: 0.4s; /* shiba breathes slightly off-phase from grandma */
@@ -629,7 +629,7 @@ button:focus-visible {
   background-repeat: no-repeat;
   animation: pickup-ken-burns 18s ease-in-out infinite alternate;
   transform-origin: 50% 50%;
-  will-change: transform;
+  /* v2.0.B.190: will-change stripped */
   transition: background-image 600ms ease-in-out;
 }
 .pickup-pov-scene::before {
@@ -710,7 +710,7 @@ button:focus-visible {
 .pickup-breathing {
   animation: pickup-breathing 3.2s ease-in-out infinite;
   transform-origin: center;
-  will-change: transform;
+  /* v2.0.B.190: will-change stripped */
 }
 @keyframes pickup-breathing {
   0%, 100% { transform: scale(1); }
@@ -723,7 +723,7 @@ button:focus-visible {
   pointer-events: none;
   border-radius: 50%;
   opacity: 0;
-  will-change: transform, opacity;
+  /* v2.0.B.190: will-change stripped */
   z-index: 0;
 }
 #pickup-hud {
@@ -859,7 +859,7 @@ button:focus-visible {
   /* Outer: sway — rotate + tiny vertical drift */
   animation: pickup-idle-sway 6.4s ease-in-out infinite;
   transform-origin: 50% 100%;
-  will-change: transform;
+  /* v2.0.B.190: will-change stripped (splash 一次性,不需 permanent layer) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -874,7 +874,7 @@ button:focus-visible {
    * apply (sibling animations on the same element overwrite each other). */
   animation: pickup-idle-breathe 3.2s ease-in-out infinite;
   transform-origin: 50% 80%;
-  will-change: transform;
+  /* v2.0.B.190: will-change stripped */
 }
 .pickup-splash-title {
   font-family: var(--font-display);

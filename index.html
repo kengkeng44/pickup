@@ -22,12 +22,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
-    <!-- v2.0.B.165: React Phase 2 — slimmed preload. Removed Phaser-era heavy
-         preload (3MB MP3 + 6 webp) that blocked first paint. React shell
-         needs only 3 critical icons; lesson audio fetched on demand. -->
-    <link rel="preload" as="image" href="/mascots/calico-anchor.webp" />
+    <!-- v2.0.B.190: above-the-fold MapPage LCP-critical images. Replaces
+         calico-anchor (Profile only) + icon-speaker (below fold). Coin-gold
+         is largest at 178KB so preload prioritises that first.
+         Also preload lessons-ch1.json for default chapter LCP fix. -->
+    <link rel="preload" as="image" href="/mascots/coin-gold.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/mascots/crown-gold.webp" />
+    <link rel="preload" as="image" href="/mascots/iso-grandma.webp" />
+    <link rel="preload" as="image" href="/mascots/iso-shiba.webp" />
     <link rel="preload" as="image" href="/mascots/icon-paw.webp" />
-    <link rel="preload" as="image" href="/mascots/icon-speaker.webp" />
+    <link rel="preload" as="image" href="/mascots/icon-flame.webp" />
+    <link rel="preload" as="fetch" href="/lessons-ch1.json" crossorigin />
     <style>
       html, body {
         font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;

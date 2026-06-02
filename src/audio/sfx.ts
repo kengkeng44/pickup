@@ -96,10 +96,21 @@ function vibrate(pattern: number | number[]): void {
 
 // ─── Public SFX library ─────────────────────────────────────────────────────
 
+// v2.0.B.190: defer SFX Web Audio node creation 1 frame so click paint
+// fires first. Audit (Code Health 0039 P0) — sfxCorrect 創 27 sync nodes
+// 阻 INP 50-120ms on Android Redmi/Galaxy A. rAF callback fires ~16ms
+// later — imperceptible audio offset, big INP win.
+function deferAudio(fn: () => void): void {
+  if (typeof requestAnimationFrame === 'function') requestAnimationFrame(fn);
+  else fn();
+}
+
 /** Soft click on card press (~50ms) + 10ms vibrate. */
 export function sfxCardPress(): void {
   audio.ensureContext();
-  tone({ freq: 880, type: 'triangle', duration: 0.05, attack: 0.002, gain: 0.18 });
+  deferAudio(() => {
+    tone({ freq: 880, type: 'triangle', duration: 0.05, attack: 0.002, gain: 0.18 });
+  });
   vibrate(10);
 }
 
@@ -155,14 +166,15 @@ function bellTone(
  */
 export function sfxCorrect(): void {
   audio.ensureContext();
-  // Two bright bell strikes — E5 then B5, classic "lesson complete" feel.
-  bellTone(659.25, 0.5, 0.26, 0);
-  bellTone(987.77, 0.46, 0.22, 0.09);
-  // Soft C major triad pad underneath (low gain, sine for warmth).
-  tone({ freq: 523.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.1 }, 0.02);
-  tone({ freq: 659.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.08 }, 0.02);
-  tone({ freq: 783.99, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.07 }, 0.02);
-  // B.161.17: positive haptic pattern (Android) — 雙短 pulse 正向感受
+  // v2.0.B.190 INP fix: defer 11 sync Web Audio nodes 1 frame
+  deferAudio(() => {
+    bellTone(659.25, 0.5, 0.26, 0);
+    bellTone(987.77, 0.46, 0.22, 0.09);
+    tone({ freq: 523.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.1 }, 0.02);
+    tone({ freq: 659.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.08 }, 0.02);
+    tone({ freq: 783.99, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.07 }, 0.02);
+  });
+  // Haptic vibrate can stay sync — non-blocking on render thread
   vibrate([25, 40, 25]);
 }
 
@@ -174,12 +186,13 @@ export function sfxCorrect(): void {
  */
 export function sfxWrong(): void {
   audio.ensureContext();
-  // B.161.17: negative haptic pattern (Android) — 較長 pulse 提示錯誤
   vibrate([60, 40, 60]);
-  const ctx = audio.ctx;
-  const dest = audio.getSfxDestination();
-  if (!ctx || !dest) return;
-  const now = ctx.currentTime;
+  // v2.0.B.190 INP fix: defer Web Audio node creation 1 frame
+  deferAudio(() => {
+    const ctx = audio.ctx;
+    const dest = audio.getSfxDestination();
+    if (!ctx || !dest) return;
+    const now = ctx.currentTime;
 
   // Helper: smooth cosine-shaped envelope (no harsh clicks).
   const playSoft = (
@@ -209,9 +222,10 @@ export function sfxWrong(): void {
     osc.stop(t0 + duration + 0.02);
   };
 
-  // A4 → F4 = descending minor third. Gentle, classic "wrong" cue.
-  playSoft(440, 0, 0.16, 0.22);
-  playSoft(349.23, 0.11, 0.22, 0.24);
+    // A4 → F4 = descending minor third. Gentle, classic "wrong" cue.
+    playSoft(440, 0, 0.16, 0.22);
+    playSoft(349.23, 0.11, 0.22, 0.24);
+  });
 }
 
 /** Subtle 'tic' for low-timer warning (~80ms). */
