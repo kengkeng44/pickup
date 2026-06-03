@@ -93,7 +93,8 @@ export class PlayScene extends Phaser.Scene {
   } {
     const { mode, scenario, chapter } = useRunStore.getState();
     if (mode === 'story' && chapter) {
-      const ch = CHAPTER_META[chapter];
+      // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 if missing (Intro ch0 path)
+      const ch = CHAPTER_META[chapter] ?? CHAPTER_META[1]!;
       return {
         accent: ch.accent,
         tint: ch.tint,

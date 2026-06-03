@@ -289,7 +289,8 @@ export class StoryMapView {
       const urlParams = typeof window !== 'undefined'
         ? new URLSearchParams(window.location.search)
         : null;
-      const chapterParam = Math.min(Math.max(parseInt(urlParams?.get('ch') ?? '1', 10) || 1, 1), 8) as ChapterId;
+      // v2.0.B.204: chapter range 0-7 (Intro + 7 chapters, Ch1 dropped + renumbered)
+      const chapterParam = Math.min(Math.max(parseInt(urlParams?.get('ch') ?? '1', 10) || 1, 0), 7) as ChapterId;
 
       void (async () => {
         try {
@@ -538,7 +539,8 @@ export class StoryMapView {
   }
 
   private buildHeader(): HTMLElement {
-    const meta = CHAPTER_META[1];
+    // v2.0.B.204: CHAPTER_META is Partial<>; chapter 1 always defined post-renumber
+    const meta = CHAPTER_META[1]!;
     const wrap = document.createElement('div');
     applyStyle(wrap, {
       padding: 'max(16px, env(safe-area-inset-top)) 14px 0 14px',
@@ -613,7 +615,8 @@ export class StoryMapView {
 
   private async openKeySentences(chapter: ChapterId): Promise<void> {
     if (this.keySheet) return;
-    const meta = CHAPTER_META[chapter];
+    // v2.0.B.204: fallback ch1 meta for Intro (ch0) since storyKitten only has 1-7
+    const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1]!;
     let questions: StoryQuestion[] = [];
     try {
       const all = await loadStoryQuestions();

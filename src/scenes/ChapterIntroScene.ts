@@ -71,7 +71,8 @@ export class ChapterIntroScene extends Phaser.Scene {
   }
 
   private mountOverlay(chapter: ChapterId): void {
-    const meta = CHAPTER_META[chapter];
+    // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1
+    const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1]!;
     const srsCount = chapter > 1 ? Math.min(3, readSrsQueue().length) : 0;
 
     const root = document.createElement('div');

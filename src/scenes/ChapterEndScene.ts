@@ -67,9 +67,10 @@ export class ChapterEndScene extends Phaser.Scene {
   }
 
   private mountOverlay(chapter: ChapterId): void {
-    const meta = CHAPTER_META[chapter];
+    // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1
+    const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1]!;
     const nextId = (chapter + 1) as ChapterId;
-    const nextMeta = CHAPTER_META[nextId];
+    const nextMeta = CHAPTER_META[nextId] ?? CHAPTER_META[1]!;
 
     const root = document.createElement('div');
     root.id = 'pickup-chapter-end';

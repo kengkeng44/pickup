@@ -24,12 +24,13 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-// v2.0.B.203: 加 Intro (ch0) — Pickup framework setup,跟奶奶故事無關
-const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+// v2.0.B.204: 刪原 Ch1 (rainy-night-cat) + Ch2-8 renumber 成 Ch1-7
+// Intro → Ch1 桃太郎 → Ch2 醜小鴨 → ... → Ch7 葉限
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7];
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
-  1: '院子裡的第一個故事', 2: '桃太郎', 3: '醜小鴨', 4: '龜兔賽跑',
-  5: '駱駝為什麼有駝峰', 6: 'Baba Yaga', 7: '六隻天鵝', 8: '葉限',
+  1: '桃太郎', 2: '醜小鴨', 3: '龜兔賽跑',
+  4: '駱駝為什麼有駝峰', 5: 'Baba Yaga', 6: '六隻天鵝', 7: '葉限',
 };
 const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
 

@@ -191,7 +191,8 @@ export class LessonScene extends Phaser.Scene {
     // back to Ch1 meta for Intro since Phaser scene is React-deprecated and
     // Intro navigation goes through React routes.
     const phaserChapter = (this.chapter === 0 ? 1 : this.chapter) as Exclude<ChapterId, 0>;
-    const ch = CHAPTER_META[phaserChapter];
+    // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 for type narrowing
+    const ch = CHAPTER_META[phaserChapter] ?? CHAPTER_META[1]!;
     const meta = {
       accent: ch.accent,
       tint: ch.tint,

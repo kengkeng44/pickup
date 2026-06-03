@@ -129,7 +129,8 @@ export class StoryEndingScene extends Phaser.Scene {
         transform: 'translateY(8px)',
         transition: `opacity 500ms ease-out ${id * 160}ms, transform 500ms ease-out ${id * 160}ms`,
       });
-      const m = CHAPTER_META[id];
+      // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 if missing (Intro ch0 path)
+      const m = CHAPTER_META[id] ?? CHAPTER_META[1]!;
       const svgBox = document.createElement('div');
       applyStyle(svgBox, {
         width: '100%',

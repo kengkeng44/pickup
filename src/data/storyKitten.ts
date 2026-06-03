@@ -16,7 +16,10 @@ const DEV_UNLOCK_ALL = false;
  *
  * Stored in /public/story-kitten.json. Validated with zod on load.
  */
+// v2.0.B.204: align with src/data/lessons.ts after Ch1 drop + renumber.
+// Phaser legacy code references this enum; React-first code uses lessons.ts.
 export const ChapterIdSchema = z.union([
+  z.literal(0),
   z.literal(1),
   z.literal(2),
   z.literal(3),
@@ -24,7 +27,6 @@ export const ChapterIdSchema = z.union([
   z.literal(5),
   z.literal(6),
   z.literal(7),
-  z.literal(8),
 ]);
 
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
@@ -170,7 +172,9 @@ export interface ChapterMeta {
   accent: string;
 }
 
-export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
+// v2.0.B.204: Partial<> because Intro (ch0) has no v1.x storyKitten metadata.
+// Phaser legacy path falls back to chapter 1 meta for Intro (see LessonScene.ts).
+export const CHAPTER_META: Partial<Record<ChapterId, ChapterMeta>> = {
   1: {
     id: 1,
     emoji: '',
@@ -280,28 +284,8 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     tint: '#e8e0ee',
     accent: '#8a6ea8',
   },
-  8: {
-    id: 8,
-    emoji: '',
-    titleZh: '選擇了家人',
-    titleEn: 'Choosing Family',
-    narration:
-      "Just before dawn, Meimei finds her in the snow.\n\nMeimei's eyes are red — from the night that unlatched window swung open in Chapter 5, she and her parents searched for days. She lifts the calico into her arms, no scolding, just holding her, holding her.\n\nA warm bath. Soft towels. Tiny dried fish stewed until they fall apart. And then the small soft bed. She sleeps — really sleeps this time, safer than safe.",
-    // ── The REAL real ending (v0.9.2). Same warm family, but in the night she
-    // hears Brutus's bark and realises her people are also out there. She doesn't
-    // reject Meimei — she chooses BOTH. Walks back to the street family not as
-    // victim, but as the one they look to.
-    outro:
-      "She wakes in the middle of the night.\n\nFar, far away, the wind carries a familiar bark — Brutus, still out there, tiredness in his voice.\n\nShe remembers what the shrine spirit said: \"Every person you meet is a stone on the path home.\" Brutus, the umbrella grandma, the baker — they were her family too. Not only the people inside this window.\n\nShe sits a long time at the edge of Meimei's bed. Then softly drops to the floor, leaving a trail of prints across fresh snow that lead to Meimei's door.\n\nMeimei doesn't wake. But in her sleep, she reaches out a hand — as if she already knew — and gently, lets go.\n\nThe calico slips through the unlatched window once more.\n\nThis time, not running away. Going to find her people.\n\nShe finds Brutus at the corner, limping, surrounded by a shivering kitten and two or three old friends of the street. Brutus lifts his head; light glints in his one good eye.\n\n\"I knew you'd come back.\"\n\nShe doesn't answer. She just walks into the middle of them and gently presses her head against the shivering kitten.\n\nIn that moment she understands —\nShe had a home. Now, she chose her family.\n\nThe snow starts again. But this time she's no longer the kitten the wind pushes around.\nShe is the one they circle around. The center.",
-    // NOTE: kittenCh8 (mature, composed leader cat + street family group composition) SVG not yet drawn —
-    // reusing kittenCh5 (mature posture) + npcBrutus (street family stand-in)
-    // as visual stand-ins. v0.9.2 ending pivot calls for new "calico + street family
-    // group composition" mascot art — main Claude will dispatch follow-up.
-    kittenMascotId: 'kittenCh5',
-    npcMascotId: 'npcBrutus',
-    tint: '#dfe7ee',
-    accent: '#6a7d8f',
-  },
+  // v2.0.B.204: CHAPTER_META[8] (legacy v1.x 'Choosing Family' ending) removed.
+  // ChapterIdSchema narrowed to 0-7 after Ch1 drop + Ch2-8 → Ch1-7 renumber.
 };
 
 // v1.6.0: scope narrowed to Ch1 while we rebuild each chapter with
