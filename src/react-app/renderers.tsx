@@ -26,6 +26,8 @@ export interface RawQuestion {
   explanationZh?: string;
   tilesEn?: string[];
   pairsEn?: Array<[string, string]>;
+  // v2.0.B.198: 標記誰說的 / 背景介紹。enum mochi | grandma | hana | narrator
+  speaker?: string;
 }
 
 export interface RendererProps {
