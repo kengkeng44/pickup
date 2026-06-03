@@ -58,6 +58,36 @@
     },
     "questions": [
       {
+        "type": "narration",
+        "id": "kt-ch1-l1-n00",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "This is Mochi. A small cat with no home.",
+        "explanationZh": "這是 Mochi。一隻沒有家的小貓。",
+        "tags": [
+          "story",
+          "ch1",
+          "intro",
+          "background"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l1-n01",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "mochi",
+        "sentence": "Hi! I am Mochi. Every night, I visit Grandma for a story.",
+        "explanationZh": "嗨!我是 Mochi。每晚我都去奶奶那聽故事。",
+        "tags": [
+          "story",
+          "ch1",
+          "intro",
+          "self-intro"
+        ]
+      },
+      {
         "type": "emoji-pick",
         "id": "kt-ch1-l1-q0",
         "level": "A1",
@@ -83,7 +113,8 @@
           "ch1",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "speaker": "narrator"
       },
       {
         "type": "narration",
@@ -95,19 +126,8 @@
           "story",
           "ch1",
           "narration"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch1-l1-n2",
-        "level": "A2",
-        "sentence": "Mochi is a stray cat.",
-        "explanationZh": "",
-        "tags": [
-          "story",
-          "ch1",
-          "narration"
-        ]
+        ],
+        "speaker": "mochi"
       },
       {
         "type": "listen-tf",
@@ -127,7 +147,8 @@
           "ch1",
           "tf"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "speaker": "narrator"
       },
       {
         "type": "narration",
@@ -139,7 +160,8 @@
           "story",
           "ch1",
           "narration"
-        ]
+        ],
+        "speaker": "narrator"
       },
       {
         "type": "listen-tf",
@@ -159,7 +181,8 @@
           "ch1",
           "tf"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "speaker": "narrator"
       },
       {
         "type": "listen-mc",
@@ -188,7 +211,8 @@
           "prologue",
           "smoke"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "speaker": "narrator"
       },
       {
         "type": "narration",
@@ -200,7 +224,8 @@
           "story",
           "ch1",
           "narration"
-        ]
+        ],
+        "speaker": "narrator"
       },
       {
         "type": "listen-mc",
@@ -229,7 +254,8 @@
           "prologue",
           "smoke"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "speaker": "narrator"
       },
       {
         "type": "narration",
@@ -241,7 +267,8 @@
           "story",
           "ch1",
           "narration"
-        ]
+        ],
+        "speaker": "narrator"
       },
       {
         "type": "listen-mc",
@@ -270,7 +297,8 @@
           "prologue",
           "smoke"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "speaker": "narrator"
       },
       {
         "type": "listen-tf",
@@ -290,7 +318,8 @@
           "ch1",
           "tf"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "speaker": "narrator"
       },
       {
         "type": "narration",
@@ -302,7 +331,8 @@
           "story",
           "ch1",
           "narration"
-        ]
+        ],
+        "speaker": "narrator"
       },
       {
         "type": "listen-tf",
@@ -322,7 +352,8 @@
           "ch1",
           "tf"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "speaker": "narrator"
       },
       {
         "type": "listen-mc",
@@ -351,7 +382,8 @@
           "prologue",
           "smoke"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "speaker": "narrator"
       }
     ]
   },

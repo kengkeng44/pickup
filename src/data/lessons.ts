@@ -187,7 +187,9 @@ export const LessonSchema = z.object({
   storyId: z.string().optional(),
   storyBeat: z.string().optional(),
   intro: LessonIntroSchema.optional(),
-  questions: z.array(QuestionSchema).min(3).max(15),
+  // v2.0.B.198: max bumped 15→20 to allow Ch1 opening Mochi self-intro
+  // (n00 + n01 before Q0 + n1 existing arc). headroom for future hooks.
+  questions: z.array(QuestionSchema).min(3).max(20),
 });
 
 export const LessonsSchema = z.array(LessonSchema);

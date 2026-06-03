@@ -117,6 +117,30 @@ const Explanation = ({ text }: { text: string }) => text ? (
   </div>
 ) : null;
 
+// v2.0.B.198: SpeakerBadge — 顯示「誰說的 / 是背景介紹」明示。
+// mochi 1st-person | grandma 奶奶說的 | hana 柴犬 | narrator 背景旁白
+const SPEAKER_META: Record<string, { emoji: string; label: string; bg: string; fg: string }> = {
+  mochi:    { emoji: '🐱', label: 'Mochi',   bg: '#fed7aa', fg: '#9a3412' },
+  grandma:  { emoji: '👵', label: 'Grandma', bg: '#fef3c7', fg: '#78350f' },
+  hana:     { emoji: '🐕', label: 'Hana',    bg: '#f5e6d3', fg: '#6b4226' },
+  narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
+};
+const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
+  const meta = SPEAKER_META[speaker || 'narrator'] ?? SPEAKER_META.narrator;
+  return (
+    <div style={{
+      display: 'inline-flex', alignItems: 'center', gap: 4,
+      padding: '3px 9px', borderRadius: 999,
+      background: meta.bg, color: meta.fg,
+      fontSize: 11, fontWeight: 800, letterSpacing: 0.3,
+      marginBottom: 8,
+    }}>
+      <span style={{ fontSize: 13 }}>{meta.emoji}</span>
+      <span>{meta.label}</span>
+    </div>
+  );
+};
+
 // ─── 1. narration ───────────────────────────────────────────────────────────
 const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
   const text = q.sentence ?? '';
@@ -142,11 +166,14 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
   }, [q.id]);
 
   return (
-    <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: '#fff7e8', border: '2px solid #e7a44a', borderRadius: 14 }}>
-      <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
-      <div style={{ flex: 1, position: 'relative' }}>
-        <SpeakerBtn onClick={() => speak(text)} />
-        <span ref={ref as React.RefObject<HTMLSpanElement>} style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
+    <div>
+      <SpeakerBadge speaker={q.speaker} />
+      <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: '#fff7e8', border: '2px solid #e7a44a', borderRadius: 14 }}>
+        <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
+        <div style={{ flex: 1, position: 'relative' }}>
+          <SpeakerBtn onClick={() => speak(text)} />
+          <span ref={ref as React.RefObject<HTMLSpanElement>} style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
+        </div>
       </div>
     </div>
   );
@@ -193,12 +220,12 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   if (!revealed) {
     return (
       <div ref={ref} className="pickup-lesson-words">
+        <SpeakerBadge speaker={q.speaker} />
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(en)} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#8b6f4a', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
         <div style={{ fontSize: 14, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 點喇叭聽完聲音再選答案</div>
-        {/* v2.0.B.186 P0-C fix: sticky bottom 確保 Yes/No 永遠在視窗底 */}
         <div className="pickup-answer-sticky">
           {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
         </div>
@@ -208,6 +235,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div ref={ref} className="pickup-lesson-words" style={{ padding: '14px 6px 8px' }}>
+      <SpeakerBadge speaker={q.speaker} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', borderRadius: 12, border: '1px solid #e0d0b8', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(en)} size={36} />
         <span dangerouslySetInnerHTML={{ __html: wrapWords(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.7 }} />
@@ -261,6 +289,7 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div ref={ref} className="pickup-lesson-words">
+      <SpeakerBadge speaker={q.speaker} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en)} size={44} />
         <span dangerouslySetInnerHTML={{ __html: revealed ? wrapWords(en) : blanks(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: revealed ? '#3c2a1c' : '#8b6f4a', letterSpacing: revealed ? 0 : '0.1em', lineHeight: 1.8 }} />
@@ -533,6 +562,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '20px 8px' }}>
+      <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
       <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" style={{ borderRadius: '50%', marginBottom: 16 }} />
       <h2 style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c', lineHeight: 1.5, margin: '0 0 20px' }}>{prompt}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, maxWidth: 360, margin: '0 auto' }}>
