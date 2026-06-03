@@ -187,7 +187,11 @@ export class LessonScene extends Phaser.Scene {
     });
 
     // Story-mode meta from the chapter (LessonScene is only used for story).
-    const ch = CHAPTER_META[this.chapter as ChapterId];
+    // v2.0.B.203: ChapterId now includes 0 (Intro). Legacy Phaser path falls
+    // back to Ch1 meta for Intro since Phaser scene is React-deprecated and
+    // Intro navigation goes through React routes.
+    const phaserChapter = (this.chapter === 0 ? 1 : this.chapter) as Exclude<ChapterId, 0>;
+    const ch = CHAPTER_META[phaserChapter];
     const meta = {
       accent: ch.accent,
       tint: ch.tint,
@@ -199,7 +203,7 @@ export class LessonScene extends Phaser.Scene {
     // Seed runStore for ClozeUI's subscription (story mode, no HP/timer/streak).
     const store = useRunStore.getState();
     store.setMode('story');
-    store.setChapter(this.chapter as ChapterId);
+    store.setChapter(phaserChapter);
     store.reset();
 
     this.hud = new GameHUD({

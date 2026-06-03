@@ -24,8 +24,10 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-const CHAPTERS = [1, 2, 3, 4, 5, 6, 7, 8];
+// v2.0.B.203: 加 Intro (ch0) — Pickup framework setup,跟奶奶故事無關
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const CHAPTER_TITLES = {
+  0: 'Intro · 認識 Mochi 與奶奶',
   1: '院子裡的第一個故事', 2: '桃太郎', 3: '醜小鴨', 4: '龜兔賽跑',
   5: '駱駝為什麼有駝峰', 6: 'Baba Yaga', 7: '六隻天鵝', 8: '葉限',
 };
@@ -61,14 +63,24 @@ h1 { margin: 0; font-size: 16px; font-weight: 900; flex: 1; min-width: 0; white-
   -webkit-tap-highlight-color: transparent; }
 .btn.secondary { background: #fffbf2; color: var(--accent-dark); border: 1.5px solid var(--border); }
 main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
-.lesson-block { margin-bottom: 22px; }
-.lesson-head { font-size: 12px; font-weight: 800; color: var(--accent-dark);
-  margin-bottom: 8px; padding: 6px 10px; background: rgba(200,168,120,0.10);
-  border-radius: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.lesson-head .lesson-id { font-family: ui-monospace,Consolas,monospace; font-size: 10px;
-  background: var(--accent); color: #fff; padding: 2px 7px; border-radius: 999px; font-weight: 700; }
-.lesson-head .lesson-beat { color: var(--text); font-weight: 800; font-size: 13px; }
-.lesson-head .meta { font-size: 9px; color: var(--muted); margin-left: auto; }
+.lesson-block { margin-bottom: 28px; }
+
+/* v2.0.B.203: lesson-head 拉大 — 22px 字級 + amber 背景倍量,跟 Q cards
+   形成明顯層次,user 一眼看出「這是小節標題」vs「這是題目卡」 */
+.lesson-head {
+  font-size: 22px; font-weight: 900; color: var(--accent-dark);
+  margin-bottom: 12px; padding: 14px 18px;
+  background: linear-gradient(135deg, #fff7e8 0%, rgba(231,164,74,0.18) 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: 14px;
+  box-shadow: inset 0 4px 0 rgba(231,164,74,0.25);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.lesson-head .lesson-id { font-family: ui-monospace,Consolas,monospace; font-size: 11px;
+  background: var(--accent); color: #fff; padding: 4px 10px; border-radius: 999px; font-weight: 800; }
+.lesson-head .lesson-beat { color: var(--text); font-weight: 900; font-size: 18px; flex: 1; min-width: 0; }
+.lesson-head .meta { font-size: 11px; color: var(--muted); font-weight: 700;
+  background: rgba(255,255,255,0.5); padding: 3px 9px; border-radius: 999px; }
 .q-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
   padding: 10px; margin-bottom: 6px; }
 .q-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }

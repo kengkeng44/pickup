@@ -163,7 +163,10 @@ export const SegmentTypeSchema = z.enum([
 ]);
 export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 
+// v2.0.B.203: chapter 0 = Intro (Pickup framework setup, outside any
+// grandma-story narrative). Ch1 starts directly with the rainy night story.
 export const ChapterIdSchema = z.union([
+  z.literal(0),
   z.literal(1), z.literal(2), z.literal(3), z.literal(4),
   z.literal(5), z.literal(6), z.literal(7), z.literal(8),
 ]);
