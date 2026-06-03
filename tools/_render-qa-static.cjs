@@ -217,6 +217,18 @@ document.addEventListener('click', (e) => {
 </script>
 `;
 
+// v2.0.B.199: speaker badge mapping (game-mirror)
+const SPEAKER_META = {
+  mochi:    { emoji: '🐱', label: 'Mochi',   bg: '#fed7aa', fg: '#9a3412' },
+  grandma:  { emoji: '👵', label: 'Grandma', bg: '#fef3c7', fg: '#78350f' },
+  hana:     { emoji: '🐕', label: 'Hana',    bg: '#f5e6d3', fg: '#6b4226' },
+  narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
+};
+function renderSpeakerBadge(speaker) {
+  const meta = SPEAKER_META[speaker] || SPEAKER_META.narrator;
+  return `<span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:${meta.bg};color:${meta.fg};font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">${meta.emoji}</span>${meta.label}</span>`;
+}
+
 function renderQCard(q, original) {
   const isBlind = BLIND_CLOZE_TYPES.has(q.type);
   const speakText = escapeHtml(applyDefaults(q.sentence || ''));
@@ -228,6 +240,7 @@ function renderQCard(q, original) {
   const parts = [];
   parts.push(`<div class="q-card">`);
   parts.push(`<div class="q-head">`);
+  parts.push(renderSpeakerBadge(q.speaker));
   parts.push(`<span class="type-chip" data-type="${escapeHtml(q.type)}">${escapeHtml(q.type)}</span>`);
   parts.push(`<span class="q-id">${escapeHtml(q.id)}</span>`);
   parts.push(`<span class="q-tags">${escapeHtml(tags + subSkill + level + diff)}</span>`);
