@@ -8,6 +8,7 @@ import { CHAPTER_META } from '../data/storyKitten';
 import { speak, autoSpeak, stopSpeaking } from '../audio/tts';
 import { track, EVENT } from '../analytics/posthog';
 import { wireSentenceHints, preloadHints } from '../ui/WordHint';
+import { getLessonHook } from '../data/lessonHooks';
 
 // v2.0.B.161.8: token wrap helper — every English word becomes a tappable
 // .word span so WordHint can show ZH gloss on tap. Per user feedback
@@ -1072,6 +1073,8 @@ export class LessonScene extends Phaser.Scene {
     if (firstTime) this.lessonEndTime = Date.now();
     const elapsedMs = (this.lessonEndTime ?? Date.now()) - this.lessonStartTime;
     // v2.0.B.161.4: PostHog LESSON_COMPLETE event (first show only)
+    // v2.0.B.221: + hook_type + has_inquiry tags for emotional-peak-cut A/B analytics
+    const hook = getLessonHook(this.lesson.id);
     if (firstTime) {
       try {
         track(EVENT.LESSON_COMPLETE, {
@@ -1083,6 +1086,9 @@ export class LessonScene extends Phaser.Scene {
           xp_earned: xpEarned,
           elapsed_ms: elapsedMs,
           review_opened: false,
+          // B.221 hook framework tags
+          hook_type: hook?.type ?? 'none',
+          has_inquiry: hook != null,
         });
       } catch {}
       // v2.0.B.161.6: PostHog STREAK_UPDATE event — fires once on lesson finish
@@ -1153,6 +1159,28 @@ export class LessonScene extends Phaser.Scene {
       }
     });
     slot.appendChild(reviewBtn);
+
+    // v2.0.B.221: Inquiry hook microcopy above Continue button (Bell HIP Prompt →
+    // UX hook落地). Renders the lesson's inquiry-terminating question as dashed
+    // amber microcopy, driving Zeigarnik-effect curiosity to click Continue.
+    if (hook?.inquiry) {
+      const inq = document.createElement('div');
+      inq.className = 'pickup-stats-inquiry';
+      inq.textContent = `想知道:${hook.inquiry}`;
+      Object.assign(inq.style, {
+        marginTop: '14px',
+        padding: '10px 14px',
+        background: 'transparent',
+        border: '1.5px dashed #c8a878',
+        borderRadius: '10px',
+        color: '#8b6f4a',
+        fontSize: '14px',
+        fontWeight: '700',
+        textAlign: 'center',
+        letterSpacing: '0.3px',
+      });
+      slot.appendChild(inq);
+    }
 
     const cont = document.createElement('button');
     cont.type = 'button';
