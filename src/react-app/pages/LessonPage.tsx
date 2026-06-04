@@ -14,6 +14,7 @@ import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { track, EVENT } from '../../analytics/posthog';
 import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
+import { getLessonHook } from '../../data/lessonHooks';
 
 interface Lesson {
   id: string;
@@ -138,6 +139,11 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
   const coinDelta = correct * 3;
   const accuracy = total > 0 ? Math.round(correct / total * 100) : 100;
 
+  // v2.0.B.230 (was B.221, mis-landed in dead LessonScene.ts): hook framework
+  // metadata for inquiry microcopy + PostHog tag. Per docs/research/chapter-
+  // ending-hook-design.md framework B1-B6.
+  const hook = getLessonHook(lesson.id);
+
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
     try { addXp(xp); } catch {}
@@ -152,6 +158,9 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         xp_earned: xp,
         elapsed_ms: elapsedMs,
         review_opened: false,
+        // B.230 hook framework A/B analytics
+        hook_type: hook?.type ?? 'none',
+        has_inquiry: hook != null,
       });
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -179,6 +188,25 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         <Stat label="ACCURACY" value={`${accuracy}%`} color="#5d9a35" bg="#eaf6d5" />
         <Stat label="TIME" value={timeStr} color="#8b6f4a" bg="#fef8ed" />
       </div>
+      {/* v2.0.B.230: hook inquiry microcopy above Continue button. Bell HIP
+          Prompt 外顯 — drives Zeigarnik 效應點下一個 button 衝動. */}
+      {hook?.inquiry && (
+        <div style={{
+          marginBottom: 14,
+          padding: '10px 14px',
+          background: 'transparent',
+          border: '1.5px dashed #c8a878',
+          borderRadius: 10,
+          color: '#8b6f4a',
+          fontSize: 14,
+          fontWeight: 700,
+          textAlign: 'center',
+          letterSpacing: '0.3px',
+          maxWidth: 420,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}>想知道:{hook.inquiry}</div>
+      )}
       {/* v2.0.B.187 P2-D: Continue 全寬,senior instinct 對齊 */}
       <button onClick={onBack} style={{
         padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
