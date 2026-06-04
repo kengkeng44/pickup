@@ -25,19 +25,22 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 
+// v2.0.B.217: revised time estimates for 5 min/lesson budget
+// Per user '數量要照每個小節只能花五分鐘'
 const TIME_S = {
-  'tap-pairs': 42,            // avg vocab + review
-  'narration': 30,
-  'listen-tf': 25,
-  'listen-tf-zh': 25,
-  'listen-mc': 45,
-  'listen-comprehension': 60,
-  'emoji-pick': 30,
-  'tap-tiles': 50,
-  'read-mc-with-audio': 45,
-  'listen-emoji': 30,
-  'type-what-you-hear': 75,
+  'tap-pairs': 30,            // 4 pairs × 7s — vocab intro
+  'narration': 15,            // ~10s TTS + 2s dwell + advance
+  'listen-tf': 20,            // listen + Y/N tap
+  'listen-tf-zh': 20,
+  'listen-mc': 35,            // listen + read 4 options + tap
+  'listen-comprehension': 45, // listen + inference + tap
+  'emoji-pick': 25,           // visual quick
+  'tap-tiles': 35,            // sentence ordering
+  'read-mc-with-audio': 35,
+  'listen-emoji': 25,
+  'type-what-you-hear': 60,   // typing slowest
 };
+const LESSON_BUDGET_S = 300;  // 5 min
 
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
@@ -79,12 +82,14 @@ function getAnswer(q) {
 const rows = [];
 const perChapter = {};
 
-for (let ch = 0; ch <= 7; ch++) {
+// v2.0.B.217: skip Ch0 per user '不用放到數據庫裡面'
+for (let ch = 1; ch <= 7; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
-  const chStats = { lessons: data.length, qCount: 0, timeS: 0, typeCounts: {} };
+  const chStats = { lessons: data.length, qCount: 0, timeS: 0, typeCounts: {}, lessonsOverBudget: 0 };
   for (const lesson of data) {
+    let lessonTime = 0;
     for (const q of lesson.questions || []) {
       const t = q.type;
       const time = TIME_S[t] || 40;
@@ -102,8 +107,10 @@ for (let ch = 0; ch <= 7; ch++) {
       });
       chStats.qCount++;
       chStats.timeS += time;
+      lessonTime += time;
       chStats.typeCounts[t] = (chStats.typeCounts[t] || 0) + 1;
     }
+    if (lessonTime > LESSON_BUDGET_S) chStats.lessonsOverBudget++;
   }
   perChapter[ch] = chStats;
 }
@@ -147,16 +154,18 @@ const sumLines = [
   '',
   `## Per chapter (with 25% tolerance check)`,
   '',
-  `| Ch | Title | Lessons | Q count | Avg Q/lesson | Total time (min) | Variance from avg | Tolerance |`,
-  `|----|-------|---------|---------|--------------|------------------|-------------------|-----------|`,
+  `| Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |`,
+  `|----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|`,
 ];
-for (let ch = 0; ch <= 7; ch++) {
+for (let ch = 1; ch <= 7; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
   const inBand = s.qCount >= lowBand && s.qCount <= highBand;
+  const avgLessonTime = Math.round(s.timeS / s.lessons);
   const sign = variance > 0 ? '+' : '';
-  sumLines.push(`| ${ch} | ${CHAPTER_TITLES[ch] || ''} | ${s.lessons} | ${s.qCount} | ${(s.qCount / s.lessons).toFixed(1)} | ${Math.round(s.timeS / 60)} | ${sign}${variance}% | ${inBand ? '✓' : '⚠️ OUT'} |`);
+  const budgetMark = avgLessonTime <= LESSON_BUDGET_S ? '✓' : `⚠️ ${avgLessonTime}s>${LESSON_BUDGET_S}s`;
+  sumLines.push(`| ${ch} | ${CHAPTER_TITLES[ch] || ''} | ${s.lessons} | ${s.qCount} | ${(s.qCount / s.lessons).toFixed(1)} | ${avgLessonTime}s/lesson ${budgetMark} | ${sign}${variance}% | ${inBand ? '✓' : '⚠️ OUT'} |`);
 }
 
 sumLines.push('');
@@ -167,7 +176,7 @@ for (const s of Object.values(perChapter)) for (const t of Object.keys(s.typeCou
 const typesArr = [...allTypes].sort();
 sumLines.push(`| Ch | ${typesArr.join(' | ')} |`);
 sumLines.push(`|----|${typesArr.map(()=>'---').join('|')}|`);
-for (let ch = 0; ch <= 7; ch++) {
+for (let ch = 1; ch <= 7; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const cells = typesArr.map(t => s.typeCounts[t] || 0);
@@ -181,11 +190,13 @@ console.log(`OK   docs/content-db-summary.md`);
 console.log(`\n[CURRENT STATE]`);
 console.log(`Total Q: ${totalQ}, total time: ${Math.round(totalTime/60)} min`);
 console.log(`Avg per chapter: ${avgPerCh}, 25% tolerance band: ${lowBand}-${highBand}`);
-console.log(`\nPer chapter:`);
-for (let ch = 0; ch <= 7; ch++) {
+console.log(`\nPer chapter (Ch0 excluded, 5 min/lesson budget):`);
+for (let ch = 1; ch <= 7; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
   const inBand = s.qCount >= lowBand && s.qCount <= highBand;
-  console.log(`  Ch${ch} ${CHAPTER_TITLES[ch] || ''}: ${s.qCount} Q (${(s.qCount/s.lessons).toFixed(1)}/lesson), variance ${variance > 0 ? '+' : ''}${variance}% ${inBand ? '✓' : '⚠️ OUT'}`);
+  const avgT = Math.round(s.timeS / s.lessons);
+  const budgetMark = avgT <= LESSON_BUDGET_S ? '✓' : `⚠️ ${avgT}s>300s`;
+  console.log(`  Ch${ch} ${CHAPTER_TITLES[ch] || ''}: ${s.qCount} Q (${(s.qCount/s.lessons).toFixed(1)}/lesson, ${avgT}s avg ${budgetMark}), variance ${variance > 0 ? '+' : ''}${variance}% ${inBand ? '✓' : '⚠️ OUT'}`);
 }
