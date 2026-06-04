@@ -94,53 +94,67 @@ function tapTiles(id, sentence, expZh) {
 
 const lessons = [
   // ────────────────────────────────────────────────────────────────────
-  // Ch1-1 Setup — 老夫婦的安靜村莊
-  // TF strategy A (atmosphere). gist: scene = lonely couple no children
+  // Ch1-1 Setup — 老夫婦的安靜村莊 (v5: interleaved 11 Q, 5 min budget)
+  // Structure: vocab + 4 narration chunks interleaved with 6 Q + tap-tiles
   // ────────────────────────────────────────────────────────────────────
   {
     id: 'kt-ch1-l1', chapter: 1, lessonInChapter: 1,
     segmentType: 'main-story', storyId: 'momotaro',
     storyBeat: '老夫婦的安靜村莊',
     questions: [
+      // Q1 vocab intro
       vocabIntro('kt-ch1-l1-q1', [
         ['老人', 'old man'], ['河', 'river'],
         ['山', 'mountain'], ['衣服', 'clothes'],
       ]),
+      // Q2 BEAT A narration — setup
       nar('kt-ch1-l1-q2',
-        'Long ago, an old man and woman lived in a village.',
+        'Long ago, an old man and woman lived in a small village.',
         '很久以前,一對老夫婦住在一個小村莊。'),
-      nar('kt-ch1-l1-q3',
-        'They were kind, but their wish for a child never came.',
-        '他們善良,但想要小孩的願望從沒實現。'),
-      // TF A — atmosphere implies no children
-      tf('kt-ch1-l1-q4',
+      // Q3 TF inference about BEAT A (atmosphere implies no children)
+      tf('kt-ch1-l1-q3',
         'Their wooden house stayed very quiet, year after year.',
         '他們的木屋年復一年都很安靜。',
         'Did any children live with them?', 'N',
         '推理:家裡很安靜 → 沒有小孩跑跳的聲音 → 答 No'),
-      mc('kt-ch1-l1-q5',
+      // Q4 BEAT B narration — daily work
+      nar('kt-ch1-l1-q4',
         'Each day, the old man climbed up high to gather firewood.',
-        'Where did the old man work?',
-        ['by the sea', 'on the mountain', 'in the town', 'in the garden'],
-        ['海邊', '山上', '鎮上', '花園'],
-        1,
-        '他爬到高處 = 山上工作。'),
-      mc('kt-ch1-l1-q6',
+        '老公公每天爬到高處去撿柴。'),
+      // Q5 listen-mc about BEAT B (paraphrase — different sentence)
+      mc('kt-ch1-l1-q5',
         'He carried home heavy wood for the fire.',
         'What was his daily task?',
         ['fishing', 'cutting wood', 'cooking rice', 'feeding goats'],
         ['釣魚', '砍柴', '煮飯', '養羊'],
         1,
         '他的日常工作是砍柴。'),
-      emoji('kt-ch1-l1-q7',
+      // Q6 BEAT C narration — wife's role
+      nar('kt-ch1-l1-q6',
+        'Each morning she sat by the cool river water.',
+        '老婆婆每天早上坐在涼涼的河水邊。'),
+      // Q7 listen-mc about BEAT C (paraphrase)
+      mc('kt-ch1-l1-q7',
+        'She brought clean clothes home in a basket every day.',
+        'Why did she sit by the water?',
+        ['to fish', 'to swim', 'to wash clothes', 'to rest'],
+        ['釣魚', '游泳', '洗衣服', '休息'],
+        2,
+        '帶回乾淨衣服 → 她去洗衣服。'),
+      // Q8 emoji-pick BEAT D — wish
+      emoji('kt-ch1-l1-q8',
         'What did the old couple want most?',
         'What did they want most?',
         ['👶 a child', '💰 gold', '🏠 a big house', '📺 a TV'],
         ['一個小孩', '金子', '大房子', '電視'],
         0,
         '他們最想要小孩。'),
-      // gist replaces 2nd TF — main idea: lonely without children
-      gist('kt-ch1-l1-q8',
+      // Q9 BEAT E narration — emotional close
+      nar('kt-ch1-l1-q9',
+        'Old age came, but no children\'s voices filled the house.',
+        '他們漸漸老了,家裡依然沒有小孩的聲音。'),
+      // Q10 listen-comp gist (overall)
+      gist('kt-ch1-l1-q10',
         'Old age came, but no children\'s voices filled the house.',
         'What is this scene mainly about?',
         ['the couple felt lonely without children',
@@ -150,28 +164,8 @@ const lessons = [
         ['夫妻沒孩子的孤單', '夫妻愛吵雜派對', '夫妻有錢又開心', '夫妻搬去新城鎮'],
         0,
         '主旨 = 老夫婦因沒孩子而孤單。'),
-      mc('kt-ch1-l1-q9',
-        'Each morning she sat by the cool river water.',
-        'Why did she sit by the water?',
-        ['to fish', 'to swim', 'to wash clothes', 'to rest'],
-        ['釣魚', '游泳', '洗衣服', '休息'],
-        2,
-        '她去水邊是為了洗衣服。'),
-      inferLc('kt-ch1-l1-q10',
-        'The couple lived a quiet life with no little ones to call their own.',
-        'How was their daily life?',
-        ['noisy and busy', 'quiet and lonely', 'rich and easy', 'cold and dark'],
-        ['吵又忙', '安靜又孤單', '有錢又輕鬆', '冷又暗'],
-        1,
-        '推理:沒孩子叫他們爸媽 → 安靜又孤單。'),
-      mc('kt-ch1-l1-q11',
-        'Their village was small and far from the busy city.',
-        'How was their village?',
-        ['big and modern', 'small and remote', 'rich and crowded', 'cold and dark'],
-        ['大又現代', '小又偏遠', '富又擁擠', '冷又暗'],
-        1,
-        '村莊小又偏遠。'),
-      tapTiles('kt-ch1-l1-q12',
+      // Q11 tap-tiles review
+      tapTiles('kt-ch1-l1-q11',
         'An old man and woman lived in a village.',
         '排出句子:老夫婦住在一個村莊。'),
     ],

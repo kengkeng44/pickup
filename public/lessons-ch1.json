@@ -47,7 +47,7 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago, an old man and woman lived in a village.",
+        "sentence": "Long ago, an old man and woman lived in a small village.",
         "explanationZh": "很久以前,一對老夫婦住在一個小村莊。",
         "tags": [
           "story",
@@ -56,22 +56,8 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch1-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They were kind, but their wish for a child never came.",
-        "explanationZh": "他們善良,但想要小孩的願望從沒實現。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ]
-      },
-      {
         "type": "listen-tf",
-        "id": "kt-ch1-l1-q4",
+        "id": "kt-ch1-l1-q3",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
@@ -91,37 +77,22 @@
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q5",
+        "type": "narration",
+        "id": "kt-ch1-l1-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Each day, the old man climbed up high to gather firewood.",
-        "question": "Where did the old man work?",
-        "options": [
-          "by the sea",
-          "on the mountain",
-          "in the town",
-          "in the garden"
-        ],
-        "optionsZh": [
-          "海邊",
-          "山上",
-          "鎮上",
-          "花園"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他爬到高處 = 山上工作。",
+        "explanationZh": "老公公每天爬到高處去撿柴。",
         "tags": [
           "story",
           "ch1",
           "momotaro"
-        ],
-        "subSkill": "detail"
+        ]
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q6",
+        "id": "kt-ch1-l1-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -149,8 +120,51 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "narration",
+        "id": "kt-ch1-l1-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each morning she sat by the cool river water.",
+        "explanationZh": "老婆婆每天早上坐在涼涼的河水邊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
         "id": "kt-ch1-l1-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She brought clean clothes home in a basket every day.",
+        "question": "Why did she sit by the water?",
+        "options": [
+          "to fish",
+          "to swim",
+          "to wash clothes",
+          "to rest"
+        ],
+        "optionsZh": [
+          "釣魚",
+          "游泳",
+          "洗衣服",
+          "休息"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "帶回乾淨衣服 → 她去洗衣服。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l1-q8",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -179,8 +193,22 @@
         "subSkill": "vocab"
       },
       {
+        "type": "narration",
+        "id": "kt-ch1-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Old age came, but no children's voices filled the house.",
+        "explanationZh": "他們漸漸老了,家裡依然沒有小孩的聲音。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
         "type": "listen-comprehension",
-        "id": "kt-ch1-l1-q8",
+        "id": "kt-ch1-l1-q10",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
@@ -209,95 +237,8 @@
         "subSkill": "gist"
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Each morning she sat by the cool river water.",
-        "question": "Why did she sit by the water?",
-        "options": [
-          "to fish",
-          "to swim",
-          "to wash clothes",
-          "to rest"
-        ],
-        "optionsZh": [
-          "釣魚",
-          "游泳",
-          "洗衣服",
-          "休息"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "她去水邊是為了洗衣服。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch1-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The couple lived a quiet life with no little ones to call their own.",
-        "question": "How was their daily life?",
-        "options": [
-          "noisy and busy",
-          "quiet and lonely",
-          "rich and easy",
-          "cold and dark"
-        ],
-        "optionsZh": [
-          "吵又忙",
-          "安靜又孤單",
-          "有錢又輕鬆",
-          "冷又暗"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "推理:沒孩子叫他們爸媽 → 安靜又孤單。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Their village was small and far from the busy city.",
-        "question": "How was their village?",
-        "options": [
-          "big and modern",
-          "small and remote",
-          "rich and crowded",
-          "cold and dark"
-        ],
-        "optionsZh": [
-          "大又現代",
-          "小又偏遠",
-          "富又擁擠",
-          "冷又暗"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "村莊小又偏遠。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
         "type": "tap-tiles",
-        "id": "kt-ch1-l1-q12",
+        "id": "kt-ch1-l1-q11",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
