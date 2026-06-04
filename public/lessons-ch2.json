@@ -3,159 +3,236 @@
     "id": "kt-ch2-l1",
     "chapter": 2,
     "lessonInChapter": 1,
-    "segmentType": "outer-prologue",
-    "storyId": "outer",
-    "storyBeat": "Mochi 秋夜跳上矮牆",
+    "segmentType": "main-story",
+    "storyId": "ugly-duckling",
+    "storyBeat": "鴨媽媽等待 — 大蛋還沒裂",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l1-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The fall season wind is cool tonight.",
-        "question": "What season is tonight?",
-        "options": [
-          "answer",
-          "autumn",
-          "afternoon",
-          "August"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "蛋",
+            "right": "egg"
+          },
+          {
+            "left": "等",
+            "right": "wait"
+          },
+          {
+            "left": "窩",
+            "right": "nest"
+          },
+          {
+            "left": "裡面",
+            "right": "inside"
+          }
         ],
-        "optionsZh": [
-          "回答",
-          "秋天",
-          "下午",
-          "八月"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "autumn = 秋天。同類陷阱:August 八月(也是 au- 開頭時間詞);部分對的:afternoon 下午(時間,但不是季節);完全離題:answer 答案。今晚的院子有秋風,有點涼。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 egg = 蛋\n🔑 wait = 等\n🔑 nest = 窩\n🔑 inside = 裡面\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling",
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l1-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I climb the low wall again.",
-        "question": "How does Mochi reach the wall?",
-        "options": [
-          "claim",
-          "clean",
-          "calm",
-          "climb"
-        ],
-        "optionsZh": [
-          "聲稱",
-          "乾淨",
-          "冷靜",
-          "爬"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "climb = 爬。同類陷阱:clean 打掃(也是 cl- 動詞);部分對的:claim 宣稱(發音近);完全離題:calm 平靜的(形容詞)。我用爪子搭著矮牆爬上去。",
+        "speaker": "narrator",
+        "sentence": "In the warm reeds by the pond, mother duck sat on her nest.",
+        "explanationZh": "在池邊溫暖的蘆葦叢裡,鴨媽媽坐在她的窩上。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l1-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I come back every night to hear Grandma's story.",
-        "question": "Why does Mochi come back every night?",
-        "options": [
-          "to find a job",
-          "to hear a story",
-          "to chase a bird",
-          "to wash my paws"
-        ],
-        "optionsZh": [
-          "找工作",
-          "聽故事",
-          "為了追鳥",
-          "洗我的爪子"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "to hear a story = 聽故事。同類陷阱:to find a job 找工作(也是 to-Vinf 目的);部分對的:to chase a bird 追鳥(貓會做但不是今晚的事);完全離題:to wash my paws 洗腳掌。奶奶的故事是我每晚最期待的。",
+        "speaker": "narrator",
+        "sentence": "She had six round eggs to keep safe and warm.",
+        "explanationZh": "她有六顆圓圓的蛋要保護和保溫。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "listen-tf",
         "id": "kt-ch2-l1-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The leaves are rose-colored and golden.",
-        "question": "Which two colors did you hear?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The reeds around her stood very still in the soft sun.",
+        "questionEn": "Was the place busy and loud?",
         "options": [
-          "black and white",
-          "red and orange",
-          "blue and yellow",
-          "red and yellow"
+          "Yes",
+          "No"
         ],
-        "optionsZh": [
-          "黑白",
-          "紅和橘",
-          "藍黃",
-          "紅和黃"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "red and yellow = 紅色與黃色。同類陷阱:red and orange 紅與橘(暖色錯一個);部分對的:blue and yellow 藍與黃(對一個錯一個);完全離題:black and white 黑與白。秋天的院子,葉子變紅變黃,踩上去沙沙響。",
+        "correctIndex": 1,
+        "explanationZh": "推理:蘆葦靜靜地站著 → 安靜的地方 → 答 No",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling",
+          "inference"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l1-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I feel calm and happy sitting on the wall.",
-        "question": "How does Mochi feel?",
-        "options": [
-          "hungry and angry",
-          "calm and happy",
-          "tired and bored",
-          "lost and cold"
-        ],
-        "optionsZh": [
-          "又餓又生氣",
-          "冷靜又快樂",
-          "又累又無聊",
-          "迷路又冷"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "calm and happy = 平靜又開心。同類陷阱:lost and cold 迷路又冷(情緒詞但反向);部分對的:tired and bored 累又無聊(累對了一半);完全離題:hungry and angry 餓又生氣。回到奶奶院子,我就鬆下來了。",
+        "speaker": "narrator",
+        "sentence": "One sunny morning, five small eggs began to crack open.",
+        "explanationZh": "一個晴朗的早上,五顆小蛋開始裂開。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-comprehension"
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l1-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Bright yellow babies tumbled out one by one onto the grass.",
+        "question": "What came out of the eggs?",
+        "options": [
+          "grey chicks",
+          "tiny yellow ducklings",
+          "green frogs",
+          "white kittens"
         ],
-        "subSkill": "detail",
-        "speaker": "mochi"
+        "optionsZh": [
+          "灰色雛鳥",
+          "小小黃色鴨寶寶",
+          "綠青蛙",
+          "白小貓"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "黃色 + 翻出來 → 黃色鴨寶寶。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l1-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But one large egg was bigger than all the others.",
+        "explanationZh": "但有一顆大蛋比其他所有都大。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l1-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "That big egg stayed quiet and closed on the soft nest.",
+        "question": "What was different about this egg?",
+        "options": [
+          "very small",
+          "already broken",
+          "still closed up",
+          "painted with color"
+        ],
+        "optionsZh": [
+          "很小",
+          "已經破了",
+          "還沒打開",
+          "塗了顏色"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "安靜 + 沒裂開 → 還沒打開。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mother duck sat down again and waited day after day.",
+        "explanationZh": "鴨媽媽再次坐下,日復一日地等。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l1-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did mother duck feel?",
+        "question": "How did she feel?",
+        "options": [
+          "😟 worried",
+          "😄 excited",
+          "😴 sleepy",
+          "😡 angry"
+        ],
+        "optionsZh": [
+          "擔心",
+          "興奮",
+          "想睡",
+          "生氣"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "一直等 → 擔心。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l1-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then she felt a small thump from inside the big egg...",
+        "explanationZh": "然後她感覺到大蛋裡傳來一個小小的撞擊聲……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -163,159 +240,236 @@
     "id": "kt-ch2-l2",
     "chapter": 2,
     "lessonInChapter": 2,
-    "segmentType": "outer-prologue",
-    "storyId": "outer",
-    "storyBeat": "Hana 在草地上等",
+    "segmentType": "main-story",
+    "storyId": "ugly-duckling",
+    "storyBeat": "大蛋裂開 — 灰色鴨寶寶 — 大家盯著看",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l2-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Hana is already on the soft green ground.",
-        "question": "Where is Hana?",
-        "options": [
-          "on the wall",
-          "on the bed",
-          "on the grass",
-          "on the road"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "灰",
+            "right": "grey"
+          },
+          {
+            "left": "大",
+            "right": "large"
+          },
+          {
+            "left": "不同",
+            "right": "different"
+          },
+          {
+            "left": "盯著看",
+            "right": "stare"
+          }
         ],
-        "optionsZh": [
-          "在牆上",
-          "在床上",
-          "在草地",
-          "在路上"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "on the grass = 在草地上。同類陷阱:on the bed 在床上(也是 on the + 地點);部分對的:on the wall 在牆上(我在的地方,不是 Hana);完全離題:on the road 在馬路上。Hana 已經先躺在院子草地上等我了。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 grey = 灰\n🔑 large = 大\n🔑 different = 不同\n🔑 stare = 盯著看\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling",
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l2-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He looks up at me.",
-        "question": "What does Hana do with eyes?",
-        "options": [
-          "looks",
-          "locks",
-          "licks",
-          "ticks"
-        ],
-        "optionsZh": [
-          "看",
-          "鎖",
-          "舔",
-          "滴答"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "looks = 看。同類陷阱:locks 鎖(也是動詞 + s);部分對的:licks 舔(狗會做的動作,但不是這句);完全離題:ticks 滴答聲。Hana 抬頭看我,等我跳下牆。",
+        "speaker": "narrator",
+        "sentence": "At last the great egg began to crack open slowly.",
+        "explanationZh": "最後那顆大蛋開始慢慢裂開。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l2-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "His tail moves slowly.",
-        "question": "How does his tail move?",
-        "options": [
-          "lonely",
-          "slowly",
-          "softly",
-          "loudly"
-        ],
-        "optionsZh": [
-          "孤單",
-          "慢慢地",
-          "輕輕地",
-          "大聲地"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "slowly = 慢慢地。同類陷阱:loudly 大聲地(也是 -ly 副詞);部分對的:softly 輕輕地(動作描述但不是這句);完全離題:lonely 孤單的(形容詞不是副詞)。秋天他比較不興奮,尾巴只是慢慢搖。",
+        "speaker": "narrator",
+        "sentence": "Out came a baby duck — but he was large and grey.",
+        "explanationZh": "一隻鴨寶寶出來了 — 但他又大又灰。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "listen-tf",
         "id": "kt-ch2-l2-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I sit down right after to him.",
-        "question": "Where do I sit?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The yellow ducklings stopped playing and turned their heads.",
+        "questionEn": "Did the yellow ducklings notice him?",
         "options": [
-          "behind the wall",
-          "near the gate",
-          "under the chair",
-          "next to Hana"
+          "Yes",
+          "No"
         ],
-        "optionsZh": [
-          "牆後",
-          "門邊",
-          "椅子下",
-          "下一個到Hana"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "next to Hana = 在 Hana 旁邊。同類陷阱:behind the wall 牆後面(地點介系詞片語);部分對的:under the chair 椅子下(奶奶椅子下,不是 Hana 旁);完全離題:near the gate 大門邊。我跳下牆挨著他坐下。",
+        "correctIndex": 0,
+        "explanationZh": "推理:停下來轉頭 → 注意到他 → 答 Yes",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling",
+          "inference"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l2-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He is cozy. I am cold.",
-        "question": "How is Hana different from me?",
-        "options": [
-          "he is wet",
-          "he is loud",
-          "he is young",
-          "he is warm"
-        ],
-        "optionsZh": [
-          "他濕了",
-          "他大聲",
-          "他年輕",
-          "他暖"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "he is warm = 他很暖。同類陷阱:he is wet 他很濕(觸感形容詞);部分對的:he is loud 他很吵(對比形容詞但不對應);完全離題:he is young 他很年輕。柴犬毛厚,我貓毛薄,秋天靠著他剛好。",
+        "speaker": "narrator",
+        "sentence": "They looked at the new baby for a long, quiet moment.",
+        "explanationZh": "他們看著新的寶寶,看了很久,很安靜。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l2-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The new duckling did not look like his brothers and sisters.",
+        "question": "How was the new duckling not the same?",
+        "options": [
+          "smaller in size",
+          "missing his feet",
+          "a different color",
+          "unable to swim"
         ],
-        "subSkill": "detail",
-        "speaker": "mochi"
+        "optionsZh": [
+          "他比較小",
+          "他沒有腳",
+          "他顏色不同",
+          "他不會游泳"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "不像兄弟姐妹 → 顏色不同。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l2-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mother duck looked at her new son and gave him a name.",
+        "explanationZh": "鴨媽媽看著她的新兒子,給他取了名字。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l2-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She wanted him to feel welcome in the warm green nest.",
+        "question": "How did mother duck treat him?",
+        "options": [
+          "fear",
+          "kindness",
+          "anger",
+          "silence"
+        ],
+        "optionsZh": [
+          "害怕",
+          "善意",
+          "生氣",
+          "不說話"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "想讓他感到被歡迎 → 善意。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l2-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But the other ducklings whispered words behind his back.",
+        "explanationZh": "但其他鴨寶寶在他背後悄悄說話。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l2-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the other ducklings act toward him?",
+        "question": "How did they act?",
+        "options": [
+          "🤝 friendly",
+          "👀 staring",
+          "🎉 happy",
+          "🤗 hugging"
+        ],
+        "optionsZh": [
+          "友善",
+          "盯著看",
+          "開心",
+          "擁抱"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "在背後悄悄說 + 盯著看 → 盯著看。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l2-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Nobody made a sound. They just stared at the large grey baby...",
+        "explanationZh": "沒有人出聲。他們只是盯著那個又大又灰的寶寶……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -323,167 +477,236 @@
     "id": "kt-ch2-l3",
     "chapter": 2,
     "lessonInChapter": 3,
-    "segmentType": "outer-prologue",
-    "storyId": "outer",
-    "storyBeat": "奶奶翻開池塘那頁",
+    "segmentType": "main-story",
+    "storyId": "ugly-duckling",
+    "storyBeat": "農場 — 被啄被追 — 媽媽轉頭",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l3-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Grandma opens the volume to a new page.",
-        "question": "What does Grandma open?",
-        "options": [
-          "the book",
-          "the bag",
-          "the door",
-          "the box"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "農場",
+            "right": "farmyard"
+          },
+          {
+            "left": "母雞",
+            "right": "hen"
+          },
+          {
+            "left": "啄",
+            "right": "peck"
+          },
+          {
+            "left": "追",
+            "right": "chase"
+          }
         ],
-        "optionsZh": [
-          "那個書",
-          "那個袋子",
-          "那個門",
-          "那個盒子"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "the book = 那本書。同類陷阱:the door 那扇門(也是定冠詞 + 物件);部分對的:the box 那個盒子(她有時也會開,但不是今晚);完全離題:the bag 那個袋子。她翻開故事書到新的一頁。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 farmyard = 農場\n🔑 hen = 母雞\n🔑 peck = 啄\n🔑 chase = 追\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling",
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l3-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "On the page I see a small water.",
-        "question": "What is on the page?",
-        "options": [
-          "a pond",
-          "a pot",
-          "a port",
-          "a path"
-        ],
-        "optionsZh": [
-          "一個池塘",
-          "一口鍋",
-          "一個港口",
-          "一條小路"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "pond = 池塘。同類陷阱:path 小路(也是 p- 開頭環境詞);部分對的:pot 鍋子(讀音近);完全離題:port 港口。書頁上畫著一個池塘,今晚故事在水邊。",
+        "speaker": "narrator",
+        "sentence": "Soon the family walked to the farmyard for the first time.",
+        "explanationZh": "不久,這家人第一次走到農場。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "tap-tiles",
+        "type": "narration",
         "id": "kt-ch2-l3-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Tonight she tells the story of a duckling.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "Tonight",
-          "she",
-          "tells",
-          "the",
-          "story",
-          "of",
-          "a",
-          "duckling",
-          "loud",
-          "fast"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ],
-        "explanationZh": "按順序:Tonight → she → tells → the → story → of → a → duckling。duckling = 小鴨;loud / fast 是多餘的干擾。奶奶說今晚是醜小鴨的故事。",
+        "speaker": "narrator",
+        "sentence": "There were big hens, loud ducks, and an angry old goose.",
+        "explanationZh": "那裡有大母雞、吵鬧的鴨子、還有一隻生氣的老鵝。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "tap-tiles"
-        ],
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "listen-tf",
         "id": "kt-ch2-l3-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I look up and listen.",
-        "question": "What do I do?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "All the animals turned their eyes to the large grey baby.",
+        "questionEn": "Did the animals welcome him kindly?",
         "options": [
-          "learn",
-          "leave",
-          "lift",
-          "listen"
+          "Yes",
+          "No"
         ],
-        "optionsZh": [
-          "學",
-          "離開",
-          "舉",
-          "聽"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "listen = 聽。同類陷阱:leave 離開(也是 l- 開頭動詞);部分對的:lift 抬起(我抬頭沒錯,但不是答案重點);完全離題:learn 學習。我把耳朵豎起來。",
+        "correctIndex": 1,
+        "explanationZh": "推理:所有人都盯著看 → 不是歡迎 → 答 No",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "mochi"
+          "ch2",
+          "ugly-duckling",
+          "inference"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l3-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The story is about a duckling that everyone calls ugly.",
-        "question": "What animal will the story be about?",
-        "options": [
-          "a kitten",
-          "a rabbit",
-          "a duckling",
-          "a puppy"
-        ],
-        "optionsZh": [
-          "一個小貓",
-          "一個兔子",
-          "一個小鴨",
-          "一隻小狗"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "duckling = 小鴨。同類陷阱:kitten 小貓(也是 -ling/-en 幼獸名);部分對的:puppy 小狗(也是水邊可見動物,但不是這個故事);完全離題:rabbit 兔子。今晚主角是小鴨,不是我這種小貓。",
+        "speaker": "narrator",
+        "sentence": "A red hen ran up and pecked him hard on the wing.",
+        "explanationZh": "一隻紅母雞跑上來,用力啄他的翅膀。",
         "tags": [
           "story",
-          "ch3",
-          "prologue",
-          "listen-comprehension"
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l3-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Sharp beaks came at him from every side of the yard.",
+        "question": "What did the farmyard animals do?",
+        "options": [
+          "played with him",
+          "attacked him",
+          "gave him food",
+          "sang to him"
         ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+        "optionsZh": [
+          "跟他玩",
+          "攻擊他",
+          "給他食物",
+          "對他唱歌"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "從每個方向尖嘴過來 → 攻擊。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l3-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At first, mother duck stood between him and the hens.",
+        "explanationZh": "一開始,鴨媽媽站在他和母雞之間。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l3-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She tried to keep her grey son safe from the others.",
+        "question": "What did mother duck do at first?",
+        "options": [
+          "ran away",
+          "helped the hens",
+          "protected him",
+          "fell asleep"
+        ],
+        "optionsZh": [
+          "逃走",
+          "幫母雞",
+          "保護他",
+          "睡著了"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "站在中間 + 想保護 → 保護他。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l3-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But then she heard the other animals laugh out loud.",
+        "explanationZh": "但接著她聽到其他動物大聲嘲笑。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l3-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the grey duckling feel now?",
+        "question": "How did he feel?",
+        "options": [
+          "😭 alone",
+          "😄 happy",
+          "😴 sleepy",
+          "🎉 proud"
+        ],
+        "optionsZh": [
+          "孤單",
+          "開心",
+          "想睡",
+          "驕傲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "被啄 + 被笑 → 孤單。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l3-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then she turned her head, and did not say a word...",
+        "explanationZh": "然後她轉過頭,一個字也不說……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -493,193 +716,234 @@
     "lessonInChapter": 4,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "鴨媽媽孵蛋 — 我還在蛋裡",
+    "storyBeat": "逃跑 — 野鴨朋友 — 槍聲",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l4-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "A handful.",
-        "question": "How many eggs are there?",
-        "options": [
-          "fifty",
-          "five",
-          "fifteen",
-          "four"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "跑",
+            "right": "run"
+          },
+          {
+            "left": "野生",
+            "right": "wild"
+          },
+          {
+            "left": "朋友",
+            "right": "friend"
+          },
+          {
+            "left": "倒下",
+            "right": "fall"
+          }
         ],
-        "optionsZh": [
-          "五十",
-          "五",
-          "十五",
-          "四"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "five = 五。同類陷阱:four 四(也是數字 + f-);部分對的:fifteen 十五(也含 fiv- 音);完全離題:fifty 五十(數量級錯)。鴨媽媽窩在五顆蛋上等他們孵出來。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 run = 跑\n🔑 wild = 野生\n🔑 friend = 朋友\n🔑 fall = 倒下\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l4-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I am still within my round shell.",
-        "question": "Where is the duckling?",
-        "options": [
-          "in the pond",
-          "inside the egg",
-          "in the grass",
-          "in the nest"
-        ],
-        "optionsZh": [
-          "在池塘",
-          "在蛋裡",
-          "在草地",
-          "在鳥巢"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "inside the egg = 在蛋裡。同類陷阱:in the nest 在巢裡(蛋本來就在巢裡的容器,部分相關);部分對的:in the pond 在池塘裡(他之後才會去);完全離題:in the grass 在草地上。故事開始,他還沒孵出來。",
+        "speaker": "narrator",
+        "sentence": "That night, he climbed over the fence and left the farmyard.",
+        "explanationZh": "那晚,他爬過籬笆,離開了農場。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l4-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "It is dark and warm here.",
-        "question": "How does the duckling feel inside?",
-        "options": [
-          "warm",
-          "cool",
-          "cold",
-          "wet"
-        ],
-        "optionsZh": [
-          "溫暖",
-          "涼",
-          "冷",
-          "濕"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "warm = 溫暖的。同類陷阱:wave 波浪(w- 開頭環境詞);部分對的:worm 蟲(發音很近);完全離題:warn 警告。蛋裡又暗又暖,他覺得很安心。",
+        "speaker": "narrator",
+        "sentence": "He walked across cold fields all the way to a quiet marsh.",
+        "explanationZh": "他走過冰冷的田野,一路到一片安靜的沼澤。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-tf",
         "id": "kt-ch2-l4-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My mother sits over me.",
-        "question": "How does the duckling feel?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His small feet ached after many hours on the rough ground.",
+        "questionEn": "Was his journey short and easy?",
         "options": [
-          "scared",
-          "safe",
-          "bored",
-          "angry"
-        ],
-        "optionsZh": [
-          "嚇過",
-          "安全",
-          "無聊",
-          "生氣"
+          "Yes",
+          "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "safe = 安全。同類陷阱:scared 害怕(對立情緒);部分對的:bored 無聊(也是負面情緒);完全離題:angry 生氣。被媽媽蓋著的感覺最安心,跟我躲在奶奶院子一樣。",
+        "explanationZh": "推理:腳痛 + 很多小時 → 不短也不簡單 → 答 No",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "inference"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l4-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The mother duck is sitting on the eggs, waiting for them to hatch.",
-        "question": "Who is sitting on the eggs?",
-        "options": [
-          "the old hen",
-          "the father duck",
-          "the farmer",
-          "the mother duck"
-        ],
-        "optionsZh": [
-          "老母雞",
-          "鴨爸爸",
-          "那個農夫",
-          "鴨媽媽"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "the mother duck = 鴨媽媽。同類陷阱:the father duck 鴨爸爸(family + 同物種);部分對的:the old hen 老母雞(後面雞舍會出現);完全離題:the farmer 農夫(人類)。只有媽媽在孵蛋,爸爸在水上漂。",
+        "speaker": "narrator",
+        "sentence": "Two wild ducks let him rest beside them in the tall grass.",
+        "explanationZh": "兩隻野鴨讓他在高高的草叢旁邊休息。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l4-q6",
         "level": "A2",
-        "difficulty": "medium",
-        "sentence": "She waits day after day.",
-        "question": "What does she do?",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One of them shared his food and stayed close all day.",
+        "question": "What did one wild duck become to him?",
         "options": [
-          "waits",
-          "walks",
-          "wakes",
-          "wants"
+          "a teacher",
+          "a friend",
+          "an enemy",
+          "a brother"
         ],
         "optionsZh": [
-          "等",
-          "走",
-          "醒",
-          "想要"
+          "老師",
+          "朋友",
+          "敵人",
+          "哥哥"
         ],
-        "correctIndex": 0,
-        "explanationZh": "waits = 等待。同類陷阱:walks 走(也是 w- 動詞 + s);部分對的:wakes 醒(她偶爾會醒,但這句是等);完全離題:wants 想要。day after day = 一天又一天,她耐心地等。",
+        "correctIndex": 1,
+        "explanationZh": "分享食物 + 一直陪 → 朋友。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
+          "ch2",
+          "ugly-duckling"
         ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l4-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "For one bright day, he did not feel so alone anymore.",
+        "explanationZh": "有那麼晴朗的一天,他不再覺得那麼孤單。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l4-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The warm sun made his grey feathers feel almost soft.",
+        "question": "How did he feel that day?",
+        "options": [
+          "scared",
+          "tired",
+          "a little better",
+          "angry"
+        ],
+        "optionsZh": [
+          "害怕",
+          "累",
+          "好一點",
+          "生氣"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "不再孤單 + 暖陽 → 好一點。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l4-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But then loud cracks came from the trees by the water.",
+        "explanationZh": "但接著水邊的樹叢裡傳來響亮的爆裂聲。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l4-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What was the loud sound?",
+        "question": "What was the sound?",
+        "options": [
+          "🔫 gunshots",
+          "🌧️ rain",
+          "🐦 birds singing",
+          "🎵 music"
+        ],
+        "optionsZh": [
+          "槍聲",
+          "雨",
+          "鳥唱歌",
+          "音樂"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "響亮爆裂聲 + 樹叢 → 槍聲。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l4-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His friend dropped to the ground. He ran with his heart pounding...",
+        "explanationZh": "他的朋友倒在地上。他跑啊跑,心臟砰砰跳……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -689,193 +953,234 @@
     "lessonInChapter": 5,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "四顆蛋先裂開,最後一顆又大又灰",
+    "storyBeat": "小屋 — 貓和母雞嘲笑 — 走入冷夜",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l5-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "One day the small eggs split open.",
-        "question": "What happens to the eggs?",
-        "options": [
-          "they fly",
-          "they crack",
-          "they fall",
-          "they cry"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "小屋",
+            "right": "cottage"
+          },
+          {
+            "left": "貓",
+            "right": "cat"
+          },
+          {
+            "left": "冷",
+            "right": "cold"
+          },
+          {
+            "left": "離開",
+            "right": "leave"
+          }
         ],
-        "optionsZh": [
-          "他們飛",
-          "他們裂開",
-          "他們掉",
-          "他們哭"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "crack = 裂開。同類陷阱:fall 掉下來(也是蛋會發生的事);部分對的:cry 哭(蛋裡的小鴨會叫,但動詞錯);完全離題:fly 飛(小鴨剛孵不會飛)。蛋殼上裂出一條縫,新生命要出來了。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 cottage = 小屋\n🔑 cat = 貓\n🔑 cold = 冷\n🔑 leave = 離開\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l5-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Four little golden ducklings come out.",
-        "question": "What color are the ducklings?",
-        "options": [
-          "yellow",
-          "brown",
-          "white",
-          "gray"
-        ],
-        "optionsZh": [
-          "黃色",
-          "棕色",
-          "白色",
-          "灰色"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "yellow = 黃色。同類陷阱:white 白色(同色系淺色);部分對的:gray 灰色(其實是我自己的顏色,後面才出現);完全離題:brown 棕色。四隻小鴨毛茸茸的黃,跟童話書插圖一樣。",
+        "speaker": "narrator",
+        "sentence": "After many days, he found a small cottage in the woods.",
+        "explanationZh": "過了很多天,他在樹林裡找到一間小屋。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l5-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "But one big egg does not crack.",
-        "question": "How is the last egg different?",
-        "options": [
-          "it is gone",
-          "it is big",
-          "it is hot",
-          "it is broken"
-        ],
-        "optionsZh": [
-          "它不見了",
-          "它很大",
-          "它很熱",
-          "它壞了"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "big = 大的。同類陷阱:broken 破了(蛋的相關狀態詞但意義反);部分對的:hot 燙(物理屬性但不對);完全離題:gone 不見了。最後一顆又大又安靜,媽媽皺眉頭。",
+        "speaker": "narrator",
+        "sentence": "An old woman lived there with her cat and her hen.",
+        "explanationZh": "一個老婆婆住在那裡,還有她的貓和母雞。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-tf",
         "id": "kt-ch2-l5-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Mother duck looks uneasy.",
-        "question": "How does Mother feel?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The cottage door creaked open when he gave it a soft push.",
+        "questionEn": "Was the door locked tight?",
         "options": [
-          "tired",
-          "worried",
-          "proud",
-          "joyful"
-        ],
-        "optionsZh": [
-          "累",
-          "擔心",
-          "驕傲",
-          "喜悅"
+          "Yes",
+          "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "worried = 擔心。同類陷阱:tired 累(負面情緒);部分對的:proud 驕傲(她對其他四隻是驕傲的,對這顆是擔心);完全離題:joyful 開心。她不懂為什麼這顆遲遲不破。",
+        "explanationZh": "推理:輕推就開 → 沒有鎖緊 → 答 No",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "inference"
+        ]
       },
       {
-        "type": "listen-emoji",
+        "type": "narration",
         "id": "kt-ch2-l5-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I push from inside. I am worn out.",
-        "question": "How does the duckling feel inside?",
-        "options": [
-          "shy",
-          "angry",
-          "tired",
-          "brave"
-        ],
-        "optionsZh": [
-          "害羞",
-          "生氣",
-          "累",
-          "勇敢"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "tired = 累。同類陷阱:shy 害羞(情緒詞);部分對的:brave 勇敢(他確實在努力);完全離題:angry 生氣。從蛋裡用喙啄殼很費力,他累壞了。",
+        "speaker": "narrator",
+        "sentence": "The old woman kept him in her warm kitchen for many weeks.",
+        "explanationZh": "老婆婆把他留在溫暖的廚房好幾個禮拜。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l5-q6",
         "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The big egg shakes slowly.",
-        "question": "What does the big egg do?",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat sat on his back and curled his sharp claws in fur.",
+        "question": "How did the cat treat him?",
         "options": [
-          "shouts",
-          "shakes",
-          "sinks",
-          "shines"
+          "cleaned him",
+          "played gently",
+          "pressed claws on him",
+          "sang for him"
         ],
         "optionsZh": [
-          "大叫",
-          "搖",
-          "沉",
-          "光輝"
+          "幫他洗澡",
+          "溫柔玩耍",
+          "用爪子壓他",
+          "對他唱歌"
         ],
-        "correctIndex": 1,
-        "explanationZh": "shakes = 搖晃。同類陷阱:shines 發亮(也是 sh- 動詞 + s);部分對的:sinks 下沉(運動類動詞);完全離題:shouts 大喊。終於有動靜了,蛋輕輕晃。",
+        "correctIndex": 2,
+        "explanationZh": "坐他背上 + 收爪子 → 用爪子壓他。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
+          "ch2",
+          "ugly-duckling"
         ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l5-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The hen counted her eggs each day and shook her head.",
+        "explanationZh": "母雞每天數她的蛋,搖搖頭。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l5-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She told him he was useless because he laid no eggs.",
+        "question": "Why did the hen mock him?",
+        "options": [
+          "too noisy",
+          "never gave any eggs",
+          "always running away",
+          "always sleeping"
+        ],
+        "optionsZh": [
+          "他太吵",
+          "他不會生蛋",
+          "他一直跑",
+          "他一直睡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "不會生蛋 → 她說他沒用。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l5-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat asked him if he could purr by the warm fire.",
+        "explanationZh": "貓問他能不能在暖暖的火邊發出咕嚕聲。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l5-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is outside the cottage door?",
+        "question": "What is outside?",
+        "options": [
+          "❄️ cold night",
+          "☀️ warm sun",
+          "🌸 spring garden",
+          "🏖️ beach"
+        ],
+        "optionsZh": [
+          "冷夜",
+          "暖陽",
+          "春天花園",
+          "海灘"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "冬天前的夜晚 → 冷夜。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l5-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"What good are you?\" they asked. He pushed open the door and walked into the cold...",
+        "explanationZh": "「你有什麼用?」他們問。他推開門,走進冷夜裡……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -885,199 +1190,234 @@
     "lessonInChapter": 6,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "我終於出來了 — 但我又大又灰",
+    "storyBeat": "冬天 — 白鳥南飛 — 困在冰中 — 農夫救起",
     "questions": [
       {
-        "type": "tap-tiles",
+        "type": "tap-pairs",
         "id": "kt-ch2-l6-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I come out of the big egg.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "I",
-          "come",
-          "out",
-          "of",
-          "the",
-          "big",
-          "egg",
-          "small",
-          "fast"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "冬天",
+            "right": "winter"
+          },
+          {
+            "left": "冰",
+            "right": "ice"
+          },
+          {
+            "left": "白色",
+            "right": "white"
+          },
+          {
+            "left": "農夫",
+            "right": "farmer"
+          }
         ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "explanationZh": "按順序:I → come → out → of → the → big → egg。small 跟 fast 是干擾。我終於孵出來了,呼吸到新鮮空氣。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 winter = 冬天\n🔑 ice = 冰\n🔑 white = 白色\n🔑 farmer = 農夫\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "tap-tiles"
-        ],
-        "speaker": "grandma"
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l6-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I am huge and cloud-colored.",
-        "question": "How does the duckling look?",
-        "options": [
-          "tall and white",
-          "big and gray",
-          "fat and pink",
-          "small and yellow"
-        ],
-        "optionsZh": [
-          "又高又白",
-          "又大又灰",
-          "胖嘟嘟粉紅色",
-          "又小又黃"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "big and gray = 又大又灰。同類陷阱:small and yellow 小又黃(對比兄弟姐妹的樣子);部分對的:tall and white 又高又白(他長大後是白的,現在還是灰的);完全離題:fat and pink 又胖又粉紅。他跟兄弟姊妹完全不一樣。",
+        "speaker": "narrator",
+        "sentence": "In the autumn sky, he saw great white birds flying high.",
+        "explanationZh": "在秋天的天空中,他看見大大的白鳥飛得很高。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l6-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "My brothers and sisters are all golden.",
-        "question": "What color are my siblings?",
-        "options": [
-          "gray",
-          "brown",
-          "yellow",
-          "blue"
-        ],
-        "optionsZh": [
-          "灰色",
-          "棕色",
-          "黃色",
-          "藍色"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "yellow = 黃色。同類陷阱:brown 棕色(也是動物常見毛色);部分對的:gray 灰色(他自己的顏色,不是兄弟姊妹);完全離題:blue 藍色。四隻兄弟姊妹都是黃毛,只有他不是。",
+        "speaker": "narrator",
+        "sentence": "Their long necks stretched south as they crossed the clouds.",
+        "explanationZh": "他們長長的脖子伸向南方,越過雲朵。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "listen-tf",
         "id": "kt-ch2-l6-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Mother looks at me with sudden start.",
-        "question": "How does Mother look at me?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He watched them until his neck grew sore from looking up.",
+        "questionEn": "Did he look at the white birds for a long time?",
         "options": [
-          "with a smile",
-          "with a kiss",
-          "with anger",
-          "with surprise"
+          "Yes",
+          "No"
         ],
-        "optionsZh": [
-          "帶著微笑",
-          "用一個吻",
-          "生氣地",
-          "驚訝地"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "with surprise = 帶著驚訝。同類陷阱:with anger 帶著生氣(也是情緒介系詞片語);部分對的:with a smile 帶著微笑(媽媽通常會,但此刻不是);完全離題:with a kiss 帶著親吻。她看到他的反應是驚訝,不是嫌棄,還不是。",
+        "correctIndex": 0,
+        "explanationZh": "推理:脖子看到痠 → 看很久 → 答 Yes",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "inference"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l6-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother gazes at me because I look different from her other ducklings.",
-        "question": "Why is Mother surprised?",
-        "options": [
-          "I look different",
-          "I am loud",
-          "I am small",
-          "I am wet"
-        ],
-        "optionsZh": [
-          "我長得不一樣",
-          "我很吵",
-          "我很小",
-          "我濕了"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "I look different = 我長得不一樣。同類陷阱:I am small 我很小(身體屬性,但他其實大不是小);部分對的:I am wet 我濕濕的(剛孵出當然濕,但不是讓媽媽驚訝的原因);完全離題:I am loud 我很吵。長相落差是 key,不是聲音。",
+        "speaker": "narrator",
+        "sentence": "Soon snow fell, and the pond turned into hard, shining glass.",
+        "explanationZh": "不久雪下了,池塘變成又硬又亮的玻璃。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch2-l6-q6",
         "level": "A2",
-        "difficulty": "medium",
-        "sentence": "I feel small and very quiet.",
-        "question": "How do I feel right now?",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His small feet became stuck in the cold, frozen water.",
+        "question": "What happened to him in the pond?",
         "options": [
-          "angry",
-          "proud",
-          "sleepy",
-          "shy"
+          "flew away safely",
+          "got trapped in ice",
+          "found warm food",
+          "met a friend"
         ],
         "optionsZh": [
-          "生氣",
-          "驕傲",
-          "想睡",
-          "害羞"
+          "他飛走",
+          "他被困在冰裡",
+          "他找到食物",
+          "他遇到朋友"
         ],
-        "correctIndex": 3,
-        "explanationZh": "shy = 害羞。同類陷阱:sleepy 想睡(也是 -y 結尾感受形容詞);部分對的:angry 生氣(也是負面感受,但他這時還沒到生氣);完全離題:proud 驕傲。第一次看到家人盯著自己,他縮起脖子。",
+        "correctIndex": 1,
+        "explanationZh": "腳卡在冷凍水裡 → 被困在冰裡。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
+          "ch2",
+          "ugly-duckling"
         ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l6-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A farmer came across the field and broke the ice apart.",
+        "explanationZh": "一個農夫走過田野,把冰打破。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l6-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He carried the shaking grey bird back to his small home.",
+        "question": "What did the farmer do?",
+        "options": [
+          "cooked him",
+          "sold him",
+          "took him home",
+          "left him there"
+        ],
+        "optionsZh": [
+          "煮了他",
+          "賣了他",
+          "帶他回家",
+          "丟下他"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "把他抱回家 → 帶他回家。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l6-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The farmer's small children came running to see the new bird.",
+        "explanationZh": "農夫的小孩跑過來看這隻新的鳥。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch2-l6-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the duckling feel about the loud children?",
+        "question": "How did he feel?",
+        "options": [
+          "😨 scared",
+          "😄 happy",
+          "😴 sleepy",
+          "😋 hungry"
+        ],
+        "optionsZh": [
+          "害怕",
+          "開心",
+          "想睡",
+          "餓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "吵的小孩跑來 → 害怕。",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch2-l6-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He flapped his wings and ran out into the deep, white snow again...",
+        "explanationZh": "他拍動翅膀,再次跑進又深又白的雪裡……",
+        "tags": [
+          "story",
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   },
@@ -1087,3841 +1427,234 @@
     "lessonInChapter": 7,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "第一次下水池塘 — 我會游泳",
+    "storyBeat": "春天 — 倒影 — 天鵝 — 美麗",
     "questions": [
       {
-        "type": "listen-mc",
+        "type": "tap-pairs",
         "id": "kt-ch2-l7-q1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother leads us to the small water.",
-        "question": "Where does Mother lead us?",
-        "options": [
-          "to the pot",
-          "to the path",
-          "to the pond",
-          "to the park"
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "春天",
+            "right": "spring"
+          },
+          {
+            "left": "倒影",
+            "right": "reflection"
+          },
+          {
+            "left": "天鵝",
+            "right": "swan"
+          },
+          {
+            "left": "美麗",
+            "right": "beautiful"
+          }
         ],
-        "optionsZh": [
-          "到鍋裡",
-          "去小路",
-          "去池塘",
-          "去公園"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "to the pond = 到池塘。同類陷阱:to the path 到小路(也是 to the p- 地點);部分對的:to the park 到公園(水鴨不去公園,部分相關地點詞);完全離題:to the pot 到鍋子。鴨媽媽帶著五隻小鴨到水邊。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 spring = 春天\n🔑 reflection = 倒影\n🔑 swan = 天鵝\n🔑 beautiful = 美麗\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l7-q2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I step into the chilly water.",
-        "question": "How does the water feel?",
-        "options": [
-          "warm",
-          "cold",
-          "wet",
-          "deep"
-        ],
-        "optionsZh": [
-          "溫暖",
-          "冷",
-          "濕",
-          "深"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "cold = 冷的。同類陷阱:warm 暖的(對立溫度形容詞);部分對的:wet 濕(水當然是濕,部分相關但不對應問題);完全離題:deep 深的。秋天的池水冰冰的,他第一次知道什麼是「冷」。",
+        "speaker": "narrator",
+        "sentence": "Spring came at last, and the cold ice melted away.",
+        "explanationZh": "春天終於來了,冰冷的冰融化了。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
+        "type": "narration",
         "id": "kt-ch2-l7-q3",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I can swim very well.",
-        "question": "What can the duckling do well?",
-        "options": [
-          "swim",
-          "sing",
-          "sink",
-          "skim"
-        ],
-        "optionsZh": [
-          "游泳",
-          "唱",
-          "沉",
-          "撇開"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "swim = 游泳。同類陷阱:sing 唱歌(也是 s- 開頭單音節動詞);部分對的:sink 下沉(水裡動作,但反向);完全離題:skim 略過。雖然他長得不一樣,游泳卻很穩。",
+        "speaker": "narrator",
+        "sentence": "Green leaves opened, and warm sun shone over the pond.",
+        "explanationZh": "綠葉打開,溫暖的陽光照在池塘上。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-tf",
         "id": "kt-ch2-l7-q4",
         "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Water feels light under my feet.",
-        "question": "How does the duckling feel in the water?",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Soft new flowers grew along the edge of the quiet water.",
+        "questionEn": "Is it still cold winter now?",
         "options": [
-          "scared",
-          "angry",
-          "free",
-          "lost"
+          "Yes",
+          "No"
         ],
-        "optionsZh": [
-          "嚇過",
-          "生氣",
-          "自由",
-          "輸過"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "free = 自由。同類陷阱:lost 迷路(情緒詞);部分對的:scared 害怕(他在岸上才害怕);完全離題:angry 生氣。在水裡他第一次覺得身體變輕了。",
+        "correctIndex": 1,
+        "explanationZh": "推理:新花長出 + 暖陽 → 不是冬天了 → 答 No",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "inference"
+        ]
       },
       {
-        "type": "listen-comprehension",
+        "type": "narration",
         "id": "kt-ch2-l7-q5",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Mother is surprised to see me swim so well.",
-        "question": "What surprises Mother now?",
-        "options": [
-          "I cry loudly",
-          "I swim well",
-          "I run fast",
-          "I sleep deep"
-        ],
-        "optionsZh": [
-          "我大聲哭",
-          "我會游泳",
-          "我跑得快",
-          "我睡得深"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "I swim well = 我游得很好。同類陷阱:I run fast 我跑很快(also Subject + V well/fast);部分對的:I cry loudly 我哭很大聲(情緒動作,但他沒哭);完全離題:I sleep deep 我睡很沉。媽媽以為這隻怪小鴨會落水,結果他游得最穩。",
+        "speaker": "narrator",
+        "sentence": "He saw the same white birds gliding across the pond.",
+        "explanationZh": "他看見同樣的白鳥在池塘上滑行。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
         "type": "listen-mc",
         "id": "kt-ch2-l7-q6",
         "level": "A2",
-        "difficulty": "medium",
-        "sentence": "My paws move under the water.",
-        "question": "What moves under the water?",
-        "options": [
-          "my beak",
-          "my feet",
-          "my tail",
-          "my wings"
-        ],
-        "optionsZh": [
-          "我的鳥嘴",
-          "我的腳",
-          "我的尾巴",
-          "我的翅膀"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "feet = 腳掌。同類陷阱:wings 翅膀(也是身體部位);部分對的:tail 尾巴(身體部位,他游泳會用到一點);完全離題:beak 嘴喙。鴨子用蹼狀的腳划水。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l8",
-    "chapter": 2,
-    "lessonInChapter": 8,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "兄弟姊妹笑他、咬他",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l8-q1",
-        "level": "A2",
         "difficulty": "easy",
-        "sentence": "My brothers laugh at me.",
-        "question": "What do my brothers do?",
+        "speaker": "narrator",
+        "sentence": "He wanted very much to be near them, even if they would chase him.",
+        "question": "How did he feel toward the white birds?",
         "options": [
-          "love",
-          "lend",
-          "leave",
-          "laugh"
-        ],
-        "optionsZh": [
-          "愛",
-          "借",
-          "離開",
-          "笑"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "laugh = 笑(在這裡是嘲笑)。同類陷阱:leave 離開(也是 l- 動詞);部分對的:love 愛(感受動詞,但反向);完全離題:lend 借出。他們不是溫柔的笑,是看到他的樣子發出怪聲。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l8-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My sisters bite my neck.",
-        "question": "What do my sisters do?",
-        "options": [
-          "bite",
-          "bark",
-          "bend",
-          "bake"
-        ],
-        "optionsZh": [
-          "咬",
-          "叫",
-          "彎",
-          "烤"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "bite = 咬。同類陷阱:bark 吠(動物發聲動詞但鴨不會 bark);部分對的:bend 彎(身體動作);完全離題:bake 烤。他們用尖嘴啄他的脖子,很痛。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l8-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "You are so unlovely.",
-        "question": "What do the ducklings call him?",
-        "options": [
-          "ugly",
-          "angry",
-          "early",
-          "empty"
-        ],
-        "optionsZh": [
-          "醜",
-          "生氣",
-          "早",
-          "空"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "ugly = 醜的(在故事裡是別人貼上的標籤,不是真的「醜」)。同類陷阱:angry 生氣的(也是 -y 結尾情緒/評價詞);部分對的:empty 空的(感受空,部分相關);完全離題:early 早的。被叫醜小鴨的瞬間就在這裡。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l8-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I hide behind a rock.",
-        "question": "How does the duckling feel?",
-        "options": [
-          "calm",
-          "proud",
-          "hurt",
-          "happy"
-        ],
-        "optionsZh": [
-          "冷靜",
-          "驕傲",
-          "受傷",
-          "開心"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "hurt = 受傷的、難過的。同類陷阱:calm 平靜(情緒形容詞但反向);部分對的:proud 驕傲(他完全不驕傲);完全離題:happy 開心。他躲到石頭後面舔脖子上的傷。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l8-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My siblings call me ugly because I look different from them.",
-        "question": "Why do the siblings call him ugly?",
-        "options": [
-          "he swims fast",
-          "he is wet",
-          "he is loud",
-          "he looks different"
-        ],
-        "optionsZh": [
-          "他游得快",
-          "他濕了",
-          "他大聲",
-          "他長得不一樣"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "he looks different = 他長得不一樣。同類陷阱:he is wet 他濕(身體狀態形容詞);部分對的:he swims fast 他游得快(他確實游得快,但這是優點不是被罵的原因);完全離題:he is loud 他很吵。「跟我們不一樣」是兄弟姊妹眼裡唯一的錯。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l8-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "I want to be small.",
-        "question": "How does the duckling feel about himself?",
-        "options": [
-          "hungry",
-          "brave",
-          "sleepy",
-          "ashamed"
-        ],
-        "optionsZh": [
-          "餓",
-          "勇敢",
-          "想睡",
-          "羞愧"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "ashamed = 羞愧。同類陷阱:brave 勇敢(對立情緒);部分對的:sleepy 想睡(情緒形容詞);完全離題:hungry 餓。「想變小一點」就是想消失,跟我被人趕走的時候一樣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l9",
-    "chapter": 2,
-    "lessonInChapter": 9,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "雞舍裡被母雞與老貓嫌",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l9-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I walk into an old farm bird home.",
-        "question": "Where does the duckling go?",
-        "options": [
-          "a hen house",
-          "a hot pot",
-          "a horse barn",
-          "a hat shop"
-        ],
-        "optionsZh": [
-          "一間雞舍",
-          "一口熱鍋",
-          "一座馬廄",
-          "一間帽子店"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "hen house = 雞舍。同類陷阱:horse barn 馬廄(也是 h- 開頭農場建物);部分對的:hat shop 帽子店(h- 場所名,人類用);完全離題:hot pot 火鍋。他逃離池塘,鑽進一個雞舍想躲一晚。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l9-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "An aged farm bird looks down at me.",
-        "question": "Who looks at me first?",
-        "options": [
-          "an old hat",
-          "an old hill",
-          "an old hand",
-          "an old hen"
-        ],
-        "optionsZh": [
-          "一頂舊帽",
-          "一座老山",
-          "一隻老手",
-          "一隻老母雞"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "hen = 母雞。同類陷阱:hat 帽子(老 + h- 開頭名詞);部分對的:hand 手(身體部位,語境錯);完全離題:hill 山丘。雞舍裡最年長的母雞站起來,從上而下打量他。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l9-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "An old cat sits by the door.",
-        "question": "What animal do you hear?",
-        "options": [
-          "cat",
-          "cap",
-          "can",
-          "cab"
-        ],
-        "optionsZh": [
-          "貓",
-          "帽子",
-          "能夠",
-          "計程車"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "cat = 貓。同類陷阱:cap 帽(c- 三字母名詞);部分對的:can 罐子(物品名);完全離題:cab 計程車。雞舍門邊還趴著一隻老貓,牠用斜眼看著新來的小鴨。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l9-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "\"Can you make round shells?\" asks the hen.",
-        "question": "What does the hen ask?",
-        "options": [
-          "if I sing songs",
-          "if I read books",
-          "if I lay eggs",
-          "if I tell jokes"
-        ],
-        "optionsZh": [
-          "如果我唱歌",
-          "如果我讀書",
-          "如果我下蛋",
-          "如果我說笑話"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "lay eggs = 下蛋。同類陷阱:sing songs 唱歌(母雞自認的能力之一);部分對的:read books 讀書(都是技能 if 子句,但雞不會問這個);完全離題:tell jokes 講笑話。母雞用「會不會下蛋」當作判斷有沒有價值的標準。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l9-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The hen and the cat reject me because I am not like them.",
-        "question": "Why do the hen and cat reject him?",
-        "options": [
-          "he is too clean",
-          "he is not like them",
-          "he is too loud",
-          "he is too small"
-        ],
-        "optionsZh": [
-          "他太乾淨",
-          "他和他們不一樣",
-          "他太吵",
-          "他太小"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "he is not like them = 他跟他們不一樣。同類陷阱:he is too loud 他太吵(too + 形容詞);部分對的:he is too small 他太小(身體屬性詞,但他其實偏大);完全離題:he is too clean 他太乾淨。「不一樣」又一次成為被嫌的原因。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l9-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "I am worn out of being judged.",
-        "question": "How does the duckling feel?",
-        "options": [
-          "proud",
-          "happy",
-          "excited",
-          "tired"
-        ],
-        "optionsZh": [
-          "驕傲",
-          "開心",
-          "興奮",
-          "累"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "tired (of) = 厭倦了。同類陷阱:excited 興奮(情緒詞);部分對的:proud 驕傲(情緒形容詞,反向);完全離題:happy 開心。被一張嘴又一張嘴評論,他累到不想再解釋。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l10",
-    "chapter": 2,
-    "lessonInChapter": 10,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "媽媽嘆氣 — 你走遠一點吧",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l10-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Mother sighs and looks away.",
-        "question": "What does Mother do?",
-        "options": [
-          "smiles",
-          "sleeps",
-          "sighs",
-          "sings"
-        ],
-        "optionsZh": [
-          "微笑",
-          "睡覺",
-          "嘆氣",
-          "唱"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "sighs = 嘆氣。同類陷阱:sings 唱歌(也是 s- 開頭 + s 結尾動詞);部分對的:smiles 微笑(她以前會,但這時候不會);完全離題:sleeps 睡覺。她嘆氣不是因為討厭他,是因為她也撐不住村裡的眼光了。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l10-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "\"You should go very far, child.\"",
-        "question": "What does Mother tell me to do?",
-        "options": [
-          "go to school",
-          "go to sleep",
-          "go to her",
-          "go far away"
-        ],
-        "optionsZh": [
-          "去上學",
-          "去睡覺",
-          "去找她",
-          "走遠"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "go far away = 走遠一點。同類陷阱:go to sleep 去睡(也是 go to + 地方/狀態);部分對的:go to her 過去她那邊(剛好相反);完全離題:go to school 去上學。她叫他離開家,是這個故事裡最痛的一句。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l10-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I leave my home alone.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "I",
-          "leave",
-          "my",
-          "home",
-          "alone",
-          "fast",
-          "loud"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ],
-        "explanationZh": "按順序:I → leave → my → home → alone。leave = 離開;alone = 獨自。fast / loud 是干擾。沒有人送他,也沒有方向。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "tap-tiles"
-        ],
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l10-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I do not look back.",
-        "question": "How does the duckling feel?",
-        "options": [
-          "sleepy",
-          "hungry",
-          "heartbroken",
-          "joyful"
-        ],
-        "optionsZh": [
-          "想睡",
-          "餓",
-          "心碎",
-          "喜悅"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "heartbroken = 心碎。同類陷阱:joyful 開心(情緒形容詞,反向);部分對的:sleepy 想睡(他也是累的);完全離題:hungry 餓。他怕一回頭眼淚就掉,所以走得頭也不回。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l10-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My mother is the one who tells me to leave the family.",
-        "question": "Who tells the duckling to leave?",
-        "options": [
-          "my mother",
-          "the old cat",
-          "the old hen",
-          "the farmer"
-        ],
-        "optionsZh": [
-          "我的媽媽",
-          "老貓",
-          "老母雞",
-          "那個農夫"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "my mother = 我媽媽。同類陷阱:the old hen 老母雞(也罵過他);部分對的:the old cat 老貓(也嫌過他);完全離題:the farmer 農夫(還沒出場)。最痛的一句來自最親的人。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l10-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The yard is very far at the back of me.",
-        "question": "Where is the yard now?",
-        "options": [
-          "far behind",
-          "in front",
-          "right here",
-          "above me"
-        ],
-        "optionsZh": [
-          "遠遠落後",
-          "前面",
-          "就在這裡",
-          "在我上方"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "far behind = 遠遠在後面。同類陷阱:in front 在前面(對立方向片語);部分對的:right here 就在這(地點片語但反向);完全離題:above me 在我上面。一回頭,家已經剩一個小點。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l11",
-    "chapter": 2,
-    "lessonInChapter": 11,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "獨自走過沼澤",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l11-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I walk alone through a wet, muddy place.",
-        "question": "Where does the duckling walk?",
-        "options": [
-          "a stove",
-          "a street",
-          "a stage",
-          "a swamp"
-        ],
-        "optionsZh": [
-          "一個爐子",
-          "一個街道",
-          "一個舞台",
-          "一個沼澤"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "swamp = 沼澤。同類陷阱:street 街道(也是 s- 開頭場所);部分對的:stage 舞台(s- 場所詞,人類用);完全離題:stove 爐子。他踩著爛泥地,鞋子如果有的話應該爛了。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l11-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I am all by myself.",
-        "question": "Who is with him?",
-        "options": [
-          "an old friend",
-          "his mother",
-          "no one",
-          "his sister"
-        ],
-        "optionsZh": [
-          "一個老朋友",
-          "他的媽媽",
-          "沒人",
-          "他的姊姊"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "no one = 沒有人。同類陷阱:an old friend 老朋友(同類 + 量詞);部分對的:his mother 媽媽(媽媽已經叫他走了);完全離題:his sister 姊姊(也已經咬過他)。獨自走在世界裡,跟我在街上的夜晚一樣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l11-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I feel alone.",
-        "question": "How does the duckling feel walking?",
-        "options": [
-          "alone",
-          "along",
-          "aloud",
-          "atone"
-        ],
-        "optionsZh": [
-          "獨自",
-          "沿著",
-          "大聲",
-          "贖罪"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "alone = 獨自的。同類陷阱:along 沿著(a- 開頭副詞);部分對的:aloud 大聲地(a- 開頭副詞);完全離題:atone 贖罪。整章最重的一個字:alone。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      },
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l11-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "I do not have a home now.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "I",
-          "do",
-          "not",
-          "have",
-          "a",
-          "home",
-          "now",
-          "wall",
-          "yard"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "explanationZh": "按順序:I → do → not → have → a → home → now。wall / yard 是干擾(都是 Ch1/Ch3 開場的字)。「我現在沒有家」是這集的核心句。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "tap-tiles"
-        ],
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l11-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The marsh is quiet and gray.",
-        "question": "How does the swamp feel?",
-        "options": [
-          "warm",
-          "lonely",
-          "noisy",
-          "bright"
-        ],
-        "optionsZh": [
-          "溫暖",
-          "孤單",
-          "吵",
-          "明亮"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "lonely = 寂寞的。同類陷阱:warm 暖(情緒/觸感形容詞);部分對的:noisy 吵(環境形容詞,反向);完全離題:bright 明亮的。安靜的灰色沼澤,跟他現在的心情一樣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l11-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "He keeps walking because he has nowhere else to go.",
-        "question": "Why does the duckling keep going?",
-        "options": [
-          "he likes the mud",
-          "he has nowhere else",
-          "he wants to race",
-          "he sees a friend"
-        ],
-        "optionsZh": [
-          "他喜歡泥巴",
-          "他無處可去",
-          "他想比賽",
-          "他看見朋友"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "he has nowhere else = 他沒地方可去。同類陷阱:he sees a friend 他看到朋友(他這時還沒看見任何朋友);部分對的:he wants to race 他想比賽(主動目的,反向);完全離題:he likes the mud 他喜歡泥巴。不是想前進,只是不能停下來。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l12",
-    "chapter": 2,
-    "lessonInChapter": 12,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "獵人的槍聲 — 我躲在草叢裡",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l12-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "A loud sound shakes the marsh.",
-        "question": "What sound does he hear?",
-        "options": [
-          "a bark",
-          "a bell",
-          "a bang",
-          "a beep"
-        ],
-        "optionsZh": [
-          "一個叫",
-          "一個鈴",
-          "一個bang",
-          "一個beep"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "bang = 砰的一聲(槍聲)。同類陷阱:bell 鈴聲(也是 b- 開頭聲響);部分對的:bark 吠聲(動物聲);完全離題:beep 嗶聲。沼澤本來很安靜,一聲砰把所有鳥都嚇飛了。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l12-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Two men with guns walk by.",
-        "question": "Who walks by?",
-        "options": [
-          "bakers",
-          "fishers",
-          "farmers",
-          "hunters"
-        ],
-        "optionsZh": [
-          "麵包師",
-          "漁夫們",
-          "農夫們",
-          "獵人們"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "hunters = 獵人。同類陷阱:farmers 農夫(也是戶外勞動職業);部分對的:fishers 漁夫(也帶器具的人);完全離題:bakers 麵包師傅。兩個帶槍的人是來打獵的。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l12-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I hide in the tall grass.",
-        "question": "What does the duckling do at hunters?",
-        "options": [
-          "hide",
-          "hop",
-          "hum",
-          "heat"
-        ],
-        "optionsZh": [
-          "躲",
-          "跳",
-          "哼",
-          "熱度"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "hide = 躲。同類陷阱:hop 跳(也是 h- 開頭單音節動詞);部分對的:hum 哼歌(h- 動詞,聲音相關);完全離題:heat 加熱。他把自己縮成一團,藏進高草裡。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l12-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My heart beats fast.",
-        "question": "How does the duckling feel?",
-        "options": [
-          "proud",
-          "sleepy",
-          "scared",
-          "calm"
-        ],
-        "optionsZh": [
-          "驕傲",
-          "想睡",
-          "嚇過",
-          "冷靜"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "scared = 害怕。同類陷阱:calm 平靜(對立情緒);部分對的:sleepy 想睡(情緒/狀態形容詞,但他怎麼睡得著);完全離題:proud 驕傲。心臟在胸口砰砰跳,跟我聽到大狗叫的時候一樣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l12-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I do not move at all.",
-        "question": "How does the duckling try to stay safe?",
-        "options": [
-          "he stays still",
-          "he sings loud",
-          "he runs away",
-          "he flies up"
-        ],
-        "optionsZh": [
-          "他靜止不動",
-          "他大聲唱",
-          "他逃走",
-          "他飛上去"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "he stays still = 他不動。同類陷阱:he flies up 他往上飛(動作動詞,但反向);部分對的:he runs away 他跑掉(求生策略相關,但不是他選的);完全離題:he sings loud 他大聲唱。一動就被發現,他連呼吸都放輕。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l12-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The men walk away slowly.",
-        "question": "What happens at the end?",
-        "options": [
-          "the men leave",
-          "the men carry him",
-          "the men feed him",
-          "the men shoot him"
-        ],
-        "optionsZh": [
-          "男人們離開",
-          "男人們抬他",
-          "男人們餵他",
-          "男人們射他"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "the men leave = 那些人走了。同類陷阱:the men shoot him 那些人射他(同主詞 + 動作但結果不對);部分對的:the men carry him 那些人抱他(動作對象同他,但沒發生);完全離題:the men feed him 那些人餵他。獵人沒看見他,腳步遠去,他才敢吐氣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l13",
-    "chapter": 2,
-    "lessonInChapter": 13,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "老農婦短暫收留",
-    "questions": [
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l13-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "An old woman takes me home.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "An",
-          "old",
-          "woman",
-          "takes",
-          "me",
-          "home",
-          "young",
-          "fast"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "explanationZh": "按順序:An → old → woman → takes → me → home。young / fast 是干擾。一個老婆婆在田邊看到他,把他抱回家。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "tap-tiles"
-        ],
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l13-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "She gives me some cozy fresh loaf.",
-        "question": "What does she give him?",
-        "options": [
-          "raw fish",
-          "warm bread",
-          "cold milk",
-          "old shoes"
-        ],
-        "optionsZh": [
-          "生魚",
-          "熱麵包",
-          "冷牛奶",
-          "舊鞋"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "warm bread = 暖麵包。同類陷阱:cold milk 冷牛奶(也是「形容詞 + 食物」);部分對的:raw fish 生魚(食物名,但這位是農婦不是漁夫);完全離題:old shoes 舊鞋。第一次有人類給他吃的,他狼吞虎嚥。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l13-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Her small furry pet does not like me.",
-        "question": "Who does not like him at her house?",
-        "options": [
-          "her dog",
-          "her hen",
-          "her cat",
-          "her son"
-        ],
-        "optionsZh": [
-          "她的狗",
-          "她的母雞",
-          "她的貓",
-          "她的兒子"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "her cat = 她的貓。同類陷阱:her dog 她的狗(also her + 寵物);部分對的:her hen 她的雞(也是農家動物,部分相關);完全離題:her son 她兒子(人類)。貓覺得這隻怪鴨子搶了寵物的位置。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l13-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I have to leave again because the cat hates me.",
-        "question": "Why does the duckling leave the old woman?",
-        "options": [
-          "the cat hates him",
-          "the snow falls",
-          "the food runs out",
-          "the river floods"
-        ],
-        "optionsZh": [
-          "貓討厭他",
-          "雪落下",
-          "食物吃完",
-          "河氾濫"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "the cat hates him = 貓討厭他。同類陷阱:the food runs out 食物吃完了(離開的常見原因);部分對的:the snow falls 下雪(後面才會發生);完全離題:the river floods 河水氾濫。又是「不被同類接受」的劇本。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l13-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I say goodbye in my heart.",
-        "question": "How does he feel as he leaves?",
-        "options": [
-          "thankful but sad",
-          "very angry",
-          "very lazy",
-          "very loud"
-        ],
-        "optionsZh": [
-          "感激但傷心",
-          "很生氣",
-          "很懶",
-          "很大聲"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "thankful but sad = 感謝但傷心。同類陷阱:very angry 很生氣(情緒形容詞,反向);部分對的:very lazy 很懶(他不懶);完全離題:very loud 很吵。他在心裡跟老婆婆說謝謝,然後安靜地走。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l13-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The woman did not want him to leave, but her cat drove him away.",
-        "question": "Did the woman send him away?",
-        "options": [
-          "no, her cat did",
-          "yes, she was mean",
-          "no, she was sleeping",
-          "yes, right away"
-        ],
-        "optionsZh": [
-          "不，是她的貓",
-          "對，她很壞",
-          "沒，她在睡覺",
-          "對，馬上"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "no, her cat did = 不是她,是她的貓。同類陷阱:yes, she was mean 是她,她很壞(reasoning 反向);部分對的:yes, right away 是,馬上(時序錯,她其實留他幾天);完全離題:no, she was sleeping 不是她,她在睡。「不被接受」不一定來自最大的人,有時候是身邊的貓。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l14",
-    "chapter": 2,
-    "lessonInChapter": 14,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "看到白色大鳥飛過",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l14-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I look up at the blue above.",
-        "question": "Where does he look?",
-        "options": [
-          "at the snow",
-          "at the shoe",
-          "at the sea",
-          "at the sky"
-        ],
-        "optionsZh": [
-          "在雪地",
-          "在鞋邊",
-          "在海邊",
-          "在天空"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "the sky = 天空。同類陷阱:the sea 大海(也是 s- 開頭自然名詞);部分對的:the snow 雪(自然,後面冬天會來);完全離題:the shoe 鞋子。秋天的天空很高,他抬頭看。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l14-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Big snow-color birds fly over me.",
-        "question": "What color are the big birds?",
-        "options": [
-          "brown",
-          "blue",
-          "black",
-          "white"
-        ],
-        "optionsZh": [
-          "棕色",
-          "藍色",
-          "黑色",
-          "白色"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "white = 白色。同類陷阱:black 黑色(對立色);部分對的:brown 棕色(動物毛色詞);完全離題:blue 藍色。一群白色長頸大鳥從頭頂掠過,他心跳漏了一下。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l14-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I do not know their name.",
-        "question": "Does he know what they are called?",
-        "options": [
-          "yes, they are ducks",
-          "yes, they are pigeons",
-          "no, he does not",
-          "yes, they are crows"
-        ],
-        "optionsZh": [
-          "對，是鴨子",
-          "對，是鴿子",
-          "不，他不會",
-          "對，是烏鴉"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "no, he does not = 他不知道。同類陷阱:yes, they are pigeons 是,是鴿子(同樣 yes + 鳥);部分對的:yes, they are ducks 是鴨(他是鴨他懂,但這群不是);完全離題:yes, they are crows 是烏鴉。他連天鵝這個字都還沒學過。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l14-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "My heart wants to follow them.",
-        "question": "How does the duckling feel?",
-        "options": [
+          "afraid only",
+          "pulled to them",
           "angry at them",
-          "drawn to them",
-          "afraid of them",
-          "bored by them"
+          "tired of them"
         ],
         "optionsZh": [
-          "對他們生氣",
+          "只有害怕",
           "被他們吸引",
-          "怕他們",
-          "被他們煩到"
+          "對他們生氣",
+          "對他們厭倦"
         ],
         "correctIndex": 1,
-        "explanationZh": "drawn to them = 被他們吸引。同類陷阱:angry at them 對他們生氣(情緒介系詞片語);部分對的:afraid of them 怕他們(他不怕,他想跟上去);完全離題:bored by them 對他們覺得無聊。一種說不出來的感覺,就像看見可能的自己。",
+        "explanationZh": "非常想接近 → 被他們吸引。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
+          "ch2",
+          "ugly-duckling"
         ],
-        "subSkill": "detail",
-        "speaker": "grandma"
+        "subSkill": "detail"
       },
       {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l14-q5",
+        "type": "narration",
+        "id": "kt-ch2-l7-q7",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "He cannot follow them because he is not able to fly yet.",
-        "question": "Why does he not fly with them?",
-        "options": [
-          "they are sleeping",
-          "they are too small",
-          "they are too loud",
-          "he cannot fly yet"
-        ],
-        "optionsZh": [
-          "他們在睡",
-          "他們太小",
-          "他們太吵",
-          "他還不會飛"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "he cannot fly yet = 他還不會飛。同類陷阱:they are sleeping 他們在睡(也是 they are + V-ing);部分對的:they are too loud 他們太吵(他們其實很安靜);完全離題:they are too small 他們太小(他們其實很大)。他翅膀還沒長硬。",
+        "speaker": "narrator",
+        "sentence": "He lowered his head to the water, ready to give up.",
+        "explanationZh": "他低下頭往水裡,準備放棄。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch2-l14-q6",
+        "id": "kt-ch2-l7-q8",
         "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The birds disappear into the sky-mist.",
-        "question": "Where do the birds go?",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But the still pond showed him a face he did not know.",
+        "question": "What did he see in the water?",
         "options": [
-          "into a cage",
-          "into the clouds",
-          "into a cave",
-          "into a corner"
+          "only a grey baby",
+          "one bird with a long neck",
+          "just a fish",
+          "just a dark shadow"
         ],
         "optionsZh": [
-          "進入籠子",
-          "進入雲端",
-          "進入洞穴",
-          "進入角落"
+          "一隻灰色鴨寶寶",
+          "一隻有長脖子的新鳥",
+          "一條魚",
+          "一個黑影"
         ],
         "correctIndex": 1,
-        "explanationZh": "into the clouds = 進入雲裡。同類陷阱:into a cage 進籠子(同 into + 容器);部分對的:into a cave 進洞穴(into 自然空間,但反向);完全離題:into a corner 進角落。他望著他們消失,心裡記住了那個畫面。",
+        "explanationZh": "不認得的臉 → 長脖子的新鳥 (天鵝)。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
+          "ch2",
+          "ugly-duckling"
         ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l15",
-    "chapter": 2,
-    "lessonInChapter": 15,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "冬天最冷的日子 — 凍在冰湖邊",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l15-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Cold months comes hard this year.",
-        "question": "Which season comes?",
-        "options": [
-          "spring",
-          "winter",
-          "autumn",
-          "summer"
-        ],
-        "optionsZh": [
-          "春天",
-          "冬天",
-          "秋天",
-          "夏天"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "winter = 冬天。同類陷阱:summer 夏天(同四季);部分對的:spring 春天(後面才來);完全離題:autumn 秋天(剛剛過完)。今年的冬天來得特別早,風刺骨。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+        "subSkill": "detail"
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch2-l15-q2",
+        "type": "narration",
+        "id": "kt-ch2-l7-q9",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "The lake turns into ice.",
-        "question": "What does the lake turn into?",
-        "options": [
-          "icing",
-          "ink",
-          "iron",
-          "ice"
-        ],
-        "optionsZh": [
-          "糖霜",
-          "墨水",
-          "鐵",
-          "冰"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "ice = 冰。同類陷阱:iron 鐵(also i- 開頭名詞,硬的);部分對的:icing 糖霜(發音近);完全離題:ink 墨水。湖水結成一片硬硬的冰。",
+        "speaker": "narrator",
+        "sentence": "A long white neck and bright wings looked back at him.",
+        "explanationZh": "一個長長的白脖子和亮亮的翅膀回望著他。",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch2-l15-q3",
+        "type": "emoji-pick",
+        "id": "kt-ch2-l7-q10",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "My feet are stuck.",
-        "question": "How do the duckling's feet feel?",
+        "speaker": "narrator",
+        "sentence": "What is he now?",
+        "question": "What is he?",
         "options": [
-          "stuck",
-          "stack",
-          "snack",
-          "stock"
+          "🦢 a swan",
+          "🐥 a chick",
+          "🐔 a hen",
+          "🦆 a duck"
         ],
         "optionsZh": [
-          "卡住",
-          "堆",
-          "點心",
-          "存貨"
+          "天鵝",
+          "小雞",
+          "母雞",
+          "鴨子"
         ],
         "correctIndex": 0,
-        "explanationZh": "stuck = 卡住的。同類陷阱:stack 堆(s- 名詞);部分對的:snack 點心(s- 名詞);完全離題:stock 庫存。他想動,腳卻被結凍的水黏在湖面。",
+        "explanationZh": "長白脖子 + 大翅膀 + 在池塘 → 天鵝。",
         "tags": [
           "story",
-          "ch3",
-          "main",
+          "ch2",
           "ugly-duckling",
-          "type-what-you-hear"
+          "hook"
         ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
+        "subSkill": "vocab"
       },
       {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l15-q4",
+        "type": "narration",
+        "id": "kt-ch2-l7-q11",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "I cannot move. I am cold.",
-        "question": "How does the duckling feel?",
-        "options": [
-          "warm",
-          "loud",
-          "hungry",
-          "freezing"
-        ],
-        "optionsZh": [
-          "溫暖",
-          "大聲",
-          "餓",
-          "冰凍"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "freezing = 凍僵的。同類陷阱:warm 暖(對立溫度);部分對的:hungry 餓(他也餓,但這刻是冷);完全離題:loud 吵。冷到他連叫都叫不出聲。",
+        "speaker": "narrator",
+        "sentence": "Children by the pond called him the most beautiful of all. He had been a swan all along...",
+        "explanationZh": "池邊的小孩說他是最美的一隻。他一直都是天鵝……",
         "tags": [
           "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l15-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I think I will die here.",
-        "question": "How does he feel about himself?",
-        "options": [
-          "hopeless",
-          "proud",
-          "polite",
-          "playful"
-        ],
-        "optionsZh": [
-          "絕望",
-          "驕傲",
-          "有禮貌",
-          "好玩"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "hopeless = 絕望。同類陷阱:proud 驕傲(對立情緒);部分對的:polite 禮貌的(個性形容詞);完全離題:playful 愛玩的。整章最暗的一刻,他以為自己撐不過冬天。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l15-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The wind blows snow on me.",
-        "question": "What does the wind blow on him?",
-        "options": [
-          "stones",
-          "smoke",
-          "snow",
-          "sand"
-        ],
-        "optionsZh": [
-          "石頭",
-          "煙",
-          "雪",
-          "沙"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "snow = 雪。同類陷阱:sand 沙(自然 + s- 名詞);部分對的:smoke 煙(s- 名詞,自然物);完全離題:stones 石頭。雪一片片蓋上他的背,他像被埋住了。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l16",
-    "chapter": 2,
-    "lessonInChapter": 16,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "農夫把我撿回家救活",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l16-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "A kind man of the land finds me on the ice.",
-        "question": "Who finds him?",
-        "options": [
-          "a forester",
-          "a fisher",
-          "a fighter",
-          "a farmer"
-        ],
-        "optionsZh": [
-          "一個森林人",
-          "一個漁夫",
-          "一個更戰鬥",
-          "一個農夫"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "farmer = 農夫。同類陷阱:fisher 漁夫(also f- 戶外職業);部分對的:forester 護林員(戶外職業,字首相同);完全離題:fighter 拳擊手。一個好心的農夫在湖邊看到他凍僵的身體。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l16-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "He cracks the cold sheet and lifts me out.",
-        "question": "How does the farmer save him?",
-        "options": [
-          "he runs away",
-          "he sings a song",
-          "he breaks the ice",
-          "he calls a doctor"
-        ],
-        "optionsZh": [
-          "他逃走",
-          "他唱一首歌",
-          "他打破冰",
-          "他叫醫生"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "he breaks the ice = 他把冰敲開。同類陷阱:he calls a doctor 他叫醫生(也是 he V + Obj 救助動作);部分對的:he sings a song 他唱歌(動作不對);完全離題:he runs away 他跑走。他用工具把冰敲碎,小心地把鴨子抱出來。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l16-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "He saves my life.",
-        "question": "What does the farmer do?",
-        "options": [
-          "saves",
-          "shaves",
-          "serves",
-          "shakes"
-        ],
-        "optionsZh": [
-          "救",
-          "刮鬍子",
-          "服侍",
-          "搖"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "saves = 拯救。同類陷阱:shaves 刮(s- 開頭 + s 結尾動詞);部分對的:serves 服務(動作意義部分相關);完全離題:shakes 搖晃。一個陌生人救了他一條命。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l16-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "By the fire I feel cozy again.",
-        "question": "How does the duckling feel by the fire?",
-        "options": [
-          "cold and stiff",
-          "warm and alive",
-          "lost and lonely",
-          "loud and proud"
-        ],
-        "optionsZh": [
-          "又冷又僵",
-          "暖又活著",
-          "迷路又孤單",
-          "大聲又驕傲"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "warm and alive = 暖暖的、活著。同類陷阱:cold and stiff 冷又僵硬(對立感受);部分對的:lost and lonely 又迷又寂(他不再迷路了);完全離題:loud and proud 又吵又驕傲。火爐邊的暖跟我躲在奶奶院子裡一樣。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l16-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The farmer helps him because the farmer is kind.",
-        "question": "Why does the farmer help him?",
-        "options": [
-          "he wants eggs",
-          "he wants soup",
-          "he is kind",
-          "he wants money"
-        ],
-        "optionsZh": [
-          "他想要蛋",
-          "他想要湯",
-          "他善良",
-          "他想要錢"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "he is kind = 他善良。同類陷阱:he wants soup 他想喝湯(也是 he wants + 名詞,負面動機);部分對的:he wants eggs 他要蛋(農夫對家禽常見的索取,但這隻不會下蛋);完全離題:he wants money 他要錢。第一次有人不求回報幫他。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l16-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "I sleep heavily through the night.",
-        "question": "How does he sleep?",
-        "options": [
-          "loud",
-          "wet",
-          "deep",
-          "short"
-        ],
-        "optionsZh": [
-          "大聲",
-          "濕",
-          "深",
-          "矮"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "deep = 深的(熟睡)。同類陷阱:short 短的(也是睡眠形容詞);部分對的:wet 濕的(身體狀態形容詞,但他被擦乾了);完全離題:loud 吵的。整個冬天最安心的一夜。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l17",
-    "chapter": 2,
-    "lessonInChapter": 17,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "春天倒影揭曉 — 原來我是天鵝",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l17-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Flower months comes to the lake.",
-        "question": "Which season comes now?",
-        "options": [
-          "winter",
-          "autumn",
-          "spring",
-          "summer"
-        ],
-        "optionsZh": [
-          "冬天",
-          "秋天",
-          "春天",
-          "夏天"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "spring = 春天。同類陷阱:summer 夏天(同四季);部分對的:winter 冬天(剛過去);完全離題:autumn 秋天(故事開頭那一節)。冰融了,水鳥又回來了。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l17-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I bend down to take a sip of.",
-        "question": "Why does he bend down?",
-        "options": [
-          "to dance",
-          "to dive",
-          "to drink",
-          "to dream"
-        ],
-        "optionsZh": [
-          "去跳舞",
-          "潛水",
-          "喝",
-          "做夢"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "to drink = 喝水。同類陷阱:to dive 潛水(也是 to + d- 動作);部分對的:to dance 跳舞(動作動詞);完全離題:to dream 做夢。他渴了,把頭探向水面。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l17-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I see my mirror image in the water.",
-        "question": "What does he see in the water?",
-        "options": [
-          "my dinner",
-          "my brother",
-          "my mother",
-          "my reflection"
-        ],
-        "optionsZh": [
-          "我的晚餐",
-          "我的兄弟",
-          "我的媽媽",
-          "我的倒影"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "reflection = 倒影。同類陷阱:my brother 兄弟(also my + 親屬);部分對的:my mother 媽媽(他也想過她,但水裡是自己);完全離題:my dinner 晚餐。低頭看見的是「自己」 — 一個他從沒見過的自己。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l17-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The reflection is a snow-color long-necked bird.",
-        "question": "What is the reflection?",
-        "options": [
-          "a small bird",
-          "a white swan",
-          "a big crow",
-          "a gray duck"
-        ],
-        "optionsZh": [
-          "一隻小鳥",
-          "一隻白天鵝",
-          "一個大烏鴉",
-          "一隻灰鴨"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "a white swan = 一隻白天鵝。同類陷阱:a gray duck 一隻灰鴨(他以前以為自己是的樣子);部分對的:a small bird 一隻小鳥(類別對,但描述錯);完全離題:a big crow 一隻大烏鴉。倒影揭曉的瞬間,他終於懂自己是誰。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l17-q5",
-        "level": "A2",
-        "difficulty": "hard",
-        "sentence": "He understands now that he was never really ugly.",
-        "question": "What does he understand now?",
-        "options": [
-          "he was never really ugly",
-          "he became beautiful",
-          "he learned magic",
-          "he grew older"
-        ],
-        "optionsZh": [
-          "他其實不醜",
-          "他變美了",
-          "他學了魔法",
-          "他變老了"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "he was never really ugly = 他從來就不是醜的。同類陷阱:he grew older 他長大了(也是 he + V-ed,但 miss the point);部分對的:he became beautiful 他變漂亮(常見誤讀,故事不是「努力變美」);完全離題:他學了魔法。重點不是他改變,是別人一直看錯。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l17-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "Tears fall but I smile.",
-        "question": "How does the swan feel?",
-        "options": [
-          "moved",
-          "angry",
-          "bored",
-          "sleepy"
-        ],
-        "optionsZh": [
-          "搬家過",
-          "生氣",
-          "無聊",
-          "想睡"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "moved = 感動。同類陷阱:bored 無聊(對立情緒);部分對的:sleepy 想睡(他不睏);完全離題:angry 生氣。一邊哭一邊笑,我那種被叫流浪貓但其實有名字的感覺。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l18",
-    "chapter": 2,
-    "lessonInChapter": 18,
-    "segmentType": "main-story",
-    "storyId": "ugly-duckling",
-    "storyBeat": "一群天鵝把我當同伴",
-    "questions": [
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l18-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Other swans come close to me.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "Other",
-          "swans",
-          "come",
-          "close",
-          "to",
-          "me",
-          "away",
-          "fast"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "explanationZh": "按順序:Other → swans → come → close → to → me。away / fast 是干擾。一群天鵝靠過來,沒有人嫌他大、嫌他灰。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "tap-tiles"
-        ],
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l18-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "They drop down their long necks.",
-        "question": "What do they do with their necks?",
-        "options": [
-          "raise them",
-          "wash them",
-          "shake them",
-          "lower them"
-        ],
-        "optionsZh": [
-          "把它們抬起",
-          "洗它們",
-          "搖一搖",
-          "把它們放低"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "lower = 放低。同類陷阱:raise 抬高(動作對立);部分對的:wash 洗(動作,身體相關);完全離題:shake 搖晃。低頭是天鵝之間的招呼。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l18-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "They see me as one of them.",
-        "question": "How do they treat him?",
-        "options": [
-          "as a friend",
-          "as a stranger",
-          "as a guest",
-          "as a leader"
-        ],
-        "optionsZh": [
-          "以朋友的身分",
-          "以陌生人的身分",
-          "以客人的身分",
-          "以領袖的身分"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "as a friend = 當朋友。同類陷阱:as a stranger 當陌生人(對立關係);部分對的:as a guest 當客人(關係詞,還隔一層);完全離題:as a leader 當領袖。第一次有同類接住他。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l18-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "He did not have to change first because he was always this beautiful inside.",
-        "question": "Did he have to change to belong?",
-        "options": [
-          "yes, he changed color",
-          "yes, he worked hard",
-          "no, he ran away",
-          "no, he was always this"
-        ],
-        "optionsZh": [
-          "對，他變了顏色",
-          "對，他很努力",
-          "不，他逃走了",
-          "不，他本來就是這樣"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "no, he was always this = 不用,他一直就是。同類陷阱:yes, he changed color 是,他換了顏色(常見誤讀);部分對的:yes, he worked hard 是,他努力(感人但偏題);完全離題:no, he ran away 不,他逃了。重點是「他本來就是天鵝」,不是後天努力變的。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l18-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I belong here.",
-        "question": "How does he feel finally?",
-        "options": [
-          "asleep",
-          "afraid",
-          "alone",
-          "at home"
-        ],
-        "optionsZh": [
-          "睡著",
-          "害怕",
-          "獨自",
-          "在家"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "at home = 像在家。同類陷阱:asleep 睡著(a- 開頭狀態形容詞);部分對的:alone 孤單(一路上的感受,反向);完全離題:afraid 害怕。終於有一個地方讓他覺得「我在這裡是對的」。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l18-q6",
-        "level": "A2",
-        "difficulty": "hard",
-        "sentence": "This story tells me that sometimes others see you wrong.",
-        "question": "What does the story teach?",
-        "options": [
-          "never trust strangers",
-          "always change to fit in",
-          "sometimes others see you wrong",
-          "always look pretty"
-        ],
-        "optionsZh": [
-          "別相信陌生人",
-          "為了合群一直變",
-          "有時候別人會看錯你",
-          "永遠要漂亮"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "sometimes others see you wrong = 有時候是別人看錯你。同類陷阱:always change to fit in 永遠要改變自己融入(故事的反面教材);部分對的:never trust strangers 永遠別信陌生人(農夫救了他,反例);完全離題:always look pretty 永遠要漂亮。這個故事不是教你變美,是教你撐到自己長出來。",
-        "tags": [
-          "story",
-          "ch3",
-          "main",
-          "ugly-duckling",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l19",
-    "chapter": 2,
-    "lessonInChapter": 19,
-    "segmentType": "aesop-side",
-    "storyId": "lion-and-mouse",
-    "storyBeat": "老鼠驚動獅子 + 獅子放牠走",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l19-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "A big maned beast sleeps under a tree.",
-        "question": "Which animal is sleeping?",
-        "options": [
-          "a leopard",
-          "a lion",
-          "a lamb",
-          "a llama"
-        ],
-        "optionsZh": [
-          "一個豹",
-          "一個獅子",
-          "一個小羊",
-          "一個羊駝"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "lion = 獅子。同類陷阱:leopard 豹(同野生大貓);部分對的:lamb 小羊(也是 l- 動物);完全離題:llama 駱馬。樹下睡了一隻大獅子,鬃毛蓋住一半的臉。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l19-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "A small mouse runs across the top of his face.",
-        "question": "Where does the mouse run?",
-        "options": [
-          "over his foot",
-          "over his back",
-          "over his nose",
-          "over his tail"
-        ],
-        "optionsZh": [
-          "蓋在他腳上",
-          "蓋在他背上",
-          "蓋在他鼻子上",
-          "蓋在他尾巴上"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "over his nose = 從他鼻子上跑過。同類陷阱:over his tail 從尾巴(也是身體部位介系詞片語);部分對的:over his back 從背上(身體部位);完全離題:over his foot 從腳上。小老鼠不小心衝過獅子的鼻尖。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l19-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The lion opens his eyes wide.",
-        "question": "How does the lion feel?",
-        "options": [
-          "shy",
-          "sleepy",
-          "scared",
-          "surprised"
-        ],
-        "optionsZh": [
-          "害羞",
-          "想睡",
-          "嚇過",
-          "驚訝"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "surprised = 驚訝。同類陷阱:scared 害怕(對獅子來說有點不合理,但是干擾);部分對的:sleepy 想睡(他剛剛在睡);完全離題:shy 害羞。獅子睡到一半被踩臉,當然張大眼睛。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l19-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "He catches the mouse in his small foot.",
-        "question": "How does the lion catch the mouse?",
-        "options": [
-          "in his paw",
-          "in his ear",
-          "in his mouth",
-          "in his tail"
-        ],
-        "optionsZh": [
-          "在他爪子裡",
-          "在他耳邊",
-          "在他嘴裡",
-          "在他尾巴上"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "in his paw = 用爪子。同類陷阱:in his mouth 用嘴(also 身體部位 + in);部分對的:in his tail 用尾巴(身體部位,動作不通);完全離題:in his ear 用耳朵。獅子的大爪子蓋下來,老鼠就跑不掉了。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l19-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The lion lets the mouse go because the mouse begs and promises help later.",
-        "question": "Why does the lion free the mouse?",
-        "options": [
-          "the mouse runs too fast",
-          "the mouse looks sweet",
-          "the mouse begs and promises help",
-          "the mouse is asleep"
-        ],
-        "optionsZh": [
-          "老鼠跑太快",
-          "老鼠看起來可愛",
-          "老鼠求救並承諾幫忙",
-          "老鼠在睡"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "the mouse begs and promises help = 老鼠求他並答應未來幫他。同類陷阱:the mouse looks sweet 老鼠很可愛(主觀但偏題);部分對的:the mouse runs too fast 老鼠跑太快(獅子其實抓到了);完全離題:the mouse is asleep 老鼠在睡。獅子覺得有趣,就放牠走。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l19-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The mouse says thank you and runs home fast.",
-        "question": "What does the mouse do after?",
-        "options": [
-          "falls asleep",
-          "fights the lion",
-          "thanks and runs home",
-          "sings a song"
-        ],
-        "optionsZh": [
-          "睡著",
-          "對抗獅子",
-          "道謝後跑回家",
-          "唱一首歌"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "thanks and runs home = 道謝後跑回家。同類陷阱:sings a song 唱歌(動作搭配);部分對的:falls asleep 睡著(放鬆動作);完全離題:fights the lion 跟獅子打。小老鼠把約定放在心上。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l20",
-    "chapter": 2,
-    "lessonInChapter": 20,
-    "segmentType": "aesop-side",
-    "storyId": "lion-and-mouse",
-    "storyBeat": "獅子被網困住 — 老鼠咬斷網救牠",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l20-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Hunters catch the lion in a strong rope trap.",
-        "question": "How do they catch the lion?",
-        "options": [
-          "in a hole",
-          "in a net",
-          "in a cage",
-          "in a box"
-        ],
-        "optionsZh": [
-          "在洞裡",
-          "在網中",
-          "在籠子裡",
-          "在盒子裡"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "net = 網。同類陷阱:cage 籠子(also 抓動物的工具);部分對的:hole 洞(also 陷阱類);完全離題:box 盒子。獵人用粗繩織的網把獅子困住。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l20-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The lion roars for help.",
-        "question": "What does the lion do?",
-        "options": [
-          "rests",
-          "roars",
-          "runs",
-          "rolls"
-        ],
-        "optionsZh": [
-          "休息",
-          "吼",
-          "跑",
-          "滾"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "roars = 吼叫。同類陷阱:rolls 滾(also r- + s 動詞);部分對的:runs 跑(他想跑但跑不了);完全離題:rests 休息。獅子大聲吼叫,整個森林都聽得到。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l20-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The mouse hears him from far away.",
-        "question": "How does the mouse react?",
-        "options": [
-          "shy of the lion",
-          "happy for the lion",
-          "worried for the lion",
-          "angry at the lion"
-        ],
-        "optionsZh": [
-          "怕獅子",
-          "為獅子高興",
-          "為獅子擔心",
-          "對獅子生氣"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "worried = 擔心。同類陷阱:angry 生氣(情緒形容詞,反向);部分對的:shy 害羞(情緒詞);完全離題:happy 開心。老鼠記得獅子放過他,馬上跑來救他。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l20-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The mouse cuts through the thick cord with his teeth.",
-        "question": "How does the mouse free the lion?",
-        "options": [
-          "lifts the net",
-          "digs a hole",
-          "calls a man",
-          "bites the rope"
-        ],
-        "optionsZh": [
-          "拉起網",
-          "挖洞",
-          "叫一個男人",
-          "咬繩子"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "bites the rope = 咬斷繩子。同類陷阱:digs a hole 挖洞(also 動作 + Obj);部分對的:lifts the net 抬起網(動作對象對,動詞錯);完全離題:calls a man 叫人來。小牙齒一點一點啃斷大繩子。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l20-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The lion is unbound again.",
-        "question": "How is the lion now?",
-        "options": [
-          "afraid",
-          "free",
-          "still stuck",
-          "asleep"
-        ],
-        "optionsZh": [
-          "害怕",
-          "自由",
-          "還卡住",
-          "睡著"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "free = 自由的。同類陷阱:still stuck 還困著(對立狀態);部分對的:afraid 害怕(情緒形容詞);完全離題:asleep 睡著。網被咬開了,獅子甩甩鬃毛站起來。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l20-q6",
-        "level": "A2",
-        "difficulty": "hard",
-        "sentence": "This story tells me that small ones can help big ones.",
-        "question": "What does this fable teach?",
-        "options": [
-          "always sleep under trees",
-          "small ones can help big ones",
-          "big animals always win",
-          "never make promises"
-        ],
-        "optionsZh": [
-          "永遠睡在樹下",
-          "小的可以幫大的",
-          "大動物總是贏",
-          "別答應"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "small ones can help big ones = 小的也能幫大的。同類陷阱:big animals always win 大動物永遠贏(常見誤讀);部分對的:never make promises 別答應別人(剛好相反,老鼠遵守承諾);完全離題:always sleep under trees 永遠在樹下睡。善意不分大小。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "lion-and-mouse",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l21",
-    "chapter": 2,
-    "lessonInChapter": 21,
-    "segmentType": "aesop-side",
-    "storyId": "shepherd-boy-wolf",
-    "storyBeat": "牧羊男孩三次喊「狼來了」",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l21-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "A young boy watches over his flock on a hill.",
-        "question": "What does the boy do?",
-        "options": [
-          "keep sheep",
-          "keep shoes",
-          "keep books",
-          "keep secrets"
-        ],
-        "optionsZh": [
-          "養羊",
-          "保留鞋",
-          "保存書",
-          "保守秘密"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "keep sheep = 看羊。同類陷阱:keep books 管書(also keep + 名詞);部分對的:keep secrets 守秘密(動詞片語,但語境錯);完全離題:keep shoes 留鞋。他是個牧羊小男孩,每天在山上看羊群。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l21-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "He shouts, \"Wolf! Wolf!\" but it is a lie.",
-        "question": "What does he shout?",
-        "options": [
-          "Wave",
-          "Walk",
-          "Watch",
-          "Wolf"
-        ],
-        "optionsZh": [
-          "揮手",
-          "走",
-          "看守",
-          "狼"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "wolf = 狼。同類陷阱:walk 走(w- 開頭單音節);部分對的:watch 看(也是 w- 動詞,觀察相關);完全離題:wave 揮手。他不是真的看到狼,只是想看大家慌張的樣子。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l21-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The villagers run up the hill.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "The",
-          "villagers",
-          "run",
-          "up",
-          "the",
-          "hill",
-          "down",
-          "fast"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
-        "explanationZh": "按順序:The → villagers → run → up → the → hill。down / fast 是干擾。村民放下手邊的事衝上山幫他。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "tap-tiles"
-        ],
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l21-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The boy chuckles at them.",
-        "question": "How does the boy react?",
-        "options": [
-          "he hides",
-          "he cries",
-          "he leaves",
-          "he laughs"
-        ],
-        "optionsZh": [
-          "他躲起來",
-          "他哭",
-          "他離開",
-          "他笑"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "laughs = 笑(嘲笑)。同類陷阱:cries 哭(對立情緒);部分對的:hides 躲(他沒躲);完全離題:leaves 離開。看到大人喘吁吁跑上來,他卻覺得好玩。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l21-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The villagers feel cheated.",
-        "question": "How do the villagers feel?",
-        "options": [
-          "fooled",
-          "proud",
-          "happy",
-          "sleepy"
-        ],
-        "optionsZh": [
-          "被騙",
-          "驕傲",
-          "開心",
-          "想睡"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "fooled = 被騙的。同類陷阱:proud 驕傲(情緒形容詞);部分對的:sleepy 想睡(他們是累但更氣);完全離題:happy 開心。被同一個孩子騙第二次,大家臉都黑了。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l21-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "The boy lies about the wolf three times.",
-        "question": "How many times does the boy lie?",
-        "options": [
-          "five times",
-          "ten times",
-          "three times",
-          "one time"
-        ],
-        "optionsZh": [
-          "五次",
-          "十次",
-          "三次",
-          "一次"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "three times = 三次。同類陷阱:five times 五次(also 數字 + times);部分對的:one time 一次(數量錯);完全離題:ten times 十次。連續三次,他都用同樣的招數騙村民。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l22",
-    "chapter": 2,
-    "lessonInChapter": 22,
-    "segmentType": "aesop-side",
-    "storyId": "shepherd-boy-wolf",
-    "storyBeat": "真狼來了 — 沒人相信他",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l22-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "One day a true wolf comes.",
-        "question": "What kind of wolf is it now?",
-        "options": [
-          "real",
-          "kind",
-          "fake",
-          "small"
-        ],
-        "optionsZh": [
-          "真實",
-          "善良",
-          "假的",
-          "小"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "real = 真的。同類陷阱:fake 假的(剛好對立,前兩次都是假的);部分對的:small 小的(身體屬性);完全離題:kind 善良(語境錯)。這次狼真的從森林裡走出來了。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l22-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The boy yells again, \"Wolf! Wolf!\"",
-        "question": "What does the boy do?",
-        "options": [
-          "climbs a tree",
-          "calls his mother",
-          "runs to the river",
-          "shouts for help"
-        ],
-        "optionsZh": [
-          "爬樹",
-          "叫他媽媽",
-          "跑到河邊",
-          "求救"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "shouts for help = 大喊求救。同類陷阱:climbs a tree 爬樹(求生動作,但他沒爬);部分對的:runs to the river 跑去河邊(動作對象不同);完全離題:calls his mother 叫媽媽。他用盡力氣喊,但聲音乾巴巴的。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l22-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Not one soul.",
-        "question": "What phrase do you hear?",
-        "options": [
-          "no one",
-          "no way",
-          "no man",
-          "no use"
-        ],
-        "optionsZh": [
-          "沒人",
-          "不會吧",
-          "沒人",
-          "沒用"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "no one = 沒人。同類陷阱:no way 沒辦法(also no + 名詞片語);部分對的:no man 沒人來(口語近義);完全離題:no use 沒用。山下安安靜靜,沒有人爬上來。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "type-what-you-hear"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l22-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The boy stands frozen on the hill.",
-        "question": "How does the boy feel?",
-        "options": [
-          "terrified",
-          "joyful",
-          "sleepy",
-          "proud"
-        ],
-        "optionsZh": [
-          "嚇壞",
-          "喜悅",
-          "想睡",
-          "驕傲"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "terrified = 嚇壞了。同類陷阱:proud 驕傲(對立情緒);部分對的:sleepy 想睡(情緒形容詞);完全離題:joyful 開心。這次他不是裝的,他是真的怕。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l22-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "No one believes him this time because he lied before.",
-        "question": "Why does no one come this time?",
-        "options": [
-          "he lied before",
-          "they were far away",
-          "they were eating",
-          "they were sleeping"
-        ],
-        "optionsZh": [
-          "他以前說過謊",
-          "他們很遠",
-          "他們在吃",
-          "他們在睡"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "he lied before = 他之前說謊。同類陷阱:they were sleeping 他們在睡(also they were + V-ing);部分對的:they were far away 他們太遠(時間距離問題);完全離題:they were eating 他們在吃飯。一個說謊三次的孩子,真話也沒人信。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l22-q6",
-        "level": "A2",
-        "difficulty": "hard",
-        "sentence": "This story tells me that lies break trust.",
-        "question": "What does this fable teach?",
-        "options": [
-          "lies break trust",
-          "boys are bad",
-          "hills are dangerous",
-          "wolves are scary"
-        ],
-        "optionsZh": [
-          "謊話破壞信任",
-          "男孩不好",
-          "山很危險",
-          "狼很可怕"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "lies break trust = 謊言會破壞信任。同類陷阱:boys are bad 男孩很壞(過度推論);部分對的:wolves are scary 狼很可怕(故事元素,但偏題);完全離題:hills are dangerous 山很危險。信任丟了一次很難撿回來。",
-        "tags": [
-          "story",
-          "ch3",
-          "aesop",
-          "shepherd-boy-wolf",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "grandma"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l23",
-    "chapter": 2,
-    "lessonInChapter": 23,
-    "segmentType": "outer-outro",
-    "storyId": "outer",
-    "storyBeat": "奶奶闔書 + Mochi 安靜思考",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l23-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "She brings the cover shut.",
-        "question": "What does Grandma do?",
-        "options": [
-          "covers the chair",
-          "calls the cat",
-          "closes the book",
-          "opens the box"
-        ],
-        "optionsZh": [
-          "蓋住椅子",
-          "叫貓",
-          "合上書",
-          "打開盒子"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "closes the book = 闔上書。同類陷阱:covers the chair 蓋椅子(also covers + 名詞);部分對的:opens the box 打開盒子(動詞反向);完全離題:calls the cat 叫貓。故事說完了,她輕輕把書合上。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l23-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The yard is hushed now.",
-        "question": "How is the yard?",
-        "options": [
-          "quiet",
-          "wet",
-          "loud",
-          "warm"
-        ],
-        "optionsZh": [
-          "安靜",
-          "濕",
-          "大聲",
-          "溫暖"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "quiet = 安靜。同類陷阱:loud 吵(對立);部分對的:warm 暖(感覺形容詞);完全離題:wet 濕。風停了,蟲子也不叫了。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l23-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I think about myself.",
-        "question": "What does Mochi now do?",
-        "options": [
-          "think",
-          "thank",
-          "thick",
-          "third"
-        ],
-        "optionsZh": [
-          "想",
-          "感謝",
-          "厚",
-          "第三"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "think = 想。同類陷阱:thank 感謝(th- 開頭單音節);部分對的:thick 厚的(形容詞);完全離題:third 第三的。我把今晚的故事在心裡跑一遍。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "type-what-you-hear"
-        ],
-        "subSkill": "vocab",
-        "speaker": "mochi"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l23-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "People call me a stray.",
-        "question": "How does Mochi feel about that name?",
-        "options": [
-          "very proud",
-          "very sleepy",
-          "very angry",
-          "unsure but okay"
-        ],
-        "optionsZh": [
-          "很驕傲",
-          "很想睡",
-          "很生氣",
-          "不確定但還好"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "unsure but okay = 不太確定但還行。同類陷阱:very angry 很生氣(對立情緒);部分對的:very sleepy 想睡(我有點累);完全離題:very proud 很驕傲。我不是壞,只是還沒人看見真正的我。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l23-q5",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "Tonight's story teaches me that maybe people see me wrong.",
-        "question": "What does Mochi learn tonight?",
-        "options": [
-          "I should change my color",
-          "I should bite my siblings",
-          "maybe people see me wrong",
-          "I should leave the yard"
-        ],
-        "optionsZh": [
-          "我應該換顏色",
-          "我應該咬兄弟姊妹",
-          "也許別人看錯我",
-          "我應該離開院子"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "maybe people see me wrong = 也許是別人看錯我。同類陷阱:I should leave the yard 我該離開院子(對應小鴨被趕走,但 inverse moral);部分對的:I should change my color 我該換顏色(常見誤讀);完全離題:I should bite my siblings 我該咬兄弟姐妹。小鴨教會我:被叫醜不代表你真的醜。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l23-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "The evening of the day after.",
-        "question": "When will Mochi come back?",
-        "options": [
-          "next year",
-          "next month",
-          "never again",
-          "tomorrow night"
-        ],
-        "optionsZh": [
-          "明年",
-          "下個月",
-          "再也不要",
-          "明天晚上"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "tomorrow night = 明天晚上。同類陷阱:next month 下個月(also next + 時間);部分對的:next year 明年(時序遠);完全離題:never again 再也不。明晚一定再來,奶奶還有新故事。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l24",
-    "chapter": 2,
-    "lessonInChapter": 24,
-    "segmentType": "outer-outro",
-    "storyId": "outer-bonus",
-    "storyBeat": "番外 — Hana 問奶奶「鴨媽媽是壞人嗎?」",
-    "questions": [
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l24-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Hana lifts his head and calls to.",
-        "question": "What does Hana do?",
-        "options": [
-          "asks",
-          "sneezes",
-          "naps",
-          "barks"
-        ],
-        "optionsZh": [
-          "問",
-          "打噴嚏",
-          "打盹",
-          "叫"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "asks = 問。同類陷阱:barks 吠(狗常做的動作);部分對的:naps 小睡(他剛剛在睡,但這時抬頭了);完全離題:sneezes 打噴嚏。Hana 平常很安靜,今晚他開口了。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l24-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Hana wants to know if the mother duck was bad for sending him away.",
-        "question": "What does Hana want to know?",
-        "options": [
-          "if winter was long",
-          "if the pond was cold",
-          "if the egg was big",
-          "if Mother was bad"
-        ],
-        "optionsZh": [
-          "如果冬天很長",
-          "如果池塘是冷的",
-          "如果蛋是大的",
-          "如果媽媽是壞的"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "if Mother was bad = 媽媽是不是壞人。同類陷阱:if winter was long 冬天會不會很久(also if + past 子句);部分對的:if the egg was big 蛋是不是很大(細節對,但不是 Hana 在意的);完全離題:if the pond was cold 池塘冷不冷。他關心的是「為什麼鴨媽媽會嘆氣叫小鴨走」。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l24-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Grandma smiles softly.",
-        "question": "How does Grandma react?",
-        "options": [
-          "stands",
-          "smiles",
-          "sleeps",
-          "shouts"
-        ],
-        "optionsZh": [
-          "站",
-          "微笑",
-          "睡覺",
-          "大叫"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "smiles = 微笑。同類陷阱:shouts 大叫(s- 動詞 + s);部分對的:stands 站起來(她平常會這樣,但這時候坐著);完全離題:sleeps 睡覺。她沒有罵 Hana 問笨問題,反而笑了笑。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l24-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "No, she was not bad. She just did not know.",
-        "question": "What does Grandma say about Mother duck?",
-        "options": [
-          "she was very tired",
-          "she was very mean",
-          "she did not understand",
-          "she did not love"
-        ],
-        "optionsZh": [
-          "她很累",
-          "她很壞",
-          "她不明白",
-          "她沒有愛"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "she did not understand = 她不懂。同類陷阱:she did not love 她不愛(also did not + V);部分對的:she was very tired 她很累(她其實也累,但不是 root cause);完全離題:she was very mean 她很惡毒。奶奶在區分「壞」跟「不懂」 — 大人世界的關鍵差別。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l24-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "She had never seen a young big-winged bird before.",
-        "question": "What had she never seen?",
-        "options": [
-          "a fish",
-          "a fire",
-          "a fox",
-          "a swan child"
-        ],
-        "optionsZh": [
-          "一個魚",
-          "一個火",
-          "一個狐狸",
-          "一隻天鵝寶寶"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "a swan child = 一隻天鵝寶寶。同類陷阱:a fox 狐狸(也是水邊野生動物);部分對的:a fish 一條魚(池塘裡會有,部分相關);完全離題:a fire 火。她沒看過,所以以為小鴨是「醜版小鴨」,而不是「另一種鳥」。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "tap-tiles",
-        "id": "kt-ch2-l24-q6",
-        "level": "A2",
-        "difficulty": "medium",
-        "sentence": "Different is not the same as bad.",
-        "question": "Tap the tiles in order.",
-        "tiles": [
-          "Different",
-          "is",
-          "not",
-          "the",
-          "same",
-          "as",
-          "bad",
-          "good",
-          "fast"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "explanationZh": "按順序:Different → is → not → the → same → as → bad。good 跟 fast 是干擾。這是奶奶今晚的金句:不一樣 ≠ 壞。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "tap-tiles"
-        ],
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l24-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I tilt my ears. I am a stray, too.",
-        "question": "What word describes Mochi?",
-        "options": [
-          "smart",
-          "small",
-          "stray",
-          "shy"
-        ],
-        "optionsZh": [
-          "聰明",
-          "小",
-          "流浪的",
-          "害羞"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "stray = 流浪的。同類陷阱:shy 害羞的(也是 s- 開頭形容詞);部分對的:small 小的(身體屬性,部分對);完全離題:smart 聰明的。我聽完想:小鴨被誤會的感覺,我懂。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-mc"
-        ],
-        "subSkill": "vocab",
-        "speaker": "mochi"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l24-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Was I a big white bird too? I ask quietly.",
-        "question": "What does Mochi ask?",
-        "options": [
-          "if I was loud",
-          "if I was lost",
-          "if I was hungry",
-          "if I was a swan"
-        ],
-        "optionsZh": [
-          "如果我吵",
-          "如果我迷路",
-          "如果我餓",
-          "如果我是天鵝"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "if I was a swan = 我是不是也是天鵝。同類陷阱:if I was lost 是不是迷路了(if + 身分疑問);部分對的:if I was hungry 是不是餓了(我經常餓,但這不是重點);完全離題:if I was loud 是不是很吵。我問得很小聲 — 怕奶奶笑我。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l24-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Grandma says, \"You are Mochi. That is plenty.\"",
-        "question": "What does Grandma say?",
-        "options": [
-          "that is far",
-          "that is sad",
-          "that is enough",
-          "that is fast"
-        ],
-        "optionsZh": [
-          "好遠",
-          "好傷心",
-          "夠了",
-          "好快"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "that is enough = 這樣就夠了。同類陷阱:that is far 那很遠(that is + 形容詞);部分對的:that is sad 那很傷心(情緒形容詞,部分相關);完全離題:that is fast 那很快。她不需要我是天鵝、不是流浪貓、不是任何特別的東西。我是 Mochi 就夠了。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-emoji",
-        "id": "kt-ch2-l24-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "I feel cozy inside.",
-        "question": "How does Mochi feel?",
-        "options": [
-          "cold and small",
-          "loud and proud",
-          "warm and seen",
-          "tired and bored"
-        ],
-        "optionsZh": [
-          "又冷又小",
-          "大聲又驕傲",
-          "暖又被看見",
-          "又累又無聊"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "warm and seen = 暖暖的、被看見。同類陷阱:cold and small 又冷又小(對立感受);部分對的:tired and bored 累跟無聊(我有點累但不是答案重點);完全離題:loud and proud 又大聲又驕傲。「被看見」是這個番外的核心情緒 — 我不用是天鵝,奶奶也認得我。",
-        "tags": [
-          "story",
-          "ch3",
-          "outro",
-          "bonus",
-          "listen-emoji"
-        ],
-        "subSkill": "detail",
-        "speaker": "mochi"
-      }
-    ]
-  },
-  {
-    "id": "kt-ch2-l25",
-    "chapter": 2,
-    "lessonInChapter": 25,
-    "segmentType": "review",
-    "storyId": "review",
-    "storyBeat": "今晚的關鍵字",
-    "questions": [
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch2-l25-q1",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Outer scene words",
-        "question": "Tap the pairs.",
-        "pairs": [
-          {
-            "left": "autumn",
-            "right": "秋天"
-          },
-          {
-            "left": "climb",
-            "right": "爬"
-          },
-          {
-            "left": "pond",
-            "right": "池塘"
-          },
-          {
-            "left": "duckling",
-            "right": "小鴨"
-          }
-        ],
-        "explanationZh": "outer 四個詞:autumn 秋天、climb 爬、pond 池塘、duckling 小鴨。秋夜我爬上牆,奶奶翻開池塘那頁,故事是醜小鴨。",
-        "tags": [
-          "story",
-          "ch3",
-          "review",
-          "tap-pairs"
-        ],
-        "speaker": "narrator"
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch2-l25-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Main story words",
-        "question": "Tap the pairs.",
-        "pairs": [
-          {
-            "left": "egg",
-            "right": "蛋"
-          },
-          {
-            "left": "gray",
-            "right": "灰色"
-          },
-          {
-            "left": "ugly",
-            "right": "醜的"
-          },
-          {
-            "left": "swan",
-            "right": "天鵝"
-          }
-        ],
-        "explanationZh": "main story 四個詞:egg 蛋、gray 灰色、ugly 醜的、swan 天鵝。從蛋裡的灰小鴨,到春天水裡的白天鵝。",
-        "tags": [
-          "story",
-          "ch3",
-          "review",
-          "tap-pairs"
-        ],
-        "speaker": "narrator"
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch2-l25-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Journey words",
-        "question": "Tap the pairs.",
-        "pairs": [
-          {
-            "left": "alone",
-            "right": "獨自"
-          },
-          {
-            "left": "hide",
-            "right": "躲"
-          },
-          {
-            "left": "save",
-            "right": "拯救"
-          },
-          {
-            "left": "winter",
-            "right": "冬天"
-          }
-        ],
-        "explanationZh": "旅程關鍵詞:alone 獨自、hide 躲、save 拯救、winter 冬天。獨自走過沼澤、躲過獵人、被農夫救活、撐過冬天。",
-        "tags": [
-          "story",
-          "ch3",
-          "review",
-          "tap-pairs"
-        ],
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch2-l25-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Grandma told the ugly duckling story tonight.",
-        "question": "What did Grandma tell tonight?",
-        "options": [
-          "a recipe",
-          "the ugly duckling story",
-          "her own life",
-          "a love song"
-        ],
-        "optionsZh": [
-          "一份食譜",
-          "醜小鴨的故事",
-          "她自己的生命",
-          "一首情歌"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "the ugly duckling story = 醜小鴨故事。同類陷阱:her own life 她自己的故事(also her + 名詞);部分對的:a love song 一首情歌(故事 vs 歌類);完全離題:a recipe 食譜。今晚加上獅子與老鼠 + 牧羊男孩兩個小故事。",
-        "tags": [
-          "story",
-          "ch3",
-          "review",
-          "listen-comprehension"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l25-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "sentence": "Will Mochi come back tomorrow?",
-        "question": "Will Mochi come back?",
-        "options": [
-          "Never",
-          "No",
-          "Yes",
-          "Maybe"
-        ],
-        "optionsZh": [
-          "從不",
-          "不",
-          "是",
-          "也許"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "Yes — 我每晚都會再來。明天還有新故事,我已經知道我是 Mochi 就夠了。",
-        "tags": [
-          "story",
-          "ch3",
-          "review",
-          "listen-mc"
-        ],
-        "subSkill": "detail",
-        "speaker": "narrator"
+          "ch2",
+          "ugly-duckling"
+        ]
       }
     ]
   }
