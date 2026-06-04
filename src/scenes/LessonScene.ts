@@ -56,6 +56,13 @@ export type LessonSceneData = {
 // listen-tf-zh, listen-mc/comp (handleAnswer). Narration uses audio onEnd.
 const ADVANCE_CORRECT_MS = 3_000;
 
+// v2.0.B.228 P1 (Ch6 walkthrough): narration auto-advance fallback when no MP3.
+// Audio onEnd is primary; this timer fires only if WebSpeech onend doesn't (iOS
+// stalls / engine bug). 5000ms 對 12-15 字英文句太短 (A2 慢讀者跟不上),
+// per Ch6 walkthrough P1-1: 8000ms 給雙語 surface (EN narration ~9-15s, ZH 5-7s)
+// 容餘讀完. Ch1 有 MP3 onEnd 早期觸發, 此 timer 不影響 Ch1 流暢度.
+const NARRATION_FALLBACK_MS = 8_000;
+
 // v2.0.B.120: TOEIC native pace ~150 wpm. A2 Taiwanese learners need ~100-120 wpm.
 // Web Speech API rate scale: 1.0 ≈ 150-180 wpm; 0.75 ≈ 115-135 wpm (A2 sweet spot).
 // User reported B.119 still felt fast — dropped sentence/options from 0.85 → 0.75.
@@ -291,7 +298,10 @@ export class LessonScene extends Phaser.Scene {
     // Real solution: hook speak()'s onEnd → advance(). Fallback timer at
     // wordCount * 600ms + 2000ms (generous so it only fires if audio fails).
     const wordCount = text.trim().split(/\s+/).filter(Boolean).length || 1;
-    const fallbackMs = Math.max(5000, wordCount * 600 + 2000);
+    // v2.0.B.228 P1 (Ch6 walkthrough): min 5000 → 8000ms. Without MP3, A2 慢讀者
+    // 跟不上 13-15 字英文 narration + 中文 surface 雙語讀. 8s floor 給 EN ~9-15s
+    // 容餘 + ZH 5-7s. Ch1 有 MP3 onEnd 早觸發, 此 floor 不影響. Per Ch6 audit P1-1.
+    const fallbackMs = Math.max(NARRATION_FALLBACK_MS, wordCount * 600 + 2000);
     slot.innerHTML = `
       <div style="display:flex;justify-content:flex-end;padding:4px 6px;">
         <button type="button" class="pickup-narration-skip" style="

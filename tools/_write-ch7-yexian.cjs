@@ -208,8 +208,10 @@ const lessons = [
         1,
         '比她兩手張開還長 → 變大。'),
       // gist
+      // v2.0.B.228 P1 (Ch7 walkthrough): old sentence 21 字爆 A2 紅線 (160%).
+      // 拆兩個 sparse 短句 (10+11=21 字總量保持 → 但 chunked) 給 A2 喘息.
       gist('kt-ch7-l2-q9',
-        'When the village was loud and cold, Yexian sat by the pond and the fish came up to her hand.',
+        'The village was loud and cold. Yexian sat by the pond, and the fish came up to her hand.',
         'What is this scene mainly showing?',
         ['a secret friendship by the water',
          'fishing lessons at noon',
@@ -561,13 +563,16 @@ const lessons = [
         'At last, the king sailed to the cave village in the south.',
         '最後,國王坐船到南方的洞穴村莊。'),
       // listen-mc paraphrase
+      // v2.0.B.228 P1 (Ch7 walkthrough): old option 'quietly with one bare foot'
+      // = grammar mirror of sentence opening 'Quiet, with one bare foot'.
+      // Paraphrase 改 'she came out without sound' (semantic 同義, surface 不同).
       mc('kt-ch7-l7-q5',
         'Quiet, with one bare foot, Yexian stepped out from behind the new wife.',
         'How did Yexian come out?',
-        ['loudly and proud', 'quietly with one bare foot', 'crying for help', 'hidden in a basket'],
-        ['大聲又驕傲', '安靜地一隻腳沒鞋', '哭著求救', '藏在籃子裡'],
+        ['loudly and proud', 'she came out without sound', 'crying for help', 'hidden in a basket'],
+        ['大聲又驕傲', '她無聲走出', '哭著求救', '藏在籃子裡'],
         1,
-        '安靜走出來,一腳沒鞋 → 安靜地一隻腳沒鞋。'),
+        '推理:Quiet + bare foot → 無聲走出。'),
       // Hanzi: 鞋
       nar('kt-ch7-l7-q6',
         '鞋 (the shoe) slipped onto her foot like clear water.',
