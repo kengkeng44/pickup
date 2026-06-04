@@ -5,7 +5,7 @@
     "lessonInChapter": 1,
     "segmentType": "main-story",
     "storyId": "momotaro",
-    "storyBeat": "老夫婦的安靜村莊",
+    "storyBeat": "春日河邊,什麼漂來?",
     "questions": [
       {
         "type": "tap-pairs",
@@ -16,23 +16,23 @@
         "sentence": "Here are 4 words you will meet in tonight's story.",
         "pairs": [
           {
-            "left": "老人",
-            "right": "old man"
-          },
-          {
             "left": "河",
             "right": "river"
           },
           {
-            "left": "山",
-            "right": "mountain"
+            "left": "看",
+            "right": "look"
           },
           {
-            "left": "衣服",
-            "right": "clothes"
+            "left": "漂",
+            "right": "float"
+          },
+          {
+            "left": "東西",
+            "right": "something"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 old man = 老人\n🔑 river = 河\n🔑 mountain = 山\n🔑 clothes = 衣服\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 river = 河\n🔑 look = 看\n🔑 float = 漂\n🔑 something = 東西\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
           "ch1",
@@ -48,7 +48,21 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Long ago, an old man and woman lived in a small village.",
-        "explanationZh": "很久以前,一對老夫婦住在一個小村莊。",
+        "explanationZh": "很久以前,一對老夫婦住在小村莊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They were kind, but they had no children.",
+        "explanationZh": "他們善良,但是沒有孩子。",
         "tags": [
           "story",
           "ch1",
@@ -57,7 +71,7 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l1-q3",
+        "id": "kt-ch1-l1-q4",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
@@ -68,7 +82,7 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:家裡很安靜 → 沒有小孩跑跳的聲音 → 答 No",
+        "explanationZh": "推理:安靜的家 → 沒小孩聲 → 答 No",
         "tags": [
           "story",
           "ch1",
@@ -78,12 +92,12 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l1-q4",
+        "id": "kt-ch1-l1-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Each day, the old man climbed up high to gather firewood.",
-        "explanationZh": "老公公每天爬到高處去撿柴。",
+        "sentence": "Each day, the old man went up the mountain to gather firewood.",
+        "explanationZh": "老公公每天上山撿柴。",
         "tags": [
           "story",
           "ch1",
@@ -92,7 +106,7 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q5",
+        "id": "kt-ch1-l1-q6",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -111,7 +125,7 @@
           "養羊"
         ],
         "correctIndex": 1,
-        "explanationZh": "他的日常工作是砍柴。",
+        "explanationZh": "帶柴回家 → 砍柴。",
         "tags": [
           "story",
           "ch1",
@@ -121,12 +135,12 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l1-q6",
+        "id": "kt-ch1-l1-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Each morning she sat by the cool river water.",
-        "explanationZh": "老婆婆每天早上坐在涼涼的河水邊。",
+        "sentence": "Each morning, the old woman went to the river to wash clothes.",
+        "explanationZh": "老婆婆每天早上去河邊洗衣服。",
         "tags": [
           "story",
           "ch1",
@@ -135,12 +149,12 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q7",
+        "id": "kt-ch1-l1-q8",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "She brought clean clothes home in a basket every day.",
-        "question": "Why did she sit by the water?",
+        "sentence": "She dipped clothes in the cool water beside the rocks.",
+        "question": "Why did she sit by the river?",
         "options": [
           "to fish",
           "to swim",
@@ -154,7 +168,7 @@
           "休息"
         ],
         "correctIndex": 2,
-        "explanationZh": "帶回乾淨衣服 → 她去洗衣服。",
+        "explanationZh": "把衣服浸水 → 洗衣服。",
         "tags": [
           "story",
           "ch1",
@@ -163,27 +177,41 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
-        "id": "kt-ch1-l1-q8",
+        "type": "narration",
+        "id": "kt-ch1-l1-q9",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "What did the old couple want most?",
-        "question": "What did they want most?",
+        "sentence": "But one spring day, something different happened.",
+        "explanationZh": "但一個春天,有件不一樣的事發生了。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l1-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What season was it?",
+        "question": "What season was it?",
         "options": [
-          "👶 a child",
-          "💰 gold",
-          "🏠 a big house",
-          "📺 a TV"
+          "🌸 spring",
+          "☀️ summer",
+          "🍂 autumn",
+          "❄️ winter"
         ],
         "optionsZh": [
-          "一個小孩",
-          "金子",
-          "大房子",
-          "電視"
+          "春天",
+          "夏天",
+          "秋天",
+          "冬天"
         ],
         "correctIndex": 0,
-        "explanationZh": "他們最想要小孩。",
+        "explanationZh": "一個春天 = spring。",
         "tags": [
           "story",
           "ch1",
@@ -194,83 +222,16 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Old age came, but no children's voices filled the house.",
-        "explanationZh": "他們漸漸老了,家裡依然沒有小孩的聲音。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ]
-      },
-      {
-        "type": "listen-comprehension",
-        "id": "kt-ch1-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Old age came, but no children's voices filled the house.",
-        "question": "What is this scene mainly about?",
-        "options": [
-          "the couple felt lonely without children",
-          "the couple loved noisy parties",
-          "the couple were rich and happy",
-          "the couple moved to a new town"
-        ],
-        "optionsZh": [
-          "夫妻沒孩子的孤單",
-          "夫妻愛吵雜派對",
-          "夫妻有錢又開心",
-          "夫妻搬去新城鎮"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "主旨 = 老夫婦因沒孩子而孤單。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro",
-          "gist"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "tap-tiles",
         "id": "kt-ch1-l1-q11",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "An old man and woman lived in a village.",
-        "tiles": [
-          "An",
-          "old",
-          "man",
-          "and",
-          "woman",
-          "lived",
-          "in",
-          "a",
-          "village"
-        ],
-        "correctOrder": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        "explanationZh": "排出句子:老夫婦住在一個村莊。",
+        "sentence": "Far in the river, a big red shape was floating slowly toward her...",
+        "explanationZh": "河上遠處,一個大大紅紅的東西慢慢漂向她……",
         "tags": [
           "story",
           "ch1",
-          "momotaro",
-          "review"
+          "momotaro"
         ]
       }
     ]

@@ -94,80 +94,78 @@ function tapTiles(id, sentence, expZh) {
 
 const lessons = [
   // ────────────────────────────────────────────────────────────────────
-  // Ch1-1 Setup — 老夫婦的安靜村莊 (v5: interleaved 11 Q, 5 min budget)
-  // Structure: vocab + 4 narration chunks interleaved with 6 Q + tap-tiles
+  // Ch1-1 (v6: emotional peak cut + B3 資訊缺口 hook ending)
+  // Per docs/research/chapter-ending-hook-design.md C 段
+  // 結尾不停在 "setup 完成" (value 已落地), 改停在「河上紅色大東西漂來」的
+  // 瞬間 (user 已知是桃但畫面未確認 = inquiry-terminating question)
   // ────────────────────────────────────────────────────────────────────
   {
     id: 'kt-ch1-l1', chapter: 1, lessonInChapter: 1,
     segmentType: 'main-story', storyId: 'momotaro',
-    storyBeat: '老夫婦的安靜村莊',
+    storyBeat: '春日河邊,什麼漂來?',
     questions: [
-      // Q1 vocab intro
+      // Q1 vocab intro (新單字含 'float' anticipates hook)
       vocabIntro('kt-ch1-l1-q1', [
-        ['老人', 'old man'], ['河', 'river'],
-        ['山', 'mountain'], ['衣服', 'clothes'],
+        ['河', 'river'],
+        ['看', 'look'],
+        ['漂', 'float'],
+        ['東西', 'something'],
       ]),
-      // Q2 BEAT A narration — setup
+      // Q2 BEAT A — setup
       nar('kt-ch1-l1-q2',
         'Long ago, an old man and woman lived in a small village.',
-        '很久以前,一對老夫婦住在一個小村莊。'),
-      // Q3 TF inference about BEAT A (atmosphere implies no children)
-      tf('kt-ch1-l1-q3',
+        '很久以前,一對老夫婦住在小村莊。'),
+      // Q3 BEAT A 加深 — no kids (low emotion)
+      nar('kt-ch1-l1-q3',
+        'They were kind, but they had no children.',
+        '他們善良,但是沒有孩子。'),
+      // Q4 TF inference about the quiet life
+      tf('kt-ch1-l1-q4',
         'Their wooden house stayed very quiet, year after year.',
         '他們的木屋年復一年都很安靜。',
         'Did any children live with them?', 'N',
-        '推理:家裡很安靜 → 沒有小孩跑跳的聲音 → 答 No'),
-      // Q4 BEAT B narration — daily work
-      nar('kt-ch1-l1-q4',
-        'Each day, the old man climbed up high to gather firewood.',
-        '老公公每天爬到高處去撿柴。'),
-      // Q5 listen-mc about BEAT B (paraphrase — different sentence)
-      mc('kt-ch1-l1-q5',
+        '推理:安靜的家 → 沒小孩聲 → 答 No'),
+      // Q5 BEAT B — daily routine, old man
+      nar('kt-ch1-l1-q5',
+        'Each day, the old man went up the mountain to gather firewood.',
+        '老公公每天上山撿柴。'),
+      // Q6 listen-mc paraphrase about daily work
+      mc('kt-ch1-l1-q6',
         'He carried home heavy wood for the fire.',
         'What was his daily task?',
         ['fishing', 'cutting wood', 'cooking rice', 'feeding goats'],
         ['釣魚', '砍柴', '煮飯', '養羊'],
         1,
-        '他的日常工作是砍柴。'),
-      // Q6 BEAT C narration — wife's role
-      nar('kt-ch1-l1-q6',
-        'Each morning she sat by the cool river water.',
-        '老婆婆每天早上坐在涼涼的河水邊。'),
-      // Q7 listen-mc about BEAT C (paraphrase)
-      mc('kt-ch1-l1-q7',
-        'She brought clean clothes home in a basket every day.',
-        'Why did she sit by the water?',
+        '帶柴回家 → 砍柴。'),
+      // Q7 BEAT C — old woman's routine
+      nar('kt-ch1-l1-q7',
+        'Each morning, the old woman went to the river to wash clothes.',
+        '老婆婆每天早上去河邊洗衣服。'),
+      // Q8 listen-mc about her routine
+      mc('kt-ch1-l1-q8',
+        'She dipped clothes in the cool water beside the rocks.',
+        'Why did she sit by the river?',
         ['to fish', 'to swim', 'to wash clothes', 'to rest'],
         ['釣魚', '游泳', '洗衣服', '休息'],
         2,
-        '帶回乾淨衣服 → 她去洗衣服。'),
-      // Q8 emoji-pick BEAT D — wish
-      emoji('kt-ch1-l1-q8',
-        'What did the old couple want most?',
-        'What did they want most?',
-        ['👶 a child', '💰 gold', '🏠 a big house', '📺 a TV'],
-        ['一個小孩', '金子', '大房子', '電視'],
-        0,
-        '他們最想要小孩。'),
-      // Q9 BEAT E narration — emotional close
+        '把衣服浸水 → 洗衣服。'),
+      // Q9 BEAT D — transition, special day
       nar('kt-ch1-l1-q9',
-        'Old age came, but no children\'s voices filled the house.',
-        '他們漸漸老了,家裡依然沒有小孩的聲音。'),
-      // Q10 listen-comp gist (overall)
-      gist('kt-ch1-l1-q10',
-        'Old age came, but no children\'s voices filled the house.',
-        'What is this scene mainly about?',
-        ['the couple felt lonely without children',
-         'the couple loved noisy parties',
-         'the couple were rich and happy',
-         'the couple moved to a new town'],
-        ['夫妻沒孩子的孤單', '夫妻愛吵雜派對', '夫妻有錢又開心', '夫妻搬去新城鎮'],
+        'But one spring day, something different happened.',
+        '但一個春天,有件不一樣的事發生了。'),
+      // Q10 emoji-pick about season (safe, doesn't reveal hook)
+      emoji('kt-ch1-l1-q10',
+        'What season was it?',
+        'What season was it?',
+        ['🌸 spring', '☀️ summer', '🍂 autumn', '❄️ winter'],
+        ['春天', '夏天', '秋天', '冬天'],
         0,
-        '主旨 = 老夫婦因沒孩子而孤單。'),
-      // Q11 tap-tiles review
-      tapTiles('kt-ch1-l1-q11',
-        'An old man and woman lived in a village.',
-        '排出句子:老夫婦住在一個村莊。'),
+        '一個春天 = spring。'),
+      // Q11 HOOK NARRATION — ends lesson on B3 資訊缺口
+      // Inquiry: "那大紅色的東西是什麼?" (user 已預測是桃但未確認)
+      nar('kt-ch1-l1-q11',
+        'Far in the river, a big red shape was floating slowly toward her...',
+        '河上遠處,一個大大紅紅的東西慢慢漂向她……'),
     ],
   },
 
