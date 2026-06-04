@@ -64,7 +64,15 @@ const HOOK_MAP = {
   'kt-ch1-l5': { type: 'B6+B1',  inquiry: '島上為何安靜?是埋伏?',       canon: 'momotaro.md#beat-5-departure' },
   'kt-ch1-l6': { type: 'B2',     inquiry: '鬼王怎知他名字?陷阱?',       canon: 'momotaro.md#beat-6-battle' },
   'kt-ch1-l7': { type: 'B6 (open)', inquiry: '(開放結局, 留後鉤)',     canon: 'momotaro.md#beat-7-victory' },
-  // Ch2-7 待 narrative-cut-analyst skill 重切
+  // Ch2 醜小鴨 (B.221 skill 試跑)
+  'kt-ch2-l1': { type: 'B3',        inquiry: '那大蛋裡是什麼?',          canon: 'ugly-duckling.md#beat-1-setup' },
+  'kt-ch2-l2': { type: 'B2',        inquiry: '他是醜?還是只是不一樣?',  canon: 'ugly-duckling.md#beat-2-discovery' },
+  'kt-ch2-l3': { type: 'B2',        inquiry: '媽媽會回來保護他嗎?',      canon: 'ugly-duckling.md#beat-3-rejection' },
+  'kt-ch2-l4': { type: 'B1',        inquiry: '他會被打中?還能逃多遠?',  canon: 'ugly-duckling.md#beat-4-escape' },
+  'kt-ch2-l5': { type: 'B5',        inquiry: '他要去哪?外面更冷',        canon: 'ugly-duckling.md#beat-5-cottage' },
+  'kt-ch2-l6': { type: 'B6',        inquiry: '春天會更好?還是又一次?',  canon: 'ugly-duckling.md#beat-6-winter' },
+  'kt-ch2-l7': { type: 'B2 big',    inquiry: '原來他不是醜小鴨 — 還有什麼?', canon: 'ugly-duckling.md#beat-7-reveal' },
+  // Ch3-7 待 agent (B.222 in flight)
 };
 
 function shortText(s, max = 60) {
