@@ -558,9 +558,11 @@ const lessons = [
       nar('kt-ch6-l6-q4',
         'She lifted the baby from the warm bed and carried it far away.',
         '她從溫暖的床抱走嬰兒,帶到很遠的地方。'),
-      // MC — paraphrase the lie (the only quoted speech in the chapter)
+      // v2.0.B.227 P0-3: soften from Grimm 原典 'ate her own child' →
+      // 'made her own child disappear'. 仍然是 B2 情緒翻轉 (queen 撒謊毀掉
+      // 媳婦) 仍然是 lie (Grimm 精神保留) 但去血腥. Per Ch6 walkthrough P0.
       mc('kt-ch6-l6-q5',
-        '"She ate her own child," the older woman told the king the next morning.',
+        '"She made her own child disappear," the older woman told the king the next morning.',
         'What did the king\'s mother say?',
         ['fell into sickness',
          'loved every baby',
@@ -568,7 +570,7 @@ const lessons = [
          'ran far from home'],
         ['生病了', '愛每個嬰兒', '傷害自己孩子', '逃離家'],
         2,
-        '她告訴國王的話 → 傷害自己孩子。'),
+        '她告訴國王的話 → 傷害自己孩子 (謊言 — 嬰兒其實被奶奶藏起來)。'),
       // MC — paraphrase silence
       mc('kt-ch6-l6-q6',
         'The bride heard the lie, but no word came from her lips.',

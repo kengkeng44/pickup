@@ -45,11 +45,22 @@ function splitChunks(text: string): string[] {
   return text.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
 }
 
+/**
+ * v2.0.B.227 P0-2: which chapters actually have grandma TTS MP3 shipped.
+ *
+ * 之前 B.161.25 把 [1..8] 全 indexLookup, 設想「Ch2-7 MP3 一上就 auto-register」.
+ * 但 Ch2-7 沒 MP3 期間 speak() 仍命中 audioLookup → fetch /audio/lessons/{id}.mp3
+ * → 404 → 5-8s 才 fallback WebSpeech. Ch6 walkthrough P0:'A2 玩家以為 app 壞了'.
+ *
+ * Fix: 只 index 有 MP3 的章節. 未 indexed sentence speak() 直接走 WebSpeech, 無
+ * 404 detour. Ch2-7 MP3 生完後加進 set 即可.
+ *
+ * Currently shipping MP3: Ch1 only (~200 grandma + Mochi files).
+ */
+export const CHAPTERS_WITH_MP3: ReadonlySet<number> = new Set([1]);
+
 async function loadAudioLookup(): Promise<void> {
-  // v2.0.B.161.25: Ch1 ships MP3, Ch2-8 fall back to WebSpeech. List 1-8 so
-  // when Ch2+ MP3s land they auto-register (otherwise miss → no speak() hit).
-  const chapters = [1, 2, 3, 4, 5, 6, 7, 8];
-  for (const ch of chapters) {
+  for (const ch of CHAPTERS_WITH_MP3) {
     try {
       const res = await fetch(`/lessons-ch${ch}.json`);
       if (!res.ok) continue;
@@ -226,7 +237,16 @@ function playBuffer(buf: AudioBuffer): boolean {
 }
 
 function cleanText(text: string): string {
-  return text.replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
+  // v2.0.B.227 P0-1: strip CJK Unified Ideographs before WebSpeech.
+  // Ch7 葉限 code-switch narration 內嵌漢字 ("Her name was 葉限 (Yexian)"),
+  // en-US engine 讀到漢字會 stutter 0.2-0.3s on iOS, A2 玩家以為 app 壞了.
+  // Range U+4E00–U+9FFF covers CJK Unified Ideographs (basic Han chars).
+  // Per docs/audits/2026-06-04-walkthrough-ch7.md P0 finding.
+  return text
+    .replace(/_{2,}/g, ' ')
+    .replace(/[一-鿿]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function speakWebSpeech(text: string, lang: string): void {
