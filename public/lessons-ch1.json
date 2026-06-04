@@ -8,13 +8,47 @@
     "storyBeat": "老夫婦的安靜村莊",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l1-q1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "老人",
+            "right": "old man"
+          },
+          {
+            "left": "河",
+            "right": "river"
+          },
+          {
+            "left": "山",
+            "right": "mountain"
+          },
+          {
+            "left": "衣服",
+            "right": "clothes"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 old man = 老人\n🔑 river = 河\n🔑 mountain = 山\n🔑 clothes = 衣服\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
         "sentence": "Long ago, an old man and woman lived in a village.",
-        "explanationZh": "很久以前,一對老夫婦住在一個村莊。",
+        "explanationZh": "很久以前,一對老夫婦住在一個小村莊。",
         "tags": [
           "story",
           "ch1",
@@ -23,7 +57,7 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l1-q2",
+        "id": "kt-ch1-l1-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -37,7 +71,7 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l1-q3",
+        "id": "kt-ch1-l1-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -48,7 +82,7 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "答案是 No — 故事說他們沒有孩子。",
+        "explanationZh": "答案 No — 故事說他們沒有孩子。",
         "tags": [
           "story",
           "ch1",
@@ -57,11 +91,11 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q4",
+        "id": "kt-ch1-l1-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Every day, the old man went to the mountain to cut wood.",
+        "sentence": "Every day, the old man went to the mountain.",
         "question": "Where did the old man go each day?",
         "options": [
           "river",
@@ -76,7 +110,7 @@
           "花園"
         ],
         "correctIndex": 1,
-        "explanationZh": "老公公每天去山上砍柴。",
+        "explanationZh": "老公公每天去山上。",
         "tags": [
           "story",
           "ch1",
@@ -86,26 +120,26 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l1-q5",
+        "id": "kt-ch1-l1-q6",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Every day, the old woman went to the river to wash clothes.",
-        "question": "What did the old woman do at the river?",
+        "sentence": "He cut wood in the mountain and brought it home.",
+        "question": "What did the old man bring home?",
         "options": [
-          "fished",
-          "swam",
-          "washed clothes",
-          "drank tea"
+          "water",
+          "wood",
+          "food",
+          "fish"
         ],
         "optionsZh": [
-          "釣魚",
-          "游泳",
-          "洗衣服",
-          "喝茶"
+          "水",
+          "木柴",
+          "食物",
+          "魚"
         ],
-        "correctIndex": 2,
-        "explanationZh": "老婆婆每天在河邊洗衣服。",
+        "correctIndex": 1,
+        "explanationZh": "老公公帶木柴回家。",
         "tags": [
           "story",
           "ch1",
@@ -114,36 +148,177 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l1-q6",
+        "type": "emoji-pick",
+        "id": "kt-ch1-l1-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "老人",
-            "right": "old man"
-          },
-          {
-            "left": "山",
-            "right": "mountain"
-          },
-          {
-            "left": "河",
-            "right": "river"
-          },
-          {
-            "left": "衣服",
-            "right": "clothes"
-          }
+        "sentence": "What did the old couple want most?",
+        "question": "What did they want most?",
+        "options": [
+          "👶 a child",
+          "💰 gold",
+          "🏠 a big house",
+          "📺 a TV"
         ],
-        "explanationZh": "Beat 1 重點單字配對",
+        "optionsZh": [
+          "一個小孩",
+          "金子",
+          "大房子",
+          "電視"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他們最想要的是一個小孩。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l1-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old woman washed clothes at the river.",
+        "questionEn": "Did she wash clothes at the river?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 她在河邊洗衣服。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every day, the old woman went to the river.",
+        "question": "Where did the old woman go each day?",
+        "options": [
+          "mountain",
+          "forest",
+          "river",
+          "temple"
+        ],
+        "optionsZh": [
+          "山上",
+          "森林",
+          "河邊",
+          "寺廟"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "老婆婆每天去河邊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l1-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The couple lived a quiet life with no children.",
+        "question": "How was their daily life?",
+        "options": [
+          "noisy and busy",
+          "quiet and lonely",
+          "rich and easy",
+          "cold and dark"
+        ],
+        "optionsZh": [
+          "吵又忙",
+          "安靜又孤單",
+          "有錢又輕鬆",
+          "冷又暗"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們的生活安靜但孤單。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l1-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The small village was far from any big town.",
+        "question": "How was the village?",
+        "options": [
+          "big and modern",
+          "small and far",
+          "rich and busy",
+          "cold and dark"
+        ],
+        "optionsZh": [
+          "大又現代",
+          "小又遠",
+          "有錢又忙",
+          "冷又暗"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "村莊小,又離大鎮很遠。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l1-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "An old man and woman lived in a village.",
+        "tiles": [
+          "An",
+          "old",
+          "man",
+          "and",
+          "woman",
+          "lived",
+          "in",
+          "a",
+          "village"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "explanationZh": "排出句子:很久以前,老夫婦住在一個村莊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "review"
         ]
       }
     ]
@@ -157,13 +332,47 @@
     "storyBeat": "河邊撿到大桃",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l2-q1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "One spring day, the old woman went to the river as always.",
-        "explanationZh": "一個春天的日子,老婆婆像往常一樣去河邊。",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "大",
+            "right": "big"
+          },
+          {
+            "left": "桃子",
+            "right": "peach"
+          },
+          {
+            "left": "漂",
+            "right": "float"
+          },
+          {
+            "left": "抱",
+            "right": "carry"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 big = 大\n🔑 peach = 桃子\n🔑 float = 漂\n🔑 carry = 抱\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One spring day, the old woman went to the river.",
+        "explanationZh": "一個春天,老婆婆去了河邊。",
         "tags": [
           "story",
           "ch1",
@@ -172,7 +381,7 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l2-q2",
+        "id": "kt-ch1-l2-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -186,7 +395,7 @@
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch1-l2-q3",
+        "id": "kt-ch1-l2-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -216,7 +425,7 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l2-q4",
+        "id": "kt-ch1-l2-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -236,7 +445,7 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l2-q5",
+        "id": "kt-ch1-l2-q6",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -255,7 +464,7 @@
           "像戒指那麼小"
         ],
         "correctIndex": 1,
-        "explanationZh": "桃子有她的頭那麼大。",
+        "explanationZh": "桃子像她的頭那麼大。",
         "tags": [
           "story",
           "ch1",
@@ -265,23 +474,72 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l2-q6",
+        "id": "kt-ch1-l2-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The peach was pink and round.",
+        "question": "What color was the peach?",
+        "options": [
+          "blue",
+          "pink",
+          "green",
+          "red"
+        ],
+        "optionsZh": [
+          "藍色",
+          "粉紅色",
+          "綠色",
+          "紅色"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "桃子是粉紅色的。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l2-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The peach floated on the water.",
+        "questionEn": "Did the peach float?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 桃子漂在水上。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q9",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She lifted the heavy peach and walked home.",
         "question": "What did she do with the peach?",
         "options": [
-          "ate it on the spot",
+          "ate it now",
           "carried it home",
           "threw it back",
-          "gave it to friends"
+          "gave it away"
         ],
         "optionsZh": [
-          "當場吃掉",
+          "當場吃",
           "抱回家",
-          "丟回河裡",
-          "給朋友"
+          "丟回去",
+          "送人"
         ],
         "correctIndex": 1,
         "explanationZh": "她把桃子抱回家。",
@@ -293,36 +551,94 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l2-q7",
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l2-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The peach was heavy but the old woman carried it carefully.",
+        "question": "How did she carry the peach?",
+        "options": [
+          "quickly and roughly",
+          "carefully and slowly",
+          "without holding it",
+          "on her head"
+        ],
+        "optionsZh": [
+          "很快又粗魯",
+          "小心又慢慢的",
+          "沒抓著",
+          "頂在頭上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她小心抱著桃子,因為很重。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q11",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "桃子",
-            "right": "peach"
-          },
-          {
-            "left": "大",
-            "right": "big"
-          },
-          {
-            "left": "漂",
-            "right": "float"
-          },
-          {
-            "left": "回家",
-            "right": "go home"
-          }
+        "sentence": "She wanted to show the peach to the old man.",
+        "question": "Who did she want to show the peach to?",
+        "options": [
+          "her friend",
+          "the old man",
+          "the river",
+          "a child"
         ],
-        "explanationZh": "Beat 2 重點單字配對",
+        "optionsZh": [
+          "朋友",
+          "老公公",
+          "河",
+          "小孩"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她想拿給老公公看。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l2-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old woman carried the peach home.",
+        "tiles": [
+          "The",
+          "old",
+          "woman",
+          "carried",
+          "the",
+          "peach",
+          "home"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "排出句子:老婆婆把桃子抱回家。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "review"
         ]
       }
     ]
@@ -336,8 +652,42 @@
     "storyBeat": "桃子裡的男嬰",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "男嬰",
+            "right": "baby boy"
+          },
+          {
+            "left": "開心",
+            "right": "happy"
+          },
+          {
+            "left": "打開",
+            "right": "open"
+          },
+          {
+            "left": "名字",
+            "right": "name"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 baby boy = 男嬰\n🔑 happy = 開心\n🔑 open = 打開\n🔑 name = 名字\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l3-q2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -351,12 +701,12 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l3-q2",
+        "id": "kt-ch1-l3-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The peach split open by itself. Inside was a baby boy.",
-        "explanationZh": "桃子自己裂開了。裡面有一個男嬰。",
+        "sentence": "The peach opened by itself. Inside was a baby boy.",
+        "explanationZh": "桃子自己打開了。裡面有一個男嬰。",
         "tags": [
           "story",
           "ch1",
@@ -365,12 +715,12 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l3-q3",
+        "id": "kt-ch1-l3-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Inside the peach was a baby boy.",
-        "questionEn": "Was there a baby inside the peach?",
+        "questionEn": "Was there a baby inside?",
         "options": [
           "Yes",
           "No"
@@ -385,26 +735,105 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l3-q4",
+        "id": "kt-ch1-l3-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The old couple were so happy to see the baby.",
-        "question": "How did the old couple feel?",
+        "sentence": "The peach split open by itself.",
+        "question": "How did the peach open?",
         "options": [
-          "sad",
-          "angry",
-          "happy",
-          "tired"
+          "the old man cut it",
+          "it split by itself",
+          "a bird pecked it",
+          "the woman bit it"
         ],
         "optionsZh": [
+          "老公公切的",
+          "自己裂開",
+          "鳥啄開",
+          "老婆婆咬開"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "桃子自己裂開。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l3-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the old couple feel?",
+        "question": "How did they feel?",
+        "options": [
+          "😊 happy",
+          "😢 sad",
+          "😡 angry",
+          "😴 tired"
+        ],
+        "optionsZh": [
+          "開心",
           "難過",
           "生氣",
-          "開心",
-          "疲累"
+          "想睡"
         ],
-        "correctIndex": 2,
-        "explanationZh": "他們看到男嬰非常開心。",
+        "correctIndex": 0,
+        "explanationZh": "他們非常開心。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l3-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old couple were happy to see the baby.",
+        "questionEn": "Were they happy?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 他們很開心。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They named the baby Momotaro.",
+        "question": "What did they name the baby?",
+        "options": [
+          "Hanako",
+          "Momotaro",
+          "Tanaka",
+          "Yuki"
+        ],
+        "optionsZh": [
+          "花子",
+          "桃太郎",
+          "田中",
+          "雪"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們取名「桃太郎」。",
         "tags": [
           "story",
           "ch1",
@@ -414,12 +843,12 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l3-q5",
+        "id": "kt-ch1-l3-q9",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "They named the baby Momotaro, which means \"peach boy.\"",
-        "question": "What does the name \"Momotaro\" mean?",
+        "sentence": "Momotaro means \"peach boy\" in Japanese.",
+        "question": "What does \"Momotaro\" mean?",
         "options": [
           "mountain boy",
           "river boy",
@@ -442,36 +871,90 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l3-q6",
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l3-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The baby came from a peach, so they gave him a peach name.",
+        "question": "Why did they name him Momotaro?",
+        "options": [
+          "it was a popular name",
+          "he came from a peach",
+          "his mother chose it",
+          "the village asked them"
+        ],
+        "optionsZh": [
+          "流行名字",
+          "他從桃子來",
+          "媽媽選的",
+          "村莊要的"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "因為他從桃子來,所以叫桃男孩。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l3-q11",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "桌子",
-            "right": "table"
-          },
-          {
-            "left": "男嬰",
-            "right": "baby boy"
-          },
-          {
-            "left": "開心",
-            "right": "happy"
-          },
-          {
-            "left": "名字",
-            "right": "name"
-          }
+        "sentence": "The old couple became parents at last.",
+        "question": "What did the couple become?",
+        "options": [
+          "rich people",
+          "parents",
+          "friends",
+          "farmers"
         ],
-        "explanationZh": "Beat 3 重點單字配對",
+        "optionsZh": [
+          "有錢人",
+          "爸媽",
+          "朋友",
+          "農夫"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們終於當爸媽了。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l3-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They named the baby Momotaro.",
+        "tiles": [
+          "They",
+          "named",
+          "the",
+          "baby",
+          "Momotaro"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "排出句子:他們為男嬰取名桃太郎。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "review"
         ]
       }
     ]
@@ -485,13 +968,47 @@
     "storyBeat": "桃太郎長大,鬼島消息",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l4-q1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Momotaro grew quickly. He was strong and very kind.",
-        "explanationZh": "桃太郎長得很快。他很強壯也很善良。",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "強壯",
+            "right": "strong"
+          },
+          {
+            "left": "善良",
+            "right": "kind"
+          },
+          {
+            "left": "打",
+            "right": "fight"
+          },
+          {
+            "left": "妖怪",
+            "right": "demon"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 strong = 強壯\n🔑 kind = 善良\n🔑 fight = 打\n🔑 demon = 妖怪\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro grew quickly. He was strong and kind.",
+        "explanationZh": "桃太郎長得很快。他強壯也善良。",
         "tags": [
           "story",
           "ch1",
@@ -500,7 +1017,7 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l4-q2",
+        "id": "kt-ch1-l4-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -514,7 +1031,7 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l4-q3",
+        "id": "kt-ch1-l4-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -525,7 +1042,7 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 桃太郎強壯也善良。",
+        "explanationZh": "答案 Yes — 他強壯也善良。",
         "tags": [
           "story",
           "ch1",
@@ -534,26 +1051,26 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l4-q4",
+        "id": "kt-ch1-l4-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The demons lived on Demon Island and attacked villages.",
-        "question": "What did the demons do?",
+        "sentence": "Momotaro grew quickly into a strong young man.",
+        "question": "How did Momotaro grow?",
         "options": [
-          "helped villages",
-          "attacked villages",
-          "made gifts",
-          "slept all day"
+          "slowly and weak",
+          "quickly and strong",
+          "never grew up",
+          "sick and small"
         ],
         "optionsZh": [
-          "幫助村莊",
-          "攻擊村莊",
-          "做禮物",
-          "睡覺"
+          "慢又弱",
+          "快又強",
+          "從不長大",
+          "生病又小"
         ],
         "correctIndex": 1,
-        "explanationZh": "妖怪攻擊村莊。",
+        "explanationZh": "他長得快又強壯。",
         "tags": [
           "story",
           "ch1",
@@ -563,26 +1080,26 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l4-q5",
+        "id": "kt-ch1-l4-q6",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Momotaro told his parents he would fight the demons.",
-        "question": "What did Momotaro decide to do?",
+        "sentence": "The demons lived on Demon Island and hurt people.",
+        "question": "What did the demons do?",
         "options": [
-          "hide at home",
-          "fight the demons",
-          "cook dinner",
-          "sleep early"
+          "helped villages",
+          "hurt people",
+          "made gifts",
+          "sang songs"
         ],
         "optionsZh": [
-          "躲在家",
-          "去打妖怪",
-          "煮晚飯",
-          "早睡"
+          "幫忙",
+          "傷害人",
+          "做禮物",
+          "唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "桃太郎決定去打妖怪。",
+        "explanationZh": "妖怪傷害人。",
         "tags": [
           "story",
           "ch1",
@@ -591,36 +1108,169 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l4-q6",
+        "type": "emoji-pick",
+        "id": "kt-ch1-l4-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "強壯",
-            "right": "strong"
-          },
-          {
-            "left": "善良",
-            "right": "kind"
-          },
-          {
-            "left": "妖怪",
-            "right": "demon"
-          },
-          {
-            "left": "打",
-            "right": "fight"
-          }
+        "sentence": "How did people feel about the demons?",
+        "question": "How did people feel?",
+        "options": [
+          "😨 afraid",
+          "😊 happy",
+          "😴 sleepy",
+          "🤔 curious"
         ],
-        "explanationZh": "Beat 4 重點單字配對",
+        "optionsZh": [
+          "害怕",
+          "開心",
+          "想睡",
+          "好奇"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大家很害怕妖怪。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l4-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demons came from Demon Island.",
+        "questionEn": "Did the demons come from Demon Island?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 他們來自鬼島。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro told his parents he would fight the demons.",
+        "question": "What did Momotaro decide to do?",
+        "options": [
+          "stay home",
+          "fight the demons",
+          "cook dinner",
+          "sleep early"
+        ],
+        "optionsZh": [
+          "留家裡",
+          "去打妖怪",
+          "煮飯",
+          "早睡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他決定去打妖怪。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l4-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Momotaro chose to leave home to keep his village safe.",
+        "question": "Why did he leave home?",
+        "options": [
+          "to find gold",
+          "to keep his village safe",
+          "to see the sea",
+          "to make friends"
+        ],
+        "optionsZh": [
+          "找金子",
+          "保護村莊",
+          "看海",
+          "交朋友"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他想保護村莊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l4-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His parents agreed and got ready for the journey.",
+        "question": "How did his parents respond?",
+        "options": [
+          "they said no",
+          "they agreed",
+          "they cried only",
+          "they hid him"
+        ],
+        "optionsZh": [
+          "不答應",
+          "答應",
+          "只哭",
+          "把他藏起來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "父母答應他出發。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l4-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro will fight the demons.",
+        "tiles": [
+          "Momotaro",
+          "will",
+          "fight",
+          "the",
+          "demons"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "排出句子:桃太郎要去打妖怪。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "review"
         ]
       }
     ]
@@ -634,8 +1284,42 @@
     "storyBeat": "黍米糰子與三夥伴",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "狗",
+            "right": "dog"
+          },
+          {
+            "left": "猴子",
+            "right": "monkey"
+          },
+          {
+            "left": "糰子",
+            "right": "dumpling"
+          },
+          {
+            "left": "雉雞",
+            "right": "pheasant"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 dog = 狗\n🔑 monkey = 猴子\n🔑 dumpling = 糰子\n🔑 pheasant = 雉雞\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l5-q2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -649,7 +1333,7 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l5-q2",
+        "id": "kt-ch1-l5-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -663,11 +1347,11 @@
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch1-l5-q3",
+        "id": "kt-ch1-l5-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Three animal friends joined Momotaro on the road.",
+        "sentence": "Three animal friends joined Momotaro.",
         "question": "Which three animals joined him?",
         "options": [
           "🐕 🐒 🐦",
@@ -682,7 +1366,7 @@
           "馬 鹿 兔"
         ],
         "correctIndex": 0,
-        "explanationZh": "狗、猴子、雉雞三隻動物加入桃太郎。",
+        "explanationZh": "狗、猴子、雉雞加入桃太郎。",
         "tags": [
           "story",
           "ch1",
@@ -693,18 +1377,18 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l5-q4",
+        "id": "kt-ch1-l5-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Each animal joined Momotaro after he shared a dumpling.",
-        "questionEn": "Did Momotaro share dumplings?",
+        "sentence": "The old woman made millet dumplings for the trip.",
+        "questionEn": "Did she make dumplings?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 桃太郎分糰子給每隻動物。",
+        "explanationZh": "答案 Yes — 她做了糰子。",
         "tags": [
           "story",
           "ch1",
@@ -713,40 +1397,11 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l5-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The mother packed millet dumplings for the journey.",
-        "question": "What did the mother make?",
-        "options": [
-          "cake",
-          "millet dumplings",
-          "rice balls",
-          "noodles"
-        ],
-        "optionsZh": [
-          "蛋糕",
-          "黍米糰子",
-          "飯糰",
-          "麵條"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "媽媽包黍米糰子。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
         "id": "kt-ch1-l5-q6",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The dog said, \"Give me a dumpling and I will fight with you.\"",
+        "sentence": "The dog asked for a dumpling and joined Momotaro.",
         "question": "What did the dog ask for?",
         "options": [
           "water",
@@ -770,36 +1425,172 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
+        "type": "listen-mc",
         "id": "kt-ch1-l5-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "糰子",
-            "right": "dumpling"
-          },
-          {
-            "left": "狗",
-            "right": "dog"
-          },
-          {
-            "left": "猴子",
-            "right": "monkey"
-          },
-          {
-            "left": "雉雞",
-            "right": "pheasant"
-          }
+        "sentence": "After the dog, a monkey came down and asked for a dumpling.",
+        "question": "Who came after the dog?",
+        "options": [
+          "a horse",
+          "a monkey",
+          "a fish",
+          "a bear"
         ],
-        "explanationZh": "Beat 5 重點單字配對",
+        "optionsZh": [
+          "馬",
+          "猴子",
+          "魚",
+          "熊"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "狗之後是猴子。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l5-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each animal joined Momotaro after he shared a dumpling.",
+        "questionEn": "Did he share dumplings?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 他分糰子給每隻動物。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A pheasant flew down and asked to join the team.",
+        "question": "What kind of animal is a pheasant?",
+        "options": [
+          "a fish",
+          "a bird",
+          "a dog",
+          "a horse"
+        ],
+        "optionsZh": [
+          "魚",
+          "鳥",
+          "狗",
+          "馬"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "雉雞是一種鳥。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l5-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Each animal said it would fight by Momotaro's side.",
+        "question": "Why did the animals join him?",
+        "options": [
+          "for the trip",
+          "to fight with him",
+          "to go home",
+          "to find food"
+        ],
+        "optionsZh": [
+          "只想旅行",
+          "一起打仗",
+          "回家",
+          "找食物"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "動物們想跟他一起打妖怪。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l5-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro now had three brave friends with him.",
+        "question": "How many friends did Momotaro have?",
+        "options": [
+          "one",
+          "two",
+          "three",
+          "four"
+        ],
+        "optionsZh": [
+          "一個",
+          "兩個",
+          "三個",
+          "四個"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "桃太郎現在有三個朋友。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l5-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A dog and a monkey joined him.",
+        "tiles": [
+          "A",
+          "dog",
+          "and",
+          "a",
+          "monkey",
+          "joined",
+          "him"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "排出句子:狗跟猴子加入他。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "review"
         ]
       }
     ]
@@ -813,8 +1604,42 @@
     "storyBeat": "鬼島大戰",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match new vocabulary before the story.",
+        "pairs": [
+          {
+            "left": "船",
+            "right": "boat"
+          },
+          {
+            "left": "飛",
+            "right": "fly"
+          },
+          {
+            "left": "咬",
+            "right": "bite"
+          },
+          {
+            "left": "劍",
+            "right": "sword"
+          }
+        ],
+        "explanationZh": "本節新單字 (左中右英):\n🔑 boat = 船\n🔑 fly = 飛\n🔑 bite = 咬\n🔑 sword = 劍\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l6-q2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -828,7 +1653,7 @@
       },
       {
         "type": "narration",
-        "id": "kt-ch1-l6-q2",
+        "id": "kt-ch1-l6-q3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -842,7 +1667,7 @@
       },
       {
         "type": "listen-tf",
-        "id": "kt-ch1-l6-q3",
+        "id": "kt-ch1-l6-q4",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -853,7 +1678,7 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他們搭船去鬼島。",
+        "explanationZh": "答案 Yes — 他們搭船。",
         "tags": [
           "story",
           "ch1",
@@ -862,55 +1687,26 @@
       },
       {
         "type": "listen-mc",
-        "id": "kt-ch1-l6-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The dog bit at the demons' legs.",
-        "question": "What did the dog do?",
-        "options": [
-          "ran away",
-          "bit the demons",
-          "sang a song",
-          "hid in a tree"
-        ],
-        "optionsZh": [
-          "逃跑",
-          "咬妖怪",
-          "唱歌",
-          "躲在樹上"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "狗咬妖怪的腿。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
         "id": "kt-ch1-l6-q5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Momotaro fought the demon king with his sword.",
-        "question": "How did Momotaro fight?",
+        "sentence": "The pheasant flew over the gate first.",
+        "question": "Who flew over the gate?",
         "options": [
-          "with a stick",
-          "with a sword",
-          "with his hands",
-          "with a rope"
+          "the dog",
+          "the monkey",
+          "the pheasant",
+          "Momotaro"
         ],
         "optionsZh": [
-          "用棍子",
-          "用劍",
-          "用手",
-          "用繩子"
+          "狗",
+          "猴子",
+          "雉雞",
+          "桃太郎"
         ],
-        "correctIndex": 1,
-        "explanationZh": "桃太郎用劍打妖怪王。",
+        "correctIndex": 2,
+        "explanationZh": "雉雞飛過大門。",
         "tags": [
           "story",
           "ch1",
@@ -924,12 +1720,149 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The demons fell to their knees and begged for mercy.",
+        "sentence": "The monkey climbed over the wall and opened the gate.",
+        "question": "What did the monkey do?",
+        "options": [
+          "flew over",
+          "climbed over",
+          "swam under",
+          "dug under"
+        ],
+        "optionsZh": [
+          "飛過去",
+          "爬過去",
+          "游過去",
+          "挖過去"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "猴子爬過去。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l6-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Momotaro fight the demon king?",
+        "question": "What did Momotaro use?",
+        "options": [
+          "⚔️ a sword",
+          "🏹 a bow",
+          "🥢 chopsticks",
+          "✋ his hands"
+        ],
+        "optionsZh": [
+          "劍",
+          "弓",
+          "筷子",
+          "手"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "桃太郎用劍打妖怪王。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l6-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The dog bit at the demons' legs.",
+        "questionEn": "Did the dog bite?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 狗咬妖怪。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro fought the demon king with his sword.",
+        "question": "How did Momotaro fight?",
+        "options": [
+          "with a stick",
+          "with a sword",
+          "with stones",
+          "with rope"
+        ],
+        "optionsZh": [
+          "用棍子",
+          "用劍",
+          "用石頭",
+          "用繩子"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "桃太郎用劍打仗。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l6-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Together, the team beat the demons with brave hearts.",
+        "question": "How did they win?",
+        "options": [
+          "by being lucky",
+          "by being a team",
+          "by running away",
+          "by hiding"
+        ],
+        "optionsZh": [
+          "運氣好",
+          "團隊合作",
+          "逃跑",
+          "躲起來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "靠團隊合作贏的。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l6-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demons fell to their knees and begged.",
         "question": "What did the demons do at the end?",
         "options": [
           "ran away",
           "begged for mercy",
-          "sang a song",
+          "sang songs",
           "fell asleep"
         ],
         "optionsZh": [
@@ -948,36 +1881,36 @@
         "subSkill": "detail"
       },
       {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l6-q7",
+        "type": "tap-tiles",
+        "id": "kt-ch1-l6-q12",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
-        "pairs": [
-          {
-            "left": "船",
-            "right": "boat"
-          },
-          {
-            "left": "劍",
-            "right": "sword"
-          },
-          {
-            "left": "咬",
-            "right": "bite"
-          },
-          {
-            "left": "求饒",
-            "right": "beg"
-          }
+        "sentence": "The dog and monkey fought the demons.",
+        "tiles": [
+          "The",
+          "dog",
+          "and",
+          "monkey",
+          "fought",
+          "the",
+          "demons"
         ],
-        "explanationZh": "Beat 6 重點單字配對",
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "排出句子:狗跟猴子打了妖怪。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "review"
         ]
       }
     ]
@@ -991,118 +1924,12 @@
     "storyBeat": "凱旋回鄉",
     "questions": [
       {
-        "type": "narration",
+        "type": "tap-pairs",
         "id": "kt-ch1-l7-q1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The demons gave Momotaro all their gold, silver, and jewels.",
-        "explanationZh": "妖怪把所有金、銀、珠寶都給桃太郎。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch1-l7-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Momotaro and his friends sailed home with the treasures.",
-        "explanationZh": "桃太郎和朋友們帶著寶物坐船回家。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch1-l7-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The demons gave Momotaro treasures.",
-        "questionEn": "Did the demons give treasures?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 妖怪把寶物給桃太郎。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l7-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The whole village came out to welcome them home.",
-        "question": "Who came out to welcome them?",
-        "options": [
-          "only the parents",
-          "just the old man",
-          "the whole village",
-          "the demons"
-        ],
-        "optionsZh": [
-          "只有父母",
-          "只有老公公",
-          "整個村莊",
-          "妖怪"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "整個村莊都出來歡迎他們。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l7-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The old couple held Momotaro tight and cried with joy.",
-        "question": "How did the old couple feel?",
-        "options": [
-          "angry and tired",
-          "sad and alone",
-          "happy with joy",
-          "cold and hungry"
-        ],
-        "optionsZh": [
-          "生氣又累",
-          "難過又孤單",
-          "開心又喜悅",
-          "冷又餓"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "老夫婦開心地擁抱桃太郎。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch1-l7-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the Japanese folk-tale words.",
+        "sentence": "Match new vocabulary before the story.",
         "pairs": [
           {
             "left": "金",
@@ -1121,12 +1948,287 @@
             "right": "welcome"
           }
         ],
-        "explanationZh": "Beat 7 重點單字配對",
+        "explanationZh": "本節新單字 (左中右英):\n🔑 gold = 金\n🔑 silver = 銀\n🔑 village = 村莊\n🔑 welcome = 歡迎\n背熟這 4 個字,故事就會輕鬆聽懂。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
-          "vocab"
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demons gave Momotaro gold, silver, and jewels.",
+        "explanationZh": "妖怪把金、銀、珠寶都給桃太郎。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch1-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro and his friends sailed home with the treasures.",
+        "explanationZh": "桃太郎和朋友們帶著寶物坐船回家。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l7-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demons gave Momotaro treasures.",
+        "questionEn": "Did the demons give treasures?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 妖怪給了寶物。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They sailed home with all the treasures.",
+        "question": "How did they go home?",
+        "options": [
+          "by horse",
+          "by boat",
+          "on foot",
+          "by bird"
+        ],
+        "optionsZh": [
+          "騎馬",
+          "坐船",
+          "走路",
+          "坐鳥"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們坐船回家。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch1-l7-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What treasures did Momotaro bring back?",
+        "question": "What treasures did he bring?",
+        "options": [
+          "💰 gold and silver",
+          "📚 books",
+          "🍎 fruits",
+          "🌺 flowers"
+        ],
+        "optionsZh": [
+          "金和銀",
+          "書",
+          "水果",
+          "花"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他帶回金、銀、珠寶。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch1-l7-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The whole village came out to welcome Momotaro.",
+        "questionEn": "Did the village welcome him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "答案 Yes — 整個村莊歡迎他。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The whole village came out to welcome them home.",
+        "question": "Who came out to welcome them?",
+        "options": [
+          "only parents",
+          "only the old man",
+          "the whole village",
+          "the demons"
+        ],
+        "optionsZh": [
+          "只有父母",
+          "只有老公公",
+          "整個村莊",
+          "妖怪"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "整個村莊都出來歡迎。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old couple cried with joy when they saw him.",
+        "question": "How did the old couple feel?",
+        "options": [
+          "angry",
+          "happy with joy",
+          "sad",
+          "cold"
+        ],
+        "optionsZh": [
+          "生氣",
+          "又喜又開心",
+          "難過",
+          "冷"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們開心地哭了。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l7-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Momotaro shared the treasures with the whole village.",
+        "question": "What did Momotaro do with the treasures?",
+        "options": [
+          "kept it all",
+          "shared with village",
+          "gave to demons",
+          "threw in river"
+        ],
+        "optionsZh": [
+          "全部自己留",
+          "分給村莊",
+          "還給妖怪",
+          "丟河裡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他把寶物分給村莊。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch1-l7-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Momotaro became a hero of the village.",
+        "question": "What did Momotaro become?",
+        "options": [
+          "a farmer",
+          "a teacher",
+          "a hero",
+          "a king"
+        ],
+        "optionsZh": [
+          "農夫",
+          "老師",
+          "英雄",
+          "國王"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他成了村莊的英雄。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch1-l7-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The village said welcome to Momotaro.",
+        "tiles": [
+          "The",
+          "village",
+          "said",
+          "welcome",
+          "to",
+          "Momotaro"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "排出句子:村莊歡迎桃太郎。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "review"
         ]
       }
     ]
