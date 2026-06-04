@@ -76,7 +76,7 @@ function vocabIntro(id, list4) {
   const lines = list4.map(([zh, en]) => `🔑 ${en} = ${zh}`).join('\n');
   return { type: 'tap-pairs', id, level: 'A2', difficulty: 'easy',
     speaker: 'narrator',
-    sentence: 'Match new vocabulary before the story.',
+    sentence: 'Here are 4 words you will meet in tonight\'s story.',
     pairs: list4.map(([zh, en]) => ({ left: zh, right: en })),
     explanationZh: `本節新單字 (左中右英):\n${lines}\n背熟這 4 個字,故事就會輕鬆聽懂。`,
     tags: ['story', 'ch1', 'momotaro', 'vocab', 'intro'] };
