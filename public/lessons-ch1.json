@@ -61,8 +61,8 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "They were kind, but they had no children.",
-        "explanationZh": "他們很善良,但是沒有孩子。",
+        "sentence": "They were kind, but their wish for a child never came.",
+        "explanationZh": "他們善良,但想要小孩的願望從沒實現。",
         "tags": [
           "story",
           "ch1",
@@ -73,20 +73,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l1-q4",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The old couple had no children.",
-        "questionEn": "Did they have children?",
+        "sentence": "Their wooden house stayed very quiet, year after year.",
+        "questionEn": "Did noisy little ones live with them?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "答案 No — 故事說他們沒有孩子。",
+        "explanationZh": "推理:家裡很安靜 → 沒有小孩跑跳吵鬧聲 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -178,24 +179,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l1-q8",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The old woman washed clothes at the river.",
-        "questionEn": "Did she wash clothes at the river?",
+        "sentence": "Old age came, but no laughter of little ones filled the house.",
+        "question": "What is this scene mainly about?",
         "options": [
-          "Yes",
-          "No"
+          "the couple felt lonely without children",
+          "the couple loved noisy parties",
+          "the couple were rich and happy",
+          "the couple moved to a new town"
+        ],
+        "optionsZh": [
+          "夫妻沒孩子的孤單",
+          "夫妻愛吵雜派對",
+          "夫妻有錢又開心",
+          "夫妻搬去新城鎮"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 她在河邊洗衣服。",
+        "explanationZh": "主旨 = 老夫婦因沒孩子而孤單。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -232,7 +243,7 @@
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The couple lived a quiet life with no children of their own.",
+        "sentence": "The couple lived a quiet life with no little ones to call their own.",
         "question": "How was their daily life?",
         "options": [
           "noisy and busy",
@@ -247,7 +258,7 @@
           "冷又暗"
         ],
         "correctIndex": 1,
-        "explanationZh": "他們的生活安靜但孤單。",
+        "explanationZh": "推理:沒孩子叫他們爸媽 → 安靜又孤單。",
         "tags": [
           "story",
           "ch1",
@@ -385,8 +396,8 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "She saw something pink and big drifting on the water.",
-        "explanationZh": "她看見一個粉紅又大的東西漂在水上。",
+        "sentence": "She saw something pink and round drifting on the water.",
+        "explanationZh": "她看見一個粉紅又圓的東西漂在水上。",
         "tags": [
           "story",
           "ch1",
@@ -427,54 +438,26 @@
         "type": "listen-tf",
         "id": "kt-ch1-l2-q5",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The peach was very small.",
-        "questionEn": "Was the peach small?",
+        "sentence": "She needed both hands to lift the heavy fruit from the river.",
+        "questionEn": "Was the fruit a small thing?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "答案 No — 桃子很大。",
+        "explanationZh": "推理:要兩手才舉得起 → 不可能是小東西 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
         "type": "listen-mc",
         "id": "kt-ch1-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The pink fruit was larger than her head.",
-        "question": "How would you describe the size?",
-        "options": [
-          "as small as a coin",
-          "as huge as a melon",
-          "as tall as a tree",
-          "as thin as a leaf"
-        ],
-        "optionsZh": [
-          "像硬幣那麼小",
-          "像甜瓜那麼大",
-          "像樹那麼高",
-          "像葉那麼薄"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "桃子像甜瓜那麼大。",
-        "tags": [
-          "story",
-          "ch1",
-          "momotaro"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch1-l2-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
@@ -502,24 +485,63 @@
         "subSkill": "detail"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch1-l2-q8",
+        "type": "listen-mc",
+        "id": "kt-ch1-l2-q7",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The peach floated on the water.",
-        "questionEn": "Did the peach float?",
+        "sentence": "The shape rolled gently on the surface of the water.",
+        "question": "What did the shape do?",
         "options": [
-          "Yes",
-          "No"
+          "sank to the bottom",
+          "stayed on top",
+          "jumped over rocks",
+          "flew up high"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 桃子漂在水上。",
+        "optionsZh": [
+          "沉到底",
+          "停在上面",
+          "跳過石頭",
+          "飛上天"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "在水面 = 停在上面 (漂浮)。",
         "tags": [
           "story",
           "ch1",
           "momotaro"
-        ]
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch1-l2-q8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Pink and round, it bobbed and turned in the slow river.",
+        "question": "What is the scene mostly showing?",
+        "options": [
+          "a large peach moving down the river",
+          "a fisher catching a peach",
+          "a child swimming in the river",
+          "a flower garden by the water"
+        ],
+        "optionsZh": [
+          "大桃子順流而下",
+          "漁夫抓到桃子",
+          "小孩在河裡游泳",
+          "水邊的花園"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "主旨 = 大桃子在河上漂動。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -571,7 +593,7 @@
           "在唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "因為太重所以中途休息。",
+        "explanationZh": "推理:重到要中途休息 → 因為太重。",
         "tags": [
           "story",
           "ch1",
@@ -717,20 +739,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l3-q4",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Inside the peach was a baby boy.",
-        "questionEn": "Was there a baby inside?",
+        "sentence": "A soft cry filled the warm kitchen.",
+        "questionEn": "Was there a baby in the room?",
         "options": [
           "Yes",
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 桃子裡有個男嬰。",
+        "explanationZh": "推理:聽到嬰兒哭聲 → 房裡有小孩 → 答 Yes",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -793,24 +816,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l3-q7",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The old couple were happy to see the baby.",
-        "questionEn": "Were they happy?",
+        "sentence": "Their tears, their hugs, their bright smiles filled the room.",
+        "question": "How did the old couple feel about the baby?",
         "options": [
-          "Yes",
-          "No"
+          "tired and worried",
+          "overwhelming joy",
+          "angry and confused",
+          "sleepy and bored"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他們很開心。",
+        "optionsZh": [
+          "累又擔心",
+          "滿溢的喜悅",
+          "生氣又困惑",
+          "想睡又無聊"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "主旨 = 他們充滿喜悅。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -833,7 +866,7 @@
           "神的命令"
         ],
         "correctIndex": 2,
-        "explanationZh": "因為他從桃子來,所以叫桃男孩。",
+        "explanationZh": "他從桃子來,所以叫桃男孩。",
         "tags": [
           "story",
           "ch1",
@@ -891,7 +924,7 @@
           "變難過"
         ],
         "correctIndex": 1,
-        "explanationZh": "他們等了很久,終於有了小孩。",
+        "explanationZh": "推理:多年願望實現 → 終於有了小孩。",
         "tags": [
           "story",
           "ch1",
@@ -1033,20 +1066,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l4-q4",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Momotaro was strong and kind.",
-        "questionEn": "Was Momotaro kind?",
+        "sentence": "By his tenth year, he could lift a stone bigger than himself.",
+        "questionEn": "Did Momotaro grow weak?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他強壯也善良。",
+        "correctIndex": 1,
+        "explanationZh": "推理:十歲就舉得起比自己大的石頭 → 強壯 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -1138,24 +1172,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l4-q8",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The demons came from Demon Island.",
-        "questionEn": "Did the demons come from Demon Island?",
+        "sentence": "Smoke, broken doors, and crying villagers — the demons left ruin behind.",
+        "question": "What is this scene mainly showing?",
         "options": [
-          "Yes",
-          "No"
+          "damage caused by the demons",
+          "a happy festival in the village",
+          "farmers planting rice fields",
+          "children playing at school"
+        ],
+        "optionsZh": [
+          "妖怪造成的破壞",
+          "村莊歡樂節慶",
+          "農夫種稻田",
+          "學校小孩玩耍"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他們來自鬼島。",
+        "explanationZh": "主旨 = 妖怪造成的破壞。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -1207,7 +1251,7 @@
           "交朋友"
         ],
         "correctIndex": 1,
-        "explanationZh": "他想保護家人。",
+        "explanationZh": "推理:為了 those he loved → 保護家人。",
         "tags": [
           "story",
           "ch1",
@@ -1379,20 +1423,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l5-q5",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The old woman made millet dumplings for the trip.",
-        "questionEn": "Did she make dumplings?",
+        "sentence": "She wrapped each snack carefully in a leaf for the long trip.",
+        "questionEn": "Were the snacks just for breakfast at home?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 她做了糰子。",
+        "correctIndex": 1,
+        "explanationZh": "推理:為長途旅行包 → 不是早餐 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -1454,24 +1499,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l5-q8",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Each animal joined Momotaro after he shared a dumpling.",
-        "questionEn": "Did he share dumplings?",
+        "sentence": "One by one, each animal took a snack and stood beside Momotaro.",
+        "question": "What is happening in this scene?",
         "options": [
-          "Yes",
-          "No"
+          "animals joining Momotaro as friends",
+          "animals eating without sharing",
+          "animals running away from him",
+          "Momotaro hunting wild animals"
+        ],
+        "optionsZh": [
+          "動物加入桃太郎當朋友",
+          "動物吃東西不分享",
+          "動物逃離他",
+          "桃太郎打獵野生動物"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他分糰子給每隻動物。",
+        "explanationZh": "主旨 = 動物一個個加入桃太郎當夥伴。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -1523,7 +1578,7 @@
           "只想找食物"
         ],
         "correctIndex": 1,
-        "explanationZh": "動物們答應一起打仗。",
+        "explanationZh": "推理:答應 fight beside him → 一起打仗。",
         "tags": [
           "story",
           "ch1",
@@ -1669,20 +1724,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l6-q4",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "They went to Demon Island by boat.",
-        "questionEn": "Did they take a boat?",
+        "sentence": "Salty waves splashed onto the wooden deck as they crossed.",
+        "questionEn": "Did they walk over the land?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 他們搭船。",
+        "correctIndex": 1,
+        "explanationZh": "推理:鹹海浪打船板 → 在海上 → 不是走陸路 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -1774,24 +1830,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l6-q8",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The dog bit at the demons' legs.",
-        "questionEn": "Did the dog bite?",
+        "sentence": "A bird flew, a monkey climbed, and a dog bit — each gave its all.",
+        "question": "What is this scene about?",
         "options": [
-          "Yes",
-          "No"
+          "each friend fighting in its own way",
+          "the animals taking turns sleeping",
+          "demons hiding from the team",
+          "a peaceful trip across the sea"
+        ],
+        "optionsZh": [
+          "每個朋友用自己的方式打仗",
+          "動物輪流睡覺",
+          "妖怪躲避這團隊",
+          "海上平靜旅行"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 狗咬妖怪。",
+        "explanationZh": "主旨 = 每個夥伴用自己的方式攻擊。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -1843,7 +1909,7 @@
           "躲起來"
         ],
         "correctIndex": 1,
-        "explanationZh": "互相幫忙打贏的。",
+        "explanationZh": "推理:fought side by side → 互相幫忙。",
         "tags": [
           "story",
           "ch1",
@@ -1989,20 +2055,21 @@
         "type": "listen-tf",
         "id": "kt-ch1-l7-q4",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The demons gave Momotaro treasures.",
-        "questionEn": "Did the demons give treasures?",
+        "sentence": "Empty hands had left home, but full boxes returned with them.",
+        "questionEn": "Did Momotaro come home with nothing?",
         "options": [
           "Yes",
           "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "答案 Yes — 妖怪給了寶物。",
+        "correctIndex": 1,
+        "explanationZh": "推理:空手去,滿箱回 → 有寶物 → 答 No",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
+          "momotaro",
+          "inference"
         ]
       },
       {
@@ -2065,24 +2132,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
+        "type": "listen-comprehension",
         "id": "kt-ch1-l7-q7",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The whole village came out to welcome Momotaro.",
-        "questionEn": "Did the village welcome him?",
+        "sentence": "Drums, songs, and tears of joy filled the village square.",
+        "question": "What is this scene mainly about?",
         "options": [
-          "Yes",
-          "No"
+          "a happy welcome for Momotaro",
+          "a quiet sad evening",
+          "a battle starting again",
+          "people leaving the village"
+        ],
+        "optionsZh": [
+          "歡迎桃太郎的慶典",
+          "安靜又難過的夜",
+          "戰鬥又開始",
+          "村人離開村莊"
         ],
         "correctIndex": 0,
-        "explanationZh": "答案 Yes — 整個村莊歡迎他。",
+        "explanationZh": "主旨 = 村莊熱鬧歡迎桃太郎。",
         "tags": [
           "story",
           "ch1",
-          "momotaro"
-        ]
+          "momotaro",
+          "gist"
+        ],
+        "subSkill": "gist"
       },
       {
         "type": "listen-mc",
@@ -2163,7 +2240,7 @@
           "丟河裡"
         ],
         "correctIndex": 1,
-        "explanationZh": "他分給村莊。",
+        "explanationZh": "推理:share with all neighbors → 分給村莊。",
         "tags": [
           "story",
           "ch1",
