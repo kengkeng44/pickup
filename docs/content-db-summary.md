@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-04T07:19:00.383Z
+**Generated**: 2026-06-04T14:37:44.362Z
 
 ## Aggregate
 
 - **Total Q**: 539
-- **Total play time est**: 209 min
+- **Total play time est**: 210 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -16,7 +16,7 @@
 | 1 | 桃太郎 | 7 | 77 | 11.0 | 239s/lesson ✓ | 0% | ✓ |
 | 2 | 醜小鴨 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
 | 3 | 龜兔賽跑 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
-| 4 | 駱駝為什麼有駝峰 | 7 | 77 | 11.0 | 244s/lesson ✓ | 0% | ✓ |
+| 4 | 駱駝為什麼有駝峰 | 7 | 77 | 11.0 | 246s/lesson ✓ | 0% | ✓ |
 | 5 | Baba Yaga | 7 | 77 | 11.0 | 261s/lesson ✓ | 0% | ✓ |
 | 6 | 六隻天鵝 | 7 | 77 | 11.0 | 285s/lesson ✓ | 0% | ✓ |
 | 7 | 葉限 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
@@ -85,7 +85,7 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 1 | 7 | 1 | 14 | 7 | 41 | 7 |
 | 2 | 7 | 0 | 14 | 7 | 42 | 7 |
 | 3 | 7 | 7 | 14 | 7 | 35 | 7 |
-| 4 | 4 | 3 | 14 | 7 | 42 | 7 |
+| 4 | 3 | 4 | 14 | 7 | 42 | 7 |
 | 5 | 7 | 6 | 14 | 7 | 36 | 7 |
 | 6 | 7 | 7 | 21 | 7 | 28 | 7 |
 | 7 | 7 | 7 | 14 | 7 | 35 | 7 |
