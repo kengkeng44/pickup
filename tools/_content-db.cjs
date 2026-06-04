@@ -53,6 +53,20 @@ const CHAPTER_TITLES = {
   7: '葉限',
 };
 
+// v2.0.B.220: hook type per lesson (per docs/research/chapter-ending-hook-design.md)
+// B1 物理懸念 / B2 情緒翻轉 / B3 資訊缺口 / B4 期待加速 / B5 道德兩難 / B6 預言種子
+const HOOK_MAP = {
+  // Ch1 桃太郎 (v6 emotional peak cut applied)
+  'kt-ch1-l1': { type: 'B3',     inquiry: '那大紅色的是什麼?',         canon: 'momotaro.md#beat-1-setup' },
+  'kt-ch1-l2': { type: 'B4+B3',  inquiry: '桃子裡是什麼?是嬰兒?活的?', canon: 'momotaro.md#beat-2-discovery' },
+  'kt-ch1-l3': { type: 'B5+B2',  inquiry: '父母會讓他走嗎?',           canon: 'momotaro.md#beat-3-birth' },
+  'kt-ch1-l4': { type: 'B4',     inquiry: '狗會跟?還會遇誰?',          canon: 'momotaro.md#beat-4-mission' },
+  'kt-ch1-l5': { type: 'B6+B1',  inquiry: '島上為何安靜?是埋伏?',       canon: 'momotaro.md#beat-5-departure' },
+  'kt-ch1-l6': { type: 'B2',     inquiry: '鬼王怎知他名字?陷阱?',       canon: 'momotaro.md#beat-6-battle' },
+  'kt-ch1-l7': { type: 'B6 (open)', inquiry: '(開放結局, 留後鉤)',     canon: 'momotaro.md#beat-7-victory' },
+  // Ch2-7 待 narrative-cut-analyst skill 重切
+};
+
 function shortText(s, max = 60) {
   if (!s) return '';
   s = s.toString().replace(/\n/g, ' ').trim();
@@ -166,6 +180,27 @@ for (let ch = 1; ch <= 7; ch++) {
   const sign = variance > 0 ? '+' : '';
   const budgetMark = avgLessonTime <= LESSON_BUDGET_S ? '✓' : `⚠️ ${avgLessonTime}s>${LESSON_BUDGET_S}s`;
   sumLines.push(`| ${ch} | ${CHAPTER_TITLES[ch] || ''} | ${s.lessons} | ${s.qCount} | ${(s.qCount / s.lessons).toFixed(1)} | ${avgLessonTime}s/lesson ${budgetMark} | ${sign}${variance}% | ${inBand ? '✓' : '⚠️ OUT'} |`);
+}
+
+sumLines.push('');
+sumLines.push(`## Per-lesson hook ending (v6, emotional peak cut)`);
+sumLines.push('');
+sumLines.push(`Per docs/research/chapter-ending-hook-design.md framework B1-B6.`);
+sumLines.push(`Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.`);
+sumLines.push('');
+sumLines.push(`| Lesson ID | Story Beat | Hook Type | Inquiry Question | Canon Ref |`);
+sumLines.push(`|-----------|------------|-----------|------------------|-----------|`);
+for (let ch = 1; ch <= 7; ch++) {
+  const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
+  if (!fs.existsSync(fp)) continue;
+  const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
+  for (const lesson of data) {
+    const hook = HOOK_MAP[lesson.id];
+    const hookType = hook?.type || '_(no hook yet)_';
+    const inquiry = hook?.inquiry || '_-_';
+    const canon = hook?.canon ? `[${hook.canon}](../docs/canon/${hook.canon})` : '_-_';
+    sumLines.push(`| \`${lesson.id}\` | ${lesson.storyBeat || ''} | ${hookType} | ${inquiry} | ${canon} |`);
+  }
 }
 
 sumLines.push('');
