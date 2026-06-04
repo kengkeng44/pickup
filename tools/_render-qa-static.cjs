@@ -329,11 +329,17 @@ function renderChapter(ch, lessons) {
   const lessonsHtml = [];
   for (const lesson of lessons) {
     const introZh = lesson.intro?.zh ? applyDefaults(lesson.intro.zh).slice(0, 80) : '';
+    // v2.0.B.207: display Ch{N}-{L} convention (e.g. Ch1-1, Ch1-2) instead of raw id
+    const displayId = `Ch${ch}-${lesson.lessonInChapter}`;
+    const qCount = (lesson.questions || []).length;
     lessonsHtml.push(`<div class="lesson-block">`);
     lessonsHtml.push(`<div class="lesson-head">`);
-    lessonsHtml.push(`<span class="lesson-id">${escapeHtml(lesson.id)}</span>`);
+    lessonsHtml.push(`<span class="lesson-id">${escapeHtml(displayId)}</span>`);
     if (lesson.storyBeat) lessonsHtml.push(`<span class="lesson-beat">${escapeHtml(applyDefaults(lesson.storyBeat))}</span>`);
-    if (introZh) lessonsHtml.push(`<span class="meta">${escapeHtml(introZh)}</span>`);
+    lessonsHtml.push(`<span class="meta">${qCount}Q · ${escapeHtml(lesson.segmentType)}</span>`);
+    if (introZh) lessonsHtml.push(`<div style="flex:1 1 100%; font-size:11px; color:var(--muted); margin-top:4px; font-weight:600;">${escapeHtml(introZh)}</div>`);
+    // internal id 小字附在底下,給人工查 debug
+    lessonsHtml.push(`<div style="flex:1 1 100%; font-family:ui-monospace,Consolas,monospace; font-size:9px; color:var(--muted); opacity:0.55; margin-top:2px;">${escapeHtml(lesson.id)}</div>`);
     lessonsHtml.push(`</div>`);
     for (const q of (lesson.questions || [])) {
       lessonsHtml.push(renderQCard(q, original));
