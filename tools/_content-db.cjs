@@ -72,7 +72,46 @@ const HOOK_MAP = {
   'kt-ch2-l5': { type: 'B5',        inquiry: '他要去哪?外面更冷',        canon: 'ugly-duckling.md#beat-5-cottage' },
   'kt-ch2-l6': { type: 'B6',        inquiry: '春天會更好?還是又一次?',  canon: 'ugly-duckling.md#beat-6-winter' },
   'kt-ch2-l7': { type: 'B2 big',    inquiry: '原來他不是醜小鴨 — 還有什麼?', canon: 'ugly-duckling.md#beat-7-reveal' },
-  // Ch3-7 待 agent (B.222 in flight)
+  // Ch3 龜兔賽跑 (agent B.223)
+  'kt-ch3-l1': { type: 'B2',        inquiry: '烏龜怎敢挑戰?他想做什麼?',      canon: 'tortoise-hare.md#beat-1' },
+  'kt-ch3-l2': { type: 'B3',        inquiry: '差距這麼大,烏龜能追嗎?',        canon: 'tortoise-hare.md#beat-2' },
+  'kt-ch3-l3': { type: 'B5',        inquiry: '兔子真的要睡?會醒嗎?',          canon: 'tortoise-hare.md#beat-3' },
+  'kt-ch3-l4': { type: 'B6',        inquiry: '兔子要醒了嗎?烏龜還剩多遠?',    canon: 'tortoise-hare.md#beat-4' },
+  'kt-ch3-l5': { type: 'B5',        inquiry: '沒人叫醒兔子嗎?該不該叫?',      canon: 'tortoise-hare.md#beat-5' },
+  'kt-ch3-l6': { type: 'B2',        inquiry: '兔子來得及嗎?還是輸定了?',      canon: 'tortoise-hare.md#beat-6' },
+  'kt-ch3-l7': { type: 'B2 big',    inquiry: '慢而穩之外 — 兔子學到了嗎?',    canon: 'tortoise-hare.md#beat-7' },
+  // Ch4 駱駝為什麼有駝峰
+  'kt-ch4-l1': { type: 'B3',        inquiry: '"Humph" 是什麼意思?他在躲什麼?', canon: 'camel-hump.md#beat-1' },
+  'kt-ch4-l2': { type: 'B6',        inquiry: '他們要告狀嗎?Man 會怎麼處理?',   canon: 'camel-hump.md#beat-2' },
+  'kt-ch4-l3': { type: 'B4',        inquiry: '沙塵裡是什麼?是誰來了?',         canon: 'camel-hump.md#beat-3' },
+  'kt-ch4-l4': { type: 'B5',        inquiry: 'Djinn 會幫誰?會罰駱駝嗎?',       canon: 'camel-hump.md#beat-4' },
+  'kt-ch4-l5': { type: 'B6',        inquiry: '是什麼魔法?駱駝會變什麼?',       canon: 'camel-hump.md#beat-5' },
+  'kt-ch4-l6': { type: 'B1',        inquiry: '背要變成什麼?還會停嗎?',         canon: 'camel-hump.md#beat-6' },
+  'kt-ch4-l7': { type: 'B2 big',    inquiry: '自己背的包袱 — user 在背什麼?',  canon: 'camel-hump.md#beat-7' },
+  // Ch5 Baba Yaga 雞腳屋
+  'kt-ch5-l1': { type: 'B6',        inquiry: '沒火會怎樣?誰要去拿火?',         canon: 'baba-yaga.md#beat-1' },
+  'kt-ch5-l2': { type: 'B3',        inquiry: 'Baba Yaga 是誰?',                canon: 'baba-yaga.md#beat-2' },
+  'kt-ch5-l3': { type: 'B6',        inquiry: '三個騎士是誰?',                  canon: 'baba-yaga.md#beat-3' },
+  'kt-ch5-l4': { type: 'B1',        inquiry: '屋子會動?她要走進去嗎?',         canon: 'baba-yaga.md#beat-4' },
+  'kt-ch5-l5': { type: 'B2',        inquiry: '巫婆會吃她?還會放她走?',         canon: 'baba-yaga.md#beat-5' },
+  'kt-ch5-l6': { type: 'B3',        inquiry: '娃娃能做什麼?它會動嗎?',         canon: 'baba-yaga.md#beat-6' },
+  'kt-ch5-l7': { type: 'B2 big',    inquiry: '口袋裡的小東西 — user 自己的是什麼?', canon: 'baba-yaga.md#beat-7' },
+  // Ch6 六隻天鵝
+  'kt-ch6-l1': { type: 'B6',        inquiry: '沒了母親,誰會來填這個位置?',     canon: 'six-swans.md#beat-1' },
+  'kt-ch6-l2': { type: 'B3',        inquiry: '為什麼是六件?六件白衣是給誰?',   canon: 'six-swans.md#beat-2' },
+  'kt-ch6-l3': { type: 'B1',        inquiry: '男孩去哪了?還能變回來嗎?',       canon: 'six-swans.md#beat-3' },
+  'kt-ch6-l4': { type: 'B5',        inquiry: '六年不能說話,她能撐下去嗎?',     canon: 'six-swans.md#beat-4' },
+  'kt-ch6-l5': { type: 'B6',        inquiry: '王子的母親會接受她嗎?',           canon: 'six-swans.md#beat-5' },
+  'kt-ch6-l6': { type: 'B5',        inquiry: '她要說話救自己嗎?還是繼續織?',   canon: 'six-swans.md#beat-6' },
+  'kt-ch6-l7': { type: 'B2 big',    inquiry: '說出口的那刻 — 你忍著沒說的是什麼?', canon: 'six-swans.md#beat-7' },
+  // Ch7 葉限 (Tang dynasty Cinderella)
+  'kt-ch7-l1': { type: 'B6',        inquiry: '後母會一直這樣對她嗎?',           canon: 'yexian.md#beat-1' },
+  'kt-ch7-l2': { type: 'B3',        inquiry: '這條魚不只是魚?它是誰?',         canon: 'yexian.md#beat-2' },
+  'kt-ch7-l3': { type: 'B1',        inquiry: '葉限會知道嗎?她怎麼承受?',       canon: 'yexian.md#beat-3' },
+  'kt-ch7-l4': { type: 'B3',        inquiry: '骨頭能給她什麼?她要問什麼?',     canon: 'yexian.md#beat-4' },
+  'kt-ch7-l5': { type: 'B2',        inquiry: '她會被認出嗎?誰已經盯著她?',     canon: 'yexian.md#beat-5' },
+  'kt-ch7-l6': { type: 'B1',        inquiry: '鞋掉了會落到誰手上?',             canon: 'yexian.md#beat-6' },
+  'kt-ch7-l7': { type: 'B2 big',    inquiry: '失去的支持回來了 — 你的呢?',     canon: 'yexian.md#beat-7' },
 };
 
 function shortText(s, max = 60) {

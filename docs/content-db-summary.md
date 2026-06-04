@@ -1,6 +1,6 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-04T06:18:13.680Z
+**Generated**: 2026-06-04T07:04:05.373Z
 
 ## Aggregate
 
@@ -35,13 +35,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch1-l5` | 渡海起霧 — 島上太安靜 | B6+B1 | 島上為何安靜?是埋伏? | [momotaro.md#beat-5-departure](../docs/canon/momotaro.md#beat-5-departure) |
 | `kt-ch1-l6` | 鬼王在等他 — 怎知名字? | B2 | 鬼王怎知他名字?陷阱? | [momotaro.md#beat-6-battle](../docs/canon/momotaro.md#beat-6-battle) |
 | `kt-ch1-l7` | 凱旋 — 口袋裡還剩一顆糰子 | B6 (open) | (開放結局, 留後鉤) | [momotaro.md#beat-7-victory](../docs/canon/momotaro.md#beat-7-victory) |
-| `kt-ch2-l1` | Mochi 秋夜跳上矮牆 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l2` | Hana 在草地上等 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l3` | 奶奶翻開池塘那頁 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l4` | 鴨媽媽孵蛋 — 我還在蛋裡 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l5` | 四顆蛋先裂開,最後一顆又大又灰 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l6` | 我終於出來了 — 但我又大又灰 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch2-l7` | 第一次下水池塘 — 我會游泳 | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch2-l1` | Mochi 秋夜跳上矮牆 | B3 | 那大蛋裡是什麼? | [ugly-duckling.md#beat-1-setup](../docs/canon/ugly-duckling.md#beat-1-setup) |
+| `kt-ch2-l2` | Hana 在草地上等 | B2 | 他是醜?還是只是不一樣? | [ugly-duckling.md#beat-2-discovery](../docs/canon/ugly-duckling.md#beat-2-discovery) |
+| `kt-ch2-l3` | 奶奶翻開池塘那頁 | B2 | 媽媽會回來保護他嗎? | [ugly-duckling.md#beat-3-rejection](../docs/canon/ugly-duckling.md#beat-3-rejection) |
+| `kt-ch2-l4` | 鴨媽媽孵蛋 — 我還在蛋裡 | B1 | 他會被打中?還能逃多遠? | [ugly-duckling.md#beat-4-escape](../docs/canon/ugly-duckling.md#beat-4-escape) |
+| `kt-ch2-l5` | 四顆蛋先裂開,最後一顆又大又灰 | B5 | 他要去哪?外面更冷 | [ugly-duckling.md#beat-5-cottage](../docs/canon/ugly-duckling.md#beat-5-cottage) |
+| `kt-ch2-l6` | 我終於出來了 — 但我又大又灰 | B6 | 春天會更好?還是又一次? | [ugly-duckling.md#beat-6-winter](../docs/canon/ugly-duckling.md#beat-6-winter) |
+| `kt-ch2-l7` | 第一次下水池塘 — 我會游泳 | B2 big | 原來他不是醜小鴨 — 還有什麼? | [ugly-duckling.md#beat-7-reveal](../docs/canon/ugly-duckling.md#beat-7-reveal) |
 | `kt-ch2-l8` | 兄弟姊妹笑他、咬他 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch2-l9` | 雞舍裡被母雞與老貓嫌 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch2-l10` | 媽媽嘆氣 — 你走遠一點吧 | _(no hook yet)_ | _-_ | _-_ |
@@ -60,13 +60,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch2-l23` | 奶奶闔書 + Mochi 安靜思考 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch2-l24` | 番外 — Hana 問奶奶「鴨媽媽是壞人嗎?」 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch2-l25` | 今晚的關鍵字 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l1` | Mochi 又跳上矮牆 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l2` | Hana 迎接,奶奶坐下 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l3` | 奶奶翻到龜兔賽跑那頁 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l4` | Hare 吹噓他的長腿 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l5` | Tortoise 回:慢也沒關係 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l6` | Hare 下戰帖:來比賽吧 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch3-l7` | 小鳥裁判倒數 | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch3-l1` | Mochi 又跳上矮牆 | B2 | 烏龜怎敢挑戰?他想做什麼? | [tortoise-hare.md#beat-1](../docs/canon/tortoise-hare.md#beat-1) |
+| `kt-ch3-l2` | Hana 迎接,奶奶坐下 | B3 | 差距這麼大,烏龜能追嗎? | [tortoise-hare.md#beat-2](../docs/canon/tortoise-hare.md#beat-2) |
+| `kt-ch3-l3` | 奶奶翻到龜兔賽跑那頁 | B5 | 兔子真的要睡?會醒嗎? | [tortoise-hare.md#beat-3](../docs/canon/tortoise-hare.md#beat-3) |
+| `kt-ch3-l4` | Hare 吹噓他的長腿 | B6 | 兔子要醒了嗎?烏龜還剩多遠? | [tortoise-hare.md#beat-4](../docs/canon/tortoise-hare.md#beat-4) |
+| `kt-ch3-l5` | Tortoise 回:慢也沒關係 | B5 | 沒人叫醒兔子嗎?該不該叫? | [tortoise-hare.md#beat-5](../docs/canon/tortoise-hare.md#beat-5) |
+| `kt-ch3-l6` | Hare 下戰帖:來比賽吧 | B2 | 兔子來得及嗎?還是輸定了? | [tortoise-hare.md#beat-6](../docs/canon/tortoise-hare.md#beat-6) |
+| `kt-ch3-l7` | 小鳥裁判倒數 | B2 big | 慢而穩之外 — 兔子學到了嗎? | [tortoise-hare.md#beat-7](../docs/canon/tortoise-hare.md#beat-7) |
 | `kt-ch3-l8` | Hare 一躍而出 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch3-l9` | Tortoise 邁出第一步 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch3-l10` | Hare 回頭看,決定小睡 | _(no hook yet)_ | _-_ | _-_ |
@@ -85,13 +85,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch3-l23` | 奶奶闔上書,Mochi 打了個哈欠 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch3-l24` | Mochi 跳下牆,慢慢走回巷子 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch3-l25` | Hana 問奶奶 + 今晚關鍵字總複習 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l1` | Mochi 跳上矮牆,沙漠夜風吹進院子 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l2` | Hana 趴在腳邊,奶奶翻到沙漠那一頁 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l3` | 奶奶說 "O Best Beloved" 開場 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l4` | At the beginning of the world (新世界開頭) | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l5` | The Camel lives in the Howling Desert (駱駝住沙漠) | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l6` | Monday: Horse asks Camel to trot | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch4-l7` | "Humph!" — the Camel refuses (拒絕一) | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch4-l1` | Mochi 跳上矮牆,沙漠夜風吹進院子 | B3 | "Humph" 是什麼意思?他在躲什麼? | [camel-hump.md#beat-1](../docs/canon/camel-hump.md#beat-1) |
+| `kt-ch4-l2` | Hana 趴在腳邊,奶奶翻到沙漠那一頁 | B6 | 他們要告狀嗎?Man 會怎麼處理? | [camel-hump.md#beat-2](../docs/canon/camel-hump.md#beat-2) |
+| `kt-ch4-l3` | 奶奶說 "O Best Beloved" 開場 | B4 | 沙塵裡是什麼?是誰來了? | [camel-hump.md#beat-3](../docs/canon/camel-hump.md#beat-3) |
+| `kt-ch4-l4` | At the beginning of the world (新世界開頭) | B5 | Djinn 會幫誰?會罰駱駝嗎? | [camel-hump.md#beat-4](../docs/canon/camel-hump.md#beat-4) |
+| `kt-ch4-l5` | The Camel lives in the Howling Desert (駱駝住沙漠) | B6 | 是什麼魔法?駱駝會變什麼? | [camel-hump.md#beat-5](../docs/canon/camel-hump.md#beat-5) |
+| `kt-ch4-l6` | Monday: Horse asks Camel to trot | B1 | 背要變成什麼?還會停嗎? | [camel-hump.md#beat-6](../docs/canon/camel-hump.md#beat-6) |
+| `kt-ch4-l7` | "Humph!" — the Camel refuses (拒絕一) | B2 big | 自己背的包袱 — user 在背什麼? | [camel-hump.md#beat-7](../docs/canon/camel-hump.md#beat-7) |
 | `kt-ch4-l8` | Tuesday: Dog asks Camel to fetch (狗來邀請) | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch4-l9` | "Humph!" again (拒絕二) | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch4-l10` | Wednesday: Ox asks Camel to plough (牛來邀請) | _(no hook yet)_ | _-_ | _-_ |
@@ -110,13 +110,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch4-l23` | 奶奶合上書,Hana 已經睡著 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch4-l24` | Mochi 跳下矮牆,沙漠的風散去 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch4-l25` | 今晚的關鍵字 + Hana 問奶奶 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l1` | Mochi 感覺今晚比較冷 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l2` | Hana 縮在奶奶腳邊 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l3` | 奶奶打開一本深色舊書 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l4` | Vasilisa 與冷淡的繼母 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l5` | 親生媽媽留下小娃娃 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l6` | 娃娃會說話、會幫忙 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch5-l7` | 繼母叫她去森林找火 | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch5-l1` | Mochi 感覺今晚比較冷 | B6 | 沒火會怎樣?誰要去拿火? | [baba-yaga.md#beat-1](../docs/canon/baba-yaga.md#beat-1) |
+| `kt-ch5-l2` | Hana 縮在奶奶腳邊 | B3 | Baba Yaga 是誰? | [baba-yaga.md#beat-2](../docs/canon/baba-yaga.md#beat-2) |
+| `kt-ch5-l3` | 奶奶打開一本深色舊書 | B6 | 三個騎士是誰? | [baba-yaga.md#beat-3](../docs/canon/baba-yaga.md#beat-3) |
+| `kt-ch5-l4` | Vasilisa 與冷淡的繼母 | B1 | 屋子會動?她要走進去嗎? | [baba-yaga.md#beat-4](../docs/canon/baba-yaga.md#beat-4) |
+| `kt-ch5-l5` | 親生媽媽留下小娃娃 | B2 | 巫婆會吃她?還會放她走? | [baba-yaga.md#beat-5](../docs/canon/baba-yaga.md#beat-5) |
+| `kt-ch5-l6` | 娃娃會說話、會幫忙 | B3 | 娃娃能做什麼?它會動嗎? | [baba-yaga.md#beat-6](../docs/canon/baba-yaga.md#beat-6) |
+| `kt-ch5-l7` | 繼母叫她去森林找火 | B2 big | 口袋裡的小東西 — user 自己的是什麼? | [baba-yaga.md#beat-7](../docs/canon/baba-yaga.md#beat-7) |
 | `kt-ch5-l8` | 走進深暗森林 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch5-l9` | 騎手從旁經過 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch5-l10` | 看見雞腳屋會轉動 | _(no hook yet)_ | _-_ | _-_ |
@@ -135,13 +135,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch5-l23` | Mochi 與 Hana 聽完故事 — 怕又被安撫 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch5-l24` | 奶奶說 「勇敢的人會回家」 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch5-l25` | 今晚的關鍵字 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l1` | Mochi 跳上奶奶院子的矮牆 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l2` | Hana 趴下,奶奶坐回椅子 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l3` | 奶奶翻開故事書「今晚是安靜的故事」 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l4` | 國王有六個王子和一個小公主 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l5` | 新王后是女巫,藏在森林裡 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l6` | 王后丟出六件白襯衫,兄弟變成天鵝 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch6-l7` | 六隻天鵝飛向冷天空 | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch6-l1` | Mochi 跳上奶奶院子的矮牆 | B6 | 沒了母親,誰會來填這個位置? | [six-swans.md#beat-1](../docs/canon/six-swans.md#beat-1) |
+| `kt-ch6-l2` | Hana 趴下,奶奶坐回椅子 | B3 | 為什麼是六件?六件白衣是給誰? | [six-swans.md#beat-2](../docs/canon/six-swans.md#beat-2) |
+| `kt-ch6-l3` | 奶奶翻開故事書「今晚是安靜的故事」 | B1 | 男孩去哪了?還能變回來嗎? | [six-swans.md#beat-3](../docs/canon/six-swans.md#beat-3) |
+| `kt-ch6-l4` | 國王有六個王子和一個小公主 | B5 | 六年不能說話,她能撐下去嗎? | [six-swans.md#beat-4](../docs/canon/six-swans.md#beat-4) |
+| `kt-ch6-l5` | 新王后是女巫,藏在森林裡 | B6 | 王子的母親會接受她嗎? | [six-swans.md#beat-5](../docs/canon/six-swans.md#beat-5) |
+| `kt-ch6-l6` | 王后丟出六件白襯衫,兄弟變成天鵝 | B5 | 她要說話救自己嗎?還是繼續織? | [six-swans.md#beat-6](../docs/canon/six-swans.md#beat-6) |
+| `kt-ch6-l7` | 六隻天鵝飛向冷天空 | B2 big | 說出口的那刻 — 你忍著沒說的是什麼? | [six-swans.md#beat-7](../docs/canon/six-swans.md#beat-7) |
 | `kt-ch6-l8` | 妹妹獨自在大房子,決定離家 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch6-l9` | 妹妹走進森林,腳走到流血 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch6-l10` | 黃昏找到一間小屋,七張小床 | _(no hook yet)_ | _-_ | _-_ |
@@ -160,13 +160,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch6-l23` | 奶奶闔上書「她終於說話了」 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch6-l24` | Mochi 跳回街上,夜很靜 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch6-l25` | 今晚的關鍵字 + Mochi 跟 Hana 的番外問答 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l1` | 最後一晚, Mochi 跳上矮牆 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l2` | Hana 安靜趴下, 風很乾 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l3` | 奶奶翻開紅絲線舊書 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l4` | 父親去世, 葉限孤單 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l5` | 後母苛刻, 葉限做粗活 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l6` | 池邊金魚, 唯一朋友 | _(no hook yet)_ | _-_ | _-_ |
-| `kt-ch7-l7` | 葉限餵魚, 低聲說話 | _(no hook yet)_ | _-_ | _-_ |
+| `kt-ch7-l1` | 最後一晚, Mochi 跳上矮牆 | B6 | 後母會一直這樣對她嗎? | [yexian.md#beat-1](../docs/canon/yexian.md#beat-1) |
+| `kt-ch7-l2` | Hana 安靜趴下, 風很乾 | B3 | 這條魚不只是魚?它是誰? | [yexian.md#beat-2](../docs/canon/yexian.md#beat-2) |
+| `kt-ch7-l3` | 奶奶翻開紅絲線舊書 | B1 | 葉限會知道嗎?她怎麼承受? | [yexian.md#beat-3](../docs/canon/yexian.md#beat-3) |
+| `kt-ch7-l4` | 父親去世, 葉限孤單 | B3 | 骨頭能給她什麼?她要問什麼? | [yexian.md#beat-4](../docs/canon/yexian.md#beat-4) |
+| `kt-ch7-l5` | 後母苛刻, 葉限做粗活 | B2 | 她會被認出嗎?誰已經盯著她? | [yexian.md#beat-5](../docs/canon/yexian.md#beat-5) |
+| `kt-ch7-l6` | 池邊金魚, 唯一朋友 | B1 | 鞋掉了會落到誰手上? | [yexian.md#beat-6](../docs/canon/yexian.md#beat-6) |
+| `kt-ch7-l7` | 葉限餵魚, 低聲說話 | B2 big | 失去的支持回來了 — 你的呢? | [yexian.md#beat-7](../docs/canon/yexian.md#beat-7) |
 | `kt-ch7-l8` | 魚長大, 月下發亮 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch7-l9` | 後母穿葉限的衣騙魚 | _(no hook yet)_ | _-_ | _-_ |
 | `kt-ch7-l10` | 後母殺魚, 煮成晚餐 | _(no hook yet)_ | _-_ | _-_ |
