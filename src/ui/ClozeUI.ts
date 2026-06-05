@@ -77,7 +77,9 @@ const PRAISE_CORRECT = [
   '答對了 · Yes!',
   '就是這個 · That\'s the one!',
   '勇敢 · Brave!',
-  '拭乾眼淚再前進 · Tears off, paws on!',
+  // v2.0.B.231 audience pivot: 8-12 兒童不適合「拭乾眼淚」這種情緒重的成人 framing.
+  // Per docs/strategy/2026-06-05-target-audience-realignment.md.
+  '貓咪相信你 · Mochi is proud!',
 ];
 // v1.9.49 audit-5 F6: dropped the "green button" reference — palette is
 // olive after v1.9.36 and pointing at a specific answer breaks blindRetry.
@@ -85,13 +87,15 @@ const PRAISE_TIMEOUT = [
   '時間到 · take your time',
   '再試一次 · no rush',
 ];
+// v2.0.B.231 audience pivot: 「哭完再繼續 / 擦乾鼻涕」是成人下班逃逸 framing,
+// 對 8-12 兒童太情緒重. Per docs/strategy/2026-06-05-target-audience-realignment.md.
 const PRAISE_WRONG = [
   '再試一次 · Try again',
   '差一點 · Almost',
   '別停下 · Keep going',
   '再一次 · One more try',
-  '哭完再繼續 · Cry later, try again',
-  '擦乾鼻涕繼續 · Sniffle, then keep going',
+  '貓咪相信你 · Mochi believes in you',
+  '不急,慢慢來 · No rush, take your time',
 ];
 
 function pickPraise(pool: readonly string[]): string {

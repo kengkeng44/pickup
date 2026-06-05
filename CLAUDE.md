@@ -28,13 +28,32 @@
 
 ## 🎯 Vision & 情感核心
 
-**拾光 (Pickup) = 給上班族的「下班逃逸」式英文養成遊戲。**
+> **v2.0.B.231 (2026-06-05) 客群 pivot**: 從「下班族 + 下班逃逸」改為「8-12 兒童 + 親子家庭 + 海外華人 heritage」。
+> 客觀分析:framework (7 個世界童話 + 奶奶 voice + Ghibli + A2 + 慢 TTS + blindRetry) 都是兒童 ELT 最佳實踐, 「下班逃逸」是 forced fit。
+> 完整 pivot 分析: `docs/strategy/2026-06-05-target-audience-realignment.md`。
+> 「下班逃逸」概念**預留給未來 sibling app** (Phase 3: 「神社小狐狸」/「烏龜夜班超商」), 不是放棄。
 
-- **Tagline**：「學英文，撿回時間」(v0.9 改自原 「學英文，贏對戰」)
-- **目標客群**：台灣中文母語、A2-B1 程度、想學英文但下班已經夠累的上班族
-- **核心情緒**：「下班逃逸」 — 不是「下班再體驗一次上班」。所以**避開**留學夢 / 跨國辦公 / 創業 simulator 那種真實人生劇本，**走向**動物、玄幻、治癒系故事
-- **美學定位**：Studio Ghibli 暖色手繪風（不是日系扁平、不是像素藝術、不是 Material Design）
-- **學習機制**：cloze（填空）為核心，4 選 1，搭配科學間隔複習（SRS lite）+ 難度系統 (easy/medium/hard)
+**拾光 (Pickup) = 奶奶睡前說英文童話的家庭 ELT 遊戲。**
+
+- **Tagline**:「奶奶的睡前英文小故事」(v2.0.B.231 改自上版「學英文,撿回時間」)
+- **目標客群** (primary):
+  - 台灣 8-12 兒童 (家長付費, 小孩使用)
+  - 親子家庭 (爸媽陪小孩讀, 雙語可解釋)
+- **目標客群** (secondary):
+  - 海外台灣 / 華人家庭子女 (heritage learners, 中英雙語需求)
+  - 退休 / 銀髮 60+ (重新學英文, 不要 gamification 壓力)
+- **核心情緒**:溫暖陪伴 (奶奶 + Mochi + Hana) — 不焦慮、不打擊、不催促
+- **美學定位**:Studio Ghibli 暖色手繪風(不是日系扁平、不是像素藝術、不是 Material Design)
+- **學習機制**:cloze(填空)為核心,4 選 1,搭配科學間隔複習(SRS lite)+ 難度系統 (easy/medium/hard)
+
+### 🚫 Sunset 字眼 (不再用於 user-facing surface)
+
+- 「下班逃逸」/「下班族」/「下班疲憊上班族」
+- 「撿回時間」(舊 tagline)
+- 「Cry later · try again」/「拭乾眼淚再前進」(成人情緒重 framing)
+- 「我也累、我也想哭,但我還是要再試一次」(per Mochi 性格段落 — 改為兒童版「貓咪相信你」)
+
+這些概念**預留** 給未來 sibling app, 但 Pickup 本身已 pivot, 新增 microcopy / 對外文案 / commit msg 都避用。
 
 ---
 
@@ -130,26 +149,25 @@
 
 ---
 
-## 🐈‍⬛ 主角設定：三花貓的性格（v1.7.0）
+## 🐈‍⬛ 主角設定:Mochi 三花貓 (v2.0.B.231 pivot 後)
 
-> **一句話**：**愛哭鬼,但很堅韌。**
+> **一句話**:**愛聽故事,有點害羞,但很勇敢。**
 
-- 看到雨會哭、看到大影子會哭、被拒絕會哭 — 情緒外顯不掩飾
-- 但每次哭完都會擦掉眼淚繼續走 — 韌性是她的底色
-- 這個雙面情緒**故意**設計來反映目標客群（下班疲憊上班族）— 「我也累、我也想哭,但我還是要再試一次」
-- 視覺化:**v1.7.0 進站轉場**就是這個性格的縮影 — 橘底貓臉 + 一滴眼淚滑落 + 化作奶油色擴張蓋滿螢幕
+- v1.7.0「愛哭鬼但堅韌」是給「下班疲憊上班族」客群設計的成人情緒鏡像。
+- B.231 客群 pivot 到 8-12 兒童 / 親子家庭後, 改為兒童版人設:害羞 + 好奇 + 勇敢。
+- Mochi 是**奶奶院子裡每晚跳上矮牆的流浪貓**, 跟奶奶養的 Hana 一起當故事聽眾。
 
-### 落地到產品的位置
+### 落地到產品的位置 (B.231 更新後)
 
 | 位置 | 怎麼體現 |
 |------|---------|
-| 進站轉場(v1.7.0) | Suntera 風橘底貓臉,藍淚滴落 → 擴張為奶油色 reveal 主畫面 |
-| 答錯 microcopy | "Cry later · try again" / "Sniffle, then keep going" 等帶情緒的鼓勵語 |
-| 答對 microcopy | "Brave!" / "Tears off, paws on!" — 認可堅韌那一面 |
-| Ch1 雨夜場景 | POV 第一視角的雨、寒、孤獨,情緒鋪墊 |
-| Ch6 寒冬考驗 | 「我是 someone」覺醒,韌性集大成 |
+| 進站轉場 | 暖色貓臉 reveal 主畫面 (歷史 tear-cat 已 sunset, 不再哭流淚) |
+| 答錯 microcopy | "再試一次" / "貓咪相信你" / "不急,慢慢來" (溫柔陪伴, 不情緒重) |
+| 答對 microcopy | "好厲害!" / "貓咪相信你!" / "Brave!" (兒童式鼓勵) |
+| Ch1 故事場景 | 桃太郎 — 奶奶說故事 Mochi 跟 Hana 趴在腳邊聽 |
+| Ch2-7 童話 | 醜小鴨 / 龜兔賽跑 / 駱駝駝峰 / Baba Yaga / 六天鵝 / 葉限 |
 
-**不要**走那種「主角永遠勇敢、永遠樂觀」的美式英雄套路 — 那不是這隻貓,也不是這個 app 的客群。
+> **「下班逃逸」/「愛哭鬼但堅韌」概念預留給未來 sibling app (Phase 3)**, 不打掉, 但 Pickup 本身不再用。
 
 ---
 
@@ -436,7 +454,7 @@ npx wrangler pages deploy dist \
 | 決策 | 為什麼 |
 |------|-------|
 | Phaser canvas `display:none`，全 DOM 渲染 | 手機 DPR 模糊 + layout 衝突，徹底解 |
-| 故事模式無 HP、force-correct + blindRetry | 「下班逃逸」核心情緒 — 不能讓玩家有「失敗焦慮」；blindRetry 強化「自己想出來」的成就感 |
+| 故事模式無 HP、force-correct + blindRetry | 兒童學習鐵律 — 不能讓玩家有「失敗焦慮」;blindRetry 強化「自己想出來」的成就感 (v2.0.B.231 改自原「下班逃逸」rationale, 同設計新 framing) |
 | 答錯保留正確選項位置不 shuffle | 訓練位置記憶 + 減少作弊感 |
 | Zustand 不用 Redux | 輕量、夠用、TypeScript 體驗好 |
 | Cloudflare Pages 不用 Vercel | 免費額度大、CDN 快、邊緣計算 future-proof |
@@ -502,7 +520,7 @@ npx wrangler pages deploy dist \
 
 1. **不要在 Phaser canvas 畫文字** — 手機會糊。所有 text → DOM
 2. **不要用 absolute position 排版** — 會 overlap。用 flex column flow
-3. **不要做「真實上班族劇本」** — 用戶反饋「下班已經夠累」，會反向打擊使用意願
+3. **不要做「真實成人壓力劇本」** — 兒童 / 親子客群不該碰留學壓力 / 考試焦慮 / 職場 / 創業 simulator. (v2.0.B.231 改自原「下班族劇本」, 同 rule 新 framing)
 4. **不要把音量按鈕做 UI** — 用戶覺得「內設有音樂就好，要關用手機系統音量」
 5. **不要顯示「X of 10」counter** — 用 progress bar 即可，數字會增加焦慮
 6. **不要讓答錯扣 HP 結束 run（故事模式）** — force-correct + blindRetry 即可，HP 失敗破壞治癒感
