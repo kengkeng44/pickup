@@ -1,7 +1,10 @@
-import { useRunStore, readCompletedLessons } from '../../store/runStore';
+import { readCompletedLessons } from '../../store/runStore';
+import { readStreak, readFreezes } from '../../data/streak';
 
 export default function TasksPage() {
-  const streak = useRunStore(s => s.streak);
+  // v2.0.B.232 招 1: persistent daily streak + freeze count from localStorage
+  const streak = readStreak();
+  const freezes = readFreezes();
   // v2.0.B.191 P1 fix (UI/UX): wire daily task done state
   // "完成 1 個 lesson": Ch1+ 任一 lesson 完過即 done
   let hasCompletedAnyLesson = false;
@@ -16,18 +19,31 @@ export default function TasksPage() {
       <div style={{ background: '#fff', border: '2px solid #e7a44a', borderBottom: '4px solid #b07a2a', borderRadius: 14, padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
-          <div>
+          <div style={{ flex: 1 }}>
             <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>{streak} 天</div>
             <div style={{ fontSize: 12, color: '#8b6f4a', fontWeight: 700 }}>Daily Streak · 連續學習</div>
           </div>
         </div>
       </div>
 
+      {/* v2.0.B.232 招 1: freeze 🧊 hero card. Mochi 隊友 framing, not threat. */}
+      <div style={{ background: '#fff', border: '2px solid #5a8cc4', borderBottom: '4px solid #3e6da3', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span style={{ fontSize: 36 }}>🧊</span>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>{freezes} 個</div>
+            <div style={{ fontSize: 12, color: '#8b6f4a', fontWeight: 700 }}>
+              Freeze · 漏一天 Mochi 自動幫你保住 streak
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h2 style={{ fontSize: 14, fontWeight: 800, color: '#8b6f4a', margin: '18px 0 8px' }}>今日目標</h2>
       {[
-        { icon: '📖', text: '完成 1 個 lesson', done: hasCompletedAnyLesson },
-        { icon: '🔥', text: '連續學習至少 1 天', done: streakDone },
-        { icon: '🎯', text: '正確率 ≥ 80% (待 session log)', done: false },
+        { icon: '📖', text: '完成 1 個 lesson · Complete 1 lesson', done: hasCompletedAnyLesson },
+        { icon: '🔥', text: '連續學習至少 1 天 · Daily streak active', done: streakDone },
+        { icon: '🎯', text: '正確率 ≥ 80% · Accuracy ≥ 80% (待 session log)', done: false },
       ].map((t, i) => (
         <div key={i} style={{ background: '#fff', border: '1px solid #e0d0b8', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 22 }}>{t.icon}</span>

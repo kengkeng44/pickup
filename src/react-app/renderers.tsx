@@ -381,63 +381,185 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
-// ─── 5. tap-tiles (simplified: 4 candidates pick correct order = sentence) ──
+// ─── 5. tap-tiles (v2.0.B.232 招 7 upgrade: tap-to-place mini builder) ──────
+//
+// Upgrade rationale (CLAUDE.md drag-and-drop iOS Safari risk):
+//   - Original "pick any order then submit" felt low-stakes; correct order
+//     was only validated at submit. Wrong arrangements stayed in place.
+//   - Drag-and-drop has iOS Safari edge cases (scroll fights, touch
+//     event drift), so we pick the tap-to-place fallback per task spec.
+//
+// New behavior:
+//   1. Sentence visualised as ordered slots ____ ____ ____ … (one per word).
+//   2. Player taps a tile to "place" it in the next empty slot.
+//   3. If tile matches the next expected word → slot fills (green flash),
+//      tile locks bottom-row (grey out). One pop-in animation.
+//   4. If tile is wrong → slot flashes red, tile wobbles, returns to bottom.
+//      Wrong tile remains tappable. No punishment, no score deduction
+//      (per CLAUDE.md: 不打擊式 framing).
+//   5. When all slots filled correctly → auto-advance after celebration.
+//
+// 2-strike reveal: after 2 wrong taps Mochi shows the next correct tile
+// highlighted (per memory rule pickup-retry-reveal).
 const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const en = q.sentence ?? '';
-  const tiles = q.tilesEn ?? en.split(/\s+/).filter(Boolean);
   const correctOrder = en.split(/\s+/).filter(Boolean);
-  const [picked, setPicked] = useState<number[]>([]);
+  const tiles = q.tilesEn ?? correctOrder;
+  // Stable shuffled tile order, indexed against `tiles` array.
+  const shuffleOrder = useRef<number[]>([]);
+  // Slots: array<index-into-tiles | null> aligned with correctOrder.
+  const [slots, setSlots] = useState<(number | null)[]>(() => correctOrder.map(() => null));
+  const [wrongFlash, setWrongFlash] = useState<number | null>(null);
+  const [pulseSlot, setPulseSlot] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const placedTileIndices = new Set(slots.filter((x): x is number => x !== null));
+  const nextSlotIdx = slots.findIndex(s => s === null);
 
   useEffect(() => {
-    setPicked([]); setRevealed(false);
+    shuffleOrder.current = tiles.map((_, i) => i).sort(() => Math.random() - 0.5);
+    setSlots(correctOrder.map(() => null));
+    setWrongFlash(null);
+    setPulseSlot(null);
+    setWrongCount(0);
+    setRevealed(false);
     try { speak(en); } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
-  const tap = (i: number) => {
+  // Detect completion (all slots filled correctly = win)
+  useEffect(() => {
     if (revealed) return;
-    if (picked.includes(i)) return;
-    sfxCardPress();
-    setPicked([...picked, i]);
+    if (nextSlotIdx === -1) {
+      // Full board — and since we only place correct tiles, completion = correct.
+      setRevealed(true);
+      try { sfxCorrect(); } catch {}
+      onAnswer(0, true);
+      window.setTimeout(() => onAdvance(en), 2800);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextSlotIdx, revealed]);
+
+  const tap = (tileIdx: number) => {
+    if (revealed) return;
+    if (placedTileIndices.has(tileIdx)) return;
+    if (nextSlotIdx === -1) return;
+    const slotIdx = nextSlotIdx;
+    const expected = correctOrder[slotIdx];
+    const tileWord = tiles[tileIdx];
+    if (tileWord.toLowerCase() === expected.toLowerCase()) {
+      // Correct — lock into slot
+      sfxCardPress();
+      setSlots(prev => {
+        const next = [...prev];
+        next[slotIdx] = tileIdx;
+        return next;
+      });
+      setPulseSlot(slotIdx);
+      window.setTimeout(() => setPulseSlot(null), 350);
+    } else {
+      // Wrong — wobble + auto-return (tile state isn't actually placed)
+      try { sfxWrong(); } catch {}
+      setWrongFlash(tileIdx);
+      setWrongCount(c => c + 1);
+      // Log the first wrong attempt as the answer.
+      if (wrongCount === 0) {
+        onAnswer(1, false);
+      }
+      window.setTimeout(() => setWrongFlash(null), 380);
+    }
   };
 
-  const submit = () => {
-    if (revealed) return;
-    const userSentence = picked.map(i => tiles[i]).join(' ');
-    const correct = userSentence.toLowerCase() === correctOrder.join(' ').toLowerCase();
-    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
-    setRevealed(true);
-    onAnswer(correct ? 0 : 1, correct);
-    window.setTimeout(() => onAdvance(en), correct ? 3000 : 5000);
-  };
+  // 2-strike reveal: hint the correct tile (highlight border).
+  const hintTileIdx = wrongCount >= 2 && nextSlotIdx >= 0
+    ? tiles.findIndex((t, i) => !placedTileIndices.has(i) && t.toLowerCase() === correctOrder[nextSlotIdx].toLowerCase())
+    : -1;
 
   return (
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en)} size={44} />
-        <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>聽聲音, 點字排出句子</div>
+        <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>
+          聽聲音, 點字排出句子 · Tap words to fill the blanks
+        </div>
       </div>
-      {/* picked sentence */}
-      <div style={{ minHeight: 60, padding: 10, background: '#fff', border: '2px solid #c8a878', borderRadius: 10, marginBottom: 10, fontSize: 15, fontWeight: 700, color: '#3c2a1c' }}>
-        {picked.map(i => tiles[i]).join(' ') || <span style={{ color: '#c8a878' }}>選字排這裡…</span>}
+      {/* ordered slots (one per word) — tap to place */}
+      <div style={{
+        minHeight: 60, padding: '12px 10px',
+        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        marginBottom: 12,
+        display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
+      }}>
+        {slots.map((tileIdx, slotIdx) => {
+          const filled = tileIdx !== null;
+          const isPulse = pulseSlot === slotIdx;
+          const isNext = !filled && slotIdx === nextSlotIdx && !revealed;
+          return (
+            <span key={slotIdx} style={{
+              display: 'inline-block',
+              minWidth: filled ? undefined : 60,
+              padding: filled ? '6px 12px' : '6px 10px',
+              background: filled ? '#eaf6d5' : isNext ? '#fef3c7' : '#f1ebe1',
+              color: filled ? '#3c2a1c' : '#a89c80',
+              border: `2px dashed ${isNext ? '#e7a44a' : '#c4b89c'}`,
+              borderStyle: filled ? 'solid' : 'dashed',
+              borderColor: filled ? '#7ac74a' : isNext ? '#e7a44a' : '#c4b89c',
+              borderRadius: 8,
+              fontSize: 15, fontWeight: 800, lineHeight: 1.2,
+              textAlign: 'center',
+              transform: isPulse ? 'scale(1.08)' : 'scale(1)',
+              transition: 'transform 200ms ease, background 200ms ease',
+            }}>
+              {filled ? tiles[tileIdx!] : '____'}
+            </span>
+          );
+        })}
       </div>
-      {/* tile candidates */}
+      {/* tile candidates — shuffled, tap to validate */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
-        {tiles.map((t, i) => (
-          <button key={i} onClick={() => tap(i)} disabled={revealed || picked.includes(i)} style={{
-            padding: '8px 14px', background: picked.includes(i) ? '#e8dec8' : '#fff',
-            color: picked.includes(i) ? '#c8a878' : '#3c2a1c',
-            border: '2px solid #c8a878', borderBottom: '3px solid #b07a2a',
-            borderRadius: 10, fontSize: 14, fontWeight: 700,
-            cursor: picked.includes(i) ? 'default' : 'pointer', fontFamily: 'inherit',
-          }}>{t}</button>
-        ))}
+        {shuffleOrder.current.map(tileIdx => {
+          const t = tiles[tileIdx];
+          const isPlaced = placedTileIndices.has(tileIdx);
+          const isWobble = wrongFlash === tileIdx;
+          const isHint = hintTileIdx === tileIdx;
+          return (
+            <button
+              key={tileIdx}
+              onClick={() => tap(tileIdx)}
+              disabled={revealed || isPlaced}
+              className={isWobble ? 'pickup-wobble' : undefined}
+              style={{
+                padding: '10px 16px',
+                background: isPlaced ? '#e8dec8' : isHint ? '#fff7e8' : '#fff',
+                color: isPlaced ? '#c8a878' : '#3c2a1c',
+                border: `2px solid ${isHint ? '#e7a44a' : '#c8a878'}`,
+                borderBottom: `3px solid ${isHint ? '#b07a2a' : '#b07a2a'}`,
+                borderRadius: 10,
+                fontSize: 15, fontWeight: 700,
+                cursor: isPlaced || revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit',
+                opacity: isPlaced ? 0.55 : 1,
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                transition: 'opacity 200ms ease',
+              }}
+            >
+              {t}
+            </button>
+          );
+        })}
       </div>
-      <div style={{ display: 'flex', gap: 8 }}>
-        <button onClick={() => setPicked([])} disabled={revealed} style={{ flex: 1, padding: '10px 0', background: '#fef8ed', color: '#8b6f4a', border: '2px solid #c8a878', borderRadius: 10, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>清除</button>
-        <button onClick={submit} disabled={revealed || picked.length === 0} style={{ flex: 2, padding: '10px 0', background: revealed ? '#c8a878' : '#7ac74a', color: '#fff', border: 'none', borderBottom: '4px solid #5d9a35', borderRadius: 10, fontWeight: 900, cursor: 'pointer', fontFamily: 'inherit' }}>送出</button>
-      </div>
+      {/* status microcopy — 2-strike hint or encouragement */}
+      {!revealed && wrongCount === 1 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
+          再試一次 · Try again
+        </div>
+      )}
+      {!revealed && wrongCount >= 2 && hintTileIdx >= 0 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
+          🐱 Mochi 提示: 試試亮亮的那個 · Try the highlighted one
+        </div>
+      )}
       {revealed && <Explanation text={q.explanationZh ?? `正解: ${en}`} />}
     </div>
   );

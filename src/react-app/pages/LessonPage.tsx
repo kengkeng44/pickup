@@ -12,6 +12,8 @@ import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted } from '../../store/runStore';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
+import { updateStreak, type StreakUpdateResult } from '../../data/streak';
+import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { track, EVENT } from '../../analytics/posthog';
 import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
 import { getLessonHook } from '../../data/lessonHooks';
@@ -144,10 +146,19 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
   // ending-hook-design.md framework B1-B6.
   const hook = getLessonHook(lesson.id);
 
+  // v2.0.B.232 招 1 streak + freeze: capture updateStreak() result so the
+  // panel can render Mochi-saved-your-streak microcopy (warm not punishing).
+  const [streakResult, setStreakResult] = useState<StreakUpdateResult | null>(null);
+  // v2.0.B.232 招 2 collectible cards: capture cards newly unlocked by
+  // completing this lesson so the panel can show "你解鎖了 X 張新卡片".
+  const [newCards, setNewCards] = useState<CardId[]>([]);
+
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
     try { addXp(xp); } catch {}
     try { addCoins(coinDelta); } catch {}
+    try { setStreakResult(updateStreak()); } catch {}
+    try { setNewCards(unlockCardsForLesson(lesson.id)); } catch {}
     try {
       track(EVENT.LESSON_COMPLETE, {
         lesson_id: lesson.id,
@@ -188,6 +199,17 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         <Stat label="ACCURACY" value={`${accuracy}%`} color="#5d9a35" bg="#eaf6d5" />
         <Stat label="TIME" value={timeStr} color="#8b6f4a" bg="#fef8ed" />
       </div>
+      {/* v2.0.B.232 招 1: streak / freeze 結果 banner.
+          - 累積 / 新增 → 🔥 N 天
+          - 漏一天但用 freeze 保住 → 🧊 Mochi 幫你保住 streak
+          - 漏一天且沒 freeze → 「Mochi 等你回來,我們再走一次」(不打擊式 framing) */}
+      {streakResult && (
+        <StreakBanner result={streakResult} />
+      )}
+      {/* v2.0.B.232 招 2: 新解鎖卡片提示 (溫和招呼,不打斷) */}
+      {newCards.length > 0 && (
+        <NewCardsBanner count={newCards.length} />
+      )}
       {/* v2.0.B.230: hook inquiry microcopy above Continue button. Bell HIP
           Prompt 外顯 — drives Zeigarnik 效應點下一個 button 衝動. */}
       {hook?.inquiry && (
@@ -214,6 +236,74 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
         WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
       }}>完成 · Continue →</button>
+    </div>
+  );
+}
+
+// v2.0.B.232 招 1: streak result banner. Three states, all warm framing.
+function StreakBanner({ result }: { result: StreakUpdateResult }) {
+  let icon: string;
+  let zh: string;
+  let en: string;
+  let accent: string;
+  if (result.freezeUsed) {
+    icon = '🧊';
+    zh = `Mochi 用 1 個 freeze 幫你保住 streak (還剩 ${result.freezesRemaining})`;
+    en = `Mochi used 1 freeze to keep your streak (${result.freezesRemaining} left)`;
+    accent = '#5a8cc4';
+  } else if (result.resetOccurred) {
+    icon = '🐾';
+    zh = 'Mochi 等你回來 — 我們再走一次';
+    en = `Welcome back. Let's start again.`;
+    accent = '#c8a878';
+  } else {
+    icon = '🔥';
+    zh = `連續學習 ${result.count} 天!`;
+    en = `${result.count}-day streak!`;
+    accent = '#ff7a3a';
+  }
+  return (
+    <div className="pickup-fade-up" style={{
+      marginBottom: 12,
+      padding: '12px 14px',
+      background: '#fff7e8',
+      border: `2px solid ${accent}`,
+      borderBottom: `4px solid ${accent}`,
+      borderRadius: 12,
+      display: 'flex', alignItems: 'center', gap: 12,
+      maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
+    }}>
+      <span style={{ fontSize: 28 }}>{icon}</span>
+      <div style={{ flex: 1, textAlign: 'left' }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>{zh}</div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>{en}</div>
+      </div>
+    </div>
+  );
+}
+
+// v2.0.B.232 招 2: 新解鎖卡片 banner. 鼓勵點圖鑑 tab.
+function NewCardsBanner({ count }: { count: number }) {
+  return (
+    <div className="pickup-fade-up" style={{
+      marginBottom: 12,
+      padding: '12px 14px',
+      background: '#fef3c7',
+      border: '2px solid #e7a44a',
+      borderBottom: '4px solid #b07a2a',
+      borderRadius: 12,
+      display: 'flex', alignItems: 'center', gap: 12,
+      maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
+    }}>
+      <span style={{ fontSize: 28 }}>📒</span>
+      <div style={{ flex: 1, textAlign: 'left' }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
+          你解鎖了 {count} 張新卡片!
+        </div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
+          You unlocked {count} new card{count > 1 ? 's' : ''}. Check 圖鑑 tab.
+        </div>
+      </div>
     </div>
   );
 }

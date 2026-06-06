@@ -5,10 +5,11 @@
  */
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useRunStore, readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
+import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
 import { readCoins } from '../../data/coins';
+import { readStreak, readFreezes } from '../../data/streak';
 
 interface Lesson {
   id: string;
@@ -152,6 +153,26 @@ function HudIcon({ src, value, valueColor, width = 24, ariaLabel, onClick, progr
   );
 }
 
+// v2.0.B.232 招 1: emoji-based freeze pill (no PNG asset yet).
+function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Streak freezes ${count} available`}
+      style={{
+        background: 'transparent', border: 'none', cursor: 'pointer',
+        padding: '12px 6px', borderRadius: 10, fontFamily: 'inherit',
+        minWidth: 40, minHeight: 48,
+        touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+        display: 'flex', alignItems: 'center', gap: 3,
+      }}
+    >
+      <span style={{ fontSize: 20, lineHeight: 1 }}>🧊</span>
+      <span style={{ fontSize: 15, fontWeight: 900, color: '#5a8cc4', lineHeight: 1 }}>{count}</span>
+    </button>
+  );
+}
+
 export default function MapPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -162,7 +183,10 @@ export default function MapPage() {
   const [showKeySheet, setShowKeySheet] = useState(false);
   // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
   const currentNodeRef = useRef<HTMLButtonElement | null>(null);
-  const streak = useRunStore(s => s.streak);
+  // v2.0.B.232 招 1: read persistent daily streak + freeze count from
+  // localStorage (was in-session runStore.streak — wrong on cold start).
+  const streak = readStreak();
+  const freezes = readFreezes();
   const completed = readCompletedLessons(chapter);
   const meta = CHAPTER_META[chapter];
 
@@ -229,6 +253,9 @@ export default function MapPage() {
         <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
         <HudIcon src="/mascots/coin-gold.webp" value={firstTime ? '' : String(coins)} valueColor="#c79410" ariaLabel={`Coins ${coins}`} onClick={() => navigate('/profile')} />
         <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/tasks')} />
+        {/* v2.0.B.232 招 1: freeze 🧊 HUD slot. Hide on first-time (xp=0) like
+            coin/streak to avoid empty-state clutter. */}
+        {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
       </div>
 
       {/* Chapter header card */}
