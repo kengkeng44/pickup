@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-06T18:07:37.723Z
+**Generated**: 2026-06-06T19:04:23.346Z
 
 ## Aggregate
 
-- **Total Q**: 1617
-- **Total play time est**: 607 min
+- **Total Q**: 2002
+- **Total play time est**: 756 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -34,6 +34,11 @@
 | 19 | Sang Kancil 鼠鹿 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
 | 20 | 蘿蔔大冒險 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
 | 21 | Anansi 蜘蛛 | 7 | 77 | 11.0 | 264s/lesson ✓ | 0% | ✓ |
+| 22 | 孟母三遷 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
+| 23 | 司馬光砸缸 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
+| 24 | 孔融讓梨 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
+| 25 | 愚公移山 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
+| 26 | Archimedes 阿基米德 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -189,6 +194,41 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch21-l5` | 抓豹 — 挖一個洞,等夜晚 | B1 | 豹會逃走嗎? 蜘蛛接下來怎麼辦? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 | `kt-ch21-l6` | 蜘蛛全帶回天神 — 天神給故事 | B2 | 天神真的會給嗎? 報酬是什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 | `kt-ch21-l7` | 蜘蛛把故事散到全世界 | B6 open | 為什麼每個家都聽得到故事? 你家第一個故事是什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l1` | 媽媽和孟子 — 第一個家在「人們想念家人的地方」旁 | B6 | 孟子小時候住墓地附近 → 他學了什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l2` | 玩埋葬遊戲 — 媽媽心很重 | B3 | 媽媽看見他玩埋葬遊戲 → 怎麼辦? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l3` | 搬到市場 — 孟子看人們買賣 | B5 | 搬到市場附近 → 孟子又學了什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l4` | 孟子叫賣 — 媽媽決定再搬一次 | B4 | 媽媽看到他學叫賣 → 該再搬嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l5` | 搬到學校旁 — 孟子開始讀書 | B6 | 搬到學校旁 → 孟子開始讀書 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l6` | 媽媽剪斷織布 — 用行動教持之以恆 | B2 | 媽媽剪斷織布 → 為什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch22-l7` | 孟子成為大思想家 — 媽媽的選擇被看見 | B6 open | 孟子成為大思想家 → 媽媽的選擇 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l1` | 一群小孩在花園玩 — 一個小司馬光在看 | B6 | 一群小孩在花園玩 — 危險將至? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l2` | 一個小孩爬上大水缸 — 想看裡面 | B3 | 一個小孩爬大水缸 — 結果如何? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l3` | 小孩掉進水缸 — 大家會怎樣? | B5 | 小孩掉進水缸 — 大家會怎樣? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l4` | 其他孩子都跑走找大人 — 來得及嗎? | B4 | 其他孩子都跑走找大人 — 來得及嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l5` | 司馬光留下沒跑 — 他想做什麼? | B1 | 司馬光留下沒跑 — 他想做什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l6` | 撿石頭砸破水缸 — 水流出來 | B2 | 撿石頭砸破水缸 — 水流出來 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch23-l7` | 救出小孩 — 急時用聰明 | B6 open | 救出小孩 — 急時用聰明 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l1` | 四歲孔融 + 七兄弟 — 父親拿一盤梨回來 | B6 | 七個兄弟一盤梨 — 怎麼分? 誰會先選? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l2` | 父親說:「你先選一個」 — 大家看著孔融 | B3 | 大家都看著他 — 他會選哪個? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l3` | 大梨小梨並排 — 該選哪個? | B5 | 大的 vs 小的 — 該選哪個? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l4` | 孔融伸手選了最小的 — 父親問:「為什麼?」 | B4 | 為什麼選小的? 父親想聽什麼答案? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l5` | 孔融說:「我年紀小,應該吃小的」 — 父親微笑 | B1 | 父親為什麼笑? 他在想什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l6` | 父親問:「那你哥哥呢?」 — 孔融再答一層 | B2 | 還有什麼答案? 比剛剛更深嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch24-l7` | 「哥哥比我大,應該吃大的」 — 全家學到一課 | B6 open | 你會學到什麼? 你家的小弟弟妹妹呢? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l1` | 愚公門口兩座大山 — 出門很不方便 | B6 | 兩座大山每天擋路 → 他會做什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l2` | 愚公決定移山 — 鄰居問: 這可能嗎? | B3 | 鄰居笑 → 真的可能嗎? 他會怎麼說服家人? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l3` | 兒子和孫子都來幫 — 該怎麼運? | B5 | 大家來幫忙 → 該怎麼運? 一筐能搬多少? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l4` | 一筐土一筐土運走 — 路人笑他 | B4 | 路人嘲笑 → 愚公會放棄? 還是繼續? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l5` | 路人說: 你死後誰繼續? — 愚公的回答 | B1 | 他抬頭看小孩 → 他要怎麼回答? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l6` | 我有兒子 兒子有孫子 子子孫孫無窮匱 | B2 | 子子孫孫無窮匱 → 大家會繼續嗎? 天上有人看嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch25-l7` | 天神感動派人搬走山 — 學到堅持 | B6 open | 為什麼天神幫忙? 堅持的人會被看見嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l1` | 國王擔心王冠 — 派人去查真假 | B6 | 國王懷疑王冠不純金 → 找誰? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l2` | 面對謎題 — 不能切, 不能熔, 該怎麼測? | B3 | 阿基米德接到謎題 → 怎麼測? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l3` | 想了好幾天 — 朋友擔心, 他決定去洗澡 | B5 | 想了好幾天都想不到 → 累了去洗澡 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l4` | 進浴缸 — 水溢出來, 他看見了 | B4 | 進浴缸水溢出來 → 他突然看到什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l5` | 想通了! 跳出浴缸大喊 Eureka! | B1 | 跳出來大喊 Eureka! → 為什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l6` | 把發現告訴國王 — 試驗王冠真假 | B2 | 跑去找國王告訴秘密 → 王冠真假終於揭曉 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch26-l7` | 法則傳到今天 — 每個玩水的小孩都像他 | B6 open | 浮力法則改變科學 → 學到觀察 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 
 ## Q type distribution per chapter
 
@@ -215,3 +255,8 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 19 | 7 | 7 | 14 | 7 | 35 | 7 |
 | 20 | 7 | 7 | 14 | 7 | 35 | 7 |
 | 21 | 4 | 3 | 21 | 7 | 35 | 7 |
+| 22 | 7 | 0 | 21 | 7 | 35 | 7 |
+| 23 | 7 | 0 | 21 | 7 | 35 | 7 |
+| 24 | 7 | 0 | 21 | 7 | 35 | 7 |
+| 25 | 7 | 0 | 21 | 7 | 35 | 7 |
+| 26 | 7 | 0 | 21 | 7 | 35 | 7 |

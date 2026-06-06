@@ -40,7 +40,14 @@ const PUBLIC = path.join(ROOT, 'public');
 // Indonesia / Brunei) URL pipeline ship 2026-06-07. Trickster animal cycle.
 // v2.0.B.270+: Ch21 Anansi the Spider (West African Akan/Ashanti oral folk
 // PD) URL pipeline ship 2026-06-07. Trickster cycle pair with Ch19.
-const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+// v2.0.B.300+: Ch25 愚公移山 (Yu Gong Moves the Mountains, 列子《湯問》春秋戰國
+// classical parable PD >2000 年) URL pipeline ship 2026-06-07. 堅持 + 家庭主題,
+// 子子孫孫無窮匱, 配 Ch20 cumulative-family genre. Slot 22-24 covered by
+// sibling ship (孟母三遷 / 司馬光砸缸 / 孔融讓梨 中華 heritage 三部曲).
+// v2.0.B.300+: Ch26 Archimedes' Eureka Moment (Vitruvius c. 25 BCE PD,
+// anecdote about Archimedes 287-212 BCE >2200 年). URL pipeline ship
+// 2026-06-07. 科學啟蒙 + 觀察的力量 — 兒童最愛的「發現」moment.
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26];
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
   1: '桃太郎', 2: '醜小鴨', 3: '龜兔賽跑',
@@ -59,6 +66,11 @@ const CHAPTER_TITLES = {
   19: 'Sang Kancil 鼠鹿',
   20: '蘿蔔大冒險',
   21: 'Anansi 蜘蛛',
+  22: '孟母三遷',
+  23: '司馬光砸缸',
+  24: '孔融讓梨',
+  25: '愚公移山',
+  26: 'Archimedes 阿基米德',
 };
 const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
 

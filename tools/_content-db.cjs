@@ -65,6 +65,11 @@ const CHAPTER_TITLES = {
   19: 'Sang Kancil 鼠鹿',
   20: '蘿蔔大冒險',
   21: 'Anansi 蜘蛛',
+  22: '孟母三遷',
+  23: '司馬光砸缸',
+  24: '孔融讓梨',
+  25: '愚公移山',
+  26: 'Archimedes 阿基米德',
 };
 
 // v2.0.B.220: hook type per lesson (per docs/research/chapter-ending-hook-design.md)
@@ -238,6 +243,46 @@ const HOOK_MAP = {
   'kt-ch21-l5':    { type: 'B1',          inquiry: '豹會逃走嗎? 蜘蛛接下來怎麼辦?',  canon: '(no canon ref yet)' },
   'kt-ch21-l6':    { type: 'B2',          inquiry: '天神真的會給嗎? 報酬是什麼?',  canon: '(no canon ref yet)' },
   'kt-ch21-l7':    { type: 'B6 open',     inquiry: '為什麼每個家都聽得到故事? 你家第一個故事是什麼?',  canon: '(no canon ref yet)' },
+  // Ch22 
+  'kt-ch22-l1':    { type: 'B6',          inquiry: '孟子小時候住墓地附近 → 他學了什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch22-l2':    { type: 'B3',          inquiry: '媽媽看見他玩埋葬遊戲 → 怎麼辦?',  canon: '(no canon ref yet)' },
+  'kt-ch22-l3':    { type: 'B5',          inquiry: '搬到市場附近 → 孟子又學了什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch22-l4':    { type: 'B4',          inquiry: '媽媽看到他學叫賣 → 該再搬嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch22-l5':    { type: 'B6',          inquiry: '搬到學校旁 → 孟子開始讀書',  canon: '(no canon ref yet)' },
+  'kt-ch22-l6':    { type: 'B2',          inquiry: '媽媽剪斷織布 → 為什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch22-l7':    { type: 'B6 open',     inquiry: '孟子成為大思想家 → 媽媽的選擇',  canon: '(no canon ref yet)' },
+  // Ch23 
+  'kt-ch23-l1':    { type: 'B6',          inquiry: '一群小孩在花園玩 — 危險將至?',  canon: '(no canon ref yet)' },
+  'kt-ch23-l2':    { type: 'B3',          inquiry: '一個小孩爬大水缸 — 結果如何?',  canon: '(no canon ref yet)' },
+  'kt-ch23-l3':    { type: 'B5',          inquiry: '小孩掉進水缸 — 大家會怎樣?',  canon: '(no canon ref yet)' },
+  'kt-ch23-l4':    { type: 'B4',          inquiry: '其他孩子都跑走找大人 — 來得及嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch23-l5':    { type: 'B1',          inquiry: '司馬光留下沒跑 — 他想做什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch23-l6':    { type: 'B2',          inquiry: '撿石頭砸破水缸 — 水流出來',  canon: '(no canon ref yet)' },
+  'kt-ch23-l7':    { type: 'B6 open',     inquiry: '救出小孩 — 急時用聰明',  canon: '(no canon ref yet)' },
+  // Ch24 
+  'kt-ch24-l1':    { type: 'B6',          inquiry: '七個兄弟一盤梨 — 怎麼分? 誰會先選?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l2':    { type: 'B3',          inquiry: '大家都看著他 — 他會選哪個?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l3':    { type: 'B5',          inquiry: '大的 vs 小的 — 該選哪個?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l4':    { type: 'B4',          inquiry: '為什麼選小的? 父親想聽什麼答案?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l5':    { type: 'B1',          inquiry: '父親為什麼笑? 他在想什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l6':    { type: 'B2',          inquiry: '還有什麼答案? 比剛剛更深嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch24-l7':    { type: 'B6 open',     inquiry: '你會學到什麼? 你家的小弟弟妹妹呢?',  canon: '(no canon ref yet)' },
+  // Ch25 
+  'kt-ch25-l1':    { type: 'B6',          inquiry: '兩座大山每天擋路 → 他會做什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l2':    { type: 'B3',          inquiry: '鄰居笑 → 真的可能嗎? 他會怎麼說服家人?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l3':    { type: 'B5',          inquiry: '大家來幫忙 → 該怎麼運? 一筐能搬多少?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l4':    { type: 'B4',          inquiry: '路人嘲笑 → 愚公會放棄? 還是繼續?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l5':    { type: 'B1',          inquiry: '他抬頭看小孩 → 他要怎麼回答?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l6':    { type: 'B2',          inquiry: '子子孫孫無窮匱 → 大家會繼續嗎? 天上有人看嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch25-l7':    { type: 'B6 open',     inquiry: '為什麼天神幫忙? 堅持的人會被看見嗎?',  canon: '(no canon ref yet)' },
+  // Ch26 
+  'kt-ch26-l1':    { type: 'B6',          inquiry: '國王懷疑王冠不純金 → 找誰?',  canon: '(no canon ref yet)' },
+  'kt-ch26-l2':    { type: 'B3',          inquiry: '阿基米德接到謎題 → 怎麼測?',  canon: '(no canon ref yet)' },
+  'kt-ch26-l3':    { type: 'B5',          inquiry: '想了好幾天都想不到 → 累了去洗澡',  canon: '(no canon ref yet)' },
+  'kt-ch26-l4':    { type: 'B4',          inquiry: '進浴缸水溢出來 → 他突然看到什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch26-l5':    { type: 'B1',          inquiry: '跳出來大喊 Eureka! → 為什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch26-l6':    { type: 'B2',          inquiry: '跑去找國王告訴秘密 → 王冠真假終於揭曉',  canon: '(no canon ref yet)' },
+  'kt-ch26-l7':    { type: 'B6 open',     inquiry: '浮力法則改變科學 → 學到觀察',  canon: '(no canon ref yet)' },
 };
 
 function shortText(s, max = 60) {
@@ -270,7 +315,7 @@ const rows = [];
 const perChapter = {};
 
 // v2.0.B.217: skip Ch0 per user '不用放到數據庫裡面'
-for (let ch = 1; ch <= 21; ch++) {
+for (let ch = 1; ch <= 26; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -344,7 +389,7 @@ const sumLines = [
   `| Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |`,
   `|----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|`,
 ];
-for (let ch = 1; ch <= 21; ch++) {
+for (let ch = 1; ch <= 26; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
@@ -363,7 +408,7 @@ sumLines.push(`Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst s
 sumLines.push('');
 sumLines.push(`| Lesson ID | Story Beat | Hook Type | Inquiry Question | Canon Ref |`);
 sumLines.push(`|-----------|------------|-----------|------------------|-----------|`);
-for (let ch = 1; ch <= 21; ch++) {
+for (let ch = 1; ch <= 26; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -384,7 +429,7 @@ for (const s of Object.values(perChapter)) for (const t of Object.keys(s.typeCou
 const typesArr = [...allTypes].sort();
 sumLines.push(`| Ch | ${typesArr.join(' | ')} |`);
 sumLines.push(`|----|${typesArr.map(()=>'---').join('|')}|`);
-for (let ch = 1; ch <= 21; ch++) {
+for (let ch = 1; ch <= 26; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const cells = typesArr.map(t => s.typeCounts[t] || 0);
@@ -399,7 +444,7 @@ console.log(`\n[CURRENT STATE]`);
 console.log(`Total Q: ${totalQ}, total time: ${Math.round(totalTime/60)} min`);
 console.log(`Avg per chapter: ${avgPerCh}, 25% tolerance band: ${lowBand}-${highBand}`);
 console.log(`\nPer chapter (Ch0 excluded, 5 min/lesson budget):`);
-for (let ch = 1; ch <= 21; ch++) {
+for (let ch = 1; ch <= 26; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);

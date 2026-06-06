@@ -344,6 +344,16 @@ export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 // Gerald McDermott 1972 picture book / Disney / 任何 modern adaptation.
 // 三個動物全部 'gave up and went home' / 'caught safely' (0 風險). Schema
 // 0-20 → 0-21.
+// v2.0.B.272+ Ch22 孟母三遷 / B.280+ Ch23 司馬光砸缸 / B.290+ Ch24 孔融讓梨 /
+// B.290+ Ch25 愚公移山 — 中華歷史民間 4 連発 公有領域 (孟子 372-289 BCE /
+// 司馬光 1019-1086 CE / 孔融 153-208 CE / 列子《湯問》春秋戰國). URL pipeline
+// ship 2026-06-07. 海外華人 heritage anchor 強化.
+// v2.0.B.300+ Ch26 Archimedes' Eureka Moment (古希臘 Vitruvius c. 25 BCE,
+// anecdote about Archimedes 287-212 BCE, 公有領域 >2200 years). URL pipeline
+// ship 2026-06-07. 科學啟蒙 + 觀察的力量 — 兒童最愛的「發現」moment.
+// 配 Ch3 龜兔 + Ch4 駱駝 同 Greek/classical 文化分佈 band. 0 衝突 / 0 暴力
+// (金匠判決原典橋段移除). 'Eureka' 保留 (歷史經典詞) + 中文 '我找到了!' 對譯.
+// Schema 0-21 → 0-26.
 export const ChapterIdSchema = z.union([
   z.literal(0),
   z.literal(1), z.literal(2), z.literal(3),
@@ -351,7 +361,8 @@ export const ChapterIdSchema = z.union([
   z.literal(8), z.literal(9), z.literal(10), z.literal(11),
   z.literal(12), z.literal(13), z.literal(14), z.literal(15),
   z.literal(16), z.literal(17), z.literal(18), z.literal(19),
-  z.literal(20), z.literal(21),
+  z.literal(20), z.literal(21), z.literal(22), z.literal(23),
+  z.literal(24), z.literal(25), z.literal(26),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 

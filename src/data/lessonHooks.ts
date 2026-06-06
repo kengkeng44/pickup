@@ -242,6 +242,59 @@ export const LESSON_HOOKS: Record<string, LessonHook> = {
   'kt-ch21-l5': { type: 'B1',       inquiry: '豹會逃走嗎? 蜘蛛接下來怎麼辦?' },
   'kt-ch21-l6': { type: 'B2',       inquiry: '天神真的會給嗎? 報酬是什麼?' },
   'kt-ch21-l7': { type: 'B6 open',  inquiry: '為什麼每個家都聽得到故事? 你家第一個故事是什麼?' },
+  // Ch22 孟母三遷 (Mencius's Mother Moves Three Times, 中華歷史民間 公有領域,
+  // URL pipeline ship 2026-06-07, B.272+). 孟子 372-289 BCE 歷史人物 +
+  // 民俗 (最早見漢代《列女傳》劉向 ~16 BCE). 海外華人家長 heritage anchor.
+  // 主題: 環境塑人 + 媽媽用行動教持之以恆. 0 死亡 explicit.
+  'kt-ch22-l1': { type: 'B6',       inquiry: '孟子小時候住墓地附近 → 他學了什麼?' },
+  'kt-ch22-l2': { type: 'B3',       inquiry: '媽媽看見他玩埋葬遊戲 → 怎麼辦?' },
+  'kt-ch22-l3': { type: 'B5',       inquiry: '搬到市場附近 → 孟子又學了什麼?' },
+  'kt-ch22-l4': { type: 'B4',       inquiry: '媽媽看到他學叫賣 → 該再搬嗎?' },
+  'kt-ch22-l5': { type: 'B6',       inquiry: '搬到學校旁 → 孟子開始讀書' },
+  'kt-ch22-l6': { type: 'B2',       inquiry: '媽媽剪斷織布 → 為什麼?' },
+  'kt-ch22-l7': { type: 'B6 open',  inquiry: '孟子成為大思想家 → 媽媽的選擇' },
+  // Ch23 司馬光砸缸 (Sima Guang Breaks the Jar, 中華歷史民間 公有領域 >900 年,
+  // URL pipeline ship 2026-06-07, B.280+). 司馬光 1019-1086 CE 歷史人物 +
+  // 砸缸救人民間傳說 (Song Shi 1345 CE 收錄). 急時用聰明救人.
+  'kt-ch23-l1': { type: 'B6',       inquiry: '一群小孩在花園玩 — 危險將至?' },
+  'kt-ch23-l2': { type: 'B3',       inquiry: '一個小孩爬大水缸 — 結果如何?' },
+  'kt-ch23-l3': { type: 'B5',       inquiry: '小孩掉進水缸 — 大家會怎樣?' },
+  'kt-ch23-l4': { type: 'B4',       inquiry: '其他孩子都跑走找大人 — 來得及嗎?' },
+  'kt-ch23-l5': { type: 'B1',       inquiry: '司馬光留下沒跑 — 他想做什麼?' },
+  'kt-ch23-l6': { type: 'B2',       inquiry: '撿石頭砸破水缸 — 水流出來' },
+  'kt-ch23-l7': { type: 'B6 open',  inquiry: '救出小孩 — 急時用聰明' },
+  // Ch24 孔融讓梨 (Kong Rong Shares the Pear, 中華歷史民間 公有領域 >1800 年,
+  // URL pipeline ship 2026-06-07, B.290+). 孔融 153-208 CE 歷史人物 + 讓梨
+  // 民間傳說 (Pei Songzhi 5th-c. citation of《孔融別傳》). 兒童核心情感教育.
+  'kt-ch24-l1': { type: 'B6',       inquiry: '七個兄弟一盤梨 — 怎麼分? 誰會先選?' },
+  'kt-ch24-l2': { type: 'B3',       inquiry: '大家都看著他 — 他會選哪個?' },
+  'kt-ch24-l3': { type: 'B5',       inquiry: '大的 vs 小的 — 該選哪個?' },
+  'kt-ch24-l4': { type: 'B4',       inquiry: '為什麼選小的? 父親想聽什麼答案?' },
+  'kt-ch24-l5': { type: 'B1',       inquiry: '父親為什麼笑? 他在想什麼?' },
+  'kt-ch24-l6': { type: 'B2',       inquiry: '還有什麼答案? 比剛剛更深嗎?' },
+  'kt-ch24-l7': { type: 'B6 open',  inquiry: '你會學到什麼? 你家的小弟弟妹妹呢?' },
+  // Ch25 愚公移山 (Yu Gong Moves the Mountains, 列子《湯問》春秋戰國 classical
+  // Chinese parable 公有領域 >2000 年, URL pipeline ship 2026-06-07, B.290+).
+  // 主題: 堅持 / 世代接力 / 信念. 海外華人家長 heritage anchor.
+  'kt-ch25-l1': { type: 'B6',       inquiry: '兩座大山每天擋路 → 他會做什麼?' },
+  'kt-ch25-l2': { type: 'B3',       inquiry: '鄰居笑 → 真的可能嗎? 他會怎麼說服家人?' },
+  'kt-ch25-l3': { type: 'B5',       inquiry: '大家來幫忙 → 該怎麼運? 一筐能搬多少?' },
+  'kt-ch25-l4': { type: 'B4',       inquiry: '路人嘲笑 → 愚公會放棄? 還是繼續?' },
+  'kt-ch25-l5': { type: 'B1',       inquiry: '他抬頭看小孩 → 他要怎麼回答?' },
+  'kt-ch25-l6': { type: 'B2',       inquiry: '子子孫孫無窮匱 → 大家會繼續嗎? 天上有人看嗎?' },
+  'kt-ch25-l7': { type: 'B6 open',  inquiry: '為什麼天神幫忙? 堅持的人會被看見嗎?' },
+  // Ch26 Archimedes' Eureka Moment (古希臘 Vitruvius c. 25 BCE, anecdote about
+  // Archimedes 287-212 BCE, 公有領域 >2200 年). URL pipeline ship 2026-06-07,
+  // B.300+. 科學啟蒙 + 觀察的力量 — 兒童最愛的「發現」moment. 配 Ch3 龜兔 +
+  // Ch4 駱駝 同 Greek/classical 文化分佈 band. 'Eureka' 保留 (歷史經典詞).
+  // 自創 A2 句式, 不引 Vitruvius 任何特定譯本 / 現代繪本 / 動畫.
+  'kt-ch26-l1': { type: 'B6',       inquiry: '國王懷疑王冠不純金 → 找誰?' },
+  'kt-ch26-l2': { type: 'B3',       inquiry: '阿基米德接到謎題 → 怎麼測?' },
+  'kt-ch26-l3': { type: 'B5',       inquiry: '想了好幾天都想不到 → 累了去洗澡' },
+  'kt-ch26-l4': { type: 'B4',       inquiry: '進浴缸水溢出來 → 他突然看到什麼?' },
+  'kt-ch26-l5': { type: 'B1',       inquiry: '跳出來大喊 Eureka! → 為什麼?' },
+  'kt-ch26-l6': { type: 'B2',       inquiry: '跑去找國王告訴秘密 → 王冠真假終於揭曉' },
+  'kt-ch26-l7': { type: 'B6 open',  inquiry: '浮力法則改變科學 → 學到觀察' },
 };
 
 export function getLessonHook(lessonId: string): LessonHook | null {
