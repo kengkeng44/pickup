@@ -12,6 +12,8 @@ import { readCoins } from '../../data/coins';
 import { readStreak, readFreezes } from '../../data/streak';
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
+// v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
+import GrandmaRecommendCarousel from '../components/GrandmaRecommendCarousel';
 
 interface Lesson {
   id: string;
@@ -259,6 +261,9 @@ export default function MapPage() {
             coin/streak to avoid empty-state clutter. */}
         {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
       </div>
+
+      {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
+      <GrandmaRecommendCarousel />
 
       {/* Chapter header card */}
       <div style={{ padding: 'max(16px, env(safe-area-inset-top)) 14px 0 14px' }}>

@@ -28,6 +28,17 @@ export interface RawQuestion {
   pairsEn?: Array<[string, string]>;
   // v2.0.B.198: 標記誰說的 / 背景介紹。enum mochi | grandma | hana | narrator
   speaker?: string;
+  // v2.0.B.232 new question types — see src/data/lessons.ts for schema.
+  imageEmoji?: string;       // picture-mc
+  imageUrl?: string;         // picture-mc
+  sentenceZh?: string;       // read-and-tap / drag-blank / speak-back
+  promptEn?: string;         // read-and-tap (e.g. 'Tap the verb')
+  correctWordIndex?: number; // read-and-tap
+  sentenceTemplate?: string; // drag-blank
+  tiles?: string[];          // drag-blank
+  correctTiles?: string[];   // drag-blank
+  audioWord?: string;        // listen-emoji (deprecated, fallback to sentence)
+  acceptableVariants?: string[]; // speak-back
 }
 
 export interface RendererProps {
@@ -718,6 +729,602 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── 8. listen-emoji (v2.0.B.232 #1) ────────────────────────────────────────
+// TTS 唸 1 個英文字 (e.g. 'cat'), 4 個 emoji 大圖選 1。比 listen-mc 更圖像化,
+// 適合 A2 入門 / 海外華人 heritage learners 視覺優先。option string 格式
+// "🐈 cat" (emoji + space + EN label),renderer split 後 emoji 大字 / label 小字。
+//
+// Differs from emoji-pick: emoji-pick 是 reading prompt → emoji,本題是
+// listening prompt → emoji (blind, 沒看見英文,只聽聲音)。
+const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const word = q.audioWord ?? q.sentence ?? '';
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const [revealed, setRevealed] = useState(false);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [shakeIdx, setShakeIdx] = useState<number | null>(null);
+
+  useEffect(() => {
+    setRevealed(false); setSelected(null); setShakeIdx(null);
+    try { speak(word, 'en-US'); } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  useEffect(() => {
+    if (!revealed) return;
+    const correct = selected === correctIdx;
+    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+    const t = window.setTimeout(() => onAdvance(word), correct ? 2500 : 4000);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+
+  const click = (i: number) => {
+    if (revealed) return;
+    sfxCardPress();
+    if (i === correctIdx) {
+      setSelected(i);
+      setRevealed(true);
+      onAnswer(i, true);
+    } else {
+      try { sfxWrong(); } catch {}
+      setShakeIdx(i);
+      window.setTimeout(() => setShakeIdx(null), 380);
+      // first wrong logs as answer (parity with TapTilesRenderer)
+      setSelected(i);
+      onAnswer(i, false);
+      // 2-strike reveal: show correct after 2 wrong attempts
+    }
+  };
+
+  return (
+    <div className="pickup-lesson-words" style={{ textAlign: 'center', padding: '12px 4px' }}>
+      <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 18 }}>
+        <SpeakerBtn onClick={() => speak(word)} size={56} />
+        <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a' }}>聽聲音 · 選對應的圖</div>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, maxWidth: 360, margin: '0 auto' }}>
+        {opts.map((o, i) => {
+          const [emoji, ...labelParts] = o.split(' ');
+          const label = labelParts.join(' ');
+          const isShaking = shakeIdx === i;
+          const isCorrect = i === correctIdx;
+          const isSel = i === selected;
+          const bg = !revealed
+            ? '#fff'
+            : isCorrect ? '#eaf6d5'
+            : isSel ? '#fde0d2' : '#fff';
+          const border = !revealed
+            ? '#e0d0b8'
+            : isCorrect ? '#7ac74a'
+            : isSel ? '#c84a3a' : '#e0d0b8';
+          return (
+            <button
+              key={i}
+              onClick={() => click(i)}
+              disabled={revealed}
+              aria-label={`${label} ${optsZh[i] || ''}`}
+              className={isShaking ? 'pickup-wobble' : ''}
+              style={{
+                padding: '20px 8px',
+                background: bg,
+                border: `2px solid ${border}`,
+                borderBottom: `4px solid ${revealed && isCorrect ? '#5d9a35' : '#c8a878'}`,
+                borderRadius: 14,
+                cursor: revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+                WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+                minHeight: 120,
+              }}
+            >
+              <span style={{ fontSize: 52, lineHeight: 1 }}>{emoji}</span>
+              {revealed && <span style={{ fontSize: 13, fontWeight: 800, color: '#3c2a1c' }}>{label}{optsZh[i] ? ` · ${optsZh[i]}` : ''}</span>}
+            </button>
+          );
+        })}
+      </div>
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
+// ─── 9. picture-mc (v2.0.B.232 #2) ──────────────────────────────────────────
+// 顯示 1 張圖 (emoji big or img URL), 4 個英文句子選 1 描述。
+// 培養「圖 → 語言」翻譯 (reverse of listen-emoji)。
+const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const prompt = q.question ?? q.questionEn ?? 'Which sentence describes the picture?';
+  const [revealed, setRevealed] = useState(false);
+  const [selected, setSelected] = useState<number | null>(null);
+
+  useEffect(() => {
+    setRevealed(false); setSelected(null);
+    // Auto-read prompt for accessibility / A2 reading-only learners
+    try { speak(prompt, 'en-US'); } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  useEffect(() => {
+    if (!revealed) return;
+    const correct = selected === correctIdx;
+    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+    const t = window.setTimeout(() => onAdvance(opts[correctIdx]), 3000);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+
+  const click = (i: number) => {
+    if (revealed) return;
+    sfxCardPress();
+    setSelected(i);
+    setRevealed(true);
+    onAnswer(i, i === correctIdx);
+  };
+
+  return (
+    <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
+      <SpeakerBadge speaker={q.speaker} />
+      {/* picture block */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '24px 16px', background: '#fff7e8',
+        border: '2px solid #e0d0b8', borderRadius: 16, marginBottom: 14,
+        minHeight: 140,
+      }}>
+        {q.imageUrl ? (
+          <img src={q.imageUrl} alt="" style={{ maxWidth: 200, maxHeight: 160, objectFit: 'contain' }} />
+        ) : (
+          <span style={{ fontSize: 96, lineHeight: 1 }}>{q.imageEmoji ?? '🖼️'}</span>
+        )}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+        <SpeakerBtn onClick={() => speak(prompt)} size={32} />
+        <span style={{ flex: 1, fontSize: 14, fontWeight: 800, color: '#3c2a1c' }}>{prompt}</span>
+      </div>
+      <div className="pickup-answer-sticky">
+        {opts.map((o, i) => {
+          const isCorrect = i === correctIdx;
+          const isSel = i === selected;
+          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
+        })}
+      </div>
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
+// ─── 10. read-and-tap (v2.0.B.232 #3) ───────────────────────────────────────
+// 顯示 1 句英文 + 雙語, 兒童 tap 句中某個關鍵字 (e.g. 'Tap the verb')。
+// 培養語法意識。answer 維度:correctWordIndex 0-indexed against split words.
+const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const en = q.sentence ?? '';
+  const zh = q.sentenceZh ?? '';
+  const prompt = q.promptEn ?? q.question ?? 'Tap the word';
+  const correctIdx = q.correctWordIndex ?? 0;
+  const words = en.split(/\s+/).filter(Boolean);
+  const [tapped, setTapped] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [wrongCount, setWrongCount] = useState(0);
+
+  useEffect(() => {
+    setTapped(null); setRevealed(false); setWrongCount(0);
+    try { speak(en, 'en-US', { onEnd: () => {
+      if (prompt) window.setTimeout(() => { try { speak(prompt); } catch {} }, 400);
+    }}); } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  useEffect(() => {
+    if (!revealed) return;
+    const t = window.setTimeout(() => onAdvance(en), tapped === correctIdx ? 2800 : 3800);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+
+  const tap = (i: number) => {
+    if (revealed) return;
+    sfxCardPress();
+    if (i === correctIdx) {
+      try { sfxCorrect(); } catch {}
+      setTapped(i);
+      setRevealed(true);
+      onAnswer(i, true);
+    } else {
+      try { sfxWrong(); } catch {}
+      setTapped(i);
+      setWrongCount(c => c + 1);
+      if (wrongCount === 0) onAnswer(i, false);
+      if (wrongCount >= 1) {
+        // 2-strike reveal — show correct answer
+        setRevealed(true);
+      }
+      window.setTimeout(() => { if (!revealed) setTapped(null); }, 600);
+    }
+  };
+
+  return (
+    <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
+      <SpeakerBadge speaker={q.speaker} />
+      {/* prompt */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+        <SpeakerBtn onClick={() => speak(prompt)} size={36} />
+        <span style={{ flex: 1, fontSize: 16, fontWeight: 800, color: '#3c2a1c' }}>{prompt}</span>
+      </div>
+      {/* sentence with tappable words */}
+      <div style={{
+        padding: '16px 14px', background: '#fff',
+        border: '2px solid #c8a878', borderRadius: 14, marginBottom: 10,
+        display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
+      }}>
+        {words.map((w, i) => {
+          const isTapped = tapped === i;
+          const isCorrect = i === correctIdx;
+          const bg = !revealed
+            ? isTapped ? '#fde0d2' : '#fff'
+            : isCorrect ? '#eaf6d5' : isTapped && !isCorrect ? '#fde0d2' : '#fff';
+          const border = !revealed
+            ? isTapped ? '#c84a3a' : '#c8a878'
+            : isCorrect ? '#7ac74a' : isTapped && !isCorrect ? '#c84a3a' : '#c8a878';
+          const color = revealed && isCorrect ? '#5d9a35' : '#3c2a1c';
+          return (
+            <button
+              key={i}
+              onClick={() => tap(i)}
+              disabled={revealed}
+              aria-label={`Word ${i + 1}: ${w}`}
+              style={{
+                padding: '6px 12px',
+                background: bg,
+                color,
+                border: `2px solid ${border}`,
+                borderBottom: `3px solid ${revealed && isCorrect ? '#5d9a35' : '#b07a2a'}`,
+                borderRadius: 10,
+                fontSize: 16, fontWeight: 800,
+                cursor: revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit',
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+              }}
+            >
+              {w}
+            </button>
+          );
+        })}
+      </div>
+      {zh && (
+        <div style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', marginBottom: 8 }}>{zh}</div>
+      )}
+      {!revealed && wrongCount === 1 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
+          再試一次 · Try again
+        </div>
+      )}
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
+// ─── 11. drag-blank (v2.0.B.232 #4) ─────────────────────────────────────────
+// 拖字到空格,但 iOS Safari fallback tap-to-place (跟招 7 tap-tiles 同邏輯)。
+// sentenceTemplate 用 __ 表示 blanks;tiles 是 candidate bank;
+// correctTiles 是依序填空答案 (length == __ count)。
+// 為了 A/B testing 跟 tap-tiles 並存。
+const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const template = q.sentenceTemplate ?? '';
+  const tiles = q.tiles ?? [];
+  const correctTiles = q.correctTiles ?? [];
+  const blanksCount = (template.match(/__/g) ?? []).length;
+  // segments: ["I want a ", "__", " for breakfast"] (split keeps blanks empty)
+  const segments = template.split(/__/g);
+  // shuffled candidate order
+  const shuffleOrder = useRef<number[]>([]);
+  const [placements, setPlacements] = useState<(number | null)[]>(() => Array(blanksCount).fill(null));
+  const [wrongFlash, setWrongFlash] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const placed = new Set(placements.filter((x): x is number => x !== null));
+  const nextSlot = placements.findIndex(p => p === null);
+
+  useEffect(() => {
+    shuffleOrder.current = tiles.map((_, i) => i).sort(() => Math.random() - 0.5);
+    setPlacements(Array(blanksCount).fill(null));
+    setWrongFlash(null); setWrongCount(0); setRevealed(false);
+    try { speak((q.sentence || template.replace(/__/g, '...')), 'en-US'); } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  useEffect(() => {
+    if (revealed) return;
+    if (nextSlot === -1) {
+      // all filled — and we only place correct tiles so this is a win
+      setRevealed(true);
+      try { sfxCorrect(); } catch {}
+      onAnswer(0, true);
+      window.setTimeout(() => onAdvance(template.replace(/__/g, '___')), 2800);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextSlot, revealed]);
+
+  const tap = (tileIdx: number) => {
+    if (revealed || placed.has(tileIdx) || nextSlot === -1) return;
+    const tile = tiles[tileIdx];
+    const expected = correctTiles[nextSlot];
+    if (tile === expected) {
+      sfxCardPress();
+      setPlacements(prev => {
+        const next = [...prev];
+        next[nextSlot] = tileIdx;
+        return next;
+      });
+    } else {
+      try { sfxWrong(); } catch {}
+      setWrongFlash(tileIdx);
+      setWrongCount(c => c + 1);
+      if (wrongCount === 0) onAnswer(1, false);
+      window.setTimeout(() => setWrongFlash(null), 380);
+    }
+  };
+
+  // 2-strike hint: highlight correct candidate
+  const hintIdx = wrongCount >= 2 && nextSlot >= 0
+    ? tiles.findIndex((t, i) => !placed.has(i) && t === correctTiles[nextSlot])
+    : -1;
+
+  // render sentence with slot placeholders interleaved
+  const sentenceParts: React.ReactNode[] = [];
+  segments.forEach((seg, i) => {
+    if (seg) sentenceParts.push(<span key={`s${i}`}>{seg}</span>);
+    if (i < segments.length - 1) {
+      const tIdx = placements[i];
+      const filled = tIdx !== null;
+      sentenceParts.push(
+        <span key={`b${i}`} style={{
+          display: 'inline-block', minWidth: filled ? undefined : 56,
+          padding: '2px 10px',
+          background: filled ? '#eaf6d5' : i === nextSlot && !revealed ? '#fef3c7' : '#f1ebe1',
+          color: filled ? '#3c2a1c' : '#a89c80',
+          border: `2px ${filled ? 'solid #7ac74a' : i === nextSlot && !revealed ? 'dashed #e7a44a' : 'dashed #c4b89c'}`,
+          borderRadius: 8,
+          fontSize: 15, fontWeight: 800, lineHeight: 1.2,
+          margin: '0 2px',
+        }}>
+          {filled ? tiles[tIdx!] : '___'}
+        </span>
+      );
+    }
+  });
+
+  return (
+    <div className="pickup-lesson-words">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+        <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'))} size={36} />
+        <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>
+          點字填空 · Tap to fill the blank
+        </div>
+      </div>
+      {/* sentence with slots */}
+      <div style={{
+        minHeight: 60, padding: '14px 12px',
+        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        marginBottom: 14, fontSize: 15, fontWeight: 700, color: '#3c2a1c',
+        lineHeight: 1.9,
+      }}>
+        {sentenceParts}
+      </div>
+      {/* candidate bank */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
+        {shuffleOrder.current.map(tIdx => {
+          const t = tiles[tIdx];
+          const isPlaced = placed.has(tIdx);
+          const isWobble = wrongFlash === tIdx;
+          const isHint = hintIdx === tIdx;
+          return (
+            <button
+              key={tIdx}
+              onClick={() => tap(tIdx)}
+              disabled={revealed || isPlaced}
+              className={isWobble ? 'pickup-wobble' : undefined}
+              aria-label={`Tile: ${t}`}
+              style={{
+                padding: '10px 16px',
+                background: isPlaced ? '#e8dec8' : isHint ? '#fff7e8' : '#fff',
+                color: isPlaced ? '#c8a878' : '#3c2a1c',
+                border: `2px solid ${isHint ? '#e7a44a' : '#c8a878'}`,
+                borderBottom: `3px solid ${isHint ? '#b07a2a' : '#b07a2a'}`,
+                borderRadius: 10,
+                fontSize: 15, fontWeight: 700,
+                cursor: isPlaced || revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit',
+                opacity: isPlaced ? 0.55 : 1,
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+              }}
+            >
+              {t}
+            </button>
+          );
+        })}
+      </div>
+      {q.sentenceZh && (
+        <div style={{ fontSize: 12, color: '#8b6f4a', textAlign: 'center', marginBottom: 6 }}>{q.sentenceZh}</div>
+      )}
+      {!revealed && wrongCount === 1 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
+          再試一次 · Try again
+        </div>
+      )}
+      {!revealed && wrongCount >= 2 && hintIdx >= 0 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
+          🐱 試試亮亮的那個 · Try the highlighted one
+        </div>
+      )}
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
+// ─── 12. speak-back (v2.0.B.232 #5) ─────────────────────────────────────────
+// 錄音對齊,需 Web Speech Recognition API。顯示 sentence + 'Say:' + record button,
+// 抓 user 唸的字 → 字串比對 → 對 / 錯 / try again。兒童發音練習。
+// iOS Safari speech recognition 支援差 → 偵測 → fallback 'tap to skip' (graceful).
+//
+// SpeechRecognition API: Chrome / Edge / Android Chrome 支援良好,iOS Safari
+// (≤17) 完全不支援,Safari 18+ 部分支援。fallback flow:no API → 灰按鈕 +
+// '此裝置不支援錄音 · Tap to skip' (不 crash)。
+interface SpeechRecognitionLike {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  onresult: (e: { results: { 0: { 0: { transcript: string } } } }) => void;
+  onerror: () => void;
+  onend: () => void;
+  start: () => void;
+  stop: () => void;
+}
+const getSpeechRecognition = (): (new () => SpeechRecognitionLike) | null => {
+  if (typeof window === 'undefined') return null;
+  const w = window as unknown as { SpeechRecognition?: new () => SpeechRecognitionLike; webkitSpeechRecognition?: new () => SpeechRecognitionLike };
+  return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
+};
+
+const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const en = q.sentence ?? '';
+  const zh = q.sentenceZh ?? '';
+  const variants = q.acceptableVariants ?? [];
+  const [recording, setRecording] = useState(false);
+  const [transcript, setTranscript] = useState('');
+  const [revealed, setRevealed] = useState(false);
+  const [matched, setMatched] = useState<boolean | null>(null);
+  const SR = getSpeechRecognition();
+  const supported = SR !== null;
+  const recRef = useRef<SpeechRecognitionLike | null>(null);
+
+  useEffect(() => {
+    setRecording(false); setTranscript(''); setRevealed(false); setMatched(null);
+    try { speak(en, 'en-US'); } catch {}
+    return () => {
+      try { recRef.current?.stop(); } catch {}
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  const norm = (s: string) => s.toLowerCase().replace(/[.,!?'"]/g, '').replace(/\s+/g, ' ').trim();
+
+  const judge = (heard: string) => {
+    const target = norm(en);
+    const heardN = norm(heard);
+    if (heardN === target) return true;
+    if (variants.some(v => norm(v) === heardN)) return true;
+    // fuzzy: ≤2 edits for short sentences
+    const len = Math.max(target.length, heardN.length);
+    const tol = len <= 10 ? 1 : len <= 25 ? 2 : 3;
+    return editDistance(target, heardN) <= tol;
+  };
+
+  const startRec = () => {
+    if (!SR || revealed) return;
+    try {
+      const rec = new SR();
+      rec.continuous = false;
+      rec.interimResults = false;
+      rec.lang = 'en-US';
+      rec.onresult = (e) => {
+        const heard = e.results[0][0].transcript;
+        setTranscript(heard);
+        const ok = judge(heard);
+        setMatched(ok);
+        setRevealed(true);
+        try { (ok ? sfxCorrect : sfxWrong)(); } catch {}
+        onAnswer(ok ? 0 : 1, ok);
+        window.setTimeout(() => onAdvance(en), ok ? 3000 : 5000);
+      };
+      rec.onerror = () => { setRecording(false); };
+      rec.onend = () => { setRecording(false); };
+      recRef.current = rec;
+      setRecording(true);
+      rec.start();
+    } catch {
+      setRecording(false);
+    }
+  };
+
+  const skip = () => {
+    if (revealed) return;
+    sfxCardPress();
+    setRevealed(true);
+    setMatched(null);
+    onAnswer(0, true); // skip counts as pass to not punish unsupported devices
+    window.setTimeout(() => onAdvance(en), 1500);
+  };
+
+  return (
+    <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
+      <SpeakerBadge speaker={q.speaker} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+        <SpeakerBtn onClick={() => speak(en)} size={44} />
+        <span style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.6 }}>{en}</span>
+      </div>
+      {zh && (
+        <div style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', marginBottom: 10 }}>{zh}</div>
+      )}
+      <div style={{ textAlign: 'center', padding: '14px 0' }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: '#8b6f4a', marginBottom: 12 }}>Say:</div>
+        {supported ? (
+          <button
+            onClick={startRec}
+            disabled={recording || revealed}
+            aria-label="Record your voice"
+            className={recording ? 'pickup-pulse' : ''}
+            style={{
+              width: 96, height: 96, borderRadius: '50%',
+              background: recording ? '#c84a3a' : revealed ? '#c8a878' : '#e7a44a',
+              border: 'none', borderBottom: '5px solid #b07a2a',
+              color: '#fff', fontSize: 38,
+              cursor: recording || revealed ? 'default' : 'pointer',
+              touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+            }}
+          >
+            🎤
+          </button>
+        ) : (
+          <button
+            onClick={skip}
+            disabled={revealed}
+            style={{
+              padding: '14px 20px', background: '#c8a878',
+              color: '#fff', border: 'none', borderBottom: '4px solid #8b6f4a',
+              borderRadius: 12, fontSize: 14, fontWeight: 800,
+              cursor: revealed ? 'default' : 'pointer', fontFamily: 'inherit',
+              maxWidth: 320,
+            }}
+          >
+            此裝置不支援錄音 · Tap to skip
+          </button>
+        )}
+        <div style={{ fontSize: 12, color: '#8b6f4a', marginTop: 10, fontWeight: 700 }}>
+          {recording ? '錄音中… · Listening…' : supported && !revealed ? '點麥克風開始 · Tap mic to start' : ''}
+        </div>
+      </div>
+      {revealed && transcript && (
+        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: '#fef8ed', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
+          <div>聽到 · Heard: <strong>{transcript}</strong></div>
+          <div style={{ marginTop: 4, color: matched ? '#5d9a35' : '#a23829', fontWeight: 800 }}>
+            {matched ? '✓ 太棒了!' : '× 再練習一次'}
+          </div>
+        </div>
+      )}
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
 // ─── registry ───────────────────────────────────────────────────────────────
 export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'narration': NarrationRenderer,
@@ -725,12 +1332,18 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'listen-tf-zh': ListenTfRenderer,
   'listen-mc': ListenMcRenderer,
   'listen-comprehension': ListenMcRenderer,
-  'listen-emoji': ListenMcRenderer,
+  // v2.0.B.232: listen-emoji 從 ListenMcRenderer 改自己的 big-emoji renderer
+  'listen-emoji': ListenEmojiRenderer,
   'read-mc-with-audio': ListenMcRenderer,
   'type-what-you-hear': TypeWhatYouHearRenderer,
   'tap-tiles': TapTilesRenderer,
   'tap-pairs': TapPairsRenderer,
   'emoji-pick': EmojiPickRenderer,
+  // v2.0.B.232 new types (TODO content expansion)
+  'picture-mc': PictureMcRenderer,
+  'read-and-tap': ReadAndTapRenderer,
+  'drag-blank': DragBlankRenderer,
+  'speak-back': SpeakBackRenderer,
 };
 
 // Fallback for unknown types

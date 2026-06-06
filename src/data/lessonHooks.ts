@@ -76,6 +76,14 @@ export const LESSON_HOOKS: Record<string, LessonHook> = {
   'kt-ch7-l5': { type: 'B2',        inquiry: '她會被認出嗎?誰已經盯著她?' },
   'kt-ch7-l6': { type: 'B1',        inquiry: '鞋掉了會落到誰手上?' },
   'kt-ch7-l7': { type: 'B2 big',    inquiry: '失去的支持回來了 — 你的呢?' },
+  // Ch8 三隻小豬 (Three Little Pigs, URL pipeline ship 2026-06-06, B.234+)
+  'kt-ch8-l1': { type: 'B6',        inquiry: '狼真的會來?三個都安全?' },
+  'kt-ch8-l2': { type: 'B1',        inquiry: '草屋能撐多久?今晚就倒嗎?' },
+  'kt-ch8-l3': { type: 'B4',        inquiry: '是誰來了?是狼嗎?' },
+  'kt-ch8-l4': { type: 'B3',        inquiry: '第一隻會回答?狼接下來做什麼?' },
+  'kt-ch8-l5': { type: 'B2',        inquiry: '木屋能擋住嗎?還是也會倒?' },
+  'kt-ch8-l6': { type: 'B6',        inquiry: '磚屋能撐?還是狼也吹得倒?' },
+  'kt-ch8-l7': { type: 'B6 open',   inquiry: '安全了嗎?狼還在森林裡 — 還會回來?' },
 };
 
 export function getLessonHook(lessonId: string): LessonHook | null {

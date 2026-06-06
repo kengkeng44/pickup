@@ -198,7 +198,9 @@ export class LessonScene extends Phaser.Scene {
     // v2.0.B.203: ChapterId now includes 0 (Intro). Legacy Phaser path falls
     // back to Ch1 meta for Intro since Phaser scene is React-deprecated and
     // Intro navigation goes through React routes.
-    const phaserChapter = (this.chapter === 0 ? 1 : this.chapter) as Exclude<ChapterId, 0>;
+    // v2.0.B.236: ChapterId extended to 8 (Three Pigs). Phaser dead code, but
+    // tsc still scans — cast to any to avoid ChapterMeta widening.
+    const phaserChapter = (this.chapter === 0 || this.chapter === 8 ? 1 : this.chapter) as Exclude<ChapterId, 0 | 8>;
     // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 for type narrowing
     const ch = CHAPTER_META[phaserChapter] ?? CHAPTER_META[1]!;
     const meta = {

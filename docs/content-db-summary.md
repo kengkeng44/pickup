@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-06T14:50:44.267Z
+**Generated**: 2026-06-06T15:12:10.179Z
 
 ## Aggregate
 
-- **Total Q**: 539
-- **Total play time est**: 210 min
+- **Total Q**: 616
+- **Total play time est**: 237 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -20,6 +20,7 @@
 | 5 | Baba Yaga | 7 | 77 | 11.0 | 261s/lesson ✓ | 0% | ✓ |
 | 6 | 六隻天鵝 | 7 | 77 | 11.0 | 285s/lesson ✓ | 0% | ✓ |
 | 7 | 葉限 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
+| 8 | 三隻小豬 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -77,6 +78,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch7-l5` | 洞節之夜 — 她會被認出嗎? | B2 | 她會被認出嗎?誰已經盯著她? | [yexian.md#beat-5](../docs/canon/yexian.md#beat-5) |
 | `kt-ch7-l6` | 掉了一隻金鞋 — 鞋會落到誰手上? | B1 | 鞋掉了會落到誰手上? | [yexian.md#beat-6](../docs/canon/yexian.md#beat-6) |
 | `kt-ch7-l7` | 國王找到她 — 鞋滑上腳像水 | B2 big | 失去的支持回來了 — 你的呢? | [yexian.md#beat-7](../docs/canon/yexian.md#beat-7) |
+| `kt-ch8-l1` | 三兄弟離家 — 媽媽說:小心狼 | B6 | 狼真的會來?三個都安全? | [three-pigs.md#beat-1-setup](../docs/canon/three-pigs.md#beat-1-setup) |
+| `kt-ch8-l2` | 草屋蓋好 — 風吹草搖 | B1 | 草屋能撐多久?今晚就倒嗎? | [three-pigs.md#beat-2-straw-house](../docs/canon/three-pigs.md#beat-2-straw-house) |
+| `kt-ch8-l3` | 木屋蓋好 — 遠處腳步聲 | B4 | 是誰來了?是狼嗎? | [three-pigs.md#beat-3-wood-house](../docs/canon/three-pigs.md#beat-3-wood-house) |
+| `kt-ch8-l4` | 大野狼敲草屋的門 | B3 | 第一隻會回答?狼接下來做什麼? | [three-pigs.md#beat-4-wolf-arrives](../docs/canon/three-pigs.md#beat-4-wolf-arrives) |
+| `kt-ch8-l5` | 草屋倒了 — 木屋擋得住嗎? | B2 | 木屋能擋住嗎?還是也會倒? | [three-pigs.md#beat-5-huff-puff](../docs/canon/three-pigs.md#beat-5-huff-puff) |
+| `kt-ch8-l6` | 木屋倒了 — 磚屋是希望 | B6 | 磚屋能撐?還是狼也吹得倒? | [three-pigs.md#beat-6-wood-falls](../docs/canon/three-pigs.md#beat-6-wood-falls) |
+| `kt-ch8-l7` | 磚屋擋住狼 — 但狼還在外面 | B6 open | 安全了嗎?狼還在森林裡 — 還會回來? | [three-pigs.md#beat-7-brick-wins](../docs/canon/three-pigs.md#beat-7-brick-wins) |
 
 ## Q type distribution per chapter
 
@@ -89,3 +97,4 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 5 | 7 | 6 | 14 | 7 | 36 | 7 |
 | 6 | 7 | 7 | 21 | 7 | 28 | 7 |
 | 7 | 7 | 7 | 14 | 7 | 35 | 7 |
+| 8 | 7 | 0 | 15 | 7 | 41 | 7 |

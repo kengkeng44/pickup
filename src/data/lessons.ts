@@ -70,6 +70,50 @@ export const EmojiPickSchema = FourOptionShape.extend({
   type: z.literal('emoji-pick'),
 });
 
+// v2.0.B.232 (TODO content expansion 1/5): picture-mc — 顯示 1 張圖
+// (emoji big or img URL), 4 個英文句子選 1 描述。培養「圖 → 語言」翻譯。
+// imageEmoji 與 imageUrl 至少要有一個 (cross-field guard in QuestionSchema).
+export const PictureMcSchema = FourOptionShape.extend({
+  type: z.literal('picture-mc'),
+  imageEmoji: z.string().optional(),
+  imageUrl: z.string().optional(),
+});
+
+// v2.0.B.232 (TODO content expansion 2/5): read-and-tap — 顯示 1 句英文,
+// 兒童 tap 某個關鍵字 (e.g. tap the verb)。培養語法意識。
+// correctWordIndex 0-indexed against sentence.split(/\s+/).
+export const ReadAndTapSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('read-and-tap'),
+  sentenceZh: z.string(),
+  promptEn: z.enum(['Tap the verb', 'Tap the noun', 'Tap the color word', 'Tap the adjective', 'Tap the animal']),
+  correctWordIndex: z.number().int().nonnegative(),
+});
+
+// v2.0.B.232 (TODO content expansion 3/5): drag-blank — 拖字到空格,
+// 但 iOS Safari fallback tap-to-place (跟招 7 tap-tiles 同邏輯)。
+// sentenceTemplate 用 __ 表示 blanks;tiles 是 candidate bank;
+// correctTiles 是依序填空答案 (length == sentenceTemplate 的 __ 數量)。
+export const DragBlankSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('drag-blank'),
+  sentenceTemplate: z.string(),
+  sentenceZh: z.string(),
+  tiles: z.array(z.string()).min(2).max(12),
+  correctTiles: z.array(z.string()).min(1).max(6),
+});
+
+// v2.0.B.232 (TODO content expansion 4/5): speak-back — 錄音對齊,
+// 需 Web Speech Recognition API。顯示 sentence + 'Say:' + record button,
+// 抓 user 唸的字 → 字串比對 → 對 / 錯 / try again。
+// iOS Safari speech recognition 支援差, 偵測 → fallback 'tap to skip'。
+export const SpeakBackSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('speak-back'),
+  sentenceZh: z.string(),
+  acceptableVariants: z.array(z.string()).optional(),
+});
+
 // v2.0.B.145: Duolingo Stories format — narration chunks + Chinese true/false.
 // Narration = story sentence, no answer, just listening + tap-reveal practice.
 export const NarrationSchema = z.object({
@@ -130,6 +174,11 @@ const QuestionUnion = z.discriminatedUnion('type', [
   ListenTfZhSchema,
   ListenTfSchema,
   EmojiPickSchema,
+  // v2.0.B.232 new types
+  PictureMcSchema,
+  ReadAndTapSchema,
+  DragBlankSchema,
+  SpeakBackSchema,
 ]);
 
 // Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.
@@ -143,6 +192,43 @@ export const QuestionSchema = QuestionUnion.superRefine((data, ctx) => {
         code: z.ZodIssueCode.custom,
         message: 'correctOrder indices must be < tiles.length',
         path: ['correctOrder'],
+      });
+    }
+  }
+  // v2.0.B.232 cross-field guards for new question types.
+  if (data.type === 'picture-mc') {
+    if (!data.imageEmoji && !data.imageUrl) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'picture-mc requires imageEmoji or imageUrl',
+        path: ['imageEmoji'],
+      });
+    }
+  }
+  if (data.type === 'read-and-tap') {
+    const words = data.sentence.split(/\s+/).filter(Boolean);
+    if (data.correctWordIndex >= words.length) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'correctWordIndex must be < sentence word count',
+        path: ['correctWordIndex'],
+      });
+    }
+  }
+  if (data.type === 'drag-blank') {
+    const blanks = (data.sentenceTemplate.match(/__/g) ?? []).length;
+    if (blanks !== data.correctTiles.length) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `sentenceTemplate has ${blanks} blanks but correctTiles has ${data.correctTiles.length}`,
+        path: ['correctTiles'],
+      });
+    }
+    if (!data.correctTiles.every((t) => data.tiles.includes(t))) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'every correctTile must appear in tiles bank',
+        path: ['correctTiles'],
       });
     }
   }
@@ -165,10 +251,13 @@ export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 
 // v2.0.B.204: Ch1 (rainy-night-cat) dropped, Ch2-8 renumbered to Ch1-7.
 // Intro (ch0) → Ch1 桃太郎 → ... → Ch7 葉限. Schema keeps 0-7 (was 0-8).
+// v2.0.B.234+: Ch8 三隻小豬 (Three Little Pigs) URL pipeline ship 2026-06-06.
+// Schema bumped 0-7 → 0-8 to accept ch=8 lessons.
 export const ChapterIdSchema = z.union([
   z.literal(0),
   z.literal(1), z.literal(2), z.literal(3),
   z.literal(4), z.literal(5), z.literal(6), z.literal(7),
+  z.literal(8),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 
