@@ -166,6 +166,7 @@
 | 答對 microcopy | "好厲害!" / "貓咪相信你!" / "Brave!" (兒童式鼓勵) |
 | Ch1 故事場景 | 桃太郎 — 奶奶說故事 Mochi 跟 Hana 趴在腳邊聽 |
 | Ch2-7 童話 | 醜小鴨 / 龜兔賽跑 / 駱駝駝峰 / Baba Yaga / 六天鵝 / 葉限 |
+| Ch8 童話 | 🐷 三隻小豬 (Three Little Pigs) — 公有領域 |
 
 > **「下班逃逸」/「愛哭鬼但堅韌」概念預留給未來 sibling app (Phase 3)**, 不打掉, 但 Pickup 本身不再用。
 
@@ -193,7 +194,7 @@
 | 5 | 🐪 駱駝為什麼有駝峰 | Kipling "O Best Beloved" 第二人稱 | 蘆葦與橡樹 / 老鼠開會 |
 | 6 | 🏚️ Baba Yaga 雞腳屋 | 黑暗民俗 sparse | 漁夫與妻子 / 七張床 |
 | 7 | 🦢 六隻天鵝(Grimm 冷門) | 無對話詩意 narration | 三個願望 / 老鼠新娘 |
-| 8 | 🏺 葉限(唐代 灰姑娘原型) | 雙語 code-switch | 田螺姑娘 / 嫦娥奔月 |
+| 8 | 🐷 三隻小豬 (Three Little Pigs) — 公有領域 (Joseph Jacobs 1890) | 對話體 + 三段式重複 (huff/puff/blow) | 田螺姑娘 / 嫦娥奔月 |
 
 ### 章內結構 (Duolingo-nested,每章 24 lessons,每 lesson 5-15 Q)
 

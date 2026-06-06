@@ -142,18 +142,20 @@ describe('userProfile reader', () => {
 describe('recommendNextStories — Phase 1 rule engine', () => {
   const pool = defaultCandidatePool();
 
-  it('cold start: no completed + empty preferredTags → elective top pick is Ch1 (meta-anchor)', () => {
+  it('cold start: no completed + empty preferredTags → elective top pick is Ch0 (ground floor, B.237)', () => {
     const res = recommendNextStories(
       {
         completedChapters: new Set(),
         hookCompletionByType: zeroHook(),
         preferredTags: [],
+        // Explicit A0 to mirror the B.237 cold-start branch (no profile → A0).
+        abilityLevel: 'A0',
       },
       pool,
     );
-    // Ch2 + Ch3 are core canon → not in elective.
-    // Cold-start prior favours lowest chapter id, so Ch1 leads the elective.
-    expect(res.elective[0].chapter).toBe(1);
+    // v2.0.B.237: Ch0 ground floor now exists. Cold-start prior favours
+    // lowest chapter id, so Ch0 leads the elective for absolute beginners.
+    expect(res.elective[0].chapter).toBe(0);
     expect(res.elective[0].score).toBeGreaterThan(0);
   });
 
@@ -264,7 +266,9 @@ describe('recommendNextStories — Phase 1 rule engine', () => {
   it('All chapters completed → elective empty, core still present', () => {
     const res = recommendNextStories(
       {
-        completedChapters: new Set([1, 2, 3, 4, 5, 6, 7, 8]),
+        // v2.0.B.237: include Ch0 ground floor in completion set so elective
+        // truly drains to empty (Ch0 was added to STORY_TAGS in B.237).
+        completedChapters: new Set([0, 1, 2, 3, 4, 5, 6, 7, 8]),
         hookCompletionByType: zeroHook(),
         preferredTags: ['animal'],
       },

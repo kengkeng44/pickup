@@ -200,7 +200,9 @@ export class LessonScene extends Phaser.Scene {
     // Intro navigation goes through React routes.
     // v2.0.B.236: ChapterId extended to 8 (Three Pigs). Phaser dead code, but
     // tsc still scans — cast to any to avoid ChapterMeta widening.
-    const phaserChapter = (this.chapter === 0 || this.chapter === 8 ? 1 : this.chapter) as Exclude<ChapterId, 0 | 8>;
+    // v2.0.B.237: ChapterId 0-9 (Cinderella ship). Phaser scene 走 React 路由
+    // 棄用, Ch0/Ch8/Ch9 都 fallback Ch1 meta 避免 widening.
+    const phaserChapter = (this.chapter === 0 || this.chapter === 8 || this.chapter === 9 ? 1 : this.chapter) as Exclude<ChapterId, 0 | 8 | 9>;
     // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 for type narrowing
     const ch = CHAPTER_META[phaserChapter] ?? CHAPTER_META[1]!;
     const meta = {

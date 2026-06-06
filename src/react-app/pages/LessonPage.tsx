@@ -18,7 +18,9 @@ import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data
 import { track, EVENT } from '../../analytics/posthog';
 import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
 import { getLessonHook } from '../../data/lessonHooks';
+import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
+import ShareModal from '../components/ShareModal';
 import {
   evaluateTriggers,
   scheduleNotif,
@@ -180,6 +182,10 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
   // L3+ first time `shouldShowSoftPrompt()` evaluates truthy. Inside
   // useState init so we evaluate once per panel mount, not every render.
   const [showConsent, setShowConsent] = useState(false);
+  // v2.0.B.235 招 4: 分享金句 modal visibility — only opens when user taps
+  // the share button. KeySentence resolved lazily from chapter + lessonId.
+  const [showShare, setShowShare] = useState(false);
+  const keySentence: KeySentence | null = getKeySentenceForLesson(lesson.chapter, lesson.id);
 
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
@@ -293,6 +299,30 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           marginRight: 'auto',
         }}>想知道:{hook.inquiry}</div>
       )}
+      {/* v2.0.B.235 招 4: 分享金句 button. Surfaces ABOVE Continue per design
+          (Duolingo's "share result" pattern). Hidden if chapter has no
+          KeySentence (defensive — currently Ch1-8 all have ≥1 entry). */}
+      {keySentence && (
+        <button
+          onClick={() => {
+            setShowShare(true);
+            try { track(EVENT.LESSON_COMPLETE, { share_modal_opened: true, lesson_id: lesson.id, chapter: lesson.chapter }); } catch {}
+          }}
+          aria-label="Share key sentence"
+          style={{
+            padding: '14px 20px', background: '#fff7e8', color: '#7a5e25',
+            border: '2px solid #e7a44a', borderBottom: '4px solid #b07a2a',
+            borderRadius: 14, fontSize: 15, fontWeight: 800,
+            cursor: 'pointer', fontFamily: 'inherit',
+            width: '100%', maxWidth: 420, marginBottom: 10,
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+          }}
+        >
+          <span aria-hidden="true">📤</span>
+          <span>分享金句 · Share</span>
+        </button>
+      )}
       {/* v2.0.B.187 P2-D: Continue 全寬,senior instinct 對齊 */}
       <button onClick={onBack} style={{
         padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
@@ -316,6 +346,15 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
             try { bootScheduler(); } catch {}
           }}
           onDecline={() => setShowConsent(false)}
+        />
+      )}
+
+      {/* v2.0.B.235 招 4: 分享金句 modal — only mounts when explicitly opened. */}
+      {showShare && keySentence && (
+        <ShareModal
+          sentence={keySentence}
+          chapter={lesson.chapter}
+          onClose={() => setShowShare(false)}
         />
       )}
     </div>

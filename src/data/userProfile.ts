@@ -1,5 +1,7 @@
 /**
  * v2.0.B.235 — User profile reader for recommendation engine (Phase 1).
+ * v2.0.B.237 — adds AbilityLevel + inferAbilityLevel() for adaptive
+ *              chapter recommendation (零基礎 / A0 path support).
  *
  * Distills the raw player save state into a UserProfile shape the rule-based
  * engine in storyRecommend.ts can consume. P1 reads:
@@ -9,10 +11,22 @@
  *                           or chapter explicitly flagged complete)
  *   - hookCompletionByType → P1 hardcoded stub (PostHog wiring is P2 work)
  *   - preferredTags        → inferred from completed chapters' tag overlap
+ *   - abilityLevel         → A0 / A1 / A2 / A2+ inferred from completion
+ *                           history + answer accuracy stub (PostHog wiring P2)
  *
  * Stays pure-read — never writes to localStorage.
  */
 import { STORY_TAGS, type HookType, type TagId } from './storyTags';
+
+/**
+ * v2.0.B.237 — CEFR-aligned ability tier used by chapter recommender.
+ *
+ *   - 'A0'  = pre-A1 / 零基礎 / 沒玩過, 推 Ch0 ground floor
+ *   - 'A1'  = 完了 Ch0, 還沒進 A2 主章
+ *   - 'A2'  = 完成 ≥ 2 主章 + 答對率 > 70%
+ *   - 'A2+' = 完成 ≥ 5 主章 + 答對率 > 85% (詩意 / dark 章節 ok)
+ */
+export type AbilityLevel = 'A0' | 'A1' | 'A2' | 'A2+';
 
 export interface UserProfile {
   /** chapter ids the user has substantively completed */
@@ -21,6 +35,12 @@ export interface UserProfile {
   hookCompletionByType: Record<HookType, number>;
   /** tag ids the user has shown affinity for (tally from completed chapters) */
   preferredTags: TagId[];
+  /**
+   * v2.0.B.237: CEFR-aligned ability tier for adaptive recommendation.
+   * Optional for back-compat with pre-B.237 tests; engine defaults to 'A2'
+   * when missing so legacy callers see the same behaviour they did before.
+   */
+  abilityLevel?: AbilityLevel;
 }
 
 // Threshold: ≥ this many completed lessons → mark chapter as "consumed enough"
@@ -49,22 +69,144 @@ function safeJsonArray(raw: string | null): unknown[] {
 /**
  * Read completed chapters from localStorage. Threshold = at least N
  * completed lesson ids in `pickup.chapter.{ch}.lessons.completed`.
+ *
+ * v2.0.B.237: range bumped 1..8 → 0..9 so Ch0 ground floor + future Ch9
+ * (灰姑娘) can register completion. Ch0 has only 7 lessons → uses a
+ * separate, lower threshold so finishing the ground floor counts.
  */
 export function readCompletedChapters(
   threshold: number = CHAPTER_COMPLETE_LESSON_THRESHOLD,
 ): Set<number> {
   const out = new Set<number>();
   if (!isLocalStorageAvailable()) return out;
-  for (let ch = 1; ch <= 8; ch++) {
+  for (let ch = 0; ch <= 9; ch++) {
     try {
       const raw = localStorage.getItem(`pickup.chapter.${ch}.lessons.completed`);
       const arr = safeJsonArray(raw);
-      if (arr.length >= threshold) out.add(ch);
+      // Ch0 ground floor has 7 lessons; use 5 as completion threshold so
+      // pre-A1 users get credit when they've done the bulk of ground work.
+      const effectiveThreshold = ch === 0 ? 5 : threshold;
+      if (arr.length >= effectiveThreshold) out.add(ch);
     } catch {
       // ignore
     }
   }
   return out;
+}
+
+// ─── v2.0.B.237: Ability inference ──────────────────────────────────────────
+
+const ABILITY_STORAGE_KEY = 'pickup.ability.level';
+const ANSWER_STATS_KEY = 'pickup.stats.answer';
+
+/**
+ * Tunables for ability promotion thresholds. Exported for tests + future
+ * PostHog-driven re-tune.
+ */
+export const ABILITY_THRESHOLDS = {
+  /** A1 promotion: must have completed at least Ch0 ground floor */
+  A1_REQUIRES_CH0: 0,
+  /** A2 promotion: completed ≥ N main chapters (1..8 range) */
+  A2_MIN_MAIN_CHAPTERS: 2,
+  /** A2 promotion: answer accuracy must exceed this fraction */
+  A2_MIN_ACCURACY: 0.7,
+  /** A2+ promotion: completed ≥ N main chapters */
+  A2_PLUS_MIN_MAIN_CHAPTERS: 5,
+  /** A2+ promotion: answer accuracy must exceed this fraction */
+  A2_PLUS_MIN_ACCURACY: 0.85,
+} as const;
+
+/**
+ * Read answer-accuracy stub from localStorage (P1) — `{ correct, total }`.
+ * P2 will be PostHog event-derived. Empty / missing → returns 0/0.
+ */
+export function readAnswerAccuracy(): { correct: number; total: number; rate: number } {
+  if (!isLocalStorageAvailable()) return { correct: 0, total: 0, rate: 0 };
+  try {
+    const raw = localStorage.getItem(ANSWER_STATS_KEY);
+    if (!raw) return { correct: 0, total: 0, rate: 0 };
+    const parsed = JSON.parse(raw);
+    const correct = Number(parsed?.correct ?? 0);
+    const total = Number(parsed?.total ?? 0);
+    if (!Number.isFinite(correct) || !Number.isFinite(total) || total <= 0) {
+      return { correct: 0, total: 0, rate: 0 };
+    }
+    return { correct, total, rate: correct / total };
+  } catch {
+    return { correct: 0, total: 0, rate: 0 };
+  }
+}
+
+/**
+ * Read the explicit level-test result from localStorage (set by LevelTest.tsx).
+ * Returns null if user never took the test or chose "I am beginner" path.
+ */
+export function readExplicitAbilityLevel(): AbilityLevel | null {
+  if (!isLocalStorageAvailable()) return null;
+  try {
+    const raw = localStorage.getItem(ABILITY_STORAGE_KEY);
+    if (!raw) return null;
+    if (raw === 'A0' || raw === 'A1' || raw === 'A2' || raw === 'A2+') return raw;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Infer CEFR-aligned ability tier from save state.
+ *
+ * Order of precedence:
+ *   1. explicit `pickup.ability.level` (LevelTest result or "I am beginner")
+ *   2. derived from completedChapters + answer accuracy
+ *      - no completed chapters at all → 'A0' (ground floor recommended)
+ *      - Ch0 done, no main chapters → 'A1'
+ *      - ≥ 5 main chapters + ≥ 85% accuracy → 'A2+'
+ *      - ≥ 2 main chapters + ≥ 70% accuracy → 'A2'
+ *      - default fallback → 'A1'
+ *
+ * Pure-read. Tests stub localStorage + override args.
+ */
+export function inferAbilityLevel(
+  completedChapters?: Set<number>,
+  accuracy?: { correct: number; total: number; rate: number },
+): AbilityLevel {
+  const explicit = readExplicitAbilityLevel();
+  if (explicit) return explicit;
+
+  const completed = completedChapters ?? readCompletedChapters();
+  const acc = accuracy ?? readAnswerAccuracy();
+
+  const mainChapterCount = [...completed].filter((ch) => ch >= 1 && ch <= 8).length;
+  const hasCh0 = completed.has(0);
+
+  // Cold start — nothing completed, no level test taken
+  if (completed.size === 0) return 'A0';
+
+  // Promoted to A2+: power user, ≥ 5 main chapters at ≥ 85% accuracy
+  if (
+    mainChapterCount >= ABILITY_THRESHOLDS.A2_PLUS_MIN_MAIN_CHAPTERS &&
+    acc.rate >= ABILITY_THRESHOLDS.A2_PLUS_MIN_ACCURACY
+  ) {
+    return 'A2+';
+  }
+
+  // A2: ≥ 2 main chapters at ≥ 70% accuracy
+  if (
+    mainChapterCount >= ABILITY_THRESHOLDS.A2_MIN_MAIN_CHAPTERS &&
+    acc.rate >= ABILITY_THRESHOLDS.A2_MIN_ACCURACY
+  ) {
+    return 'A2';
+  }
+
+  // Ch0 done, no main chapter qualifying yet → A1
+  if (hasCh0 && mainChapterCount === 0) return 'A1';
+
+  // Partial main progress that didn't hit A2 threshold → A1 (still warming up)
+  if (mainChapterCount >= 1) return 'A1';
+
+  // Fallback
+  return 'A0';
 }
 
 /**
@@ -118,6 +260,8 @@ export function inferPreferredTags(
  *
  * `overrides` lets callers (tests, debug UI, future PostHog wiring)
  * substitute any field without rewriting save state.
+ *
+ * v2.0.B.237: now also populates `abilityLevel` via inferAbilityLevel().
  */
 export function readUserProfile(overrides?: Partial<UserProfile>): UserProfile {
   const completedChapters = overrides?.completedChapters ?? readCompletedChapters();
@@ -125,7 +269,9 @@ export function readUserProfile(overrides?: Partial<UserProfile>): UserProfile {
     overrides?.hookCompletionByType ?? readHookCompletionByType();
   const preferredTags =
     overrides?.preferredTags ?? inferPreferredTags(completedChapters);
-  return { completedChapters, hookCompletionByType, preferredTags };
+  const abilityLevel =
+    overrides?.abilityLevel ?? inferAbilityLevel(completedChapters);
+  return { completedChapters, hookCompletionByType, preferredTags, abilityLevel };
 }
 
 export const USER_PROFILE_DEFAULTS = {

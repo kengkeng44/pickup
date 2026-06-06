@@ -26,12 +26,14 @@ const PUBLIC = path.join(ROOT, 'public');
 
 // v2.0.B.204: 刪原 Ch1 (rainy-night-cat) + Ch2-8 renumber 成 Ch1-7
 // Intro → Ch1 桃太郎 → Ch2 醜小鴨 → ... → Ch7 葉限
-const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+// v2.0.B.236+: Ch9 灰姑娘 (Cinderella Perrault 1697) URL pipeline ship.
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
   1: '桃太郎', 2: '醜小鴨', 3: '龜兔賽跑',
   4: '駱駝為什麼有駝峰', 5: 'Baba Yaga', 6: '六隻天鵝', 7: '葉限',
   8: '三隻小豬',
+  9: '灰姑娘',
 };
 const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
 

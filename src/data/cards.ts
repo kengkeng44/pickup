@@ -199,7 +199,7 @@ export const CARDS: CharacterCard[] = [
     unlock: { chapter: 7, lessonId: 'kt-ch7-l1' },
   },
 
-  // ─── Ch8 葉限 ───────────────────────────────────────────────────────────────
+  // ─── Ch8 葉限 (legacy — chapter pivoted to Three Little Pigs in B.236) ─────
   {
     id: 'ye-xian',
     nameZh: '葉限',
@@ -212,6 +212,60 @@ export const CARDS: CharacterCard[] = [
     unlockHintZh: '完成第 8 章第 1 課',
     unlockHintEn: 'Complete Ch8 lesson 1',
     unlock: { chapter: 8, lessonId: 'kt-ch8-l1' },
+  },
+
+  // ─── Ch8 三隻小豬 Three Little Pigs (B.236 ship) ───────────────────────────
+  {
+    id: 'pig-straw',
+    nameZh: '草屋小豬',
+    nameEn: 'Pig Straw',
+    chapter: 8,
+    chapterTitleZh: '三隻小豬',
+    emoji: '🐷',
+    bioEn: 'The first little pig. He built his house with straw — fast and easy.',
+    bioZh: '第一隻小豬。他用稻草蓋房子,又快又輕鬆。',
+    unlockHintZh: '完成第 8 章第 1 課 解鎖草屋小豬',
+    unlockHintEn: 'Complete Ch8 lesson 1 to meet the straw-house pig',
+    unlock: { chapter: 8, lessonId: 'kt-ch8-l1' },
+  },
+  {
+    id: 'pig-sticks',
+    nameZh: '木屋小豬',
+    nameEn: 'Pig Sticks',
+    chapter: 8,
+    chapterTitleZh: '三隻小豬',
+    emoji: '🐷',
+    bioEn: 'The second little pig. He built his house with sticks — a little stronger.',
+    bioZh: '第二隻小豬。他用木枝蓋房子,稍微堅固一些。',
+    unlockHintZh: '完成第 8 章第 3 課 解鎖木屋小豬',
+    unlockHintEn: 'Complete Ch8 lesson 3 to meet the wood-house pig',
+    unlock: { chapter: 8, lessonId: 'kt-ch8-l3', minChapterLessons: 3 },
+  },
+  {
+    id: 'big-bad-wolf',
+    nameZh: '大野狼',
+    nameEn: 'Big Bad Wolf',
+    chapter: 8,
+    chapterTitleZh: '三隻小豬',
+    emoji: '🐺',
+    bioEn: 'The big bad wolf from the woods. He huffs and puffs — but the brick walls do not move.',
+    bioZh: '住在森林裡的大野狼。他用力吹氣,但磚牆紋風不動。',
+    unlockHintZh: '完成第 8 章第 4 課 解鎖大野狼',
+    unlockHintEn: 'Complete Ch8 lesson 4 to meet the big bad wolf',
+    unlock: { chapter: 8, lessonId: 'kt-ch8-l4', minChapterLessons: 4 },
+  },
+  {
+    id: 'pig-bricks',
+    nameZh: '磚屋小豬',
+    nameEn: 'Pig Bricks',
+    chapter: 8,
+    chapterTitleZh: '三隻小豬',
+    emoji: '🐷',
+    bioEn: 'The third little pig. He took his time and built with bricks — strong and safe.',
+    bioZh: '第三隻小豬。他慢慢來,用磚塊蓋房子,結實又安全。',
+    unlockHintZh: '完成第 8 章第 6 課 解鎖磚屋小豬',
+    unlockHintEn: 'Complete Ch8 lesson 6 to meet the brick-house pig',
+    unlock: { chapter: 8, lessonId: 'kt-ch8-l6', minChapterLessons: 6 },
   },
 ];
 

@@ -1170,6 +1170,198 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── 11.5 listen-build (v2.0.B.237 — blind listen + free build) ─────────────
+//
+// 純聽音檔 → 沒視覺 sentence template → tap tiles 完整建構句子.
+// 跟 tap-tiles 差別: tap-tiles 視覺顯示 sentence (盲聽範圍只在順序), listen-build
+// 連 sentence 都不顯示 (盲聽 + 自由排列). A2 最難的聽力題.
+//
+// Flow:
+//   1. 大喇叭 (常速) + 🐢 慢速 (rate 0.5) 兩顆按鈕.
+//   2. 中段 N 個 slot ____ ____ … (count = correctTiles.length), next slot 琥珀.
+//   3. 下方 tile bank (含 distractors), tap correct tile → 填入 next slot + 鎖.
+//   4. tap wrong tile → wobble + tile 留 bank 可重 tap; 第一次 wrong 記 onAnswer.
+//   5. 2-strike reveal: 第 2 個 wrong 起亮亮的 hint border + Mochi 微文案.
+//   6. 全填 → auto-advance 2.8s + Explanation 雙語.
+const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const sentence = q.sentence ?? '';
+  const zh = q.sentenceZh ?? '';
+  const tiles = q.tiles ?? [];
+  const correctTiles = q.correctTiles ?? [];
+  // Shuffled tile presentation order (stable per question)
+  const shuffleOrder = useRef<number[]>([]);
+  // slots: array<index-into-tiles | null>, length = correctTiles.length
+  const [slots, setSlots] = useState<(number | null)[]>(() => correctTiles.map(() => null));
+  const [wrongFlash, setWrongFlash] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const placed = new Set(slots.filter((x): x is number => x !== null));
+  const nextSlot = slots.findIndex(s => s === null);
+
+  useEffect(() => {
+    shuffleOrder.current = tiles.map((_, i) => i).sort(() => Math.random() - 0.5);
+    setSlots(correctTiles.map(() => null));
+    setWrongFlash(null);
+    setWrongCount(0);
+    setRevealed(false);
+    // Auto-play sentence on mount (盲聽 prompt).
+    try { speak(sentence, 'en-US'); } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  // Detect win (all slots filled — we only allow correct tiles so completion = correct)
+  useEffect(() => {
+    if (revealed) return;
+    if (slots.length > 0 && nextSlot === -1) {
+      setRevealed(true);
+      try { sfxCorrect(); } catch {}
+      onAnswer(0, true);
+      window.setTimeout(() => onAdvance(sentence), 2800);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextSlot, revealed]);
+
+  const tap = (tileIdx: number) => {
+    if (revealed) return;
+    if (placed.has(tileIdx)) return;
+    if (nextSlot === -1) return;
+    const expected = correctTiles[nextSlot];
+    const tileWord = tiles[tileIdx];
+    if (tileWord === expected) {
+      sfxCardPress();
+      setSlots(prev => {
+        const next = [...prev];
+        next[nextSlot] = tileIdx;
+        return next;
+      });
+    } else {
+      try { sfxWrong(); } catch {}
+      setWrongFlash(tileIdx);
+      setWrongCount(c => c + 1);
+      if (wrongCount === 0) onAnswer(1, false);
+      window.setTimeout(() => setWrongFlash(null), 380);
+    }
+  };
+
+  // 2-strike hint: highlight correct tile candidate for next slot.
+  const hintIdx = wrongCount >= 2 && nextSlot >= 0
+    ? tiles.findIndex((t, i) => !placed.has(i) && t === correctTiles[nextSlot])
+    : -1;
+
+  return (
+    <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
+      <SpeakerBadge speaker={q.speaker} />
+      {/* audio pad: big speaker + slow turtle (no visible sentence!) */}
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 10,
+        padding: '14px 16px',
+        background: '#fff7e8', border: '1px solid #e0d0b8',
+        borderRadius: 12, marginBottom: 12,
+      }}>
+        <SpeakerBtn onClick={() => speak(sentence, 'en-US')} size={52} />
+        <button
+          onClick={() => { try { speak(sentence, 'en-US', { rate: 0.5 }); } catch {} }}
+          aria-label="Slow replay"
+          style={{
+            padding: '8px 12px',
+            background: '#fef3c7',
+            color: '#8b6f4a',
+            border: '2px solid #e7a44a',
+            borderBottom: '3px solid #b07a2a',
+            borderRadius: 10,
+            fontSize: 13, fontWeight: 800,
+            cursor: 'pointer', fontFamily: 'inherit',
+            touchAction: 'manipulation',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          🐢 慢速 · Slow
+        </button>
+        <div style={{ flex: 1, fontSize: 12, color: '#8b6f4a', fontWeight: 700, textAlign: 'right' }}>
+          聽聲音排句子
+        </div>
+      </div>
+      {/* ordered slots — fully blind, no sentence template shown */}
+      <div style={{
+        minHeight: 60, padding: '14px 12px',
+        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        marginBottom: 12,
+        display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
+      }}>
+        {slots.map((tIdx, sIdx) => {
+          const filled = tIdx !== null;
+          const isNext = !filled && sIdx === nextSlot && !revealed;
+          return (
+            <span key={sIdx} style={{
+              display: 'inline-block',
+              minWidth: filled ? undefined : 60,
+              padding: filled ? '6px 12px' : '6px 10px',
+              background: filled ? '#eaf6d5' : isNext ? '#fef3c7' : '#f1ebe1',
+              color: filled ? '#3c2a1c' : '#a89c80',
+              border: `2px ${filled ? 'solid #7ac74a' : isNext ? 'dashed #e7a44a' : 'dashed #c4b89c'}`,
+              borderRadius: 8,
+              fontSize: 15, fontWeight: 800, lineHeight: 1.2,
+              textAlign: 'center',
+            }}>
+              {filled ? tiles[tIdx!] : '____'}
+            </span>
+          );
+        })}
+      </div>
+      {/* tile bank — shuffled */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 10 }}>
+        {shuffleOrder.current.map(tIdx => {
+          const t = tiles[tIdx];
+          const isPlaced = placed.has(tIdx);
+          const isWobble = wrongFlash === tIdx;
+          const isHint = hintIdx === tIdx;
+          return (
+            <button
+              key={tIdx}
+              onClick={() => tap(tIdx)}
+              disabled={revealed || isPlaced}
+              className={isWobble ? 'pickup-wobble' : undefined}
+              aria-label={`Tile: ${t}`}
+              style={{
+                padding: '10px 16px',
+                background: isPlaced ? '#e8dec8' : isHint ? '#fff7e8' : '#fff',
+                color: isPlaced ? '#c8a878' : '#3c2a1c',
+                border: `2px solid ${isHint ? '#e7a44a' : '#c8a878'}`,
+                borderBottom: `3px solid ${isHint ? '#b07a2a' : '#b07a2a'}`,
+                borderRadius: 10,
+                fontSize: 15, fontWeight: 700,
+                cursor: isPlaced || revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit',
+                opacity: isPlaced ? 0.55 : 1,
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                transition: 'opacity 200ms ease',
+              }}
+            >
+              {t}
+            </button>
+          );
+        })}
+      </div>
+      {/* 2-strike hint microcopy */}
+      {!revealed && wrongCount === 1 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
+          再聽一次 · Listen again
+        </div>
+      )}
+      {!revealed && wrongCount >= 2 && hintIdx >= 0 && (
+        <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
+          🐱 Mochi 提示: 試試亮亮的那個 · Try the highlighted one
+        </div>
+      )}
+      {revealed && zh && (
+        <div style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', marginTop: 8 }}>{zh}</div>
+      )}
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
 // ─── 12. speak-back (v2.0.B.232 #5) ─────────────────────────────────────────
 // 錄音對齊,需 Web Speech Recognition API。顯示 sentence + 'Say:' + record button,
 // 抓 user 唸的字 → 字串比對 → 對 / 錯 / try again。兒童發音練習。
@@ -1344,6 +1536,8 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'read-and-tap': ReadAndTapRenderer,
   'drag-blank': DragBlankRenderer,
   'speak-back': SpeakBackRenderer,
+  // v2.0.B.237: blind listen + 自由排列 (A2 上限聽力題)
+  'listen-build': ListenBuildRenderer,
 };
 
 // Fallback for unknown types

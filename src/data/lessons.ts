@@ -142,6 +142,25 @@ export const ListenTfSchema = z.object({
   correctIndex: z.union([z.literal(0), z.literal(1)]),
 });
 
+// v2.0.B.237 (TODO content expansion 6/N): listen-build — 純聽音檔 → 沒視覺
+// sentence template → tap tiles 完整建構句子. 跟 tap-tiles 差異: tap-tiles
+// 視覺顯示 sentence, 跟 drag-blank 差異: drag-blank 含部份 sentence + 空格.
+// listen-build = 盲聽 + 自由排列 = 難度最高聽力題, A2 上限.
+//
+// 為 discriminatedUnion 不能 carry ZodEffects, cross-field guard (correctTiles
+// 全在 tiles, distractors >= 1) 寫進下方 QuestionSchema.superRefine().
+export const ListenBuildSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('listen-build'),
+  level: z.literal('A2'),
+  difficulty: DifficultySchema,
+  speaker: z.enum(['narrator', 'mochi', 'hana', 'grandma']),
+  sentence: z.string(),
+  sentenceZh: z.string(),
+  tiles: z.array(z.string()).min(2).max(14),
+  correctTiles: z.array(z.string()).min(1).max(10),
+});
+
 // Variable-length tile bank, no max-4 constraint
 // NOTE: .refine() applied to the discriminated union below (z.discriminatedUnion
 // requires plain ZodObject members; ZodEffects from .refine() breaks it).
@@ -179,6 +198,8 @@ const QuestionUnion = z.discriminatedUnion('type', [
   ReadAndTapSchema,
   DragBlankSchema,
   SpeakBackSchema,
+  // v2.0.B.237 blind listen + 自由排列
+  ListenBuildSchema,
 ]);
 
 // Cross-field guard: tap-tiles correctOrder indices must be < tiles.length.
@@ -232,6 +253,27 @@ export const QuestionSchema = QuestionUnion.superRefine((data, ctx) => {
       });
     }
   }
+  // v2.0.B.237 listen-build cross-field guards.
+  if (data.type === 'listen-build') {
+    // correctTiles 全在 tiles bank 內 (允許重複 word, 用 set 不夠 — 用 array
+    // .includes per item, 重複 tile 視為 bank 有提供即可).
+    if (!data.correctTiles.every((t) => data.tiles.includes(t))) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'every correctTile must appear in tiles bank',
+        path: ['correctTiles'],
+      });
+    }
+    // distractors >= 1 (推薦 2-3): tiles 長度必須 > correctTiles 長度.
+    // Tighten to >= correct + 1 (至少 1 distractor 避免「全填就對」).
+    if (data.tiles.length < data.correctTiles.length + 1) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'tiles bank must contain at least 1 distractor beyond correctTiles',
+        path: ['tiles'],
+      });
+    }
+  }
 });
 
 export type Question = z.infer<typeof QuestionSchema>;
@@ -253,11 +295,13 @@ export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 // Intro (ch0) → Ch1 桃太郎 → ... → Ch7 葉限. Schema keeps 0-7 (was 0-8).
 // v2.0.B.234+: Ch8 三隻小豬 (Three Little Pigs) URL pipeline ship 2026-06-06.
 // Schema bumped 0-7 → 0-8 to accept ch=8 lessons.
+// v2.0.B.236+: Ch9 灰姑娘 (Cinderella, Perrault 1697) URL pipeline ship 2026-06-06.
+// Cross-cultural pair with Ch7 葉限 (Tang Cinderella). Schema 0-8 → 0-9.
 export const ChapterIdSchema = z.union([
   z.literal(0),
   z.literal(1), z.literal(2), z.literal(3),
   z.literal(4), z.literal(5), z.literal(6), z.literal(7),
-  z.literal(8),
+  z.literal(8), z.literal(9),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 

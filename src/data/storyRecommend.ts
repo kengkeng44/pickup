@@ -35,17 +35,34 @@
  */
 import {
   TAGS,
+  getChapterDifficulty,
   type ChapterInfo,
   type HookType,
   type TagId,
 } from './storyTags';
-import type { UserProfile } from './userProfile';
+import type { AbilityLevel, UserProfile } from './userProfile';
 
 // ─── Tunables ───────────────────────────────────────────────────────────────
 const WEIGHT_TAG_OVERLAP = 0.55;
 const WEIGHT_HOOK_BOOST = 0.30;
 const WEIGHT_KINSHIP = 0.15;
 const COLD_START_DECAY = 0.85; // Ch1 → 1.0, Ch2 → 0.85, Ch3 → 0.72 ...
+
+// v2.0.B.237: ability-level → allowed-chapter-tier filter. Each tier matches
+// chapters whose CHAPTER_DIFFICULTY ∈ allowed set. Order matters: lowest
+// ability has shortest allowed set.
+const ABILITY_ALLOWED_DIFFICULTY: Record<AbilityLevel, ReadonlySet<AbilityLevel>> = {
+  // A0 零基礎 — Ch0 only. Strict gate so absolute beginners don't land in 桃太郎.
+  A0: new Set<AbilityLevel>(['A0']),
+  // A1 — Ch0 ground floor still allowed + standard A2 chapters allowed.
+  A1: new Set<AbilityLevel>(['A0', 'A2']),
+  // A2 — full standard pool minus A2+ poetic chapters.
+  A2: new Set<AbilityLevel>(['A0', 'A2']),
+  // A2+ — show stretch chapters only (六天鵝 etc) so the recommender's CTA
+  // points at the next challenge instead of revisiting easy stuff.
+  // Other tiers still appear in `elective` via the score fallthrough.
+  'A2+': new Set<AbilityLevel>(['A2+']),
+};
 
 // Per 共同故事悖論 (per dialogue 軌道 A/B/C) — Ch2 桃太郎 + Ch3 醜小鴨 are
 // the **canon must-play** for shared cultural reference. Ch1 frame stays out
@@ -144,10 +161,44 @@ interface ReasonContext {
   topHookForUser: HookType | null;
   hookCount: number;
   coldStart: boolean;
+  /** v2.0.B.237: ability-match reason takes precedence over tag/hook fallbacks */
+  abilityMatch?: { user: AbilityLevel; chapter: AbilityLevel };
 }
 
 function renderReason(ctx: ReasonContext): { zh: string; en: string } {
-  const { story, sharedTags, topHookForUser, hookCount, coldStart } = ctx;
+  const { chapter, story, sharedTags, topHookForUser, hookCount, coldStart, abilityMatch } = ctx;
+
+  // v2.0.B.237: ability-level reason — surfaces "this story matches your level"
+  // when the chapter difficulty aligns with the user's tier.
+  if (abilityMatch) {
+    const { user, chapter: chDiff } = abilityMatch;
+    if (user === 'A0' && chDiff === 'A0') {
+      return {
+        zh: '零基礎 ok!我們從 ABC 開始,慢慢來',
+        en: 'Beginner-friendly start. Adapted to your level.',
+      };
+    }
+    if (user === 'A1' && chapter === 0) {
+      return {
+        zh: '先把 ABC 跟基本字穩了 — 這課適合你目前的程度',
+        en: 'Lock in ABC + base words — this story matches your level.',
+      };
+    }
+    if (user === 'A2+' && chDiff === 'A2+') {
+      return {
+        zh: `${story} 比較有挑戰 — 適合你目前的程度`,
+        en: `${story} is a stretch story — this matches your level.`,
+      };
+    }
+    // generic ability match (A1/A2 reading standard A2)
+    if (user === chDiff || (user === 'A1' && chDiff === 'A2')) {
+      return {
+        zh: `${story} 適合你目前的程度`,
+        en: `${story} — this story matches your level.`,
+      };
+    }
+  }
+
   if (coldStart) {
     return {
       zh: '剛開始?從桃太郎的院子矮牆出發,Mochi 跟你一起聽',
@@ -190,12 +241,16 @@ function renderReason(ctx: ReasonContext): { zh: string; en: string } {
 
 /**
  * Score a single candidate chapter against the user profile. Pure.
+ *
+ * v2.0.B.237: optional `abilityMatch` flag lets the engine signal the
+ * reason renderer that this chapter aligns with the user's CEFR tier.
  */
 function scoreCandidate(
   candidate: ChapterInfo,
   profile: UserProfile,
   coldStart: boolean,
   coldStartIndex: number,
+  abilityMatch?: { user: AbilityLevel; chapter: AbilityLevel },
 ): RankedRecommendation {
   const tagOverlap = jaccard(profile.preferredTags, candidate.tags);
   const hookBoost = computeHookBoost(profile.hookCompletionByType, candidate.hookCounts);
@@ -235,6 +290,7 @@ function scoreCandidate(
     topHookForUser: topHook,
     hookCount: hookCountForTopHook,
     coldStart,
+    abilityMatch,
   });
 
   return {
@@ -270,17 +326,41 @@ export function recommendNextStories(
   const coldStart =
     completed.size === 0 && userProfile.preferredTags.length === 0;
 
+  // v2.0.B.237: ability-tier — gate elective pool by chapter difficulty.
+  // A0 → only Ch0. A1 → Ch0 + standard A2. A2 → standard A2. A2+ → stretch A2+.
+  const ability = userProfile.abilityLevel ?? 'A2';
+  const allowedDifficulty = ABILITY_ALLOWED_DIFFICULTY[ability] ?? new Set<AbilityLevel>(['A0', 'A2', 'A2+']);
+
   // Sort the pool by chapter id so cold-start prior is deterministic.
   const ordered = [...candidatePool].sort((a, b) => a.chapter - b.chapter);
 
-  // Split: canon vs elective.
+  // Split: canon vs elective. Canon is exempt from ability gating so the
+  // 共同故事悖論 (Ch2 桃太郎 + Ch3 醜小鴨) still shows in core regardless of
+  // ability — UI displays them as "core canon" labelled separately from
+  // the level-matched elective recommendations.
   const canonCh = new Set(CORE_CANON_CHAPTERS);
   const coreCandidates: ChapterInfo[] = [];
   const electiveCandidates: ChapterInfo[] = [];
   for (const c of ordered) {
     if (canonCh.has(c.chapter)) {
       coreCandidates.push(c);
-    } else if (!completed.has(c.chapter)) {
+      continue;
+    }
+    if (completed.has(c.chapter)) continue;
+    // Apply ability filter to elective pool.
+    const chDiff = getChapterDifficulty(c.chapter);
+    if (!allowedDifficulty.has(chDiff)) continue;
+    electiveCandidates.push(c);
+  }
+
+  // Edge case: if ability filter wipes out the elective pool entirely (e.g.
+  // A2+ user with no A2+ chapters left), fall back to the unfiltered set so
+  // the carousel never goes empty. This keeps "your level" UX honest without
+  // stranding the user.
+  if (electiveCandidates.length === 0) {
+    for (const c of ordered) {
+      if (canonCh.has(c.chapter)) continue;
+      if (completed.has(c.chapter)) continue;
       electiveCandidates.push(c);
     }
   }
@@ -292,14 +372,22 @@ export function recommendNextStories(
     .filter((c): c is ChapterInfo => Boolean(c))
     .map((c) => {
       const idx = ordered.findIndex((o) => o.chapter === c.chapter);
-      return scoreCandidate(c, userProfile, coldStart, idx);
+      const chDiff = getChapterDifficulty(c.chapter);
+      const abilityMatch = allowedDifficulty.has(chDiff)
+        ? { user: ability, chapter: chDiff }
+        : undefined;
+      return scoreCandidate(c, userProfile, coldStart, idx, abilityMatch);
     });
 
   // Elective: score + sort desc by score, ties by chapter id asc.
   const elective: RankedRecommendation[] = electiveCandidates
     .map((c) => {
       const idx = ordered.findIndex((o) => o.chapter === c.chapter);
-      return scoreCandidate(c, userProfile, coldStart, idx);
+      const chDiff = getChapterDifficulty(c.chapter);
+      const abilityMatch = allowedDifficulty.has(chDiff)
+        ? { user: ability, chapter: chDiff }
+        : undefined;
+      return scoreCandidate(c, userProfile, coldStart, idx, abilityMatch);
     })
     .sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;

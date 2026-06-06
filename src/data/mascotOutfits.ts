@@ -230,6 +230,23 @@ export const OUTFITS: MascotOutfit[] = [
     },
   },
 
+  // Ch8 — 三隻小豬 磚屋工裝 (B.236 ship)
+  {
+    id: 'three-pigs',
+    name: { zh: '磚屋工裝', en: 'Builder Overalls' },
+    bio: {
+      zh: 'Mochi 戴農夫帽 + 工裝,蓋自己的磚屋。慢慢來,但很堅固。',
+      en: 'Mochi in farmer hat + overalls, building her own brick house.',
+    },
+    imageSrc: '/mascots/outfits/mochi-three-pigs.webp', // TODO 待生圖
+    emojiBadge: '🧰',
+    unlockCondition: { type: 'chapterComplete', chapter: 8 },
+    unlockHint: {
+      zh: '完成第 8 章 三隻小豬 解鎖磚屋工裝',
+      en: 'Complete Ch8 Three Little Pigs to unlock the builder overalls',
+    },
+  },
+
   // Universal 3 — 學者方帽 (milestone graduation)
   {
     id: 'scholar-cap',

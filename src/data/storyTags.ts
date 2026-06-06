@@ -24,6 +24,7 @@
  * Hook association comes from src/data/lessonHooks.ts (B1-B6 framework).
  */
 import { LESSON_HOOKS } from './lessonHooks';
+import type { AbilityLevel } from './userProfile';
 
 export type StoryTagAxis = 'theme' | 'mood' | 'protagonist';
 
@@ -80,8 +81,16 @@ export interface ChapterTags {
  * Per-chapter tag map. Numbers match the live CHAPTER_META in MapPage.tsx.
  * Ch1 is the meta-anchor frame (奶奶 + Mochi + Hana) — given a light tag
  * set so cold-start recommendation can still surface it without dominating.
+ *
+ * v2.0.B.237: Ch0 ground floor (零基礎 ABC / 數字 / 顏色 / 動物 / 家庭 /
+ * 問候 / 簡單句) added. Warm / animal tags so cold-start surfaces it.
  */
 export const STORY_TAGS: Record<number, ChapterTags> = {
+  0: {
+    chapter: 0,
+    story: 'Ground floor (零基礎 ABC + 數字 + 顏色)',
+    tags: ['metaFrame', 'warm', 'animal'],
+  },
   1: {
     chapter: 1,
     story: '院子裡的第一個故事 (frame)',
@@ -152,7 +161,9 @@ function lessonHookChapterToUiChapter(hookChapter: number): number {
  */
 export const CHAPTER_HOOK_COUNTS: Record<number, Record<HookType, number>> = (() => {
   const out: Record<number, Record<HookType, number>> = {};
-  for (let ch = 1; ch <= 8; ch++) {
+  // v2.0.B.237: Ch0 (ground floor) seeded with zero hooks — ground floor is
+  // pure vocab/认读 練習, no Chapter-level narrative hooks apply.
+  for (let ch = 0; ch <= 8; ch++) {
     const init: Record<HookType, number> = { B1: 0, B2: 0, B3: 0, B4: 0, B5: 0, B6: 0 };
     out[ch] = init;
   }
@@ -201,6 +212,39 @@ export function defaultCandidatePool(): ChapterInfo[] {
     chapter: ch,
     story: STORY_TAGS[ch].story,
     tags: STORY_TAGS[ch].tags,
-    hookCounts: CHAPTER_HOOK_COUNTS[ch],
+    hookCounts: CHAPTER_HOOK_COUNTS[ch] ?? { B1: 0, B2: 0, B3: 0, B4: 0, B5: 0, B6: 0 },
   }));
+}
+
+// ─── v2.0.B.237: CEFR-aligned per-chapter difficulty ────────────────────────
+//
+// Chapter difficulty for ability-adaptive filtering in storyRecommend.ts.
+// A0 = pre-A1 only (Ch0 ground floor).
+// A2 = standard 8-12 ELT童話 listening + vocab (Ch1-Ch6, Ch8-Ch9).
+// A2+ = higher cognitive load (六天鵝 詩意 + 沉默, sustained inference at A2 vocab).
+//
+// NOTE: keyed on **live UI chapter numbering** matching STORY_TAGS above:
+//   Ch1 = meta-frame, Ch2 = 桃太郎, Ch3 = 醜小鴨, Ch4 = 龜兔, Ch5 = 駱駝,
+//   Ch6 = Baba Yaga, Ch7 = 六天鵝, Ch8 = 葉限. Ch9 (三隻小豬 / 灰姑娘) reserved
+//   for upcoming ships.
+//
+// Ch5 (駱駝) stays A2 — fable is short + concrete. Ch6 (Baba Yaga) stays A2
+// (dark mood but linear plot, gateway for A2 readers ready for darker themes).
+// Ch7 (六天鵝) bumped to A2+ for sparse poetic narration.
+export const CHAPTER_DIFFICULTY: Record<number, AbilityLevel> = {
+  0: 'A0',  // Ground floor — 零基礎
+  1: 'A2',  // 院子裡的第一個故事 (meta-frame)
+  2: 'A2',  // 桃太郎
+  3: 'A2',  // 醜小鴨
+  4: 'A2',  // 龜兔賽跑
+  5: 'A2',  // 駱駝為什麼有駝峰
+  6: 'A2',  // Baba Yaga 雞腳屋 (黑暗主題, 線性情節 ok)
+  7: 'A2+', // 六隻天鵝 (詩意 / 沉默 narration)
+  8: 'A2',  // 葉限
+  9: 'A2',  // 三隻小豬 / 灰姑娘 (即將 ship)
+};
+
+/** Return CEFR difficulty for a chapter; defaults to A2 if unmapped. */
+export function getChapterDifficulty(chapter: number): AbilityLevel {
+  return CHAPTER_DIFFICULTY[chapter] ?? 'A2';
 }

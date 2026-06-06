@@ -55,9 +55,9 @@ describe('mascot outfits (招 3)', () => {
     storage['pickup.streak.count'] = String(n);
   }
 
-  it('exposes 12 total outfits (default + 11 spec entries)', () => {
-    expect(getAllOutfits().length).toBe(12);
-    expect(OUTFITS.length).toBe(12);
+  it('exposes 13 total outfits (default + 11 spec entries + Ch8 three-pigs)', () => {
+    expect(getAllOutfits().length).toBe(13);
+    expect(OUTFITS.length).toBe(13);
     // Spot-check ids from task spec
     expect(getOutfitById('default')).toBeDefined();
     expect(getOutfitById('kimono')).toBeDefined();
@@ -71,6 +71,22 @@ describe('mascot outfits (招 3)', () => {
     expect(getOutfitById('space-suit')).toBeDefined();
     expect(getOutfitById('santa-suit')).toBeDefined();
     expect(getOutfitById('scholar-cap')).toBeDefined();
+    // B.236 — Ch8 Three Little Pigs builder overalls.
+    expect(getOutfitById('three-pigs')).toBeDefined();
+  });
+
+  it('three-pigs outfit has bilingual name + chapter 8 unlock + 🧰 badge', () => {
+    const outfit = getOutfitById('three-pigs')!;
+    expect(outfit).toBeDefined();
+    expect(outfit.name.zh).toBe('磚屋工裝');
+    expect(outfit.name.en).toBe('Builder Overalls');
+    expect(outfit.emojiBadge).toBe('🧰');
+    expect(outfit.unlockCondition.type).toBe('chapterComplete');
+    if (outfit.unlockCondition.type === 'chapterComplete') {
+      expect(outfit.unlockCondition.chapter).toBe(8);
+    }
+    expect(outfit.bio.zh.length).toBeGreaterThan(0);
+    expect(outfit.bio.en.length).toBeGreaterThan(0);
   });
 
   it('every outfit has bilingual name + bio + warm unlockHint', () => {

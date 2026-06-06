@@ -195,8 +195,8 @@ async function loadBuffer(url: string): Promise<AudioBuffer | null> {
   }
 }
 
-function fallbackWebSpeech(text: string, lang: string): void {
-  speakWebSpeech(text, lang);
+function fallbackWebSpeech(text: string, lang: string, rate = 1.0): void {
+  speakWebSpeech(text, lang, rate);
 }
 
 // v2.0.B.160: external onComplete callback registry. Set by speak(text, opt)
@@ -208,7 +208,7 @@ function fireSpeechEnd(): void {
   if (cb) { try { cb(); } catch {} }
 }
 
-function playBuffer(buf: AudioBuffer): boolean {
+function playBuffer(buf: AudioBuffer, rate = 1.0): boolean {
   const ctx = getAudioCtx();
   if (!ctx) return false;
   try {
@@ -219,6 +219,12 @@ function playBuffer(buf: AudioBuffer): boolean {
     }
     const src = ctx.createBufferSource();
     src.buffer = buf;
+    // v2.0.B.237: per-call rate (default 1.0; listen-build 慢速 button passes 0.5).
+    // AudioBufferSourceNode.playbackRate.value scales sample playback; affects
+    // both speed AND pitch (acceptable trade — A2 slow-listen is the priority).
+    if (rate !== 1.0) {
+      try { src.playbackRate.value = rate; } catch {}
+    }
     src.connect(ctx.destination);
     // v2.0.B.140: duck BGM while voice plays — restore on end
     try { audioMgr.duckBgm(); } catch {}
@@ -249,7 +255,7 @@ function cleanText(text: string): string {
     .trim();
 }
 
-function speakWebSpeech(text: string, lang: string): void {
+function speakWebSpeech(text: string, lang: string, rateMultiplier = 1.0): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;
   try {
     window.speechSynthesis.cancel();
@@ -258,7 +264,10 @@ function speakWebSpeech(text: string, lang: string): void {
     // v2.0.B.120: rate 0.75 — A2 Taiwanese learners + TOEIC alignment
     // (memory feedback-pickup-speech-rate). 0.75 ≈ 115 wpm, below TOEIC native ~150.
     // Web Speech rate 1.0 ≈ 150-180 wpm; 0.5 chops on iOS. 0.75 = sweet spot.
-    u.rate = 0.75;
+    // v2.0.B.237: rateMultiplier lets listen-build 慢速 button drop to 0.5.
+    // Clamp to Web Speech valid range [0.1, 10] to avoid platform reject.
+    const finalRate = Math.max(0.1, Math.min(10, 0.75 * rateMultiplier));
+    u.rate = finalRate;
     u.pitch = 1;
     u.volume = 1;
     // v2.0.B.160: route onend → speechEndCallback (same registry as Web Audio)
@@ -281,7 +290,11 @@ function debugLog(msg: string) {
 // path is primary; HTML5 persistent Audio + WebSpeech are fallbacks.
 let activeBufferSource: AudioBufferSourceNode | null = null;
 
-export function speak(text: string, lang = 'en-US', opts?: { onEnd?: () => void }): void {
+export function speak(
+  text: string,
+  lang = 'en-US',
+  opts?: { onEnd?: () => void; rate?: number }
+): void {
   const cleaned = cleanText(text);
   if (!cleaned) {
     debugLog('speak: empty text');
@@ -293,6 +306,12 @@ export function speak(text: string, lang = 'en-US', opts?: { onEnd?: () => void 
   // v2.0.B.160: register onEnd BEFORE playBuffer / WebSpeech fires.
   // stopSpeaking just cleared the previous callback (line above).
   speechEndCallback = opts?.onEnd ?? null;
+
+  // v2.0.B.237: per-call rate override. Default 1.0 = no change to existing
+  // playback (Web Audio MP3 plays at native speed; WebSpeech uses 0.75 baseline).
+  // listen-build 慢速 button passes 0.5 → MP3 plays half-speed, WebSpeech
+  // baseline 0.75 * 0.5 = 0.375 (still > 0.1 minimum).
+  const rate = opts?.rate ?? 1.0;
 
   const mapSize = audioLookup.size;
   const isMochi = mochiTexts.has(cleaned);
@@ -307,7 +326,7 @@ export function speak(text: string, lang = 'en-US', opts?: { onEnd?: () => void 
     // PRIMARY: Web Audio cached buffer (instant, gesture-token-immune)
     const cached = audioBufferCache.get(url);
     if (cached) {
-      if (playBuffer(cached)) {
+      if (playBuffer(cached, rate)) {
         debugLog(`webaudio play OK: ${audioId}`);
         return;
       }
@@ -316,17 +335,17 @@ export function speak(text: string, lang = 'en-US', opts?: { onEnd?: () => void 
     // SECONDARY: async load + play once loaded
     void loadBuffer(url).then(buf => {
       if (buf) {
-        if (playBuffer(buf)) debugLog(`webaudio play (post-load) OK: ${audioId}`);
-        else fallbackWebSpeech(cleaned, lang);
+        if (playBuffer(buf, rate)) debugLog(`webaudio play (post-load) OK: ${audioId}`);
+        else fallbackWebSpeech(cleaned, lang, rate);
       } else {
-        fallbackWebSpeech(cleaned, lang);
+        fallbackWebSpeech(cleaned, lang, rate);
       }
     });
     return;
   } else {
     debugLog(`no mp3id (map=${mapSize}) txt=${cleaned.slice(0,40)} → WebSpeech`);
   }
-  speakWebSpeech(cleaned, lang);
+  speakWebSpeech(cleaned, lang, rate);
 }
 
 export function stopSpeaking(): void {

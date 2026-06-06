@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-06T15:12:10.179Z
+**Generated**: 2026-06-06T15:33:26.207Z
 
 ## Aggregate
 
-- **Total Q**: 616
-- **Total play time est**: 237 min
+- **Total Q**: 693
+- **Total play time est**: 265 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -21,6 +21,7 @@
 | 6 | 六隻天鵝 | 7 | 77 | 11.0 | 285s/lesson ✓ | 0% | ✓ |
 | 7 | 葉限 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
 | 8 | 三隻小豬 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
+| 9 | 灰姑娘 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -85,6 +86,13 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch8-l5` | 草屋倒了 — 木屋擋得住嗎? | B2 | 木屋能擋住嗎?還是也會倒? | [three-pigs.md#beat-5-huff-puff](../docs/canon/three-pigs.md#beat-5-huff-puff) |
 | `kt-ch8-l6` | 木屋倒了 — 磚屋是希望 | B6 | 磚屋能撐?還是狼也吹得倒? | [three-pigs.md#beat-6-wood-falls](../docs/canon/three-pigs.md#beat-6-wood-falls) |
 | `kt-ch8-l7` | 磚屋擋住狼 — 但狼還在外面 | B6 open | 安全了嗎?狼還在森林裡 — 還會回來? | [three-pigs.md#beat-7-brick-wins](../docs/canon/three-pigs.md#beat-7-brick-wins) |
+| `kt-ch9-l1` | 父親再婚 — 新家有兩個姊姊 | B6 | 後母會偏心嗎? 兩個姊姊怎麼對她? | [cinderella.md#beat-1-setup](../docs/canon/cinderella.md#beat-1-setup) |
+| `kt-ch9-l2` | 灰塵堆 — 她哭給誰聽? | B3 | 她哭給誰聽? 有人會看見嗎? | [cinderella.md#beat-2-cinder-corner](../docs/canon/cinderella.md#beat-2-cinder-corner) |
+| `kt-ch9-l3` | 舞會公告 — 她也可以去嗎? | B5 | 她也可以去嗎? 她該求嗎? | [cinderella.md#beat-3-ball-invitation](../docs/canon/cinderella.md#beat-3-ball-invitation) |
+| `kt-ch9-l4` | 仙女教母出現 — 接下來會發生什麼? | B4 | 仙女教母要做什麼? 接下來呢? | [cinderella.md#beat-4-fairy-godmother](../docs/canon/cinderella.md#beat-4-fairy-godmother) |
+| `kt-ch9-l5` | 馬車 + 鼠變馬 — 12 點限制是什麼? | B6 | 12 點限制是什麼? 過了會怎樣? | [cinderella.md#beat-5-magic-warning](../docs/canon/cinderella.md#beat-5-magic-warning) |
+| `kt-ch9-l6` | 12 點鐘響 — 鞋掉了 王子會找她? | B2 | 鞋掉了 — 王子會找她嗎? | [cinderella.md#beat-6-clock-strikes](../docs/canon/cinderella.md#beat-6-clock-strikes) |
+| `kt-ch9-l7` | 鞋滑上腳 — 仙女教母在哪? 善良才是真正的魔法 | B6 open | 仙女教母在哪? 善良才是真正的魔法? | [cinderella.md#beat-7-slipper-fits](../docs/canon/cinderella.md#beat-7-slipper-fits) |
 
 ## Q type distribution per chapter
 
@@ -98,3 +106,4 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 6 | 7 | 7 | 21 | 7 | 28 | 7 |
 | 7 | 7 | 7 | 14 | 7 | 35 | 7 |
 | 8 | 7 | 0 | 15 | 7 | 41 | 7 |
+| 9 | 7 | 0 | 15 | 7 | 41 | 7 |

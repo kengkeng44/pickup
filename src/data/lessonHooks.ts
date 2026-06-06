@@ -84,6 +84,15 @@ export const LESSON_HOOKS: Record<string, LessonHook> = {
   'kt-ch8-l5': { type: 'B2',        inquiry: '木屋能擋住嗎?還是也會倒?' },
   'kt-ch8-l6': { type: 'B6',        inquiry: '磚屋能撐?還是狼也吹得倒?' },
   'kt-ch8-l7': { type: 'B6 open',   inquiry: '安全了嗎?狼還在森林裡 — 還會回來?' },
+  // Ch9 灰姑娘 (Cinderella, Perrault 1697 public domain, URL pipeline ship 2026-06-06, B.236+)
+  // Cross-cultural pair with Ch7 葉限 (Tang Chinese Cinderella). No Disney 1950 elements.
+  'kt-ch9-l1': { type: 'B6',        inquiry: '後母會偏心嗎? 兩個姊姊怎麼對她?' },
+  'kt-ch9-l2': { type: 'B3',        inquiry: '她哭給誰聽? 有人會看見嗎?' },
+  'kt-ch9-l3': { type: 'B5',        inquiry: '她也可以去嗎? 她該求嗎?' },
+  'kt-ch9-l4': { type: 'B4',        inquiry: '仙女教母要做什麼? 接下來呢?' },
+  'kt-ch9-l5': { type: 'B6',        inquiry: '12 點限制是什麼? 過了會怎樣?' },
+  'kt-ch9-l6': { type: 'B2',        inquiry: '鞋掉了 — 王子會找她嗎?' },
+  'kt-ch9-l7': { type: 'B6 open',   inquiry: '仙女教母在哪? 善良才是真正的魔法?' },
 };
 
 export function getLessonHook(lessonId: string): LessonHook | null {

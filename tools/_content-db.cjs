@@ -52,6 +52,7 @@ const CHAPTER_TITLES = {
   6: '六隻天鵝',
   7: '葉限',
   8: '三隻小豬',
+  9: '灰姑娘',
 };
 
 // v2.0.B.220: hook type per lesson (per docs/research/chapter-ending-hook-design.md)
@@ -113,7 +114,7 @@ const HOOK_MAP = {
   'kt-ch7-l5':     { type: 'B2',          inquiry: '她會被認出嗎?誰已經盯著她?',  canon: 'yexian.md#beat-5' },
   'kt-ch7-l6':     { type: 'B1',          inquiry: '鞋掉了會落到誰手上?',  canon: 'yexian.md#beat-6' },
   'kt-ch7-l7':     { type: 'B2 big',      inquiry: '失去的支持回來了 — 你的呢?',  canon: 'yexian.md#beat-7' },
-  // Ch8 
+  // Ch8 三隻小豬
   'kt-ch8-l1':     { type: 'B6',          inquiry: '狼真的會來?三個都安全?',  canon: 'three-pigs.md#beat-1-setup' },
   'kt-ch8-l2':     { type: 'B1',          inquiry: '草屋能撐多久?今晚就倒嗎?',  canon: 'three-pigs.md#beat-2-straw-house' },
   'kt-ch8-l3':     { type: 'B4',          inquiry: '是誰來了?是狼嗎?',  canon: 'three-pigs.md#beat-3-wood-house' },
@@ -121,6 +122,14 @@ const HOOK_MAP = {
   'kt-ch8-l5':     { type: 'B2',          inquiry: '木屋能擋住嗎?還是也會倒?',  canon: 'three-pigs.md#beat-5-huff-puff' },
   'kt-ch8-l6':     { type: 'B6',          inquiry: '磚屋能撐?還是狼也吹得倒?',  canon: 'three-pigs.md#beat-6-wood-falls' },
   'kt-ch8-l7':     { type: 'B6 open',     inquiry: '安全了嗎?狼還在森林裡 — 還會回來?',  canon: 'three-pigs.md#beat-7-brick-wins' },
+  // Ch9 灰姑娘 (Perrault 1697 public domain, cross-cultural pair with Ch7 葉限)
+  'kt-ch9-l1':     { type: 'B6',          inquiry: '後母會偏心嗎? 兩個姊姊怎麼對她?',  canon: 'cinderella.md#beat-1-setup' },
+  'kt-ch9-l2':     { type: 'B3',          inquiry: '她哭給誰聽? 有人會看見嗎?',  canon: 'cinderella.md#beat-2-cinder-corner' },
+  'kt-ch9-l3':     { type: 'B5',          inquiry: '她也可以去嗎? 她該求嗎?',  canon: 'cinderella.md#beat-3-ball-invitation' },
+  'kt-ch9-l4':     { type: 'B4',          inquiry: '仙女教母要做什麼? 接下來呢?',  canon: 'cinderella.md#beat-4-fairy-godmother' },
+  'kt-ch9-l5':     { type: 'B6',          inquiry: '12 點限制是什麼? 過了會怎樣?',  canon: 'cinderella.md#beat-5-magic-warning' },
+  'kt-ch9-l6':     { type: 'B2',          inquiry: '鞋掉了 — 王子會找她嗎?',  canon: 'cinderella.md#beat-6-clock-strikes' },
+  'kt-ch9-l7':     { type: 'B6 open',     inquiry: '仙女教母在哪? 善良才是真正的魔法?',  canon: 'cinderella.md#beat-7-slipper-fits' },
 };
 
 function shortText(s, max = 60) {
@@ -153,7 +162,7 @@ const rows = [];
 const perChapter = {};
 
 // v2.0.B.217: skip Ch0 per user '不用放到數據庫裡面'
-for (let ch = 1; ch <= 8; ch++) {
+for (let ch = 1; ch <= 9; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -227,7 +236,7 @@ const sumLines = [
   `| Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |`,
   `|----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|`,
 ];
-for (let ch = 1; ch <= 8; ch++) {
+for (let ch = 1; ch <= 9; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
@@ -246,7 +255,7 @@ sumLines.push(`Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst s
 sumLines.push('');
 sumLines.push(`| Lesson ID | Story Beat | Hook Type | Inquiry Question | Canon Ref |`);
 sumLines.push(`|-----------|------------|-----------|------------------|-----------|`);
-for (let ch = 1; ch <= 8; ch++) {
+for (let ch = 1; ch <= 9; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -267,7 +276,7 @@ for (const s of Object.values(perChapter)) for (const t of Object.keys(s.typeCou
 const typesArr = [...allTypes].sort();
 sumLines.push(`| Ch | ${typesArr.join(' | ')} |`);
 sumLines.push(`|----|${typesArr.map(()=>'---').join('|')}|`);
-for (let ch = 1; ch <= 8; ch++) {
+for (let ch = 1; ch <= 9; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const cells = typesArr.map(t => s.typeCounts[t] || 0);
@@ -282,7 +291,7 @@ console.log(`\n[CURRENT STATE]`);
 console.log(`Total Q: ${totalQ}, total time: ${Math.round(totalTime/60)} min`);
 console.log(`Avg per chapter: ${avgPerCh}, 25% tolerance band: ${lowBand}-${highBand}`);
 console.log(`\nPer chapter (Ch0 excluded, 5 min/lesson budget):`);
-for (let ch = 1; ch <= 8; ch++) {
+for (let ch = 1; ch <= 9; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);

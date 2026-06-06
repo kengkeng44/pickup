@@ -42,10 +42,10 @@ describe('collectible cards (招 2)', () => {
     expect(readUnlockedCardIds().size).toBe(0);
   });
 
-  it('all 11 expected character cards are defined', () => {
+  it('all 15 expected character cards are defined (11 legacy + 4 Ch8 Three Pigs)', () => {
     const cards = getAllCards();
-    expect(cards.length).toBe(11);
-    // Spot-check the 11 character ids from the task spec.
+    expect(cards.length).toBe(15);
+    // Spot-check the 11 legacy character ids from the original task spec.
     expect(getCardById('mochi')).toBeDefined();
     expect(getCardById('hana')).toBeDefined();
     expect(getCardById('grandma-mei')).toBeDefined();
@@ -57,6 +57,36 @@ describe('collectible cards (招 2)', () => {
     expect(getCardById('baba-yaga')).toBeDefined();
     expect(getCardById('swan-princess')).toBeDefined();
     expect(getCardById('ye-xian')).toBeDefined();
+    // B.236 — Ch8 Three Little Pigs (4 new cards).
+    expect(getCardById('pig-straw')).toBeDefined();
+    expect(getCardById('pig-sticks')).toBeDefined();
+    expect(getCardById('pig-bricks')).toBeDefined();
+    expect(getCardById('big-bad-wolf')).toBeDefined();
+  });
+
+  it('Ch8 Three Pigs cards all have chapter=8 + bilingual bio + unlock hint', () => {
+    const ids = ['pig-straw', 'pig-sticks', 'pig-bricks', 'big-bad-wolf'];
+    for (const id of ids) {
+      const card = getCardById(id)!;
+      expect(card).toBeDefined();
+      expect(card.chapter).toBe(8);
+      expect(card.chapterTitleZh).toBe('三隻小豬');
+      expect(card.bioEn.length).toBeGreaterThan(0);
+      expect(card.bioZh.length).toBeGreaterThan(0);
+      expect(card.unlockHintZh.length).toBeGreaterThan(0);
+      expect(card.unlockHintEn.length).toBeGreaterThan(0);
+      expect(card.unlock.chapter).toBe(8);
+    }
+  });
+
+  it('Pig Bricks unlocks at kt-ch8-l6 (the brick-house beat)', () => {
+    const card = getCardById('pig-bricks')!;
+    expect(card.unlock.lessonId).toBe('kt-ch8-l6');
+  });
+
+  it('Big Bad Wolf unlocks at kt-ch8-l4 (wolf arrives beat)', () => {
+    const card = getCardById('big-bad-wolf')!;
+    expect(card.unlock.lessonId).toBe('kt-ch8-l4');
   });
 
   it('completing kt-ch1-l1 unlocks Mochi', () => {
