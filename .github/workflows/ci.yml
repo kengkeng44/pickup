@@ -51,23 +51,29 @@ jobs:
       - name: Vite build
         run: npm run build
 
-  smoke-test:
+  deploy:
     runs-on: ubuntu-latest
     needs: build-and-validate
     if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Trigger Cloudflare Pages deploy
-        # 自動 deploy 解 infisical 痛點 — secret 從 GH Actions secret 取
-        # 需 user 在 GitHub repo settings → secrets 加 CLOUDFLARE_API_TOKEN
-        run: |
-          echo "Deploy step skipped (待用戶在 GH secrets 加 CLOUDFLARE_API_TOKEN)"
-          echo "啟用方式:"
-          echo "  1. 拿 Cloudflare API token: https://dash.cloudflare.com/profile/api-tokens"
-          echo "  2. GitHub repo → Settings → Secrets → Actions → New: CLOUDFLARE_API_TOKEN"
-          echo "  3. uncomment 下方 wrangler action"
-        # - name: Wrangler deploy
-        #   uses: cloudflare/wrangler-action@v3
-        #   with:
-        #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        #     command: pages deploy dist --project-name=pickupwords --branch=master
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Vite build
+        run: npm run build
+
+      - name: Wrangler deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy dist --project-name=pickupwords --branch=master --commit-message="Auto-deploy via GH Actions"
