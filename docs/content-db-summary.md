@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-06T17:41:59.166Z
+**Generated**: 2026-06-06T18:07:37.723Z
 
 ## Aggregate
 
-- **Total Q**: 1155
-- **Total play time est**: 433 min
+- **Total Q**: 1617
+- **Total play time est**: 607 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -28,6 +28,12 @@
 | 13 | 小紅帽 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
 | 14 | 浦島太郎 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
 | 15 | 國王的新衣 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
+| 16 | 一寸法師 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 17 | 鶴的報恩 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 18 | 興夫和孬夫 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 19 | Sang Kancil 鼠鹿 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
+| 20 | 蘿蔔大冒險 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
+| 21 | Anansi 蜘蛛 | 7 | 77 | 11.0 | 264s/lesson ✓ | 0% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -141,6 +147,48 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch15-l5` | 遊行開始 — 人民會說真話嗎? | B6 | 人民會說真話嗎? 還是跟著拍手? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 | `kt-ch15-l6` | 小孩說真話 — 大家會怎樣? | B2 | 大家會怎樣? 還會繼續假裝嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 | `kt-ch15-l7` | 國王繼續走完遊行 — 學到什麼? | B6 open | 為什麼他不停下來? 自尊比真相更難放下? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l1` | 老夫婦求子 — 會生出什麼? | B6 | 老夫婦求子 → 會生出什麼? | [issun-boshi.md#beat-1-setup](../docs/canon/issun-boshi.md#beat-1-setup) |
+| `kt-ch16-l2` | 拇指大小的男孩 — 他能做什麼? | B3 | 拇指大小的男孩 → 他能做什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l3` | 一寸帶碗船出發 — 路上會遇誰? | B4 | 一寸帶碗船出發 → 路上會遇誰? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l4` | 京都當侍衛 — 公主出去散步 | B6 | 京都當侍衛 → 公主出去散步 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l5` | 鬼來抓公主 — 他能擋住嗎? | B1 | 鬼來抓公主 → 他能擋住嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l6` | 一寸跳進鬼嘴用針刺 — 鬼會怎樣? | B2 | 一寸跳進鬼嘴用針刺 → 鬼會怎樣? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch16-l7` | 打鼓變大人娶公主 — 變大那刻 | B6 open | 打鼓變大人 → 成家那刻 | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch17-l1` | 老爺爺救受傷的鶴 — 鶴會回來嗎? | B6 | 鶴會回來嗎? | [crane-gratitude.md#beat-1-setup](../docs/canon/crane-gratitude.md#beat-1-setup) |
+| `kt-ch17-l2` | 美麗女孩來敲門 — 她是誰? | B3 | 她是誰? | [crane-gratitude.md#beat-2-young-woman](../docs/canon/crane-gratitude.md#beat-2-young-woman) |
+| `kt-ch17-l3` | 女孩織出珍貴的布 — 為什麼她要躲起來織? | B5 | 為什麼她要躲起來織? | [crane-gratitude.md#beat-3-forbidden-room](../docs/canon/crane-gratitude.md#beat-3-forbidden-room) |
+| `kt-ch17-l4` | 商人來看布讚不絕口 — 老爺爺好奇了 | B4 | 老爺爺好奇了 | [crane-gratitude.md#beat-4-merchant](../docs/canon/crane-gratitude.md#beat-4-merchant) |
+| `kt-ch17-l5` | 偷看的衝動越來越強 — 他會偷看嗎? | B1 | 他會偷看嗎? | [crane-gratitude.md#beat-5-urge-to-peek](../docs/canon/crane-gratitude.md#beat-5-urge-to-peek) |
+| `kt-ch17-l6` | 看到鶴在拔自己的羽毛織布 — 她會留下嗎? | B2 | 她會留下嗎? | [crane-gratitude.md#beat-6-truth-revealed](../docs/canon/crane-gratitude.md#beat-6-truth-revealed) |
+| `kt-ch17-l7` | 鶴飛走的天空 — 學到什麼? | B6 open | 學到什麼? | [crane-gratitude.md#beat-7-flies-away](../docs/canon/crane-gratitude.md#beat-7-flies-away) |
+| `kt-ch18-l1` | 兩兄弟父母過世 → 興夫被趕出家門 | B6 | 興夫一個人怎麼活下去? | [heungbu-nolbu.md#beat-1-setup](../docs/canon/heungbu-nolbu.md#beat-1-setup) |
+| `kt-ch18-l2` | 興夫家裡很窮 → 他怎麼養家? | B3 | 他怎麼養家? | [heungbu-nolbu.md#beat-2-poor-home](../docs/canon/heungbu-nolbu.md#beat-2-poor-home) |
+| `kt-ch18-l3` | 受傷小燕子掉下來 → 興夫會救嗎? | B5 | 興夫會救嗎? | [heungbu-nolbu.md#beat-3-bird-falls](../docs/canon/heungbu-nolbu.md#beat-3-bird-falls) |
+| `kt-ch18-l4` | 燕子春天回來 → 給興夫什麼禮物? | B4 | 給興夫什麼禮物? | [heungbu-nolbu.md#beat-4-bird-returns](../docs/canon/heungbu-nolbu.md#beat-4-bird-returns) |
+| `kt-ch18-l5` | 葫蘆種子長出寶物 → 興夫變富 | B6 | 哥哥孬夫聽到會怎樣? | [heungbu-nolbu.md#beat-5-treasures](../docs/canon/heungbu-nolbu.md#beat-5-treasures) |
+| `kt-ch18-l6` | 哥哥孬夫嫉妒打傷燕子 → 報應 | B2 | 報應會來嗎? | [heungbu-nolbu.md#beat-6-nolbu-copies](../docs/canon/heungbu-nolbu.md#beat-6-nolbu-copies) |
+| `kt-ch18-l7` | 興夫分財給哥哥 → 學到什麼? | B6 open | 你會學興夫還是孬夫? | [heungbu-nolbu.md#beat-7-shares](../docs/canon/heungbu-nolbu.md#beat-7-shares) |
+| `kt-ch19-l1` | 鼠鹿看見對岸水果 — 怎麼過河? | B6 | 鼠鹿想吃對岸的水果 → 怎麼過河? | [sang-kancil.md#beat-1-setup](../docs/canon/sang-kancil.md#beat-1-setup) |
+| `kt-ch19-l2` | 河裡有很多鱷魚 — 該怎麼辦? | B3 | 河裡有很多鱷魚 → 該怎麼辦? | [sang-kancil.md#beat-2-crocodiles](../docs/canon/sang-kancil.md#beat-2-crocodiles) |
+| `kt-ch19-l3` | 鼠鹿想到聰明的辦法 — 他會說什麼謊? | B5 | 鼠鹿想到聰明的辦法 → 他會說什麼謊? | [sang-kancil.md#beat-3-plan](../docs/canon/sang-kancil.md#beat-3-plan) |
+| `kt-ch19-l4` | 對鱷魚說「國王要點數量」 — 鱷魚相信嗎? | B4 | 對鱷魚說「國王要點鱷魚數量」 → 鱷魚相信嗎? | [sang-kancil.md#beat-4-trick](../docs/canon/sang-kancil.md#beat-4-trick) |
+| `kt-ch19-l5` | 鱷魚排隊讓他點 — 他跳過鱷魚背 | B1 | 鱷魚排隊讓他點 → 他跳過鱷魚背 | [sang-kancil.md#beat-5-jumping](../docs/canon/sang-kancil.md#beat-5-jumping) |
+| `kt-ch19-l6` | 到對岸吃水果 — 鱷魚發現被騙 | B2 | 到對岸吃水果 → 鱷魚發現被騙 | [sang-kancil.md#beat-6-reveal](../docs/canon/sang-kancil.md#beat-6-reveal) |
+| `kt-ch19-l7` | 鼠鹿學到什麼? 鱷魚學到什麼? | B6 open | 鼠鹿學到什麼? 鱷魚學到什麼? | [sang-kancil.md#beat-7-lessons](../docs/canon/sang-kancil.md#beat-7-lessons) |
+| `kt-ch20-l1` | 老爺爺種大蘿蔔 — 長得越來越大 | B6 | 蘿蔔會變多大?拔得起來嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l2` | 想拔起來 — 拔不動! | B3 | 為什麼拔不動?要怎麼辦? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l3` | 叫奶奶來幫 — 還是拔不動 | B5 | 兩個還不夠 — 還要叫誰? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l4` | 叫孫女來幫 — 越來越多人 | B4 | 已經三個人了 — 還要幾個? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l5` | 叫小狗 — 還是不夠 | B1 | 連狗都來了 — 還不夠? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l6` | 叫小貓 — 還是不行 | B2 | 它動了 — 還差什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch20-l7` | 叫小老鼠 — 終於拔出來!全家分享 | B6 open | 連最小的都重要 — 你家最小的是誰? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l1` | 世界上沒有故事 — 蜘蛛想去拿 | B6 | 蜘蛛能拿回所有故事嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l2` | 天神開價 — 抓三個動物 | B5 | 蜘蛛這麼小, 抓得到嗎? 該答應嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l3` | 抓蜂 — 用一片葉子和一個鍋 | B3 | 倒水? 他要做什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l4` | 抓蛇 — 用一根樹枝和一個聰明話 | B4 | 大蛇會上當嗎? 智取怎麼贏? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l5` | 抓豹 — 挖一個洞,等夜晚 | B1 | 豹會逃走嗎? 蜘蛛接下來怎麼辦? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l6` | 蜘蛛全帶回天神 — 天神給故事 | B2 | 天神真的會給嗎? 報酬是什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch21-l7` | 蜘蛛把故事散到全世界 | B6 open | 為什麼每個家都聽得到故事? 你家第一個故事是什麼? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 
 ## Q type distribution per chapter
 
@@ -161,3 +209,9 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 13 | 7 | 0 | 14 | 7 | 42 | 7 |
 | 14 | 7 | 0 | 14 | 7 | 42 | 7 |
 | 15 | 7 | 0 | 21 | 7 | 35 | 7 |
+| 16 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 17 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 18 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 19 | 7 | 7 | 14 | 7 | 35 | 7 |
+| 20 | 7 | 7 | 14 | 7 | 35 | 7 |
+| 21 | 4 | 3 | 21 | 7 | 35 | 7 |

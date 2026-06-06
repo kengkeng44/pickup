@@ -59,6 +59,12 @@ const CHAPTER_TITLES = {
   13: '小紅帽',
   14: '浦島太郎',
   15: '國王的新衣',
+  16: '一寸法師',
+  17: '鶴的報恩',
+  18: '興夫和孬夫',
+  19: 'Sang Kancil 鼠鹿',
+  20: '蘿蔔大冒險',
+  21: 'Anansi 蜘蛛',
 };
 
 // v2.0.B.220: hook type per lesson (per docs/research/chapter-ending-hook-design.md)
@@ -184,6 +190,54 @@ const HOOK_MAP = {
   'kt-ch15-l5':    { type: 'B6',          inquiry: '人民會說真話嗎? 還是跟著拍手?',  canon: '(no canon ref yet)' },
   'kt-ch15-l6':    { type: 'B2',          inquiry: '大家會怎樣? 還會繼續假裝嗎?',  canon: '(no canon ref yet)' },
   'kt-ch15-l7':    { type: 'B6 open',     inquiry: '為什麼他不停下來? 自尊比真相更難放下?',  canon: '(no canon ref yet)' },
+  // Ch16 
+  'kt-ch16-l1':    { type: 'B6',          inquiry: '老夫婦求子 → 會生出什麼?',  canon: 'issun-boshi.md#beat-1-setup' },
+  'kt-ch16-l2':    { type: 'B3',          inquiry: '拇指大小的男孩 → 他能做什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch16-l3':    { type: 'B4',          inquiry: '一寸帶碗船出發 → 路上會遇誰?',  canon: '(no canon ref yet)' },
+  'kt-ch16-l4':    { type: 'B6',          inquiry: '京都當侍衛 → 公主出去散步',  canon: '(no canon ref yet)' },
+  'kt-ch16-l5':    { type: 'B1',          inquiry: '鬼來抓公主 → 他能擋住嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch16-l6':    { type: 'B2',          inquiry: '一寸跳進鬼嘴用針刺 → 鬼會怎樣?',  canon: '(no canon ref yet)' },
+  'kt-ch16-l7':    { type: 'B6 open',     inquiry: '打鼓變大人 → 成家那刻',  canon: '(no canon ref yet)' },
+  // Ch17 
+  'kt-ch17-l1':    { type: 'B6',          inquiry: '鶴會回來嗎?',  canon: 'crane-gratitude.md#beat-1-setup' },
+  'kt-ch17-l2':    { type: 'B3',          inquiry: '她是誰?',  canon: 'crane-gratitude.md#beat-2-young-woman' },
+  'kt-ch17-l3':    { type: 'B5',          inquiry: '為什麼她要躲起來織?',  canon: 'crane-gratitude.md#beat-3-forbidden-room' },
+  'kt-ch17-l4':    { type: 'B4',          inquiry: '老爺爺好奇了',  canon: 'crane-gratitude.md#beat-4-merchant' },
+  'kt-ch17-l5':    { type: 'B1',          inquiry: '他會偷看嗎?',  canon: 'crane-gratitude.md#beat-5-urge-to-peek' },
+  'kt-ch17-l6':    { type: 'B2',          inquiry: '她會留下嗎?',  canon: 'crane-gratitude.md#beat-6-truth-revealed' },
+  'kt-ch17-l7':    { type: 'B6 open',     inquiry: '學到什麼?',  canon: 'crane-gratitude.md#beat-7-flies-away' },
+  // Ch18 
+  'kt-ch18-l1':    { type: 'B6',          inquiry: '興夫一個人怎麼活下去?',  canon: 'heungbu-nolbu.md#beat-1-setup' },
+  'kt-ch18-l2':    { type: 'B3',          inquiry: '他怎麼養家?',  canon: 'heungbu-nolbu.md#beat-2-poor-home' },
+  'kt-ch18-l3':    { type: 'B5',          inquiry: '興夫會救嗎?',  canon: 'heungbu-nolbu.md#beat-3-bird-falls' },
+  'kt-ch18-l4':    { type: 'B4',          inquiry: '給興夫什麼禮物?',  canon: 'heungbu-nolbu.md#beat-4-bird-returns' },
+  'kt-ch18-l5':    { type: 'B6',          inquiry: '哥哥孬夫聽到會怎樣?',  canon: 'heungbu-nolbu.md#beat-5-treasures' },
+  'kt-ch18-l6':    { type: 'B2',          inquiry: '報應會來嗎?',  canon: 'heungbu-nolbu.md#beat-6-nolbu-copies' },
+  'kt-ch18-l7':    { type: 'B6 open',     inquiry: '你會學興夫還是孬夫?',  canon: 'heungbu-nolbu.md#beat-7-shares' },
+  // Ch19 
+  'kt-ch19-l1':    { type: 'B6',          inquiry: '鼠鹿想吃對岸的水果 → 怎麼過河?',  canon: 'sang-kancil.md#beat-1-setup' },
+  'kt-ch19-l2':    { type: 'B3',          inquiry: '河裡有很多鱷魚 → 該怎麼辦?',  canon: 'sang-kancil.md#beat-2-crocodiles' },
+  'kt-ch19-l3':    { type: 'B5',          inquiry: '鼠鹿想到聰明的辦法 → 他會說什麼謊?',  canon: 'sang-kancil.md#beat-3-plan' },
+  'kt-ch19-l4':    { type: 'B4',          inquiry: '對鱷魚說「國王要點鱷魚數量」 → 鱷魚相信嗎?',  canon: 'sang-kancil.md#beat-4-trick' },
+  'kt-ch19-l5':    { type: 'B1',          inquiry: '鱷魚排隊讓他點 → 他跳過鱷魚背',  canon: 'sang-kancil.md#beat-5-jumping' },
+  'kt-ch19-l6':    { type: 'B2',          inquiry: '到對岸吃水果 → 鱷魚發現被騙',  canon: 'sang-kancil.md#beat-6-reveal' },
+  'kt-ch19-l7':    { type: 'B6 open',     inquiry: '鼠鹿學到什麼? 鱷魚學到什麼?',  canon: 'sang-kancil.md#beat-7-lessons' },
+  // Ch20 
+  'kt-ch20-l1':    { type: 'B6',          inquiry: '蘿蔔會變多大?拔得起來嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l2':    { type: 'B3',          inquiry: '為什麼拔不動?要怎麼辦?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l3':    { type: 'B5',          inquiry: '兩個還不夠 — 還要叫誰?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l4':    { type: 'B4',          inquiry: '已經三個人了 — 還要幾個?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l5':    { type: 'B1',          inquiry: '連狗都來了 — 還不夠?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l6':    { type: 'B2',          inquiry: '它動了 — 還差什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch20-l7':    { type: 'B6 open',     inquiry: '連最小的都重要 — 你家最小的是誰?',  canon: '(no canon ref yet)' },
+  // Ch21 
+  'kt-ch21-l1':    { type: 'B6',          inquiry: '蜘蛛能拿回所有故事嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l2':    { type: 'B5',          inquiry: '蜘蛛這麼小, 抓得到嗎? 該答應嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l3':    { type: 'B3',          inquiry: '倒水? 他要做什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l4':    { type: 'B4',          inquiry: '大蛇會上當嗎? 智取怎麼贏?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l5':    { type: 'B1',          inquiry: '豹會逃走嗎? 蜘蛛接下來怎麼辦?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l6':    { type: 'B2',          inquiry: '天神真的會給嗎? 報酬是什麼?',  canon: '(no canon ref yet)' },
+  'kt-ch21-l7':    { type: 'B6 open',     inquiry: '為什麼每個家都聽得到故事? 你家第一個故事是什麼?',  canon: '(no canon ref yet)' },
 };
 
 function shortText(s, max = 60) {
@@ -216,7 +270,7 @@ const rows = [];
 const perChapter = {};
 
 // v2.0.B.217: skip Ch0 per user '不用放到數據庫裡面'
-for (let ch = 1; ch <= 15; ch++) {
+for (let ch = 1; ch <= 21; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -290,7 +344,7 @@ const sumLines = [
   `| Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |`,
   `|----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|`,
 ];
-for (let ch = 1; ch <= 15; ch++) {
+for (let ch = 1; ch <= 21; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
@@ -309,7 +363,7 @@ sumLines.push(`Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst s
 sumLines.push('');
 sumLines.push(`| Lesson ID | Story Beat | Hook Type | Inquiry Question | Canon Ref |`);
 sumLines.push(`|-----------|------------|-----------|------------------|-----------|`);
-for (let ch = 1; ch <= 15; ch++) {
+for (let ch = 1; ch <= 21; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -330,7 +384,7 @@ for (const s of Object.values(perChapter)) for (const t of Object.keys(s.typeCou
 const typesArr = [...allTypes].sort();
 sumLines.push(`| Ch | ${typesArr.join(' | ')} |`);
 sumLines.push(`|----|${typesArr.map(()=>'---').join('|')}|`);
-for (let ch = 1; ch <= 15; ch++) {
+for (let ch = 1; ch <= 21; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const cells = typesArr.map(t => s.typeCounts[t] || 0);
@@ -345,7 +399,7 @@ console.log(`\n[CURRENT STATE]`);
 console.log(`Total Q: ${totalQ}, total time: ${Math.round(totalTime/60)} min`);
 console.log(`Avg per chapter: ${avgPerCh}, 25% tolerance band: ${lowBand}-${highBand}`);
 console.log(`\nPer chapter (Ch0 excluded, 5 min/lesson budget):`);
-for (let ch = 1; ch <= 15; ch++) {
+for (let ch = 1; ch <= 21; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);

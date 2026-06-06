@@ -313,12 +313,45 @@ export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 // huntsman rescue (3rd 兒童安全教育 trio with Ch1 桃太郎 + Ch6 Baba Yaga).
 // NO Perrault 1697 / Disney / Hoodwinked / Sondheim / Dahl elements. Slot
 // was reserved by B.260 Ch14 ship, now claimed by URL pipeline.
+// v2.0.B.264+: Ch16 一寸法師 (Issun-bōshi, Japanese folk PD, 室町時代 origin)
+// URL pipeline ship 2026-06-07. Completes 日本民間三部曲 with Ch1 桃太郎 +
+// Ch14 浦島太郎 (三個都是公有領域口傳). Theme: 小英雄也能打鬼 (size doesn't
+// matter, courage does). 'tiny boy' (not 'dwarf'), 'demon' (not 'oni'),
+// 'gave up and ran away' (no kill), 'big enough now' / 'became family'
+// (not 'married' — child-friendly framing). Schema 0-15 → 0-16.
+// v2.0.B.265+: Ch18 興夫和孬夫 (Heungbu and Nolbu, Korean folk PD) URL pipeline
+// ship 2026-06-07. East Asian folk trio with Ch1 桃太郎 + Ch14 浦島太郎.
+// Theme: 善有善報 — 兄弟之間的選擇. 'parents were gone' / 'kicked out' / 孬夫
+// 報應 = 'all his treasures turned to dust'. NO graphic violence. Schema 0-16
+// → 0-18 (slot 17 reserved for future ship, follows existing gap pattern).
+// v2.0.B.266+: Ch19 鼠鹿 Sang Kancil (Maritime SEA oral folk PD — Malaysia /
+// Indonesia / Brunei) URL pipeline ship 2026-06-07. Theme: 智取 (小身體配聰
+// 明腦袋). Animal wisdom fable cluster with Ch3 龜兔賽跑 / Ch4 駱駝駝峰.
+// Sang Kancil 是東南亞 trickster animal cycle 主角 (像 Anansi / Br'er Rabbit
+// / Reynard). 兒童 friendly: 'trick' OK (智取主題), 'crocodile opened mouths
+// in anger' 不 'attacked'. Schema 0-18 → 0-19.
+// v2.0.B.280+: Ch20 蘿蔔大冒險 (The Enormous Turnip / Repka, Russian folk
+// 口傳, 公有領域) URL pipeline ship 2026-06-07. Cumulative structure 7 角色
+// 加入 (爺爺 → 奶奶 → 孫女 → 狗 → 貓 → 老鼠 → 拔出來). 0 衝突 / 0 暴力 /
+// 100% 溫馨家庭. 配 Ch5 Baba Yaga 作 2 個俄羅斯民間 portfolio pair (dark
+// sparse vs light cumulative — 同源文化, 反向 tone). 自創 A2 句式, 不引特
+// 定譯本/繪本. A2 cumulative refrain 對兒童 memorization 最友善. Schema
+// 0-19 → 0-20.
+// v2.0.B.270+: Ch21 Anansi the Spider (西非民間 Akan/Ashanti 口傳, 公有領域)
+// URL pipeline ship 2026-06-07. 智取 trickster underdog pair with Ch19 Sang
+// Kancil (kin with Br'er Rabbit / Reynard). 起源神話: 為什麼每個家都聽得到
+// 故事. 文化分佈 bear band 'Other (Africa)' coverage. 自創 A2 句式, 不引
+// Gerald McDermott 1972 picture book / Disney / 任何 modern adaptation.
+// 三個動物全部 'gave up and went home' / 'caught safely' (0 風險). Schema
+// 0-20 → 0-21.
 export const ChapterIdSchema = z.union([
   z.literal(0),
   z.literal(1), z.literal(2), z.literal(3),
   z.literal(4), z.literal(5), z.literal(6), z.literal(7),
   z.literal(8), z.literal(9), z.literal(10), z.literal(11),
   z.literal(12), z.literal(13), z.literal(14), z.literal(15),
+  z.literal(16), z.literal(17), z.literal(18), z.literal(19),
+  z.literal(20), z.literal(21),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 

@@ -34,7 +34,13 @@ const PUBLIC = path.join(ROOT, 'public');
 // v2.0.B.242+: Ch13 小紅帽 (Little Red Riding Hood, Grimm KHM 26 1812 first
 // edition, PD) URL pipeline ship 2026-06-07. NO Perrault 1697 / Disney /
 // Hoodwinked / Sondheim / Dahl. 3rd 兒童安全教育 trio with Ch1/Ch6.
-const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+// v2.0.B.264+: Ch18 興夫和孬夫 (Heungbu and Nolbu, Korean folk PD) URL pipeline
+// ship 2026-06-07. East Asian folk trio with Ch1 桃太郎 + Ch14 浦島太郎.
+// v2.0.B.266+: Ch19 鼠鹿 Sang Kancil (Maritime SEA oral folk PD — Malaysia /
+// Indonesia / Brunei) URL pipeline ship 2026-06-07. Trickster animal cycle.
+// v2.0.B.270+: Ch21 Anansi the Spider (West African Akan/Ashanti oral folk
+// PD) URL pipeline ship 2026-06-07. Trickster cycle pair with Ch19.
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
   1: '桃太郎', 2: '醜小鴨', 3: '龜兔賽跑',
@@ -47,6 +53,12 @@ const CHAPTER_TITLES = {
   13: '小紅帽',
   14: '浦島太郎',
   15: '國王的新衣',
+  16: '一寸法師',
+  17: '鶴的報恩',
+  18: '興夫和孬夫',
+  19: 'Sang Kancil 鼠鹿',
+  20: '蘿蔔大冒險',
+  21: 'Anansi 蜘蛛',
 };
 const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
 

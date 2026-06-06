@@ -163,6 +163,85 @@ export const LESSON_HOOKS: Record<string, LessonHook> = {
   'kt-ch13-l5': { type: 'B3',       inquiry: '小紅帽到奶奶家 → 床上是奶奶嗎?' },
   'kt-ch13-l6': { type: 'B4',       inquiry: '獵人來救 → 來得及嗎?' },
   'kt-ch13-l7': { type: 'B6 open',  inquiry: '救出奶奶 → 媽媽的話現在懂了' },
+  // Ch16 一寸法師 (Issun-bōshi, Japanese folk public domain, 室町時代 origin,
+  // URL pipeline ship 2026-06-07, B.264+). Completes 日本民間三部曲 with
+  // Ch1 桃太郎 + Ch14 浦島太郎 (三個都公有領域口傳). 'tiny boy' (not 'dwarf'),
+  // 'demon' (not 'oni'), 'gave up and ran away' (not 'killed'), 'big enough
+  // now to start a home' / 'they became family' (not 'married' — child-
+  // friendly framing). 自創 A2 句式, 不引特定譯本/繪本.
+  'kt-ch16-l1': { type: 'B6',       inquiry: '老夫婦求子 → 會生出什麼?' },
+  'kt-ch16-l2': { type: 'B3',       inquiry: '拇指大小的男孩 → 他能做什麼?' },
+  'kt-ch16-l3': { type: 'B4',       inquiry: '一寸帶碗船出發 → 路上會遇誰?' },
+  'kt-ch16-l4': { type: 'B6',       inquiry: '京都當侍衛 → 公主出去散步' },
+  'kt-ch16-l5': { type: 'B1',       inquiry: '鬼來抓公主 → 他能擋住嗎?' },
+  'kt-ch16-l6': { type: 'B2',       inquiry: '一寸跳進鬼嘴用針刺 → 鬼會怎樣?' },
+  'kt-ch16-l7': { type: 'B6 open',  inquiry: '打鼓變大人 → 成家那刻' },
+  // Ch17 鶴的報恩 (Tsuru no Ongaeshi, Japanese folk public domain, URL pipeline
+  // ship 2026-06-07, B.266+). 4th Japanese folk completing 日本民間四部曲 with
+  // Ch1 桃太郎 + Ch14 浦島太郎 + Ch16 一寸法師. Theme: 不能偷看的房間 — 善意
+  // 有回報, 但好奇打破信任. 自創 A2 句式, 不引特定譯本/繪本/動畫. 'wife' →
+  // companion / family framing, '拔羽毛' → 'pulled her own feathers' (non-
+  // blood), 鶴飛走 → 'flew away to the sky' (NOT 'died').
+  'kt-ch17-l1': { type: 'B6',       inquiry: '鶴會回來嗎?' },
+  'kt-ch17-l2': { type: 'B3',       inquiry: '她是誰?' },
+  'kt-ch17-l3': { type: 'B5',       inquiry: '為什麼她要躲起來織?' },
+  'kt-ch17-l4': { type: 'B4',       inquiry: '老爺爺好奇了' },
+  'kt-ch17-l5': { type: 'B1',       inquiry: '他會偷看嗎?' },
+  'kt-ch17-l6': { type: 'B2',       inquiry: '她會留下嗎?' },
+  'kt-ch17-l7': { type: 'B6 open',  inquiry: '學到什麼?' },
+  // Ch18 興夫和孬夫 (Heungbu and Nolbu, Korean folk public domain, URL pipeline
+  // ship 2026-06-07, B.264+). Theme: 善有善報 — 兄弟之間的選擇. 東亞民間 trio
+  // with Ch1 桃太郎 + Ch14 浦島太郎. 自創 A2 句式, 不引繪本/特定譯本.
+  // 'parents were gone' (not 'died'); 'kicked out' OK; 孬夫報應 = 'all his
+  // treasures turned to dust' (典型民間 transformation, no blood).
+  'kt-ch18-l1': { type: 'B6',       inquiry: '興夫一個人怎麼活下去?' },
+  'kt-ch18-l2': { type: 'B3',       inquiry: '他怎麼養家?' },
+  'kt-ch18-l3': { type: 'B5',       inquiry: '興夫會救嗎?' },
+  'kt-ch18-l4': { type: 'B4',       inquiry: '給興夫什麼禮物?' },
+  'kt-ch18-l5': { type: 'B6',       inquiry: '哥哥孬夫聽到會怎樣?' },
+  'kt-ch18-l6': { type: 'B2',       inquiry: '報應會來嗎?' },
+  'kt-ch18-l7': { type: 'B6 open',  inquiry: '你會學興夫還是孬夫?' },
+  // Ch19 Sang Kancil 鼠鹿 (Maritime SEA oral folk public domain — Malaysia /
+  // Indonesia / Brunei, URL pipeline ship 2026-06-07, B.266+). Trickster
+  // cycle, kin with Anansi / Br'er Rabbit / Reynard. Theme: small body,
+  // smart head. Animal wisdom fable cluster with Ch3 龜兔賽跑 / Ch4 駱駝駝峰.
+  // 自創 A2 句式, 不引繪本/教科書/動畫. 'trick' OK (智取主題核心), 'lie' OK,
+  // crocodile 'opened mouths in anger' 不 'attacked'.
+  'kt-ch19-l1': { type: 'B6',       inquiry: '鼠鹿想吃對岸的水果 → 怎麼過河?' },
+  'kt-ch19-l2': { type: 'B3',       inquiry: '河裡有很多鱷魚 → 該怎麼辦?' },
+  'kt-ch19-l3': { type: 'B5',       inquiry: '鼠鹿想到聰明的辦法 → 他會說什麼謊?' },
+  'kt-ch19-l4': { type: 'B4',       inquiry: '對鱷魚說「國王要點鱷魚數量」 → 鱷魚相信嗎?' },
+  'kt-ch19-l5': { type: 'B1',       inquiry: '鱷魚排隊讓他點 → 他跳過鱷魚背' },
+  'kt-ch19-l6': { type: 'B2',       inquiry: '到對岸吃水果 → 鱷魚發現被騙' },
+  'kt-ch19-l7': { type: 'B6 open',  inquiry: '鼠鹿學到什麼? 鱷魚學到什麼?' },
+  // Ch20 蘿蔔大冒險 (The Enormous Turnip / Repka, Russian folk public domain,
+  // URL pipeline ship 2026-06-07, B.280+). 配 Ch5 Baba Yaga 作 2 個俄羅斯民間
+  // portfolio pair (dark sparse vs light cumulative). Cumulative structure 7
+  // 角色加入 — 每 lesson 加一個 puller (爺爺 → 奶奶 → 孫女 → 狗 → 貓 → 老鼠).
+  // 0 衝突 / 0 暴力 / 100% 溫馨家庭. 自創 A2 句式, 不引特定譯本/繪本. Refrain
+  // '[X] pulled. The turnip would not move.' 對 A2 兒童 memorization 最友善
+  // (重複句型是教學工具).
+  'kt-ch20-l1': { type: 'B6',       inquiry: '蘿蔔會變多大?拔得起來嗎?' },
+  'kt-ch20-l2': { type: 'B3',       inquiry: '為什麼拔不動?要怎麼辦?' },
+  'kt-ch20-l3': { type: 'B5',       inquiry: '兩個還不夠 — 還要叫誰?' },
+  'kt-ch20-l4': { type: 'B4',       inquiry: '已經三個人了 — 還要幾個?' },
+  'kt-ch20-l5': { type: 'B1',       inquiry: '連狗都來了 — 還不夠?' },
+  'kt-ch20-l6': { type: 'B2',       inquiry: '它動了 — 還差什麼?' },
+  'kt-ch20-l7': { type: 'B6 open',  inquiry: '連最小的都重要 — 你家最小的是誰?' },
+  // Ch21 Anansi the Spider (西非民間 Akan/Ashanti 口傳, public domain, URL
+  // pipeline ship 2026-06-07, B.270+). Trickster cycle pair with Ch19 Sang
+  // Kancil (kin with Br'er Rabbit / Reynard). Theme: 小蜘蛛智取拿回世界
+  // 所有故事 + 起源神話 (為什麼每個家都聽得到故事). 自創 A2 句式, 不引
+  // Gerald McDermott 1972 picture book / Disney / 任何 modern adaptation.
+  // 'gave up and went home' 不 'killed', 'caught safely' 不 'trapped'.
+  // 文化分佈 bear band 'Other (Africa)' coverage.
+  'kt-ch21-l1': { type: 'B6',       inquiry: '蜘蛛能拿回所有故事嗎?' },
+  'kt-ch21-l2': { type: 'B5',       inquiry: '蜘蛛這麼小, 抓得到嗎? 該答應嗎?' },
+  'kt-ch21-l3': { type: 'B3',       inquiry: '倒水? 他要做什麼?' },
+  'kt-ch21-l4': { type: 'B4',       inquiry: '大蛇會上當嗎? 智取怎麼贏?' },
+  'kt-ch21-l5': { type: 'B1',       inquiry: '豹會逃走嗎? 蜘蛛接下來怎麼辦?' },
+  'kt-ch21-l6': { type: 'B2',       inquiry: '天神真的會給嗎? 報酬是什麼?' },
+  'kt-ch21-l7': { type: 'B6 open',  inquiry: '為什麼每個家都聽得到故事? 你家第一個故事是什麼?' },
 };
 
 export function getLessonHook(lessonId: string): LessonHook | null {
