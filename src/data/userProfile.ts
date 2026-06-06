@@ -17,6 +17,12 @@
  * Stays pure-read — never writes to localStorage.
  */
 import { STORY_TAGS, type HookType, type TagId } from './storyTags';
+import type {
+  Culture,
+  Style,
+  Protagonist,
+  Theme,
+} from './storyRegistry';
 
 /**
  * v2.0.B.237 — CEFR-aligned ability tier used by chapter recommender.
@@ -277,3 +283,85 @@ export function readUserProfile(overrides?: Partial<UserProfile>): UserProfile {
 export const USER_PROFILE_DEFAULTS = {
   CHAPTER_COMPLETE_LESSON_THRESHOLD,
 } as const;
+
+// ─── v2.0.B.238: Story-taste preferences ────────────────────────────────────
+//
+// Driven by OnboardingPicker (4-axis multi-select). Empty array on any axis
+// = "all stories on this axis are fine" (wildcard), matching the
+// "跳過 → 全部都喜歡" skip path. The recommender (storyRegistry +
+// storyRecommend) treats empty axes as wildcards.
+
+export interface UserPreferences {
+  cultures: Culture[];
+  styles: Style[];
+  protagonists: Protagonist[];
+  themes: Theme[];
+}
+
+export const USER_PREFERENCES_STORAGE_KEY = 'pickup.story.preferences';
+
+/** Default = "all 4 axes empty" = user likes everything (wildcard). */
+export const ALL_PREFERENCES_DEFAULT: UserPreferences = {
+  cultures: [],
+  styles: [],
+  protagonists: [],
+  themes: [],
+};
+
+function asStringArray(v: unknown): string[] {
+  if (!Array.isArray(v)) return [];
+  return v.filter((x): x is string => typeof x === 'string');
+}
+
+/**
+ * Read story-taste preferences from localStorage. Returns the
+ * all-wildcard default if missing, malformed, or storage unavailable.
+ *
+ * Pure-read. No side effects.
+ */
+export function readUserPreferences(): UserPreferences {
+  if (!isLocalStorageAvailable()) return { ...ALL_PREFERENCES_DEFAULT };
+  try {
+    const raw = localStorage.getItem(USER_PREFERENCES_STORAGE_KEY);
+    if (!raw) return { ...ALL_PREFERENCES_DEFAULT };
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') {
+      return { ...ALL_PREFERENCES_DEFAULT };
+    }
+    return {
+      cultures: asStringArray((parsed as Record<string, unknown>).cultures) as Culture[],
+      styles: asStringArray((parsed as Record<string, unknown>).styles) as Style[],
+      protagonists: asStringArray((parsed as Record<string, unknown>).protagonists) as Protagonist[],
+      themes: asStringArray((parsed as Record<string, unknown>).themes) as Theme[],
+    };
+  } catch {
+    return { ...ALL_PREFERENCES_DEFAULT };
+  }
+}
+
+/**
+ * Persist story-taste preferences to localStorage. Defensive about
+ * missing localStorage / quota errors.
+ */
+export function setUserPreferences(prefs: UserPreferences): void {
+  if (!isLocalStorageAvailable()) return;
+  try {
+    localStorage.setItem(USER_PREFERENCES_STORAGE_KEY, JSON.stringify(prefs));
+  } catch {
+    // ignore — quota / private-mode write block
+  }
+}
+
+/**
+ * True if any axis has at least one selection. Used by the recommender to
+ * decide whether to apply preference filtering at all (no selections =
+ * wildcard, skip the filter).
+ */
+export function hasAnyPreference(prefs: UserPreferences): boolean {
+  return (
+    prefs.cultures.length > 0 ||
+    prefs.styles.length > 0 ||
+    prefs.protagonists.length > 0 ||
+    prefs.themes.length > 0
+  );
+}

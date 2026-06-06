@@ -40,7 +40,15 @@ import {
   type HookType,
   type TagId,
 } from './storyTags';
-import type { AbilityLevel, UserProfile } from './userProfile';
+import type { AbilityLevel, UserProfile, UserPreferences } from './userProfile';
+import { hasAnyPreference } from './userProfile';
+import {
+  STORY_REGISTRY,
+  filterByPreference,
+  listCandidateStories,
+  preferenceOverlapScore,
+  type StoryEntry,
+} from './storyRegistry';
 
 // ─── Tunables ───────────────────────────────────────────────────────────────
 const WEIGHT_TAG_OVERLAP = 0.55;
@@ -321,6 +329,7 @@ function scoreCandidate(
 export function recommendNextStories(
   userProfile: UserProfile,
   candidatePool: ChapterInfo[],
+  preferences?: UserPreferences,
 ): RecommendationResult {
   const completed = userProfile.completedChapters;
   const coldStart =
@@ -334,10 +343,23 @@ export function recommendNextStories(
   // Sort the pool by chapter id so cold-start prior is deterministic.
   const ordered = [...candidatePool].sort((a, b) => a.chapter - b.chapter);
 
-  // Split: canon vs elective. Canon is exempt from ability gating so the
-  // 共同故事悖論 (Ch2 桃太郎 + Ch3 醜小鴨) still shows in core regardless of
-  // ability — UI displays them as "core canon" labelled separately from
-  // the level-matched elective recommendations.
+  // v2.0.B.238: build preference-allowed chapter set from STORY_REGISTRY if
+  // user has expressed any preferences. Empty preferences = wildcard (all
+  // shipped chapters allowed) — preserves pre-B.238 behaviour.
+  let preferenceAllowedChapters: Set<number> | null = null;
+  if (preferences && hasAnyPreference(preferences)) {
+    preferenceAllowedChapters = new Set<number>();
+    for (const entry of filterByPreference(preferences)) {
+      if (entry.status === 'shipped' && typeof entry.shippedChapter === 'number') {
+        preferenceAllowedChapters.add(entry.shippedChapter);
+      }
+    }
+  }
+
+  // Split: canon vs elective. Canon is exempt from ability + preference
+  // gating so the 共同故事悖論 (Ch2 桃太郎 + Ch3 醜小鴨) still shows in core
+  // regardless of ability — UI displays them as "core canon" labelled
+  // separately from the level-matched elective recommendations.
   const canonCh = new Set(CORE_CANON_CHAPTERS);
   const coreCandidates: ChapterInfo[] = [];
   const electiveCandidates: ChapterInfo[] = [];
@@ -350,13 +372,18 @@ export function recommendNextStories(
     // Apply ability filter to elective pool.
     const chDiff = getChapterDifficulty(c.chapter);
     if (!allowedDifficulty.has(chDiff)) continue;
+    // Apply preference filter (only when user has expressed preferences).
+    if (preferenceAllowedChapters && !preferenceAllowedChapters.has(c.chapter)) {
+      continue;
+    }
     electiveCandidates.push(c);
   }
 
-  // Edge case: if ability filter wipes out the elective pool entirely (e.g.
-  // A2+ user with no A2+ chapters left), fall back to the unfiltered set so
-  // the carousel never goes empty. This keeps "your level" UX honest without
-  // stranding the user.
+  // Edge case: if ability + preference filters wipe out the elective pool
+  // entirely (e.g. A2+ user with no A2+ chapters left, or preferences too
+  // narrow), fall back to the unfiltered set so the carousel never goes
+  // empty. This keeps "your level / your taste" UX honest without stranding
+  // the user. v2.0.B.238: fallback skips preference + ability gates.
   if (electiveCandidates.length === 0) {
     for (const c of ordered) {
       if (canonCh.has(c.chapter)) continue;
@@ -416,3 +443,62 @@ export const RECOMMEND_TUNABLES = {
   COLD_START_DECAY,
   CORE_CANON_CHAPTERS,
 } as const;
+
+// ─── v2.0.B.238: Candidate teaser cards ─────────────────────────────────────
+//
+// "Mochi 之後會講這個 🤫" cards. Pulled from STORY_REGISTRY (status='candidate'),
+// optionally ranked by preference overlap so the teaser surfaces stories the
+// user has signaled they want.
+
+export interface StoryTeaser {
+  id: string;
+  nameEn: string;
+  nameZh: string;
+  source: string;
+  /** Tag-overlap count against user preferences (0..many). */
+  preferenceScore: number;
+  reason: { zh: string; en: string };
+}
+
+const TEASER_REASON = {
+  zh: 'Mochi 之後會講這個 🤫',
+  en: 'Mochi will tell this one later 🤫',
+};
+
+/**
+ * Top-K teaser cards for "coming soon" surface. Ranks candidates by
+ * preference overlap (when preferences set) then by id for determinism.
+ * Returns at most `limit` entries (default 3).
+ */
+export function teaserCandidates(
+  preferences?: UserPreferences,
+  limit: number = 3,
+): StoryTeaser[] {
+  const candidates: StoryEntry[] = listCandidateStories();
+  const prefs = preferences ?? {
+    cultures: [],
+    styles: [],
+    protagonists: [],
+    themes: [],
+  };
+  const scored = candidates.map((c) => ({
+    entry: c,
+    score: hasAnyPreference(prefs) ? preferenceOverlapScore(prefs, c) : 0,
+  }));
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return a.entry.id.localeCompare(b.entry.id);
+  });
+  return scored.slice(0, limit).map(({ entry, score }) => ({
+    id: entry.id,
+    nameEn: entry.nameEn,
+    nameZh: entry.nameZh,
+    source: entry.source,
+    preferenceScore: score,
+    reason: { ...TEASER_REASON },
+  }));
+}
+
+// Re-export STORY_REGISTRY for diagnostic / debug code that wants to inspect
+// the registry alongside the recommender (single import surface).
+export { STORY_REGISTRY };
