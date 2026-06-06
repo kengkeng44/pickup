@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
+// v2.0.B.234 招 3: Mochi outfit avatar so intro composition reflects player's pick.
+import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 
 interface Lesson {
   id: string;
@@ -64,10 +66,13 @@ export default function ChapterIntroPage() {
           </div>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 18, marginBottom: 24 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: 14, marginBottom: 24 }}>
           {/* v2.0.B.192 P2 fix: explicit height prevents CLS shift when slow-loading webp arrives */}
           <img src="/mascots/iso-grandma.webp" alt="" width={100} height={110} />
-          <img src="/mascots/iso-shiba.webp" alt="" width={70} height={80} style={{ alignSelf: 'flex-end' }} />
+          <img src="/mascots/iso-shiba.webp" alt="" width={70} height={80} />
+          {/* v2.0.B.234 招 3: Mochi cat with current outfit badge — completes
+              the trio (grandma + shiba + cat) per CLAUDE.md framework. */}
+          <MochiOutfitAvatar size={62} ariaLabel="Mochi" />
         </div>
       </div>
 

@@ -14,9 +14,19 @@ import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
+import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
 import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
 import { getLessonHook } from '../../data/lessonHooks';
+import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
+import {
+  evaluateTriggers,
+  scheduleNotif,
+  shouldShowSoftPrompt,
+  NotifConsentPrompt,
+  bootScheduler,
+  getHistory,
+} from '../../notifications';
 
 interface Lesson {
   id: string;
@@ -30,6 +40,10 @@ export default function LessonPage() {
   const { chapter, lessonId } = useParams<{ chapter: string; lessonId: string }>();
   const navigate = useNavigate();
   const [lesson, setLesson] = useState<Lesson | null>(null);
+  // v2.0.B.234 wiring: track total lessons in chapter so CompletePanel can
+  // know if this completion is the chapter-final one (drives cross-chapter-hook
+  // trigger in evaluateTriggers).
+  const [maxLessonInChapter, setMaxLessonInChapter] = useState(0);
   const [idx, setIdx] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
   const startedAt = useRef(Date.now());
@@ -41,6 +55,8 @@ export default function LessonPage() {
       .then((arr: Lesson[]) => {
         const found = arr.find(l => l.id === lessonId);
         setLesson(found ?? null);
+        const maxL = arr.reduce((m, l) => Math.max(m, l.lessonInChapter ?? 0), 0);
+        setMaxLessonInChapter(maxL);
         setIdx(0);
         setHistory([]);
         answerLog.current = [];
@@ -61,6 +77,7 @@ export default function LessonPage() {
       lesson={lesson}
       log={answerLog.current}
       elapsedMs={Date.now() - startedAt.current}
+      isLastLessonOfChapter={maxLessonInChapter > 0 && lesson.lessonInChapter >= maxLessonInChapter}
       onBack={() => navigate('/')}
     />;
   }
@@ -127,8 +144,12 @@ function NarrativeLine({ text }: { text: string }) {
   );
 }
 
-function CompletePanel({ lesson, log, elapsedMs, onBack }: {
-  lesson: Lesson; log: Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>; elapsedMs: number; onBack: () => void;
+function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }: {
+  lesson: Lesson;
+  log: Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>;
+  elapsedMs: number;
+  isLastLessonOfChapter: boolean;
+  onBack: () => void;
 }) {
   // v2.0.B.192 (UI/UX P1 #35 + cron P0 latent): wire addXp + addCoins on
   // lesson complete. React 從 v2.0.A onwards 沒呼叫過 addXp/addCoins,
@@ -152,6 +173,13 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
   // v2.0.B.232 招 2 collectible cards: capture cards newly unlocked by
   // completing this lesson so the panel can show "你解鎖了 X 張新卡片".
   const [newCards, setNewCards] = useState<CardId[]>([]);
+  // v2.0.B.234 招 3 mascot outfits: capture outfits newly unlocked by this
+  // lesson completion (chapter-complete + lesson-id + streak milestones).
+  const [newOutfits, setNewOutfits] = useState<OutfitId[]>([]);
+  // v2.0.B.234 wiring: soft consent prompt visibility. Only shows for
+  // L3+ first time `shouldShowSoftPrompt()` evaluates truthy. Inside
+  // useState init so we evaluate once per panel mount, not every render.
+  const [showConsent, setShowConsent] = useState(false);
 
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
@@ -159,6 +187,9 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
     try { addCoins(coinDelta); } catch {}
     try { setStreakResult(updateStreak()); } catch {}
     try { setNewCards(unlockCardsForLesson(lesson.id)); } catch {}
+    // v2.0.B.234 招 3: mascot outfit unlock check (chapterComplete / lessonComplete
+    // / milestoneStreak). Runs AFTER updateStreak() so streak count is current.
+    try { setNewOutfits(unlockOutfitsForLesson(lesson.id)); } catch {}
     try {
       track(EVENT.LESSON_COMPLETE, {
         lesson_id: lesson.id,
@@ -173,6 +204,31 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         hook_type: hook?.type ?? 'none',
         has_inquiry: hook != null,
       });
+    } catch {}
+
+    // v2.0.B.234 wiring (notification scaffold goes live):
+    // (a) L3+ + shouldShowSoftPrompt() true → render NotifConsentPrompt
+    // (b) Regardless of consent, evaluateTriggers(ctx) → scheduleNotif()
+    //     (scheduler internally gates on consent + permission, so calling
+    //     unconditionally is safe — drops to no-op when not granted.)
+    try {
+      if (lesson.lessonInChapter >= 3 && shouldShowSoftPrompt()) {
+        setShowConsent(true);
+      }
+    } catch {}
+    try {
+      const ctx = buildTriggerContext({
+        lesson,
+        accuracy,
+        isLastLessonOfChapter,
+      });
+      const intents = evaluateTriggers(ctx);
+      for (const intent of intents) {
+        scheduleNotif(intent.kind, intent.fireAt, {
+          chapter: intent.chapter,
+          tag: intent.tag,
+        });
+      }
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -192,7 +248,11 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
           }}>{emojis[i % emojis.length]}</span>
         );
       })}
-      <div style={{ fontSize: 48 }}>🎉</div>
+      {/* v2.0.B.234 招 3: celebrate with Mochi in her current outfit (replaces
+          bare 🎉). Falls back to default cat if no outfit picked. */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>
+        <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
+      </div>
       <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
         <Stat label="XP" value={xp} color="#b07a2a" bg="#fef3c7" />
@@ -209,6 +269,10 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
       {/* v2.0.B.232 招 2: 新解鎖卡片提示 (溫和招呼,不打斷) */}
       {newCards.length > 0 && (
         <NewCardsBanner count={newCards.length} />
+      )}
+      {/* v2.0.B.234 招 3: 新解鎖裝扮提示 (warm framing, 引導去衣櫥試穿) */}
+      {newOutfits.length > 0 && (
+        <NewOutfitsBanner outfitIds={newOutfits} />
       )}
       {/* v2.0.B.230: hook inquiry microcopy above Continue button. Bell HIP
           Prompt 外顯 — drives Zeigarnik 效應點下一個 button 衝動. */}
@@ -236,8 +300,85 @@ function CompletePanel({ lesson, log, elapsedMs, onBack }: {
         cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
         WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
       }}>完成 · Continue →</button>
+
+      {/* v2.0.B.234 wiring: soft notification consent prompt — only renders
+          for L3+ when shouldShowSoftPrompt() was truthy at mount. Native
+          permission prompt is triggered inside accept handler (user gesture
+          required by iOS Safari). bootScheduler re-runs after accept so
+          scheduleNotif() calls made earlier in this useEffect (gated to
+          no-op while consent missing) can be retried via past-due replay
+          on next mount — but since intents we just scheduled are FUTURE,
+          we simply re-arm timers post-consent. */}
+      {showConsent && (
+        <NotifConsentPrompt
+          onAccept={() => {
+            setShowConsent(false);
+            try { bootScheduler(); } catch {}
+          }}
+          onDecline={() => setShowConsent(false)}
+        />
+      )}
     </div>
   );
+}
+
+/**
+ * v2.0.B.234 wiring helper: assemble TriggerContext from current lesson +
+ * localStorage state. Cheap reads (streak, last-fired history) so safe to
+ * call per CompletePanel mount. Defaults are defensive — if any read
+ * throws, helper still returns a usable context (scheduler will no-op).
+ */
+function buildTriggerContext(opts: {
+  lesson: Lesson;
+  accuracy: number;
+  isLastLessonOfChapter: boolean;
+}): import('../../notifications').TriggerContext {
+  const now = new Date();
+
+  // streak: localStorage 'pickup.streak.count'
+  let streak = 0;
+  try {
+    const v = localStorage.getItem('pickup.streak.count');
+    const n = v == null ? 0 : Number(v);
+    if (Number.isFinite(n) && n >= 0) streak = Math.floor(n);
+  } catch {}
+
+  // notifs fired this week: count history entries within last 7 days.
+  let notifsFiredThisWeek = 0;
+  try {
+    const sevenDaysAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
+    notifsFiredThisWeek = getHistory().filter(h => {
+      const t = new Date(h.firedAtIso).getTime();
+      return Number.isFinite(t) && t >= sevenDaysAgo;
+    }).length;
+  } catch {}
+
+  // SRS queue size — defensive read (storyKitten SRS list, may not exist).
+  let srsQueueSize = 0;
+  try {
+    const raw = localStorage.getItem('pickup.story.srs');
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) srsQueueSize = arr.length;
+    }
+  } catch {}
+
+  // chapter completion state
+  const isLast = opts.isLastLessonOfChapter;
+  const completedLessonsThisChapter = isLast ? opts.lesson.lessonInChapter : opts.lesson.lessonInChapter;
+
+  return {
+    now,
+    lastAppOpenAt: now, // current mount = app open
+    lastLessonCompleteAt: now, // just completed
+    currentChapter: opts.lesson.chapter,
+    completedLessonsThisChapter,
+    lastChapterCompletedAt: isLast ? now : null,
+    srsQueueSize,
+    streak,
+    activeHour: now.getHours(),
+    notifsFiredThisWeek,
+  };
 }
 
 // v2.0.B.232 招 1: streak result banner. Three states, all warm framing.
@@ -302,6 +443,42 @@ function NewCardsBanner({ count }: { count: number }) {
         </div>
         <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
           You unlocked {count} new card{count > 1 ? 's' : ''}. Check 圖鑑 tab.
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// v2.0.B.234 招 3: 新解鎖裝扮 banner. 列出名稱 + 一個 emoji badge,引導去
+// Profile tab → 衣櫥 試穿。Warm framing, 不打擾完成爽感。
+function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
+  const outfits = outfitIds
+    .map(id => getOutfitById(id))
+    .filter((o): o is NonNullable<typeof o> => o != null);
+  if (outfits.length === 0) return null;
+  const firstBadge = outfits[0].emojiBadge || '👕';
+  const namesZh = outfits.map(o => o.name.zh).join(' / ');
+  const namesEn = outfits.map(o => o.name.en).join(' / ');
+  return (
+    <div className="pickup-fade-up" style={{
+      marginBottom: 12,
+      padding: '12px 14px',
+      background: '#fff7e8',
+      border: '2px solid #c8a878',
+      borderBottom: '4px solid #8b6f4a',
+      borderRadius: 12,
+      display: 'flex', alignItems: 'center', gap: 12,
+      maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
+    }}>
+      <span style={{ fontSize: 28 }} aria-hidden="true">{firstBadge}</span>
+      <div style={{ flex: 1, textAlign: 'left' }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
+          {outfits.length === 1
+            ? `新裝扮:${namesZh}`
+            : `${outfits.length} 套新裝扮:${namesZh}`}
+        </div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
+          New outfit{outfits.length > 1 ? 's' : ''}: {namesEn} · 我的 → 衣櫥 試穿
         </div>
       </div>
     </div>

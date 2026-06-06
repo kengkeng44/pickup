@@ -395,9 +395,11 @@ const lessons = [
       nar('kt-ch1-l5-q6',
         'The four of them crossed the wide sea by boat.',
         '他們四個搭船渡過寬廣的海。'),
+      // v2.0.B.235 Track 1: B.234 桶 C lint-readability 抓出 grade 7.19 太難
+      // (A2 紅線 grade 4). 拆成 sparse 兩短句, grade 降到 ~3, A2 友善.
       tf('kt-ch1-l5-q7',
-        'Salty waves splashed onto the wooden deck for many hours.',
-        '鹹海浪打到木船板上,持續好幾小時。',
+        'Salt waves hit the boat. They hit for many hours.',
+        '鹹海浪打到船上。打了好幾小時。',
         'Was the sea crossing very short?', 'N',
         '推理:好幾小時 → 不短 → 答 No'),
       nar('kt-ch1-l5-q8',
@@ -410,8 +412,10 @@ const lessons = [
         ['清楚明亮', '非常差', '陽光普照', '閃亮'],
         1,
         '幾乎看不到對方 → 非常差。'),
+      // v2.0.B.235 Track 1: B.234 桶 C lint-vocab 抓出 'whispered' B1+ (NGSL > 2000).
+      // 改 'said quietly' (A2 NGSL 1000), 語意 100% 保留.
       nar('kt-ch1-l5-q10',
-        'The monkey leaned over the boat\'s side and whispered to Momotaro.',
+        'The monkey leaned over the boat\'s side and said quietly to Momotaro.',
         '猴子靠到船邊,輕聲對桃太郎說話。'),
       // Q11 HOOK (B6 預言種子 + B1 物理懸念)
       nar('kt-ch1-l5-q11',

@@ -10,6 +10,8 @@ import KeySentencesSheet from '../components/KeySentencesSheet';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
 import { readCoins } from '../../data/coins';
 import { readStreak, readFreezes } from '../../data/streak';
+// v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
+import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 
 interface Lesson {
   id: string;
@@ -328,6 +330,16 @@ export default function MapPage() {
                 position: 'absolute', left: 0, bottom: 0,
                 width: 88, height: 'auto', display: 'block', zIndex: 2,
               }} />
+              {/* v2.0.B.234 招 3: small Mochi mascot next to grandma, shows
+                  the player's chosen outfit via emoji badge overlay. Sits at
+                  grandma's feet — keeps the trio (grandma+shiba+Mochi)
+                  consistent across map/intro/lesson surfaces. */}
+              <span style={{
+                position: 'absolute', left: 70, bottom: 4,
+                zIndex: 3, lineHeight: 0,
+              }}>
+                <MochiOutfitAvatar size={44} ariaLabel="Mochi" />
+              </span>
             </div>
           )}
 

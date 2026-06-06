@@ -18,6 +18,7 @@ import BottomNav from './components/BottomNav';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
 import { preloadHints } from '../ui/WordHint';
+import { bootScheduler } from '../notifications';
 
 const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
@@ -27,6 +28,12 @@ function LoadingShell() {
 }
 
 export default function App() {
+  // v2.0.B.234 wiring: boot notification scheduler once on mount. Replays
+  // past-due scheduled notifs + arms pending. No-op if consent missing.
+  useEffect(() => {
+    try { bootScheduler(); } catch {}
+  }, []);
+
   // v2.0.B.166: first-click audio unlock + BGM start + WordHint preload.
   // Pickup audio chain needs first user gesture to unlock iOS WebAudio.
   useEffect(() => {
