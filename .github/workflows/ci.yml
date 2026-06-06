@@ -1,0 +1,73 @@
+# v2.0.B.233 — Pickup CI on push + PR
+# 升級 validate-lessons.js + vitest 從 ⭐⭐ → ⭐⭐⭐ (進 CI gate)
+# 解 audit gap: pre-pivot 沒 CI,改 lessons / framework 後沒人擋
+
+name: Pickup CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Vitest (basic, coverage 待 @vitest/coverage-v8 安裝後啟用)
+        run: npx vitest run
+
+      - name: Validate lessons (X3 anti-verbatim + mirror lint)
+        run: node tools/validate-lessons.js
+
+      - name: Content DB regen (audit consistency)
+        run: node tools/_content-db.cjs
+
+      - name: Sync hooks idempotent check
+        run: |
+          node tools/_sync-hooks.cjs
+          # 若 sync 後有 diff = 有人手改 _content-db.cjs HOOK_MAP 沒 sync
+          git diff --exit-code tools/_content-db.cjs || (echo "ERR: HOOK_MAP not in sync, run node tools/_sync-hooks.cjs" && exit 1)
+
+      - name: QA static regen
+        run: node tools/_render-qa-static.cjs
+
+      - name: Vite build
+        run: npm run build
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    needs: build-and-validate
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Trigger Cloudflare Pages deploy
+        # 自動 deploy 解 infisical 痛點 — secret 從 GH Actions secret 取
+        # 需 user 在 GitHub repo settings → secrets 加 CLOUDFLARE_API_TOKEN
+        run: |
+          echo "Deploy step skipped (待用戶在 GH secrets 加 CLOUDFLARE_API_TOKEN)"
+          echo "啟用方式:"
+          echo "  1. 拿 Cloudflare API token: https://dash.cloudflare.com/profile/api-tokens"
+          echo "  2. GitHub repo → Settings → Secrets → Actions → New: CLOUDFLARE_API_TOKEN"
+          echo "  3. uncomment 下方 wrangler action"
+        # - name: Wrangler deploy
+        #   uses: cloudflare/wrangler-action@v3
+        #   with:
+        #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        #     command: pages deploy dist --project-name=pickupwords --branch=master

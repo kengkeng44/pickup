@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+# v2.0.B.233 — pre-commit lint gate
+# 升級 validate-lessons.js + sync-hooks 從 ⭐⭐ → ⭐⭐⭐
+# 解 audit gap: 改 lessons / hooks 沒人擋 → 壞 commit 上 master
+
+. "$(dirname -- "$0")/_/husky.sh" 2>/dev/null || true
+
+# Quick gates (< 5 sec total)
+echo "[pre-commit] Validating lessons..."
+node tools/validate-lessons.js || {
+  echo ""
+  echo "❌ validate-lessons.js fail"
+  echo "   修完再 git commit. 跳過:git commit --no-verify (不建議)"
+  exit 1
+}
+
+echo "[pre-commit] Sync hooks idempotent check..."
+node tools/_sync-hooks.cjs > /dev/null
+if ! git diff --quiet tools/_content-db.cjs 2>/dev/null; then
+  echo ""
+  echo "❌ HOOK_MAP not in sync"
+  echo "   跑 node tools/_sync-hooks.cjs 後 git add tools/_content-db.cjs"
+  exit 1
+fi
+
+echo "[pre-commit] ✓ All gates passed"

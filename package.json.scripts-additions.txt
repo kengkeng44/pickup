@@ -1,0 +1,16 @@
+# v2.0.B.233 — 用戶手動 merge 進 package.json scripts:
+#
+# {
+#   "scripts": {
+#     ...
+#     "test:coverage": "vitest run --coverage",
+#     "sync-hooks": "node tools/_sync-hooks.cjs",
+#     "validate-lessons": "node tools/validate-lessons.js",
+#     "content-db": "node tools/_content-db.cjs",
+#     "qa-static": "node tools/_render-qa-static.cjs",
+#     "new-story": "node tools/pickup-new-story.cjs",
+#     "ci-local": "npx tsc --noEmit && npx vitest run && node tools/validate-lessons.js && npm run build"
+#   }
+# }
+#
+# 跑 npm i -D @vitest/coverage-v8 後 test:coverage 才會出 thresholds.
