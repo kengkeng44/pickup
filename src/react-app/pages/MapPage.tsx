@@ -14,6 +14,14 @@ import { readStreak, readFreezes } from '../../data/streak';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
 import GrandmaRecommendCarousel from '../components/GrandmaRecommendCarousel';
+// v2.0.B.239: tomorrow-queue read so MapPage can surface the
+// "Mochi 記得了 — 今晚講 X" banner when user queued a story last session.
+import {
+  readTomorrowQueue,
+  consumeTomorrowQueue,
+  isTomorrowBannerDue,
+  type TomorrowQueueEntry,
+} from '../../data/tomorrowQueue';
 
 interface Lesson {
   id: string;
@@ -194,6 +202,18 @@ export default function MapPage() {
   const completed = readCompletedLessons(chapter);
   const meta = CHAPTER_META[chapter];
 
+  // v2.0.B.239: tomorrow-queue banner. Read on mount; only show after 18:00
+  // local + when entry exists + not yet consumed. Banner tap consumes the
+  // queue + navigates to that chapter.
+  const [tomorrowQueue, setTomorrowQueue] = useState<TomorrowQueueEntry | null>(null);
+  useEffect(() => {
+    try {
+      if (isTomorrowBannerDue()) {
+        setTomorrowQueue(readTomorrowQueue());
+      }
+    } catch {}
+  }, []);
+
   // Derive current node = first non-completed unlocked (or -1 if all done)
   const currentNodeIdx = useMemo(() => {
     if (lessons.length === 0) return -1;
@@ -264,6 +284,49 @@ export default function MapPage() {
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
+
+      {/* v2.0.B.239: tomorrow-queue banner — surfaces when user picked
+          "明晚聽 X" last session AND it's now past 18:00 local. Tap → consume
+          + navigate to that chapter (deep-link). */}
+      {tomorrowQueue && (
+        <button
+          type="button"
+          onClick={() => {
+            try { consumeTomorrowQueue(); } catch {}
+            const ch = tomorrowQueue.chapter;
+            setTomorrowQueue(null);
+            navigate(`/map?ch=${ch}`);
+          }}
+          aria-label={`Tonight's story: chapter ${tomorrowQueue.chapter}`}
+          style={{
+            margin: '4px 14px 6px',
+            display: 'block',
+            background: '#fff7e8',
+            border: '2px solid #c8a878',
+            borderBottom: '4px solid #8b6f4a',
+            borderRadius: 12,
+            padding: '10px 14px',
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+            width: 'calc(100% - 28px)',
+            textAlign: 'left',
+            WebkitTapHighlightColor: 'transparent',
+            touchAction: 'manipulation',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">🌙</span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
+                Mochi 記得了 — 今晚講 {CHAPTER_META[tomorrowQueue.chapter]?.titleZh ?? '故事'}
+              </div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#7a6850', marginTop: 2, fontStyle: 'italic' }}>
+                Tonight: {CHAPTER_META[tomorrowQueue.chapter]?.titleEn ?? 'your pick'}
+              </div>
+            </div>
+          </div>
+        </button>
+      )}
 
       {/* Chapter header card */}
       <div style={{ padding: 'max(16px, env(safe-area-inset-top)) 14px 0 14px' }}>

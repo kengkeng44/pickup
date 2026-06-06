@@ -21,6 +21,8 @@ import { getLessonHook } from '../../data/lessonHooks';
 import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 import ShareModal from '../components/ShareModal';
+// v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
+import NextStoryPicker from '../components/NextStoryPicker';
 import {
   evaluateTriggers,
   scheduleNotif,
@@ -186,6 +188,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
   // the share button. KeySentence resolved lazily from chapter + lessonId.
   const [showShare, setShowShare] = useState(false);
   const keySentence: KeySentence | null = getKeySentenceForLesson(lesson.chapter, lesson.id);
+  // v2.0.B.239: NextStoryPicker visibility — opens on chapter-final lesson
+  // complete (replaces the Continue button on the final lesson).
+  const [showNextStoryPicker, setShowNextStoryPicker] = useState(false);
 
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
@@ -323,13 +328,24 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           <span>分享金句 · Share</span>
         </button>
       )}
-      {/* v2.0.B.187 P2-D: Continue 全寬,senior instinct 對齊 */}
-      <button onClick={onBack} style={{
-        padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
-        borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
-        cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
-        WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-      }}>完成 · Continue →</button>
+      {/* v2.0.B.239: chapter-final lesson → swap Continue with NextStoryPicker
+          CTA so 「明晚聽 / 繼續聽」picker takes over the end-of-chapter slot.
+          Middle lessons keep the classic Continue button (no flow change). */}
+      {isLastLessonOfChapter ? (
+        <button onClick={() => setShowNextStoryPicker(true)} style={{
+          padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
+          borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}>章節完成 → 明晚聽什麼? · Pick next story →</button>
+      ) : (
+        <button onClick={onBack} style={{
+          padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
+          borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}>完成 · Continue →</button>
+      )}
 
       {/* v2.0.B.234 wiring: soft notification consent prompt — only renders
           for L3+ when shouldShowSoftPrompt() was truthy at mount. Native
@@ -355,6 +371,15 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           sentence={keySentence}
           chapter={lesson.chapter}
           onClose={() => setShowShare(false)}
+        />
+      )}
+
+      {/* v2.0.B.239: NextStoryPicker — chapter-final picker. Mounts on demand
+          (button tap) so middle lessons never pay the carousel/registry cost. */}
+      {showNextStoryPicker && (
+        <NextStoryPicker
+          completedChapter={lesson.chapter}
+          onClose={() => setShowNextStoryPicker(false)}
         />
       )}
     </div>
