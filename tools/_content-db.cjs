@@ -53,6 +53,12 @@ const CHAPTER_TITLES = {
   7: '葉限',
   8: '三隻小豬',
   9: '灰姑娘',
+  10: '嫦娥奔月',
+  11: '后羿射日',
+  12: '牛郎織女',
+  13: '小紅帽',
+  14: '浦島太郎',
+  15: '國王的新衣',
 };
 
 // v2.0.B.220: hook type per lesson (per docs/research/chapter-ending-hook-design.md)
@@ -130,6 +136,54 @@ const HOOK_MAP = {
   'kt-ch9-l5':     { type: 'B6',          inquiry: '12 點限制是什麼? 過了會怎樣?',  canon: 'cinderella.md#beat-5-magic-warning' },
   'kt-ch9-l6':     { type: 'B2',          inquiry: '鞋掉了 — 王子會找她嗎?',  canon: 'cinderella.md#beat-6-clock-strikes' },
   'kt-ch9-l7':     { type: 'B6 open',     inquiry: '仙女教母在哪? 善良才是真正的魔法?',  canon: 'cinderella.md#beat-7-slipper-fits' },
+  // Ch10 
+  'kt-ch10-l1':    { type: 'B6',          inquiry: '為什麼她要嫁給英雄? 神會盯著他們嗎?',  canon: 'change.md#beat-1-setup' },
+  'kt-ch10-l2':    { type: 'B3',          inquiry: '仙藥是什麼? 為什麼只有一個?',  canon: 'change.md#beat-2-pill' },
+  'kt-ch10-l3':    { type: 'B5',          inquiry: '誰會吃? 嫦娥能保得住嗎?',  canon: 'change.md#beat-3-bad-student' },
+  'kt-ch10-l4':    { type: 'B4',          inquiry: '她會吞下去嗎? 還是給他?',  canon: 'change.md#beat-4-dilemma' },
+  'kt-ch10-l5':    { type: 'B1',          inquiry: '接下來會發生什麼? 她會飛多遠?',  canon: 'change.md#beat-5-swallow' },
+  'kt-ch10-l6':    { type: 'B2',          inquiry: '后羿會怎麼樣? 兩人還會再見嗎?',  canon: 'change.md#beat-6-moon' },
+  'kt-ch10-l7':    { type: 'B6 open',     inquiry: '為什麼每年中秋想念? 你想念的人是誰?',  canon: 'change.md#beat-7-rabbit-mid-autumn' },
+  // Ch11 
+  'kt-ch11-l1':    { type: 'B6',          inquiry: '10 個太陽出現 → 人們會怎樣?',  canon: 'houyi.md#beat-1-ten-suns' },
+  'kt-ch11-l2':    { type: 'B3',          inquiry: '玉皇大帝給羿一張弓 → 他能擔下嗎?',  canon: 'houyi.md#beat-2-bow' },
+  'kt-ch11-l3':    { type: 'B4',          inquiry: '羿走遍大地找太陽 → 第一個怎麼射?',  canon: 'houyi.md#beat-3-first-shot' },
+  'kt-ch11-l4':    { type: 'B5',          inquiry: '9 個太陽射下 → 剩 1 個會留嗎?',  canon: 'houyi.md#beat-4-nine-down' },
+  'kt-ch11-l5':    { type: 'B6',          inquiry: '留下太陽照大地 → 王看見嗎?',  canon: 'houyi.md#beat-5-mercy' },
+  'kt-ch11-l6':    { type: 'B2',          inquiry: '王不再讓羿做神 → 羿會怎麼回應?',  canon: 'houyi.md#beat-6-king-cold' },
+  'kt-ch11-l7':    { type: 'B6 open',     inquiry: '凡人羿與凡人嫦娥 → 命運如何 (銜接 Ch10)',  canon: 'houyi.md#beat-7-mortal' },
+  // Ch12 
+  'kt-ch12-l1':    { type: 'B3',          inquiry: '仙女為什麼下凡?',  canon: 'cowherd-weaver.md#beat-1-setup' },
+  'kt-ch12-l2':    { type: 'B4',          inquiry: '他們會成為家人嗎?',  canon: 'cowherd-weaver.md#beat-2-sewing' },
+  'kt-ch12-l3':    { type: 'B5',          inquiry: '仙女會被帶走嗎?',  canon: 'cowherd-weaver.md#beat-3-queen' },
+  'kt-ch12-l4':    { type: 'B1',          inquiry: '還能再見嗎?',  canon: 'cowherd-weaver.md#beat-4-silver-river' },
+  'kt-ch12-l5':    { type: 'B3',          inquiry: '牛說了什麼?',  canon: 'cowherd-weaver.md#beat-5-cow-lifts' },
+  'kt-ch12-l6':    { type: 'B6',          inquiry: '鵲橋是什麼?',  canon: 'cowherd-weaver.md#beat-6-magpie-bridge' },
+  'kt-ch12-l7':    { type: 'B6 open',     inquiry: '為什麼這天看星星?',  canon: 'cowherd-weaver.md#beat-7-qixi' },
+  // Ch13 
+  'kt-ch13-l1':    { type: 'B6',          inquiry: '媽媽叮嚀去看奶奶 → 路上會發生什麼?',  canon: 'red-riding-hood.md#beat-1-setup' },
+  'kt-ch13-l2':    { type: 'B3',          inquiry: '森林裡見大野狼 → 他會做什麼?',  canon: 'red-riding-hood.md#beat-2-wolf-appears' },
+  'kt-ch13-l3':    { type: 'B5',          inquiry: '大野狼問路 → 她應該說嗎?',  canon: 'red-riding-hood.md#beat-3-wolf-asks-the-way' },
+  'kt-ch13-l4':    { type: 'B1',          inquiry: '大野狼跑去奶奶家 → 奶奶怎麼樣了?',  canon: 'red-riding-hood.md#beat-4-wolf-runs-ahead' },
+  'kt-ch13-l5':    { type: 'B3',          inquiry: '小紅帽到奶奶家 → 床上是奶奶嗎?',  canon: 'red-riding-hood.md#beat-5-wolf-in-bed' },
+  'kt-ch13-l6':    { type: 'B4',          inquiry: '獵人來救 → 來得及嗎?',  canon: 'red-riding-hood.md#beat-6-huntsman-comes' },
+  'kt-ch13-l7':    { type: 'B6 open',     inquiry: '救出奶奶 → 媽媽的話現在懂了',  canon: 'red-riding-hood.md#beat-7-rescue' },
+  // Ch14 
+  'kt-ch14-l1':    { type: 'B6',          inquiry: '烏龜會謝謝他嗎?',  canon: 'urashima.md#beat-1-setup' },
+  'kt-ch14-l2':    { type: 'B3',          inquiry: '海底是什麼?',  canon: 'urashima.md#beat-2-down-to-sea' },
+  'kt-ch14-l3':    { type: 'B4',          inquiry: '他能留下嗎?',  canon: 'urashima.md#beat-3-sea-palace' },
+  'kt-ch14-l4':    { type: 'B5',          inquiry: '真的開心嗎?',  canon: 'urashima.md#beat-4-happy-days' },
+  'kt-ch14-l5':    { type: 'B6',          inquiry: '寶盒裡是什麼?',  canon: 'urashima.md#beat-5-treasure-box' },
+  'kt-ch14-l6':    { type: 'B2',          inquiry: '沒人認得他了 — 怎麼辦?',  canon: 'urashima.md#beat-6-back-on-land' },
+  'kt-ch14-l7':    { type: 'B6 open',     inquiry: '變老了 — 時間紅利的代價是什麼?',  canon: 'urashima.md#beat-7-open-the-box' },
+  // Ch15 
+  'kt-ch15-l1':    { type: 'B6',          inquiry: '騙子能成功嗎? 國王會中招?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l2':    { type: 'B3',          inquiry: '大臣去看會說什麼? 會說真話?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l3':    { type: 'B5',          inquiry: '他敢說沒看到嗎? 該不該說?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l4':    { type: 'B4',          inquiry: '國王敢說沒看到嗎? 連他也撐不住?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l5':    { type: 'B6',          inquiry: '人民會說真話嗎? 還是跟著拍手?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l6':    { type: 'B2',          inquiry: '大家會怎樣? 還會繼續假裝嗎?',  canon: '(no canon ref yet)' },
+  'kt-ch15-l7':    { type: 'B6 open',     inquiry: '為什麼他不停下來? 自尊比真相更難放下?',  canon: '(no canon ref yet)' },
 };
 
 function shortText(s, max = 60) {
@@ -162,7 +216,7 @@ const rows = [];
 const perChapter = {};
 
 // v2.0.B.217: skip Ch0 per user '不用放到數據庫裡面'
-for (let ch = 1; ch <= 9; ch++) {
+for (let ch = 1; ch <= 15; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -236,7 +290,7 @@ const sumLines = [
   `| Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |`,
   `|----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|`,
 ];
-for (let ch = 1; ch <= 9; ch++) {
+for (let ch = 1; ch <= 15; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);
@@ -255,7 +309,7 @@ sumLines.push(`Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst s
 sumLines.push('');
 sumLines.push(`| Lesson ID | Story Beat | Hook Type | Inquiry Question | Canon Ref |`);
 sumLines.push(`|-----------|------------|-----------|------------------|-----------|`);
-for (let ch = 1; ch <= 9; ch++) {
+for (let ch = 1; ch <= 15; ch++) {
   const fp = path.join(ROOT, 'public', `lessons-ch${ch}.json`);
   if (!fs.existsSync(fp)) continue;
   const data = JSON.parse(fs.readFileSync(fp, 'utf-8'));
@@ -276,7 +330,7 @@ for (const s of Object.values(perChapter)) for (const t of Object.keys(s.typeCou
 const typesArr = [...allTypes].sort();
 sumLines.push(`| Ch | ${typesArr.join(' | ')} |`);
 sumLines.push(`|----|${typesArr.map(()=>'---').join('|')}|`);
-for (let ch = 1; ch <= 9; ch++) {
+for (let ch = 1; ch <= 15; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const cells = typesArr.map(t => s.typeCounts[t] || 0);
@@ -291,7 +345,7 @@ console.log(`\n[CURRENT STATE]`);
 console.log(`Total Q: ${totalQ}, total time: ${Math.round(totalTime/60)} min`);
 console.log(`Avg per chapter: ${avgPerCh}, 25% tolerance band: ${lowBand}-${highBand}`);
 console.log(`\nPer chapter (Ch0 excluded, 5 min/lesson budget):`);
-for (let ch = 1; ch <= 9; ch++) {
+for (let ch = 1; ch <= 15; ch++) {
   const s = perChapter[ch];
   if (!s) continue;
   const variance = Math.round((s.qCount - avgPerCh) / avgPerCh * 100);

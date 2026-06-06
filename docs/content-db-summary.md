@@ -1,11 +1,11 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-06T15:33:26.207Z
+**Generated**: 2026-06-06T17:41:59.166Z
 
 ## Aggregate
 
-- **Total Q**: 693
-- **Total play time est**: 265 min
+- **Total Q**: 1155
+- **Total play time est**: 433 min
 - **Avg Q per chapter**: 77
 - **25% tolerance band**: 58 ≤ Q ≤ 96
 
@@ -22,6 +22,12 @@
 | 7 | 葉限 | 7 | 77 | 11.0 | 265s/lesson ✓ | 0% | ✓ |
 | 8 | 三隻小豬 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
 | 9 | 灰姑娘 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
+| 10 | 嫦娥奔月 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 11 | 后羿射日 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
+| 12 | 牛郎織女 | 7 | 77 | 11.0 | 238s/lesson ✓ | 0% | ✓ |
+| 13 | 小紅帽 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 14 | 浦島太郎 | 7 | 77 | 11.0 | 235s/lesson ✓ | 0% | ✓ |
+| 15 | 國王的新衣 | 7 | 77 | 11.0 | 255s/lesson ✓ | 0% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -93,6 +99,48 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch9-l5` | 馬車 + 鼠變馬 — 12 點限制是什麼? | B6 | 12 點限制是什麼? 過了會怎樣? | [cinderella.md#beat-5-magic-warning](../docs/canon/cinderella.md#beat-5-magic-warning) |
 | `kt-ch9-l6` | 12 點鐘響 — 鞋掉了 王子會找她? | B2 | 鞋掉了 — 王子會找她嗎? | [cinderella.md#beat-6-clock-strikes](../docs/canon/cinderella.md#beat-6-clock-strikes) |
 | `kt-ch9-l7` | 鞋滑上腳 — 仙女教母在哪? 善良才是真正的魔法 | B6 open | 仙女教母在哪? 善良才是真正的魔法? | [cinderella.md#beat-7-slipper-fits](../docs/canon/cinderella.md#beat-7-slipper-fits) |
+| `kt-ch10-l1` | 后羿射日 + 娶嫦娥 — 神會盯著他們嗎? | B6 | 為什麼她要嫁給英雄? 神會盯著他們嗎? | [change.md#beat-1-setup](../docs/canon/change.md#beat-1-setup) |
+| `kt-ch10-l2` | 西王母給仙藥 — 仙藥是什麼? | B3 | 仙藥是什麼? 為什麼只有一個? | [change.md#beat-2-pill](../docs/canon/change.md#beat-2-pill) |
+| `kt-ch10-l3` | 壞學生覬覦仙藥 — 誰會吃? | B5 | 誰會吃? 嫦娥能保得住嗎? | [change.md#beat-3-bad-student](../docs/canon/change.md#beat-3-bad-student) |
+| `kt-ch10-l4` | 壞學生拿刀威脅 — 她會吞下去嗎? | B4 | 她會吞下去嗎? 還是給他? | [change.md#beat-4-dilemma](../docs/canon/change.md#beat-4-dilemma) |
+| `kt-ch10-l5` | 嫦娥吞藥 — 接下來會發生什麼? | B1 | 接下來會發生什麼? 她會飛多遠? | [change.md#beat-5-swallow](../docs/canon/change.md#beat-5-swallow) |
+| `kt-ch10-l6` | 飛向月亮 — 后羿會怎麼樣? | B2 | 后羿會怎麼樣? 兩人還會再見嗎? | [change.md#beat-6-moon](../docs/canon/change.md#beat-6-moon) |
+| `kt-ch10-l7` | 玉兔陪伴 + 中秋月圓 — 你想念的人是誰? | B6 open | 為什麼每年中秋想念? 你想念的人是誰? | [change.md#beat-7-rabbit-mid-autumn](../docs/canon/change.md#beat-7-rabbit-mid-autumn) |
+| `kt-ch11-l1` | 10 個太陽出現 — 大地會燒壞嗎? | B6 | 10 個太陽出現 → 人們會怎樣? | [houyi.md#beat-1-ten-suns](../docs/canon/houyi.md#beat-1-ten-suns) |
+| `kt-ch11-l2` | 玉皇大帝給羿弓 — 他能擔下嗎? | B3 | 玉皇大帝給羿一張弓 → 他能擔下嗎? | [houyi.md#beat-2-bow](../docs/canon/houyi.md#beat-2-bow) |
+| `kt-ch11-l3` | 走遍大地 — 第一個太陽怎麼射? | B4 | 羿走遍大地找太陽 → 第一個怎麼射? | [houyi.md#beat-3-first-shot](../docs/canon/houyi.md#beat-3-first-shot) |
+| `kt-ch11-l4` | 九個太陽射下 — 剩 1 個會留嗎? | B5 | 9 個太陽射下 → 剩 1 個會留嗎? | [houyi.md#beat-4-nine-down](../docs/canon/houyi.md#beat-4-nine-down) |
+| `kt-ch11-l5` | 留下最後太陽 — 玉皇大帝看見嗎? | B6 | 留下太陽照大地 → 王看見嗎? | [houyi.md#beat-5-mercy](../docs/canon/houyi.md#beat-5-mercy) |
+| `kt-ch11-l6` | 王不再讓羿做神 — 羿會怎麼回應? | B2 | 王不再讓羿做神 → 羿會怎麼回應? | [houyi.md#beat-6-king-cold](../docs/canon/houyi.md#beat-6-king-cold) |
+| `kt-ch11-l7` | 凡人羿與凡人嫦娥 — 接下來是嫦娥的故事 | B6 open | 凡人羿與凡人嫦娥 → 命運如何 (銜接 Ch10) | [houyi.md#beat-7-mortal](../docs/canon/houyi.md#beat-7-mortal) |
+| `kt-ch12-l1` | 牛郎放牛 — 仙女從天而降 | B3 | 仙女為什麼下凡? | [cowherd-weaver.md#beat-1-setup](../docs/canon/cowherd-weaver.md#beat-1-setup) |
+| `kt-ch12-l2` | 一起縫衣服 — 他們會成為家人嗎? | B4 | 他們會成為家人嗎? | [cowherd-weaver.md#beat-2-sewing](../docs/canon/cowherd-weaver.md#beat-2-sewing) |
+| `kt-ch12-l3` | 王母娘娘下凡 — 仙女會被帶走嗎? | B5 | 仙女會被帶走嗎? | [cowherd-weaver.md#beat-3-queen](../docs/canon/cowherd-weaver.md#beat-3-queen) |
+| `kt-ch12-l4` | 銀河出現 — 兩人被分開,還能再見嗎? | B1 | 還能再見嗎? | [cowherd-weaver.md#beat-4-silver-river](../docs/canon/cowherd-weaver.md#beat-4-silver-river) |
+| `kt-ch12-l5` | 牛郎追到天上 — 牛說了什麼? | B3 | 牛說了什麼? | [cowherd-weaver.md#beat-5-cow-lifts](../docs/canon/cowherd-weaver.md#beat-5-cow-lifts) |
+| `kt-ch12-l6` | 喜鵲聚集 — 鵲橋是什麼? | B6 | 鵲橋是什麼? | [cowherd-weaver.md#beat-6-magpie-bridge](../docs/canon/cowherd-weaver.md#beat-6-magpie-bridge) |
+| `kt-ch12-l7` | 七夕一年一見 — 為什麼這天看星星? | B6 open | 為什麼這天看星星? | [cowherd-weaver.md#beat-7-qixi](../docs/canon/cowherd-weaver.md#beat-7-qixi) |
+| `kt-ch13-l1` | 媽媽叮嚀去看奶奶 — 路上會發生什麼? | B6 | 媽媽叮嚀去看奶奶 → 路上會發生什麼? | [red-riding-hood.md#beat-1-setup](../docs/canon/red-riding-hood.md#beat-1-setup) |
+| `kt-ch13-l2` | 森林裡見大野狼 — 他會做什麼? | B3 | 森林裡見大野狼 → 他會做什麼? | [red-riding-hood.md#beat-2-wolf-appears](../docs/canon/red-riding-hood.md#beat-2-wolf-appears) |
+| `kt-ch13-l3` | 大野狼問路 — 她應該說嗎? | B5 | 大野狼問路 → 她應該說嗎? | [red-riding-hood.md#beat-3-wolf-asks-the-way](../docs/canon/red-riding-hood.md#beat-3-wolf-asks-the-way) |
+| `kt-ch13-l4` | 大野狼跑去奶奶家 — 奶奶怎麼樣了? | B1 | 大野狼跑去奶奶家 → 奶奶怎麼樣了? | [red-riding-hood.md#beat-4-wolf-runs-ahead](../docs/canon/red-riding-hood.md#beat-4-wolf-runs-ahead) |
+| `kt-ch13-l5` | 小紅帽到奶奶家 — 床上是奶奶嗎? | B3 | 小紅帽到奶奶家 → 床上是奶奶嗎? | [red-riding-hood.md#beat-5-wolf-in-bed](../docs/canon/red-riding-hood.md#beat-5-wolf-in-bed) |
+| `kt-ch13-l6` | 獵人來救 — 來得及嗎? | B4 | 獵人來救 → 來得及嗎? | [red-riding-hood.md#beat-6-huntsman-comes](../docs/canon/red-riding-hood.md#beat-6-huntsman-comes) |
+| `kt-ch13-l7` | 救出奶奶 — 媽媽的話現在懂了 | B6 open | 救出奶奶 → 媽媽的話現在懂了 | [red-riding-hood.md#beat-7-rescue](../docs/canon/red-riding-hood.md#beat-7-rescue) |
+| `kt-ch14-l1` | 浦島救烏龜 — 烏龜會謝謝他嗎? | B6 | 烏龜會謝謝他嗎? | [urashima.md#beat-1-setup](../docs/canon/urashima.md#beat-1-setup) |
+| `kt-ch14-l2` | 烏龜帶他下海 — 海底是什麼? | B3 | 海底是什麼? | [urashima.md#beat-2-down-to-sea](../docs/canon/urashima.md#beat-2-down-to-sea) |
+| `kt-ch14-l3` | 龍宮公主歡迎他 — 他能留下嗎? | B4 | 他能留下嗎? | [urashima.md#beat-3-sea-palace](../docs/canon/urashima.md#beat-3-sea-palace) |
+| `kt-ch14-l4` | 浦島開心住下 — 真的開心嗎? | B5 | 真的開心嗎? | [urashima.md#beat-4-happy-days](../docs/canon/urashima.md#beat-4-happy-days) |
+| `kt-ch14-l5` | 想家了要回去 — 公主給他寶盒 | B6 | 寶盒裡是什麼? | [urashima.md#beat-5-treasure-box](../docs/canon/urashima.md#beat-5-treasure-box) |
+| `kt-ch14-l6` | 回到岸上 — 沒人認得他了 | B2 | 沒人認得他了 — 怎麼辦? | [urashima.md#beat-6-back-on-land](../docs/canon/urashima.md#beat-6-back-on-land) |
+| `kt-ch14-l7` | 打開寶盒 → 變老頭 (時間紅利) | B6 open | 變老了 — 時間紅利的代價是什麼? | [urashima.md#beat-7-open-the-box](../docs/canon/urashima.md#beat-7-open-the-box) |
+| `kt-ch15-l1` | 國王愛新衣 — 騙子來城裡 | B6 | 騙子能成功嗎? 國王會中招? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l2` | 騙子說只有聰明人看得到 — 設下陷阱 | B3 | 大臣去看會說什麼? 會說真話? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l3` | 大臣去看 — 他敢說沒看到嗎? | B5 | 他敢說沒看到嗎? 該不該說? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l4` | 國王也去看 — 他敢說沒看到嗎? | B4 | 國王敢說沒看到嗎? 連他也撐不住? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l5` | 遊行開始 — 人民會說真話嗎? | B6 | 人民會說真話嗎? 還是跟著拍手? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l6` | 小孩說真話 — 大家會怎樣? | B2 | 大家會怎樣? 還會繼續假裝嗎? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
+| `kt-ch15-l7` | 國王繼續走完遊行 — 學到什麼? | B6 open | 為什麼他不停下來? 自尊比真相更難放下? | [(no canon ref yet)](../docs/canon/(no canon ref yet)) |
 
 ## Q type distribution per chapter
 
@@ -107,3 +155,9 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | 7 | 7 | 7 | 14 | 7 | 35 | 7 |
 | 8 | 7 | 0 | 15 | 7 | 41 | 7 |
 | 9 | 7 | 0 | 15 | 7 | 41 | 7 |
+| 10 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 11 | 7 | 0 | 15 | 7 | 41 | 7 |
+| 12 | 7 | 0 | 15 | 7 | 41 | 7 |
+| 13 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 14 | 7 | 0 | 14 | 7 | 42 | 7 |
+| 15 | 7 | 0 | 21 | 7 | 35 | 7 |

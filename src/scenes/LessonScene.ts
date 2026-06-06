@@ -202,7 +202,9 @@ export class LessonScene extends Phaser.Scene {
     // tsc still scans — cast to any to avoid ChapterMeta widening.
     // v2.0.B.237: ChapterId 0-9 (Cinderella ship). Phaser scene 走 React 路由
     // 棄用, Ch0/Ch8/Ch9 都 fallback Ch1 meta 避免 widening.
-    const phaserChapter = (this.chapter === 0 || this.chapter === 8 || this.chapter === 9 ? 1 : this.chapter) as Exclude<ChapterId, 0 | 8 | 9>;
+    // v2.0.B.250+: ChapterId extended to 10/11 (Chang'e / Hou Yi cross-POV pair).
+    // Phaser scene 仍棄用; CHAPTER_META 只覆 1-7, 其他全 fallback Ch1.
+    const phaserChapter = ((this.chapter as number) > 7 || this.chapter === 0 ? 1 : this.chapter) as Exclude<ChapterId, 0 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15>;
     // v2.0.B.204: CHAPTER_META Partial<> — fallback ch1 for type narrowing
     const ch = CHAPTER_META[phaserChapter] ?? CHAPTER_META[1]!;
     const meta = {

@@ -1,4 +1,4 @@
-# Grammar Scan — 2026-06-06T15:32
+# Grammar Scan — 2026-06-06T17:36
 
 Total findings: **67** across 1 pattern types
 

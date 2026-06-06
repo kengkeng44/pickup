@@ -297,11 +297,28 @@ export type SegmentType = z.infer<typeof SegmentTypeSchema>;
 // Schema bumped 0-7 → 0-8 to accept ch=8 lessons.
 // v2.0.B.236+: Ch9 灰姑娘 (Cinderella, Perrault 1697) URL pipeline ship 2026-06-06.
 // Cross-cultural pair with Ch7 葉限 (Tang Cinderella). Schema 0-8 → 0-9.
+// v2.0.B.250+: Ch10 嫦娥奔月 + Ch11 后羿射日 (中華神話 cross-POV pair) URL
+// pipeline ship 2026-06-07. Same myth from female (Ch10) and male (Ch11)
+// POV — pairs with Ch7/Ch9 Cinderella pair as 2nd cross-cultural reading set.
+// Schema 0-9 → 0-11 (Ch10 + Ch11 both accepted).
+// v2.0.B.260+: Ch14 浦島太郎 (Urashima Taro, Japanese folk PD) URL pipeline
+// ship 2026-06-07. Japanese folk pair with Ch1 桃太郎 (兩日本民間, 公有領域).
+// Schema 0-11 → 0-14 (Ch12 + Ch13 reserved for future ships — slots stay
+// empty until claimed, but schema accepts so a single bump covers them).
+// v2.0.B.262+: Ch15 國王的新衣 (Andersen 1837 public domain) URL pipeline
+// ship 2026-06-07. 智取主題 (peer pressure + truth), A2 兒童 friendly, 0 風險.
+// Schema 0-14 → 0-15.
+// v2.0.B.242+: Ch13 小紅帽 (Little Red Riding Hood, Grimm KHM 26 1812 first
+// edition, PD) URL pipeline ship 2026-06-07. Theme: 媽媽說別跟陌生人講話 +
+// huntsman rescue (3rd 兒童安全教育 trio with Ch1 桃太郎 + Ch6 Baba Yaga).
+// NO Perrault 1697 / Disney / Hoodwinked / Sondheim / Dahl elements. Slot
+// was reserved by B.260 Ch14 ship, now claimed by URL pipeline.
 export const ChapterIdSchema = z.union([
   z.literal(0),
   z.literal(1), z.literal(2), z.literal(3),
   z.literal(4), z.literal(5), z.literal(6), z.literal(7),
-  z.literal(8), z.literal(9),
+  z.literal(8), z.literal(9), z.literal(10), z.literal(11),
+  z.literal(12), z.literal(13), z.literal(14), z.literal(15),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 

@@ -27,13 +27,26 @@ const PUBLIC = path.join(ROOT, 'public');
 // v2.0.B.204: 刪原 Ch1 (rainy-night-cat) + Ch2-8 renumber 成 Ch1-7
 // Intro → Ch1 桃太郎 → Ch2 醜小鴨 → ... → Ch7 葉限
 // v2.0.B.236+: Ch9 灰姑娘 (Cinderella Perrault 1697) URL pipeline ship.
-const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// v2.0.B.250+: Ch10 嫦娥奔月 + Ch11 后羿射日 (中華神話 cross-POV pair, public
+// domain). URL pipeline ship 2026-06-07.
+// v2.0.B.260+: Ch14 浦島太郎 (Urashima Taro, Japanese folk PD) URL pipeline
+// ship 2026-06-07. Japanese folk pair with Ch1 桃太郎.
+// v2.0.B.242+: Ch13 小紅帽 (Little Red Riding Hood, Grimm KHM 26 1812 first
+// edition, PD) URL pipeline ship 2026-06-07. NO Perrault 1697 / Disney /
+// Hoodwinked / Sondheim / Dahl. 3rd 兒童安全教育 trio with Ch1/Ch6.
+const CHAPTERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 const CHAPTER_TITLES = {
   0: 'Intro · 認識 Mochi 與奶奶',
   1: '桃太郎', 2: '醜小鴨', 3: '龜兔賽跑',
   4: '駱駝為什麼有駝峰', 5: 'Baba Yaga', 6: '六隻天鵝', 7: '葉限',
   8: '三隻小豬',
   9: '灰姑娘',
+  10: '嫦娥奔月',
+  11: '后羿射日',
+  12: '牛郎織女',
+  13: '小紅帽',
+  14: '浦島太郎',
+  15: '國王的新衣',
 };
 const BLIND_CLOZE_TYPES = new Set(['listen-mc', 'listen-comprehension', 'listen-emoji', 'read-mc-with-audio']);
 
