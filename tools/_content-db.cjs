@@ -114,7 +114,7 @@ const HOOK_MAP = {
   'kt-ch7-l5':     { type: 'B2',          inquiry: '她會被認出嗎?誰已經盯著她?',  canon: 'yexian.md#beat-5' },
   'kt-ch7-l6':     { type: 'B1',          inquiry: '鞋掉了會落到誰手上?',  canon: 'yexian.md#beat-6' },
   'kt-ch7-l7':     { type: 'B2 big',      inquiry: '失去的支持回來了 — 你的呢?',  canon: 'yexian.md#beat-7' },
-  // Ch8 三隻小豬
+  // Ch8 
   'kt-ch8-l1':     { type: 'B6',          inquiry: '狼真的會來?三個都安全?',  canon: 'three-pigs.md#beat-1-setup' },
   'kt-ch8-l2':     { type: 'B1',          inquiry: '草屋能撐多久?今晚就倒嗎?',  canon: 'three-pigs.md#beat-2-straw-house' },
   'kt-ch8-l3':     { type: 'B4',          inquiry: '是誰來了?是狼嗎?',  canon: 'three-pigs.md#beat-3-wood-house' },
@@ -122,7 +122,7 @@ const HOOK_MAP = {
   'kt-ch8-l5':     { type: 'B2',          inquiry: '木屋能擋住嗎?還是也會倒?',  canon: 'three-pigs.md#beat-5-huff-puff' },
   'kt-ch8-l6':     { type: 'B6',          inquiry: '磚屋能撐?還是狼也吹得倒?',  canon: 'three-pigs.md#beat-6-wood-falls' },
   'kt-ch8-l7':     { type: 'B6 open',     inquiry: '安全了嗎?狼還在森林裡 — 還會回來?',  canon: 'three-pigs.md#beat-7-brick-wins' },
-  // Ch9 灰姑娘 (Perrault 1697 public domain, cross-cultural pair with Ch7 葉限)
+  // Ch9 
   'kt-ch9-l1':     { type: 'B6',          inquiry: '後母會偏心嗎? 兩個姊姊怎麼對她?',  canon: 'cinderella.md#beat-1-setup' },
   'kt-ch9-l2':     { type: 'B3',          inquiry: '她哭給誰聽? 有人會看見嗎?',  canon: 'cinderella.md#beat-2-cinder-corner' },
   'kt-ch9-l3':     { type: 'B5',          inquiry: '她也可以去嗎? 她該求嗎?',  canon: 'cinderella.md#beat-3-ball-invitation' },
