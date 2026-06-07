@@ -295,6 +295,106 @@ section.pending-todos .desc {
   border: 1px solid var(--border);
 }
 
+/* v2.0.B.255: Decision Board — 完整視角接什麼, ROI 排序 + 為什麼接 + 哪個檔 */
+section.decision-board {
+  background: linear-gradient(135deg, #fff7e8 0%, #fef3c7 100%);
+  border: 3px solid var(--accent-dark);
+  border-radius: 14px; padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+section.decision-board::before {
+  content: '⚡ 決策面板'; position: absolute; top: -11px; left: 14px;
+  background: var(--accent-dark); color: white;
+  font-size: 11px; padding: 3px 10px; border-radius: 999px;
+  font-weight: 900; letter-spacing: 1px;
+}
+.decision-board h2 {
+  margin: 6px 0 4px; font-size: 16px; font-weight: 900;
+}
+.decision-board .desc {
+  font-size: 11px; color: var(--muted); font-weight: 600;
+  margin-bottom: 12px; line-height: 1.5;
+}
+.db-rank { display: flex; flex-direction: column; gap: 10px; }
+.db-item {
+  background: white; border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px;
+}
+.db-recommend {
+  border: 2px solid var(--accent-dark);
+  border-bottom: 4px solid var(--accent-dark);
+  background: #fff7e8;
+}
+.db-rank-tag {
+  display: inline-block; font-size: 11px; font-weight: 900;
+  background: var(--card); color: var(--accent-dark);
+  padding: 2px 8px; border-radius: 6px; margin-bottom: 6px;
+  border: 1px solid var(--border);
+}
+.db-recommend .db-rank-tag { background: var(--accent-dark); color: white; border-color: var(--accent-dark); }
+.db-title {
+  font-size: 14px; font-weight: 900; color: var(--text);
+  margin-bottom: 6px; line-height: 1.4;
+}
+.db-meta {
+  display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px;
+}
+.db-meta span {
+  font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 6px;
+}
+.eff-s { background: #d4f1c2; color: #3a6b1c; }
+.eff-m { background: #fef3c7; color: #7a5e25; }
+.eff-l { background: #fde0d2; color: #a23829; }
+.eff-xl { background: #f1d4d4; color: #7a1d1d; }
+.imp-h { background: #ffd9a1; color: #7a3e00; }
+.imp-m { background: #fef3c7; color: #7a5e25; }
+.imp-l { background: #e8e8e8; color: #555; }
+.db-roi { background: var(--soft); color: var(--accent-dark); }
+.db-why {
+  font-size: 12px; color: var(--text); line-height: 1.55; margin-bottom: 6px;
+}
+.db-why b { color: var(--accent-dark); }
+.db-file {
+  font-size: 11px; color: var(--muted); margin-bottom: 0;
+}
+.db-file code {
+  background: var(--bg); padding: 1px 5px; border-radius: 4px;
+  font-size: 10.5px; color: var(--accent-dark);
+}
+.db-section { margin-top: 14px; }
+.db-section summary {
+  font-size: 12px; font-weight: 800; color: var(--accent-dark);
+  cursor: pointer; padding: 6px 0; user-select: none;
+  list-style: none;
+}
+.db-section summary::before { content: '▸ '; font-weight: 900; }
+.db-section[open] summary::before { content: '▾ '; }
+.db-list {
+  list-style: none; padding: 0; margin: 6px 0 0;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.db-list li {
+  font-size: 11px; color: var(--text); padding: 6px 9px;
+  background: white; border-radius: 6px; line-height: 1.5;
+  display: flex; gap: 6px; align-items: flex-start; flex-wrap: wrap;
+}
+.db-list.closed li { background: #f3fae8; color: #3a6b1c; }
+.db-list li code {
+  background: var(--bg); padding: 1px 5px; border-radius: 4px;
+  font-size: 10px; color: var(--accent-dark);
+}
+.db-stats {
+  display: flex; gap: 10px; margin-top: 12px;
+  padding: 10px 12px; background: white; border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.db-stat {
+  flex: 1; text-align: center;
+}
+.db-stat .n { font-size: 20px; font-weight: 900; color: var(--accent-dark); }
+.db-stat .lbl { font-size: 10px; color: var(--muted); font-weight: 700; }
+
 @media (max-width: 480px) {
   section.cron-grid { grid-template-columns: 1fr; }
   .action-grid { grid-template-columns: 1fr; }
@@ -322,6 +422,82 @@ section.pending-todos .desc {
     </div>
     <div class="qa-arrow">›</div>
   </a>
+
+  <!-- v2.0.B.255: Decision Board — 完整視角接什麼, ROI 排序 -->
+  <section class="decision-board">
+    <h2>🎯 接什麼? 完整視角</h2>
+    <div class="desc">5 audit + B.250-254 已修 backlog 整合, ROI = impact ÷ effort. 最上面的最值得</div>
+
+    <div class="db-rank">
+
+      <div class="db-item db-recommend">
+        <div class="db-rank-tag">⭐ #1 RECOMMEND</div>
+        <div class="db-title">unlock listeners 加 <code style="font-size:13px;">{ once: true }</code></div>
+        <div class="db-meta">
+          <span class="eff-s">S · 5 min</span>
+          <span class="imp-m">Impact 中</span>
+          <span class="db-roi">ROI ⭐⭐⭐</span>
+        </div>
+        <div class="db-why"><b>為什麼接</b>:最低 effort 解掉 3 個 module-level 永久 capture-phase listener (touchstart/click/pointerdown). 每次 tap 都跑 unlock 函式 — CPU 浪費 + iOS 久了 event handler 累積. 5 分鐘 1 行改完一勞永逸.</div>
+        <div class="db-file">📁 <code>src/audio/tts.ts:534-537</code> · 來源:1236 code-health cron #3</div>
+      </div>
+
+      <div class="db-item">
+        <div class="db-rank-tag">#2</div>
+        <div class="db-title">Lesson idx 歸零 — 中斷退出 5 題進度全丟</div>
+        <div class="db-meta">
+          <span class="eff-m">M · 1 hr</span>
+          <span class="imp-h">Impact 高</span>
+          <span class="db-roi">ROI ⭐⭐</span>
+        </div>
+        <div class="db-why"><b>為什麼接</b>:Walkthrough 1218 媽媽哄睡 P0-2 痛點. 寶寶哭按 ✕ 退出後重進 lesson 從 q1 重來, 之前做的 5 題全白做 → 直接流失主源. effort M 但解 churn 根本.</div>
+        <div class="db-file">📁 <code>src/react-app/pages/LessonPage.tsx</code> · 來源:1218 walk cron P0-2</div>
+      </div>
+
+      <div class="db-item">
+        <div class="db-rank-tag">#3</div>
+        <div class="db-title">audioBufferCache 加 LRU 上限 80 entries</div>
+        <div class="db-meta">
+          <span class="eff-m">M · 1 hr</span>
+          <span class="imp-h">Impact 高</span>
+          <span class="db-roi">ROI ⭐⭐</span>
+        </div>
+        <div class="db-why"><b>為什麼接</b>:8 章玩完累積 200 個 AudioBuffer (~20 MB RAM) 永不釋放 — iOS 16 app budget 300 MB, 兒童家長共用 iPhone 多 app 並存場景下會被 Safari 殺 tab. 加 LRU 80 entries 就解.</div>
+        <div class="db-file">📁 <code>src/audio/tts.ts:168</code> · 來源:1236 code-health cron #2</div>
+      </div>
+
+    </div>
+
+    <details class="db-section">
+      <summary>📋 全部 open P0 backlog (5)</summary>
+      <ul class="db-list">
+        <li><span class="eff-s">S</span> <span class="imp-m">中</span> unlock listeners {once:true} — <code>tts.ts:534</code> (above #1)</li>
+        <li><span class="eff-m">M</span> <span class="imp-h">高</span> Lesson idx 歸零 — <code>LessonPage.tsx</code> (above #2)</li>
+        <li><span class="eff-m">M</span> <span class="imp-h">高</span> audioBufferCache LRU — <code>tts.ts:168</code> (above #3)</li>
+        <li><span class="eff-s">S</span> <span class="imp-m">中</span> R5 _showCompletionArticle 死碼 — 改 spec OR wire 進來 — <code>LessonScene.ts:1373</code></li>
+        <li><span class="eff-l">L</span> <span class="imp-h">高</span> Phaser/React dual-path analytics drift — 需大 refactor — <code>LessonScene.ts</code></li>
+      </ul>
+    </details>
+
+    <details class="db-section" open>
+      <summary>✅ 本 session 已 ship (6 commit)</summary>
+      <ul class="db-list closed">
+        <li><code>5d3b88d</code> B.250 — Ch7 q7 A6 verbatim fix (cron 1206 content P0)</li>
+        <li><code>f29fe45</code> B.251 — mute toggle 媽媽哄睡 (cron 1218 walk P0-1)</li>
+        <li><code>d4ff9bd</code> B.253 — Top 3 P0 batch (cron 1236 #1 narration race + 1208 #8 SRS key + #9 MapView 硬編)</li>
+        <li><code>5b4fac3</code> B.254 — ListenTf cleanup + Ch1 invitation banner (B.253 post-ship audit 抓的)</li>
+        <li><code>bea25e9</code> B.252 — CI auto-deploy cockpit (流程改善)</li>
+        <li><code>5e115f1</code> chore(cockpit) footer sync 171→251</li>
+      </ul>
+    </details>
+
+    <div class="db-stats">
+      <div class="db-stat"><div class="n">6</div><div class="lbl">已 ship (24h)</div></div>
+      <div class="db-stat"><div class="n">5</div><div class="lbl">open P0</div></div>
+      <div class="db-stat"><div class="n">55%</div><div class="lbl">closure rate</div></div>
+      <div class="db-stat"><div class="n">3</div><div class="lbl">推薦 next</div></div>
+    </div>
+  </section>
 
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
   <section class="pending-todos">
@@ -416,7 +592,7 @@ section.pending-todos .desc {
 </main>
 
 <footer>
-  v1 · React Pickup v2.0.B.251 · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.1 · React Pickup v2.0.B.255 · Decision Board · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
