@@ -8,6 +8,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
+import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted } from '../../store/runStore';
 import { addXp } from '../../data/xp';
@@ -114,6 +115,8 @@ export default function LessonPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
         {/* v2.0.B.187 P1: close ✕ tap area 22 → 44px HIG */}
         <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer', width: 44, height: 44, padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>✕</button>
+        {/* v2.0.B.251 P0 (Walkthrough cron audit): mute toggle — 深夜哄睡媽媽必備 */}
+        <MuteToggleBtn />
         {/* v2.0.B.187 P2-C: q-counter 11 → 14px senior 老花可讀 */}
         <span style={{ fontSize: 14, fontWeight: 800, color: '#7a5e25', background: '#fef3c7', padding: '6px 14px', borderRadius: 999 }}>
           q{idx + 1}/{lesson.questions.length}
@@ -131,9 +134,42 @@ export default function LessonPage() {
   );
 }
 
+// v2.0.B.251 P0 fix (Walkthrough cron audit 2026-06-07T1218 persona 佳蓉 媽媽哄睡):
+// Mute toggle 給「auto-TTS 無靜音 gate, 深夜外放吵醒孩子」的核心場景。
+// 點一下切 ON/OFF, localStorage 持久化, window event 讓所有 LessonPage instance 同步。
+// auto-speak useEffect 透過 tts.ts 內 mute gate 沉默跳過; manual SpeakerBtn 帶 force: true 仍可播。
+function MuteToggleBtn() {
+  const [muted, setMuted] = useState<boolean>(() => isMuted());
+  useEffect(() => {
+    const unsub = subscribeMuteChange(() => setMuted(isMuted()));
+    return unsub;
+  }, []);
+  return (
+    <button
+      onClick={() => setMuted(toggleMuted())}
+      aria-label={muted ? '取消靜音 / Unmute' : '靜音 / Mute (適合哄睡場景)'}
+      title={muted ? '取消靜音 / Unmute' : '靜音 / Mute'}
+      style={{
+        // v2.0.B.251: terra red #c84a3a 是 Pickup 錯誤色,拿來標 mute setting 會跟「答錯」語意衝突。
+        // 改用 warm sand bg #f0e6d8 + warm taupe border #8b6f4a (跟 ✕ 同色) — 純設定狀態,不警告。
+        background: muted ? '#f0e6d8' : 'transparent',
+        border: muted ? '2px solid #8b6f4a' : '2px solid transparent',
+        fontSize: 22, color: muted ? '#5d4a32' : '#8b6f4a',
+        // emoji cross-OS fallback chain 強制走彩色 emoji font,避免 Windows Chrome 走 Segoe UI Symbol 黑白
+        fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui',
+        cursor: 'pointer', width: 44, height: 44, padding: 0,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        borderRadius: 12, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+      }}
+    >
+      {muted ? '🔇' : '🔊'}
+    </button>
+  );
+}
+
 function NarrativeLine({ text }: { text: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const replay = () => { try { speak(text); } catch {} };
+  const replay = () => { try { speak(text, 'en-US', { force: true }); } catch {} };
   useEffect(() => {
     if (ref.current) { try { wireSentenceHints(ref.current); } catch {} }
   });

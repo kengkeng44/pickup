@@ -186,7 +186,7 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
       <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: '#fff7e8', border: '2px solid #e7a44a', borderRadius: 14 }}>
         <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
         <div style={{ flex: 1, position: 'relative' }}>
-          <SpeakerBtn onClick={() => speak(text)} />
+          <SpeakerBtn onClick={() => speak(text, 'en-US', { force: true })} />
           <span ref={ref as React.RefObject<HTMLSpanElement>} style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
         </div>
       </div>
@@ -237,7 +237,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div ref={ref} className="pickup-lesson-words">
         <SpeakerBadge speaker={q.speaker} />
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-          <SpeakerBtn onClick={() => speak(en)} size={48} />
+          <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#8b6f4a', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
         <div style={{ fontSize: 14, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 點喇叭聽完聲音再選答案</div>
@@ -252,7 +252,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div ref={ref} className="pickup-lesson-words" style={{ padding: '14px 6px 8px' }}>
       <SpeakerBadge speaker={q.speaker} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', borderRadius: 12, border: '1px solid #e0d0b8', marginBottom: 12 }}>
-        <SpeakerBtn onClick={() => speak(en)} size={36} />
+        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={36} />
         <span dangerouslySetInnerHTML={{ __html: wrapWords(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.7 }} />
       </div>
       <Explanation text={q.explanationZh ?? ''} />
@@ -306,12 +306,12 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div ref={ref} className="pickup-lesson-words">
       <SpeakerBadge speaker={q.speaker} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-        <SpeakerBtn onClick={() => speak(en)} size={44} />
+        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <span dangerouslySetInnerHTML={{ __html: revealed ? wrapWords(en) : blanks(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: revealed ? '#3c2a1c' : '#8b6f4a', letterSpacing: revealed ? 0 : '0.1em', lineHeight: 1.8 }} />
       </div>
       {qPrompt && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-          <SpeakerBtn onClick={() => speak(qPrompt)} size={36} />
+          <SpeakerBtn onClick={() => speak(qPrompt, 'en-US', { force: true })} size={36} />
           <span dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} style={{ flex: 1, fontSize: 16, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.5 }} />
         </div>
       )}
@@ -365,7 +365,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-        <SpeakerBtn onClick={() => speak(en)} size={48} />
+        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
         <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>聽聲音, 打出你聽到的句子</div>
       </div>
       <textarea
@@ -491,7 +491,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-        <SpeakerBtn onClick={() => speak(en)} size={44} />
+        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>
           聽聲音, 點字排出句子 · Tap words to fill the blanks
         </div>
@@ -790,7 +790,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div className="pickup-lesson-words" style={{ textAlign: 'center', padding: '12px 4px' }}>
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 18 }}>
-        <SpeakerBtn onClick={() => speak(word)} size={56} />
+        <SpeakerBtn onClick={() => speak(word, 'en-US', { force: true })} size={56} />
         <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a' }}>聽聲音 · 選對應的圖</div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, maxWidth: 360, margin: '0 auto' }}>
@@ -891,7 +891,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         )}
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
-        <SpeakerBtn onClick={() => speak(prompt)} size={32} />
+        <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={32} />
         <span style={{ flex: 1, fontSize: 14, fontWeight: 800, color: '#3c2a1c' }}>{prompt}</span>
       </div>
       <div className="pickup-answer-sticky">
@@ -962,7 +962,7 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <SpeakerBadge speaker={q.speaker} />
       {/* prompt */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
-        <SpeakerBtn onClick={() => speak(prompt)} size={36} />
+        <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={36} />
         <span style={{ flex: 1, fontSize: 16, fontWeight: 800, color: '#3c2a1c' }}>{prompt}</span>
       </div>
       {/* sentence with tappable words */}
@@ -1112,7 +1112,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
-        <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'))} size={36} />
+        <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'), 'en-US', { force: true })} size={36} />
         <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>
           點字填空 · Tap to fill the blank
         </div>
@@ -1266,9 +1266,9 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         background: '#fff7e8', border: '1px solid #e0d0b8',
         borderRadius: 12, marginBottom: 12,
       }}>
-        <SpeakerBtn onClick={() => speak(sentence, 'en-US')} size={52} />
+        <SpeakerBtn onClick={() => speak(sentence, 'en-US', { force: true })} size={52} />
         <button
-          onClick={() => { try { speak(sentence, 'en-US', { rate: 0.5 }); } catch {} }}
+          onClick={() => { try { speak(sentence, 'en-US', { rate: 0.5, force: true }); } catch {} }}
           aria-label="Slow replay"
           style={{
             padding: '8px 12px',
@@ -1468,7 +1468,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
       <SpeakerBadge speaker={q.speaker} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
-        <SpeakerBtn onClick={() => speak(en)} size={44} />
+        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <span style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.6 }}>{en}</span>
       </div>
       {zh && (

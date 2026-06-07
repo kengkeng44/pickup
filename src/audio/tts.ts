@@ -59,6 +59,10 @@ function splitChunks(text: string): string[] {
  */
 export const CHAPTERS_WITH_MP3: ReadonlySet<number> = new Set([1]);
 
+// v2.0.B.251 P0 fix (Walkthrough cron audit): import mute gate from muteSetting (DRY,
+// 避免 tts.ts 直接讀 localStorage key 跟 muteSetting.ts 雙處 hardcode magic string)。
+import { isMuted } from '../data/muteSetting';
+
 async function loadAudioLookup(): Promise<void> {
   for (const ch of CHAPTERS_WITH_MP3) {
     try {
@@ -293,11 +297,21 @@ let activeBufferSource: AudioBufferSourceNode | null = null;
 export function speak(
   text: string,
   lang = 'en-US',
-  opts?: { onEnd?: () => void; rate?: number }
+  opts?: { onEnd?: () => void; rate?: number; force?: boolean }
 ): void {
   const cleaned = cleanText(text);
   if (!cleaned) {
     debugLog('speak: empty text');
+    if (opts?.onEnd) { try { opts.onEnd(); } catch {} }
+    return;
+  }
+
+  // v2.0.B.251 P0 fix (Walkthrough cron audit): mute gate for auto-speak.
+  // force=true 用戶主動點喇叭 → 即使 mute mode 也播; force=false (default) auto-speak → mute 時 silent.
+  // mute 時仍呼叫 onEnd 讓 advance 邏輯 (dwellAdvance / chain qPrompt) 不卡住。
+  // 先呼叫 stopSpeaking() 清掉前題 leftover speechEndCallback,避免 q5 mute→q6 unmute 時 race。
+  if (!opts?.force && isMuted()) {
+    stopSpeaking();
     if (opts?.onEnd) { try { opts.onEnd(); } catch {} }
     return;
   }
