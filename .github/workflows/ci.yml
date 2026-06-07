@@ -78,3 +78,22 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=pickupwords --branch=master --commit-message="Auto-deploy via GH Actions"
+
+  # v2.0.B.252 — cockpit-deploy/ 改完後自動 push pickup-cockpit.pages.dev
+  # 之前是手動 wrangler pages deploy, sandbox 沒 CF token 跑不到, 接 CI 解決
+  # 30秒 deploy 不貴, 不加 paths filter (省維護, 每 master push 同步)
+  deploy-cockpit:
+    runs-on: ubuntu-latest
+    needs: build-and-validate
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Wrangler deploy cockpit to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy cockpit-deploy --project-name=pickup-cockpit --branch=main --commit-message="Auto-deploy cockpit via GH Actions"
