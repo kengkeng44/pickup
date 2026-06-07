@@ -9,7 +9,7 @@
  *   wireSentenceHints on ref mount.
  */
 import { useEffect, useRef, useState } from 'react';
-import { speak } from '../audio/tts';
+import { speak, stopSpeaking } from '../audio/tts';
 import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
 
@@ -176,7 +176,13 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
     try { speak(text, 'en-US', { onEnd: dwellAdvance }); } catch { dwellAdvance(); }
     const fallbackMs = Math.max(7000, text.split(/\s+/).length * 600 + 4000);
     const timer = window.setTimeout(advanceOnce, fallbackMs);
-    return () => window.clearTimeout(timer);
+    // v2.0.B.253 P0 fix (code-health cron 2026-06-07T1236):
+    // 用戶中途按 ✕ 退出時, dwellAdvance 仍 fire 在已死 scene → race condition.
+    // cleanup 必須同時 stopSpeaking() 清掉 speechEndCallback, 不然 onEnd 還會排新 setTimeout.
+    return () => {
+      window.clearTimeout(timer);
+      stopSpeaking();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 

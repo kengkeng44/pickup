@@ -456,7 +456,10 @@ function buildTriggerContext(opts: {
   // SRS queue size — defensive read (storyKitten SRS list, may not exist).
   let srsQueueSize = 0;
   try {
-    const raw = localStorage.getItem('pickup.story.srs');
+    // v2.0.B.253 P0 fix (ui-ux cron 2026-06-07T1208 SRS Babbel):
+    // storyKitten.ts:302 寫入 key 是 'wordwar.srs.kitten', 這裡讀的 'pickup.story.srs' 永遠 null
+    // → srsQueueSize 一直 0 → notif gate / HUD 複習提示全部失效。改齊。
+    const raw = localStorage.getItem('wordwar.srs.kitten');
     if (raw) {
       const arr = JSON.parse(raw);
       if (Array.isArray(arr)) srsQueueSize = arr.length;

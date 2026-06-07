@@ -1,12 +1,23 @@
+// v2.0.B.253 P0 fix (ui-ux cron 2026-06-07T1208 SRS Babbel):
+// 章節進度條原本硬編 progress: 8/24 是裝飾性假數字, 跟玩家實際完成不連動 → 誤導
+// 改接 readCompletedLessons(ch.id).size, 進度條變真 mastery indicator。
+import { readCompletedLessons } from '../../store/runStore';
+
 interface Props { onPickLesson: () => void; }
 
-const CHAPTERS = [
-  { id: 1, titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', unlocked: true, progress: 8, total: 24 },
-  { id: 2, titleZh: '桃太郎', titleEn: 'Momotaro', unlocked: false, progress: 0, total: 24 },
-  { id: 3, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', unlocked: false, progress: 0, total: 25 },
+const CHAPTER_META = [
+  { id: 1, titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', unlocked: true, total: 24 },
+  { id: 2, titleZh: '桃太郎', titleEn: 'Momotaro', unlocked: false, total: 24 },
+  { id: 3, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', unlocked: false, total: 25 },
 ];
 
 export default function MapView({ onPickLesson }: Props) {
+  // v2.0.B.253: render-time derive — readCompletedLessons 是 cheap localStorage read,
+  // 不需 useState/useEffect。每次 MapView mount 自動讀最新進度。
+  const CHAPTERS = CHAPTER_META.map(ch => ({
+    ...ch,
+    progress: readCompletedLessons(ch.id).size,
+  }));
   return (
     <div style={{ padding: '16px 14px 24px' }}>
       <div style={{ textAlign: 'center', marginBottom: 18 }}>
