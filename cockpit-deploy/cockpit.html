@@ -139,7 +139,7 @@ footer {
 
 <header>
   <h1>🎯 拾光 Pickup · 決策戰情室</h1>
-  <div class="tagline">Decision Cockpit · 2026-06-01 v2.0.B.161.6</div>
+  <div class="tagline">Decision Cockpit · 2026-06-08 v2.0.B.257</div>
   <div class="statbar">
     <span class="stat">198 lessons</span>
     <span class="stat">1233 Q</span>
@@ -179,12 +179,14 @@ footer {
 
 ## A. 現狀 (snapshot)
 
-- **版本** v2.0.B.161.6 / SW v2.0.B.155 / ~300 commits / CLAUDE.md drift 已修齊
-- **部署** [pickupwords.pages.dev](https://pickupwords.pages.dev/) / repo `kengkeng44/pickup`
-- **章節** Ch1-8 ship 198 lessons / 1,233 Q. **僅 Ch1 符合 Duolingo Stories spec v2 R1-R2**
-- **MP3** 僅 Ch1 (~200 files). Ch2-8 全靠 WebSpeech fallback
+- **版本** v2.0.B.257 / SW v2.0.B.155 / ~310 commits / CLAUDE.md drift ✅ 修齊 B.257 (本 session)
+- **部署** [pickupwords.pages.dev](https://pickupwords.pages.dev/) / [pickup-cockpit.pages.dev](https://pickup-cockpit.pages.dev/) (Decision Board) / repo `kengkeng44/pickup`
+- **章節** Ch1-26 ship 198+ lessons / 1,233+ Q. **僅 Ch1 符合 Duolingo Stories spec v2 R1-R2**
+- **MP3** 僅 Ch1 (~200 files). Ch2-26 全靠 WebSpeech fallback (mute toggle B.251 後可關)
 - **Telemetry** PostHog stub 接好 + consent banner ship, 6/8 event live (等 user 提 key)
 - **DEV_UNLOCK_ALL** = true (production 沒 gate, 待 paywall infra)
+- **Mute toggle** ✅ B.251 ship (LessonPage header 🔊/🔇, localStorage 持久, 媽媽哄睡 P0-1 解)
+- **Cockpit Decision Board** ✅ B.255 ship (Top 3 ROI + 1-tap copy B.257) — 接 P0 不打字
 
 ## B. 競品 gap 排序 (ROI 高→低)
 
@@ -204,7 +206,7 @@ footer {
 
 1. **Ch2-8 全部 0 narration / 0 listen-tf** — 違反 spec v2 R1-R2. 1100 Q 需 Duolingo Stories 格式重寫
 2. **Ch2-8 0 MP3** — fallback WebSpeech 體驗差. 需 ~$40-60 OpenAI grandma TTS budget
-3. **CLAUDE.md drift** ✅ 修齊 B.161.1
+3. **CLAUDE.md drift** ✅ 修齊 B.257 (本 session sync,~110 commit 補進 Version History)
 4. **DEV_UNLOCK_ALL=true** — v1.0 ship 前 flip (paywall 規劃: 見 Paywall tab)
 5. **`listen-tf-zh` 死碼** — schema + 200 行 _renderListenTfZh 未用, 可刪
 
@@ -242,20 +244,32 @@ post-iteration 並行跑 5 agent (≤8 min):
 | 看競品                | Market research + TOEIC Research  |
 | 查文獻/標準           | TOEIC Research                    |
 
-## G. 此 session 9 個 commit ship list
+## G. 本 session (2026-06-07/08) 10 commit ship list
 
 | commit | 主題 |
 |--------|------|
-| B.160 89d93f8 | audio onEnd + L1 Q1/Q2 anti-mirror + 5s advance |
-| B.161 6557af7 | Lesson Review screen |
-| B.161.1 5890aba | 10 audit fix + CLAUDE.md sync |
-| B.161.2 61a86ab | L1 Q6 fix + paywall + posthog doc |
-| B.161.3 3ce6eb0 | validate-lessons.js mirror lint guard |
-| B.161.4 2e40812 | posthog stub + 4 violation fix + 2 MP3 regen |
-| B.161.5 ff26a8e | consent banner + ANSWER_SUBMIT event |
-| B.161.6 7b98475 | STREAK_UPDATE event (6/8 PostHog) |
+| B.250 5d3b88d | Ch7 q7 A6 verbatim fix (cron content 1206 P0) |
+| B.251 f29fe45 | mute toggle for auto-TTS (cron walk 1218 P0-1 媽媽哄睡) |
+| chore 63d98ab | .gitignore + Pickup illustration rules v1 (437 行 mascot 規範) |
+| chore 5e115f1 | cockpit footer 171→251 |
+| B.252 bea25e9 | CI auto-deploy cockpit (.github/workflows/ci.yml + deploy-cockpit job) |
+| B.253 d4ff9bd | Top 3 P0 batch (NarrationRenderer race + SRS key + MapView 真實進度) |
+| B.254 5b4fac3 | B.253 follow-up (ListenTf cleanup + Ch1 invitation banner) |
+| B.255 f5c1b43 | cockpit Decision Board (Top 3 ROI + Open backlog + Closed 24h + stats) |
+| B.256 12251c6 | CI cockpit deploy branch main → master (對齊 CF production) |
+| B.257 3c73946 | cockpit 全域 1-tap copy + ✓ feedback 統一 (Decision Board + cron card + quick actions) |
+| docs 1843baa | CLAUDE.md sync B.161 → B.257 |
 
-Final deploy: [240f51ec.pickupwords.pages.dev](https://240f51ec.pickupwords.pages.dev/)
+Final cockpit deploy: [pickup-cockpit.pages.dev](https://pickup-cockpit.pages.dev/) (含 ⚡ 決策面板 + 1-tap copy)
+Final game deploy: [pickupwords.pages.dev](https://pickupwords.pages.dev/) (mute toggle live + Ch1 invitation banner)
+
+## H. 下一步 (從 cockpit Decision Board 排序)
+
+⭐ **#1 RECOMMEND**: tts.ts:534-537 unlock listeners 加 `{ once: true }` (S 5min, code-health 1236 #3)
+**#2**: LessonPage idx 歸零持久化 (M 1hr, walk 1218 P0-2, 媽媽哄睡 churn 主源)
+**#3**: audioBufferCache LRU 80 entries (M 1hr, code-health 1236 #2, iOS 低記憶體 crash 防護)
+
+跑 [pickup-cockpit.pages.dev](https://pickup-cockpit.pages.dev/) Decision Board 按 ⭐ #1「📋 一鍵複製這個 prompt」→ 貼新 Claude session 直接接。
 </script>
 
 <script type="text/markdown" id="md-dispatch">
