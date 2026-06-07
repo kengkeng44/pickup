@@ -81,6 +81,28 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   6: { titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', accent: '#6a7d8f' },
   7: { titleZh: '六隻天鵝', titleEn: 'The Six Swans', accent: '#8a6ea8' },
   8: { titleZh: '葉限', titleEn: 'Ye Xian', accent: '#6a7d8f' },
+  // v2.0.B.259: 補 Ch9-Ch29 (user 反映 MapPage 只 7-8 顆按鈕, 已 ship 30 章但只顯示 8)
+  9: { titleZh: '灰姑娘', titleEn: 'Cinderella', accent: '#e7659c' },
+  10: { titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', accent: '#8a6ea8' },
+  11: { titleZh: '后羿射日', titleEn: 'Hou Yi Shoots the Suns', accent: '#e7a44a' },
+  12: { titleZh: '牛郎織女', titleEn: 'The Cowherd and the Weaver Girl', accent: '#6a7d8f' },
+  13: { titleZh: '小紅帽', titleEn: 'Little Red Riding Hood', accent: '#c84a3a' },
+  14: { titleZh: '浦島太郎', titleEn: 'Urashima Taro', accent: '#6a7d8f' },
+  15: { titleZh: '國王的新衣', titleEn: "The Emperor's New Clothes", accent: '#d68a52' },
+  16: { titleZh: '一寸法師', titleEn: 'Issun-boshi', accent: '#e7a44a' },
+  17: { titleZh: '鶴的報恩', titleEn: "The Crane's Return", accent: '#6e7d5a' },
+  18: { titleZh: '興夫和孬夫', titleEn: 'Heungbu and Nolbu', accent: '#e7a44a' },
+  19: { titleZh: 'Sang Kancil 與鱷魚', titleEn: 'Sang Kancil', accent: '#6e7d5a' },
+  20: { titleZh: '蘿蔔大冒險', titleEn: 'The Enormous Turnip', accent: '#c84a3a' },
+  21: { titleZh: 'Anansi 蜘蛛', titleEn: 'Anansi the Spider', accent: '#3c2a1c' },
+  22: { titleZh: '孟母三遷', titleEn: "Mencius's Mother", accent: '#d68a52' },
+  23: { titleZh: '司馬光砸缸', titleEn: 'Sima Guang Smashes the Vat', accent: '#6a7d8f' },
+  24: { titleZh: '孔融讓梨', titleEn: 'Kong Rong Gives Up the Pear', accent: '#6e7d5a' },
+  25: { titleZh: '愚公移山', titleEn: 'The Foolish Old Man Moves Mountains', accent: '#8a6ea8' },
+  26: { titleZh: 'Archimedes 尤里卡', titleEn: 'Archimedes Eureka', accent: '#e7a44a' },
+  27: { titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', accent: '#d68a52' },
+  28: { titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", accent: '#6a7d8f' },
+  29: { titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', accent: '#8a6ea8' },
 };
 
 // Color helpers (from StoryMapView.ts)
@@ -188,7 +210,9 @@ function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void 
 export default function MapPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const chapter = Math.min(8, Math.max(1, Number(searchParams.get('ch') || 1)));
+  // v2.0.B.259: Math.min 8 → 29 — 解鎖 Ch9-29 全部 ship 章節 (B.250 後 ship Ch27-29 mid-long)
+  // user 反映 MapPage 只 7-8 顆按鈕, root cause = 這條 clamp 把 ?ch=27 強制 fallback 8
+  const chapter = Math.min(29, Math.max(1, Number(searchParams.get('ch') || 1)));
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);

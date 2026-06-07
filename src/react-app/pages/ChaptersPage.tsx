@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
+// v2.0.B.259: 擴 Ch9-Ch29 (user 反映 ChaptersPage 「選章節」只 8 顆按鈕)
+// 之前寫死 Ch1-8, 沒同步 B.236-249 Ch9-26 + B.258 Ch27-29 mid-long round 1 ship
 const CHAPTERS: Array<{ id: number; titleZh: string; titleEn: string; unlocked: boolean }> = [
   { id: 1, titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', unlocked: true },
   { id: 2, titleZh: '桃太郎', titleEn: 'Momotaro', unlocked: true },
@@ -9,6 +11,27 @@ const CHAPTERS: Array<{ id: number; titleZh: string; titleEn: string; unlocked: 
   { id: 6, titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', unlocked: true },
   { id: 7, titleZh: '六隻天鵝', titleEn: 'The Six Swans', unlocked: true },
   { id: 8, titleZh: '葉限', titleEn: 'Ye Xian', unlocked: true },
+  { id: 9, titleZh: '灰姑娘', titleEn: 'Cinderella', unlocked: true },
+  { id: 10, titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', unlocked: true },
+  { id: 11, titleZh: '后羿射日', titleEn: 'Hou Yi Shoots the Suns', unlocked: true },
+  { id: 12, titleZh: '牛郎織女', titleEn: 'The Cowherd and the Weaver Girl', unlocked: true },
+  { id: 13, titleZh: '小紅帽', titleEn: 'Little Red Riding Hood', unlocked: true },
+  { id: 14, titleZh: '浦島太郎', titleEn: 'Urashima Taro', unlocked: true },
+  { id: 15, titleZh: '國王的新衣', titleEn: "The Emperor's New Clothes", unlocked: true },
+  { id: 16, titleZh: '一寸法師', titleEn: 'Issun-boshi', unlocked: true },
+  { id: 17, titleZh: '鶴的報恩', titleEn: "The Crane's Return", unlocked: true },
+  { id: 18, titleZh: '興夫和孬夫', titleEn: 'Heungbu and Nolbu', unlocked: true },
+  { id: 19, titleZh: 'Sang Kancil 與鱷魚', titleEn: 'Sang Kancil', unlocked: true },
+  { id: 20, titleZh: '蘿蔔大冒險', titleEn: 'The Enormous Turnip', unlocked: true },
+  { id: 21, titleZh: 'Anansi 蜘蛛', titleEn: 'Anansi the Spider', unlocked: true },
+  { id: 22, titleZh: '孟母三遷', titleEn: "Mencius's Mother", unlocked: true },
+  { id: 23, titleZh: '司馬光砸缸', titleEn: 'Sima Guang Smashes the Vat', unlocked: true },
+  { id: 24, titleZh: '孔融讓梨', titleEn: 'Kong Rong Gives Up the Pear', unlocked: true },
+  { id: 25, titleZh: '愚公移山', titleEn: 'The Foolish Old Man Moves Mountains', unlocked: true },
+  { id: 26, titleZh: 'Archimedes 尤里卡', titleEn: 'Archimedes Eureka', unlocked: true },
+  { id: 27, titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', unlocked: true },
+  { id: 28, titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", unlocked: true },
+  { id: 29, titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', unlocked: true },
 ];
 
 export default function ChaptersPage() {
