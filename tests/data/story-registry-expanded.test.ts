@@ -39,13 +39,13 @@ describe('B.242 expansion — registry size', () => {
   });
 
   it('has 27 shipped entries', () => {
-    expect(STORY_REGISTRY.filter((s) => s.status === 'shipped').length).toBe(27);
-    expect(REGISTRY_SHIPPED_COUNT).toBe(27);
+    expect(STORY_REGISTRY.filter((s) => s.status === 'shipped').length).toBe(30);
+    expect(REGISTRY_SHIPPED_COUNT).toBe(30);
   });
 
   it('has 83 candidate entries (73 short + 10 mid-long)', () => {
-    expect(STORY_REGISTRY.filter((s) => s.status === 'candidate').length).toBe(83);
-    expect(REGISTRY_CANDIDATE_COUNT).toBe(83);
+    expect(STORY_REGISTRY.filter((s) => s.status === 'candidate').length).toBe(80);
+    expect(REGISTRY_CANDIDATE_COUNT).toBe(80);
   });
 
   it('exactly 73 short candidates', () => {
@@ -54,8 +54,9 @@ describe('B.242 expansion — registry size', () => {
   });
 
   it('exactly 10 mid-long candidates', () => {
-    expect(REGISTRY_MID_LONG_COUNT).toBe(10);
-    expect(listMidLong().length).toBe(10);
+    // v2.0.B.258: 3 mid-long shipped (西遊記/諸葛亮/Odyssey), candidate-mid-long 10 → 7
+    expect(REGISTRY_MID_LONG_COUNT).toBe(10); // total still 10
+    expect(listMidLong().length).toBe(7); // candidates only after 3 shipped
   });
 
   it('all ids are unique across registry', () => {
@@ -91,13 +92,13 @@ describe('B.242 expansion — shipped chapter alignment', () => {
     }
   });
 
-  it('shipped chapter set covers Ch0-Ch26 inclusive (27 unique slots)', () => {
+  it('shipped chapter set covers Ch0-Ch29 inclusive (30 unique slots)', () => {
     const chapters = listShippedStories().map((s) => s.shippedChapter!);
     expect(new Set(chapters).size).toBe(chapters.length);
-    expect(chapters.length).toBe(27);
+    expect(chapters.length).toBe(30);
     const sorted = [...chapters].sort((a, b) => a - b);
     expect(sorted[0]).toBe(0);
-    expect(sorted[sorted.length - 1]).toBe(26);
+    expect(sorted[sorted.length - 1]).toBe(29);
   });
 
   it('canonical chapter→storyId mapping matches lessons-ch{N}.json', () => {
@@ -129,6 +130,10 @@ describe('B.242 expansion — shipped chapter alignment', () => {
       24: 'kong-rong',
       25: 'yugong',
       26: 'archimedes-eureka',
+      // v2.0.B.258: round 1 mid-long ship
+      27: 'journey-to-west-series',
+      28: 'zhuge-liang-strategems',
+      29: 'odyssey',
     };
     for (const [ch, id] of Object.entries(expected)) {
       const entry = getStoryByChapter(Number(ch));
@@ -168,7 +173,9 @@ describe('B.242 expansion — mid-long entries', () => {
   });
 
   it('mid-long entry set includes all 10 expected serial arcs', () => {
-    const ids = new Set(listMidLong().map((e) => e.id));
+    // v2.0.B.258: use full STORY_REGISTRY filter instead of listMidLong()
+    // (listMidLong filters status='candidate', misses 3 shipped mid-long after Ch27-29)
+    const ids = new Set(STORY_REGISTRY.filter((s) => s.lengthClass === 'mid-long').map((e) => e.id));
     const expected = [
       'journey-to-west-series',
       'zhuge-liang-strategems',

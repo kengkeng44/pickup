@@ -1808,8 +1808,9 @@ export const STORY_REGISTRY: StoryEntry[] = [
     theme: ['courage', 'friendship', 'perseverance'],
     cefrLevel: 'A2+',
     contentFlags: ['mild-violence', 'fear-themed'],
-    status: 'candidate',
+    status: 'shipped',
     lengthClass: 'mid-long',
+    shippedChapter: 27,
     suggestedEpisodes: 9,
   },
   {
@@ -1825,8 +1826,9 @@ export const STORY_REGISTRY: StoryEntry[] = [
     theme: ['wit', 'courage', 'perseverance'],
     cefrLevel: 'A2+',
     contentFlags: ['mild-violence'],
-    status: 'candidate',
+    status: 'shipped',
     lengthClass: 'mid-long',
+    shippedChapter: 28,
     suggestedEpisodes: 6,
   },
   {
@@ -1842,7 +1844,8 @@ export const STORY_REGISTRY: StoryEntry[] = [
     theme: ['courage', 'family', 'perseverance'],
     cefrLevel: 'A2+',
     contentFlags: ['mild-violence', 'fear-themed', 'separation'],
-    status: 'candidate',
+    status: 'shipped',
+    shippedChapter: 29,
     lengthClass: 'mid-long',
     suggestedEpisodes: 8,
   },
@@ -1970,10 +1973,11 @@ export const STORY_REGISTRY: StoryEntry[] = [
 // ─── Sanity guard: registry size + status counts ───────────────────────────
 
 export const REGISTRY_TOTAL = 110;
-export const REGISTRY_SHIPPED_COUNT = 27;
-export const REGISTRY_CANDIDATE_COUNT = 83;
+// v2.0.B.258: round 1 mid-long ship (Ch27-29 西遊記/諸葛亮/Odyssey), 27→30 shipped, 83→80 candidate
+export const REGISTRY_SHIPPED_COUNT = 30;
+export const REGISTRY_CANDIDATE_COUNT = 80;
 export const REGISTRY_SHORT_CANDIDATE_COUNT = 73;
-export const REGISTRY_MID_LONG_COUNT = 10;
+export const REGISTRY_MID_LONG_COUNT = 10; // total still 10 (3 shipped + 7 candidates)
 
 // ─── Filter helpers ────────────────────────────────────────────────────────
 

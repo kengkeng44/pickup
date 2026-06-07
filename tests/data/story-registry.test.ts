@@ -65,16 +65,18 @@ describe('STORY_REGISTRY size + status counts', () => {
     expect(STORY_REGISTRY.length).toBe(110);
   });
 
-  it('has exactly 27 shipped entries', () => {
+  it('has exactly 30 shipped entries', () => {
+    // v2.0.B.258: round 1 mid-long ship Ch27-29, 27 → 30
     const shipped = STORY_REGISTRY.filter((s) => s.status === 'shipped');
     expect(shipped.length).toBe(REGISTRY_SHIPPED_COUNT);
-    expect(shipped.length).toBe(27);
+    expect(shipped.length).toBe(30);
   });
 
-  it('has exactly 83 candidate entries', () => {
+  it('has exactly 80 candidate entries', () => {
+    // v2.0.B.258: 83 → 80 after 3 mid-long shipped
     const candidates = STORY_REGISTRY.filter((s) => s.status === 'candidate');
     expect(candidates.length).toBe(REGISTRY_CANDIDATE_COUNT);
-    expect(candidates.length).toBe(83);
+    expect(candidates.length).toBe(80);
   });
 
   it('all ids are unique', () => {
@@ -242,8 +244,9 @@ describe('suggestNextToShip — ROI-ordered candidate list', () => {
     }
   });
 
-  it('returns 83 entries', () => {
-    expect(suggestNextToShip().length).toBe(83);
+  it('returns 80 entries', () => {
+    // v2.0.B.258: -3 shipped mid-long
+    expect(suggestNextToShip().length).toBe(80);
   });
 
   it('paired-with-shipped candidates rank high (tiger-grandma pairs with shipped red-riding-hood)', () => {
