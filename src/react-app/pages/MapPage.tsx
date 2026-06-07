@@ -103,6 +103,9 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   27: { titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', accent: '#d68a52' },
   28: { titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", accent: '#6a7d8f' },
   29: { titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', accent: '#8a6ea8' },
+  // v2.0.B.260: round 2 mid-long ship
+  30: { titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', accent: '#c84a3a' },
+  31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#6e7d5a' },
 };
 
 // Color helpers (from StoryMapView.ts)
@@ -212,7 +215,7 @@ export default function MapPage() {
   const [searchParams] = useSearchParams();
   // v2.0.B.259: Math.min 8 → 29 — 解鎖 Ch9-29 全部 ship 章節 (B.250 後 ship Ch27-29 mid-long)
   // user 反映 MapPage 只 7-8 顆按鈕, root cause = 這條 clamp 把 ?ch=27 強制 fallback 8
-  const chapter = Math.min(29, Math.max(1, Number(searchParams.get('ch') || 1)));
+  const chapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);

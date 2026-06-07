@@ -39,13 +39,13 @@ describe('B.242 expansion — registry size', () => {
   });
 
   it('has 27 shipped entries', () => {
-    expect(STORY_REGISTRY.filter((s) => s.status === 'shipped').length).toBe(30);
-    expect(REGISTRY_SHIPPED_COUNT).toBe(30);
+    expect(STORY_REGISTRY.filter((s) => s.status === 'shipped').length).toBe(32);
+    expect(REGISTRY_SHIPPED_COUNT).toBe(32);
   });
 
   it('has 83 candidate entries (73 short + 10 mid-long)', () => {
-    expect(STORY_REGISTRY.filter((s) => s.status === 'candidate').length).toBe(80);
-    expect(REGISTRY_CANDIDATE_COUNT).toBe(80);
+    expect(STORY_REGISTRY.filter((s) => s.status === 'candidate').length).toBe(78);
+    expect(REGISTRY_CANDIDATE_COUNT).toBe(78);
   });
 
   it('exactly 73 short candidates', () => {
@@ -54,9 +54,9 @@ describe('B.242 expansion — registry size', () => {
   });
 
   it('exactly 10 mid-long candidates', () => {
-    // v2.0.B.258: 3 mid-long shipped (西遊記/諸葛亮/Odyssey), candidate-mid-long 10 → 7
+    // v2.0.B.260: +2 mid-long shipped round 2 (Heracles/Robin Hood), candidate-mid-long 7→5
     expect(REGISTRY_MID_LONG_COUNT).toBe(10); // total still 10
-    expect(listMidLong().length).toBe(7); // candidates only after 3 shipped
+    expect(listMidLong().length).toBe(5); // candidates only after 5 shipped (西遊/諸葛/奧德/赫拉/Robin)
   });
 
   it('all ids are unique across registry', () => {
@@ -92,13 +92,13 @@ describe('B.242 expansion — shipped chapter alignment', () => {
     }
   });
 
-  it('shipped chapter set covers Ch0-Ch29 inclusive (30 unique slots)', () => {
+  it('shipped chapter set covers Ch0-Ch31 inclusive (32 unique slots)', () => {
     const chapters = listShippedStories().map((s) => s.shippedChapter!);
     expect(new Set(chapters).size).toBe(chapters.length);
-    expect(chapters.length).toBe(30);
+    expect(chapters.length).toBe(32);
     const sorted = [...chapters].sort((a, b) => a - b);
     expect(sorted[0]).toBe(0);
-    expect(sorted[sorted.length - 1]).toBe(29);
+    expect(sorted[sorted.length - 1]).toBe(31);
   });
 
   it('canonical chapter→storyId mapping matches lessons-ch{N}.json', () => {
@@ -134,6 +134,9 @@ describe('B.242 expansion — shipped chapter alignment', () => {
       27: 'journey-to-west-series',
       28: 'zhuge-liang-strategems',
       29: 'odyssey',
+      // v2.0.B.260: round 2 mid-long ship
+      30: 'heracles-twelve-labors',
+      31: 'robin-hood',
     };
     for (const [ch, id] of Object.entries(expected)) {
       const entry = getStoryByChapter(Number(ch));

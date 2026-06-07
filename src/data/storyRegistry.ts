@@ -1862,7 +1862,8 @@ export const STORY_REGISTRY: StoryEntry[] = [
     theme: ['courage', 'perseverance'],
     cefrLevel: 'A2+',
     contentFlags: ['mild-violence', 'fear-themed'],
-    status: 'candidate',
+    status: 'shipped',
+    shippedChapter: 30,
     lengthClass: 'mid-long',
     suggestedEpisodes: 12,
   },
@@ -1879,7 +1880,8 @@ export const STORY_REGISTRY: StoryEntry[] = [
     theme: ['justice', 'courage', 'friendship'],
     cefrLevel: 'A2+',
     contentFlags: ['mild-violence'],
-    status: 'candidate',
+    status: 'shipped',
+    shippedChapter: 31,
     lengthClass: 'mid-long',
     suggestedEpisodes: 7,
   },
@@ -1973,11 +1975,11 @@ export const STORY_REGISTRY: StoryEntry[] = [
 // ─── Sanity guard: registry size + status counts ───────────────────────────
 
 export const REGISTRY_TOTAL = 110;
-// v2.0.B.258: round 1 mid-long ship (Ch27-29 西遊記/諸葛亮/Odyssey), 27→30 shipped, 83→80 candidate
-export const REGISTRY_SHIPPED_COUNT = 30;
-export const REGISTRY_CANDIDATE_COUNT = 80;
+// v2.0.B.260: round 2 mid-long ship (Ch30-31 Heracles/Robin Hood), 30→32 shipped, 80→78 candidate
+export const REGISTRY_SHIPPED_COUNT = 32;
+export const REGISTRY_CANDIDATE_COUNT = 78;
 export const REGISTRY_SHORT_CANDIDATE_COUNT = 73;
-export const REGISTRY_MID_LONG_COUNT = 10; // total still 10 (3 shipped + 7 candidates)
+export const REGISTRY_MID_LONG_COUNT = 10; // total still 10 (5 shipped + 5 candidates)
 
 // ─── Filter helpers ────────────────────────────────────────────────────────
 

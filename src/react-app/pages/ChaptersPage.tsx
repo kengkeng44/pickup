@@ -32,6 +32,9 @@ const CHAPTERS: Array<{ id: number; titleZh: string; titleEn: string; unlocked: 
   { id: 27, titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', unlocked: true },
   { id: 28, titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", unlocked: true },
   { id: 29, titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', unlocked: true },
+  // v2.0.B.260: round 2 mid-long
+  { id: 30, titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', unlocked: true },
+  { id: 31, titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', unlocked: true },
 ];
 
 export default function ChaptersPage() {
