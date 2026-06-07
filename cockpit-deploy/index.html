@@ -140,8 +140,32 @@ section.cron-grid {
   border: 1px solid var(--border); padding: 6px 8px; border-radius: 8px;
   font-size: 11px; font-weight: 700; cursor: pointer; font-family: inherit;
 }
-.cron-card .actions button.primary { background: var(--accent); color: white; border: none; }
+/* v2.0.B.257: cron card primary copy button 統一升級成 Decision Board 風格 (大 + 醒目 + ✓ feedback) */
+.cron-card .actions button.primary {
+  background: var(--accent-dark); color: white; border: none;
+  padding: 10px 12px; font-size: 13px; font-weight: 800;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.1s, background 0.1s;
+}
+.cron-card .actions button.primary:hover { background: #8a5a18; opacity: 1; }
+.cron-card .actions button.primary:active { transform: scale(0.97); }
 .cron-card .actions button:hover { opacity: 0.85; }
+/* next-action banner 內 copy button 同款大尺寸 */
+section.next-action button#next-btn {
+  background: var(--accent-dark); color: white; border: none;
+  padding: 12px 16px; font-size: 14px; font-weight: 800;
+  border-radius: 8px; cursor: pointer; font-family: inherit;
+  width: 100%; margin-top: 8px;
+  transition: transform 0.1s, background 0.1s;
+}
+section.next-action button#next-btn:hover { background: #8a5a18; }
+section.next-action button#next-btn:active { transform: scale(0.98); }
+/* quick-actions 4 個 1-click button 同款 ✓ feedback transition */
+.action-grid button {
+  transition: transform 0.1s, background 0.1s;
+}
+.action-grid button:active { transform: scale(0.97); }
 .empty {
   text-align: center; padding: 30px; color: var(--muted); font-size: 13px;
   border: 2px dashed var(--border); border-radius: 12px; background: var(--card);
@@ -384,6 +408,26 @@ section.decision-board::before {
   background: var(--bg); padding: 1px 5px; border-radius: 4px;
   font-size: 10px; color: var(--accent-dark);
 }
+.db-actions {
+  margin-top: 8px;
+}
+.db-copy {
+  width: 100%;
+  background: var(--accent-dark); color: white;
+  border: none; font-size: 13px; font-weight: 800;
+  padding: 10px 12px; border-radius: 8px; cursor: pointer;
+  font-family: inherit;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.1s, background 0.1s;
+}
+.db-copy:hover { background: #8a5a18; }
+.db-copy:active { transform: scale(0.97); }
+.db-recommend .db-copy {
+  background: var(--accent); color: white;
+  border-bottom: 3px solid var(--accent-dark);
+  font-size: 14px;
+}
+.db-recommend .db-copy:hover { background: #d18d2e; }
 .db-stats {
   display: flex; gap: 10px; margin-top: 12px;
   padding: 10px 12px; background: white; border-radius: 8px;
@@ -440,6 +484,19 @@ section.decision-board::before {
         </div>
         <div class="db-why"><b>為什麼接</b>:最低 effort 解掉 3 個 module-level 永久 capture-phase listener (touchstart/click/pointerdown). 每次 tap 都跑 unlock 函式 — CPU 浪費 + iOS 久了 event handler 累積. 5 分鐘 1 行改完一勞永逸.</div>
         <div class="db-file">📁 <code>src/audio/tts.ts:534-537</code> · 來源:1236 code-health cron #3</div>
+        <div class="db-actions">
+          <button class="db-copy" data-prompt="請拉最新 master, 接 P0:
+File: src/audio/tts.ts:534-537
+Issue: 3 個 module-level unlock listener (touchstart/click/pointerdown) 用匿名 wrapper, 無 { once: true }, ref 丟失無法 removeEventListener — 永久 capture-phase event 浪費 CPU + iOS 久了 event handler 累積
+修法: 加 { once: true, capture: true } 到 3 個 addEventListener, listener 首次 fire 後自動 remove
+
+1. Read tts.ts line 528-545 確認結構
+2. Edit 加 { once: true, capture: true }
+3. npm run build verify
+4. 跑 5-agent audit (R11 既有)
+5. commit + push + deploy
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵複製這個 prompt</button>
+        </div>
       </div>
 
       <div class="db-item">
@@ -452,6 +509,23 @@ section.decision-board::before {
         </div>
         <div class="db-why"><b>為什麼接</b>:Walkthrough 1218 媽媽哄睡 P0-2 痛點. 寶寶哭按 ✕ 退出後重進 lesson 從 q1 重來, 之前做的 5 題全白做 → 直接流失主源. effort M 但解 churn 根本.</div>
         <div class="db-file">📁 <code>src/react-app/pages/LessonPage.tsx</code> · 來源:1218 walk cron P0-2</div>
+        <div class="db-actions">
+          <button class="db-copy" data-prompt="請拉最新 master, 接 walkthrough cron 2026-06-07T1218 P0-2:
+File: src/react-app/pages/LessonPage.tsx (useState(0) idx)
+Issue: idx 是 component state, 用戶中途按 ✕ 退出後重進 lesson 從 q1 重來, 5 題進度白做 — 媽媽哄睡 churn 主源
+修法 (M 1hr):
+  - 加 localStorage key 'pickup.lesson.progress.${'$'}{lessonId}' 寫每答 1 題後的 idx
+  - useState 改成 useState(() => readSavedIdx(lessonId) ?? 0)
+  - markLessonCompleted 時 clearSavedIdx(lessonId)
+  - 周邊 P1: map node 加「進行中」狀態 mark (vs 未開始 vs 完成)
+
+1. Read LessonPage useState(0) + handleAnswer + finish flow
+2. Edit 加 progress persistence helper + wire useState init
+3. npm run build verify
+4. 跑 5-agent audit (R11)
+5. commit + push + deploy
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron walk P0-2)">📋 一鍵複製這個 prompt</button>
+        </div>
       </div>
 
       <div class="db-item">
@@ -464,6 +538,23 @@ section.decision-board::before {
         </div>
         <div class="db-why"><b>為什麼接</b>:8 章玩完累積 200 個 AudioBuffer (~20 MB RAM) 永不釋放 — iOS 16 app budget 300 MB, 兒童家長共用 iPhone 多 app 並存場景下會被 Safari 殺 tab. 加 LRU 80 entries 就解.</div>
         <div class="db-file">📁 <code>src/audio/tts.ts:168</code> · 來源:1236 code-health cron #2</div>
+        <div class="db-actions">
+          <button class="db-copy" data-prompt="請拉最新 master, 接 code-health cron 2026-06-07T1236 P0 #2:
+File: src/audio/tts.ts:168 (audioBufferCache: Map<string, AudioBuffer>)
+Issue: 無 eviction policy, 8 章 200 MP3 累積 ~20MB RAM 永不釋放. iOS 16 app budget 300MB, 兒童家長共用 iPhone 多 app 並存場景被 Safari 殺 tab
+修法 (M 1hr): 加 LRU 上限 80 entries
+  - track lastUsed timestamp per entry (Map<string, { buf: AudioBuffer; lastUsed: number }>)
+  - set/get 時更新 lastUsed
+  - set 時若 size > 80, iterate Map 找 oldest lastUsed 刪掉
+  - 或用 simple LRU lib (lru-cache) — 但 build budget 注意
+
+1. Read tts.ts line 160-220 audioBufferCache + warmUp + playBuffer 全 chain
+2. Edit 加 LRU wrapper or 簡單 Map size check + iterator delete oldest
+3. npm run build verify (bundle size 不過 budget)
+4. 跑 5-agent audit (R11)
+5. commit + push + deploy
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵複製這個 prompt</button>
+        </div>
       </div>
 
     </div>
@@ -553,7 +644,7 @@ section.decision-board::before {
   <section class="next-action" id="next-action" style="display:none;">
     <h2 id="next-title">⚡ 下一步建議</h2>
     <div class="desc" id="next-desc">載入中…</div>
-    <button id="next-btn" onclick="copyPrompt('p0')">📋 接這個 → 開新 Claude session 貼上</button>
+    <button id="next-btn" onclick="cp('p0', this)">📋 接這個 → 開新 Claude session 貼上</button>
   </section>
 
   <!-- Cron card grid -->
@@ -565,16 +656,16 @@ section.decision-board::before {
   <section class="quick-actions">
     <h2>🎯 一鍵指令 (複製 → 下次 session 貼)</h2>
     <div class="action-grid">
-      <button onclick="copyPrompt('p0')">
+      <button onclick="cp('p0', this)">
         <span class="icon">🔥</span>接最新 P0 修
       </button>
-      <button onclick="copyPrompt('top3')">
+      <button onclick="cp('top3', this)">
         <span class="icon">⭐</span>跑 Top 3 S-effort
       </button>
-      <button onclick="copyPrompt('audit')">
+      <button onclick="cp('audit', this)">
         <span class="icon">🔍</span>全套 5-agent audit
       </button>
-      <button onclick="copyPrompt('snapshot')">
+      <button onclick="cp('snapshot', this)">
         <span class="icon">📸</span>當前狀態 snapshot
       </button>
     </div>
@@ -592,7 +683,7 @@ section.decision-board::before {
 </main>
 
 <footer>
-  v1.1 · React Pickup v2.0.B.255 · Decision Board · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.2 · React Pickup v2.0.B.257 · 1-tap Copy · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
@@ -715,6 +806,44 @@ async function fetchCommits() {
   return data;
 }
 
+// v2.0.B.257: 統一 copy feedback — call copyPrompt + visual ✓ on the originating button
+function cp(kind, btn) {
+  copyPrompt(kind);
+  if (btn) showCopyFeedback(btn);
+}
+function showCopyFeedback(btn) {
+  const orig = btn.innerHTML;
+  const origBg = btn.style.background;
+  btn.innerHTML = '✓ 已複製 — 貼到新 Claude session';
+  btn.style.background = '#5d9a35';
+  btn.style.color = 'white';
+  setTimeout(() => {
+    btn.innerHTML = orig;
+    btn.style.background = origBg;
+    btn.style.color = '';
+  }, 1800);
+}
+
+// v2.0.B.257: Decision Board copy button wire — data-prompt 內容複製到剪貼簿 + toast
+function wireDecisionBoardCopy() {
+  document.querySelectorAll('.db-copy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const prompt = btn.dataset.prompt;
+      if (!prompt) return;
+      copyText(prompt);
+      // 視覺回饋: button 文字短暫變 ✓ 已複製
+      const original = btn.textContent;
+      btn.textContent = '✓ 已複製 — 貼到新 Claude session';
+      btn.style.background = '#5d9a35';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+      }, 1800);
+    });
+  });
+}
+
 async function loadDashboard(forceFresh) {
   if (forceFresh) localStorage.removeItem(CACHE_KEY);
   const grid = document.getElementById('cron-grid');
@@ -772,10 +901,15 @@ async function loadDashboard(forceFresh) {
         </div>
         <div class="hint">👆 點卡片任何地方看完整 audit</div>
       `;
-      // Wire copy button (don't bubble to card click)
+      // Wire copy button (don't bubble to card click) + ✓ visual feedback 統一 Decision Board pattern
       card.querySelector('button[data-act="copy"]')?.addEventListener('click', (e) => {
         e.stopPropagation();
         copyForCron(type, commit.sha);
+        const btn = e.currentTarget;
+        const orig = btn.textContent;
+        btn.textContent = '✓ 已複製 — 貼到新 Claude session';
+        btn.style.background = '#5d9a35';
+        setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
       });
       // Whole card click → open latest audit modal
       card.addEventListener('click', async () => {
@@ -971,6 +1105,7 @@ document.getElementById('modal').addEventListener('click', (e) => {
 });
 
 loadDashboard();
+wireDecisionBoardCopy();
 </script>
 
 </body>
