@@ -1,39 +1,35 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Temp mascot generation workspace (Pollinations / Claude Design test outputs)
-.tmp-mascots/
-
-# rembg pre-removal backups — keep locally for re-processing, don't ship to git
-public/mascots/*.original.png
-
-# Raw working-mascot PNGs (v1.9.30 moved from public/mascots to tools/raw-mascots/).
-# Existing ones already tracked (as renames) ship once; future raws stay local.
+!.vscode/extensions.json
 # (uncomment next line if you ever want to fully un-track:)
-# tools/raw-mascots/
-
+# Editor directories and files
+# Existing ones already tracked (as renames) ship once; future raws stay local.
 # Local env (API keys etc.)
+# Logs
+# Raw working-mascot PNGs (v1.9.30 moved from public/mascots to tools/raw-mascots/).
+# Temp mascot generation workspace (Pollinations / Claude Design test outputs)
+# rembg pre-removal backups — keep locally for re-processing, don't ship to git
+# tools/raw-mascots/
+*.local
+*.log
+*.njsproj
+*.ntvs*
+*.sln
+*.suo
+*.sw?
+.DS_Store
 .env
 .env.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.secrets/
+.tmp-mascots/
+.vscode/*
+dist
+dist-ssr
+lerna-debug.log*
+logs
+node_modules
+npm-debug.log*
+pnpm-debug.log*
+public/mascots/*.original.png
+yarn-debug.log*
+yarn-error.log*
