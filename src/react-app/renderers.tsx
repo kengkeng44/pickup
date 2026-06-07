@@ -213,11 +213,20 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   useEffect(() => {
     setRevealed(false); setSelected(null);
+    // v2.0.B.254 P0 fix (Audio-Text agent WARN from B.253 5-agent post-ship):
+    // 跟 NarrationRenderer 同 race — useEffect 無 cleanup, chained setTimeout(speak qPrompt, 400)
+    // 在 unmount 後仍會 fire → speak qEn 對死 scene 喊話 = audio leak.
+    // 比 NarrationRenderer 還糟 (chained timer). 拉 innerTimer 到 outer scope, cleanup 一併清。
+    let innerTimer: number | undefined;
     try {
       speak(en, 'en-US', { onEnd: () => {
-        if (qEn) window.setTimeout(() => { try { speak(qEn); } catch {} }, 400);
+        if (qEn) innerTimer = window.setTimeout(() => { try { speak(qEn); } catch {} }, 400);
       }});
     } catch {}
+    return () => {
+      stopSpeaking();
+      if (innerTimer !== undefined) window.clearTimeout(innerTimer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 

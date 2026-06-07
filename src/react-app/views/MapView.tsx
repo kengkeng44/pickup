@@ -55,12 +55,22 @@ export default function MapView({ onPickLesson }: Props) {
           <div style={{ fontSize: 17, fontWeight: 900, marginBottom: 4 }}>{ch.titleZh}</div>
           <div style={{ fontSize: 12, color: '#8b6f4a', marginBottom: 8 }}>{ch.titleEn}</div>
           {ch.unlocked && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ flex: 1, height: 6, background: '#fef3c7', borderRadius: 3, overflow: 'hidden' }}>
-                <div style={{ height: '100%', width: `${(ch.progress / ch.total) * 100}%`, background: '#7ac74a' }} />
+            ch.progress === 0 ? (
+              // v2.0.B.254 P0 fix (UX + PW agent from B.253 5-agent post-ship):
+              // 兒童首訪看 0/24 + 空白條 = demotivate, t=5s 流失. 改 invitation banner
+              // 邀請 framing, 完成 1 題後切回真實進度條. 雙語並列符合 memory rule.
+              <div style={{ padding: '8px 12px', background: '#fef3c7', border: '2px dashed #e7a44a', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 800, color: '#7a5e25' }}>
+                👇 {ch.total} 題等你開始 · Tap to start {ch.total} lessons
               </div>
-              <span style={{ fontSize: 11, fontWeight: 700, color: '#8b6f4a' }}>{ch.progress}/{ch.total}</span>
-            </div>
+            ) : (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ flex: 1, height: 6, background: '#fef3c7', borderRadius: 3, overflow: 'hidden' }}>
+                  {/* v2.0.B.254: Duo bright green #7ac74a → olive #7d9a4f (UI-UX cron 1208 P2 + v1.9.36 token migration) */}
+                  <div style={{ height: '100%', width: `${(ch.progress / ch.total) * 100}%`, background: '#7d9a4f' }} />
+                </div>
+                <span style={{ fontSize: 11, fontWeight: 700, color: '#8b6f4a' }}>{ch.progress}/{ch.total}</span>
+              </div>
+            )
           )}
         </button>
       ))}
