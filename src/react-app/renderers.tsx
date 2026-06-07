@@ -26,6 +26,8 @@ export interface RawQuestion {
   explanationZh?: string;
   tilesEn?: string[];
   pairsEn?: Array<[string, string]>;
+  // v2.0.B.249: schema 用 pairs: [{left, right}] object 形式 (Zod canonical)
+  pairs?: Array<{ left: string; right: string }>;
   // v2.0.B.198: 標記誰說的 / 背景介紹。enum mochi | grandma | hana | narrator
   speaker?: string;
   // v2.0.B.232 new question types — see src/data/lessons.ts for schema.
@@ -578,7 +580,13 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
 // ─── 6. tap-pairs (simplified: match pairs) ─────────────────────────────────
 const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
-  const pairs = q.pairsEn ?? [];
+  // v2.0.B.249: schema 用 pairs: [{left, right}] (Zod), 舊 renderer 讀 pairsEn
+  // tuple → 27 章全炸 '本題型沒有 pairsEn data'. 改 defensive 讀, 兩種 shape 都吃.
+  const pairs: Array<[string, string]> = (
+    (q.pairs as Array<{ left: string; right: string } | [string, string]> | undefined) ??
+    q.pairsEn ??
+    []
+  ).map((p) => (Array.isArray(p) ? p : [p.left, p.right]));
   const [matched, setMatched] = useState<number[]>([]);
   const [selected, setSelected] = useState<{ side: 'left' | 'right'; idx: number } | null>(null);
   const [revealed, setRevealed] = useState(false);
@@ -618,7 +626,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   };
 
   if (pairs.length === 0) {
-    return <div style={{ padding: 20, color: '#8b6f4a', textAlign: 'center' }}>(本題型沒有 pairsEn data)</div>;
+    return <div style={{ padding: 20, color: '#8b6f4a', textAlign: 'center' }}>(本題沒有配對資料)</div>;
   }
 
   return (
