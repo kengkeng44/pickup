@@ -131,7 +131,7 @@ const HOOK_MAP = {
   'kt-ch7-l5':     { type: 'B2',          inquiry: '她會被認出嗎?誰已經盯著她?',  canon: 'yexian.md#beat-5' },
   'kt-ch7-l6':     { type: 'B1',          inquiry: '鞋掉了會落到誰手上?',  canon: 'yexian.md#beat-6' },
   'kt-ch7-l7':     { type: 'B2 big',      inquiry: '失去的支持回來了 — 你的呢?',  canon: 'yexian.md#beat-7' },
-  // Ch8 
+  // Ch8 三隻小豬
   'kt-ch8-l1':     { type: 'B6',          inquiry: '狼真的會來?三個都安全?',  canon: 'three-pigs.md#beat-1-setup' },
   'kt-ch8-l2':     { type: 'B1',          inquiry: '草屋能撐多久?今晚就倒嗎?',  canon: 'three-pigs.md#beat-2-straw-house' },
   'kt-ch8-l3':     { type: 'B4',          inquiry: '是誰來了?是狼嗎?',  canon: 'three-pigs.md#beat-3-wood-house' },
@@ -139,7 +139,7 @@ const HOOK_MAP = {
   'kt-ch8-l5':     { type: 'B2',          inquiry: '木屋能擋住嗎?還是也會倒?',  canon: 'three-pigs.md#beat-5-huff-puff' },
   'kt-ch8-l6':     { type: 'B6',          inquiry: '磚屋能撐?還是狼也吹得倒?',  canon: 'three-pigs.md#beat-6-wood-falls' },
   'kt-ch8-l7':     { type: 'B6 open',     inquiry: '安全了嗎?狼還在森林裡 — 還會回來?',  canon: 'three-pigs.md#beat-7-brick-wins' },
-  // Ch9 
+  // Ch9 灰姑娘 (Perrault 1697)
   'kt-ch9-l1':     { type: 'B6',          inquiry: '後母會偏心嗎? 兩個姊姊怎麼對她?',  canon: 'cinderella.md#beat-1-setup' },
   'kt-ch9-l2':     { type: 'B3',          inquiry: '她哭給誰聽? 有人會看見嗎?',  canon: 'cinderella.md#beat-2-cinder-corner' },
   'kt-ch9-l3':     { type: 'B5',          inquiry: '她也可以去嗎? 她該求嗎?',  canon: 'cinderella.md#beat-3-ball-invitation' },
@@ -147,7 +147,7 @@ const HOOK_MAP = {
   'kt-ch9-l5':     { type: 'B6',          inquiry: '12 點限制是什麼? 過了會怎樣?',  canon: 'cinderella.md#beat-5-magic-warning' },
   'kt-ch9-l6':     { type: 'B2',          inquiry: '鞋掉了 — 王子會找她嗎?',  canon: 'cinderella.md#beat-6-clock-strikes' },
   'kt-ch9-l7':     { type: 'B6 open',     inquiry: '仙女教母在哪? 善良才是真正的魔法?',  canon: 'cinderella.md#beat-7-slipper-fits' },
-  // Ch10 
+  // Ch10 嫦娥奔月
   'kt-ch10-l1':    { type: 'B6',          inquiry: '為什麼她要嫁給英雄? 神會盯著他們嗎?',  canon: 'change.md#beat-1-setup' },
   'kt-ch10-l2':    { type: 'B3',          inquiry: '仙藥是什麼? 為什麼只有一個?',  canon: 'change.md#beat-2-pill' },
   'kt-ch10-l3':    { type: 'B5',          inquiry: '誰會吃? 嫦娥能保得住嗎?',  canon: 'change.md#beat-3-bad-student' },
@@ -155,7 +155,7 @@ const HOOK_MAP = {
   'kt-ch10-l5':    { type: 'B1',          inquiry: '接下來會發生什麼? 她會飛多遠?',  canon: 'change.md#beat-5-swallow' },
   'kt-ch10-l6':    { type: 'B2',          inquiry: '后羿會怎麼樣? 兩人還會再見嗎?',  canon: 'change.md#beat-6-moon' },
   'kt-ch10-l7':    { type: 'B6 open',     inquiry: '為什麼每年中秋想念? 你想念的人是誰?',  canon: 'change.md#beat-7-rabbit-mid-autumn' },
-  // Ch11 
+  // Ch11 后羿射日
   'kt-ch11-l1':    { type: 'B6',          inquiry: '10 個太陽出現 → 人們會怎樣?',  canon: 'houyi.md#beat-1-ten-suns' },
   'kt-ch11-l2':    { type: 'B3',          inquiry: '玉皇大帝給羿一張弓 → 他能擔下嗎?',  canon: 'houyi.md#beat-2-bow' },
   'kt-ch11-l3':    { type: 'B4',          inquiry: '羿走遍大地找太陽 → 第一個怎麼射?',  canon: 'houyi.md#beat-3-first-shot' },
@@ -163,7 +163,7 @@ const HOOK_MAP = {
   'kt-ch11-l5':    { type: 'B6',          inquiry: '留下太陽照大地 → 王看見嗎?',  canon: 'houyi.md#beat-5-mercy' },
   'kt-ch11-l6':    { type: 'B2',          inquiry: '王不再讓羿做神 → 羿會怎麼回應?',  canon: 'houyi.md#beat-6-king-cold' },
   'kt-ch11-l7':    { type: 'B6 open',     inquiry: '凡人羿與凡人嫦娥 → 命運如何 (銜接 Ch10)',  canon: 'houyi.md#beat-7-mortal' },
-  // Ch12 
+  // Ch12 牛郎織女
   'kt-ch12-l1':    { type: 'B3',          inquiry: '仙女為什麼下凡?',  canon: 'cowherd-weaver.md#beat-1-setup' },
   'kt-ch12-l2':    { type: 'B4',          inquiry: '他們會成為家人嗎?',  canon: 'cowherd-weaver.md#beat-2-sewing' },
   'kt-ch12-l3':    { type: 'B5',          inquiry: '仙女會被帶走嗎?',  canon: 'cowherd-weaver.md#beat-3-queen' },
@@ -171,7 +171,7 @@ const HOOK_MAP = {
   'kt-ch12-l5':    { type: 'B3',          inquiry: '牛說了什麼?',  canon: 'cowherd-weaver.md#beat-5-cow-lifts' },
   'kt-ch12-l6':    { type: 'B6',          inquiry: '鵲橋是什麼?',  canon: 'cowherd-weaver.md#beat-6-magpie-bridge' },
   'kt-ch12-l7':    { type: 'B6 open',     inquiry: '為什麼這天看星星?',  canon: 'cowherd-weaver.md#beat-7-qixi' },
-  // Ch13 
+  // Ch13 小紅帽 (Grimm 1812)
   'kt-ch13-l1':    { type: 'B6',          inquiry: '媽媽叮嚀去看奶奶 → 路上會發生什麼?',  canon: 'red-riding-hood.md#beat-1-setup' },
   'kt-ch13-l2':    { type: 'B3',          inquiry: '森林裡見大野狼 → 他會做什麼?',  canon: 'red-riding-hood.md#beat-2-wolf-appears' },
   'kt-ch13-l3':    { type: 'B5',          inquiry: '大野狼問路 → 她應該說嗎?',  canon: 'red-riding-hood.md#beat-3-wolf-asks-the-way' },
@@ -179,7 +179,7 @@ const HOOK_MAP = {
   'kt-ch13-l5':    { type: 'B3',          inquiry: '小紅帽到奶奶家 → 床上是奶奶嗎?',  canon: 'red-riding-hood.md#beat-5-wolf-in-bed' },
   'kt-ch13-l6':    { type: 'B4',          inquiry: '獵人來救 → 來得及嗎?',  canon: 'red-riding-hood.md#beat-6-huntsman-comes' },
   'kt-ch13-l7':    { type: 'B6 open',     inquiry: '救出奶奶 → 媽媽的話現在懂了',  canon: 'red-riding-hood.md#beat-7-rescue' },
-  // Ch14 
+  // Ch14 浦島太郎
   'kt-ch14-l1':    { type: 'B6',          inquiry: '烏龜會謝謝他嗎?',  canon: 'urashima.md#beat-1-setup' },
   'kt-ch14-l2':    { type: 'B3',          inquiry: '海底是什麼?',  canon: 'urashima.md#beat-2-down-to-sea' },
   'kt-ch14-l3':    { type: 'B4',          inquiry: '他能留下嗎?',  canon: 'urashima.md#beat-3-sea-palace' },
@@ -187,7 +187,7 @@ const HOOK_MAP = {
   'kt-ch14-l5':    { type: 'B6',          inquiry: '寶盒裡是什麼?',  canon: 'urashima.md#beat-5-treasure-box' },
   'kt-ch14-l6':    { type: 'B2',          inquiry: '沒人認得他了 — 怎麼辦?',  canon: 'urashima.md#beat-6-back-on-land' },
   'kt-ch14-l7':    { type: 'B6 open',     inquiry: '變老了 — 時間紅利的代價是什麼?',  canon: 'urashima.md#beat-7-open-the-box' },
-  // Ch15 
+  // Ch15 國王的新衣 (Andersen 1837)
   'kt-ch15-l1':    { type: 'B6',          inquiry: '騙子能成功嗎? 國王會中招?',  canon: '(no canon ref yet)' },
   'kt-ch15-l2':    { type: 'B3',          inquiry: '大臣去看會說什麼? 會說真話?',  canon: '(no canon ref yet)' },
   'kt-ch15-l3':    { type: 'B5',          inquiry: '他敢說沒看到嗎? 該不該說?',  canon: '(no canon ref yet)' },
@@ -195,7 +195,7 @@ const HOOK_MAP = {
   'kt-ch15-l5':    { type: 'B6',          inquiry: '人民會說真話嗎? 還是跟著拍手?',  canon: '(no canon ref yet)' },
   'kt-ch15-l6':    { type: 'B2',          inquiry: '大家會怎樣? 還會繼續假裝嗎?',  canon: '(no canon ref yet)' },
   'kt-ch15-l7':    { type: 'B6 open',     inquiry: '為什麼他不停下來? 自尊比真相更難放下?',  canon: '(no canon ref yet)' },
-  // Ch16 
+  // Ch16 一寸法師
   'kt-ch16-l1':    { type: 'B6',          inquiry: '老夫婦求子 → 會生出什麼?',  canon: 'issun-boshi.md#beat-1-setup' },
   'kt-ch16-l2':    { type: 'B3',          inquiry: '拇指大小的男孩 → 他能做什麼?',  canon: '(no canon ref yet)' },
   'kt-ch16-l3':    { type: 'B4',          inquiry: '一寸帶碗船出發 → 路上會遇誰?',  canon: '(no canon ref yet)' },
@@ -203,7 +203,7 @@ const HOOK_MAP = {
   'kt-ch16-l5':    { type: 'B1',          inquiry: '鬼來抓公主 → 他能擋住嗎?',  canon: '(no canon ref yet)' },
   'kt-ch16-l6':    { type: 'B2',          inquiry: '一寸跳進鬼嘴用針刺 → 鬼會怎樣?',  canon: '(no canon ref yet)' },
   'kt-ch16-l7':    { type: 'B6 open',     inquiry: '打鼓變大人 → 成家那刻',  canon: '(no canon ref yet)' },
-  // Ch17 
+  // Ch17 鶴的報恩
   'kt-ch17-l1':    { type: 'B6',          inquiry: '鶴會回來嗎?',  canon: 'crane-gratitude.md#beat-1-setup' },
   'kt-ch17-l2':    { type: 'B3',          inquiry: '她是誰?',  canon: 'crane-gratitude.md#beat-2-young-woman' },
   'kt-ch17-l3':    { type: 'B5',          inquiry: '為什麼她要躲起來織?',  canon: 'crane-gratitude.md#beat-3-forbidden-room' },
@@ -211,7 +211,7 @@ const HOOK_MAP = {
   'kt-ch17-l5':    { type: 'B1',          inquiry: '他會偷看嗎?',  canon: 'crane-gratitude.md#beat-5-urge-to-peek' },
   'kt-ch17-l6':    { type: 'B2',          inquiry: '她會留下嗎?',  canon: 'crane-gratitude.md#beat-6-truth-revealed' },
   'kt-ch17-l7':    { type: 'B6 open',     inquiry: '學到什麼?',  canon: 'crane-gratitude.md#beat-7-flies-away' },
-  // Ch18 
+  // Ch18 興夫和孬夫
   'kt-ch18-l1':    { type: 'B6',          inquiry: '興夫一個人怎麼活下去?',  canon: 'heungbu-nolbu.md#beat-1-setup' },
   'kt-ch18-l2':    { type: 'B3',          inquiry: '他怎麼養家?',  canon: 'heungbu-nolbu.md#beat-2-poor-home' },
   'kt-ch18-l3':    { type: 'B5',          inquiry: '興夫會救嗎?',  canon: 'heungbu-nolbu.md#beat-3-bird-falls' },
@@ -219,7 +219,7 @@ const HOOK_MAP = {
   'kt-ch18-l5':    { type: 'B6',          inquiry: '哥哥孬夫聽到會怎樣?',  canon: 'heungbu-nolbu.md#beat-5-treasures' },
   'kt-ch18-l6':    { type: 'B2',          inquiry: '報應會來嗎?',  canon: 'heungbu-nolbu.md#beat-6-nolbu-copies' },
   'kt-ch18-l7':    { type: 'B6 open',     inquiry: '你會學興夫還是孬夫?',  canon: 'heungbu-nolbu.md#beat-7-shares' },
-  // Ch19 
+  // Ch19 Sang Kancil 鼠鹿
   'kt-ch19-l1':    { type: 'B6',          inquiry: '鼠鹿想吃對岸的水果 → 怎麼過河?',  canon: 'sang-kancil.md#beat-1-setup' },
   'kt-ch19-l2':    { type: 'B3',          inquiry: '河裡有很多鱷魚 → 該怎麼辦?',  canon: 'sang-kancil.md#beat-2-crocodiles' },
   'kt-ch19-l3':    { type: 'B5',          inquiry: '鼠鹿想到聰明的辦法 → 他會說什麼謊?',  canon: 'sang-kancil.md#beat-3-plan' },
@@ -227,7 +227,7 @@ const HOOK_MAP = {
   'kt-ch19-l5':    { type: 'B1',          inquiry: '鱷魚排隊讓他點 → 他跳過鱷魚背',  canon: 'sang-kancil.md#beat-5-jumping' },
   'kt-ch19-l6':    { type: 'B2',          inquiry: '到對岸吃水果 → 鱷魚發現被騙',  canon: 'sang-kancil.md#beat-6-reveal' },
   'kt-ch19-l7':    { type: 'B6 open',     inquiry: '鼠鹿學到什麼? 鱷魚學到什麼?',  canon: 'sang-kancil.md#beat-7-lessons' },
-  // Ch20 
+  // Ch20 蘿蔔大冒險
   'kt-ch20-l1':    { type: 'B6',          inquiry: '蘿蔔會變多大?拔得起來嗎?',  canon: '(no canon ref yet)' },
   'kt-ch20-l2':    { type: 'B3',          inquiry: '為什麼拔不動?要怎麼辦?',  canon: '(no canon ref yet)' },
   'kt-ch20-l3':    { type: 'B5',          inquiry: '兩個還不夠 — 還要叫誰?',  canon: '(no canon ref yet)' },
@@ -235,7 +235,7 @@ const HOOK_MAP = {
   'kt-ch20-l5':    { type: 'B1',          inquiry: '連狗都來了 — 還不夠?',  canon: '(no canon ref yet)' },
   'kt-ch20-l6':    { type: 'B2',          inquiry: '它動了 — 還差什麼?',  canon: '(no canon ref yet)' },
   'kt-ch20-l7':    { type: 'B6 open',     inquiry: '連最小的都重要 — 你家最小的是誰?',  canon: '(no canon ref yet)' },
-  // Ch21 
+  // Ch21 Anansi 蜘蛛
   'kt-ch21-l1':    { type: 'B6',          inquiry: '蜘蛛能拿回所有故事嗎?',  canon: '(no canon ref yet)' },
   'kt-ch21-l2':    { type: 'B5',          inquiry: '蜘蛛這麼小, 抓得到嗎? 該答應嗎?',  canon: '(no canon ref yet)' },
   'kt-ch21-l3':    { type: 'B3',          inquiry: '倒水? 他要做什麼?',  canon: '(no canon ref yet)' },
@@ -243,7 +243,7 @@ const HOOK_MAP = {
   'kt-ch21-l5':    { type: 'B1',          inquiry: '豹會逃走嗎? 蜘蛛接下來怎麼辦?',  canon: '(no canon ref yet)' },
   'kt-ch21-l6':    { type: 'B2',          inquiry: '天神真的會給嗎? 報酬是什麼?',  canon: '(no canon ref yet)' },
   'kt-ch21-l7':    { type: 'B6 open',     inquiry: '為什麼每個家都聽得到故事? 你家第一個故事是什麼?',  canon: '(no canon ref yet)' },
-  // Ch22 
+  // Ch22 孟母三遷
   'kt-ch22-l1':    { type: 'B6',          inquiry: '孟子小時候住墓地附近 → 他學了什麼?',  canon: '(no canon ref yet)' },
   'kt-ch22-l2':    { type: 'B3',          inquiry: '媽媽看見他玩埋葬遊戲 → 怎麼辦?',  canon: '(no canon ref yet)' },
   'kt-ch22-l3':    { type: 'B5',          inquiry: '搬到市場附近 → 孟子又學了什麼?',  canon: '(no canon ref yet)' },
@@ -251,7 +251,7 @@ const HOOK_MAP = {
   'kt-ch22-l5':    { type: 'B6',          inquiry: '搬到學校旁 → 孟子開始讀書',  canon: '(no canon ref yet)' },
   'kt-ch22-l6':    { type: 'B2',          inquiry: '媽媽剪斷織布 → 為什麼?',  canon: '(no canon ref yet)' },
   'kt-ch22-l7':    { type: 'B6 open',     inquiry: '孟子成為大思想家 → 媽媽的選擇',  canon: '(no canon ref yet)' },
-  // Ch23 
+  // Ch23 司馬光砸缸
   'kt-ch23-l1':    { type: 'B6',          inquiry: '一群小孩在花園玩 — 危險將至?',  canon: '(no canon ref yet)' },
   'kt-ch23-l2':    { type: 'B3',          inquiry: '一個小孩爬大水缸 — 結果如何?',  canon: '(no canon ref yet)' },
   'kt-ch23-l3':    { type: 'B5',          inquiry: '小孩掉進水缸 — 大家會怎樣?',  canon: '(no canon ref yet)' },
@@ -259,7 +259,7 @@ const HOOK_MAP = {
   'kt-ch23-l5':    { type: 'B1',          inquiry: '司馬光留下沒跑 — 他想做什麼?',  canon: '(no canon ref yet)' },
   'kt-ch23-l6':    { type: 'B2',          inquiry: '撿石頭砸破水缸 — 水流出來',  canon: '(no canon ref yet)' },
   'kt-ch23-l7':    { type: 'B6 open',     inquiry: '救出小孩 — 急時用聰明',  canon: '(no canon ref yet)' },
-  // Ch24 
+  // Ch24 孔融讓梨
   'kt-ch24-l1':    { type: 'B6',          inquiry: '七個兄弟一盤梨 — 怎麼分? 誰會先選?',  canon: '(no canon ref yet)' },
   'kt-ch24-l2':    { type: 'B3',          inquiry: '大家都看著他 — 他會選哪個?',  canon: '(no canon ref yet)' },
   'kt-ch24-l3':    { type: 'B5',          inquiry: '大的 vs 小的 — 該選哪個?',  canon: '(no canon ref yet)' },
@@ -267,7 +267,7 @@ const HOOK_MAP = {
   'kt-ch24-l5':    { type: 'B1',          inquiry: '父親為什麼笑? 他在想什麼?',  canon: '(no canon ref yet)' },
   'kt-ch24-l6':    { type: 'B2',          inquiry: '還有什麼答案? 比剛剛更深嗎?',  canon: '(no canon ref yet)' },
   'kt-ch24-l7':    { type: 'B6 open',     inquiry: '你會學到什麼? 你家的小弟弟妹妹呢?',  canon: '(no canon ref yet)' },
-  // Ch25 
+  // Ch25 愚公移山
   'kt-ch25-l1':    { type: 'B6',          inquiry: '兩座大山每天擋路 → 他會做什麼?',  canon: '(no canon ref yet)' },
   'kt-ch25-l2':    { type: 'B3',          inquiry: '鄰居笑 → 真的可能嗎? 他會怎麼說服家人?',  canon: '(no canon ref yet)' },
   'kt-ch25-l3':    { type: 'B5',          inquiry: '大家來幫忙 → 該怎麼運? 一筐能搬多少?',  canon: '(no canon ref yet)' },
@@ -275,7 +275,7 @@ const HOOK_MAP = {
   'kt-ch25-l5':    { type: 'B1',          inquiry: '他抬頭看小孩 → 他要怎麼回答?',  canon: '(no canon ref yet)' },
   'kt-ch25-l6':    { type: 'B2',          inquiry: '子子孫孫無窮匱 → 大家會繼續嗎? 天上有人看嗎?',  canon: '(no canon ref yet)' },
   'kt-ch25-l7':    { type: 'B6 open',     inquiry: '為什麼天神幫忙? 堅持的人會被看見嗎?',  canon: '(no canon ref yet)' },
-  // Ch26 
+  // Ch26 Archimedes Eureka
   'kt-ch26-l1':    { type: 'B6',          inquiry: '國王懷疑王冠不純金 → 找誰?',  canon: '(no canon ref yet)' },
   'kt-ch26-l2':    { type: 'B3',          inquiry: '阿基米德接到謎題 → 怎麼測?',  canon: '(no canon ref yet)' },
   'kt-ch26-l3':    { type: 'B5',          inquiry: '想了好幾天都想不到 → 累了去洗澡',  canon: '(no canon ref yet)' },
