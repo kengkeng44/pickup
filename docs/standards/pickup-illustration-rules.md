@@ -155,6 +155,44 @@ Duolingo 場景常見「角色周圍飄小東西」增加趣味,Pickup 沿用:
 
 ---
 
+### 🆕 Rule 9 — Stadium Silhouette 身形側邊幾何(2026-06-08 新增)
+
+Duolingo 官方 brand guideline 原則:「**head and body composed of 1-2 basic shapes each**」。所有角色身形側邊剪影一律是「**直線 → 圓弧 → 直線**」(stadium shape / rounded rectangle 側面),**絕不**用橢圓或自由曲線。這條跟 Rule 1「禁尖角」並列為形狀規則最高優先級。
+
+| 部位 | 對的剪影 ✅ | 錯的剪影 ❌ |
+|---|---|---|
+| 身體側邊 | 直線(側) + 圓弧(上下) + 直線(側) | 純橢圓 / S 型自由曲線 |
+| 頭部 | 圓 (Rule 1) | 橢圓變形 |
+| 耳 | 圓角三角(頂點圓化) | 純三角 / 尖角 |
+| 尾巴 | Pill 形(膠囊) | 自由曲線蛇形 |
+| 腿 | rounded rect(短矮) | 細長橢圓 |
+
+**為什麼**:Duolingo 角色(Duo / Lily / Junior / Bea)幾何感強的關鍵在「直線段給予結構,圓弧段給予 softness」— 純有機曲線(Ghibli 純度)會讓角色看起來「畫家畫的」而非「設計師設計的」,失去 Duolingo 的可動畫性 + scale 一致性。
+
+**SVG path 寫法**:
+```
+M x1 y1                          // 起點
+L x1 y2                          // 左側直線下
+A r r 0 0 0 x2 y2                // 底部圓弧
+L x2 y1                          // 右側直線上
+A r r 0 0 0 x1 y1 Z              // 頂部圓弧 + 閉合
+```
+兩段 L (直線) + 兩段 A (圓弧)。同樣邏輯套到頭(圓)、耳(圓角三角)、尾(pill)。
+
+**AI prompt 必嵌**(positive prompt 加):
+```
+rounded rectangle body, stadium shape silhouette,
+straight side panels with arc top and bottom,
+NO ellipse body, NO organic curves, NO S-curve outline
+```
+
+**SVG / Vector tool (Recraft V4.1) 額外提示**:
+- prompt 嵌 `vector illustration, flat design, geometric construction`
+- 出來後在 Figma 開檔,如有「身側 bezier 彎曲」手動拉直成直線段
+- export SVG path 後 grep 確認 `A` (arc) command 只出現在頭部 / 身體上下 / 耳尖 / 尾,**側邊不應該有 A**
+
+---
+
 ## 🎭 Pickup 三人組角色 spec
 
 ### Mochi 三花貓(主角)— 2026-06-07 修正眼+嘴+鼻
@@ -317,7 +355,7 @@ Duolingo 場景常見「角色周圍飄小東西」增加趣味,Pickup 沿用:
 ```
 □ 角 ≥ 8px radius (無尖)
 □ 角色腳下有 pill 形影 (非橢圓)
-□ Stroke 4-5px warm dark #3c2a1c (非黑)
+□ 0 描邊 (Rule 4 修正,silhouette 來自色塊對比)
 □ 色票 100% Pickup palette (無 Duolingo 亮綠)
 □ 飽和 60-85% (無霓虹)
 □ 大中小 3 size 都有 (節奏)
@@ -325,9 +363,10 @@ Duolingo 場景常見「角色周圍飄小東西」增加趣味,Pickup 沿用:
 □ Flat perspective (無消失點)
 □ 0 Duolingo 角色 / 名稱 / 色 / icon vector 抄襲
 □ 3 層深度 (前景 / 角色 / 背景)
+□ Stadium silhouette:身形側邊 = 直線 + 圓弧 + 直線(Rule 9, 無純橢圓 / 無 S 曲線)
 ```
 
-10/10 才 ship.
+11/11 才 ship.
 
 ---
 
@@ -339,9 +378,10 @@ Duolingo 場景常見「角色周圍飄小東西」增加趣味,Pickup 沿用:
 DESIGN RULES (strict):
 - Shapes: rounded rectangles, circles, rounded triangles only. No sharp corners.
 - Minimum corner radius 8px, large shapes 16-24px.
+- Body silhouette: stadium shape (straight side panels with arc top and bottom). NO ellipse body, NO S-curve, NO organic free curves. (Rule 9)
 - Flat perspective (NOT 3D perspective).
 - Shadows: PILL shape only (NOT ovals).
-- Strokes: 4-5px, color #3c2a1c (warm dark, NOT pure black).
+- NO outlines, NO lineart, NO contour lines. Silhouette from color block adjacency only. (Rule 4)
 - Color palette: olive #7d9a4f, amber #e7a44a, cream #fef8ed, terracotta #c84a3a, warm dark #3c2a1c.
 - DO NOT use Duolingo bright green #58CC02.
 - HSL saturation 60-85% (no neon).
