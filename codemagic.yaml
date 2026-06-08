@@ -1,0 +1,140 @@
+# Codemagic CI/CD for Fabu (Pickup) iOS Native Build
+# Capacitor 8.x + Swift Package Manager (SPM) — 不用 CocoaPods/pod install
+# Docs: https://docs.codemagic.io/yaml-quick-start/building-an-ios-app/
+#
+# Workflows:
+#   - ios-testflight: 推上 TestFlight (內測,自動 trigger on master push)
+#   - ios-appstore:   推上 App Store (正式發行 — 手動 trigger only)
+#
+# 一次性 Codemagic UI 設定:
+#   1. Settings → Integrations → App Store Connect API
+#      建 API Key (Issuer ID + Key ID + .p8 file) from
+#      https://appstoreconnect.apple.com/access/integrations/api
+#   2. App ID com.kengkeng44.pickup 已在 Apple Developer 註冊
+#   3. App Store Connect 已建 App entry (App Name = "Fabu")
+#   4. Codemagic Apps → 連結 GitHub repo kengkeng44/pickup
+#   5. Environment vars 加 APP_STORE_APPLE_ID (從 ASC App entry → App Information 取)
+
+workflows:
+  ios-testflight:
+    name: Fabu iOS TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.kengkeng44.pickup
+      vars:
+        APP_STORE_APPLE_ID: "$APP_STORE_APPLE_ID"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"
+        XCODE_SCHEME: "App"
+      node: 20.10.0
+      xcode: latest
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: master
+          include: true
+    scripts:
+      - name: Install Node deps
+        script: |
+          npm ci --no-audit --no-fund
+      - name: Build web bundle (vite)
+        script: |
+          npm run build
+      - name: Capacitor sync iOS (resolves SPM packages)
+        script: |
+          npx cap sync ios
+      - name: Set up provisioning
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files "com.kengkeng44.pickup" \
+            --type IOS_APP_STORE \
+            --create
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: Increment build number
+        script: |
+          cd ios/App
+          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" || echo "0")
+          NEXT_BUILD=$(($LATEST_BUILD_NUMBER + 1))
+          agvtool new-version -all $NEXT_BUILD
+      - name: Build .ipa
+        script: |
+          xcode-project build-ipa \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app.dSYM.zip
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        beta_groups:
+          - "Internal Testers"
+        submit_to_app_store: false
+      email:
+        recipients:
+          - jenho.cheng@gmail.com
+        notify:
+          success: true
+          failure: true
+
+  ios-appstore:
+    name: Fabu iOS App Store Release
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.kengkeng44.pickup
+      vars:
+        APP_STORE_APPLE_ID: "$APP_STORE_APPLE_ID"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"
+        XCODE_SCHEME: "App"
+      node: 20.10.0
+      xcode: latest
+    # 手動 trigger only (沒 triggering: 段)
+    scripts:
+      - name: Install Node deps
+        script: npm ci --no-audit --no-fund
+      - name: Build web bundle
+        script: npm run build
+      - name: Capacitor sync iOS
+        script: npx cap sync ios
+      - name: Set up provisioning
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files "com.kengkeng44.pickup" \
+            --type IOS_APP_STORE \
+            --create
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: Increment build number
+        script: |
+          cd ios/App
+          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" || echo "0")
+          NEXT_BUILD=$(($LATEST_BUILD_NUMBER + 1))
+          agvtool new-version -all $NEXT_BUILD
+      - name: Build .ipa
+        script: |
+          xcode-project build-ipa \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: false
+        submit_to_app_store: true
+      email:
+        recipients:
+          - jenho.cheng@gmail.com
+        notify:
+          success: true
+          failure: true

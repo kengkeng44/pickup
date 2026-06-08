@@ -12,6 +12,7 @@
     "validate": "node tools/validate-lessons.js"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.4.0",
     "@playwright/test": "^1.60.0",
     "@types/react": "^18.3.29",
     "@types/react-dom": "^18.3.7",
@@ -24,6 +25,12 @@
     "wrangler": "^4.94.0"
   },
   "dependencies": {
+    "@capacitor/app": "^8.1.0",
+    "@capacitor/core": "^8.4.0",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.4.0",
+    "@capacitor/splash-screen": "^8.0.1",
+    "@capacitor/status-bar": "^8.0.2",
     "phaser": "^3.90.0",
     "posthog-js": "^1.376.6",
     "react": "^18.3.1",

@@ -33,3 +33,20 @@ pnpm-debug.log*
 public/mascots/*.original.png
 yarn-debug.log*
 yarn-error.log*
+
+# Capacitor / iOS native build artifacts (v2.0.B.262)
+# 不要 commit Pods/ — 體積大,Codemagic CI 跑 pod install 重生
+ios/App/Pods/
+ios/App/Podfile.lock
+ios/App/App.xcworkspace/xcuserdata/
+ios/App/App.xcodeproj/xcuserdata/
+ios/App/App.xcodeproj/project.xcworkspace/xcuserdata/
+ios/.last_build_id
+ios/DerivedData/
+ios/build/
+*.ipa
+*.dSYM.zip
+*.xcuserstate
+
+# Codemagic local cache (none expected in repo)
+.codemagic/

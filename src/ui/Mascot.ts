@@ -219,36 +219,55 @@ export class Mascot {
   }
 
   /**
-   * v2.0.B.261: 手機震動 haptic feedback.
+   * v2.0.B.262: 手機震動 haptic feedback - dual stack (Capacitor + Web).
    *
-   * Web 平台支援:
-   *   - Android Chrome / Edge / Firefox  ✅
-   *   - iOS Safari                       ❌ (Apple 不實作 Vibration API)
-   *   - Desktop                          ❌ (no vibration hardware)
+   * 平台支援 (執行時 detect):
+   *   - iOS native (Capacitor) → Haptics.notification CoreHaptics + Taptic Engine ✅✅
+   *   - Android native (Capacitor) → Haptics.notification VibratorService    ✅✅
+   *   - Android web Chrome → navigator.vibrate (Web Vibration API)             ✅
+   *   - iOS Safari web → no-op (Apple 不實作 Vibration API)                  ❌
+   *   - Desktop → no-op                                                       ❌
    *
-   * TODO 未來上架 iOS App Store 走 Capacitor native build 時:
-   *   - npm i @capacitor/haptics
-   *   - import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics'
-   *   - happy → Haptics.notification({ type: NotificationType.Success })
-   *   - sad   → Haptics.notification({ type: NotificationType.Warning })
-   *   - 即可 iOS CoreHaptics + Taptic Engine 觸發
+   * 策略: 先試 @capacitor/haptics, 沒有 (web only) 就 fall back 到 navigator.vibrate.
+   * 同一份 code 跑 Capacitor build 跟 web build 都對, 不需 build-time flag.
    *
    * Pattern 設計參考 screen shake 節奏:
-   *   happy = 雙短脈衝 (40-30-40 ms),類似 Duolingo 答對 haptic
-   *   sad   = 五段失望 wobble (60-50-30-40-30 ms),較長表達「失落」
+   *   happy = 短促興奮 (Success notification, web fallback [40, 30, 40] ms)
+   *   sad   = 失落溫和 (Warning notification, web fallback [60, 50, 30, 40, 30] ms)
    */
   private triggerHaptic(type: 'happy' | 'sad'): void {
-    if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
-    // 尊重 prefers-reduced-motion (a11y),跟 screen shake 同 policy
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // 尊重 prefers-reduced-motion (a11y), 跟 screen shake 同 policy
+    if (typeof matchMedia !== 'undefined' &&
+        matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const pattern: number[] = type === 'happy'
-      ? [40, 30, 40]
-      : [60, 50, 30, 40, 30];
+    // 1. 優先 Capacitor Haptics (native iOS/Android, 用 CoreHaptics / Taptic Engine)
+    void this.tryCapacitorHaptic(type);
+
+    // 2. Fallback: Web Vibration API (Android web 有效, iOS Safari no-op)
+    if (typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function') {
+      const pattern: number[] = type === 'happy'
+        ? [40, 30, 40]
+        : [60, 50, 30, 40, 30];
+      try {
+        navigator.vibrate(pattern);
+      } catch {
+        // 某些 browser 沒 user gesture 會 throw, silent fail OK
+      }
+    }
+  }
+
+  /**
+   * 動態 import @capacitor/haptics 避免 web bundle 體積爆炸.
+   * Capacitor 在 native runtime 注入 plugin, web runtime 該 import 也能 resolve
+   * 但底層會 no-op (Capacitor web fallback) — 反正 navigator.vibrate 已經跑過.
+   */
+  private async tryCapacitorHaptic(type: 'happy' | 'sad'): Promise<void> {
     try {
-      navigator.vibrate(pattern);
+      const { Haptics, NotificationType } = await import('@capacitor/haptics');
+      const t = type === 'happy' ? NotificationType.Success : NotificationType.Warning;
+      await Haptics.notification({ type: t });
     } catch {
-      // 某些 browser 在沒 user gesture 時會 throw,silent fail OK
+      // Capacitor 不在 (純 web) 或 plugin 未注入, silent fail OK
     }
   }
 
