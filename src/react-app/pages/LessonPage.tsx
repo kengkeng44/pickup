@@ -112,15 +112,29 @@ export default function LessonPage() {
 
   return (
     <div style={{ padding: '14px 14px 24px', minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        {/* v2.0.B.187 P1: close ✕ tap area 22 → 44px HIG */}
-        <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer', width: 44, height: 44, padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>✕</button>
-        {/* v2.0.B.251 P0 (Walkthrough cron audit): mute toggle — 深夜哄睡媽媽必備 */}
+      {/* v2.0.B.284 Duolingo-style lesson header: ✕ + progress bar (flex 1) + 🔇
+          砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+        <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer', width: 44, height: 44, padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', flex: '0 0 auto' }}>✕</button>
+        {/* Progress bar — fills proportional to (idx+1)/total. olive success bg + inset top highlight (Duolingo flat) */}
+        <div
+          role="progressbar"
+          aria-label={`進度 ${idx + 1} / ${lesson.questions.length}`}
+          aria-valuenow={idx + 1}
+          aria-valuemin={0}
+          aria-valuemax={lesson.questions.length}
+          style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 999, overflow: 'hidden' }}
+        >
+          <div style={{
+            width: `${Math.max(4, ((idx + 1) / lesson.questions.length) * 100)}%`,
+            height: '100%',
+            background: '#7d9a4f',
+            borderRadius: 999,
+            boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.28)',
+            transition: 'width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          }} />
+        </div>
         <MuteToggleBtn />
-        {/* v2.0.B.187 P2-C: q-counter 11 → 14px senior 老花可讀 */}
-        <span style={{ fontSize: 14, fontWeight: 800, color: '#7a5e25', background: '#fef3c7', padding: '6px 14px', borderRadius: 999 }}>
-          q{idx + 1}/{lesson.questions.length}
-        </span>
       </div>
 
       {history.length > 0 && (
