@@ -411,36 +411,93 @@ export default function MapPage() {
   const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
   const handlePressEnd = useCallback(() => { setPressedId(null); }, []);
 
+  // v2.0.B.277 一勞永逸: HUD + 書封 合併單一 fixed wrapper, spacer 動態量高度
+  // 不再靠 hardcoded `top: calc(50px + ...)` (HUD 實際 ~96px on iOS notch → 書封被切)
+  const chromeRef = useRef<HTMLDivElement>(null);
+  const [chromeHeight, setChromeHeight] = useState(140);
+  useEffect(() => {
+    const el = chromeRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(entries => {
+      for (const e of entries) setChromeHeight(Math.ceil(e.contentRect.height));
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
     <div className="pickup-full-bleed" style={{
       background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
-      {/* v2.0.B.268: Scroll Sandwich Layout (fixed header + scrollable body) — user: 「固定在螢幕」
-          技術名: Scroll Sandwich Layout / Fixed Header / App Shell Pattern
-          之前 B.267 用 position: sticky 在 .pickup-full-bleed 負 margin 容器內被破壞,
-          改 position: fixed + max-width 480 inner wrapper 保證固定 */}
-      <div style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        // v2.0.B.271: 全畫幅 cream + 輕量 boxShadow 區隔 map (user: 「讓上面全部跟背景一樣顏色」)
-        // 配 index.html theme-color #f1ebe1 + body bg #f1ebe1, viewport 邊緣不再漏橘色
-        background: COLOR_BG,
-        padding: 'max(6px, env(safe-area-inset-top)) 12px 4px',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        gap: 2,
-        boxShadow: '0 6px 12px -6px rgba(60,42,28,0.10)',
-      }}>
-        <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
-        <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
-        <HudIcon src="/mascots/coin-gold.webp" value={firstTime ? '' : String(coins)} valueColor="#c79410" ariaLabel={`Coins ${coins}`} onClick={() => navigate('/profile')} />
-        <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/tasks')} />
-        {/* v2.0.B.232 招 1: freeze 🧊 HUD slot. Hide on first-time (xp=0) like
-            coin/streak to avoid empty-state clutter. */}
-        {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
+      {/* v2.0.B.277 一勞永逸 chrome: HUD + 書封 合併單一 fixed wrapper, 自然 flow 不靠
+          hardcoded offset. ResizeObserver 量真實高度 → spacer 自動跟. user 改 HUD 高 /
+          iOS URL bar 收合 / 加 banner row 都自動 work, 不會再切書封 */}
+      <div
+        ref={chromeRef}
+        style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+          background: COLOR_BG,
+          paddingTop: 'env(safe-area-inset-top)',
+          boxShadow: '0 6px 12px -6px rgba(60,42,28,0.10)',
+        }}
+      >
+        {/* HUD icons row */}
+        <div style={{
+          padding: '6px 12px 4px',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2,
+        }}>
+          <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
+          <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
+          <HudIcon src="/mascots/coin-gold.webp" value={firstTime ? '' : String(coins)} valueColor="#c79410" ariaLabel={`Coins ${coins}`} onClick={() => navigate('/profile')} />
+          <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/tasks')} />
+          {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
+        </div>
+        {/* Chapter book cover — flow 在 HUD 下方, 不再 position:fixed */}
+        <button
+          type="button"
+          aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
+          aria-expanded={showKeySheet}
+          onClick={() => setShowKeySheet(s => !s)}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            width: 'calc(100% - 28px)',
+            margin: '0 14px 10px',
+            background: meta.accent,
+            color: '#fff',
+            border: 'none',
+            borderRadius: 14,
+            padding: '10px 14px',
+            boxShadow: `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(meta.accent, 0.28)}`,
+            textAlign: 'left',
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+            transition: 'background 0.4s ease, box-shadow 0.4s ease',
+          }}
+        >
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.82)' }}>
+              Section {chapter} · 第 {chapter} 章
+            </div>
+            <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {meta.titleZh}
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {meta.titleEn}
+            </div>
+          </div>
+          <span aria-hidden="true" style={{
+            fontSize: 20, lineHeight: 1, color: '#fff',
+            transform: showKeySheet ? 'rotate(180deg)' : 'none',
+            transition: 'transform 200ms ease',
+          }}>›</span>
+        </button>
       </div>
 
-      {/* v2.0.B.269: Spacer offset — HUD 縮成 50 + 書封 70 = 120px chrome (從 150 → 130) */}
-      <div style={{ height: 'calc(130px + env(safe-area-inset-top))' }} aria-hidden="true" />
+      {/* v2.0.B.277: spacer = chrome 實量高度 (ResizeObserver). HUD 改高 / 書封換 layout
+          都自動跟, 不會再切 */}
+      <div style={{ height: chromeHeight }} aria-hidden="true" />
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
@@ -488,48 +545,8 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.271-272: 還原原本書封 (accent 卡 + 3D shadow + 白字) + 整張卡 toggle 金句集錦
-          user (B.271): 「我要原本的書封」+「點書封跳出有哪些故事 再點一次跳回地圖」
-          user (B.272): 「書封點進去應該是金句集錦」→ 由 setShowStoryList 改 setShowKeySheet toggle */}
-      <button
-        type="button"
-        aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
-        aria-expanded={showKeySheet}
-        onClick={() => setShowKeySheet(s => !s)}
-        style={{
-          position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
-          left: 14, right: 14, zIndex: 99,
-          background: meta.accent,
-          color: '#fff',
-          border: 'none',
-          borderRadius: 14,
-          padding: '10px 14px',
-          boxShadow: `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(meta.accent, 0.28)}`,
-          display: 'flex', alignItems: 'center', gap: 10,
-          textAlign: 'left',
-          cursor: 'pointer',
-          fontFamily: 'inherit',
-          touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-          transition: 'background 0.4s ease, box-shadow 0.4s ease',
-        }}
-      >
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.82)' }}>
-            Section {chapter} · 第 {chapter} 章
-          </div>
-          <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {meta.titleZh}
-          </div>
-          <div style={{ fontSize: 11, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {meta.titleEn}
-          </div>
-        </div>
-        <span aria-hidden="true" style={{
-          fontSize: 20, lineHeight: 1, color: '#fff',
-          transform: showKeySheet ? 'rotate(180deg)' : 'none',
-          transition: 'transform 200ms ease',
-        }}>›</span>
-      </button>
+      {/* v2.0.B.277: 書封已合併進上面 chromeRef fixed wrapper, 此處不再獨立 fixed.
+          參見 line ~422-486 的合併 wrapper */}
 
       {/* Map column — fixed 320 wide, centered, scrollable */}
       {loading ? (
