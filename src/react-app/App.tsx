@@ -7,7 +7,7 @@
  * node. Main bundle parse+exec cost on Snapdragon 430 ~120ms → ~80ms.
  */
 import { useEffect, useState, lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
 import ProfilePage from './pages/ProfilePage';
@@ -29,6 +29,23 @@ function LoadingShell() {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  // v2.0.B.278 PWA cold-start guard: iOS PWA standalone 會 resume last URL
+  // (即使 manifest start_url='/' 也常被忽略). User 上次離開時若在 /cards 或 /chapters,
+  // 下次打開 PWA 還會在那裡, user 體感「一打開又是圖鑑」. 偵測 cold start + standalone +
+  // path 不是 / → force 回 /. 不影響外部 deep link (有 referrer 就 skip).
+  useEffect(() => {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+      || (window.navigator as { standalone?: boolean }).standalone === true;
+    if (!isStandalone) return;
+    if (document.referrer !== '') return; // 從外部連結進來 = 保留 deep link
+    if (location.pathname === '/') return;
+    // PWA cold open at non-root → 永遠回地圖 (user expectation)
+    navigate('/', { replace: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // v2.0.B.236 Track A: 自動打卡 (soft visit streak).
   // 開 app 即算今天有來, 跟 lesson streak (硬目標, 需完成 lesson) 分軌.
   // 第一次今天造訪 → toast 'Mochi 看到你了 🐾'.

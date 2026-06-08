@@ -1,14 +1,16 @@
 /**
- * Pickup v2.0.B.155 service worker — minimal offline shell.
+ * Pickup v2.0.B.278 service worker — minimal offline shell.
  *
  * Strategy: stale-while-revalidate for app shell + cache-first for
  * lessons JSON + audio MP3s. Network-first for HTML so updates ship
  * immediately on next visit.
  *
- * No cache versioning yet — relies on filename-hashed Vite chunks for
- * cache busting. SW itself is updated by browser detecting byte diff.
+ * CRITICAL — CACHE_VERSION 必須每次有意義的 deploy 都 bump.
+ * 規則: browser 偵測 SW byte diff 才會 update SW + activate cleanup 舊 cache.
+ * B.178 → B.277 99 commits 沒 bump = 用戶 PWA cache 卡死, 看不到任何新 deploy.
+ * B.278 fix: bump + 改用 ignoreSearch=true 防 ?source=pwa query 撞 cache key.
  */
-const CACHE_VERSION = 'pickup-v2.0.B.178';
+const CACHE_VERSION = 'pickup-v2.0.B.278';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
@@ -60,15 +62,17 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Network-first for HTML (so deploys ship to users immediately)
+  // v2.0.B.278: cache 一律存 `/index.html` 不存原始 URL — 防止 `/chapters` request
+  // 把 ChaptersPage HTML 存進去, 之後 `/` cold start fallback 撈到錯 HTML
   if (request.mode === 'navigate' || request.destination === 'document') {
     event.respondWith(
       fetch(request)
         .then((res) => {
           const copy = res.clone();
-          caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy));
+          caches.open(SHELL_CACHE).then((cache) => cache.put('/index.html', copy));
           return res;
         })
-        .catch(() => caches.match(request).then((r) => r || caches.match('/')))
+        .catch(() => caches.match('/index.html').then((r) => r || caches.match('/')))
     );
     return;
   }
