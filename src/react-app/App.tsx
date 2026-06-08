@@ -10,7 +10,6 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
-import InfiniteMapPage from './pages/InfiniteMapPage';
 import ProfilePage from './pages/ProfilePage';
 import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
@@ -75,10 +74,12 @@ export default function App() {
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
         <Suspense fallback={<LoadingShell />}>
           <Routes>
-            {/* v2.0.B.265: '/' 改 InfiniteMapPage 無限蜿蜒地圖 (217 lesson 節點)
-                /chapters → ChaptersPage 圖鑑 grid (從 nav 進)
-                /map → MapPage 7-lesson chapter detail (從 ChapterIntroPage 進) */}
-            <Route path="/" element={<InfiniteMapPage />} />
+            {/* v2.0.B.266: '/' 還原 MapPage (user: 「參照原版地圖格式昨天前, 不要改變任何東西, 只要加按鈕即可」)
+                MapPage 內部加 aggregate mode (無 ?ch param 時聚合 31 章所有 lessons)
+                NODE_PATH_V2 cyclic 繼續蜿蜒延長, 視覺完全不變
+                /chapters → ChaptersPage 圖鑑 grid (從 nav 進, 非首頁)
+                /map?ch=N → MapPage 同元件帶 chapter param = 單章 7-lesson 細節 */}
+            <Route path="/" element={<MapPage />} />
             <Route path="/map" element={<MapPage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
             <Route path="/chapter/:chapter/intro" element={<ChapterIntroPage />} />

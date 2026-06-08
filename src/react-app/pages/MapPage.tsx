@@ -72,6 +72,17 @@ const NODE_PATH_V2: Array<{ dx: number; top: number }> = [
   { dx: 16, top: 1780 }, { dx: 30, top: 1864 }, { dx: 0, top: 1948 },
 ];
 
+// v2.0.B.266: cyclic node slot for aggregate mode (user: 「拓展成無限顆 只要加按鈕即可」)
+// 原 24 entries 用完後 cycle 重複 dx 模式, top 累加, 維持原視覺蜿蜒節奏
+const NODE_CYCLE_HEIGHT = NODE_PATH_V2[NODE_PATH_V2.length - 1].top - NODE_PATH_V2[0].top + 84;
+function getNodeSlot(i: number): { dx: number; top: number } {
+  if (i < NODE_PATH_V2.length) return NODE_PATH_V2[i];
+  const cycle = Math.floor(i / NODE_PATH_V2.length);
+  const idx = i % NODE_PATH_V2.length;
+  const base = NODE_PATH_V2[idx];
+  return { dx: base.dx, top: base.top + cycle * NODE_CYCLE_HEIGHT };
+}
+
 const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string }> = {
   1: { titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', accent: '#d68a52' },
   2: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e7a44a' },
@@ -213,9 +224,11 @@ function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void 
 export default function MapPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  // v2.0.B.259: Math.min 8 → 29 — 解鎖 Ch9-29 全部 ship 章節 (B.250 後 ship Ch27-29 mid-long)
-  // user 反映 MapPage 只 7-8 顆按鈕, root cause = 這條 clamp 把 ?ch=27 強制 fallback 8
-  const chapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
+  // v2.0.B.266: aggregate mode (user: 「拓展成無限顆」)
+  // 無 ?ch param 時 isAggregate = true, 聚合全 31 章 lessons 在 1 條蜿蜒路徑
+  // 有 ?ch=N param 時保留原 7-lesson 單章視圖 (從 ChapterIntroPage 或圖鑑進)
+  const isAggregate = !searchParams.has('ch');
+  const requestedChapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
@@ -226,6 +239,9 @@ export default function MapPage() {
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
   const freezes = readFreezes();
+  // v2.0.B.266: aggregate 模式時 chapter = 當前 node 的章節 (動態)
+  // 單章模式時 chapter = requestedChapter (URL ?ch=N)
+  const chapter = requestedChapter; // placeholder, 會在 currentNodeIdx 算完後 reassign
   const completed = readCompletedLessons(chapter);
   const meta = CHAPTER_META[chapter];
 
@@ -241,15 +257,18 @@ export default function MapPage() {
     } catch {}
   }, []);
 
-  // Derive current node = first non-completed unlocked (or -1 if all done)
+  // Derive current node = first non-completed (aggregate 用 per-lesson chapter)
   const currentNodeIdx = useMemo(() => {
     if (lessons.length === 0) return -1;
     for (let i = 0; i < lessons.length; i++) {
-      if (!completed.has(lessons[i].id)) return i;
+      const l = lessons[i];
+      const lessonChapter = isAggregate ? l.chapter : chapter;
+      const doneSet = readCompletedLessons(lessonChapter);
+      if (!doneSet.has(l.id)) return i;
     }
     return -1;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lessons.length, chapter]);
+  }, [lessons.length, chapter, isAggregate]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
 
   // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
@@ -266,10 +285,18 @@ export default function MapPage() {
 
   useEffect(() => {
     setLoading(true);
-    loadChapterLessons(chapter)
-      .then(setLessons)
-      .finally(() => setLoading(false));
-  }, [chapter]);
+    if (isAggregate) {
+      // v2.0.B.266: aggregate 全 31 章 lessons (217 顆無限蜿蜒)
+      const chapters = Array.from({ length: 31 }, (_, i) => i + 1);
+      Promise.all(chapters.map(c => loadChapterLessons(c)))
+        .then(arrs => setLessons(arrs.flat()))
+        .finally(() => setLoading(false));
+    } else {
+      loadChapterLessons(chapter)
+        .then(setLessons)
+        .finally(() => setLoading(false));
+    }
+  }, [chapter, isAggregate]);
 
   // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view
   // when lesson list ready. Senior 玩家完 lesson 回 map 直接看到下一個目標
@@ -455,12 +482,14 @@ export default function MapPage() {
             }} />
           </div>
 
-          {/* Nodes loop NODE_PATH_V2 */}
+          {/* Nodes loop NODE_PATH_V2 — v2.0.B.266 aggregate: getNodeSlot(i) cyclic + per-lesson chapter */}
           {lessons.map((l, i) => {
-            const slot = NODE_PATH_V2[i] ?? NODE_PATH_V2[NODE_PATH_V2.length - 1];
+            const slot = getNodeSlot(i);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-            const done = completed.has(l.id);
-            const unlocked = isLessonUnlocked(chapter, l.lessonInChapter, completed.size);
+            const lessonChapter = isAggregate ? l.chapter : chapter;
+            const lessonCompleted = readCompletedLessons(lessonChapter);
+            const done = lessonCompleted.has(l.id);
+            const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompleted.size);
             const baseColor = done ? COLOR_NODE_DONE : unlocked ? COLOR_NODE : COLOR_NODE_LOCKED;
             const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? COLOR_NODE_DARK : COLOR_NODE_LOCKED_DARK;
             const iconSrc = done
@@ -481,7 +510,7 @@ export default function MapPage() {
                 type="button"
                 disabled={!unlocked}
                 aria-label={`${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${isCurrent ? ' (current)' : ''}`}
-                onClick={() => unlocked && navigate(`/lesson/${chapter}/${l.id}`)}
+                onClick={() => unlocked && navigate(`/lesson/${isAggregate ? l.chapter : chapter}/${l.id}`)}
                 onPointerDown={() => unlocked && setPressedId(l.id)}
                 onPointerUp={() => setPressedId(null)}
                 onPointerLeave={() => setPressedId(null)}
