@@ -548,14 +548,12 @@ export default function MapPage() {
       ) : (
         <div style={{
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',
-          // v2.0.B.270: container 高度算 stream.length (含寶箱)
-          height: Math.max(2032, stream.length * NODE_PITCH) + NODE_HEIGHT + 80,
-          // v2.0.B.289: scroll-anchoring + layout containment 防虛擬化 mount/unmount
-          // 觸發 browser scroll-anchor snap (root cause of「滾中突然跳」7+ 次回報).
-          // `overflow-anchor: none` 告訴 browser 不要試圖 keep visible content stable,
-          //   虛擬化自己負責 viewport 穩定.
-          // `contain: layout` 把 map column reflow 從 document 隔離開, 子節點 mount/unmount
-          //   不會 propagate 到 outer scroll context.
+          // v2.0.B.290 ROOT FIX: container height 預固定 MAX_EXPECTED_STREAM, 不依 stream.length 變
+          // 之前 progressive load (Ch1 → Ch2-31 setLessons) 會讓 container 從 2496 → 22000 突跳 19488px
+          // → browser scroll-anchoring 補償 → user 看到 mid-scroll jump.
+          // 改用 final size 250 (預期 217 lesson + 43 chest, round up safety) × NODE_PITCH 從 mount 就到位.
+          // stream 之後 fill 進來不再改 container 高度 = browser 從未看到 height change = 不跳.
+          height: Math.max(2032, 280 * NODE_PITCH) + NODE_HEIGHT + 80,
           overflowAnchor: 'none',
           contain: 'layout' as const,
         }}>
@@ -569,8 +567,10 @@ export default function MapPage() {
                 pointerEvents: 'none', zIndex: 5,
                 transform: `translate(${catPos.x}px, ${catPos.y}px)`,
                 transformOrigin: '50% 100%',
-                transition: 'transform 700ms cubic-bezier(0.4, -0.3, 0.55, 1.5)',
-                willChange: 'transform',
+                // v2.0.B.290: 砍 cubic-bezier overshoot (1.5 = 50% 超出後彈回). iOS Safari 對 transform overshoot
+                // 在 scroll 同時觸發 viewport repaint, 已知 jitter. 改 ease-out 400ms 短暫且不超目標.
+                transition: 'transform 400ms ease-out',
+                willChange: 'auto',
               }}
             >
               <div style={{
