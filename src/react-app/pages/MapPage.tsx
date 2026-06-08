@@ -382,26 +382,12 @@ export default function MapPage() {
     }
   }, [chapter, isAggregate]);
 
-  // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view 一次
-  // v2.0.B.274 fix: 移除 currentNodeIdx 從 deps + 加 hasAutoScrolledRef + scrollY guard
-  // 根因: B.266 aggregate mode 後 currentNodeIdx 變 scrollY-derived, 一滑就 re-fire
-  // scrollIntoView 把畫面拉回 = user 體感「滑一下自動跳回最上面」
-  const hasAutoScrolledRef = useRef(false);
-  useEffect(() => {
-    if (loading) return;
-    if (hasAutoScrolledRef.current) return;
-    // 若 user 已滑開 (>80px), 視為手動操作, 永遠不再 auto-scroll
-    if (window.scrollY > 80) { hasAutoScrolledRef.current = true; return; }
-    const t = window.setTimeout(() => {
-      if (currentNodeIdx >= 0 && currentNodeRef.current && window.scrollY < 80) {
-        try {
-          currentNodeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } catch {}
-      }
-      hasAutoScrolledRef.current = true;
-    }, 300);
-    return () => window.clearTimeout(t);
-  }, [loading]);
+  // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view 一次 — REMOVED B.287
+  // 根因 5+ 次回報「滑下去跳上面」: 300ms setTimeout + scrollY < 80 guard 擋不住 race —
+  // 用戶在 300ms 內已開始滑, scrollY 可能還在 50-80px 區間 → guard pass → scrollIntoView
+  // block:'center' 把 current node (常 idx=0) 拉回 viewport 中央 = 跳回頂.
+  // 修法: 砍掉整個 feature. Senior 玩家可靠 .pickup-map-node-current pulse 動畫視覺找
+  // current node, 不需強制 auto-scroll.
 
   // v2.0.B.274: 關掉瀏覽器 scroll restoration, 自己控 (router nav 也不要 bounce 回頂)
   useEffect(() => {
