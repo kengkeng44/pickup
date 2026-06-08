@@ -239,10 +239,10 @@ export default function MapPage() {
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
   const freezes = readFreezes();
-  // v2.0.B.266: aggregate 模式時 chapter = 當前 node 的章節 (動態)
-  // 單章模式時 chapter = requestedChapter (URL ?ch=N)
-  const chapter = requestedChapter; // placeholder, 會在 currentNodeIdx 算完後 reassign
-  const completed = readCompletedLessons(chapter);
+  // v2.0.B.266: aggregate 模式 HUD/header 用 requestedChapter (預設 1) 顯示資訊
+  // 渲染 loop 用 per-lesson chapter (readCompletedLessons(l.chapter)) 算 done state
+  // 原 `completed` 變數已 inline 進 loop, 不再 outer scope 需要
+  const chapter = requestedChapter;
   const meta = CHAPTER_META[chapter];
 
   // v2.0.B.239: tomorrow-queue banner. Read on mount; only show after 18:00
