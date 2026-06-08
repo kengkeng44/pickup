@@ -74,7 +74,9 @@ export default function App() {
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
         <Suspense fallback={<LoadingShell />}>
           <Routes>
-            <Route path="/" element={<MapPage />} />
+            {/* v2.0.B.262: '/' 從 MapPage 改 ChaptersPage (31 顆章節地圖 + progression unlock) */}
+            <Route path="/" element={<ChaptersPage />} />
+            <Route path="/map" element={<MapPage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
             <Route path="/chapter/:chapter/intro" element={<ChapterIntroPage />} />
             <Route path="/lesson/:chapter/:lessonId" element={<LessonPage />} />
@@ -82,7 +84,7 @@ export default function App() {
             <Route path="/tasks" element={<TasksPage />} />
             <Route path="/alerts" element={<AlertsPage />} />
             <Route path="/cards" element={<CardsPage />} />
-            <Route path="*" element={<MapPage />} />
+            <Route path="*" element={<ChaptersPage />} />
           </Routes>
         </Suspense>
       </main>

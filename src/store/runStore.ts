@@ -567,14 +567,12 @@ export function markLessonCompleted(chapter: number, lessonId: string): void {
 }
 
 export function isLessonUnlocked(
-  // 保留 signature 兼容呼叫端 (MapPage line 463 仍傳 3 個 arg)
+  // 保留 signature 兼容呼叫端 (MapPage line 463)
   _chapter: number,
   _lessonInChapter: number,
   _totalCompleted: number
 ): boolean {
-  // v2.0.B.261: 全章 free-select (user 要求「不要按順序 要用選的」, Duolingo Stories 自選模式)
-  // 之前 (B.109): L1-10 全 unlock + L11+ 需 totalCompleted >= N-1 → 強制線性
-  // 現在: 永遠 unlock — 任 lesson 任順序可進, 推薦邏輯走章末 NextStoryPicker (B.245) 大數據引擎
-  // (recommendNextStories 用 user profile + preferences 14-dim collaborative filter)
+  // v2.0.B.262: 章內 lesson 全 free-select (B.261 keeps), 章節 progression 改 ChaptersPage 層處理
+  // 進到此 MapPage 表示前章已完成 (ChaptersPage gate 過), 章內 7 lesson 任順序可選
   return true;
 }

@@ -40,7 +40,7 @@ export default function ChapterIntroPage() {
 
   const start = () => {
     try { localStorage.setItem(`pickup.chapter.${ch}.intro.seen`, '1'); } catch {}
-    navigate(`/?ch=${ch}`);
+    navigate(`/map?ch=${ch}`);
   };
 
   return (
