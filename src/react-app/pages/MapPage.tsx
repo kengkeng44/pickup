@@ -244,9 +244,9 @@ export default function MapPage() {
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
+  // v2.0.B.272: 整張書封 click toggle 金句集錦 (user: 「書封點進去應該是金句集錦」)
+  // 再點書封 = 關 sheet 回地圖 (toggle 而非僅 open)
   const [showKeySheet, setShowKeySheet] = useState(false);
-  // v2.0.B.271: 點書封跳出本章故事列表 modal (user: 「點書封應該跳出有哪些故事 然後再點一次書封就應該跳回地圖」)
-  const [showStoryList, setShowStoryList] = useState(false);
   // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
   const currentNodeRef = useRef<HTMLButtonElement | null>(null);
   // v2.0.B.232 招 1: read persistent daily streak + freeze count from
@@ -430,13 +430,14 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.271: 還原原本書封 — accent 卡 + 3D shadow + 白字 (user: 「我要原本的書封」)
-          整張卡點擊 toggle showStoryList (user: 「點書封應該跳出有哪些故事 再點一次跳回地圖」) */}
+      {/* v2.0.B.271-272: 還原原本書封 (accent 卡 + 3D shadow + 白字) + 整張卡 toggle 金句集錦
+          user (B.271): 「我要原本的書封」+「點書封跳出有哪些故事 再點一次跳回地圖」
+          user (B.272): 「書封點進去應該是金句集錦」→ 由 setShowStoryList 改 setShowKeySheet toggle */}
       <button
         type="button"
-        aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章故事列表`}
-        aria-expanded={showStoryList}
-        onClick={() => setShowStoryList(s => !s)}
+        aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
+        aria-expanded={showKeySheet}
+        onClick={() => setShowKeySheet(s => !s)}
         style={{
           position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
           left: 14, right: 14, zIndex: 99,
@@ -467,7 +468,7 @@ export default function MapPage() {
         </div>
         <span aria-hidden="true" style={{
           fontSize: 20, lineHeight: 1, color: '#fff',
-          transform: showStoryList ? 'rotate(180deg)' : 'none',
+          transform: showKeySheet ? 'rotate(180deg)' : 'none',
           transition: 'transform 200ms ease',
         }}>›</span>
       </button>
@@ -655,96 +656,6 @@ export default function MapPage() {
         />
       )}
 
-      {/* v2.0.B.271: 書封 → 本章故事列表 modal (user: 「點書封應該跳出有哪些故事 再點一次跳回地圖」) */}
-      {showStoryList && (
-        <div
-          role="dialog"
-          aria-label="本章故事列表"
-          onClick={() => setShowStoryList(false)}
-          style={{
-            position: 'fixed', inset: 0, zIndex: 200,
-            background: 'rgba(60, 42, 28, 0.55)',
-            display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
-            padding: 'calc(140px + env(safe-area-inset-top)) 16px 24px',
-            animation: 'pickup-fade-up 220ms ease',
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              width: '100%', maxWidth: 420,
-              maxHeight: '70vh', overflowY: 'auto',
-              background: COLOR_BG,
-              border: `3px solid ${meta.accent}`,
-              borderRadius: 16,
-              padding: 16,
-              boxShadow: '0 12px 28px rgba(60,42,28,0.22)',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, paddingBottom: 10, borderBottom: `2px dashed ${lighten(meta.accent, 0.4)}` }}>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: meta.accent }}>
-                  Section {chapter} · 第 {chapter} 章
-                </div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: COLOR_TEXT_DARK, lineHeight: 1.25, marginTop: 2 }}>
-                  {meta.titleZh}
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 700, color: COLOR_TEXT_MUTED, fontStyle: 'italic', marginTop: 2 }}>
-                  {meta.titleEn}
-                </div>
-              </div>
-              <button
-                onClick={() => setShowStoryList(false)}
-                aria-label="關閉"
-                style={{
-                  width: 32, height: 32,
-                  background: 'transparent', border: 'none', cursor: 'pointer',
-                  fontSize: 22, color: COLOR_TEXT_MUTED,
-                  fontFamily: 'inherit', padding: 0,
-                  touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-                }}
-              >✕</button>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              {(() => {
-                const chapterLessons = lessons.filter(l => (l.chapter ?? chapter) === chapter);
-                if (chapterLessons.length === 0) {
-                  return <div style={{ padding: 20, textAlign: 'center', color: COLOR_TEXT_MUTED, fontSize: 13 }}>本章故事尚未上線</div>;
-                }
-                const chapterCompleted = readCompletedLessons(chapter);
-                return chapterLessons.map((l) => {
-                  const done = chapterCompleted.has(l.id);
-                  return (
-                    <button
-                      key={l.id}
-                      onClick={() => { setShowStoryList(false); navigate(`/lesson/${chapter}/${l.id}`); }}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: 10,
-                        padding: '10px 12px',
-                        background: done ? '#fff7e8' : '#ffffff',
-                        border: `2px solid ${done ? '#c8a878' : '#e6dcc8'}`,
-                        borderRadius: 10,
-                        textAlign: 'left',
-                        cursor: 'pointer', fontFamily: 'inherit',
-                        touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-                      }}
-                    >
-                      <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">{done ? '✅' : '📖'}</span>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_TEXT_DARK, lineHeight: 1.3 }}>
-                          Lesson {l.lessonInChapter}
-                          {l.storyBeat ? <span style={{ color: COLOR_TEXT_MUTED, fontWeight: 700 }}> · {l.storyBeat}</span> : null}
-                        </div>
-                      </div>
-                      <span style={{ fontSize: 16, color: COLOR_TEXT_MUTED }} aria-hidden="true">›</span>
-                    </button>
-                  );
-                });
-              })()}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
