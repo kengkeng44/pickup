@@ -225,10 +225,19 @@ export default function MapPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   // v2.0.B.266: aggregate mode (user: 「拓展成無限顆」)
-  // 無 ?ch param 時 isAggregate = true, 聚合全 31 章 lessons 在 1 條蜿蜒路徑
-  // 有 ?ch=N param 時保留原 7-lesson 單章視圖 (從 ChapterIntroPage 或圖鑑進)
   const isAggregate = !searchParams.has('ch');
   const requestedChapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
+
+  // v2.0.B.267: virtual scrolling (windowing) — 不一次 render 217 顆 button
+  // user: 「往下滑再載入就好 不然一個頁面會太大 (這叫什麼技術 你上網查一下照著用)」
+  // → 標準 windowing / virtualization 技術: 只 render viewport ± buffer 內的 node
+  // 容器高度 = lessons.length × NODE_PITCH 保 scrollbar 精準
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
@@ -239,11 +248,22 @@ export default function MapPage() {
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
   const freezes = readFreezes();
-  // v2.0.B.266: aggregate 模式 HUD/header 用 requestedChapter (預設 1) 顯示資訊
-  // 渲染 loop 用 per-lesson chapter (readCompletedLessons(l.chapter)) 算 done state
-  // 原 `completed` 變數已 inline 進 loop, 不再 outer scope 需要
-  const chapter = requestedChapter;
-  const meta = CHAPTER_META[chapter];
+  // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
+  const NODE_PITCH = 84;
+  const VIEWPORT_H = typeof window !== 'undefined' ? window.innerHeight : 800;
+  const NODES_TOP_OFFSET = 220; // sticky HUD + chapter header 預估高度
+  const BUFFER = 5;
+  const adjScroll = Math.max(0, scrollY - NODES_TOP_OFFSET);
+  const visStart = Math.max(0, Math.floor(adjScroll / NODE_PITCH) - BUFFER);
+  const visEnd = lessons.length === 0
+    ? 0
+    : Math.min(lessons.length, Math.ceil((adjScroll + VIEWPORT_H) / NODE_PITCH) + BUFFER);
+
+  // Dynamic chapter header: aggregate 時跟著 visible 第一顆 node 的章節
+  const chapter = isAggregate && lessons[visStart]
+    ? lessons[visStart].chapter
+    : requestedChapter;
+  const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
   // v2.0.B.239: tomorrow-queue banner. Read on mount; only show after 18:00
   // local + when entry exists + not yet consumed. Banner tap consumes the
@@ -321,9 +341,11 @@ export default function MapPage() {
       background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
-      {/* HUD bar — strict order: Flag / Crown / Coin / Flame */}
+      {/* v2.0.B.267: HUD bar sticky top — user: 「最上面四個功能要固定在螢幕上」 */}
       <div style={{
-        padding: 'max(14px, env(safe-area-inset-top)) 14px 0',
+        position: 'sticky', top: 0, zIndex: 100,
+        background: COLOR_BG,
+        padding: 'max(14px, env(safe-area-inset-top)) 14px 4px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 4, marginBottom: 8,
       }}>
@@ -382,13 +404,18 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* Chapter header card */}
-      <div style={{ padding: 'max(16px, env(safe-area-inset-top)) 14px 0 14px' }}>
+      {/* v2.0.B.267: Chapter book-cover sticky 第二層 — user: 「章節名子的書封要固定」 */}
+      <div style={{
+        position: 'sticky', top: 64, zIndex: 99,
+        background: COLOR_BG,
+        padding: '8px 14px 10px',
+      }}>
         <div style={{
           background: meta.accent, borderRadius: 14,
           padding: '12px 16px', color: '#ffffff',
           boxShadow: `inset 0 8px 0 ${lighten(meta.accent, 0.18)}, 0 4px 0 ${darken(meta.accent, 0.32)}`,
           display: 'flex', alignItems: 'center', gap: 10,
+          transition: 'background 0.4s ease',
         }}>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', opacity: 0.85 }}>
@@ -427,7 +454,9 @@ export default function MapPage() {
       ) : (
         <div style={{
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',
-          height: 2032 + NODE_HEIGHT + 80,
+          // v2.0.B.267: container 高度 = lessons.length × NODE_PITCH, 保 scrollbar 精準
+          // (cyclic NODE_PATH_V2 已支援 217 顆延展, 高度跟著 aggregate 動態算)
+          height: Math.max(2032, lessons.length * NODE_PITCH) + NODE_HEIGHT + 80,
         }}>
           {/* Grandma (cat anchor) — follows currentNodeIdx via positioning algorithm */}
           {catPos && (
@@ -482,8 +511,9 @@ export default function MapPage() {
             }} />
           </div>
 
-          {/* Nodes loop NODE_PATH_V2 — v2.0.B.266 aggregate: getNodeSlot(i) cyclic + per-lesson chapter */}
-          {lessons.map((l, i) => {
+          {/* v2.0.B.267 virtualization: 只 render visible [visStart, visEnd) range, 其餘 DOM 不存在 */}
+          {lessons.slice(visStart, visEnd).map((l, localIdx) => {
+            const i = visStart + localIdx;
             const slot = getNodeSlot(i);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
             const lessonChapter = isAggregate ? l.chapter : chapter;
