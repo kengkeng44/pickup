@@ -1,12 +1,15 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
+// v2.0.B.273 user directive:
+//   1. 第一條 label 「首頁」→「地圖」(label 對齊頁面內容, route / 仍 → MapPage 架構不變)
+//   2. 最右兩位置互換 — 成就↔我的, 成就移到第 4, 我的擺最後
 const TABS = [
-  { path: '/', label: '首頁', icon: '/mascots/node-paw.webp', emoji: null as string | null },
+  { path: '/', label: '地圖', icon: '/mascots/node-paw.webp', emoji: null as string | null },
   { path: '/tasks', label: '任務', icon: '/mascots/icon-star.webp', emoji: null as string | null },
   // v2.0.B.232 招 2: 圖鑑 tab (collectible card collection)
   { path: '/cards', label: '圖鑑', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
-  { path: '/profile', label: '我的', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
   { path: '/alerts', label: '成就', icon: '/mascots/flame.webp', emoji: null as string | null },
+  { path: '/profile', label: '我的', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
 ] as const;
 
 export default function BottomNav() {
