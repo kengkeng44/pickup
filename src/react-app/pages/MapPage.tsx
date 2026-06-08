@@ -550,6 +550,14 @@ export default function MapPage() {
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',
           // v2.0.B.270: container 高度算 stream.length (含寶箱)
           height: Math.max(2032, stream.length * NODE_PITCH) + NODE_HEIGHT + 80,
+          // v2.0.B.289: scroll-anchoring + layout containment 防虛擬化 mount/unmount
+          // 觸發 browser scroll-anchor snap (root cause of「滾中突然跳」7+ 次回報).
+          // `overflow-anchor: none` 告訴 browser 不要試圖 keep visible content stable,
+          //   虛擬化自己負責 viewport 穩定.
+          // `contain: layout` 把 map column reflow 從 document 隔離開, 子節點 mount/unmount
+          //   不會 propagate 到 outer scroll context.
+          overflowAnchor: 'none',
+          contain: 'layout' as const,
         }}>
           {/* Grandma (cat anchor) — follows currentNodeIdx via positioning algorithm */}
           {catPos && (
