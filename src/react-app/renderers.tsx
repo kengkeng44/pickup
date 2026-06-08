@@ -687,10 +687,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a', textAlign: 'center', marginBottom: 12 }}>
-        Match pairs
-      </div>
-      {/* v2.0.B.279: 2 真左右 column (中文 | 英文), 不再用 grid row-fill */}
+      {/* v2.0.B.281 minimalist: 砍 "Match pairs" heading — 2 卡片左右排列本身 self-evident */}
       <div style={{ display: 'flex', gap: 10 }}>
         {/* LEFT — 中文 */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -709,7 +706,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 className={className}
                 style={cardStyle(state)}
               >
-                {isMatched && <span aria-hidden="true" style={{ color: '#5d7a30', fontSize: 17 }}>✓</span>}
+                {/* v2.0.B.281: 砍 ✓ — user「不要打勾」. 色變 + disabled 已表明 matched */}
                 <span>{p[0]}</span>
               </button>
             );
@@ -732,19 +729,18 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 className={className}
                 style={cardStyle(state)}
               >
-                {isMatched && <span aria-hidden="true" style={{ color: '#5d7a30', fontSize: 17 }}>✓</span>}
                 <span>{pairs[origIdx]?.[1]}</span>
               </button>
             );
           })}
         </div>
       </div>
+      {/* v2.0.B.281: 砍 "All matched!" 文字 — 卡片全變綠已 self-evident, 留純 🎉 emoji burst */}
       {revealed && (
         <div className="pickup-pair-celebrate" style={{
-          marginTop: 16, textAlign: 'center', fontSize: 16, color: '#5d7a30', fontWeight: 900,
-          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+          marginTop: 20, textAlign: 'center', fontSize: 44, lineHeight: 1,
         }}>
-          <span style={{ fontSize: 22 }}>🎉</span> All matched! <span style={{ fontSize: 22 }}>🎉</span>
+          🎉
         </div>
       )}
     </div>
