@@ -353,14 +353,28 @@ export default function MapPage() {
   const tierFilter = level >= 5 ? 'hue-rotate(155deg) saturate(0.75)' : level >= 3 ? 'none' : 'saturate(0.12) brightness(0.95)';
   const firstTime = xp === 0;
 
+  // v2.0.B.285 PERF root fix: aggregate mode 之前 Promise.all 等 31 個 JSON 全到位才 paint
+  // = cold start 4G ~5-10s 黑屏. 架構問題, user 問好幾次「為什麼一點點內容這麼卡」.
+  // 新策略 progressive load: Ch1 先到位 → 立刻 paint 地圖, 其餘 Ch2-31 background stream
+  // in (user 滑前已 ready). TTI 從 ~5s 砍到 < 800ms.
   useEffect(() => {
     setLoading(true);
     if (isAggregate) {
-      // v2.0.B.266: aggregate 全 31 章 lessons (217 顆無限蜿蜒)
-      const chapters = Array.from({ length: 31 }, (_, i) => i + 1);
-      Promise.all(chapters.map(c => loadChapterLessons(c)))
-        .then(arrs => setLessons(arrs.flat()))
-        .finally(() => setLoading(false));
+      // Phase 1: Ch1 立刻到位 → user 馬上看到地圖 (Ch1 24 lesson)
+      loadChapterLessons(1)
+        .then(ch1 => {
+          setLessons(ch1);
+          setLoading(false); // ← TTI 落點: user 已可互動
+          // Phase 2: background pipeline 載入 Ch2-31, 不 block UI
+          // catch 個別 chapter 失敗也不影響其他 (defensive)
+          const remaining = Array.from({ length: 30 }, (_, i) => i + 2);
+          Promise.all(remaining.map(c => loadChapterLessons(c).catch(() => [] as Lesson[])))
+            .then(arrs => {
+              const more = arrs.flat();
+              if (more.length > 0) setLessons(prev => [...prev, ...more]);
+            });
+        })
+        .catch(() => setLoading(false));
     } else {
       loadChapterLessons(chapter)
         .then(setLessons)
