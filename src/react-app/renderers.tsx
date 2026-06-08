@@ -593,10 +593,12 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
-// ─── 6. tap-pairs (simplified: match pairs) ─────────────────────────────────
+// ─── 6. tap-pairs (簡化配對 · v2.0.B.279 Duolingo-style 重做) ──────────────
+// 改 layout 2 真左右 column (中文 / 英文), 加 per-pair pulse + ✓ + wrong shake.
+// user (B.279): 「左邊中文 右邊英文 然後點了要有特效 參考多鄰國答對特效」
 const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   // v2.0.B.249: schema 用 pairs: [{left, right}] (Zod), 舊 renderer 讀 pairsEn
-  // tuple → 27 章全炸 '本題型沒有 pairsEn data'. 改 defensive 讀, 兩種 shape 都吃.
+  // tuple → defensive 讀, 兩種 shape 都吃. data 約定: left=中文, right=英文
   const pairs: Array<[string, string]> = (
     (q.pairs as Array<{ left: string; right: string } | [string, string]> | undefined) ??
     q.pairsEn ??
@@ -605,37 +607,47 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const [matched, setMatched] = useState<number[]>([]);
   const [selected, setSelected] = useState<{ side: 'left' | 'right'; idx: number } | null>(null);
   const [revealed, setRevealed] = useState(false);
+  // v2.0.B.279: animation state — 配對瞬間打 success class, 答錯打 wrong class
+  const [justMatched, setJustMatched] = useState<number | null>(null);
+  const [shakeIds, setShakeIds] = useState<{ left: number | null; right: number | null }>({ left: null, right: null });
 
   // Stable shuffled right-side once per question
   const rightShuffle = useRef<number[]>([]);
   useEffect(() => {
     rightShuffle.current = pairs.map((_, i) => i).sort(() => Math.random() - 0.5);
     setMatched([]); setSelected(null); setRevealed(false);
+    setJustMatched(null); setShakeIds({ left: null, right: null });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
   const tap = (side: 'left' | 'right', idx: number) => {
     if (revealed) return;
-    if (matched.includes(idx) && side === 'left') return;
+    if (side === 'left' && matched.includes(idx)) return;
+    if (side === 'right' && matched.includes(rightShuffle.current[idx])) return;
     sfxCardPress();
     if (!selected) { setSelected({ side, idx }); return; }
     if (selected.side === side) { setSelected({ side, idx }); return; }
     const leftIdx = selected.side === 'left' ? selected.idx : idx;
-    const rightIdx = selected.side === 'right' ? selected.idx : idx;
-    // right index in shuffled array maps back via rightShuffle
-    const actualRight = rightShuffle.current[rightIdx];
+    const rightSIdx = selected.side === 'right' ? selected.idx : idx;
+    const actualRight = rightShuffle.current[rightSIdx];
     if (leftIdx === actualRight) {
+      // ✓ 配對成功 — per-pair sfxCorrect (subtle) + pulse animation
+      try { sfxCorrect(); } catch {}
+      setJustMatched(leftIdx);
+      window.setTimeout(() => setJustMatched(null), 600);
       const next = [...matched, leftIdx];
       setMatched(next);
       setSelected(null);
       if (next.length === pairs.length) {
-        try { sfxCorrect(); } catch {}
         setRevealed(true);
         onAnswer(0, true);
-        window.setTimeout(() => onAdvance(), 2500);
+        window.setTimeout(() => onAdvance(), 2200);
       }
     } else {
+      // ✗ 答錯 — shake 兩張卡 + sfxWrong
       try { sfxWrong(); } catch {}
+      setShakeIds({ left: leftIdx, right: rightSIdx });
+      window.setTimeout(() => setShakeIds({ left: null, right: null }), 420);
       setSelected(null);
     }
   };
@@ -644,28 +656,85 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     return <div style={{ padding: 20, color: '#8b6f4a', textAlign: 'center' }}>(本題沒有配對資料)</div>;
   }
 
+  // Shared card style — green when matched, amber when selected, white default
+  const cardStyle = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
+    padding: '14px 10px',
+    background: state === 'matched' ? '#eaf6d5' : state === 'selected' ? '#fef3c7' : '#fff',
+    color: '#3c2a1c',
+    border: state === 'matched' ? '2px solid #7d9a4f' : '2px solid #c8a878',
+    borderBottom: state === 'matched' ? '3px solid #5d7a30' : '3px solid #b07a2a',
+    borderRadius: 12,
+    fontSize: 15, fontWeight: 800,
+    cursor: state === 'matched' ? 'default' : 'pointer',
+    fontFamily: 'inherit',
+    minHeight: 52,
+    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+    transition: 'background 180ms ease, border-color 180ms ease',
+  });
+
   return (
     <div>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a', textAlign: 'center', marginBottom: 12 }}>配對 · Match pairs</div>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-        {pairs.map((p, i) => (
-          <button key={`L${i}`} onClick={() => tap('left', i)} disabled={matched.includes(i)} style={{
-            padding: '12px 8px', background: matched.includes(i) ? '#eaf6d5' : selected?.side === 'left' && selected.idx === i ? '#fef3c7' : '#fff',
-            color: '#3c2a1c', border: '2px solid #c8a878', borderBottom: '3px solid #b07a2a', borderRadius: 10,
-            fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
-            opacity: matched.includes(i) ? 0.5 : 1,
-          }}>{p[0]}</button>
-        ))}
-        {rightShuffle.current.map((origIdx, sIdx) => (
-          <button key={`R${sIdx}`} onClick={() => tap('right', sIdx)} disabled={matched.includes(origIdx)} style={{
-            padding: '12px 8px', background: matched.includes(origIdx) ? '#eaf6d5' : selected?.side === 'right' && selected.idx === sIdx ? '#fef3c7' : '#fff',
-            color: '#3c2a1c', border: '2px solid #c8a878', borderBottom: '3px solid #b07a2a', borderRadius: 10,
-            fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
-            opacity: matched.includes(origIdx) ? 0.5 : 1,
-          }}>{pairs[origIdx]?.[1]}</button>
-        ))}
+      <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a', textAlign: 'center', marginBottom: 12 }}>
+        配對 · Match pairs
       </div>
-      {revealed && <div style={{ marginTop: 12, textAlign: 'center', fontSize: 14, color: '#5d9a35', fontWeight: 800 }}>✓ 全部配對完成</div>}
+      {/* v2.0.B.279: 2 真左右 column (中文 | 英文), 不再用 grid row-fill */}
+      <div style={{ display: 'flex', gap: 10 }}>
+        {/* LEFT — 中文 */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {pairs.map((p, i) => {
+            const isMatched = matched.includes(i);
+            const isSelected = selected?.side === 'left' && selected.idx === i;
+            const isJustMatched = justMatched === i;
+            const isShaking = shakeIds.left === i;
+            const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
+            const className = isJustMatched ? 'pickup-pair-success' : isShaking ? 'pickup-pair-wrong' : undefined;
+            return (
+              <button
+                key={`L${i}`}
+                onClick={() => tap('left', i)}
+                disabled={isMatched}
+                className={className}
+                style={cardStyle(state)}
+              >
+                {isMatched && <span aria-hidden="true" style={{ color: '#5d7a30', fontSize: 17 }}>✓</span>}
+                <span>{p[0]}</span>
+              </button>
+            );
+          })}
+        </div>
+        {/* RIGHT — 英文 */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {rightShuffle.current.map((origIdx, sIdx) => {
+            const isMatched = matched.includes(origIdx);
+            const isSelected = selected?.side === 'right' && selected.idx === sIdx;
+            const isJustMatched = justMatched === origIdx;
+            const isShaking = shakeIds.right === sIdx;
+            const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
+            const className = isJustMatched ? 'pickup-pair-success' : isShaking ? 'pickup-pair-wrong' : undefined;
+            return (
+              <button
+                key={`R${sIdx}`}
+                onClick={() => tap('right', sIdx)}
+                disabled={isMatched}
+                className={className}
+                style={cardStyle(state)}
+              >
+                {isMatched && <span aria-hidden="true" style={{ color: '#5d7a30', fontSize: 17 }}>✓</span>}
+                <span>{pairs[origIdx]?.[1]}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {revealed && (
+        <div className="pickup-pair-celebrate" style={{
+          marginTop: 16, textAlign: 'center', fontSize: 16, color: '#5d7a30', fontWeight: 900,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+        }}>
+          <span style={{ fontSize: 22 }}>🎉</span> 全部配對完成! <span style={{ fontSize: 22 }}>🎉</span>
+        </div>
+      )}
     </div>
   );
 };
