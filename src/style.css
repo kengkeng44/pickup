@@ -450,30 +450,45 @@ button:focus-visible {
 }
 
 .mascot-happy {
-  animation: mascot-happy-bounce 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+  /* v2.0.B.258: 1.0s 強化版,加 squash & stretch (Disney 動畫 12 原則) +
+     double-bounce + 跳更高,Duolingo Owl 答對的彈跳感 */
+  animation: mascot-happy-bounce 1.0s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
 }
 
 @keyframes mascot-happy-bounce {
-  0% { transform: translateY(0) scale(1) rotate(0deg); }
-  20% { transform: translateY(-14px) scale(1.08) rotate(-3deg); }
-  45% { transform: translateY(0) scale(1.04) rotate(3deg); }
-  65% { transform: translateY(-7px) scale(1.06) rotate(-2deg); }
-  85% { transform: translateY(0) scale(1.02) rotate(1deg); }
-  100% { transform: translateY(0) scale(1) rotate(0deg); }
+  0%   { transform: translateY(0)    scale(1, 1)        rotate(0deg); }
+  /* anticipate: 蹲下蓄力(squash) */
+  12%  { transform: translateY(2px)  scale(1.15, 0.85)  rotate(0deg); }
+  /* main jump: 跳到最高 + 拉長(stretch) + 微旋 */
+  35%  { transform: translateY(-28px) scale(0.92, 1.12) rotate(-5deg); }
+  /* landing: 落地 squash 反彈 */
+  50%  { transform: translateY(-2px) scale(1.10, 0.93)  rotate(4deg); }
+  /* second bounce: 小一點 */
+  68%  { transform: translateY(-12px) scale(0.96, 1.04) rotate(-3deg); }
+  /* settle */
+  85%  { transform: translateY(0)    scale(1.03, 0.97)  rotate(1deg); }
+  100% { transform: translateY(0)    scale(1, 1)        rotate(0deg); }
 }
 
 .mascot-sad {
-  animation: mascot-sad-shake 0.7s ease-in-out 1;
+  /* v2.0.B.258: 1.1s 強化版,加重 sag + slower wilt,「失望搖頭低頭」三段式 */
+  animation: mascot-sad-shake 1.1s ease-in-out 1;
 }
 
 @keyframes mascot-sad-shake {
-  0% { transform: translateY(0) rotate(0deg); }
-  15% { transform: translateY(2px) rotate(-4deg); }
-  30% { transform: translateY(4px) rotate(4deg); }
-  45% { transform: translateY(6px) rotate(-3deg); }
-  60% { transform: translateY(7px) rotate(2deg); }
-  80% { transform: translateY(4px) rotate(0deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+  0%   { transform: translateY(0)   scale(1)    rotate(0deg); }
+  /* surprise pull-back: 頭微微往後一點點愣住 */
+  10%  { transform: translateY(-2px) scale(1.02) rotate(0deg); }
+  /* shake left disappointed */
+  25%  { transform: translateY(1px)  scale(1)    rotate(-7deg); }
+  /* shake right */
+  40%  { transform: translateY(4px)  scale(0.99) rotate(7deg); }
+  /* shake left again, starting to sag */
+  55%  { transform: translateY(7px)  scale(0.97) rotate(-5deg); }
+  /* full sag */
+  72%  { transform: translateY(10px) scale(0.96) rotate(0deg); }
+  85%  { transform: translateY(9px)  scale(0.96) rotate(0deg); }
+  100% { transform: translateY(0)    scale(1)    rotate(0deg); }
 }
 
 /* Pupils dilate on happy, droop on sad */
