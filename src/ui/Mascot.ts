@@ -188,8 +188,10 @@ export class Mascot {
     this.inner.classList.add(`mascot-${anim}`);
 
     // v2.0.B.260 Lv 5: 跟動 screen shake (整個畫面震一下)
+    // v2.0.B.261 Lv 6: 加手機震動 haptic feedback (Android web ✅ / iOS Safari ❌ / iOS native 等 Capacitor Haptics 升級)
     if (anim === 'happy' || anim === 'sad') {
       this.triggerScreenShake(anim);
+      this.triggerHaptic(anim);
     }
 
     if (anim !== 'idle') {
@@ -214,6 +216,40 @@ export class Mascot {
     window.setTimeout(() => {
       root.classList.remove(`app-shake-${type}`);
     }, dur + 60);
+  }
+
+  /**
+   * v2.0.B.261: 手機震動 haptic feedback.
+   *
+   * Web 平台支援:
+   *   - Android Chrome / Edge / Firefox  ✅
+   *   - iOS Safari                       ❌ (Apple 不實作 Vibration API)
+   *   - Desktop                          ❌ (no vibration hardware)
+   *
+   * TODO 未來上架 iOS App Store 走 Capacitor native build 時:
+   *   - npm i @capacitor/haptics
+   *   - import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics'
+   *   - happy → Haptics.notification({ type: NotificationType.Success })
+   *   - sad   → Haptics.notification({ type: NotificationType.Warning })
+   *   - 即可 iOS CoreHaptics + Taptic Engine 觸發
+   *
+   * Pattern 設計參考 screen shake 節奏:
+   *   happy = 雙短脈衝 (40-30-40 ms),類似 Duolingo 答對 haptic
+   *   sad   = 五段失望 wobble (60-50-30-40-30 ms),較長表達「失落」
+   */
+  private triggerHaptic(type: 'happy' | 'sad'): void {
+    if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
+    // 尊重 prefers-reduced-motion (a11y),跟 screen shake 同 policy
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const pattern: number[] = type === 'happy'
+      ? [40, 30, 40]
+      : [60, 50, 30, 40, 30];
+    try {
+      navigator.vibrate(pattern);
+    } catch {
+      // 某些 browser 在沒 user gesture 時會 throw,silent fail OK
+    }
   }
 
   /**
