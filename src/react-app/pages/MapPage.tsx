@@ -287,15 +287,12 @@ export default function MapPage() {
   }, [lessons.length]);
 
   // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
+  // v2.0.B.292 NUCLEAR TEST: 砍虛擬化 visEnd, 但保留 visStart 給 visibleLesson (chapter 偵測).
   const NODE_PITCH = 84;
-  const VIEWPORT_H = typeof window !== 'undefined' ? window.innerHeight : 800;
   const NODES_TOP_OFFSET = 220; // sticky HUD + chapter header 預估高度
   const BUFFER = 5;
   const adjScroll = Math.max(0, scrollY - NODES_TOP_OFFSET);
   const visStart = Math.max(0, Math.floor(adjScroll / NODE_PITCH) - BUFFER);
-  const visEnd = stream.length === 0
-    ? 0
-    : Math.min(stream.length, Math.ceil((adjScroll + VIEWPORT_H) / NODE_PITCH) + BUFFER);
 
   // Dynamic chapter header: aggregate 時跟著 visible 第一顆 lesson 的章節 (skip chest 找下一個 lesson)
   const visibleLesson = stream.slice(visStart).find(s => s.kind === 'lesson');
@@ -613,8 +610,12 @@ export default function MapPage() {
           </div>
 
           {/* v2.0.B.270 virtualization + chest interleave: 每 5 lesson 一個 🎁 寶箱 */}
-          {stream.slice(visStart, visEnd).map((item, localIdx) => {
-            const i = visStart + localIdx;
+          {/* v2.0.B.292 NUCLEAR TEST: 砍虛擬化, render 全部 stream nodes.
+              9+ patch 失敗後決定性測試 — 若跳消失 = 虛擬化 mount/unmount 是 root.
+              若仍跳 = browser inherent issue (WebKit Bug #297779 等), 接受 platform 限制.
+              MapNode 已 React.memo + props 穩定, scroll 期間 0 re-render, 260 node DOM ~50KB. */}
+          {stream.map((item, localIdx) => {
+            const i = localIdx;
             const slot = getNodeSlot(i);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
