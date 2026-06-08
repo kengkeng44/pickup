@@ -95,15 +95,13 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
           </div>
         </div>
 
-        {/* Section header */}
-        <div style={{ fontSize: 14, fontWeight: 900, color: '#3d8aae', marginTop: 6 }}>
-          重點語句
-        </div>
+        {/* v2.0.B.286: 砍中文 section header「重點語句」— 上方 Key Sentences title 已 self-evident
+            user: 「書封點進去有一個重要金句 要改成英文」 */}
 
         {/* Sentence bubbles */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {narrations.length === 0 ? (
-            <div style={{ padding: 20, textAlign: 'center', color: '#7a6850', fontSize: 13 }}>本章尚無 narration 語句</div>
+            <div style={{ padding: 20, textAlign: 'center', color: '#7a6850', fontSize: 13 }}>No key sentences yet</div>
           ) : narrations.map(q => (
             <div
               key={q.id}

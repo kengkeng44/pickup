@@ -162,21 +162,27 @@ function MuteToggleBtn() {
     <button
       onClick={() => setMuted(toggleMuted())}
       aria-label={muted ? '取消靜音 / Unmute' : '靜音 / Mute (適合哄睡場景)'}
-      title={muted ? '取消靜音 / Unmute' : '靜音 / Mute'}
+      title={muted ? 'Unmute' : 'Mute'}
       style={{
-        // v2.0.B.251: terra red #c84a3a 是 Pickup 錯誤色,拿來標 mute setting 會跟「答錯」語意衝突。
-        // 改用 warm sand bg #f0e6d8 + warm taupe border #8b6f4a (跟 ✕ 同色) — 純設定狀態,不警告。
+        // v2.0.B.286: 統一用 icon-speaker.webp (user-generated, 跟 KeySentencesSheet 同 icon)
+        // mute 狀態: opacity 0.4 + 紅斜線 overlay 表示靜音, 而非 🔇 emoji
         background: muted ? '#f0e6d8' : 'transparent',
         border: muted ? '2px solid #8b6f4a' : '2px solid transparent',
-        fontSize: 22, color: muted ? '#5d4a32' : '#8b6f4a',
-        // emoji cross-OS fallback chain 強制走彩色 emoji font,避免 Windows Chrome 走 Segoe UI Symbol 黑白
-        fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", system-ui',
         cursor: 'pointer', width: 44, height: 44, padding: 0,
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
         borderRadius: 12, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        position: 'relative',
       }}
     >
-      {muted ? '🔇' : '🔊'}
+      <img src="/mascots/icon-speaker.webp" width={26} height={26} alt="" style={{ display: 'block', opacity: muted ? 0.35 : 0.85 }} />
+      {muted && (
+        <span aria-hidden="true" style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 30, color: '#c84a3a', fontWeight: 900, lineHeight: 1,
+          transform: 'rotate(-20deg)', pointerEvents: 'none',
+        }}>/</span>
+      )}
     </button>
   );
 }

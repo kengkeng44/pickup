@@ -91,13 +91,18 @@ export default function ChapterIntroPage() {
       <button
         onClick={() => speak(introZh, 'zh-TW')}
         disabled={!introZh}
+        aria-label="Replay intro"
         style={{
           marginTop: 8, width: '100%', padding: '8px 0',
           background: 'transparent', color: '#8b6f4a',
           border: 'none', fontSize: 12, fontWeight: 700,
           cursor: 'pointer', fontFamily: 'inherit',
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6,
         }}
-      >🔊 重聽介紹</button>
+      >
+        {/* v2.0.B.286: 統一用 icon-speaker.webp + 砍中文 "重聽介紹" 文字 */}
+        <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ opacity: 0.7 }} />
+      </button>
     </div>
   );
 }
