@@ -169,7 +169,7 @@ function computeCatPosition(currentNodeIdx: number): { x: number; y: number } | 
 }
 
 // ─── HUD icon ──────────────────────────────────────────────────────────────
-function HudIcon({ src, value, valueColor, width = 24, ariaLabel, onClick, progress, filter }: {
+function HudIcon({ src, value, valueColor, width = 22, ariaLabel, onClick, progress, filter }: {
   src: string; value: string; valueColor: string; width?: number; ariaLabel: string;
   onClick: () => void; progress?: number; filter?: string;
 }) {
@@ -179,9 +179,10 @@ function HudIcon({ src, value, valueColor, width = 24, ariaLabel, onClick, progr
       aria-label={ariaLabel}
       style={{
         background: 'transparent', border: 'none', cursor: 'pointer',
-        // v2.0.B.187 P1-D: tap area 38→48px senior thumb 友好
-        padding: '12px 10px', borderRadius: 10, fontFamily: 'inherit',
-        minWidth: 48, minHeight: 48,
+        // v2.0.B.269: HUD 縮窄 — padding 12x10→6x8, minHeight 48→38, width 24→22
+        // user: 「上面四個弄窄一點」, 但 tap area 仍維持 38px (>= HIG 32px floor)
+        padding: '6px 8px', borderRadius: 10, fontFamily: 'inherit',
+        minWidth: 38, minHeight: 38,
         touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
         display: 'flex', alignItems: 'center',
       }}
@@ -347,13 +348,17 @@ export default function MapPage() {
           改 position: fixed + max-width 480 inner wrapper 保證固定 */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        background: COLOR_BG,
+        // v2.0.B.269: HUD bar 顏色從 cream COLOR_BG 改 warm taupe #e8dec8
+        // user: 「換個顏色 不要太顯眼」, taupe = sophisticated earth tone (Bejamas/Figma 建議)
+        // 比 cream #fef8ed 暗 1 階, 跟頁面有微微區分但不跳出來
+        background: '#e8dec8',
+        borderBottom: '1px solid #d4c4a0',
       }}>
       <div style={{
         maxWidth: 480, margin: '0 auto',
-        padding: 'max(14px, env(safe-area-inset-top)) 14px 4px',
+        padding: 'max(6px, env(safe-area-inset-top)) 10px 2px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        gap: 4,
+        gap: 2,
       }}>
         <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
         <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
@@ -365,8 +370,8 @@ export default function MapPage() {
       </div>
       </div>
 
-      {/* v2.0.B.268: Spacer offset for fixed HUD (60) + book cover (80) = 140px chrome */}
-      <div style={{ height: 'calc(150px + env(safe-area-inset-top))' }} aria-hidden="true" />
+      {/* v2.0.B.269: Spacer offset — HUD 縮成 50 + 書封 70 = 120px chrome (從 150 → 130) */}
+      <div style={{ height: 'calc(130px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
@@ -414,11 +419,11 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.268: Chapter book-cover fixed 第二層 (top: HUD 高 ~70px) */}
+      {/* v2.0.B.269: Chapter book-cover fixed 第二層 (top: HUD 縮窄後 ~50px) */}
       <div style={{
-        position: 'fixed', top: 'calc(70px + env(safe-area-inset-top))',
+        position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
         left: 0, right: 0, zIndex: 99,
-        background: COLOR_BG,
+        background: '#e8dec8',
         padding: '4px 14px 10px',
       }}>
       <div style={{
