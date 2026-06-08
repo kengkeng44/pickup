@@ -186,11 +186,34 @@ export class Mascot {
     this.clearOneShot();
     this.inner.classList.remove('mascot-idle', 'mascot-happy', 'mascot-sad');
     this.inner.classList.add(`mascot-${anim}`);
+
+    // v2.0.B.260 Lv 5: 跟動 screen shake (整個畫面震一下)
+    if (anim === 'happy' || anim === 'sad') {
+      this.triggerScreenShake(anim);
+    }
+
     if (anim !== 'idle') {
       this.oneShotTimer = window.setTimeout(() => {
         this.setAnim('idle');
       }, ONE_SHOT_MS);
     }
+  }
+
+  /**
+   * v2.0.B.260: 短暫加 class 到 #app(或 body fallback)觸發 screen shake
+   * 動畫 keyframe 定義在 style.css (.app-shake-happy / .app-shake-sad)。
+   * Force reflow 確保連續答題每次都能重新觸發,respect 已在 CSS @media 處理。
+   */
+  private triggerScreenShake(type: 'happy' | 'sad'): void {
+    const root: HTMLElement = document.getElementById('app') ?? document.body;
+    root.classList.remove('app-shake-happy', 'app-shake-sad');
+    // Force reflow so removing + re-adding triggers a fresh animation cycle
+    void root.offsetWidth;
+    root.classList.add(`app-shake-${type}`);
+    const dur = type === 'happy' ? 400 : 550;
+    window.setTimeout(() => {
+      root.classList.remove(`app-shake-${type}`);
+    }, dur + 60);
   }
 
   /**

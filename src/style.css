@@ -522,6 +522,37 @@ button:focus-visible {
   100% { transform: translateY(0)    scale(1)    rotate(0deg); }
 }
 
+/* ─── v2.0.B.260: Screen shake (整個畫面跟著震) ─────────────────────────────
+   Lv 5: happy 短促向上跳 + sad 左右 wobble,respect prefers-reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  #app.app-shake-happy,
+  body.app-shake-happy {
+    animation: app-shake-happy 0.4s ease-out 1;
+  }
+  #app.app-shake-sad,
+  body.app-shake-sad {
+    animation: app-shake-sad 0.55s ease-in-out 1;
+  }
+}
+
+@keyframes app-shake-happy {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-6px); }
+  50%  { transform: translateY(2px); }
+  75%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes app-shake-sad {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-3px); }
+  30% { transform: translateX(3px); }
+  45% { transform: translateX(-2.5px); }
+  60% { transform: translateX(2.5px); }
+  75% { transform: translateX(-1.5px); }
+  90% { transform: translateX(1.5px); }
+}
+
 /* Pupils dilate on happy, droop on sad */
 .mascot-happy .mascot-pupil {
   transform: translateY(-1px) scale(1.15);
