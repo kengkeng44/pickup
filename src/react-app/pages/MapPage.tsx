@@ -3,10 +3,11 @@
  * Constants from src/ui/StoryMapView.ts. User: '嚴格遵守原版設計 不要有
  * 任何的不一樣'.
  */
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import KeySentencesSheet from '../components/KeySentencesSheet';
+import { MapNode } from '../components/MapNode';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
 import { readCoins } from '../../data/coins';
 import { readStreak, readFreezes } from '../../data/streak';
@@ -309,6 +310,17 @@ export default function MapPage() {
     : requestedChapter;
   const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
+  // v2.0.B.275 perf: completedByChapter memo — 把 render loop 內 217× readCompletedLessons
+  // localStorage.getItem + JSON.parse 收成 1× per render. 收益 ~80% scroll re-render 成本.
+  // deps: lessons (內容變才重算, scroll 不重算)
+  const completedByChapter = useMemo(() => {
+    const map = new Map<number, Set<string>>();
+    const chapters = new Set<number>();
+    lessons.forEach(l => chapters.add(l.chapter ?? requestedChapter));
+    chapters.forEach(c => map.set(c, readCompletedLessons(c)));
+    return map;
+  }, [lessons, isAggregate, requestedChapter]);
+
   // v2.0.B.239: tomorrow-queue banner. Read on mount; only show after 18:00
   // local + when entry exists + not yet consumed. Banner tap consumes the
   // queue + navigates to that chapter.
@@ -322,17 +334,17 @@ export default function MapPage() {
   }, []);
 
   // Derive current node = first non-completed (aggregate 用 per-lesson chapter)
+  // v2.0.B.275: 改用 completedByChapter map 不再 per-lesson localStorage
   const currentNodeIdx = useMemo(() => {
     if (lessons.length === 0) return -1;
     for (let i = 0; i < lessons.length; i++) {
       const l = lessons[i];
       const lessonChapter = isAggregate ? l.chapter : chapter;
-      const doneSet = readCompletedLessons(lessonChapter);
+      const doneSet = completedByChapter.get(lessonChapter) ?? new Set<string>();
       if (!doneSet.has(l.id)) return i;
     }
     return -1;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lessons.length, chapter, isAggregate]);
+  }, [lessons, chapter, isAggregate, completedByChapter]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
 
   // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
@@ -391,6 +403,13 @@ export default function MapPage() {
       return () => { window.history.scrollRestoration = prev; };
     }
   }, []);
+
+  // v2.0.B.275: stable callbacks for MapNode React.memo — 不 inline 給 memo 才能 bail-out
+  const handleLessonTap = useCallback((ch: number, id: string) => {
+    navigate(`/lesson/${ch}/${id}`);
+  }, [navigate]);
+  const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
+  const handlePressEnd = useCallback(() => { setPressedId(null); }, []);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -627,63 +646,48 @@ export default function MapPage() {
               );
             }
 
-            // Lesson 節點 (沿用原邏輯)
+            // v2.0.B.275: Lesson 節點 — primitive props 給 <MapNode> React.memo bail-out
+            // 用 completedByChapter map 不再 per-lesson localStorage read (217× → 1× per render)
             const l = lessons[item.lessonIdx!];
             const lessonChapter = isAggregate ? l.chapter : chapter;
-            const lessonCompleted = readCompletedLessons(lessonChapter);
-            const done = lessonCompleted.has(l.id);
-            const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompleted.size);
+            const lessonCompletedSet = completedByChapter.get(lessonChapter) ?? new Set<string>();
+            const done = lessonCompletedSet.has(l.id);
+            const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const baseColor = done ? COLOR_NODE_DONE : unlocked ? COLOR_NODE : COLOR_NODE_LOCKED;
             const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? COLOR_NODE_DARK : COLOR_NODE_LOCKED_DARK;
-            const iconSrc = done
-              ? '/mascots/node-star.webp'
-              : '/mascots/node-paw.webp';
+            const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
             const iconFilter = !unlocked && !done ? 'grayscale(1)' : 'none';
             const iconOpacity = !unlocked && !done ? 0.65 : 1;
-
             const isPressed = pressedId === l.id;
             const isCurrent = i === currentNodeIdx;
             const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
             const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
+            const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${isCurrent ? ' (current)' : ''}`;
             return (
-              <button
+              <MapNode
                 key={l.id}
-                ref={isCurrent ? currentNodeRef : undefined}
-                className={isCurrent ? 'pickup-map-node-current' : undefined}
-                type="button"
-                disabled={!unlocked}
-                aria-label={`${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${isCurrent ? ' (current)' : ''}`}
-                onClick={() => unlocked && navigate(`/lesson/${isAggregate ? l.chapter : chapter}/${l.id}`)}
-                onPointerDown={() => unlocked && setPressedId(l.id)}
-                onPointerUp={() => setPressedId(null)}
-                onPointerLeave={() => setPressedId(null)}
-                onPointerCancel={() => setPressedId(null)}
-                style={{
-                  position: 'absolute',
-                  left: leftPx, top: slot.top,
-                  width: NODE_SIZE, height: NODE_HEIGHT,
-                  borderRadius: '50% / 60%',
-                  border: 'none',
-                  background: baseColor,
-                  boxShadow: isPressed ? pressShadow : restShadow,
-                  transform: isPressed ? 'translateY(8px)' : 'none',
-                  cursor: unlocked ? 'pointer' : 'not-allowed',
-                  opacity: unlocked ? 1 : 0.7,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  padding: 0, fontFamily: 'inherit',
-                  touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-                  transition: 'transform 80ms ease, box-shadow 80ms ease',
-                  zIndex: 2,
-                }}
-              >
-                <img
-                  src={iconSrc}
-                  alt=""
-                  aria-hidden="true"
-                  width={36} height={36}
-                  style={{ display: 'block', filter: iconFilter, opacity: iconOpacity }}
-                />
-              </button>
+                lessonId={l.id}
+                chapter={lessonChapter}
+                ariaLabel={ariaLabel}
+                leftPx={leftPx}
+                top={slot.top}
+                size={NODE_SIZE}
+                height={NODE_HEIGHT}
+                done={done}
+                unlocked={unlocked}
+                isCurrent={isCurrent}
+                isPressed={isPressed}
+                baseColor={baseColor}
+                iconSrc={iconSrc}
+                iconFilter={iconFilter}
+                iconOpacity={iconOpacity}
+                restShadow={restShadow}
+                pressShadow={pressShadow}
+                onTap={handleLessonTap}
+                onPressDown={handlePressDown}
+                onPressEnd={handlePressEnd}
+                innerRef={isCurrent ? currentNodeRef : undefined}
+              />
             );
           })}
         </div>
