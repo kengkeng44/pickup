@@ -294,11 +294,21 @@ export default function MapPage() {
   const adjScroll = Math.max(0, scrollY - NODES_TOP_OFFSET);
   const visStart = Math.max(0, Math.floor(adjScroll / NODE_PITCH) - BUFFER);
 
-  // Dynamic chapter header: aggregate 時跟著 visible 第一顆 lesson 的章節 (skip chest 找下一個 lesson)
+  // v2.0.B.294 chapter debounce: 之前 chapter 直接 scroll-derived 每 render 都重算,
+  // 快速滑過多章節時 book cover 字+色快速 swap = user 看到的「閃動」.
+  // 改用 idleChapter state, 只在 scroll idle 150ms 後 update, 滑動中 book cover 凍住不變.
   const visibleLesson = stream.slice(visStart).find(s => s.kind === 'lesson');
-  const chapter = isAggregate && visibleLesson?.lessonIdx !== undefined && lessons[visibleLesson.lessonIdx]
+  const candidateChapter = isAggregate && visibleLesson?.lessonIdx !== undefined && lessons[visibleLesson.lessonIdx]
     ? lessons[visibleLesson.lessonIdx].chapter
     : requestedChapter;
+  const [idleChapter, setIdleChapter] = useState(requestedChapter);
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      if (candidateChapter !== idleChapter) setIdleChapter(candidateChapter);
+    }, 150);
+    return () => window.clearTimeout(t);
+  }, [candidateChapter, idleChapter]);
+  const chapter = idleChapter;
   const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
   // v2.0.B.275 perf: completedByChapter memo — 把 render loop 內 217× readCompletedLessons
@@ -458,8 +468,13 @@ export default function MapPage() {
             cursor: 'pointer',
             fontFamily: 'inherit',
             touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-            // v2.0.B.288: 砍 transition — chapter 切換時 400ms CSS transition 會在 fixed
-            // wrapper 內持續 repaint, iOS Safari 已知 issue 會引起 scroll jitter (jump)
+            // v2.0.B.294 force compositor layer: 把 book cover 隔離成獨立 paint layer,
+            // chapter 切換時 bg/text 變化只 repaint 這層, 不影響 260 個 button + body scroll context.
+            // 業界對「fixed header content swap flicker」的 standard fix (Surma / Apple Dev Forum).
+            transform: 'translateZ(0)',
+            willChange: 'auto',
+            contain: 'paint' as const,
+            backfaceVisibility: 'hidden' as const,
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
