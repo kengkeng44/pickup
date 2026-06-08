@@ -405,19 +405,12 @@ export default function MapPage() {
   const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
   const handlePressEnd = useCallback(() => { setPressedId(null); }, []);
 
-  // v2.0.B.277 一勞永逸: HUD + 書封 合併單一 fixed wrapper, spacer 動態量高度
-  // 不再靠 hardcoded `top: calc(50px + ...)` (HUD 實際 ~96px on iOS notch → 書封被切)
+  // v2.0.B.288 root simplify: 砍 ResizeObserver + 動態 chromeHeight
+  // 根因 5+ 次「滑中突然跳」: ResizeObserver 在 chapter 切換 CSS transition 期間
+  // 偶發 fire (sub-pixel paint 變動), setChromeHeight → React re-render → spacer 改 →
+  // content shift = user 看到的 jump. 改 static spacer height 杜絕 reflow loop.
+  // chromeRef 留著 ref binding 兼容, 不再 observe.
   const chromeRef = useRef<HTMLDivElement>(null);
-  const [chromeHeight, setChromeHeight] = useState(140);
-  useEffect(() => {
-    const el = chromeRef.current;
-    if (!el || typeof ResizeObserver === 'undefined') return;
-    const ro = new ResizeObserver(entries => {
-      for (const e of entries) setChromeHeight(Math.ceil(e.contentRect.height));
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -468,7 +461,8 @@ export default function MapPage() {
             cursor: 'pointer',
             fontFamily: 'inherit',
             touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-            transition: 'background 0.4s ease, box-shadow 0.4s ease',
+            // v2.0.B.288: 砍 transition — chapter 切換時 400ms CSS transition 會在 fixed
+            // wrapper 內持續 repaint, iOS Safari 已知 issue 會引起 scroll jitter (jump)
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -488,9 +482,9 @@ export default function MapPage() {
         </button>
       </div>
 
-      {/* v2.0.B.277: spacer = chrome 實量高度 (ResizeObserver). HUD 改高 / 書封換 layout
-          都自動跟, 不會再切 */}
-      <div style={{ height: chromeHeight }} aria-hidden="true" />
+      {/* v2.0.B.288 static spacer: HUD ~50 + 書封 ~80 (B.283 加厚後) + 留 padding ≈ 140
+          + iOS safe-area-inset-top. 動態 ResizeObserver 已砍 (jitter 源) */}
+      <div style={{ height: 'calc(140px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
