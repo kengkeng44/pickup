@@ -10,6 +10,7 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
+import InfiniteMapPage from './pages/InfiniteMapPage';
 import ProfilePage from './pages/ProfilePage';
 import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
@@ -74,8 +75,10 @@ export default function App() {
       <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
         <Suspense fallback={<LoadingShell />}>
           <Routes>
-            {/* v2.0.B.262: '/' 從 MapPage 改 ChaptersPage (31 顆章節地圖 + progression unlock) */}
-            <Route path="/" element={<ChaptersPage />} />
+            {/* v2.0.B.265: '/' 改 InfiniteMapPage 無限蜿蜒地圖 (217 lesson 節點)
+                /chapters → ChaptersPage 圖鑑 grid (從 nav 進)
+                /map → MapPage 7-lesson chapter detail (從 ChapterIntroPage 進) */}
+            <Route path="/" element={<InfiniteMapPage />} />
             <Route path="/map" element={<MapPage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
             <Route path="/chapter/:chapter/intro" element={<ChapterIntroPage />} />
