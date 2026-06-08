@@ -41,10 +41,10 @@
         overscroll-behavior-y: none;
         /* v2.0.B.290 ROOT FIX: 全域關 scroll anchoring. */
         overflow-anchor: none;
-        /* v2.0.B.291 user feature「坐到哪一個按鈕維持中間 大概就好」:
-           scroll-snap-type: y proximity = 軟性 snap, scroll 停下來時若離某 snap target 近就 snap.
-           僅 MapNode 設 scroll-snap-align: center, 其他 page 無 snap target = 無 snap 行為. */
-        scroll-snap-type: y proximity;
+        /* v2.0.B.293 REVERT B.291: scroll-snap proximity 在 260 顆 dense snap target
+           (每 84px 一個) 上 browser 不斷 micro-snap → user 看到「閃動」.
+           砍 scroll-snap, 接受「坐到中間」feature 對這個架構不可行 (snap target 太密).
+           若未來真要這 feature → 只在 chapter boundary (每 7 node) 加 snap-align, 31 個 target 足夠. */
       }
 
       /* v2.0.B.165: tear-intro removed. React mounts immediately. */

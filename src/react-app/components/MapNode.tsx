@@ -74,9 +74,7 @@ function MapNodeImpl({
         touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
         transition: 'transform 80ms ease, box-shadow 80ms ease',
         zIndex: 2,
-        // v2.0.B.291: scroll-snap target — 配 html `scroll-snap-type: y proximity`
-        // 用戶滑動 + 停下時若離某 node 近, browser 軟 snap 該 node 到 viewport 中央
-        scrollSnapAlign: 'center',
+        /* v2.0.B.293 REVERT B.291: scroll-snap-align 砍, 在 260 dense target 上 = 閃動源 */
       }}
     >
       <img
