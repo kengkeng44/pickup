@@ -590,6 +590,29 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
     </div>
   </section>
 
+  <!-- v2.0.B.cron-content-1805: Architecture Recommendations (業界 2026 掃描結果) -->
+  <section style="background:var(--card);border:2px solid #7d9a4f;border-radius:16px;padding:16px;margin-bottom:18px;">
+    <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 Architecture Recommendations <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">業界 2026 掃描</span></h2>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 content-cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 你決定要不要動.</div>
+
+    <div style="background:#f0f7ea;border:1.5px solid #7d9a4f;border-radius:12px;padding:12px 14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #1 (2026-06-08) — S · 50min · ROI ⭐⭐⭐</div>
+      <div style="font-size:14px;font-weight:900;margin-bottom:6px;">validate-lessons.js 加 R2 length-ratio lint + pickup-item-writer prompt 加長度約束</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
+        <b>業界根據</b>: arxiv 2603.12826 / 2605.01846 (2025–2026): LLM-generated MCQ 的 correct option 因 precision 需求系統性偏長 — "longest option = correct" 是業界已確認的 AI 生成偏差. 業界推薦在 gen pipeline 加 length similarity filter.<br>
+        <b>Pickup 現狀</b>: 581 MC 題中 <b>37% (220 題)</b> correct = longest, 46% R2 ratio>1.5 — 8歲小孩 3 課後就學會「選最長的」. 不需要英文能力.<br>
+        <b>修法</b>: ① tools/validate-lessons.js 加 R2 check (ratio>1.5 WARN / >2.0 ERR) ~15 行; ② content prompt 加 "all 4 options must be 12-22 chars" clause
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">📁 <code>tools/validate-lessons.js</code> + <code>docs/skills/pickup-item-writer.md</code> · 來源: content-cron 2026-06-08T1805 角度#2 R2</div>
+      <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master, 接 content-cron 2026-06-08T1805 ARCH-REC #1:\n\n【背景】581 MC 題中 37% correct=longest option — 8歲小孩 3課後學會「選最長」bypass comprehension\n業界根據: LLM MCQ 生成 length bias 已確認 (arxiv 2603.12826, 2605.01846)\n\n【兩個修法，都 S size】\n\n1. tools/validate-lessons.js 加 R2 lint:\n   - 在現有 R1_SUBSTRING check 後面加 ratio check\n   - 計算 max(len(opts)) / min(len(opts))\n   - ratio > 1.5 → WARN X4_LENGTH_DISPARITY\n   - ratio > 2.0 → ERR X4_LENGTH_SEVERE\n   - 從現有 WARN 架構延伸 (不 break build for 1.5, break for 2.0 opt-in)\n\n2. 找到 content generation prompt doc (pickup-item-writer skill 或 docs/ 下的 prompt template)\n   加一條: "All 4 options must be approximately equal in length (12–22 characters each). If the correct answer phrase is longer, paraphrase it to fit. If a distractor is shorter, add 1 plausible modifier word."\n\n先 Read tools/validate-lessons.js 了解現有 lint 結構再動').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
+    <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
+      最壞情境: 不修 → 所有 AI 生成的新章節都繼承 A5 tell → content-cron 每次都抓到同樣問題 → 越補越多.<br>
+      已評估不適合的做法: LLM distractor scoring API (L 1wk+) / optionsFailureMode tagging (defer v2.1).
+    </div>
+  </section>
+
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
   <section class="pending-todos">
     <h2>📌 一次性 Todos</h2>
@@ -683,7 +706,7 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 </main>
 
 <footer>
-  v1.2 · React Pickup v2.0.B.257 · 1-tap Copy · Build with Claude Code · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.3 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC added · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
