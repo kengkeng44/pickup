@@ -373,14 +373,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }}>章節完成 → 明晚聽什麼? · Pick next story →</button>
+        }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
       ) : (
         <button onClick={onBack} style={{
           padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
           borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }}>完成 · Continue →</button>
+        }} aria-label="完成 Continue">→</button>
       )}
 
       {/* v2.0.B.234 wiring: soft notification consent prompt — only renders

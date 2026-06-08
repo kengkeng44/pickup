@@ -790,7 +790,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           borderBottom: '4px solid #b07a2a', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }}>聽 Mochi 的故事 →</button>
+        }} aria-label="聽 Mochi 的故事">→</button>
       </div>
     );
   }

@@ -43,17 +43,17 @@ export default function BottomNav() {
               fontFamily: 'inherit',
             }}
           >
+            {/* v2.0.B.282 icon-only nav — 砍 label, icon 已 self-evident, aria-label 留中文給 SR */}
             {tab.emoji ? (
               <div style={{
-                width: 28, height: 28, margin: '0 auto 2px',
+                width: 32, height: 32, margin: '0 auto',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 22, lineHeight: 1,
+                fontSize: 26, lineHeight: 1,
                 opacity: active ? 1 : 0.55,
               }}>{tab.emoji}</div>
             ) : (
-              <img src={tab.icon} width={28} height={28} alt="" style={{ display: 'block', margin: '0 auto 2px', opacity: active ? 1 : 0.55 }} />
+              <img src={tab.icon} width={32} height={32} alt="" style={{ display: 'block', margin: '0 auto', opacity: active ? 1 : 0.55 }} />
             )}
-            <div style={{ fontSize: 10, fontWeight: 800, color: active ? '#9b5a1f' : '#8b6f4a', letterSpacing: 0.5 }}>{tab.label}</div>
           </button>
         );
       })}

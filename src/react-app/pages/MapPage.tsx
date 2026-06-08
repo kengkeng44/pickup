@@ -57,7 +57,6 @@ const COLOR_NODE_DONE_DARK = '#5e7a36';
 const COLOR_NODE_LOCKED = '#c4b89c';
 const COLOR_NODE_LOCKED_DARK = '#a89c80';
 const COLOR_TEXT_DARK = '#3c2a1c';
-const COLOR_TEXT_MUTED = '#7a6850';
 const NODE_SIZE = 82;
 const NODE_HEIGHT = 64;
 const CONTAINER_W = 320;
@@ -477,15 +476,9 @@ export default function MapPage() {
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
-            {/* v2.0.B.280 EN-only chrome: 砍中文 "第 N 章" 重複; titleZh 視為故事 metadata 留下 (italic 副標) */}
-            <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.82)' }}>
-              Section {chapter}
-            </div>
-            <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {/* v2.0.B.282 只留英文標題 — Section N + 中文副標都砍, 章節定位靠地圖區段感 + 地圖 scroll context */}
+            <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {meta.titleEn}
-            </div>
-            <div style={{ fontSize: 11, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {meta.titleZh}
             </div>
           </div>
           <span aria-hidden="true" style={{
@@ -551,9 +544,14 @@ export default function MapPage() {
 
       {/* Map column — fixed 320 wide, centered, scrollable */}
       {loading ? (
-        <div style={{ textAlign: 'center', padding: 40, color: COLOR_TEXT_MUTED }}>Loading…</div>
+        // v2.0.B.282: Loading 用 paw pulse, Coming soon 用 Mochi bounce — animation 取代文字
+        <div style={{ textAlign: 'center', padding: 60 }}>
+          <img src="/mascots/node-paw.webp" width={56} height={56} alt="" className="pickup-pulse" style={{ display: 'inline-block' }} />
+        </div>
       ) : lessons.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: 40, color: COLOR_TEXT_MUTED }}>Coming soon</div>
+        <div style={{ textAlign: 'center', padding: 60 }}>
+          <img src="/mascots/calico-anchor.webp" width={96} height={96} alt="" className="pickup-bounce" style={{ display: 'inline-block', borderRadius: '50%' }} />
+        </div>
       ) : (
         <div style={{
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',

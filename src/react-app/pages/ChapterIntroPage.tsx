@@ -85,7 +85,8 @@ export default function ChapterIntroPage() {
           fontSize: 17, fontWeight: 900, letterSpacing: 1,
           cursor: 'pointer', fontFamily: 'inherit',
         }}
-      >開始章節 · Begin →</button>
+        aria-label="開始章節 Begin"
+      >→</button>
 
       <button
         onClick={() => speak(introZh, 'zh-TW')}
