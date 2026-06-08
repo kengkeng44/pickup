@@ -235,11 +235,26 @@ export default function MapPage() {
   // user: 「往下滑再載入就好 不然一個頁面會太大 (這叫什麼技術 你上網查一下照著用)」
   // → 標準 windowing / virtualization 技術: 只 render viewport ± buffer 內的 node
   // 容器高度 = lessons.length × NODE_PITCH 保 scrollbar 精準
+  // v2.0.B.274 perf: rAF throttle — passive scroll 60fps 直接 setState 會 trigger
+  // 每 frame full re-render (260 nodes + readCompletedLessons localStorage 讀)
+  // 是 jank 主源也是 jump-to-top 根因之二 (re-render→layout→trigger 其他 effect)
   const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
+    let rafId = 0;
+    let pending = false;
+    const onScroll = () => {
+      if (pending) return;
+      pending = true;
+      rafId = requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+        pending = false;
+      });
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
@@ -247,6 +262,18 @@ export default function MapPage() {
   // v2.0.B.272: 整張書封 click toggle 金句集錦 (user: 「書封點進去應該是金句集錦」)
   // 再點書封 = 關 sheet 回地圖 (toggle 而非僅 open)
   const [showKeySheet, setShowKeySheet] = useState(false);
+  // v2.0.B.274: 寶箱開啟 state (取代原本 localStorage.reload nuclear path)
+  // 初始化 lazy 一次掃 localStorage 取已開 chest indices, 之後 state-only
+  const [openedChests, setOpenedChests] = useState<Set<number>>(() => {
+    const s = new Set<number>();
+    try {
+      for (let i = 0; i < 500; i += 5) {
+        if (localStorage.getItem(`pickup.chest.${i}.opened`) === '1') s.add(i);
+      }
+    } catch {}
+    return s;
+  });
+  const [, setChestTick] = useState(0);
   // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
   const currentNodeRef = useRef<HTMLButtonElement | null>(null);
   // v2.0.B.232 招 1: read persistent daily streak + freeze count from
@@ -335,23 +362,35 @@ export default function MapPage() {
     }
   }, [chapter, isAggregate]);
 
-  // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view
-  // when lesson list ready. Senior 玩家完 lesson 回 map 直接看到下一個目標
-  // (vs 之前 24 個 node 中自己滑找)。300ms 等 layout settle + sticky header
-  // calc offset。
+  // v2.0.B.193 (Walkthrough P1-B): scroll current-unlocked node into view 一次
+  // v2.0.B.274 fix: 移除 currentNodeIdx 從 deps + 加 hasAutoScrolledRef + scrollY guard
+  // 根因: B.266 aggregate mode 後 currentNodeIdx 變 scrollY-derived, 一滑就 re-fire
+  // scrollIntoView 把畫面拉回 = user 體感「滑一下自動跳回最上面」
+  const hasAutoScrolledRef = useRef(false);
   useEffect(() => {
-    if (!loading && currentNodeIdx >= 0 && currentNodeRef.current) {
-      const t = window.setTimeout(() => {
+    if (loading) return;
+    if (hasAutoScrolledRef.current) return;
+    // 若 user 已滑開 (>80px), 視為手動操作, 永遠不再 auto-scroll
+    if (window.scrollY > 80) { hasAutoScrolledRef.current = true; return; }
+    const t = window.setTimeout(() => {
+      if (currentNodeIdx >= 0 && currentNodeRef.current && window.scrollY < 80) {
         try {
-          currentNodeRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
+          currentNodeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } catch {}
-      }, 300);
-      return () => window.clearTimeout(t);
+      }
+      hasAutoScrolledRef.current = true;
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, [loading]);
+
+  // v2.0.B.274: 關掉瀏覽器 scroll restoration, 自己控 (router nav 也不要 bounce 回頂)
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      const prev = window.history.scrollRestoration;
+      window.history.scrollRestoration = 'manual';
+      return () => { window.history.scrollRestoration = prev; };
     }
-  }, [loading, currentNodeIdx]);
+  }, []);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -544,9 +583,11 @@ export default function MapPage() {
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
             // v2.0.B.271: 寶箱 — 純 🎁 emoji, 無按鈕 chrome (user: 「寶箱不要用按鈕 直接用那個寶箱」)
+            // v2.0.B.274 fix: 不再 window.location.reload() — 用 chestTick state 觸發 re-render
+            // 保留 scroll position, 避免被當成跳頂主源
             if (item.kind === 'chest') {
               const chestKey = `pickup.chest.${i}.opened`;
-              const opened = (() => { try { return localStorage.getItem(chestKey) === '1'; } catch { return false; } })();
+              const opened = openedChests.has(i);
               return (
                 <button
                   key={`chest-${i}`}
@@ -559,7 +600,8 @@ export default function MapPage() {
                       const curCoins = readCoins();
                       localStorage.setItem('pickup.coins', String(curCoins + 10));
                     } catch {}
-                    window.location.reload();
+                    setOpenedChests(prev => new Set(prev).add(i));
+                    setChestTick(t => t + 1); // trigger HUD coin re-read
                   }}
                   style={{
                     position: 'absolute',
