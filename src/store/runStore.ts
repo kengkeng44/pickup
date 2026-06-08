@@ -567,16 +567,14 @@ export function markLessonCompleted(chapter: number, lessonId: string): void {
 }
 
 export function isLessonUnlocked(
-  // `chapter` is part of the public signature for future caller clarity
-  // (e.g. "is lesson L unlocked in chapter C?") but the unlock rule is
-  // purely intra-chapter for now. Prefixed `_` to silence TS6133.
+  // 保留 signature 兼容呼叫端 (MapPage line 463 仍傳 3 個 arg)
   _chapter: number,
-  lessonInChapter: number,
-  totalCompleted: number
+  _lessonInChapter: number,
+  _totalCompleted: number
 ): boolean {
-  // v2.0.B.109: dev/preview — unlock first 10 lessons so user can jump
-  // straight to any of them for testing without grinding through L1-L9.
-  // Lessons 11+ still require completion progression.
-  if (lessonInChapter <= 10) return true;
-  return totalCompleted >= lessonInChapter - 1;
+  // v2.0.B.261: 全章 free-select (user 要求「不要按順序 要用選的」, Duolingo Stories 自選模式)
+  // 之前 (B.109): L1-10 全 unlock + L11+ 需 totalCompleted >= N-1 → 強制線性
+  // 現在: 永遠 unlock — 任 lesson 任順序可進, 推薦邏輯走章末 NextStoryPicker (B.245) 大數據引擎
+  // (recommendNextStories 用 user profile + preferences 14-dim collaborative filter)
+  return true;
 }
