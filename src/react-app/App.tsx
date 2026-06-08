@@ -71,7 +71,14 @@ export default function App() {
   }, []);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: '#fef8ed' }}>
-      <main style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' as const, paddingBottom: 64 }}>
+      {/* v2.0.B.276 ARCHITECTURE FIX: 拿掉 `overflowY: 'auto'` + `WebkitOverflowScrolling: 'touch'`.
+          舊設計把 main 設成 scroll container, 但所有 React scroll listener / scrollRestoration /
+          virtualization library / IntersectionObserver 都 default 對 window. 結果:
+          MapPage window scroll listener 永遠不 fire (window.scrollY=0 always) → 虛擬化壞掉 +
+          scrollIntoView guard 失效 + 滑一點跳頂 + 一進去畫面亂跳. 改 window scroll 為唯一 truth,
+          所有 patch 自動 work, 維護 future-proof.
+          paddingBottom: 64 留著 — CSS padding 跟 scroll 無關, BottomNav (fixed bottom:0) 仍需 clearance. */}
+      <main style={{ flex: 1, paddingBottom: 64 }}>
         <Suspense fallback={<LoadingShell />}>
           <Routes>
             {/* v2.0.B.266: '/' 還原 MapPage (user: 「參照原版地圖格式昨天前, 不要改變任何東西, 只要加按鈕即可」)
