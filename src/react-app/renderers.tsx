@@ -625,6 +625,18 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     if (side === 'left' && matched.includes(idx)) return;
     if (side === 'right' && matched.includes(rightShuffle.current[idx])) return;
     sfxCardPress();
+    // v2.0.B.280: 「塞虛擬聲音」— tap 卡讀字 (左中文 zh-TW / 右英文 en-US, force=true 略 mute)
+    // Web Speech API 是免費 placeholder, user 之後可換成 OpenAI TTS 預錄音檔
+    try {
+      if (side === 'left') {
+        speak(pairs[idx][0], 'zh-TW', { rate: 0.85, force: true });
+      } else {
+        const origIdx = rightShuffle.current[idx];
+        if (origIdx !== undefined && pairs[origIdx]) {
+          speak(pairs[origIdx][1], 'en-US', { rate: 0.85, force: true });
+        }
+      }
+    } catch {}
     if (!selected) { setSelected({ side, idx }); return; }
     if (selected.side === side) { setSelected({ side, idx }); return; }
     const leftIdx = selected.side === 'left' ? selected.idx : idx;
@@ -676,7 +688,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div>
       <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a', textAlign: 'center', marginBottom: 12 }}>
-        配對 · Match pairs
+        Match pairs
       </div>
       {/* v2.0.B.279: 2 真左右 column (中文 | 英文), 不再用 grid row-fill */}
       <div style={{ display: 'flex', gap: 10 }}>
@@ -732,7 +744,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           marginTop: 16, textAlign: 'center', fontSize: 16, color: '#5d7a30', fontWeight: 900,
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
         }}>
-          <span style={{ fontSize: 22 }}>🎉</span> 全部配對完成! <span style={{ fontSize: 22 }}>🎉</span>
+          <span style={{ fontSize: 22 }}>🎉</span> All matched! <span style={{ fontSize: 22 }}>🎉</span>
         </div>
       )}
     </div>

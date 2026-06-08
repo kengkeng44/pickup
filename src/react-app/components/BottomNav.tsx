@@ -1,15 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
-// v2.0.B.273 user directive:
-//   1. 第一條 label 「首頁」→「地圖」(label 對齊頁面內容, route / 仍 → MapPage 架構不變)
-//   2. 最右兩位置互換 — 成就↔我的, 成就移到第 4, 我的擺最後
+// v2.0.B.280 嚴格 EN-only UI rule (見 memory feedback_pickup_no_chinese_ui.md)
+// 除對話框/故事/角色 voice 外, UI 一律 EN. aria-label 保留中文 (screen reader)
 const TABS = [
-  { path: '/', label: '地圖', icon: '/mascots/node-paw.webp', emoji: null as string | null },
-  { path: '/tasks', label: '任務', icon: '/mascots/icon-star.webp', emoji: null as string | null },
-  // v2.0.B.232 招 2: 圖鑑 tab (collectible card collection)
-  { path: '/cards', label: '圖鑑', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
-  { path: '/alerts', label: '成就', icon: '/mascots/flame.webp', emoji: null as string | null },
-  { path: '/profile', label: '我的', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
+  { path: '/', label: 'Map', ariaLabel: '地圖', icon: '/mascots/node-paw.webp', emoji: null as string | null },
+  { path: '/tasks', label: 'Tasks', ariaLabel: '任務', icon: '/mascots/icon-star.webp', emoji: null as string | null },
+  { path: '/cards', label: 'Cards', ariaLabel: '圖鑑', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
+  { path: '/alerts', label: 'Trophy', ariaLabel: '成就', icon: '/mascots/flame.webp', emoji: null as string | null },
+  { path: '/profile', label: 'Me', ariaLabel: '我的', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
 ] as const;
 
 export default function BottomNav() {
@@ -32,7 +30,7 @@ export default function BottomNav() {
           <button
             key={tab.path}
             onClick={() => navigate(tab.path)}
-            aria-label={tab.label}
+            aria-label={tab.ariaLabel}
             style={{
               // v2.0.B.271: active state 改暖色系框框 (user: 「用一個暖色系框框顯示」)
               // 從原本的 borderTop line 改成 2.5px 完整框 + 淡 amber tint
