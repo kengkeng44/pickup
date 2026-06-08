@@ -639,9 +639,43 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 完整說明: docs/audits/2026-06-08T1807-ui-ux-cron.md D#1 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- code-health-cron 2026-06-08T1837 ARCH-REC #3 -->
+    <div style="border:2px solid #7d9a4f;border-radius:12px;padding:12px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#7d9a4f;margin-bottom:4px;">⭐ ARCH-REC #3 (code-health-cron 2026-06-08T1837) — S · 30min → M · 2hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">TypeScript strict mode 漸進開啟 — <code>tsconfig.json</code> + LessonScene dispatch 重構</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6;">
+        <b>業界根據</b>: TypeScript 6.0 將 <code>strict: true</code> 設為預設 (microsoft/TypeScript#62333). 2026 migration 建議: Step1 = strictNullChecks, Step2 = noImplicitAny.<br>
+        <b>Pickup 現狀</b>: tsconfig.json 缺 <code>"strict": true</code> — strictNullChecks / noImplicitAny 全 OFF. LessonScene.ts <code>renderQuestion(q: Question)</code> 已有正確型別但立刻 <code>(q as any).type</code> 拋棄型別資訊. 18個 <code>as any</code> 在 HOT PATH.<br>
+        <b>修法 Step1</b>: tsconfig.json 加 <code>"strictNullChecks": true</code> → 修約 10 個 null guard → commit. Step2: <code>switch(q.type)</code> 取代 <code>(q as any).type</code> → tsc 自動 narrow 每個 branch → 消滅 15個 downstream cast.
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">📁 <code>tsconfig.json</code> + <code>src/scenes/LessonScene.ts:702</code> + <code>src/react-app/renderers.tsx:16-45</code> · 來源: code-health-cron 2026-06-08T1837</div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 code-health-cron 2026-06-08T1837 ARCH-REC #3:
+
+目標 Step1: tsconfig.json 加 strictNullChecks
+1. 在 tsconfig.json &quot;noUnusedLocals&quot; 前面加一行: &quot;strictNullChecks&quot;: true,
+2. 跑 npx tsc --noEmit 看 error list
+3. 逐一修 null guard (預計 ~10 個, 主要是 document.getElementById / useRef / catch(e))
+4. 全過再 commit &quot;v2.0.B.XXX: enable strictNullChecks&quot;
+
+目標 Step2: LessonScene renderQuestion switch 重構
+- 現在: src/scenes/LessonScene.ts:702 const qType2 = (q as any).type
+- 改成: switch(q.type) — q 已是 Question discriminated union, .type 直接可讀
+- 每個 case 改用 narrowed type: case 'narration': this._renderNarration(q) where q is narrowed to NarrationQuestion
+- private _renderNarration(q: any) → 改成 _renderNarration(q: Extract&lt;Question, {type:'narration'}&gt;)
+- 同樣改 _renderListenTf, _renderListenTfZh
+- lessonAnswerLog:108 的 q: any → q: Question
+
+目標 Step3 (optional): renderers.tsx:16-45 RawQuestion 介面
+- export type RawQuestion = Question (從 src/data/lessons.ts import Question)
+- 刪掉 30 行手寫 interface
+- 跑 tsc 確認 12 個 renderer 組件沿用
+
+完整說明: docs/audits/2026-06-08T1837-code-health-cron.md" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837
     </div>
   </section>
 
