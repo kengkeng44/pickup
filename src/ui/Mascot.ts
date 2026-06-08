@@ -22,9 +22,9 @@
 import { applyStyle } from './domUtil';
 import { getMascotSvg, type MascotAnim } from './mascots';
 
-// v2.0.B.258: 700 → 1200 配合 style.css 強化版 happy 1.0s / sad 1.1s,
-// 留 100-200ms buffer 讓 keyframe end frame 先 settle 再回 idle,避免 snap。
-const ONE_SHOT_MS = 1200;
+// v2.0.B.259 加碼: 1200 → 1500 配合 happy 1.2s / sad 1.3s,
+// 留 200ms buffer 讓 keyframe end frame 先 settle 再回 idle,避免 snap。
+const ONE_SHOT_MS = 1500;
 
 // ─── Shared responsive scale watcher ─────────────────────────────────────────
 // One observer for the whole app. Instances subscribe; observer disconnects
