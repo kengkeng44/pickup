@@ -39,9 +39,12 @@
         background: #f1ebe1; /* v2.0.B.271: align body bg to map cream (was #ed5a2e tear-intro orange — leaked through overscroll + URL bar blur) */
         margin: 0; padding: 0;
         overscroll-behavior-y: none;
-        /* v2.0.B.290 ROOT FIX: 全域關 scroll anchoring. 之前在 map column 寫 overflow-anchor:none 沒用,
-           browser anchoring 在 html/body 層運作, 子層 opt-out 不影響. 配合 container height 預固定 防虛擬化 jump. */
+        /* v2.0.B.290 ROOT FIX: 全域關 scroll anchoring. */
         overflow-anchor: none;
+        /* v2.0.B.291 user feature「坐到哪一個按鈕維持中間 大概就好」:
+           scroll-snap-type: y proximity = 軟性 snap, scroll 停下來時若離某 snap target 近就 snap.
+           僅 MapNode 設 scroll-snap-align: center, 其他 page 無 snap target = 無 snap 行為. */
+        scroll-snap-type: y proximity;
       }
 
       /* v2.0.B.165: tear-intro removed. React mounts immediately. */
