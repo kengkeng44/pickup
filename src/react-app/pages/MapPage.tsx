@@ -120,12 +120,7 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
 };
 
 // Color helpers (from StoryMapView.ts)
-function darken(hex: string, amount = 0.35): string {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return `rgb(${Math.round(r * (1 - amount))}, ${Math.round(g * (1 - amount))}, ${Math.round(b * (1 - amount))})`;
-}
+// v2.0.B.270: darken/lighten 用 lighten only (book-cover flat 後 darken unused, 已刪)
 function lighten(hex: string, amount = 0.22): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -249,6 +244,17 @@ export default function MapPage() {
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
   const freezes = readFreezes();
+  // v2.0.B.270: stream 包含 lesson + 每 5 lesson 一個寶箱 (user: 「每五個按鈕中間要加一個寶箱」)
+  // 217 lessons + 43 chests = 260 nodes total (43 = floor(217/5))
+  const stream = useMemo(() => {
+    const out: Array<{ kind: 'lesson' | 'chest'; lessonIdx?: number }> = [];
+    lessons.forEach((_, i) => {
+      out.push({ kind: 'lesson', lessonIdx: i });
+      if ((i + 1) % 5 === 0) out.push({ kind: 'chest' });
+    });
+    return out;
+  }, [lessons.length]);
+
   // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
   const NODE_PITCH = 84;
   const VIEWPORT_H = typeof window !== 'undefined' ? window.innerHeight : 800;
@@ -256,13 +262,14 @@ export default function MapPage() {
   const BUFFER = 5;
   const adjScroll = Math.max(0, scrollY - NODES_TOP_OFFSET);
   const visStart = Math.max(0, Math.floor(adjScroll / NODE_PITCH) - BUFFER);
-  const visEnd = lessons.length === 0
+  const visEnd = stream.length === 0
     ? 0
-    : Math.min(lessons.length, Math.ceil((adjScroll + VIEWPORT_H) / NODE_PITCH) + BUFFER);
+    : Math.min(stream.length, Math.ceil((adjScroll + VIEWPORT_H) / NODE_PITCH) + BUFFER);
 
-  // Dynamic chapter header: aggregate 時跟著 visible 第一顆 node 的章節
-  const chapter = isAggregate && lessons[visStart]
-    ? lessons[visStart].chapter
+  // Dynamic chapter header: aggregate 時跟著 visible 第一顆 lesson 的章節 (skip chest 找下一個 lesson)
+  const visibleLesson = stream.slice(visStart).find(s => s.kind === 'lesson');
+  const chapter = isAggregate && visibleLesson?.lessonIdx !== undefined && lessons[visibleLesson.lessonIdx]
+    ? lessons[visibleLesson.lessonIdx].chapter
     : requestedChapter;
   const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
@@ -348,15 +355,11 @@ export default function MapPage() {
           改 position: fixed + max-width 480 inner wrapper 保證固定 */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        // v2.0.B.269: HUD bar 顏色從 cream COLOR_BG 改 warm taupe #e8dec8
-        // user: 「換個顏色 不要太顯眼」, taupe = sophisticated earth tone (Bejamas/Figma 建議)
-        // 比 cream #fef8ed 暗 1 階, 跟頁面有微微區分但不跳出來
-        background: '#e8dec8',
-        borderBottom: '1px solid #d4c4a0',
-      }}>
-      <div style={{
-        maxWidth: 480, margin: '0 auto',
-        padding: 'max(6px, env(safe-area-inset-top)) 10px 2px',
+        // v2.0.B.270: user: 「不是整個畫面變窄 我要全畫幅 然後用跟背景同個顏色」
+        // 取消 max-width 480 inner wrapper (HUD 真的全螢幕)
+        // bg #e8dec8 taupe → cream COLOR_BG 同頁面色, 無視覺斷層
+        background: COLOR_BG,
+        padding: 'max(6px, env(safe-area-inset-top)) 12px 4px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 2,
       }}>
@@ -367,7 +370,6 @@ export default function MapPage() {
         {/* v2.0.B.232 招 1: freeze 🧊 HUD slot. Hide on first-time (xp=0) like
             coin/streak to avoid empty-state clutter. */}
         {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
-      </div>
       </div>
 
       {/* v2.0.B.269: Spacer offset — HUD 縮成 50 + 書封 70 = 120px chrome (從 150 → 130) */}
@@ -419,51 +421,42 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.269: Chapter book-cover fixed 第二層 (top: HUD 縮窄後 ~50px) */}
+      {/* v2.0.B.270: Chapter book-cover fixed 第二層 (flat, 全畫幅)
+          user: 「書封的背景不要凸出來」→ 拿掉 accent bg / boxShadow / 白字, flat text on page bg */}
       <div style={{
         position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
         left: 0, right: 0, zIndex: 99,
-        background: '#e8dec8',
+        background: COLOR_BG,
         padding: '4px 14px 10px',
+        display: 'flex', alignItems: 'center', gap: 10,
+        transition: 'background 0.4s ease',
       }}>
-      <div style={{
-        maxWidth: 480, margin: '0 auto',
-      }}>
-        <div style={{
-          background: meta.accent, borderRadius: 14,
-          padding: '12px 16px', color: '#ffffff',
-          boxShadow: `inset 0 8px 0 ${lighten(meta.accent, 0.18)}, 0 4px 0 ${darken(meta.accent, 0.32)}`,
-          display: 'flex', alignItems: 'center', gap: 10,
-          transition: 'background 0.4s ease',
-        }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', opacity: 0.85 }}>
-              Section {chapter} · 第 {chapter} 章
-            </div>
-            <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2 }}>
-              {meta.titleZh}
-            </div>
-            <div style={{ fontSize: 12, fontWeight: 700, lineHeight: 1.2, marginTop: 2, opacity: 0.85, fontStyle: 'italic' }}>
-              {meta.titleEn}
-            </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: meta.accent }}>
+            Section {chapter} · 第 {chapter} 章
           </div>
-          <button
-            type="button"
-            aria-label="Chapter key sentences"
-            onClick={() => setShowKeySheet(true)}
-            style={{
-              width: 38, height: 38, borderRadius: 11,
-              background: 'rgba(255,255,255,0.22)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flex: '0 0 auto', border: 'none', cursor: 'pointer',
-              padding: 0, fontFamily: 'inherit',
-              touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-            }}
-          >
-            <img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width={24} height={24} style={{ display: 'block', filter: 'brightness(0) invert(1)' }} />
-          </button>
+          <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: COLOR_TEXT_DARK }}>
+            {meta.titleZh}
+          </div>
+          <div style={{ fontSize: 12, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: COLOR_TEXT_MUTED, fontStyle: 'italic' }}>
+            {meta.titleEn}
+          </div>
         </div>
-      </div>
+        <button
+          type="button"
+          aria-label="Chapter key sentences"
+          onClick={() => setShowKeySheet(true)}
+          style={{
+            width: 36, height: 36, borderRadius: 10,
+            background: 'transparent',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flex: '0 0 auto', border: 'none', cursor: 'pointer',
+            padding: 0, fontFamily: 'inherit',
+            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          <img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width={22} height={22} style={{ display: 'block', opacity: 0.65 }} />
+        </button>
       </div>
 
       {/* Map column — fixed 320 wide, centered, scrollable */}
@@ -474,9 +467,8 @@ export default function MapPage() {
       ) : (
         <div style={{
           width: CONTAINER_W, margin: '20px auto 80px', position: 'relative',
-          // v2.0.B.267: container 高度 = lessons.length × NODE_PITCH, 保 scrollbar 精準
-          // (cyclic NODE_PATH_V2 已支援 217 顆延展, 高度跟著 aggregate 動態算)
-          height: Math.max(2032, lessons.length * NODE_PITCH) + NODE_HEIGHT + 80,
+          // v2.0.B.270: container 高度算 stream.length (含寶箱)
+          height: Math.max(2032, stream.length * NODE_PITCH) + NODE_HEIGHT + 80,
         }}>
           {/* Grandma (cat anchor) — follows currentNodeIdx via positioning algorithm */}
           {catPos && (
@@ -531,11 +523,57 @@ export default function MapPage() {
             }} />
           </div>
 
-          {/* v2.0.B.267 virtualization: 只 render visible [visStart, visEnd) range, 其餘 DOM 不存在 */}
-          {lessons.slice(visStart, visEnd).map((l, localIdx) => {
+          {/* v2.0.B.270 virtualization + chest interleave: 每 5 lesson 一個 🎁 寶箱 */}
+          {stream.slice(visStart, visEnd).map((item, localIdx) => {
             const i = visStart + localIdx;
             const slot = getNodeSlot(i);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
+
+            // 寶箱節點 (每 5 lesson 一個, 點開 +10 coins)
+            if (item.kind === 'chest') {
+              const chestKey = `pickup.chest.${i}.opened`;
+              const opened = (() => { try { return localStorage.getItem(chestKey) === '1'; } catch { return false; } })();
+              return (
+                <button
+                  key={`chest-${i}`}
+                  type="button"
+                  aria-label={opened ? `Treasure chest opened` : `Treasure chest`}
+                  onClick={() => {
+                    if (opened) return;
+                    try {
+                      localStorage.setItem(chestKey, '1');
+                      // addCoins(10) — 加 10 金幣獎勵
+                      const curCoins = readCoins();
+                      localStorage.setItem('pickup.coins', String(curCoins + 10));
+                    } catch {}
+                    window.location.reload(); // 簡單刷新更新 HUD 金幣 + chest 狀態
+                  }}
+                  style={{
+                    position: 'absolute',
+                    left: leftPx, top: slot.top,
+                    width: NODE_SIZE, height: NODE_HEIGHT,
+                    borderRadius: '50% / 60%',
+                    border: 'none',
+                    background: opened ? '#d4c4a0' : '#e7a44a',
+                    boxShadow: opened
+                      ? 'inset 0 6px 0 rgba(0,0,0,0.08), 0 4px 0 #8b6f4a'
+                      : 'inset 0 8px 0 #f5be6a, 0 8px 0 #b07a2a',
+                    cursor: opened ? 'default' : 'pointer',
+                    fontSize: 36,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'inherit', padding: 0,
+                    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+                    zIndex: 2,
+                    transition: 'transform 80ms ease',
+                  }}
+                >
+                  {opened ? '✅' : '🎁'}
+                </button>
+              );
+            }
+
+            // Lesson 節點 (沿用原邏輯)
+            const l = lessons[item.lessonIdx!];
             const lessonChapter = isAggregate ? l.chapter : chapter;
             const lessonCompleted = readCompletedLessons(lessonChapter);
             const done = lessonCompleted.has(l.id);
