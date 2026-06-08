@@ -31,11 +31,15 @@ export default function BottomNav() {
             onClick={() => navigate(tab.path)}
             aria-label={tab.label}
             style={{
-              flex: 1, background: 'transparent', border: 'none', cursor: 'pointer',
-              padding: '4px 0',
-              borderTop: active ? '3px solid #e7a44a' : '3px solid transparent',
-              transform: active ? 'translateY(-2px)' : 'none',
-              transition: 'transform 0.15s',
+              // v2.0.B.271: active state 改暖色系框框 (user: 「用一個暖色系框框顯示」)
+              // 從原本的 borderTop line 改成 2.5px 完整框 + 淡 amber tint
+              flex: 1, cursor: 'pointer',
+              margin: '0 3px', padding: '4px 0',
+              background: active ? 'rgba(231,164,74,0.14)' : 'transparent',
+              border: active ? '2.5px solid #d68a52' : '2.5px solid transparent',
+              borderRadius: 12,
+              transition: 'background 0.2s ease, border-color 0.2s ease',
+              fontFamily: 'inherit',
             }}
           >
             {tab.emoji ? (
@@ -48,7 +52,7 @@ export default function BottomNav() {
             ) : (
               <img src={tab.icon} width={28} height={28} alt="" style={{ display: 'block', margin: '0 auto 2px', opacity: active ? 1 : 0.55 }} />
             )}
-            <div style={{ fontSize: 10, fontWeight: 800, color: active ? '#b07a2a' : '#8b6f4a', letterSpacing: 0.5 }}>{tab.label}</div>
+            <div style={{ fontSize: 10, fontWeight: 800, color: active ? '#9b5a1f' : '#8b6f4a', letterSpacing: 0.5 }}>{tab.label}</div>
           </button>
         );
       })}

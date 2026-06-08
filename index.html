@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#ed5a2e" />
+    <meta name="theme-color" content="#f1ebe1" />
     <!-- v2.0.B.69 aggressive cache busting: user reports iOS Safari serving stale HTML even with _headers must-revalidate -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -36,8 +36,9 @@
     <style>
       html, body {
         font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-        background: #ed5a2e; /* v1.7.1: bg matches tear-intro so any pre-paint flash stays on-brand */
+        background: #f1ebe1; /* v2.0.B.271: align body bg to map cream (was #ed5a2e tear-intro orange — leaked through overscroll + URL bar blur) */
         margin: 0; padding: 0;
+        overscroll-behavior-y: none;
       }
 
       /* v2.0.B.165: tear-intro removed. React mounts immediately. */

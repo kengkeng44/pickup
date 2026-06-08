@@ -120,12 +120,19 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
 };
 
 // Color helpers (from StoryMapView.ts)
-// v2.0.B.270: darken/lighten 用 lighten only (book-cover flat 後 darken unused, 已刪)
 function lighten(hex: string, amount = 0.22): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
   const m = (c: number) => Math.round(c + (255 - c) * amount);
+  return `rgb(${m(r)}, ${m(g)}, ${m(b)})`;
+}
+// v2.0.B.271: darken 回歸 — 書封 3D 立體 shadow 需要 accent 的暗版
+function darken(hex: string, amount = 0.22): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const m = (c: number) => Math.round(c * (1 - amount));
   return `rgb(${m(r)}, ${m(g)}, ${m(b)})`;
 }
 
@@ -238,6 +245,8 @@ export default function MapPage() {
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
   const [showKeySheet, setShowKeySheet] = useState(false);
+  // v2.0.B.271: 點書封跳出本章故事列表 modal (user: 「點書封應該跳出有哪些故事 然後再點一次書封就應該跳回地圖」)
+  const [showStoryList, setShowStoryList] = useState(false);
   // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
   const currentNodeRef = useRef<HTMLButtonElement | null>(null);
   // v2.0.B.232 招 1: read persistent daily streak + freeze count from
@@ -355,13 +364,13 @@ export default function MapPage() {
           改 position: fixed + max-width 480 inner wrapper 保證固定 */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        // v2.0.B.270: user: 「不是整個畫面變窄 我要全畫幅 然後用跟背景同個顏色」
-        // 取消 max-width 480 inner wrapper (HUD 真的全螢幕)
-        // bg #e8dec8 taupe → cream COLOR_BG 同頁面色, 無視覺斷層
+        // v2.0.B.271: 全畫幅 cream + 輕量 boxShadow 區隔 map (user: 「讓上面全部跟背景一樣顏色」)
+        // 配 index.html theme-color #f1ebe1 + body bg #f1ebe1, viewport 邊緣不再漏橘色
         background: COLOR_BG,
         padding: 'max(6px, env(safe-area-inset-top)) 12px 4px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         gap: 2,
+        boxShadow: '0 6px 12px -6px rgba(60,42,28,0.10)',
       }}>
         <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
         <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
@@ -421,43 +430,47 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.270: Chapter book-cover fixed 第二層 (flat, 全畫幅)
-          user: 「書封的背景不要凸出來」→ 拿掉 accent bg / boxShadow / 白字, flat text on page bg */}
-      <div style={{
-        position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
-        left: 0, right: 0, zIndex: 99,
-        background: COLOR_BG,
-        padding: '4px 14px 10px',
-        display: 'flex', alignItems: 'center', gap: 10,
-        transition: 'background 0.4s ease',
-      }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: meta.accent }}>
+      {/* v2.0.B.271: 還原原本書封 — accent 卡 + 3D shadow + 白字 (user: 「我要原本的書封」)
+          整張卡點擊 toggle showStoryList (user: 「點書封應該跳出有哪些故事 再點一次跳回地圖」) */}
+      <button
+        type="button"
+        aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章故事列表`}
+        aria-expanded={showStoryList}
+        onClick={() => setShowStoryList(s => !s)}
+        style={{
+          position: 'fixed', top: 'calc(50px + env(safe-area-inset-top))',
+          left: 14, right: 14, zIndex: 99,
+          background: meta.accent,
+          color: '#fff',
+          border: 'none',
+          borderRadius: 14,
+          padding: '10px 14px',
+          boxShadow: `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(meta.accent, 0.28)}`,
+          display: 'flex', alignItems: 'center', gap: 10,
+          textAlign: 'left',
+          cursor: 'pointer',
+          fontFamily: 'inherit',
+          touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+          transition: 'background 0.4s ease, box-shadow 0.4s ease',
+        }}
+      >
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: 'rgba(255,255,255,0.82)' }}>
             Section {chapter} · 第 {chapter} 章
           </div>
-          <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: COLOR_TEXT_DARK }}>
+          <div style={{ fontSize: 17, fontWeight: 900, lineHeight: 1.2, marginTop: 2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {meta.titleZh}
           </div>
-          <div style={{ fontSize: 12, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: COLOR_TEXT_MUTED, fontStyle: 'italic' }}>
+          <div style={{ fontSize: 11, fontWeight: 700, lineHeight: 1.2, marginTop: 2, color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {meta.titleEn}
           </div>
         </div>
-        <button
-          type="button"
-          aria-label="Chapter key sentences"
-          onClick={() => setShowKeySheet(true)}
-          style={{
-            width: 36, height: 36, borderRadius: 10,
-            background: 'transparent',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flex: '0 0 auto', border: 'none', cursor: 'pointer',
-            padding: 0, fontFamily: 'inherit',
-            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-          }}
-        >
-          <img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width={22} height={22} style={{ display: 'block', opacity: 0.65 }} />
-        </button>
-      </div>
+        <span aria-hidden="true" style={{
+          fontSize: 20, lineHeight: 1, color: '#fff',
+          transform: showStoryList ? 'rotate(180deg)' : 'none',
+          transition: 'transform 200ms ease',
+        }}>›</span>
+      </button>
 
       {/* Map column — fixed 320 wide, centered, scrollable */}
       {loading ? (
@@ -529,7 +542,7 @@ export default function MapPage() {
             const slot = getNodeSlot(i);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
-            // 寶箱節點 (每 5 lesson 一個, 點開 +10 coins)
+            // v2.0.B.271: 寶箱 — 純 🎁 emoji, 無按鈕 chrome (user: 「寶箱不要用按鈕 直接用那個寶箱」)
             if (item.kind === 'chest') {
               const chestKey = `pickup.chest.${i}.opened`;
               const opened = (() => { try { return localStorage.getItem(chestKey) === '1'; } catch { return false; } })();
@@ -537,37 +550,36 @@ export default function MapPage() {
                 <button
                   key={`chest-${i}`}
                   type="button"
-                  aria-label={opened ? `Treasure chest opened` : `Treasure chest`}
+                  aria-label={opened ? '寶箱 (已開啟)' : '寶箱 (+10 金幣)'}
                   onClick={() => {
                     if (opened) return;
                     try {
                       localStorage.setItem(chestKey, '1');
-                      // addCoins(10) — 加 10 金幣獎勵
                       const curCoins = readCoins();
                       localStorage.setItem('pickup.coins', String(curCoins + 10));
                     } catch {}
-                    window.location.reload(); // 簡單刷新更新 HUD 金幣 + chest 狀態
+                    window.location.reload();
                   }}
                   style={{
                     position: 'absolute',
                     left: leftPx, top: slot.top,
                     width: NODE_SIZE, height: NODE_HEIGHT,
-                    borderRadius: '50% / 60%',
+                    background: 'transparent',
                     border: 'none',
-                    background: opened ? '#d4c4a0' : '#e7a44a',
-                    boxShadow: opened
-                      ? 'inset 0 6px 0 rgba(0,0,0,0.08), 0 4px 0 #8b6f4a'
-                      : 'inset 0 8px 0 #f5be6a, 0 8px 0 #b07a2a',
+                    boxShadow: 'none',
                     cursor: opened ? 'default' : 'pointer',
-                    fontSize: 36,
+                    fontSize: 56, lineHeight: 1,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontFamily: 'inherit', padding: 0,
                     touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
                     zIndex: 2,
-                    transition: 'transform 80ms ease',
+                    opacity: opened ? 0.45 : 1,
+                    filter: opened ? 'grayscale(0.7)' : 'none',
+                    transform: opened ? 'scale(0.92)' : 'none',
+                    transition: 'transform 120ms ease, opacity 200ms ease',
                   }}
                 >
-                  {opened ? '✅' : '🎁'}
+                  {opened ? '✨' : '🎁'}
                 </button>
               );
             }
@@ -641,6 +653,97 @@ export default function MapPage() {
           titleEn={meta.titleEn}
           onClose={() => setShowKeySheet(false)}
         />
+      )}
+
+      {/* v2.0.B.271: 書封 → 本章故事列表 modal (user: 「點書封應該跳出有哪些故事 再點一次跳回地圖」) */}
+      {showStoryList && (
+        <div
+          role="dialog"
+          aria-label="本章故事列表"
+          onClick={() => setShowStoryList(false)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 200,
+            background: 'rgba(60, 42, 28, 0.55)',
+            display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
+            padding: 'calc(140px + env(safe-area-inset-top)) 16px 24px',
+            animation: 'pickup-fade-up 220ms ease',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%', maxWidth: 420,
+              maxHeight: '70vh', overflowY: 'auto',
+              background: COLOR_BG,
+              border: `3px solid ${meta.accent}`,
+              borderRadius: 16,
+              padding: 16,
+              boxShadow: '0 12px 28px rgba(60,42,28,0.22)',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, paddingBottom: 10, borderBottom: `2px dashed ${lighten(meta.accent, 0.4)}` }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.5, textTransform: 'uppercase', color: meta.accent }}>
+                  Section {chapter} · 第 {chapter} 章
+                </div>
+                <div style={{ fontSize: 17, fontWeight: 900, color: COLOR_TEXT_DARK, lineHeight: 1.25, marginTop: 2 }}>
+                  {meta.titleZh}
+                </div>
+                <div style={{ fontSize: 11, fontWeight: 700, color: COLOR_TEXT_MUTED, fontStyle: 'italic', marginTop: 2 }}>
+                  {meta.titleEn}
+                </div>
+              </div>
+              <button
+                onClick={() => setShowStoryList(false)}
+                aria-label="關閉"
+                style={{
+                  width: 32, height: 32,
+                  background: 'transparent', border: 'none', cursor: 'pointer',
+                  fontSize: 22, color: COLOR_TEXT_MUTED,
+                  fontFamily: 'inherit', padding: 0,
+                  touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+                }}
+              >✕</button>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              {(() => {
+                const chapterLessons = lessons.filter(l => (l.chapter ?? chapter) === chapter);
+                if (chapterLessons.length === 0) {
+                  return <div style={{ padding: 20, textAlign: 'center', color: COLOR_TEXT_MUTED, fontSize: 13 }}>本章故事尚未上線</div>;
+                }
+                const chapterCompleted = readCompletedLessons(chapter);
+                return chapterLessons.map((l) => {
+                  const done = chapterCompleted.has(l.id);
+                  return (
+                    <button
+                      key={l.id}
+                      onClick={() => { setShowStoryList(false); navigate(`/lesson/${chapter}/${l.id}`); }}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: 10,
+                        padding: '10px 12px',
+                        background: done ? '#fff7e8' : '#ffffff',
+                        border: `2px solid ${done ? '#c8a878' : '#e6dcc8'}`,
+                        borderRadius: 10,
+                        textAlign: 'left',
+                        cursor: 'pointer', fontFamily: 'inherit',
+                        touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+                      }}
+                    >
+                      <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">{done ? '✅' : '📖'}</span>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_TEXT_DARK, lineHeight: 1.3 }}>
+                          Lesson {l.lessonInChapter}
+                          {l.storyBeat ? <span style={{ color: COLOR_TEXT_MUTED, fontWeight: 700 }}> · {l.storyBeat}</span> : null}
+                        </div>
+                      </div>
+                      <span style={{ fontSize: 16, color: COLOR_TEXT_MUTED }} aria-hidden="true">›</span>
+                    </button>
+                  );
+                });
+              })()}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
