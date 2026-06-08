@@ -171,7 +171,7 @@ function computeCatPosition(currentNodeIdx: number): { x: number; y: number } | 
 }
 
 // ─── HUD icon ──────────────────────────────────────────────────────────────
-function HudIcon({ src, value, valueColor, width = 22, ariaLabel, onClick, progress, filter }: {
+function HudIcon({ src, value, valueColor, width = 22, ariaLabel, onClick, progress: _progress, filter }: {
   src: string; value: string; valueColor: string; width?: number; ariaLabel: string;
   onClick: () => void; progress?: number; filter?: string;
 }) {
@@ -189,16 +189,11 @@ function HudIcon({ src, value, valueColor, width = 22, ariaLabel, onClick, progr
         display: 'flex', alignItems: 'center',
       }}
     >
-      <span style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <img src={src} alt="" aria-hidden="true" width={width} height={width} style={{ display: 'block', filter: filter ?? 'none' }} />
-          {value && <span style={{ fontSize: 15, fontWeight: 900, color: valueColor, lineHeight: 1 }}>{value}</span>}
-        </span>
-        {typeof progress === 'number' && (
-          <span style={{ display: 'block', width: 38, height: 3, background: 'rgba(122,104,80,0.18)', borderRadius: 2, marginTop: 3, overflow: 'hidden' }}>
-            <span style={{ display: 'block', width: `${Math.round(progress * 100)}%`, height: '100%', background: valueColor, borderRadius: 2 }} />
-          </span>
-        )}
+      {/* v2.0.B.283: 砍 progress bar (user「左上數過來第二個進度條刪掉」= 皇冠下面那條 mini bar)
+          progress prop 留著兼容 (caller 仍傳但不 render), 之後要再加直接 unblock 此處 */}
+      <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+        <img src={src} alt="" aria-hidden="true" width={width} height={width} style={{ display: 'block', filter: filter ?? 'none' }} />
+        {value && <span style={{ fontSize: 15, fontWeight: 900, color: valueColor, lineHeight: 1 }}>{value}</span>}
       </span>
     </button>
   );
@@ -459,14 +454,15 @@ export default function MapPage() {
           aria-expanded={showKeySheet}
           onClick={() => setShowKeySheet(s => !s)}
           style={{
+            // v2.0.B.283: 上下加寬 (user「加上下寬一點」). padding 10/14 → 18/16, 卡更厚實
             display: 'flex', alignItems: 'center', gap: 10,
             width: 'calc(100% - 28px)',
-            margin: '0 14px 10px',
+            margin: '0 14px 12px',
             background: meta.accent,
             color: '#fff',
             border: 'none',
             borderRadius: 14,
-            padding: '10px 14px',
+            padding: '18px 16px',
             boxShadow: `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(meta.accent, 0.28)}`,
             textAlign: 'left',
             cursor: 'pointer',
@@ -476,8 +472,11 @@ export default function MapPage() {
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
-            {/* v2.0.B.282 只留英文標題 — Section N + 中文副標都砍, 章節定位靠地圖區段感 + 地圖 scroll context */}
-            <div style={{ fontSize: 18, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {/* v2.0.B.283: 加位置 ch{N} 標 (user「要有位置 ch1」), 仍保留英文 title 為主 */}
+            <div style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
+              CH {chapter}
+            </div>
+            <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {meta.titleEn}
             </div>
           </div>
