@@ -341,13 +341,19 @@ export default function MapPage() {
       background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
-      {/* v2.0.B.267: HUD bar sticky top — user: 「最上面四個功能要固定在螢幕上」 */}
+      {/* v2.0.B.268: Scroll Sandwich Layout (fixed header + scrollable body) — user: 「固定在螢幕」
+          技術名: Scroll Sandwich Layout / Fixed Header / App Shell Pattern
+          之前 B.267 用 position: sticky 在 .pickup-full-bleed 負 margin 容器內被破壞,
+          改 position: fixed + max-width 480 inner wrapper 保證固定 */}
       <div style={{
-        position: 'sticky', top: 0, zIndex: 100,
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         background: COLOR_BG,
+      }}>
+      <div style={{
+        maxWidth: 480, margin: '0 auto',
         padding: 'max(14px, env(safe-area-inset-top)) 14px 4px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        gap: 4, marginBottom: 8,
+        gap: 4,
       }}>
         <HudIcon src="/mascots/flag-en.webp" value="" valueColor="#3c2a1c" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
         <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
@@ -357,6 +363,10 @@ export default function MapPage() {
             coin/streak to avoid empty-state clutter. */}
         {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
       </div>
+      </div>
+
+      {/* v2.0.B.268: Spacer offset for fixed HUD (60) + book cover (80) = 140px chrome */}
+      <div style={{ height: 'calc(150px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
@@ -404,11 +414,15 @@ export default function MapPage() {
         </button>
       )}
 
-      {/* v2.0.B.267: Chapter book-cover sticky 第二層 — user: 「章節名子的書封要固定」 */}
+      {/* v2.0.B.268: Chapter book-cover fixed 第二層 (top: HUD 高 ~70px) */}
       <div style={{
-        position: 'sticky', top: 64, zIndex: 99,
+        position: 'fixed', top: 'calc(70px + env(safe-area-inset-top))',
+        left: 0, right: 0, zIndex: 99,
         background: COLOR_BG,
-        padding: '8px 14px 10px',
+        padding: '4px 14px 10px',
+      }}>
+      <div style={{
+        maxWidth: 480, margin: '0 auto',
       }}>
         <div style={{
           background: meta.accent, borderRadius: 14,
@@ -444,6 +458,7 @@ export default function MapPage() {
             <img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width={24} height={24} style={{ display: 'block', filter: 'brightness(0) invert(1)' }} />
           </button>
         </div>
+      </div>
       </div>
 
       {/* Map column — fixed 320 wide, centered, scrollable */}
