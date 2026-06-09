@@ -929,6 +929,58 @@ NarrationRenderer 頂部加 guard:
       <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master，接 content-cron 2026-06-09T1208 ARCH-REC #10:\n\n【背景】optionsZh 品質審 Ch9-14 找到 10 個違例。TESOL Quarterly 2025 Chen + 2026 Tan 確認: L1 ZH gloss 品質直接影響 A2 學習者詞彙保留，截斷/語法錯誤 ZH 等同沒有翻譯。\n\n【S · 25min — tools/validate-lessons.js 加 3 個 ZH lint rules】\n\n在現有 X3_R1_VERBATIM_WORDS check 後 (lintQuestion function 內) 加:\n\n// ZH-Q1: terse options (< 3 chars)\nif (q.optionsZh && Array.isArray(q.optionsZh)) {\n  q.optionsZh.forEach((zh, i) => {\n    if (typeof zh === \"string\" && zh.trim().length < 3) {\n      issues.push({ id: q.id, code: \"X6_ZH_TERSE\",\n        msg: `optionsZh[${i}] \"${zh}\" < 3 chars — likely truncated` });\n    }\n  });\n}\n\n// ZH-Q2: 地+adj malformed adverbial (e.g. 痛苦地熱)\nif (q.optionsZh && Array.isArray(q.optionsZh)) {\n  const malformedAdv = /[地][\\u4e00-\\u9fff]{1,2}$/;\n  q.optionsZh.forEach((zh, i) => {\n    if (typeof zh === \"string\" && malformedAdv.test(zh)) {\n      issues.push({ id: q.id, code: \"X6_ZH_MALFORMED_ADV\",\n        msg: `optionsZh[${i}] \"${zh}\" ends in 地+adj — likely malformed adverbial` });\n    }\n  });\n}\n\n// ZH-Q3: 變+noun without 成 (e.g. 變魚 should be 變成魚)\nif (q.optionsZh && Array.isArray(q.optionsZh)) {\n  const missingCheng = /^變[\\u4e00-\\u9fff](?!成)/;\n  q.optionsZh.forEach((zh, i) => {\n    if (typeof zh === \"string\" && missingCheng.test(zh)) {\n      issues.push({ id: q.id, code: \"X6_ZH_MISSING_CHENG\",\n        msg: `optionsZh[${i}] \"${zh}\" — 變 without 成, likely ungrammatical` });\n    }\n  });\n}\n\n【已知會被 catch 的 issues】\n- X6_ZH_TERSE: kt-ch10-l4-q7 opt[2] \"手累\" / kt-ch10-l5-q3 opt[3] \"給鳥\"\n- X6_ZH_MALFORMED_ADV: kt-ch11-l5-q7 opt[0] \"痛苦地熱\"\n- X6_ZH_MISSING_CHENG: kt-ch14-l7-q9 opt[3] \"變魚\"\n\n先 Read tools/validate-lessons.js 找到 lintQuestion() 函數 + X3_R1_VERBATIM_WORDS block 位置再插入。\n\n完整說明: docs/audits/2026-06-09T1208-content-qa-cron.md — 🔬 ARCH-REC #10 段落').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- ui-ux-cron 2026-06-09T1209 ARCH-REC #11 -->
+    <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #11 (ui-ux-cron 2026-06-09T1209) — S · 25min · ROI ⭐⭐⭐⭐</div>
+      <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">Achievement Engine wire-up — 8 badges 從全灰改成 runtime computed earned</div>
+      <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
+        <b>P0 現況</b>: AlertsPage.tsx:1-8 全 8 個 achievement 的 <code>earned: false</code> 是硬編常數 — 用戶不管有多少天 streak / XP / 完成多少章，Achievements tab 永遠全灰。Duolingo 標準是 render-time 從 user state 派生 earned flag。<br>
+        <b>業界 pattern</b>: 所有 ELT apps (Duolingo / Brilliant / Khan) achievement engine = read user state → compare threshold → derived earned。Pickup 的 <code>readStreak()</code> / <code>readXp()</code> / <code>readCompletedLessons()</code> APIs 全部已存在，只需 call + compare ~20 行。
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 ui-ux-cron 2026-06-09T1209 ARCH-REC #11:
+
+【P0 現況】AlertsPage.tsx 8 個 achievement 全 hardcoded earned: false。
+任何用戶成就 (streak 7天, XP 1000, Ch1 完成) 都看不到獎章亮起。
+Achievements tab 是裝飾品不是 reward system。
+
+【修法 — S 25min】src/react-app/pages/AlertsPage.tsx
+
+Step 1: 加 import
+import { readStreak } from '../../data/streak';
+import { readXp } from '../../data/xp';
+import { readCompletedLessons } from '../../store/runStore';
+
+Step 2: ACHIEVEMENTS const 上面加 computeEarned():
+function computeEarned(): Record&lt;number, boolean&gt; {
+  const streak = readStreak();
+  const xp = readXp();
+  const ch1Done = readCompletedLessons(1).size;
+  const ch2Done = readCompletedLessons(2).size;
+  const allChDone = [1,2,3,4,5,6,7,8].every(ch =&gt; readCompletedLessons(ch).size &gt;= 24);
+  return {
+    1: ch1Done &gt;= 1,
+    2: streak &gt;= 3,
+    3: streak &gt;= 7,
+    4: false,  // 完美主義 — needs per-lesson accuracy log, deferred
+    5: ch2Done &gt;= 1,
+    6: ch1Done &gt;= 24,
+    7: xp &gt;= 1000,
+    8: allChDone,
+  };
+}
+
+Step 3: AlertsPage 頂部 call:
+const earned = computeEarned();
+
+Step 4: ACHIEVEMENTS array 改 earned: earned[a.id] ?? false
+
+Step 5: 加 earned badge 視覺強化 (amber top stripe, 對齊 v1.9.47 pattern):
+earned card: border 2px solid #e7a44a + boxShadow inset 0 4px 0 rgba(231,164,74,0.25)
+locked card: opacity 0.5 + filter grayscale(0.6)
+
+完整說明: docs/audits/2026-06-09T1209-ui-ux-cron.md D1 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <!-- ClozeUI broad-subscribe moved to /archive.html on 2026-06-09 RN pivot (ClozeUI 是 DOM class) -->
     <div style="border:1px dashed var(--border);border-radius:8px;padding:8px 12px;margin-bottom:10px;background:rgba(60,42,28,0.03);">
       <div style="font-size:11px;color:var(--muted);">📦 ClozeUI broad-subscribe P0 — <a href="/archive.html" style="color:var(--accent-dark);">moved to archive</a> (RN 用 OptionBtn React component,broad-subscribe 改 Zustand selector)</div>
@@ -936,7 +988,7 @@ NarrationRenderer 頂部加 guard:
 
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209
     </div>
   </section>
 
