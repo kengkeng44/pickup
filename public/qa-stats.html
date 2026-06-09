@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pickup Q&A 數據總覽 — Stats Dashboard</title>
+<style>
+  :root {
+    --bg: #f1ebe1;
+    --card: #ffffff;
+    --border: #e0d0b8;
+    --accent: #c8a878;
+    --accent-dark: #8b6f4a;
+    --text: #3c2a1c;
+    --muted: #7a6850;
+    --ok: #5d9a35;
+    --warn: #d68b3a;
+    --bad: #c84a3a;
+    --type-narration: #a78bfa;
+    --type-listen-mc: #f59e0b;
+    --type-emoji-pick: #ec4899;
+    --type-listen-tf: #60a5fa;
+    --type-tap-pairs: #3d8aae;
+    --type-listen-comprehension: #ef6b3d;
+    --type-listen-emoji: #14b8a6;
+    --type-picture-mc: #84cc16;
+    --seg-main: #c8a878;
+    --seg-prologue: #a78bfa;
+    --seg-aesop: #94a3b8;
+    --seg-outro: #94a3b8;
+    --seg-review: #94a3b8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
+    backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
+    padding: max(8px, env(safe-area-inset-top)) 12px 8px;
+    display: flex; align-items: center; gap: 10px; min-height: 44px; }
+  .back-btn { width: 32px; height: 32px; padding: 0; background: transparent;
+    border: none; cursor: pointer; font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    flex: 0 0 auto; color: var(--text); text-decoration: none;
+    border-radius: 8px; transition: background 120ms ease-out; }
+  .back-btn:hover, .back-btn:active { background: rgba(60,42,28,0.08); }
+  .back-btn svg { width: 22px; height: 22px; display: block; }
+  h1 { margin: 0; font-size: 15px; font-weight: 900; color: var(--text);
+    display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  h1 .emoji { font-size: 17px; }
+  h1 .sub { font-size: 10px; color: var(--muted); font-weight: 700;
+    letter-spacing: 0.3px; white-space: nowrap; }
+
+  main { padding: 14px 12px 30px; max-width: 920px; margin: 0 auto; }
+
+  /* Ribbon: 三大關鍵數字 */
+  .ribbon { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    margin-bottom: 16px; }
+  .ribbon .stat { background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 12px 8px; text-align: center;
+    box-shadow: 0 2px 6px rgba(60,42,28,0.04); }
+  .ribbon .stat .n { font-size: 26px; font-weight: 900; color: var(--text);
+    line-height: 1; }
+  .ribbon .stat .lbl { font-size: 11px; color: var(--muted);
+    font-weight: 700; margin-top: 4px; letter-spacing: 0.3px; }
+
+  /* Section card */
+  .section { background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+  .section h2 { margin: 0 0 6px; font-size: 14px; font-weight: 900;
+    display: flex; align-items: center; gap: 6px; }
+  .section .desc { font-size: 11px; color: var(--muted);
+    margin: 0 0 12px; line-height: 1.4; }
+
+  /* Type / segment row */
+  .row { display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 8px; padding: 6px 0; }
+  .row .label { font-size: 13px; font-weight: 700; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .count { font-size: 12px; color: var(--muted); font-weight: 700;
+    white-space: nowrap; flex-shrink: 0; }
+  .row .count .pct { color: var(--text); font-weight: 900; margin-right: 4px; }
+  .bar { grid-column: 1 / -1; height: 10px; background: rgba(60,42,28,0.05);
+    border-radius: 5px; overflow: hidden; margin-top: 2px; }
+  .bar .fill { height: 100%; border-radius: 5px; transition: width 200ms; }
+  .row.t-narration .fill { background: var(--type-narration); }
+  .row.t-listen-mc .fill { background: var(--type-listen-mc); }
+  .row.t-emoji-pick .fill { background: var(--type-emoji-pick); }
+  .row.t-listen-tf .fill { background: var(--type-listen-tf); }
+  .row.t-tap-pairs .fill { background: var(--type-tap-pairs); }
+  .row.t-listen-comprehension .fill { background: var(--type-listen-comprehension); }
+  .row.t-listen-emoji .fill { background: var(--type-listen-emoji); }
+  .row.t-picture-mc .fill { background: var(--type-picture-mc); }
+  .row.s-main .fill { background: var(--seg-main); }
+  .row.s-prologue .fill { background: var(--seg-prologue); }
+
+  .row .tag { font-size: 10px; padding: 1px 6px; border-radius: 999px;
+    font-weight: 700; margin-left: 4px; }
+  .tag.ok { background: rgba(93,154,53,0.15); color: var(--ok); }
+  .tag.warn { background: rgba(214,139,58,0.15); color: var(--warn); }
+  .tag.bad { background: rgba(200,74,58,0.15); color: var(--bad); }
+
+  /* Spec-vs-reality discrepancy panel */
+  .discrepancy { background: linear-gradient(135deg, #fde0d2 0%, #fef2f0 100%);
+    border: 2px solid var(--bad); border-bottom: 4px solid #a8341f;
+    border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+  .discrepancy h2 { color: var(--bad); margin: 0 0 6px; }
+  .discrepancy ul { margin: 8px 0 0; padding-left: 18px; font-size: 12px;
+    line-height: 1.6; }
+  .discrepancy ul li b { color: var(--bad); }
+
+  /* Chapter table */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { padding: 6px 4px; text-align: left; border-bottom: 1px dotted var(--border); }
+  th { font-size: 10px; color: var(--muted); font-weight: 700;
+    letter-spacing: 0.3px; text-transform: uppercase;
+    position: sticky; top: 44px; background: var(--card); z-index: 5; }
+  th.r, td.r { text-align: right; }
+  td.ch { font-weight: 900; }
+  td.title { color: var(--muted); }
+  td.dom { font-weight: 700; }
+  tr:hover { background: rgba(200,168,120,0.08); }
+
+  .drill-link { display: inline-block; padding: 6px 10px;
+    background: var(--accent); color: white; border-radius: 8px;
+    text-decoration: none; font-size: 11px; font-weight: 800;
+    margin-top: 6px; }
+  .drill-link:hover { background: var(--accent-dark); }
+
+  .footer-meta { text-align: center; color: var(--muted);
+    font-size: 11px; margin-top: 20px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back-btn" href="https://pickup-cockpit.pages.dev/" aria-label="回控制中心 Back to Dashboard">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+    </svg>
+  </a>
+  <h1>
+    <span class="emoji">📊</span>
+    <span>Q&A 數據總覽</span>
+    <span class="sub" id="meta">v2.0.B.263 · 2026-06-09</span>
+  </h1>
+</header>
+
+<main>
+  <!-- 1. Three-stat ribbon -->
+  <div class="ribbon">
+    <div class="stat">
+      <div class="n">32</div>
+      <div class="lbl">📚 章節 chapters</div>
+    </div>
+    <div class="stat">
+      <div class="n">224</div>
+      <div class="lbl">📝 單元 lessons</div>
+    </div>
+    <div class="stat">
+      <div class="n">2,472</div>
+      <div class="lbl">❓ 題目 questions</div>
+    </div>
+  </div>
+
+  <!-- 2. ⚠️ Discrepancy panel (spec vs reality) -->
+  <div class="discrepancy">
+    <h2>🚨 Spec ↔ Reality 重大差異</h2>
+    <p class="desc">CLAUDE.md / 設計 spec 跟 production 的 lessons-ch{N}.json 對不上 — 決策前要知道。</p>
+    <ul>
+      <li><b>單元數差距</b> — Spec 寫每章 24 lesson,實際全 32 章都是 <b>7 lesson</b> (ch28 例外)</li>
+      <li><b>narration 佔比 48%</b> — 將近一半題目是被動聽 narration,主動答題比例可能太低</li>
+      <li><b>4 個 Segment 0 出現</b> — Spec 寫 5 種 segment (outer-prologue / main-story / <s>aesop-side</s> / <s>outer-outro</s> / <s>review</s>),實際只 main-story (96.9%) + ch0 outer-prologue (3.1%)</li>
+      <li><b>3 個 spec 題型 0 出現</b> — <s>type-what-you-hear</s> / <s>tap-tiles</s> / <s>read-mc-with-audio</s> 全部 0 題</li>
+      <li><b>2 個未文檔化題型出現</b> — <code>emoji-pick</code> (9.1%) + <code>picture-mc</code> (0.3%) — qa-dashboard CSS 還沒對應顏色</li>
+    </ul>
+  </div>
+
+  <!-- 3. Type distribution -->
+  <div class="section">
+    <h2>📋 題型分布 Question Type</h2>
+    <p class="desc">Production 真實數據 · 共 8 種題型 · 點題型可跳 qa-dashboard 篩選</p>
+
+    <a class="row t-narration" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">narration</span>
+        <span class="count"><span class="pct">48.0%</span>1,186</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:48.0%"></div></div>
+    </a>
+
+    <a class="row t-listen-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">listen-mc <span class="tag ok">on target</span></span>
+        <span class="count"><span class="pct">21.2%</span>525</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:21.2%"></div></div>
+    </a>
+
+    <a class="row t-emoji-pick" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">emoji-pick <span class="tag warn">未文檔化</span></span>
+        <span class="count"><span class="pct">9.1%</span>224</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:9.1%"></div></div>
+    </a>
+
+    <a class="row t-listen-tf" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">listen-tf</span>
+        <span class="count"><span class="pct">8.8%</span>218</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:8.8%"></div></div>
+    </a>
+
+    <a class="row t-tap-pairs" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">tap-pairs</span>
+        <span class="count"><span class="pct">8.8%</span>217</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:8.8%"></div></div>
+    </a>
+
+    <a class="row t-listen-comprehension" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">listen-comprehension <span class="tag warn">偏低</span></span>
+        <span class="count"><span class="pct">2.3%</span>56</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:2.3%"></div></div>
+    </a>
+
+    <a class="row t-listen-emoji" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">listen-emoji <span class="tag warn">只在 ch0</span></span>
+        <span class="count"><span class="pct">1.6%</span>39</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:1.6%"></div></div>
+    </a>
+
+    <a class="row t-picture-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="label">picture-mc <span class="tag bad">只 7 題,全 ch0</span></span>
+        <span class="count"><span class="pct">0.3%</span>7</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:0.3%"></div></div>
+    </a>
+  </div>
+
+  <!-- 4. Segment distribution -->
+  <div class="section">
+    <h2>🎬 Segment 分布</h2>
+    <p class="desc">Spec 設計 5 種 segment,production 只 2 種有資料</p>
+
+    <div class="row s-main">
+      <span class="label">main-story</span>
+      <span class="count"><span class="pct">96.9%</span>217 lesson</span>
+      <div class="bar"><div class="fill" style="width:96.9%"></div></div>
+    </div>
+    <div class="row s-prologue">
+      <span class="label">outer-prologue <span class="tag warn">只 ch0</span></span>
+      <span class="count"><span class="pct">3.1%</span>7 lesson</span>
+      <div class="bar"><div class="fill" style="width:3.1%"></div></div>
+    </div>
+    <div class="row" style="opacity:0.4">
+      <span class="label">aesop-side <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="count"><span class="pct">0%</span>0</span>
+      <div class="bar"><div class="fill" style="width:0%"></div></div>
+    </div>
+    <div class="row" style="opacity:0.4">
+      <span class="label">outer-outro <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="count"><span class="pct">0%</span>0</span>
+      <div class="bar"><div class="fill" style="width:0%"></div></div>
+    </div>
+    <div class="row" style="opacity:0.4">
+      <span class="label">review <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="count"><span class="pct">0%</span>0</span>
+      <div class="bar"><div class="fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- 5. Per-chapter table -->
+  <div class="section">
+    <h2>📚 章節 Breakdown</h2>
+    <p class="desc">32 章 · 每章 7 lesson 77 Q (ch28 例外 84 Q)</p>
+    <table>
+      <thead>
+        <tr><th>Ch</th><th>標題</th><th class="r">L</th><th class="r">Q</th><th>主導題型</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="ch">0</td><td class="title">入門:ABC・數字</td><td class="r">7</td><td class="r">78</td><td class="dom">listen-emoji</td></tr>
+        <tr><td class="ch">1</td><td class="title">桃太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">2</td><td class="title">醜小鴨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">3</td><td class="title">龜兔賽跑</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">4</td><td class="title">駱駝駝峰</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">5</td><td class="title">Baba Yaga</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">6</td><td class="title">六隻天鵝</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">7</td><td class="title">葉限</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">8</td><td class="title">三隻小豬</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">9</td><td class="title">灰姑娘</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">10</td><td class="title">嫦娥奔月</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">11</td><td class="title">后羿射日</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">12</td><td class="title">牛郎織女</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">13</td><td class="title">小紅帽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">14</td><td class="title">浦島太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">15</td><td class="title">國王的新衣</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">16</td><td class="title">一寸法師</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">17</td><td class="title">鶴的報恩</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">18</td><td class="title">興夫和孬夫</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">19</td><td class="title">Sang Kancil</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">20</td><td class="title">蘿蔔大冒險</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">21</td><td class="title">Anansi 蜘蛛</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">22</td><td class="title">孟母三遷</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">23</td><td class="title">司馬光砸缸</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">24</td><td class="title">孔融讓梨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">25</td><td class="title">愚公移山</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">26</td><td class="title">Archimedes</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">27</td><td class="title">西遊記</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr style="background:rgba(214,139,58,0.10)"><td class="ch">28</td><td class="title">三國諸葛亮 ⚠️</td><td class="r">7</td><td class="r"><b>84</b></td><td class="dom">narration</td></tr>
+        <tr><td class="ch">29</td><td class="title">奧德賽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">30</td><td class="title">赫拉克勒斯</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">31</td><td class="title">Robin Hood</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+      </tbody>
+    </table>
+
+    <a class="drill-link" href="https://pickupwords.pages.dev/qa-dashboard.html">→ 跳 qa-dashboard 看完整題目</a>
+  </div>
+
+  <div class="footer-meta">
+    v2.0.B.263 · 2026-06-09 · Source: <code>public/lessons-ch{0..31}.json</code><br>
+    更新內容後請手動 regen (subagent 跑 32 JSON 平行統計)
+  </div>
+</main>
+</body>
+</html>
