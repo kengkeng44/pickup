@@ -1033,9 +1033,63 @@ CI 缺口: package.json 沒 check:circular，ci.yml 不擋循環依賴。
       <div style="font-size:11px;color:var(--muted);">📦 ClozeUI broad-subscribe P0 — <a href="/archive.html" style="color:var(--accent-dark);">moved to archive</a> (RN 用 OptionBtn React component,broad-subscribe 改 Zustand selector)</div>
     </div>
 
+    <!-- walkthrough-cron 2026-06-09T1221 ARCH-REC #5 -->
+    <div style="border:2px solid #8a6ea8;border-radius:12px;padding:12px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#8a6ea8;margin-bottom:4px;">⭐ ARCH-REC #5 (walkthrough-cron 2026-06-09T1221) — M · 2hr · ROI ⭐⭐⭐⭐ <span style="font-size:10px;background:rgba(138,110,168,0.12);color:#8a6ea8;padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">persona: 學英文有 trauma</span></div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">接線 OnboardingPicker — Motivation + Previous Experience 問卷 (首訪 trauma-safe gate)</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6;">
+        <b>業界根據</b>: Duolingo 2025/26 onboarding 問 motivation reason → placement test → 直入第一課. Fabulous App「onboarding = story opening」提 D30 retention 22%. Krashen Affective Filter (1985) + Frontiers Psychology 2025: 情緒壓力直接阻礙 L2 語言習得 → 首訪「心理安全感設定」是 trauma learner 留存關鍵.<br>
+        <b>Pickup 現狀</b>: <code>src/react-app/components/OnboardingPicker.tsx</code> 已完整實作 4 軸喜好選擇器，但 <b>未在任何 page 渲染</b>。新用戶直接面對 24 顆節點，無「這裡不考試」framing，無 motivation anchoring。<code>const firstTime = xp === 0</code> 判斷已在 MapPage，只差接 gate 邏輯.<br>
+        <b>修法 (2 tasks)</b>: ① OnboardingPicker 加一個「previous experience」chip group（4 選項：全新 / 學過一點 / 學了很久但卡 / 以前有不好的經驗）→ 存入 localStorage 讓 GrandmaRecommendCarousel 調整推薦語氣. ② MapPage firstTime gate: <code>!localStorage.getItem('pickup.onboarding.done')</code> → 渲染 OnboardingPicker，onComplete 設 flag → 進地圖。完全 localStorage-based，零後端，零新依賴，Cloudflare Pages 靜態友好.
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">📁 <code>src/react-app/components/OnboardingPicker.tsx</code> (已存在) + <code>src/react-app/pages/MapPage.tsx:352</code> (firstTime gate) · 來源: walkthrough-cron 2026-06-09T1221</div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 walkthrough-cron 2026-06-09T1221 ARCH-REC #5:
+
+背景: persona 雅婷 (學英文有 trauma, 4G 慢網) P1 — OnboardingPicker 元件已存在但未接線。
+Duolingo 2025 onboarding: motivation question → 用戶感覺被理解 → 焦慮下降 → D30 retention +22%.
+
+目標: 讓首訪 trauma-vulnerable 用戶在進地圖前看到一個「你的英文故事」問卷 (one-time, dismissible)
+
+Task 1 — OnboardingPicker 加 &quot;previous experience&quot; 問題
+位置: src/react-app/components/OnboardingPicker.tsx
+在現有 4 軸 chip group 最上面加一個新 section:
+- title: 「你和英文的故事？」/ 「Your English story?」
+- 4 chips (single-select):
+  &amp;nbsp; 🌱 全新開始 / Brand new
+  &amp;nbsp; 📚 學過一點 / Learned some
+  &amp;nbsp; 🌀 學了很久但卡住 / Tried before, got stuck
+  &amp;nbsp; 💜 以前學得不開心 / Had a bad experience
+- 儲存到 localStorage key 'pickup.learner.experience' (string: 'new'|'some'|'stuck'|'trauma')
+- 如果選了 'stuck' 或 'trauma'，onComplete 時設一個 flag: 'pickup.trauma.mode'='1'
+
+Task 2 — MapPage 接線 firstTime gate
+位置: src/react-app/pages/MapPage.tsx，在 firstTime 判斷附近 (line ~352)
+加一個 state:
+  const [showOnboarding, setShowOnboarding] = useState(() =>
+    xp === 0 &amp;&amp; !localStorage.getItem('pickup.onboarding.done')
+  );
+當 showOnboarding=true → 在地圖 return 前先渲染 OnboardingPicker:
+  if (showOnboarding) return (
+    &lt;OnboardingPicker
+      onComplete={(_prefs) => {
+        localStorage.setItem('pickup.onboarding.done', '1');
+        setShowOnboarding(false);
+      }}
+    /&gt;
+  );
+
+Task 3 — trauma mode warm copy (可選, S)
+如果 localStorage.getItem('pickup.trauma.mode')==='1':
+在 firstTime welcome banner 子文字改成:
+  「🐾 這裡不扣分,不考試 — 慢慢聽就好」
+
+讀 src/react-app/components/OnboardingPicker.tsx 了解現有結構再動。
+完整說明: docs/audits/2026-06-09T1221-walkthrough-cron.md" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221
     </div>
   </section>
 
