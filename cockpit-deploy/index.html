@@ -1087,9 +1087,54 @@ Task 3 — trauma mode warm copy (可選, S)
 完整說明: docs/audits/2026-06-09T1221-walkthrough-cron.md" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- code-health-cron 2026-06-09T1237 ARCH-REC #13: storageKeys.ts centralized registry + safeSetItem -->
+    <div style="background:var(--card);border:2px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#c84a3a;margin-bottom:4px;">⚠️ ARCH-REC #13 (code-health-cron 2026-06-09T1237) — S · 15min (P0 fixes) + M · 3hr (full registry) · ROI ⭐⭐⭐</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">localStorage key registry + P0 coin key collision fix</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6;">
+        <b>⚠️ 兩個 P0 bugs 今天發現:</b><br>
+        ① <code>MapPage.tsx:644</code> 寫 <code>'pickup.coins'</code>，但 <code>coins.ts:6</code> <code>LS_COINS = 'pickup.coins.total'</code> — 寶箱開啟 +10 硬幣寫到錯誤 key，<code>readCoins()</code> 永遠讀不到，寶箱硬幣完全消失，HUD 不更新。<br>
+        ② <code>ProfilePage.tsx:39</code> 寫 <code>'pickup.catName'</code>（camelCase），但 <code>catName.ts:9</code> 讀 <code>'pickup.cat-name'</code>（hyphen）— 用戶在 Profile 改貓名後，narration 裡永遠還是「Mochi」，個人化完全失效。<br>
+        <b>根因:</b> 50 個 localStorage key 字串散落在 15 個檔案，沒有集中 registry，typo 靜默無聲。業界標準（ts-local-storage-manager / typed-storage）是 <code>storageKeys.ts</code> 單一 const 枚舉，所有模組 import。MDN StorageManager + TrackJS 建議另加 <code>QuotaExceededError</code> 分流（vs SecurityError private mode 已接）。
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">
+        📁 P0 fix: <code>MapPage.tsx:644</code> (coin key) + <code>ProfilePage.tsx:22,39</code> (catName key)<br>
+        📁 Full: 新建 <code>src/data/storageKeys.ts</code> + <code>safeSetItem()</code> + migration shim in <code>main.ts</code><br>
+        來源: code-health-cron 2026-06-09T1237
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 code-health-cron 2026-06-09T1237 ARCH-REC #13:
+
+【⚠️ P0 fixes — 先做這兩個，15min 以內】
+
+P0-A: MapPage.tsx:644 coin key collision
+位置: src/react-app/pages/MapPage.tsx, 找到 localStorage.setItem('pickup.coins', ...) 那行
+現狀: localStorage.setItem('pickup.coins', String(curCoins + 10))
+問題: coins.ts:6 的 LS_COINS = 'pickup.coins.total'，readCoins() 讀 .total，所以 chest 寫的 'pickup.coins' 永遠讀不到
+修法:
+  1. 在檔案頂部 import { addCoins } from '../../data/coins'（如果還沒 import）
+  2. 把整段:
+     const curCoins = readCoins();
+     localStorage.setItem('pickup.coins', String(curCoins + 10));
+  換成: addCoins(10);
+
+P0-B: ProfilePage.tsx catName key mismatch
+位置: src/react-app/pages/ProfilePage.tsx
+現狀:
+  line 22: localStorage.getItem('pickup.catName') — 讀 camelCase key
+  line 39: localStorage.setItem('pickup.catName', v) — 寫 camelCase key
+問題: catName.ts:9 LS_CAT_NAME = 'pickup.cat-name' (hyphen)，applyCatName() 讀 'pickup.cat-name'，兩邊 key 不同，用戶改名後 narration 裡永遠還是 Mochi
+修法:
+  1. 在頂部加 import { readCatName, writeCatName } from '../../data/catName'
+  2. line 22 初始化改為: () => { try { return readCatName(); } catch { return 'Mochi'; } }
+  3. saveCat 內 setItem 改為: writeCatName(v);
+     (writeCatName 本身已包 trim + 12char limit + try/catch)
+
+完整說明: docs/audits/2026-06-09T1237-code-health-cron.md C + E#1,E#2" style="background:var(--danger);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">⚠️ 一鍵複製 P0 修法 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221 + code-health-cron 2026-06-09T1237
     </div>
   </section>
 
