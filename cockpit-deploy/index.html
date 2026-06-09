@@ -719,9 +719,23 @@ renderers.tsx:237 setTimeout 2500 → 1500
 完整說明: docs/audits/2026-06-08T2107-ui-ux-cron.md D1-D3 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- content-cron 2026-06-09T0007 ARCH-REC #5 -->
+    <div style="background:#fff7e8;border:1.5px solid #c8a878;border-radius:12px;padding:12px 14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #5 (content-cron 2026-06-09T0007) — S · 30min · ROI ⭐⭐⭐</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">📝 LessonQuestion Zod schema 加 <code>paraphraseStrategy</code> field + validate-lessons.js lint rule</div>
+      <div style="font-size:12px;color:#5c4a2a;margin-bottom:8px;">
+        <strong>背景:</strong> content-cron R1 深掃 Ch2/3/6/8 發現 5 P0 verbatim 違例 (Ch8 三隻小豬最多, 3/5 P0)。重複結構童話天然易產生「correct option ≈ sentence 直接複製」。業界根據: ACL 2023 Cloze Quality Estimation + 2025 paraphrastic probing research 均建議 paraphrase strategy 元資料欄位。<br><br>
+        <strong>做什麼:</strong><br>
+        1. <code>src/data/lessons.ts</code> LessonQuestion schema 加 optional: <code>paraphraseStrategy: z.enum(['lexical-substitution','syntactic-restructure','pronoun-reference','none']).optional()</code><br>
+        2. <code>tools/validate-lessons.js</code> R1 check 後加: <code>paraphraseStrategy === 'none'</code> → WARN X5_PARAPHRASE_NONE<br>
+        3. 已知 5 P0 可補 <code>"paraphraseStrategy":"none"</code> 作為技術債標記，等下次 content pass 修
+      </div>
+      <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master，接 content-cron 2026-06-09T0007 ARCH-REC #5:\n\n【背景】R1 深掃 Ch2/3/6/8 找到 5 P0 verbatim echo (Ch8 三隻小豬最多)。ACL 2023 Cloze Quality Estimation 建議加 paraphraseStrategy 元資料欄位，讓 validate-lessons.js 在 authoring 階段攔截重蹈。\n\n【兩步都是 S size，30min 合一個 session】\n\n步驟 1 — src/data/lessons.ts LessonQuestion schema 加:\nparaphraseStrategy: z.enum([\n  \"lexical-substitution\",\n  \"syntactic-restructure\",\n  \"pronoun-reference\",\n  \"none\",  // ← flags verbatim echo\n]).optional(),\n\n步驟 2 — tools/validate-lessons.js 在現有 R1_SUBSTRING check 後面加:\nif (q.paraphraseStrategy === \"none\") {\n  issues.push({ id: q.id, code: \"X5_PARAPHRASE_NONE\",\n    msg: \"paraphraseStrategy=none flags verbatim echo — rewrite correct option\" });\n}\n\n步驟 3 (可選) — 5 個已知 P0 的 JSON Q 加 paraphraseStrategy:\"none\" 標記技術債:\n- kt-ch8-l3-q3 (correct=\"they were firmer than straw\")\n- kt-ch8-l6-q9 (correct=\"out the back, very fast\")\n- kt-ch8-l7-q7 (correct=\"made a hot fire\")\n- kt-ch6-l2-q5 (correct=\"while others slept\")\n- kt-ch6-l6-q5 (correct=\"harmed her own child\")\n\n完整說明: docs/audits/2026-06-09T0007-content-qa-cron.md — 🔬 ARCH-REC #5 段落').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
-      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107
+      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合).<br>
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007
     </div>
   </section>
 
@@ -818,7 +832,7 @@ renderers.tsx:237 setTimeout 2500 → 1500
 </main>
 
 <footer>
-  v1.4 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×4 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.5 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×5 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
