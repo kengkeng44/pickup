@@ -230,27 +230,9 @@ export default function MapPage() {
   // user: 「往下滑再載入就好 不然一個頁面會太大 (這叫什麼技術 你上網查一下照著用)」
   // → 標準 windowing / virtualization 技術: 只 render viewport ± buffer 內的 node
   // 容器高度 = lessons.length × NODE_PITCH 保 scrollbar 精準
-  // v2.0.B.274 perf: rAF throttle — passive scroll 60fps 直接 setState 會 trigger
-  // 每 frame full re-render (260 nodes + readCompletedLessons localStorage 讀)
-  // 是 jank 主源也是 jump-to-top 根因之二 (re-render→layout→trigger 其他 effect)
-  const [scrollY, setScrollY] = useState(0);
-  useEffect(() => {
-    let rafId = 0;
-    let pending = false;
-    const onScroll = () => {
-      if (pending) return;
-      pending = true;
-      rafId = requestAnimationFrame(() => {
-        setScrollY(window.scrollY);
-        pending = false;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, []);
+  // v2.0.B.296 ROOT FIX: 砍 scrollY listener 完全. 11 patch 失敗的真根因 = React 18 setState
+  // in scroll listener 在 mobile broken (facebook/react#26227). chapter detection 改 IO.
+  // (catPos / currentNodeIdx 跟 scroll 無關, 不需 scrollY).
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
@@ -287,28 +269,37 @@ export default function MapPage() {
   }, [lessons.length]);
 
   // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
-  // v2.0.B.292 NUCLEAR TEST: 砍虛擬化 visEnd, 但保留 visStart 給 visibleLesson (chapter 偵測).
+  // v2.0.B.296: 砍 visStart 計算 (已不需要 — chapter detection 改 IO, 虛擬化已砍).
   const NODE_PITCH = 84;
-  const NODES_TOP_OFFSET = 220; // sticky HUD + chapter header 預估高度
-  const BUFFER = 5;
-  const adjScroll = Math.max(0, scrollY - NODES_TOP_OFFSET);
-  const visStart = Math.max(0, Math.floor(adjScroll / NODE_PITCH) - BUFFER);
 
-  // v2.0.B.294 chapter debounce: 之前 chapter 直接 scroll-derived 每 render 都重算,
-  // 快速滑過多章節時 book cover 字+色快速 swap = user 看到的「閃動」.
-  // 改用 idleChapter state, 只在 scroll idle 150ms 後 update, 滑動中 book cover 凍住不變.
-  const visibleLesson = stream.slice(visStart).find(s => s.kind === 'lesson');
-  const candidateChapter = isAggregate && visibleLesson?.lessonIdx !== undefined && lessons[visibleLesson.lessonIdx]
-    ? lessons[visibleLesson.lessonIdx].chapter
-    : requestedChapter;
-  const [idleChapter, setIdleChapter] = useState(requestedChapter);
+  // v2.0.B.296 ROOT FIX: chapter 偵測改 IntersectionObserver.
+  // 之前 11 patch 失敗的真根因 = setState in scroll listener mobile broken + iOS Safari
+  // momentum scroll 期間做 fixed element content mutation 觸發 paint invalidation = 強行跳回.
+  // IO async + off-main-thread, 跟 momentum scroll 不競爭, 1 callback per chapter boundary.
+  const [chapter, setChapter] = useState(requestedChapter);
   useEffect(() => {
-    const t = window.setTimeout(() => {
-      if (candidateChapter !== idleChapter) setIdleChapter(candidateChapter);
-    }, 150);
-    return () => window.clearTimeout(t);
-  }, [candidateChapter, idleChapter]);
-  const chapter = idleChapter;
+    if (!isAggregate || lessons.length === 0) return;
+    const observer = new IntersectionObserver((entries) => {
+      // 找 intersection ratio 最高 + viewport 中段內的 lesson
+      const visible = entries
+        .filter(e => e.isIntersecting && e.intersectionRatio > 0.3)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      const top = visible[0];
+      if (!top) return;
+      const lessonId = (top.target as HTMLElement).dataset.lessonId;
+      if (!lessonId) return;
+      const l = lessons.find(x => x.id === lessonId);
+      if (!l) return;
+      setChapter(prev => prev !== l.chapter ? l.chapter : prev);
+    }, {
+      threshold: [0.3, 0.5, 0.7],
+      // 判定區壓 viewport 中段 40% (上 30% + 下 30% 抓不到), 邊界穩定
+      rootMargin: '-30% 0px -30% 0px',
+    });
+    const els = document.querySelectorAll('[data-lesson-id]');
+    els.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [lessons, isAggregate]);
   const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
   // v2.0.B.275 perf: completedByChapter memo — 把 render loop 內 217× readCompletedLessons

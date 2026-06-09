@@ -49,6 +49,7 @@ function MapNodeImpl({
   return (
     <button
       ref={innerRef}
+      data-lesson-id={lessonId}
       className={isCurrent ? 'pickup-map-node-current' : undefined}
       type="button"
       disabled={!unlocked}
