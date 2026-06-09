@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pickup UI/UX 標準 v1</title>
+  <style>
+    :root {
+      --bg: #f1ebe1;
+      --card: #fff7e8;
+      --text: #3c2a1c;
+      --muted: #7a6850;
+      --accent: #e7a44a;
+      --accent-dark: #b07a2a;
+      --olive: #7d9a4f;
+      --olive-dark: #5d7a30;
+      --red: #c84a3a;
+      --border: #ead9bb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding: max(12px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
+      -webkit-text-size-adjust: 100%;
+    }
+    .container { max-width: 760px; margin: 0 auto; }
+    h1 {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text);
+      margin: 16px 0 6px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .rule-banner {
+      background: var(--card); border: 2px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; margin: 18px 0;
+      font-size: 14px; color: var(--text);
+      box-shadow: 0 4px 0 var(--border);
+    }
+    .rule-banner strong { color: var(--accent-dark); }
+
+    h2 {
+      font-size: 19px; font-weight: 900;
+      margin: 28px 0 10px;
+      color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px dashed var(--border);
+    }
+    h2 .icon { font-size: 22px; }
+    h3 {
+      font-size: 14px; font-weight: 800; letterSpacing: 1.5px;
+      text-transform: uppercase;
+      margin: 14px 0 6px;
+      color: var(--accent-dark);
+    }
+    .section-card {
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 8px 0 14px;
+      box-shadow: 0 3px 0 var(--border);
+    }
+    .section-card.top { border-left: 5px solid var(--accent); }
+    .section-card.mid { border-left: 5px solid var(--olive); }
+    .section-card.bot { border-left: 5px solid var(--red); }
+    .badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 900;
+      padding: 2px 8px; border-radius: 999px;
+      letter-spacing: 1px; text-transform: uppercase;
+      background: var(--accent); color: #fff;
+      margin-right: 6px;
+    }
+    .badge.top { background: var(--accent); }
+    .badge.mid { background: var(--olive); }
+    .badge.bot { background: var(--red); }
+
+    ul { margin: 4px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; font-size: 13.5px; color: var(--text); }
+    code {
+      background: rgba(60,42,28,0.06);
+      padding: 1px 6px; border-radius: 4px;
+      font-size: 12px; font-family: ui-monospace, SFMono-Regular, monospace;
+      color: var(--accent-dark);
+    }
+    .fx {
+      background: rgba(125,154,79,0.08);
+      border: 1px dashed var(--olive);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: #3c2a1c;
+    }
+    .fx::before { content: "✨ 特效: "; font-weight: 900; color: var(--olive-dark); }
+
+    .token-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; margin: 8px 0;
+    }
+    .token {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 10px;
+      font-size: 12px; color: var(--muted);
+    }
+    .token strong { color: var(--text); }
+
+    footer {
+      margin-top: 32px; padding: 14px 0;
+      text-align: center; font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    a { color: var(--accent-dark); text-decoration: none; }
+    a:active { opacity: 0.6; }
+
+    @media (min-width: 720px) {
+      h1 { font-size: 32px; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Pickup UI/UX 標準 v1</h1>
+    <div class="subtitle">User directive 2026-06-10:「每一個頁面從上到下分三個區塊」</div>
+
+    <div class="rule-banner">
+      <strong>規則:</strong> 任何 page / screen 必須 lock 死 <strong>3-section vertical structure</strong>:
+      <span class="badge top">TOP</span> chrome / sticky ·
+      <span class="badge mid">MIDDLE</span> scrollable content ·
+      <span class="badge bot">BOTTOM</span> nav 或 CTA fixed.
+      改之前必須對齊此 spec.
+    </div>
+
+    <h2><span class="icon">🌐</span> 共用設計 token</h2>
+    <div class="token-grid">
+      <div class="token"><strong>cream bg</strong> #f1ebe1</div>
+      <div class="token"><strong>warm sepia</strong> #3c2a1c</div>
+      <div class="token"><strong>warm muted</strong> #7a6850</div>
+      <div class="token"><strong>olive 成功</strong> #7d9a4f / dark #5d7a30</div>
+      <div class="token"><strong>terracotta 錯</strong> #c84a3a / dark #8a2e21</div>
+      <div class="token"><strong>amber paw</strong> #e7a44a / dark #b07a2a</div>
+      <div class="token"><strong>radius</strong> 14(card) / 12(btn) / 999(pill)</div>
+      <div class="token"><strong>lift</strong> 6(btn) / 8(paw) / 5(book cover)</div>
+      <div class="token"><strong>press 動畫</strong> 30ms down / 80ms spring back</div>
+      <div class="token"><strong>haptic</strong> Medium press / Success correct</div>
+    </div>
+
+    <h2><span class="icon">🗺️</span> MapPage / MapScreen (首頁地圖)</h2>
+
+    <div class="section-card top">
+      <span class="badge top">TOP</span><strong>Chrome (~140px + safe-area)</strong>
+      <ul>
+        <li><strong>HUD row (50px):</strong> 🏳️ EN | 👑 L{lv} progress | 🪙 {coins} | 🔥 {streak} | 🧊 {freezes}</li>
+        <li><strong>Book cover (~80px):</strong> bg <code>meta.accent</code>, shadow darken(0.28), CH {N} 10px + titleEn 19px + titleZh 12px italic, tap → speak chapter title</li>
+      </ul>
+    </div>
+    <div class="section-card mid">
+      <span class="badge mid">MIDDLE</span><strong>Spiral nodes (scrollable)</strong>
+      <ul>
+        <li>Grandma + Shiba mascot scene (頂端 130px)</li>
+        <li>蛇形 paw nodes (260: 217 lesson + 43 chest)</li>
+        <li>NODE_PITCH 84-96, NODE_SIZE 82-88, SLOT_DX 8-position cycle</li>
+        <li>paw amber / done olive / current bg 加亮 <code>#f5be6a</code></li>
+        <li>chest 🎁 amber bg, opened → ✨ opacity 0.45</li>
+      </ul>
+    </div>
+    <div class="section-card bot">
+      <span class="badge bot">BOTTOM</span><strong>BottomNav (fixed 60-70px)</strong>
+      <ul>
+        <li>5 tabs icon-only: 🐾 Map / ⭐ Tasks / 📒 Cards / 🔥 Trophy / 🐱 Me</li>
+        <li>bg <code>#fff7e8</code>, border-top 3px <code>#c8a878</code></li>
+        <li>active: amber tint + border + label color 變</li>
+      </ul>
+    </div>
+    <div class="fx">SquishButton press / Container height 預固定 280 nodes / IntersectionObserver chapter / 1-shot lessons load (B.297) / 寶箱 tap +10 coins / current node pulse</div>
+
+    <h2><span class="icon">📖</span> LessonPage / LessonScreen (答題)</h2>
+
+    <div class="section-card top">
+      <span class="badge top">TOP</span><strong>Header (~80px)</strong>
+      <ul>
+        <li><code>[✕ 44×44] [progress bar flex:1 14h olive] [🔇 44×44]</code></li>
+        <li>軌 <code>#ead8c4</code>, 填 <code>#7d9a4f</code>, 999 radius</li>
+        <li>spring 500ms width transition</li>
+      </ul>
+    </div>
+    <div class="section-card mid">
+      <span class="badge mid">MIDDLE</span><strong>Q content (scrollable)</strong>
+      <ul>
+        <li>Speaker badge 11px pill (optional)</li>
+        <li>Sentence card + 🔊 speaker (auto-speak on mount)</li>
+        <li>Question prompt (非 MC type only, per B.280)</li>
+        <li>Renderer 依 type: narration / MC / tap-pairs / sentence-builder</li>
+        <li>Reveal: 答對 explanation card / 答錯 2-strike 紅 banner</li>
+      </ul>
+    </div>
+    <div class="section-card bot">
+      <span class="badge bot">BOTTOM</span><strong>CTA (~80px fixed footer)</strong>
+      <ul>
+        <li>→ green CTA SquishButton olive lift 6</li>
+        <li>知道了 red CTA (2-strike reveal): bg <code>#c84a3a</code></li>
+        <li>Disabled: opacity 0.55</li>
+      </ul>
+    </div>
+    <div class="fx">Auto-speak Q mount + cleanup / per-option Speech.speak + Haptic Medium / 答對 Confetti + Haptic Success / 答錯 1st blindRetry / 答錯 2nd reveal + 知道了 / tap-pairs 配對 olive 變色 / SquishButton 30ms 按下</div>
+
+    <h2><span class="icon">🐱</span> ProfilePage / ProfileScreen</h2>
+    <div class="section-card top"><span class="badge top">TOP</span><strong>Hero (~200px)</strong>: Mochi 120×120 round + {catName} 22px + Level {N} 14px</div>
+    <div class="section-card mid"><span class="badge mid">MIDDLE</span><strong>Settings (scrollable)</strong>: 5-stat grid 3-col / Cat Name input / Dog Name input / Mute toggle / Danger Reset</div>
+    <div class="section-card bot"><span class="badge bot">BOTTOM</span><strong>BottomNav</strong> (跟 Map 同)</div>
+    <div class="fx">Mochi 偶爾 blink / Save → AsyncStorage + toast</div>
+
+    <h2><span class="icon">⭐</span> TasksPage / TasksScreen</h2>
+    <div class="section-card top"><span class="badge top">TOP</span><strong>Streak Hero (~200px)</strong>: 🔥 56px + N day streak + 副標, bg <code>#ff7a3a</code>, shadow <code>#b34f1f</code></div>
+    <div class="section-card mid"><span class="badge mid">MIDDLE</span><strong>3 cards</strong>: 🧊 Freeze / 🐾 Visit / 📊 Today XP progress (olive fill)</div>
+    <div class="section-card bot"><span class="badge bot">BOTTOM</span><strong>BottomNav</strong></div>
+    <div class="fx">Streak 升級 hero scale bounce / XP bar fill transition</div>
+
+    <h2><span class="icon">📒</span> CardsPage (圖鑑) / CardsScreen</h2>
+    <div class="section-card top"><span class="badge top">TOP</span><strong>Hero (~120px)</strong>: N/31 stories collected, accent <code>#d68a52</code></div>
+    <div class="section-card mid"><span class="badge mid">MIDDLE</span><strong>Pokedex grid 4-col</strong>: 31 cards #N + emoji + title + % progress / collected ✅ olive bg</div>
+    <div class="section-card bot"><span class="badge bot">BOTTOM</span><strong>BottomNav</strong></div>
+    <div class="fx">Card complete unlock scale 0.82→1.12→1 pop / Hero N pulse</div>
+
+    <h2><span class="icon">🏆</span> AlertsPage (成就)</h2>
+    <div class="section-card top"><span class="badge top">TOP</span><strong>Hero (~100px)</strong>: N/M achievements unlocked, accent <code>#e7a44a</code></div>
+    <div class="section-card mid"><span class="badge mid">MIDDLE</span><strong>Badge grid 2-col</strong>: 8 badges 48px emoji / Locked opacity 0.25 / Unlocked olive border</div>
+    <div class="section-card bot"><span class="badge bot">BOTTOM</span><strong>BottomNav</strong></div>
+    <div class="fx">Unlock confetti + Haptic Success + scale 0.7→1.15→1 / Tap unlocked badge speak description</div>
+
+    <h2><span class="icon">👵</span> ChapterIntroPage</h2>
+    <div class="section-card top"><span class="badge top">TOP</span><strong>Mascot Scene (~250px)</strong>: Grandma + Shiba + 章節 floor band 50px inset</div>
+    <div class="section-card mid"><span class="badge mid">MIDDLE</span><strong>Narration</strong> + 🔊 SquishButton replay</div>
+    <div class="section-card bot"><span class="badge bot">BOTTOM</span><strong>CTA</strong>: → Begin SquishButton olive</div>
+    <div class="fx">mascot-idle-bob 上下 sway / auto-speak narration on mount</div>
+
+    <h2><span class="icon">🪟</span> Modals (overlay, 同 3-section)</h2>
+    <p style="font-size:13px;color:var(--muted)">KeySentencesSheet / NextStoryPicker / OnboardingPicker — 都遵守 TOP 標題 + MIDDLE scrollable + BOTTOM ✕ close / CTA. Modal 額外:backdrop fade-in 240ms + slide-up 28px + 3 種 dismiss path (外圈/✕/再點觸發按鈕).</p>
+
+    <h2><span class="icon">📌</span> 規則總結 (違反 = revert)</h2>
+    <ol style="padding-left:22px;font-size:13.5px;line-height:1.7">
+      <li><strong>3-section 強制</strong>: top / middle / bottom 必須清楚分離</li>
+      <li><strong>TOP = chrome</strong> sticky fixed 不 scroll; MIDDLE = scrollable; BOTTOM = nav 或 CTA fixed</li>
+      <li><strong>所有按鈕一律 SquishButton</strong> (見 pickup-rn/CONVENTIONS.md)</li>
+      <li>不要對 fixed element 加 CSS transition (iOS Safari jitter)</li>
+      <li>chrome cream <code>#f1ebe1</code> 跟 viewport bg 一致</li>
+      <li>Haptic Medium 配 press, Haptic Success 配 correct</li>
+      <li>TTS auto-speak on Q mount + cleanup on unmount</li>
+      <li>MC 不要 question prompt, 選項自說明 (B.280)</li>
+      <li>答錯 2-strike: 1st 紅 retry, 2nd 知道了 reveal</li>
+      <li>書封 dynamic chapter = IntersectionObserver, 不用 scrollY listener</li>
+    </ol>
+
+    <footer>
+      Pickup UI/UX Standard v1 · 2026-06-10 · 來源 <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/ui-ux-standard-v1.md">docs/standards/ui-ux-standard-v1.md</a><br/>
+      改動 cadence: 任何 layout / 按鈕 / 特效 PR → 來這 spec 加 1 行對應
+    </footer>
+  </div>
+</body>
+</html>
