@@ -1132,9 +1132,67 @@ P0-B: ProfilePage.tsx catName key mismatch
 完整說明: docs/audits/2026-06-09T1237-code-health-cron.md C + E#1,E#2" style="background:var(--danger);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">⚠️ 一鍵複製 P0 修法 prompt</button>
     </div>
 
+    <!-- ui-ux-cron 2026-06-09T1510 ARCH-REC #14: Drops session time estimate -->
+    <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #14 (ui-ux-cron 2026-06-09T1510) — S · 30min · ROI ⭐⭐⭐⭐ <span style="font-size:10px;background:rgba(93,154,53,0.12);color:#5d9a35;padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">angle: Drops 5-min pacing</span></div>
+      <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">Session time estimate — MapNode ariaLabel + LessonPage header + TasksPage 每日目標加「≈ X min」</div>
+      <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
+        <b>現況 (業界 gap)</b>: Drops / Duolingo / Cake / Babbel 全部在 session 開始前顯示時間承諾。Pickup 是四個競品中唯一沒有任何 pre-session time signal 的。<br>
+        ① <code>MapPage.tsx:687</code> ariaLabel 只有 storyBeat + locked/current，無題數/時長。<br>
+        ② <code>LessonPage.tsx:104</code> header 有進度條但無「~Xm」預估時長。<br>
+        ③ <code>TasksPage.tsx:43</code> 每日目標「完成 1 個 lesson」無時間框架，兒童客群家長問「要多久？」無從回答。<br>
+        <b>公式</b>: <code>Math.max(1, Math.ceil(qCount * 22 / 60))</code> — 22s/Q (3s auto-advance + ~19s read/answer，A2兒童保守估). Lesson JSON <code>questions.length</code> 兩處已可用，零資料層變動。
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">
+        📁 <code>src/react-app/pages/MapPage.tsx:687</code> (ariaLabel) · <code>src/react-app/pages/LessonPage.tsx:104</code> (header) · <code>src/react-app/pages/TasksPage.tsx:43</code> (daily goal text)<br>
+        來源: ui-ux-cron 2026-06-09T1510 — docs/audits/2026-06-09T1510-ui-ux-cron.md D1+D2+D3
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 ui-ux-cron 2026-06-09T1510 ARCH-REC #14:
+
+【背景】Drops 5-min session pacing 角度。Drops/Duolingo/Cake/Babbel 全在 session 開始前顯示時間承諾。Pickup 是競品中唯一無 pre-session time signal。兒童客群「可以的媽媽，只要3分鐘」是採用關鍵。
+
+公式: Math.max(1, Math.ceil(qCount * 22 / 60)) 分鐘 (22s/Q = 3s auto-advance + 19s A2兒童 read/answer 保守估)
+Lesson JSON questions.length 已可用，零資料層變動。
+
+【D1 — MapPage.tsx:687 ariaLabel 加時長 (S · 10min)】
+位置: src/react-app/pages/MapPage.tsx, line ~687
+
+現行:
+  const ariaLabel = \`\${l.storyBeat ?? \`Lesson \${l.lessonInChapter}\`}\${unlocked ? '' : ' (locked)'}\${isCurrent ? ' (current)' : ''}\`;
+
+改成 (在 ariaLabel const 前加 estMin):
+  const estMin = Math.max(1, Math.ceil((l.questions as unknown[]).length * 22 / 60));
+  const ariaLabel = \`\${l.storyBeat ?? \`Lesson \${l.lessonInChapter}\`} · ~\${estMin}min\${unlocked ? '' : ' (locked)'}\${isCurrent ? ' (current)' : ''}\`;
+
+【D2 — LessonPage.tsx header 加 ~Xm (S · 10min)】
+位置: src/react-app/pages/LessonPage.tsx, lesson load 後加
+
+在 const done = idx >= lesson.questions.length; 前加:
+  const estMin = Math.max(1, Math.ceil(lesson.questions.length * 22 / 60));
+
+在 header div 的 progress bar 後加:
+  <span style={{ fontSize: 11, color: '#a08060', fontWeight: 700, flex: '0 0 auto', minWidth: 28 }}>~{estMin}m</span>
+
+【D3 — TasksPage.tsx 每日目標加時間框架 (S · 5min)】
+位置: src/react-app/pages/TasksPage.tsx, line ~43
+
+現行:
+  { icon: '📖', text: '完成 1 個 lesson · Complete 1 lesson', done: hasCompletedAnyLesson },
+
+改成:
+  { icon: '📖', text: '完成 1 個 lesson · ≈ 3-5 分鐘 · Complete 1 lesson', done: hasCompletedAnyLesson },
+
+選做: TasksPage h1 下加一行 tagline:
+  <p style={{ fontSize: 12, color: '#8b6f4a', margin: '-8px 0 12px', fontWeight: 700 }}>
+    奶奶睡前5分鐘 · 每天一課輕鬆學英文
+  </p>
+
+完整說明: docs/audits/2026-06-09T1510-ui-ux-cron.md D1+D2+D3 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
-      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221 + code-health-cron 2026-06-09T1237
+      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合) / Drops 5-min hard countdown timer (freemium gate — 兒童陪伴感衝突，time info 保留，timer gate 不適合).<br>
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221 + code-health-cron 2026-06-09T1237 + ui-ux-cron 2026-06-09T1510
     </div>
   </section>
 
