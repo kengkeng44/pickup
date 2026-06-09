@@ -42,6 +42,15 @@
     -webkit-tap-highlight-color: transparent; touch-action: manipulation;
     flex: 0 0 auto; color: var(--text); }
   .hamburger svg { width: 22px; height: 22px; display: block; }
+  /* v2.0.B.263: back button → 控制中心 (Pickup cockpit dashboard) */
+  .back-btn { width: 32px; height: 32px; padding: 0; background: transparent;
+    border: none; cursor: pointer; font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    flex: 0 0 auto; color: var(--text); text-decoration: none;
+    border-radius: 8px; transition: background 120ms ease-out; }
+  .back-btn:hover, .back-btn:active { background: rgba(60,42,28,0.08); }
+  .back-btn svg { width: 22px; height: 22px; display: block; }
   h1 { margin: 0; font-size: 15px; font-weight: 900; color: var(--text);
     display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -240,6 +249,12 @@
 </head>
 <body>
 <header>
+  <!-- v2.0.B.263: back to cockpit (儀表板首頁) -->
+  <a class="back-btn" href="https://pickup-cockpit.pages.dev/" aria-label="回控制中心 Back to Dashboard">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+    </svg>
+  </a>
   <button class="hamburger" id="open-drawer" aria-label="開啟篩選選單">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
@@ -290,19 +305,50 @@
 
 <script>
   // ─── Q&A inspection dashboard — mirrors game lesson schema exactly ──────
-  // Fetches /lessons-ch{1..8}.json + renders read-only Q list for cross-check.
+  // Fetches /lessons-ch{0..31}.json + renders read-only Q list for cross-check.
+  // v2.0.B.263: 從 8 章擴到 32 章(ch0 入門 + ch1~ch31 故事章節),
+  // 章節標題對齊 src/data/storyRegistry.ts 的 nameZh source of truth.
   // Uses WebSpeech for audio (no MP3 lookup parity — that's tts.ts's job).
 
-  const CHAPTERS = [1, 2, 3, 4, 5, 6, 7, 8];
+  const CHAPTERS = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+    10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+    30, 31,
+  ];
   const CHAPTER_TITLES = {
-    1: '院子裡的第一個故事',
-    2: '桃太郎',
-    3: '醜小鴨',
-    4: '龜兔賽跑',
-    5: '駱駝為什麼有駝峰',
-    6: 'Baba Yaga',
-    7: '六隻天鵝',
-    8: '葉限',
+    0: '入門:ABC・數字・顏色',
+    1: '桃太郎',
+    2: '醜小鴨',
+    3: '龜兔賽跑',
+    4: '駱駝為什麼有駝峰',
+    5: 'Baba Yaga 雞腳屋',
+    6: '六隻天鵝',
+    7: '葉限',
+    8: '三隻小豬',
+    9: '灰姑娘',
+    10: '嫦娥奔月',
+    11: '后羿射日',
+    12: '牛郎織女',
+    13: '小紅帽',
+    14: '浦島太郎',
+    15: '國王的新衣',
+    16: '一寸法師',
+    17: '鶴的報恩',
+    18: '興夫和孬夫',
+    19: 'Sang Kancil 與鱷魚',
+    20: '蘿蔔大冒險',
+    21: 'Anansi 蜘蛛',
+    22: '孟母三遷',
+    23: '司馬光砸缸',
+    24: '孔融讓梨',
+    25: '愚公移山',
+    26: 'Archimedes 的尤里卡',
+    27: '西遊記 (取經 episodes)',
+    28: '三國諸葛亮智謀系列',
+    29: '奧德賽 (兒童連載)',
+    30: '赫拉克勒斯十二任務',
+    31: 'Robin Hood 兒童歷險',
   };
 
   // ─── State ─────────────────────────────────────────────────────────────
