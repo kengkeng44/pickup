@@ -733,9 +733,59 @@ renderers.tsx:237 setTimeout 2500 → 1500
       <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master，接 content-cron 2026-06-09T0007 ARCH-REC #5:\n\n【背景】R1 深掃 Ch2/3/6/8 找到 5 P0 verbatim echo (Ch8 三隻小豬最多)。ACL 2023 Cloze Quality Estimation 建議加 paraphraseStrategy 元資料欄位，讓 validate-lessons.js 在 authoring 階段攔截重蹈。\n\n【兩步都是 S size，30min 合一個 session】\n\n步驟 1 — src/data/lessons.ts LessonQuestion schema 加:\nparaphraseStrategy: z.enum([\n  \"lexical-substitution\",\n  \"syntactic-restructure\",\n  \"pronoun-reference\",\n  \"none\",  // ← flags verbatim echo\n]).optional(),\n\n步驟 2 — tools/validate-lessons.js 在現有 R1_SUBSTRING check 後面加:\nif (q.paraphraseStrategy === \"none\") {\n  issues.push({ id: q.id, code: \"X5_PARAPHRASE_NONE\",\n    msg: \"paraphraseStrategy=none flags verbatim echo — rewrite correct option\" });\n}\n\n步驟 3 (可選) — 5 個已知 P0 的 JSON Q 加 paraphraseStrategy:\"none\" 標記技術債:\n- kt-ch8-l3-q3 (correct=\"they were firmer than straw\")\n- kt-ch8-l6-q9 (correct=\"out the back, very fast\")\n- kt-ch8-l7-q7 (correct=\"made a hot fire\")\n- kt-ch6-l2-q5 (correct=\"while others slept\")\n- kt-ch6-l6-q5 (correct=\"harmed her own child\")\n\n完整說明: docs/audits/2026-06-09T0007-content-qa-cron.md — 🔬 ARCH-REC #5 段落').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- ui-ux-cron 2026-06-09T0009 ARCH-REC #6 -->
+    <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#c84a3a;margin-bottom:4px;">⚠️ ARCH-REC #6 (ui-ux-cron 2026-06-09T0009) — S · 50min · ROI ⭐⭐⭐</div>
+      <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">AlertsPage achievements 全硬編 <code>earned:false</code> (P0) + TasksPage SVG arc rings (iOS Health angle)</div>
+      <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
+        <b>P0 bug</b>: AlertsPage.tsx:2-9 全 8 achievements hardcoded earned=false — 所有用戶打再多 streak 都看到全灰 badges，完全破壞成就感。data layer (readXp/readStreak/readCompletedLessons) 已存在只需 import + 8 bool。<br>
+        <b>ARCH-REC</b>: iOS Health 角度 — SVG stroke-dasharray arc rings 給 TasksPage 3 daily goals。零 dependency，bundle +0KB，tokens.ts 色票直接用。業界 2026 wellness app 標準 glanceable pattern。
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 ui-ux-cron 2026-06-09T0009 ARCH-REC #6:
+
+【P0 bug fix】AlertsPage.tsx:2-9 全 8 achievements hardcoded earned=false
+所有用戶打了幾天 streak 都看到全灰 badges，成就感歸零。
+
+Fix (S · 20min) — src/react-app/pages/AlertsPage.tsx:
+頂部加 imports:
+  import { readXp } from '../../data/xp';
+  import { readStreak } from '../../data/streak';
+  import { readCompletedLessons } from '../../store/runStore';
+
+在 AlertsPage() body 計算:
+  const xp = readXp();
+  const streak = readStreak();
+  const ch1done = readCompletedLessons(1).size;
+  const ch1full = ch1done >= 24;
+  const ch2unlocked = ch1full;
+  let completedAllCh = true;
+  for (let c = 1; c <= 8; c++) { if (readCompletedLessons(c).size < 24) { completedAllCh = false; break; } }
+
+ACHIEVEMENTS 陣列改 computed (earned: 對應 bool):
+  #1 earned: ch1done > 0
+  #2 earned: streak >= 3
+  #3 earned: streak >= 7
+  #4 earned: false (sessionLog not tracked yet)
+  #5 earned: ch2unlocked
+  #6 earned: ch1full
+  #7 earned: xp >= 1000
+  #8 earned: completedAllCh
+
+【ARCH-REC: SVG arc rings in TasksPage (S · 30min)】
+iOS Health angle: 3 daily goals → 3 SVG stroke-dasharray arc rings
+src/react-app/pages/TasksPage.tsx 加 RingGoal component:
+  const R=18, C=2*Math.PI*R, filled=C*Math.min(fraction,1)
+  <circle strokeDasharray={'filled C'} strokeLinecap='round' transform='rotate(-90 22 22)'/>
+Colors: #7d9a4f (lesson), #ff7a3a (streak), #5a8cc4 (accuracy)
+fractions: lesson=hasCompletedAnyLesson?1:0, streak=Math.min(streak/7,1), accuracy=0 deferred
+Zero new deps, bundle +0KB.
+
+完整說明: docs/audits/2026-06-09T0009-ui-ux-cron.md D1 + D2 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009
     </div>
   </section>
 
@@ -832,7 +882,7 @@ renderers.tsx:237 setTimeout 2500 → 1500
 </main>
 
 <footer>
-  v1.5 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×5 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.6 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×6 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
