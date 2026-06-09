@@ -981,6 +981,53 @@ locked card: opacity 0.5 + filter grayscale(0.6)
 完整說明: docs/audits/2026-06-09T1209-ui-ux-cron.md D1 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- arch-cron 2026-06-09T1214 ARCH-REC #12: circular dep CI gate + AbilityLevel extract -->
+    <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#b07a2a;margin-bottom:4px;">⭐ ARCH-REC #12 (arch-cron 2026-06-09T1214) — S × 2 · 25min total · ROI ⭐⭐⭐</div>
+      <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">Circular dep CI gate + <code>AbilityLevel</code> 移到 primitiveTypes.ts</div>
+      <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
+        <b>現況</b>: madge 掃 src/ (87 files) 找到 2 循環依賴。Cycle 2 (<code>userProfile ↔ storyTags</code>) 有 VALUE import (<code>STORY_TAGS</code>) — 型別 back edge 被 TS 抹掉所以現在安全，但任何人加一個 value import 就會觸發 runtime TDZ。Vite 8/Rolldown 已在用，升到 Rolldown strict 模式後這個 cycle 會噴 build warning。<br>
+        <b>CI 缺口</b>: <code>package.json</code> 沒有 check:circular，<code>ci.yml</code> 只跑 validate-lessons.js + tsc，循環依賴可以靜悄悄上 production。<br>
+        <b>Fix A (10min)</b>: <code>package.json</code> 加 <code>"check:circular": "madge --circular --extensions ts,tsx src/"</code>，<code>ci.yml</code> 加一步。<br>
+        <b>Fix B (15min)</b>: 新建 <code>src/data/primitiveTypes.ts</code>，把 <code>AbilityLevel</code> 從 <code>userProfile.ts</code> 移過去。<code>storyTags.ts</code> 改從 primitiveTypes import → Cycle 2 完全消除。
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 arch-cron 2026-06-09T1214 ARCH-REC #12:
+
+【背景】madge 掃 src/ 87 files 找到 2 循環依賴:
+1) storyRegistry.ts ↔ userProfile.ts — 雙方都是 import type，TS 抹掉後無 runtime 風險 (設計臭味)
+2) userProfile.ts ↔ storyTags.ts — userProfile 用 import { STORY_TAGS } (VALUE) from storyTags;
+   storyTags 用 import type { AbilityLevel } from userProfile (type-only back edge，目前安全)
+   但 Vite 8/Rolldown 對 circular 更嚴格，未來加 value back edge 就是 runtime TDZ bug
+
+CI 缺口: package.json 沒 check:circular，ci.yml 不擋循環依賴。
+
+【Fix A — CI gate (S · 10min)】
+1. package.json scripts 加:
+   &quot;check:circular&quot;: &quot;madge --circular --extensions ts,tsx src/ && echo 'OK no circular deps'&quot;
+
+2. .github/workflows/ci.yml 在 build step 前加:
+   - name: Check circular deps
+     run: npm run check:circular
+
+【Fix B — 消除 Cycle 2 (S · 15min)】
+1. 新建 src/data/primitiveTypes.ts:
+   export type AbilityLevel = 'A0' | 'A1' | 'A2' | 'A2+';
+
+2. src/data/userProfile.ts 刪除 AbilityLevel 定義，改 import:
+   import type { AbilityLevel } from './primitiveTypes';
+
+3. src/data/storyTags.ts 改:
+   import type { AbilityLevel } from './primitiveTypes';
+   (去掉從 userProfile import)
+
+4. 跑 npx madge --circular --extensions ts,tsx src/ 確認 cycle 2 消失
+
+5. npm run build 確認 0 error
+
+先 Read src/data/userProfile.ts:30-40 確認 AbilityLevel 定義位置再動。
+完整說明: docs/audits/2026-06-09T1214-arch-cron.md — D angle-specific + E P0 + 🔬 ARCH-REC 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <!-- ClozeUI broad-subscribe moved to /archive.html on 2026-06-09 RN pivot (ClozeUI 是 DOM class) -->
     <div style="border:1px dashed var(--border);border-radius:8px;padding:8px 12px;margin-bottom:10px;background:rgba(60,42,28,0.03);">
       <div style="font-size:11px;color:var(--muted);">📦 ClozeUI broad-subscribe P0 — <a href="/archive.html" style="color:var(--accent-dark);">moved to archive</a> (RN 用 OptionBtn React component,broad-subscribe 改 Zustand selector)</div>
@@ -988,7 +1035,7 @@ locked card: opacity 0.5 + filter grayscale(0.6)
 
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214
     </div>
   </section>
 
@@ -1085,7 +1132,7 @@ locked card: opacity 0.5 + filter grayscale(0.6)
 </main>
 
 <footer>
-  v1.6 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×6 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.6 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×12 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast"></div>
