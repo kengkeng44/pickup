@@ -783,9 +783,71 @@ Zero new deps, bundle +0KB.
 完整說明: docs/audits/2026-06-09T0009-ui-ux-cron.md D1 + D2 + 🔬 Architecture Recommendation 段落" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- walkthrough-cron 2026-06-09T0016 ARCH-REC #7 -->
+    <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#c84a3a;margin-bottom:4px;">⚠️ ARCH-REC #7 (walkthrough-cron 2026-06-09T0016) — S+M · 1.5hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">LevelTest 已建但未 wire (死碼 P0) + AbilityLevel 無 B1 tier → B1 用戶秒 churn</div>
+      <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
+        <b>P0 bug</b>: <code>src/react-app/components/LevelTest.tsx</code> 完整實作但 <code>App.tsx:106</code> 直接 mount MapPage，LevelTest 從未被呼叫。B1 用戶 (如朋友推薦下載的 PM) 第一開 app 直接進 Ch1 A0 content，2 題後 churn。<br>
+        <b>ARCH-REC (Duolingo 2025 placement test blog)</b>: App.tsx 加 1 個 useState guard (S · 20min) + LevelTest 加第 6 題 B1 tier + userProfile AbilityLevel 加 'B1' (M · 1hr)。Duolingo 資料: placement test 對齊讓 intermediate learner retention +12%。
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 walkthrough-cron 2026-06-09T0016 ARCH-REC #7:
+
+【P0 bug】LevelTest.tsx 死碼 — App.tsx 從未呼叫
+
+Step 1 — App.tsx wire (S · 20min):
+src/react-app/App.tsx 頂部加:
+  import LevelTest from './components/LevelTest';
+  import { persistAbilityLevel } from './components/LevelTest';
+
+App() function body (在 return 前，所有 useEffect 之後) 加:
+  const [levelDone, setLevelDone] = useState(
+    () => !!localStorage.getItem('pickup.ability.level')
+  );
+  if (!levelDone) {
+    return <LevelTest onComplete={(_lvl) => setLevelDone(true)} />;
+  }
+
+測試: 清 localStorage, reload，應出現 5 題 emoji-pick dialog；
+答完後 localStorage['pickup.ability.level'] 有值，不再出現。
+
+Step 2 — B1 tier (M · 1hr, 可分開 session):
+src/data/userProfile.ts:35 改:
+  export type AbilityLevel = 'A0' | 'A1' | 'A2' | 'A2+' | 'B1';
+
+src/react-app/components/LevelTest.tsx:
+  QUESTIONS 陣列加第 6 題 (只在 5/5 前 4 都對時才出，conditional):
+  {
+    id: 'lvl-q6-b1',
+    questionEn: '\"She hesitated before crossing the threshold.\" What did she do?',
+    questionZh: '她在做什麼?',
+    options: [
+      { emoji: '🚪', en: 'paused before entering', zh: '猶豫後才進去' },
+      { emoji: '💨', en: 'walked in quickly', zh: '快步走進去' },
+      { emoji: '😴', en: 'fell asleep outside', zh: '在外面睡著' },
+      { emoji: '🏃', en: 'ran away from the door', zh: '跑離門口' },
+    ],
+    correctIndex: 0,
+  }
+
+  scoreToAbility() 改:
+  export function scoreToAbility(correctCount: number, totalQs = 5): AbilityLevel {
+    if (correctCount <= 1) return 'A0';
+    if (correctCount <= 3) return 'A1';
+    if (correctCount === 4) return 'A2';
+    if (totalQs === 5) return 'A2+';
+    return 'B1'; // 6/6 correct
+  }
+
+src/data/storyRecommend.ts: B1 tier → 優先推 Ch6 Baba Yaga / Ch7 Six Swans
+  在 ability tier filter 邏輯加 'B1' case，推 chapter 6-8
+
+完整說明: docs/audits/2026-06-09T0016-walkthrough-cron.md E + 🔬 ARCH-REC #7" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
-      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009
+      已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016
     </div>
   </section>
 
