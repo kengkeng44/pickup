@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拾光 Pickup · Archive (歷史項目)</title>
+<link rel="icon" href="/mascots/icon-paw.webp">
+<style>
+:root {
+  --bg: #fef8ed; --card: #fff7e8; --border: #c8a878;
+  --accent: #e7a44a; --accent-dark: #b07a2a;
+  --text: #3c2a1c; --muted: #8b6f4a;
+  --danger: #c84a3a;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Noto Sans TC", "Nunito", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.55;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+header {
+  background: var(--card); border-bottom: 3px solid var(--accent);
+  padding: 14px 16px 12px; position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 12px;
+}
+.back-link {
+  text-decoration: none; color: var(--text);
+  font-size: 20px; padding: 4px 8px; border-radius: 8px;
+}
+.back-link:hover, .back-link:active { background: rgba(60,42,28,0.06); }
+h1 { margin: 0; font-size: 18px; font-weight: 900; }
+.tagline { font-size: 12px; color: var(--muted); font-weight: 600; }
+main { padding: 16px 16px 30px; max-width: 920px; margin: 0 auto; }
+
+.archive-event {
+  background: var(--card); border: 2px solid var(--accent);
+  border-radius: 16px; padding: 18px; margin-bottom: 18px;
+}
+.archive-event h2 {
+  margin: 0 0 4px; font-size: 17px; font-weight: 900;
+}
+.archive-event .meta {
+  font-size: 12px; color: var(--muted); margin-bottom: 14px;
+  font-weight: 600;
+}
+.archive-event .context {
+  background: rgba(231,164,74,0.08); border-left: 4px solid var(--accent);
+  padding: 10px 14px; border-radius: 8px;
+  font-size: 13px; line-height: 1.6; margin-bottom: 14px;
+}
+.archive-event .context b { color: var(--accent-dark); }
+
+.archived-item {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 12px 14px; margin-bottom: 10px;
+}
+.archived-item .ix-title {
+  font-size: 13px; font-weight: 900; margin-bottom: 4px;
+  color: var(--text);
+}
+.archived-item .ix-source {
+  font-size: 11px; color: var(--muted); margin-bottom: 6px;
+  font-weight: 700;
+}
+.archived-item .ix-why {
+  font-size: 12px; color: var(--text); line-height: 1.5;
+  margin-bottom: 6px;
+}
+.archived-item .ix-why b { color: var(--danger); }
+.archived-item details {
+  margin-top: 8px;
+  font-size: 11px;
+}
+.archived-item details summary {
+  cursor: pointer; color: var(--accent-dark); font-weight: 700;
+  padding: 4px 0;
+}
+.archived-item pre {
+  background: #f5efe2; padding: 10px; border-radius: 6px;
+  font-size: 10px; line-height: 1.4; overflow-x: auto;
+  white-space: pre-wrap; word-break: break-word;
+  font-family: "SF Mono", Menlo, monospace;
+}
+
+footer {
+  text-align: center; color: var(--muted);
+  font-size: 11px; padding: 20px; margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="back-link" href="/" aria-label="回控制中心">←</a>
+  <div>
+    <h1>📦 Archive</h1>
+    <div class="tagline">已搬離 cockpit 的歷史項目 · git log 仍可查原文</div>
+  </div>
+</header>
+
+<main>
+  <!-- 2026-06-09 RN pivot archive event -->
+  <div class="archive-event">
+    <h2>🔄 2026-06-09 React Native Pivot</h2>
+    <div class="meta">User pivot decision · 影響 Capacitor / Phaser / DOM / Web Audio stack</div>
+
+    <div class="context">
+      <b>背景</b>:user 2026-06-09 決定 Pickup 全面 pivot 到 <b>React Native</b> 棧,覆蓋之前 Capacitor + Phaser + Vite + Web build 路線。下列項目跟 web/DOM/Phaser stack 強綁,在 RN 棧內沒對應實作 — 從 cockpit 主頁搬到此 archive,保留決策歷史。<br>
+      <br>
+      <b>仍適用的概念</b>(留在 cockpit 但加 ⚠️):Lesson idx 持久化 / Zustand audioSlice 概念 / TS strict mode / Achievements 邏輯 / useSyncExternalStore — 這些只是實作換棧不是 obsolete。<br>
+      <br>
+      <b>復用可能</b>:若日後 RN pivot 反轉(回 web),可從此 archive cherry-pick 回 cockpit 主頁。
+    </div>
+
+    <!-- Item 1: Decision Board #1 -->
+    <div class="archived-item">
+      <div class="ix-title">Decision Board #1 — unlock listeners 加 <code>{once:true}</code></div>
+      <div class="ix-source">來源:1236 code-health cron · <code>src/audio/tts.ts:534-537</code> · S · 5 min · ROI ⭐⭐⭐</div>
+      <div class="ix-why"><b>為何 archived</b>:`touchstart/click/pointerdown` event listeners + capture phase 是 Web DOM 概念。RN 用 expo-av 沒有這套 unlock flow — iOS WKWebView 限制不存在,RN AVAudioSession 自動 handle。</div>
+      <details>
+        <summary>看原 prompt</summary>
+        <pre>請拉最新 master, 接 P0:
+File: src/audio/tts.ts:534-537
+Issue: 3 個 module-level unlock listener (touchstart/click/pointerdown) 用匿名 wrapper, 無 { once: true }, ref 丟失無法 removeEventListener — 永久 capture-phase event 浪費 CPU + iOS 久了 event handler 累積
+修法: 加 { once: true, capture: true } 到 3 個 addEventListener, listener 首次 fire 後自動 remove</pre>
+      </details>
+    </div>
+
+    <!-- Item 2: Decision Board #3 -->
+    <div class="archived-item">
+      <div class="ix-title">Decision Board #3 — audioBufferCache LRU 上限 80 entries</div>
+      <div class="ix-source">來源:1236 code-health cron #2 · <code>src/audio/tts.ts:168</code> · M · 1 hr · ROI ⭐⭐</div>
+      <div class="ix-why"><b>為何 archived</b>:`audioBufferCache: Map&lt;string, AudioBuffer&gt;` 是 Web Audio API 的 AudioBuffer 概念,iOS 16 Safari 300MB budget 問題也是 WebView 才會碰到。RN 用 expo-av 的 Sound 物件 + 系統 audio session,記憶體模型完全不同,LRU 改用 expo-av cache option 設定。</div>
+      <details>
+        <summary>看原 prompt</summary>
+        <pre>File: src/audio/tts.ts:168 (audioBufferCache: Map<string, AudioBuffer>)
+Issue: 無 eviction policy, 8 章 200 MP3 累積 ~20MB RAM 永不釋放. iOS 16 app budget 300MB
+修法 (M 1hr): 加 LRU 上限 80 entries
+  - track lastUsed timestamp per entry
+  - set 時若 size > 80, iterate Map 找 oldest lastUsed 刪掉</pre>
+      </details>
+    </div>
+
+    <!-- Item 3: Decision Board #4 -->
+    <div class="archived-item">
+      <div class="ix-title">Decision Board #4 — R5 <code>_showCompletionArticle</code> 死碼</div>
+      <div class="ix-source">來源:cron audit · <code>src/scenes/LessonScene.ts:1373</code> · S · 5 min</div>
+      <div class="ix-why"><b>為何 archived</b>:LessonScene 是 Phaser 3 Scene。RN 不能跑 Phaser,8 個 scene 全部要重寫成 RN component。連帶這個死碼也不存在了。</div>
+    </div>
+
+    <!-- Item 4: Decision Board #5 -->
+    <div class="archived-item">
+      <div class="ix-title">Decision Board #5 — Phaser/React dual-path analytics drift</div>
+      <div class="ix-source">來源:cron audit · LessonScene.ts · L · 大 refactor</div>
+      <div class="ix-why"><b>為何 archived</b>:RN pivot 直接消除這個 drift — Phaser 完全砍掉後沒有 dual-path。「architectural design 自然解決」級別的 deprecation。</div>
+    </div>
+
+    <!-- Item 5: ARCH-REC #4 -->
+    <div class="archived-item">
+      <div class="ix-title">ARCH-REC #4 — CSS slide-in + OptionBtn wobble + tap-to-skip</div>
+      <div class="ix-source">來源:ui-ux-cron 2026-06-08T2107 · <code>src/style.css</code> + <code>renderers.tsx</code> + <code>LessonPage.tsx</code> · S · 45 min</div>
+      <div class="ix-why"><b>為何 archived</b>:CSS keyframes + className 切換是 DOM 概念。RN 用 <code>Animated</code> API 或 <code>react-native-reanimated</code>,動畫實作完全不同。pickup-wobble keyframe 那種 class toggle 在 RN 不存在 — 改用 <code>Animated.spring()</code> 或 reanimated 的 shared values。</div>
+      <details>
+        <summary>看原 prompt</summary>
+        <pre>Task 1 — style.css 加 pickup-slide-in:
+@keyframes pickup-slide-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+Task 2 — OptionBtn className={state==='wrong'?'pickup-wobble':''}
+
+Task 3 — NarrationRenderer wrapper onClick={advanceOnce}</pre>
+      </details>
+    </div>
+
+    <!-- Item 6: ClozeUI broad-subscribe -->
+    <div class="archived-item">
+      <div class="ix-title">P0 — ClozeUI <code>:343</code> broad-subscribe → DOM rebuild × 8</div>
+      <div class="ix-source">來源:code-health-cron 2026-06-09T0037 · <code>src/ui/ClozeUI.ts:343</code> · XS · 10 min</div>
+      <div class="ix-why"><b>為何 archived</b>:<code>ClozeUI</code> 是 vanilla DOM class (<code>this.syncFromState</code> 重建 button DOM nodes)。RN 用 OptionBtn React component,re-render 是 React 自然優化,broad-subscribe 在 Zustand+React 是 selector 解決,完全不同問題。</div>
+      <details>
+        <summary>看原 prompt</summary>
+        <pre>File: src/ui/ClozeUI.ts:343
+this.unsub = useRunStore.subscribe((state) => {
+  this.syncFromState(state.round);
+});
+修法: 加 prevRound 物件識別 guard</pre>
+      </details>
+    </div>
+  </div>
+
+  <footer>
+    Archive · 永遠保留 · git log <a href="https://github.com/kengkeng44/pickup/commits/master" target="_blank">原 commit 歷史</a>
+  </footer>
+</main>
+</body>
+</html>

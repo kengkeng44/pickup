@@ -457,6 +457,14 @@ section.decision-board::before {
 </header>
 
 <main>
+  <!-- v2.0.B.266: RN pivot banner (2026-06-09 user decision) -->
+  <div style="background:linear-gradient(135deg,#fde0d2 0%,#fef2f0 100%);border:2px solid var(--accent);border-bottom:4px solid var(--accent-dark);border-radius:14px;padding:12px 14px;margin-bottom:14px;">
+    <div style="font-size:13px;font-weight:900;color:var(--text);margin-bottom:4px;">🔄 2026-06-09 React Native Pivot</div>
+    <div style="font-size:12px;color:var(--text);line-height:1.5;">
+      6 個跟 Web/DOM/Phaser/Web Audio 強綁的項目已搬到 <a href="/archive.html" style="color:var(--accent-dark);font-weight:800;">📦 archive →</a>。仍適用但實作要換棧的項目加 ⚠️ 標籤。
+    </div>
+  </div>
+
   <!-- v2.0.B.182: Q&A inspection shortcut (always at top) -->
   <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
     <div class="qa-icon">📖</div>
@@ -485,32 +493,7 @@ section.decision-board::before {
     <div class="db-rank">
 
       <div class="db-item db-recommend">
-        <div class="db-rank-tag">⭐ #1 RECOMMEND</div>
-        <div class="db-title">unlock listeners 加 <code style="font-size:13px;">{ once: true }</code></div>
-        <div class="db-meta">
-          <span class="eff-s">S · 5 min</span>
-          <span class="imp-m">Impact 中</span>
-          <span class="db-roi">ROI ⭐⭐⭐</span>
-        </div>
-        <div class="db-why"><b>為什麼接</b>:最低 effort 解掉 3 個 module-level 永久 capture-phase listener (touchstart/click/pointerdown). 每次 tap 都跑 unlock 函式 — CPU 浪費 + iOS 久了 event handler 累積. 5 分鐘 1 行改完一勞永逸.</div>
-        <div class="db-file">📁 <code>src/audio/tts.ts:534-537</code> · 來源:1236 code-health cron #3</div>
-        <div class="db-actions">
-          <button class="db-copy" data-prompt="請拉最新 master, 接 P0:
-File: src/audio/tts.ts:534-537
-Issue: 3 個 module-level unlock listener (touchstart/click/pointerdown) 用匿名 wrapper, 無 { once: true }, ref 丟失無法 removeEventListener — 永久 capture-phase event 浪費 CPU + iOS 久了 event handler 累積
-修法: 加 { once: true, capture: true } 到 3 個 addEventListener, listener 首次 fire 後自動 remove
-
-1. Read tts.ts line 528-545 確認結構
-2. Edit 加 { once: true, capture: true }
-3. npm run build verify
-4. 跑 5-agent audit (R11 既有)
-5. commit + push + deploy
-Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵複製這個 prompt</button>
-        </div>
-      </div>
-
-      <div class="db-item">
-        <div class="db-rank-tag">#2</div>
+        <div class="db-rank-tag">⭐ #1 RECOMMEND <span style="font-size:9px;background:rgba(231,164,74,0.18);color:var(--accent-dark);padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">⚠️ RN 換棧</span></div>
         <div class="db-title">Lesson idx 歸零 — 中斷退出 5 題進度全丟</div>
         <div class="db-meta">
           <span class="eff-m">M · 1 hr</span>
@@ -538,46 +521,14 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron walk P0-2)">📋 一鍵複製�
         </div>
       </div>
 
-      <div class="db-item">
-        <div class="db-rank-tag">#3</div>
-        <div class="db-title">audioBufferCache 加 LRU 上限 80 entries</div>
-        <div class="db-meta">
-          <span class="eff-m">M · 1 hr</span>
-          <span class="imp-h">Impact 高</span>
-          <span class="db-roi">ROI ⭐⭐</span>
-        </div>
-        <div class="db-why"><b>為什麼接</b>:8 章玩完累積 200 個 AudioBuffer (~20 MB RAM) 永不釋放 — iOS 16 app budget 300 MB, 兒童家長共用 iPhone 多 app 並存場景下會被 Safari 殺 tab. 加 LRU 80 entries 就解.</div>
-        <div class="db-file">📁 <code>src/audio/tts.ts:168</code> · 來源:1236 code-health cron #2</div>
-        <div class="db-actions">
-          <button class="db-copy" data-prompt="請拉最新 master, 接 code-health cron 2026-06-07T1236 P0 #2:
-File: src/audio/tts.ts:168 (audioBufferCache: Map<string, AudioBuffer>)
-Issue: 無 eviction policy, 8 章 200 MP3 累積 ~20MB RAM 永不釋放. iOS 16 app budget 300MB, 兒童家長共用 iPhone 多 app 並存場景被 Safari 殺 tab
-修法 (M 1hr): 加 LRU 上限 80 entries
-  - track lastUsed timestamp per entry (Map<string, { buf: AudioBuffer; lastUsed: number }>)
-  - set/get 時更新 lastUsed
-  - set 時若 size > 80, iterate Map 找 oldest lastUsed 刪掉
-  - 或用 simple LRU lib (lru-cache) — 但 build budget 注意
-
-1. Read tts.ts line 160-220 audioBufferCache + warmUp + playBuffer 全 chain
-2. Edit 加 LRU wrapper or 簡單 Map size check + iterator delete oldest
-3. npm run build verify (bundle size 不過 budget)
-4. 跑 5-agent audit (R11)
-5. commit + push + deploy
-Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵複製這個 prompt</button>
-        </div>
-      </div>
-
     </div>
 
     <details class="db-section">
-      <summary>📋 全部 open P0 backlog (5)</summary>
+      <summary>📋 全部 open P0 backlog (1)</summary>
       <ul class="db-list">
-        <li><span class="eff-s">S</span> <span class="imp-m">中</span> unlock listeners {once:true} — <code>tts.ts:534</code> (above #1)</li>
-        <li><span class="eff-m">M</span> <span class="imp-h">高</span> Lesson idx 歸零 — <code>LessonPage.tsx</code> (above #2)</li>
-        <li><span class="eff-m">M</span> <span class="imp-h">高</span> audioBufferCache LRU — <code>tts.ts:168</code> (above #3)</li>
-        <li><span class="eff-s">S</span> <span class="imp-m">中</span> R5 _showCompletionArticle 死碼 — 改 spec OR wire 進來 — <code>LessonScene.ts:1373</code></li>
-        <li><span class="eff-l">L</span> <span class="imp-h">高</span> Phaser/React dual-path analytics drift — 需大 refactor — <code>LessonScene.ts</code></li>
+        <li><span class="eff-m">M</span> <span class="imp-h">高</span> ⚠️ Lesson idx 歸零 — <code>LessonPage.tsx</code> (RN 換 AsyncStorage,概念同)</li>
       </ul>
+      <div style="font-size:11px;color:var(--muted);margin-top:6px;font-style:italic;">原 5 條剩 1 — 4 條跟 Web Audio/Phaser 強綁,已搬 <a href="/archive.html#item-1" style="color:var(--accent-dark);">archive</a></div>
     </details>
 
     <details class="db-section" open>
@@ -594,9 +545,9 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 
     <div class="db-stats">
       <div class="db-stat"><div class="n">6</div><div class="lbl">已 ship (24h)</div></div>
-      <div class="db-stat"><div class="n">5</div><div class="lbl">open P0</div></div>
-      <div class="db-stat"><div class="n">55%</div><div class="lbl">closure rate</div></div>
-      <div class="db-stat"><div class="n">3</div><div class="lbl">推薦 next</div></div>
+      <div class="db-stat"><div class="n">1</div><div class="lbl">open P0</div></div>
+      <div class="db-stat"><div class="n">4</div><div class="lbl">RN 移 archive</div></div>
+      <div class="db-stat"><div class="n">1</div><div class="lbl">推薦 next</div></div>
     </div>
   </section>
 
@@ -620,7 +571,7 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 
     <!-- ui-ux-cron 2026-06-08T1807 ARCH-REC #2 -->
     <div style="background:#fff7e8;border:1.5px solid #c8a878;border-radius:12px;padding:12px 14px;margin-bottom:10px;">
-      <div style="font-size:12px;font-weight:900;color:#b07a2a;margin-bottom:4px;">⭐ ARCH-REC #2 (ui-ux-cron 2026-06-08T1807) — M · 1hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:12px;font-weight:900;color:#b07a2a;margin-bottom:4px;">⭐ ARCH-REC #2 (ui-ux-cron 2026-06-08T1807) — M · 1hr · ROI ⭐⭐⭐ <span style="font-size:10px;background:rgba(231,164,74,0.18);color:var(--accent-dark);padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">⚠️ RN: tts.ts → expo-av</span></div>
       <div style="font-size:14px;font-weight:900;margin-bottom:6px;">Zustand audioSlice — SpeakerBtn 全局 isPlaying/isLoading 狀態</div>
       <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
         <b>業界根據</b>: Apple HIG "always show playback state" + Apple Music iOS 26 mini-player: 播放按鈕必須即時反映 playing/loading/idle 三態. React 業界用 Zustand audio slice 統一管理.<br>
@@ -651,7 +602,7 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 
     <!-- code-health-cron 2026-06-08T1837 ARCH-REC #3 -->
     <div style="border:2px solid #7d9a4f;border-radius:12px;padding:12px;margin-bottom:10px;">
-      <div style="font-size:12px;font-weight:900;color:#7d9a4f;margin-bottom:4px;">⭐ ARCH-REC #3 (code-health-cron 2026-06-08T1837) — S · 30min → M · 2hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:12px;font-weight:900;color:#7d9a4f;margin-bottom:4px;">⭐ ARCH-REC #3 (code-health-cron 2026-06-08T1837) — S · 30min → M · 2hr · ROI ⭐⭐⭐ <span style="font-size:10px;background:rgba(231,164,74,0.18);color:var(--accent-dark);padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">⚠️ RN: strict 適用 / LessonScene 段砍</span></div>
       <div style="font-size:13px;font-weight:800;margin-bottom:6px;">TypeScript strict mode 漸進開啟 — <code>tsconfig.json</code> + LessonScene dispatch 重構</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6;">
         <b>業界根據</b>: TypeScript 6.0 將 <code>strict: true</code> 設為預設 (microsoft/TypeScript#62333). 2026 migration 建議: Step1 = strictNullChecks, Step2 = noImplicitAny.<br>
@@ -683,8 +634,12 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code-health P0)">📋 一鍵�
 完整說明: docs/audits/2026-06-08T1837-code-health-cron.md" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
-    <!-- ui-ux-cron 2026-06-08T2107 ARCH-REC #4 -->
-    <div style="border:2px solid #d68a52;border-radius:12px;padding:12px;margin-bottom:10px;">
+    <!-- ARCH-REC #4 moved to /archive.html on 2026-06-09 RN pivot (CSS keyframe = DOM only) -->
+    <div style="border:1px dashed var(--border);border-radius:8px;padding:8px 12px;margin-bottom:10px;background:rgba(60,42,28,0.03);">
+      <div style="font-size:11px;color:var(--muted);">📦 ARCH-REC #4 (CSS slide-in + wobble) — <a href="/archive.html" style="color:var(--accent-dark);">moved to archive</a> (RN 用 Animated/Reanimated 不同實作)</div>
+    </div>
+    <!-- ARCH-REC #4 ORIGINAL CONTENT START - DO NOT REPOPULATE -->
+    <div style="display:none;">
       <div style="font-size:12px;font-weight:900;color:#d68a52;margin-bottom:4px;">⭐ ARCH-REC #4 (ui-ux-cron 2026-06-08T2107) — S · 45min · ROI ⭐⭐⭐</div>
       <div style="font-size:13px;font-weight:800;margin-bottom:6px;">CSS-only 換題滑入動畫 + OptionBtn wrong-shake — Tinder 空間連續感 (零 dependency)</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6;">
@@ -745,7 +700,7 @@ renderers.tsx:237 setTimeout 2500 → 1500
 
     <!-- ui-ux-cron 2026-06-09T0009 ARCH-REC #6 -->
     <div style="background:#fff8f0;border:1px solid #e7a44a;border-radius:10px;padding:14px;margin-bottom:10px;">
-      <div style="font-size:12px;font-weight:900;color:#c84a3a;margin-bottom:4px;">⚠️ ARCH-REC #6 (ui-ux-cron 2026-06-09T0009) — S · 50min · ROI ⭐⭐⭐</div>
+      <div style="font-size:12px;font-weight:900;color:#c84a3a;margin-bottom:4px;">⚠️ ARCH-REC #6 (ui-ux-cron 2026-06-09T0009) — S · 50min · ROI ⭐⭐⭐ <span style="font-size:10px;background:rgba(231,164,74,0.18);color:var(--accent-dark);padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">⚠️ RN: SVG → react-native-svg</span></div>
       <div style="font-size:14px;font-weight:900;color:#3c2a1c;margin-bottom:6px;">AlertsPage achievements 全硬編 <code>earned:false</code> (P0) + TasksPage SVG arc rings (iOS Health angle)</div>
       <div style="font-size:12px;color:#5c4a32;line-height:1.6;margin-bottom:8px;">
         <b>P0 bug</b>: AlertsPage.tsx:2-9 全 8 achievements hardcoded earned=false — 所有用戶打再多 streak 都看到全灰 badges，完全破壞成就感。data layer (readXp/readStreak/readCompletedLessons) 已存在只需 import + 8 bool。<br>
@@ -857,7 +812,7 @@ src/data/storyRecommend.ts: B1 tier → 優先推 Ch6 Baba Yaga / Ch7 Six Swans
 
     <!-- code-health-cron 2026-06-09T0037 ARCH-REC #8 -->
     <div style="background:#fff;border:2px solid #c8a878;border-radius:12px;padding:14px 16px;margin-bottom:10px;">
-      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #8 (code-health-cron 2026-06-09T0037) — M · 1hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #8 (code-health-cron 2026-06-09T0037) — M · 1hr · ROI ⭐⭐⭐ <span style="font-size:10px;background:rgba(231,164,74,0.18);color:var(--accent-dark);padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">⚠️ RN: AsyncStorage 無 storage event</span></div>
       <div style="font-size:13px;font-weight:800;margin-bottom:4px;">useSyncExternalStore custom useLocalStorage hook — stale XP/streak/coins after lesson</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">MapPage/TasksPage/ProfilePage 三個頁面用 readXp()/readStreak()/readCoins() 純 LS 讀取，無 reactive 包裹。完成 lesson 返回 Map → 看到舊數字直到整頁 reload。React 18 useSyncExternalStore + custom pickup-storage-update event 是 2026 業界標準解法，0KB bundle 增量，write side 只需 3 行 dispatchEvent。</div>
       <button class="db-copy" data-prompt="請拉最新 master，接 code-health-cron 2026-06-09T0037 ARCH-REC #8:
@@ -899,8 +854,12 @@ ProfilePage.tsx:16 改 const streak = useLocalStorage('pickup.streak', 0); (不�
 完整說明: docs/audits/2026-06-09T0037-code-health-cron.md E2 + 🔬 ARCH-REC #8">📋 一鍵複製這個 prompt</button>
     </div>
 
-    <!-- code-health-cron 2026-06-09T0037 P0 ClozeUI broad-subscribe -->
-    <div style="background:#fff;border:2px solid #c8a878;border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+    <!-- ClozeUI broad-subscribe moved to /archive.html on 2026-06-09 RN pivot (ClozeUI 是 DOM class) -->
+    <div style="border:1px dashed var(--border);border-radius:8px;padding:8px 12px;margin-bottom:10px;background:rgba(60,42,28,0.03);">
+      <div style="font-size:11px;color:var(--muted);">📦 ClozeUI broad-subscribe P0 — <a href="/archive.html" style="color:var(--accent-dark);">moved to archive</a> (RN 用 OptionBtn React component,broad-subscribe 改 selector)</div>
+    </div>
+    <!-- ClozeUI ORIGINAL CONTENT - hidden -->
+    <div style="display:none;">
       <div style="font-size:12px;font-weight:900;color:var(--danger);margin-bottom:4px;">⚠️ P0 (code-health-cron 2026-06-09T0037) — XS · 10min</div>
       <div style="font-size:13px;font-weight:800;margin-bottom:4px;">ClozeUI.ts:343 broad-subscribe → 每 answer() 觸發 8× DOM rebuild</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">useRunStore.subscribe((state) =&gt; syncFromState(state.round)) 訂全狀態。answer() 每次更新 8+ 個 field → subscriber fire 8次 → syncFromState 每次重建 4 個 option button DOM。加 prevRound guard 讓 subscriber 只在 round 物件換時才 fire。XS 10min。</div>
@@ -1022,7 +981,7 @@ this.unsub = useRunStore.subscribe((state) => {
     <a class="link-btn" href="https://github.com/kengkeng44/pickup/tree/master/docs/audits" target="_blank">📁 audit 全列表</a>
     <a class="link-btn" href="https://claude.ai/code/routines" target="_blank">⚙️ Cron 管理</a>
     <a class="link-btn" href="https://github.com/kengkeng44/pickup" target="_blank">📦 GitHub repo</a>
-    <a class="link-btn" href="https://pickupwords.pages.dev/dashboard.html" target="_blank" style="background:var(--card);color:var(--muted);">🔄 舊 dashboard (備用)</a>
+    <a class="link-btn" href="/archive.html" style="background:var(--card);color:var(--accent-dark);">📦 Archive (RN pivot)</a>
   </section>
 </main>
 
