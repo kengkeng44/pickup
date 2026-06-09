@@ -845,9 +845,82 @@ src/data/storyRecommend.ts: B1 tier → 優先推 Ch6 Baba Yaga / Ch7 Six Swans
 完整說明: docs/audits/2026-06-09T0016-walkthrough-cron.md E + 🔬 ARCH-REC #7" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- code-health-cron 2026-06-09T0037 ARCH-REC #8 -->
+    <div style="background:#fff;border:2px solid #c8a878;border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #8 (code-health-cron 2026-06-09T0037) — M · 1hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:4px;">useSyncExternalStore custom useLocalStorage hook — stale XP/streak/coins after lesson</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">MapPage/TasksPage/ProfilePage 三個頁面用 readXp()/readStreak()/readCoins() 純 LS 讀取，無 reactive 包裹。完成 lesson 返回 Map → 看到舊數字直到整頁 reload。React 18 useSyncExternalStore + custom pickup-storage-update event 是 2026 業界標準解法，0KB bundle 增量，write side 只需 3 行 dispatchEvent。</div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 code-health-cron 2026-06-09T0037 ARCH-REC #8:
+
+【問題】MapPage.tsx:258/345 + TasksPage.tsx:6 + ProfilePage.tsx:18 用 readStreak()/readXp()/readCoins()/readFreezes() 直讀 localStorage，無 React state 包裹。完成 lesson → navigate back → 看到舊 streak/XP/coins 到下次 reload。兒童客群看到數字沒變 → reward loop 斷裂。
+
+【修法 1: 新檔 src/hooks/useLocalStorage.ts (~30行)】
+import { useSyncExternalStore } from 'react';
+function subscribe(cb: () => void) {
+  window.addEventListener('storage', cb);
+  window.addEventListener('pickup-storage-update', cb);
+  return () => {
+    window.removeEventListener('storage', cb);
+    window.removeEventListener('pickup-storage-update', cb);
+  };
+}
+export function useLocalStorage<T>(key: string, fallback: T): T {
+  return useSyncExternalStore(
+    subscribe,
+    () => { try { const r = localStorage.getItem(key); return r !== null ? JSON.parse(r) as T : fallback; } catch { return fallback; } },
+    () => fallback
+  );
+}
+
+【修法 2: write side — xp.ts / streak.ts / coins.ts 每次 setItem 後加】
+window.dispatchEvent(new Event('pickup-storage-update'));
+找 addXp / incrementStreak / addCoins 函式，各加 1 行。
+
+【修法 3: 7 個 callsite 改用 hook】
+MapPage.tsx:258  const streak = useLocalStorage('pickup.streak', 0);
+MapPage.tsx:345  const xp = useLocalStorage('wordwar.xp', 0);
+MapPage.tsx:346  const coins = useLocalStorage('pickup.coins', 0);
+TasksPage.tsx:6  const streak = useLocalStorage('pickup.streak', 0);
+ProfilePage.tsx:18 const xp = useLocalStorage('wordwar.xp', 0);
+ProfilePage.tsx:19 const coins = useLocalStorage('pickup.coins', 0);
+ProfilePage.tsx:16 改 const streak = useLocalStorage('pickup.streak', 0); (不要 useRunStore — 那是 in-session)
+
+先 Read src/data/xp.ts + src/data/streak.ts + src/data/coins.ts 確認 key 名稱跟 setItem callsite 再動。
+完整說明: docs/audits/2026-06-09T0037-code-health-cron.md E2 + 🔬 ARCH-REC #8">📋 一鍵複製這個 prompt</button>
+    </div>
+
+    <!-- code-health-cron 2026-06-09T0037 P0 ClozeUI broad-subscribe -->
+    <div style="background:#fff;border:2px solid #c8a878;border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:var(--danger);margin-bottom:4px;">⚠️ P0 (code-health-cron 2026-06-09T0037) — XS · 10min</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:4px;">ClozeUI.ts:343 broad-subscribe → 每 answer() 觸發 8× DOM rebuild</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">useRunStore.subscribe((state) =&gt; syncFromState(state.round)) 訂全狀態。answer() 每次更新 8+ 個 field → subscriber fire 8次 → syncFromState 每次重建 4 個 option button DOM。加 prevRound guard 讓 subscriber 只在 round 物件換時才 fire。XS 10min。</div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 code-health-cron 2026-06-09T0037 ClozeUI P0:
+
+【問題】src/ui/ClozeUI.ts:343
+this.unsub = useRunStore.subscribe((state) => {
+  this.syncFromState(state.round);
+});
+answer() 每次更新 8+ fields (history/score/hp/streak/bestStreak/answered/awaitingRetry/wrongAttempts/lastResult)
+→ subscriber 跑 8 次 → syncFromState 每次重建 4 個 option button DOM。
+
+【修法】加 prevRound 物件識別 guard:
+const init = useRunStore.getState();
+let prevRound = init.round;
+this.syncFromState(prevRound);
+this.unsub = useRunStore.subscribe((state) => {
+  if (state.round !== prevRound) {
+    prevRound = state.round;
+    this.syncFromState(state.round);
+  }
+});
+(刪原本的 const init + this.unsub + syncFromState 3行，換成上面 6 行)
+
+完整說明: docs/audits/2026-06-09T0037-code-health-cron.md E1">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037
     </div>
   </section>
 
