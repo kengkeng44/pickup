@@ -165,13 +165,18 @@
     </div>
   </div>
 
-  <!-- 2. ⚠️ Discrepancy panel (spec vs reality) -->
+  <!-- 2. ✅ Anchor confirmed (2026-06-09 user decision) -->
+  <div class="section" style="background:linear-gradient(135deg,#e8f4dd 0%,#f4f9e8 100%); border:2px solid var(--ok); border-bottom:4px solid #3d7a23;">
+    <h2 style="color:var(--ok);">✅ 定位 anchor 確認 (2026-06-09)</h2>
+    <p class="desc">narration 48% by design — Pickup 是「親子陸聽英文」路線,不是「兒童 Duolingo 主動答題」路線。下游 5 個策略(題型優先 / 評分機制 / TTS 語速 / 內容長度 / commercial pitch)都跟著這條走。</p>
+  </div>
+
+  <!-- 3. ⚠️ Discrepancy panel (剩下未解的 spec drift) -->
   <div class="discrepancy">
-    <h2>🚨 Spec ↔ Reality 重大差異</h2>
-    <p class="desc">CLAUDE.md / 設計 spec 跟 production 的 lessons-ch{N}.json 對不上 — 決策前要知道。</p>
+    <h2>🚨 Spec ↔ Reality 剩餘差異</h2>
+    <p class="desc">narration 那條已 reconcile (上方綠卡)。下面 4 個 drift 仍需處理 — 更新 CLAUDE.md or 補 production。</p>
     <ul>
       <li><b>單元數差距</b> — Spec 寫每章 24 lesson,實際全 32 章都是 <b>7 lesson</b> (ch28 例外)</li>
-      <li><b>narration 佔比 48%</b> — 將近一半題目是被動聽 narration,主動答題比例可能太低</li>
       <li><b>4 個 Segment 0 出現</b> — Spec 寫 5 種 segment (outer-prologue / main-story / <s>aesop-side</s> / <s>outer-outro</s> / <s>review</s>),實際只 main-story (96.9%) + ch0 outer-prologue (3.1%)</li>
       <li><b>3 個 spec 題型 0 出現</b> — <s>type-what-you-hear</s> / <s>tap-tiles</s> / <s>read-mc-with-audio</s> 全部 0 題</li>
       <li><b>2 個未文檔化題型出現</b> — <code>emoji-pick</code> (9.1%) + <code>picture-mc</code> (0.3%) — qa-dashboard CSS 還沒對應顏色</li>
@@ -185,7 +190,7 @@
 
     <a class="row t-narration" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">narration</span>
+        <span class="label">narration <span class="tag ok">by design · 親子陸聽 anchor</span></span>
         <span class="count"><span class="pct">48.0%</span>1,186</span>
       </div>
       <div class="bar"><div class="fill" style="width:48.0%"></div></div>
