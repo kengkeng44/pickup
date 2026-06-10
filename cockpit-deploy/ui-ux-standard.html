@@ -567,12 +567,115 @@
     h2.qt-h2 {
       margin-top: 22px; border-bottom: 2px solid var(--border);
     }
+
+    /* === Top TOC === */
+    .toc {
+      background: #fff;
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin: 16px 0 14px;
+      box-shadow: 0 3px 0 var(--accent-dark);
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 900;
+      letter-spacing: 1.5px; color: var(--accent-dark);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .toc-group {
+      margin: 8px 0 0;
+    }
+    .toc-group-label {
+      font-size: 11px; font-weight: 800; color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .toc-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 5px;
+    }
+    .toc-links a {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 11px; font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      text-align: center;
+      display: block;
+    }
+    .toc-links a:active {
+      background: var(--accent);
+      color: #fff;
+    }
+    .toc-links a.lesson {
+      background: linear-gradient(135deg, #fff7e8 0%, #f5e8d0 100%);
+      border-color: var(--accent);
+    }
+    .toc-links a.lesson .num {
+      display: inline-block;
+      font-size: 10px; font-weight: 900;
+      color: var(--accent-dark);
+      margin-right: 3px;
+    }
+    .toc-links a.star {
+      background: rgba(109,79,199,0.10);
+      border-color: var(--variable);
+      color: var(--variable);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>🎨 Pickup UI/UX 標準 v3</h1>
-    <div class="subtitle">User directive 2026-06-10:「3 區塊 + 中文 + 視覺樣子 + 變動元素標明」+「答題畫面拆 7 題型放最後」</div>
+    <div class="subtitle">User directive 2026-06-10:「3 區塊 + 中文 + 視覺樣子 + 變動元素標明」+「答題畫面拆 7 題型放最後」+「真實手機比例 + 頂部 TOC」</div>
+
+    <!-- === Top TOC: tap to jump === -->
+    <nav class="toc">
+      <div class="toc-title">📑 目錄 · 點即跳</div>
+
+      <div class="toc-group">
+        <div class="toc-group-label">基礎</div>
+        <div class="toc-links">
+          <a href="#sec-tokens">🌐 設計變數</a>
+        </div>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-label">8 個 page 畫面</div>
+        <div class="toc-links">
+          <a href="#sec-map">🗺️ Map 地圖</a>
+          <a href="#sec-profile">🐱 Profile 我的</a>
+          <a href="#sec-tasks">⭐ Tasks 任務</a>
+          <a href="#sec-cards">📒 Cards 圖鑑</a>
+          <a href="#sec-alerts">🔥 Alerts 成就</a>
+          <a href="#sec-modals">🪟 Modals 彈窗</a>
+          <a href="#sec-chapterintro">👵 ChapterIntro 章節開場</a>
+        </div>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-label">📖 Lesson 答題 — 7 題型</div>
+        <div class="toc-links">
+          <a href="#qt-narration" class="lesson"><span class="num">①</span>narration<br/><span style="font-size:9px; color:var(--muted)">旁白</span></a>
+          <a href="#qt-listen-mc" class="lesson"><span class="num">②</span>listen-mc<br/><span style="font-size:9px; color:var(--muted)">聽選</span></a>
+          <a href="#qt-listen-tf" class="lesson"><span class="num">③</span>listen-tf<br/><span style="font-size:9px; color:var(--muted)">是非</span></a>
+          <a href="#qt-emoji-pick" class="lesson"><span class="num">④</span>emoji-pick<br/><span style="font-size:9px; color:var(--muted)">看圖</span></a>
+          <a href="#qt-tap-pairs" class="lesson star"><span class="num">⑤</span>tap-pairs ⭐<br/><span style="font-size:9px;">中英配對</span></a>
+          <a href="#qt-listen-comp" class="lesson"><span class="num">⑥</span>listen-comp<br/><span style="font-size:9px; color:var(--muted)">聽力理解</span></a>
+          <a href="#qt-sentence-builder" class="lesson"><span class="num">⑦</span>sentence<br/><span style="font-size:9px; color:var(--muted)">造句</span></a>
+        </div>
+      </div>
+
+      <div class="toc-group">
+        <div class="toc-group-label">收尾</div>
+        <div class="toc-links">
+          <a href="#sec-rules">📌 規則總結</a>
+        </div>
+      </div>
+    </nav>
 
     <div class="rule-banner">
       <strong>規則:</strong> 每個畫面 lock 死 3-section 結構 <em class="zh">三區塊垂直架構</em>:
@@ -588,7 +691,7 @@
       <span class="legend-item">⬛ 紅 = 底部 nav / CTA</span>
     </div>
 
-    <h2><span class="icon">🌐</span> 共用 design token <em class="zh">設計變數</em></h2>
+    <h2 id="sec-tokens"><span class="icon">🌐</span> 共用 design token <em class="zh">設計變數</em></h2>
     <div class="token-grid">
       <div class="token"><strong>cream bg</strong> <em>奶油底</em><br/><code>#f1ebe1</code></div>
       <div class="token"><strong>warm sepia</strong> <em>暖咖文字</em><br/><code>#3c2a1c</code></div>
@@ -603,7 +706,7 @@
     </div>
 
     <!-- ═══════════════════ MAP ═══════════════════ -->
-    <h2><span class="icon">🗺️</span> Map <em class="zh">首頁地圖</em></h2>
+    <h2 id="sec-map"><span class="icon">🗺️</span> Map <em class="zh">首頁地圖</em></h2>
 
     <div class="layout-grid">
       <div class="mockup-frame">
@@ -681,7 +784,7 @@
     <!-- (Lesson section moved to the bottom — 7 question types each get own mockup) -->
 
     <!-- ═══════════════════ PROFILE ═══════════════════ -->
-    <h2><span class="icon">🐱</span> Profile <em class="zh">我的</em></h2>
+    <h2 id="sec-profile"><span class="icon">🐱</span> Profile <em class="zh">我的</em></h2>
 
     <div class="layout-grid">
       <div class="mockup-frame">
@@ -748,7 +851,7 @@
     </div>
 
     <!-- ═══════════════════ TASKS ═══════════════════ -->
-    <h2><span class="icon">⭐</span> Tasks <em class="zh">任務</em></h2>
+    <h2 id="sec-tasks"><span class="icon">⭐</span> Tasks <em class="zh">任務</em></h2>
 
     <div class="layout-grid">
       <div class="mockup-frame">
@@ -815,7 +918,7 @@
     </div>
 
     <!-- ═══════════════════ CARDS ═══════════════════ -->
-    <h2><span class="icon">📒</span> Cards <em class="zh">圖鑑</em></h2>
+    <h2 id="sec-cards"><span class="icon">📒</span> Cards <em class="zh">圖鑑</em></h2>
 
     <div class="layout-grid">
       <div class="mockup-frame">
@@ -876,7 +979,7 @@
     </div>
 
     <!-- ═══════════════════ ALERTS ═══════════════════ -->
-    <h2><span class="icon">🔥</span> Alerts <em class="zh">成就</em></h2>
+    <h2 id="sec-alerts"><span class="icon">🔥</span> Alerts <em class="zh">成就</em></h2>
 
     <div class="layout-grid">
       <div class="mockup-frame">
@@ -930,14 +1033,14 @@
     </div>
 
     <!-- ═══════════════════ MODALS ═══════════════════ -->
-    <h2><span class="icon">🪟</span> Modals <em class="zh">彈出視窗</em></h2>
+    <h2 id="sec-modals"><span class="icon">🪟</span> Modals <em class="zh">彈出視窗</em></h2>
     <p style="font-size:13px; color:var(--muted)">
       KeySentencesSheet <em class="zh">重點句</em> / NextStoryPicker <em class="zh">下一則故事選擇器</em> / OnboardingPicker <em class="zh">新手引導</em> — 都遵守 TOP 標題 + MIDDLE scrollable + BOTTOM ✕ close / CTA.
       Modal 額外: backdrop fade-in <em class="zh">背景淡入</em> 240ms + slide-up <em class="zh">從下滑入</em> 28px + 3 種關閉路徑 (點外圈 / ✕ / 再點觸發按鈕).
     </p>
 
     <!-- ═══════════════════ ChapterIntro ═══════════════════ -->
-    <h2><span class="icon">👵</span> ChapterIntro <em class="zh">章節開場</em></h2>
+    <h2 id="sec-chapterintro"><span class="icon">👵</span> ChapterIntro <em class="zh">章節開場</em></h2>
     <div class="section-card top"><span class="badge top">頂</span><strong>Mascot Scene (~250px)</strong>: 奶奶 + 柴犬 illustration + 章節 floor band <em class="zh">章節地板色條</em> 50px inset</div>
     <div class="section-card mid"><span class="badge mid">中</span><strong>Narration <em class="zh">旁白</em></strong> + 🔊 SquishButton replay <em class="zh">重播</em></div>
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA</strong>: → Begin <em class="zh">開始</em> SquishButton olive</div>
@@ -1247,7 +1350,7 @@
       mute toggle 影響所有 TTS (force:true option 仍 fire onEnd 不卡 advance) (B.251)
     </div>
 
-    <h2><span class="icon">📌</span> 規則總結 (違反 = revert)</h2>
+    <h2 id="sec-rules"><span class="icon">📌</span> 規則總結 (違反 = revert)</h2>
     <ol style="padding-left:22px; font-size:13.5px; line-height:1.7">
       <li><strong>3-section 強制</strong>: top / middle / bottom 必須清楚分離</li>
       <li><strong>頂 = chrome 框架</strong> sticky fixed 不滾; <strong>中 = scrollable 可滾</strong>; <strong>底 = nav / CTA</strong> fixed</li>
