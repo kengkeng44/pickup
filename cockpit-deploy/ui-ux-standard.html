@@ -86,6 +86,11 @@
     }
     @media (max-width: 600px) {
       .layout-grid { grid-template-columns: 1fr; gap: 16px; }
+      .mockup-frame {
+        max-width: 280px;
+        margin: 0 auto;
+        position: static;
+      }
     }
 
     .mockup-frame {
@@ -369,7 +374,7 @@
       font-size: 9px; font-weight: 800;
       color: var(--text);
     }
-    .qt-cta-row { margin: 6px 8px; }
+    .qt-cta-row { margin: 6px 8px; margin-top: auto; padding-bottom: 4px; }
     .qt-cta {
       background: var(--olive); color: #fff;
       border-radius: 10px; padding: 6px; text-align: center;
@@ -808,7 +813,9 @@
           </div>
           <div class="mk-input">🐱 Cat Name: Mochi</div>
           <div class="mk-input">🐕 Dog Name: Hana</div>
-          <div class="mk-input" style="background:#f0e6d8">🔇 Mute / 靜音</div>
+          <div class="mk-input" style="background:#f0e6d8">🔇 Mute / 靜音 toggle</div>
+          <div class="mk-input" style="background:#f0e6d8">🎵 BGM peace.mp3 ▶</div>
+          <div class="mk-input" style="background:#fce4dc; color:#c84a3a; font-weight:900;">⚠️ Reset all progress · 重置進度</div>
           <div style="flex:1"></div>
           <div class="mk-nav">
             <span>🐾</span><span>⭐</span><span>📒</span><span>🔥</span><span class="active">🐱</span>
@@ -876,7 +883,25 @@
             <div style="height:5px; background:#ead8c4; border-radius:999px; margin:3px 0">
               <div style="width:0%; height:100%; background:var(--olive); border-radius:999px"></div>
             </div>
-            <div style="font-size:7px; color:var(--muted)">0 / 30 XP</div>
+            <div style="font-size:7px; color:var(--muted)">0 / 30 XP · 完成 daily goal +20 XP</div>
+          </div>
+          <div class="mk-card" style="background:#fff7e8; border-color:var(--accent);">
+            <div class="ti">🎁 NEXT REWARD</div>
+            <div class="v" style="color:var(--accent-dark);">+1 🧊 freeze</div>
+            <div style="font-size:7px; color:var(--muted)">3-day streak 解鎖</div>
+          </div>
+          <div class="mk-card">
+            <div class="ti">📅 7-DAY HISTORY</div>
+            <div style="display:flex; gap:2px; margin-top:3px;">
+              <div style="flex:1; height:14px; background:#ead8c4; border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:#ead8c4; border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:var(--olive); border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:var(--olive); border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:#ead8c4; border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:var(--olive); border-radius:2px;"></div>
+              <div style="flex:1; height:14px; background:var(--accent); border-radius:2px;"></div>
+            </div>
+            <div style="font-size:7px; color:var(--muted); margin-top:3px;">日 一 二 三 四 五 六</div>
           </div>
           <div style="flex:1"></div>
           <div class="mk-nav">
@@ -992,11 +1017,16 @@
           </div>
           <div class="mk-badges-grid">
             <div class="mk-bdg unlocked"><div class="em">🐾</div><div class="ti">First Step</div></div>
-            <div class="mk-bdg locked"><div class="em">🔥</div><div class="ti">On Fire</div></div>
-            <div class="mk-bdg locked"><div class="em">⚡</div><div class="ti">Week</div></div>
-            <div class="mk-bdg locked"><div class="em">🌟</div><div class="ti">Month</div></div>
-            <div class="mk-bdg locked"><div class="em">👑</div><div class="ti">Crown</div></div>
-            <div class="mk-bdg locked"><div class="em">💎</div><div class="ti">Diamond</div></div>
+            <div class="mk-bdg locked"><div class="em">🔥</div><div class="ti">3-day Streak</div></div>
+            <div class="mk-bdg locked"><div class="em">⚡</div><div class="ti">7-day Streak</div></div>
+            <div class="mk-bdg locked"><div class="em">🌟</div><div class="ti">30-day Streak</div></div>
+            <div class="mk-bdg locked"><div class="em">👑</div><div class="ti">200 XP</div></div>
+            <div class="mk-bdg locked"><div class="em">💎</div><div class="ti">500 XP</div></div>
+            <div class="mk-bdg locked"><div class="em">📖</div><div class="ti">Story 1</div></div>
+            <div class="mk-bdg locked"><div class="em">🏆</div><div class="ti">All 8 Tales</div></div>
+          </div>
+          <div style="margin:6px 8px; padding:7px 10px; background:var(--card); border:1px solid var(--border); border-radius:8px; font-size:9px; color:var(--muted); text-align:center;">
+            🔥 連勝 <strong style="color:#ff7a3a;">2</strong> 天 → 再 1 天解鎖 3-day Streak
           </div>
           <div style="flex:1"></div>
           <div class="mk-nav">
@@ -1072,15 +1102,21 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><span>🔇</span></div>
-        <div class="qt-narr-card">
-          <div class="av">👵</div>
-          <div class="name">Grandma · 奶奶</div>
-          <div class="text">"Tonight I'll tell you a story about a stray cat who comes to my yard."</div>
-          <div class="wave"><span></span><span></span><span></span><span></span><span></span></div>
-          <div style="font-size:7px; color:var(--muted); margin-top:3px;">▸ 自動播放中…</div>
+        <div style="padding: 0 10px; margin-top: 4px;">
+          <span style="font-size:9px; padding:3px 8px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
-        <div style="flex:1"></div>
-        <div class="qt-cta-row"><div class="qt-cta auto">音檔放完自動推進 (5s fallback)</div></div>
+        <div class="qt-narr-card" style="padding: 18px 14px; margin: 10px;">
+          <div class="av" style="font-size: 44px;">👵</div>
+          <div class="name" style="font-size: 11px; margin-top: 4px;">Grandma · 奶奶</div>
+          <div class="text" style="font-size: 11px; margin-top: 10px; line-height: 1.55;">"Tonight I'll tell you a story about a stray cat who comes to my yard when it rains."</div>
+          <div class="wave" style="margin-top: 8px;"><span></span><span></span><span></span><span></span><span></span></div>
+          <div style="font-size:9px; color:var(--accent-dark); margin-top:6px; font-weight:800;">▸ 自動播放中…</div>
+        </div>
+        <div style="text-align: center; padding: 8px;">
+          <div style="font-size: 36px; line-height: 1; letter-spacing: 6px;">🐱 🐕</div>
+          <div style="font-size: 9px; color: var(--muted); margin-top: 4px; font-style: italic;">糰糰 + 花花 趴著聽 (silent 聽眾)</div>
+        </div>
+        <div class="qt-cta-row"><div class="qt-cta auto">音檔放完自動推進 · 5s fallback</div></div>
       </div></div>
       <div>
         <div class="section-card mid">
@@ -1106,15 +1142,21 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><span>🔇</span></div>
-        <div class="qt-sentence">🔊 "She sleeps under the porch when the rain falls hard."</div>
-        <div class="qt-q-prompt">Where does the cat sleep on rainy nights?</div>
-        <div class="qt-mc-opts">
-          <div class="qt-mc-opt">under the porch <span class="zh">門廊下</span></div>
-          <div class="qt-mc-opt correct">she stays dry <span class="zh">她保持乾燥 ✓</span></div>
-          <div class="qt-mc-opt">on a warm bed <span class="zh">溫暖的床上</span></div>
-          <div class="qt-mc-opt">in the garden <span class="zh">花園裡</span></div>
+        <div style="padding: 0 8px; margin-top:2px;">
+          <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
-        <div style="flex:1"></div>
+        <div class="qt-sentence" style="font-size:10px; padding:8px 10px; margin:6px 8px;">🔊 "She sleeps under the porch when the rain falls hard."</div>
+        <div class="qt-q-prompt" style="font-size:10px; padding:2px 8px;">Where does the cat sleep on rainy nights?</div>
+        <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">under the porch <span class="zh">門廊下</span></div>
+          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">she stays dry <span class="zh">她保持乾燥 ✓</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">on a warm bed <span class="zh">溫暖的床上</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in the garden <span class="zh">花園裡</span></div>
+        </div>
+        <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; color:var(--text); line-height:1.45;">"porch" = 門廊 · 貓躲雨的地方</div>
+        </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
       </div></div>
       <div>
@@ -1141,21 +1183,27 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><span>🔇</span></div>
-        <div class="qt-sentence">🔊 "The dog Hana sleeps inside Grandma's house."</div>
-        <div class="qt-q-prompt">Is this true?</div>
-        <div class="qt-tf-row">
-          <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark)">
-            <div class="ico">✓</div>
-            <div class="lbl">True</div>
-            <div class="lbl-zh">對 ✓</div>
+        <div style="padding: 0 8px; margin-top:2px;">
+          <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
+        </div>
+        <div class="qt-sentence" style="font-size:11px; padding:10px 12px; margin:8px;">🔊 "The dog Hana sleeps inside Grandma's house."</div>
+        <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:6px 0;">Is this true?</div>
+        <div class="qt-tf-row" style="padding:8px;">
+          <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark); padding:18px 6px;">
+            <div class="ico" style="font-size:28px;">✓</div>
+            <div class="lbl" style="font-size:12px; margin-top:6px;">True</div>
+            <div class="lbl-zh" style="font-size:9px;">對 ✓</div>
           </div>
-          <div class="qt-tf-btn">
-            <div class="ico">✗</div>
-            <div class="lbl">False</div>
-            <div class="lbl-zh">不對</div>
+          <div class="qt-tf-btn" style="padding:18px 6px;">
+            <div class="ico" style="font-size:28px;">✗</div>
+            <div class="lbl" style="font-size:12px; margin-top:6px;">False</div>
+            <div class="lbl-zh" style="font-size:9px;">不對</div>
           </div>
         </div>
-        <div style="flex:1"></div>
+        <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; color:var(--text); line-height:1.45;">花花 = 奶奶養的家犬, 住家裡; 糰糰 = 流浪貓, 跳牆來聽</div>
+        </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
       </div></div>
       <div>
@@ -1181,14 +1229,17 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
-        <div class="qt-q-prompt" style="text-align:center; padding:8px;">🔊 Which one is the <strong>peach</strong>?</div>
-        <div class="qt-emoji-grid">
-          <div class="qt-emoji-cell correct"><div class="em">🍑</div></div>
-          <div class="qt-emoji-cell"><div class="em">🍎</div></div>
-          <div class="qt-emoji-cell"><div class="em">🍌</div></div>
-          <div class="qt-emoji-cell"><div class="em">🍇</div></div>
+        <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;">🔊 Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
+        <div class="qt-emoji-grid" style="gap:8px; padding:8px;">
+          <div class="qt-emoji-cell correct" style="padding:18px;"><div class="em" style="font-size:44px;">🍑</div></div>
+          <div class="qt-emoji-cell" style="padding:18px;"><div class="em" style="font-size:44px;">🍎</div></div>
+          <div class="qt-emoji-cell" style="padding:18px;"><div class="em" style="font-size:44px;">🍌</div></div>
+          <div class="qt-emoji-cell" style="padding:18px;"><div class="em" style="font-size:44px;">🍇</div></div>
         </div>
-        <div style="flex:1"></div>
+        <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; color:var(--text); line-height:1.45;">Peach 桃子 — Ch2 桃太郎 從桃子裡蹦出來!</div>
+        </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
       </div></div>
       <div>
@@ -1214,25 +1265,27 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><span>🔇</span></div>
-        <div class="qt-q-prompt" style="text-align:center;">Match the pairs · 配對</div>
-        <div class="qt-pairs-wrap">
-          <div class="qt-pair-col">
-            <div class="lbl">EN</div>
-            <div class="qt-pair-tile matched">peach 🔊</div>
-            <div class="qt-pair-tile selected">rain</div>
-            <div class="qt-pair-tile">porch</div>
-            <div class="qt-pair-tile">cat</div>
+        <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:8px 0;">Match the pairs · 配對</div>
+        <div class="qt-pairs-wrap" style="gap:8px; padding:6px 10px;">
+          <div class="qt-pair-col" style="gap:6px;">
+            <div class="lbl" style="font-size:9px;">EN 英文</div>
+            <div class="qt-pair-tile matched" style="font-size:11px; padding:7px 6px;">peach 🔊</div>
+            <div class="qt-pair-tile selected" style="font-size:11px; padding:7px 6px;">rain</div>
+            <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">porch</div>
+            <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">cat</div>
           </div>
-          <div class="qt-pair-col">
-            <div class="lbl">中文</div>
-            <div class="qt-pair-tile">門廊</div>
-            <div class="qt-pair-tile matched">桃子</div>
-            <div class="qt-pair-tile">貓</div>
-            <div class="qt-pair-tile">雨</div>
+          <div class="qt-pair-col" style="gap:6px;">
+            <div class="lbl" style="font-size:9px;">中文</div>
+            <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">門廊</div>
+            <div class="qt-pair-tile matched" style="font-size:11px; padding:7px 6px;">桃子</div>
+            <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">貓</div>
+            <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">雨</div>
           </div>
         </div>
-        <div style="font-size:8px; color:var(--olive-dark); text-align:center; margin:4px 8px; font-weight:900;">1 / 4 paired</div>
-        <div style="flex:1"></div>
+        <div style="font-size:10px; color:var(--olive-dark); text-align:center; margin:6px 8px; font-weight:900;">1 / 4 paired ✓</div>
+        <div style="margin:6px 10px; padding:7px 10px; background:var(--card); border:1px dashed var(--accent-dark); border-radius:8px; font-size:9px; color:var(--muted); text-align:center; line-height:1.4;">
+          💡 tap 1 個英文 → 再 tap 對應中文 → 配成功 olive 變色
+        </div>
         <div class="qt-cta-row"><div class="qt-cta disabled">→ 全部配完才能繼續</div></div>
       </div></div>
       <div>
@@ -1261,18 +1314,18 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
-        <div class="qt-passage">
-          <span class="speaker">🎙 Grandma 奶奶</span>
-          "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro." <span class="qt-replay">🔊 Replay</span>
+        <div class="qt-passage" style="font-size:9.5px; padding:9px 11px; margin:8px;">
+          <span class="speaker" style="font-size:9px;">🎙 Grandma 奶奶</span>
+          "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro and raised him as their own." <span class="qt-replay" style="font-size:9px; padding:2px 8px;">🔊 Replay</span>
         </div>
-        <div class="qt-q-prompt">Where did they find Momotaro?</div>
-        <div class="qt-mc-opts">
-          <div class="qt-mc-opt correct">inside a peach <span class="zh">桃子裡 ✓</span></div>
-          <div class="qt-mc-opt">in the river <span class="zh">河裡</span></div>
-          <div class="qt-mc-opt">in their house <span class="zh">家裡</span></div>
-          <div class="qt-mc-opt">on a mountain <span class="zh">山上</span></div>
+        <div style="font-size:9px; color:var(--muted); text-align:center; margin:2px 8px;">🔊 已用 1 次 重聽 (不限次)</div>
+        <div class="qt-q-prompt" style="font-size:10px; padding:6px 8px;">Where did they find Momotaro?</div>
+        <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
+          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">inside a peach <span class="zh">桃子裡 ✓</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in the river <span class="zh">河裡</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in their house <span class="zh">家裡</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">on a mountain <span class="zh">山上</span></div>
         </div>
-        <div style="flex:1"></div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
       </div></div>
       <div>
@@ -1299,23 +1352,25 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:95%"></div></div><span>🔇</span></div>
-        <div class="qt-zh-prompt">把這句翻成英文 · 翻譯</div>
-        <div style="margin:4px 8px; font-size:11px; text-align:center; font-weight:900; color:var(--text);">「我今晚要說一個故事」</div>
-        <div class="qt-answer-slot">
-          <div class="qt-tile">I</div>
-          <div class="qt-tile">will</div>
-          <div class="qt-tile">tell</div>
+        <div class="qt-zh-prompt" style="font-size:10px; padding:6px 10px; margin:8px;">把這句翻成英文 · 翻譯</div>
+        <div style="margin:6px 8px 10px; font-size:14px; text-align:center; font-weight:900; color:var(--text); line-height:1.4;">「我今晚要說一個故事」</div>
+        <div class="qt-answer-slot" style="min-height:42px; padding:8px;">
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">I</div>
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">will</div>
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">tell</div>
         </div>
-        <div style="font-size:7px; color:var(--muted); margin:0 8px; text-align:center;">↑ 答案區 (tap 移回) · ↓ tile 庫 (tap 移上去)</div>
-        <div class="qt-tile-bank">
-          <div class="qt-tile used">I</div>
-          <div class="qt-tile">a</div>
-          <div class="qt-tile">tonight</div>
-          <div class="qt-tile used">will</div>
-          <div class="qt-tile">story</div>
-          <div class="qt-tile used">tell</div>
+        <div style="font-size:8px; color:var(--muted); margin:4px 8px; text-align:center; line-height:1.5;">↑ 答案區 (tap 移回) · ↓ tile 庫 (tap 移上去)</div>
+        <div class="qt-tile-bank" style="padding:8px; gap:5px;">
+          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">I</div>
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">a</div>
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">tonight</div>
+          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">will</div>
+          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">story</div>
+          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">tell</div>
         </div>
-        <div style="flex:1"></div>
+        <div style="margin:6px 8px; padding:7px 10px; background:var(--card); border:1px dashed var(--accent-dark); border-radius:8px; font-size:9px; color:var(--muted); text-align:center; line-height:1.45;">
+          💡 預期答案 = "I will tell a story tonight"<br/>(distractor "a"/"story"/"tonight" 已混在 bank)
+        </div>
         <div class="qt-cta-row"><div class="qt-cta disabled">→ 拼完整句才能繼續</div></div>
       </div></div>
       <div>
