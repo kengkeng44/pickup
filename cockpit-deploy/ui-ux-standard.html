@@ -87,9 +87,12 @@
     @media (max-width: 600px) {
       .layout-grid { grid-template-columns: 1fr; gap: 16px; }
       .mockup-frame {
-        max-width: 280px;
+        max-width: 200px;
         margin: 0 auto;
-        position: static;
+        position: sticky;
+        top: 10px;
+        z-index: 5;
+        box-shadow: 0 4px 0 var(--border), 0 12px 24px rgba(60,42,28,0.18);
       }
     }
 
