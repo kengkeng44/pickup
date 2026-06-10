@@ -87,12 +87,24 @@
     @media (max-width: 600px) {
       .layout-grid { grid-template-columns: 1fr; gap: 16px; }
       .mockup-frame {
+        /* full-width opaque banner (不讓 spec 兩側漏) */
+        max-width: none;
+        margin: 0 -14px;
+        padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: var(--bg);
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 8px 14px -2px rgba(60,42,28,0.18);
+      }
+      .mockup-frame > .mockup-inner {
         max-width: 200px;
         margin: 0 auto;
-        position: sticky;
-        top: 10px;
-        z-index: 5;
-        box-shadow: 0 4px 0 var(--border), 0 12px 24px rgba(60,42,28,0.18);
+        border: 3px solid #2a2520;
+        border-radius: 22px;
       }
     }
 
@@ -577,6 +589,53 @@
       margin-top: 22px; border-bottom: 2px solid var(--border);
     }
 
+    /* === Speaker icon (user-generated v1.9.41) === */
+    .qt-spk {
+      width: 18px; height: 18px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-right: 2px;
+    }
+    .qt-spk-sm {
+      width: 13px; height: 13px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    /* === Quiz UX reference panel === */
+    .ratio-ref {
+      background: linear-gradient(135deg, #fff7e8 0%, #f0e6d8 100%);
+      border: 1.5px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .ratio-ref h3 {
+      margin: 0 0 6px;
+      font-size: 13px; color: var(--accent-dark);
+    }
+    .ratio-ref .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      font-size: 12px;
+    }
+    @media (min-width: 600px) {
+      .ratio-ref .row { grid-template-columns: 1fr 1fr; }
+    }
+    .ratio-ref .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+    .ratio-ref .card strong { color: var(--accent-dark); }
+    .ratio-ref .card .src {
+      font-size: 9px; color: var(--muted); font-style: italic; display: block; margin-top: 3px;
+    }
+
     /* === Top TOC === */
     .toc {
       background: #fff;
@@ -698,6 +757,55 @@
       <span class="legend-item">📦 黃 = 頂部 chrome 框架</span>
       <span class="legend-item">📜 綠 = 中段 scrollable 內容</span>
       <span class="legend-item">⬛ 紅 = 底部 nav / CTA</span>
+    </div>
+
+    <!-- === Quiz UX Reference (參考業界最佳 ratio) === -->
+    <div class="ratio-ref">
+      <h3>📐 答題類 app 最佳設計比例參考</h3>
+      <div class="row">
+        <div class="card">
+          <strong>📱 螢幕長寬比 (aspect ratio)</strong><br/>
+          現代 iPhone 9:19.5 (1:2.17) · iPhone 8 / SE 9:16 (1:1.78)<br/>
+          Pickup 採 <strong>9:19.5</strong> = 對齊 iPhone 13+ 主力<br/>
+          <span class="src">Apple Developer · iPhone screen sizes 2026</span>
+        </div>
+        <div class="card">
+          <strong>👆 觸控目標最小尺寸</strong><br/>
+          Apple HIG = <strong>44×44 pt</strong> · Material = 48×48 dp<br/>
+          兒童 6-12 歲建議 <strong>56 pt+</strong> (細動作 fine motor 未成熟)<br/>
+          Pickup 4 選 1 button 高 ~52pt + paddingTop 8 = 60pt ✓<br/>
+          <span class="src">Apple HIG Layout · Tactile Targets</span>
+        </div>
+        <div class="card">
+          <strong>📊 Duolingo / Memrise / Kahoot 結構比例</strong><br/>
+          頂 chrome <strong>8-12%</strong> (progress + ✕ + audio)<br/>
+          中 question/scrollable <strong>50-60%</strong> (sentence / options)<br/>
+          底 CTA + safe area <strong>15-20%</strong> (繼續 button + home bar)<br/>
+          <span class="src">Quiz app teardown (Build Daily 2025)</span>
+        </div>
+        <div class="card">
+          <strong>👍 單手 thumb-zone (拇指可達區)</strong><br/>
+          底 1/3 = 容易 (CTA 必放這)<br/>
+          中 1/3 = 中等 (主要互動)<br/>
+          頂 1/3 = 難 (read-only header 才放)<br/>
+          Pickup ✕ 關閉刻意放左上 = 防誤觸<br/>
+          <span class="src">Steven Hoober · Thumb-zone heatmap</span>
+        </div>
+        <div class="card">
+          <strong>👁 文字大小 (legibility)</strong><br/>
+          Apple body = <strong>17 pt</strong> · Duolingo Q prompt 22 pt<br/>
+          兒童學習 Q sentence <strong>20-24 pt</strong> (聽不清也看得清)<br/>
+          選項 bilingual: EN 16pt + ZH 12pt<br/>
+          <span class="src">Apple SF Pro · Duolingo design system</span>
+        </div>
+        <div class="card">
+          <strong>🎯 答題互動黃金 3 規則</strong><br/>
+          1. 1-tap 答 (4 option 直接 tap, 不要 next button)<br/>
+          2. 即時 feedback &lt;100ms (Haptic + 顏色)<br/>
+          3. 答錯不羞辱 (blind retry 1 次 → 第 2 次才 reveal)<br/>
+          <span class="src">Kahoot / Quizlet UX patterns</span>
+        </div>
+      </div>
     </div>
 
     <h2 id="sec-tokens"><span class="icon">🌐</span> 共用 design token <em class="zh">設計變數</em></h2>
@@ -1076,7 +1184,7 @@
     <!-- ═══════════════════ ChapterIntro ═══════════════════ -->
     <h2 id="sec-chapterintro"><span class="icon">👵</span> ChapterIntro <em class="zh">章節開場</em></h2>
     <div class="section-card top"><span class="badge top">頂</span><strong>Mascot Scene (~250px)</strong>: 奶奶 + 柴犬 illustration + 章節 floor band <em class="zh">章節地板色條</em> 50px inset</div>
-    <div class="section-card mid"><span class="badge mid">中</span><strong>Narration <em class="zh">旁白</em></strong> + 🔊 SquishButton replay <em class="zh">重播</em></div>
+    <div class="section-card mid"><span class="badge mid">中</span><strong>Narration <em class="zh">旁白</em></strong> + <img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> SquishButton replay <em class="zh">重播</em></div>
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA</strong>: → Begin <em class="zh">開始</em> SquishButton olive</div>
     <div class="fx">mascot-idle-bob <em class="zh">站立左右搖晃</em> 動畫 · auto-speak narration on mount</div>
 
@@ -1148,7 +1256,7 @@
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
-        <div class="qt-sentence" style="font-size:10px; padding:8px 10px; margin:6px 8px;">🔊 "She sleeps under the porch when the rain falls hard."</div>
+        <div class="qt-sentence" style="font-size:10px; padding:8px 10px; margin:6px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> "She sleeps under the porch when the rain falls hard."</div>
         <div class="qt-q-prompt" style="font-size:10px; padding:2px 8px;">Where does the cat sleep on rainy nights?</div>
         <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">under the porch <span class="zh">門廊下</span></div>
@@ -1166,7 +1274,7 @@
         <div class="section-card mid">
           <span class="badge mid">中</span><strong>Sentence + Q + 4 雙語選項</strong>
           <ul>
-            <li>🔊 sentence card (auto-speak on mount + replay 可點)</li>
+            <li><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> sentence card (auto-speak on mount + replay 可點)</li>
             <li><strong>Q prompt</strong> = story-anchored <em class="zh">扣劇情</em> 不准用「Which word did you hear」(B.227 memory)</li>
             <li>4 option = <strong>左 EN + 右中文 hint</strong> (bilingual, Duolingo style, B.229 memory)
               <span class="var-tag">每章 lessons-ch{N}.json 配置</span>
@@ -1189,7 +1297,7 @@
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
-        <div class="qt-sentence" style="font-size:11px; padding:10px 12px; margin:8px;">🔊 "The dog Hana sleeps inside Grandma's house."</div>
+        <div class="qt-sentence" style="font-size:11px; padding:10px 12px; margin:8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> "The dog Hana sleeps inside Grandma's house."</div>
         <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:6px 0;">Is this true?</div>
         <div class="qt-tf-row" style="padding:8px;">
           <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark); padding:18px 6px;">
@@ -1213,7 +1321,7 @@
         <div class="section-card mid">
           <span class="badge mid">中</span><strong>Sentence + 2 huge True/False</strong>
           <ul>
-            <li>🔊 sentence card (auto-speak)</li>
+            <li><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> sentence card (auto-speak)</li>
             <li>Q prompt: "Is this true?" / 故事 anchored statement</li>
             <li>2 巨型按鈕 50/50 split: <strong>✓ True / 對</strong> + <strong>✗ False / 不對</strong>
               <span class="var-tag">correctAnswer: 'true' | 'false' lesson 設</span>
@@ -1232,7 +1340,7 @@
     <div class="layout-grid">
       <div class="mockup-frame"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
-        <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;">🔊 Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
+        <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
         <div class="qt-emoji-grid" style="gap:8px; padding:8px;">
           <div class="qt-emoji-cell correct" style="padding:18px;"><div class="em" style="font-size:44px;">🍑</div></div>
           <div class="qt-emoji-cell" style="padding:18px;"><div class="em" style="font-size:44px;">🍎</div></div>
@@ -1249,7 +1357,7 @@
         <div class="section-card mid">
           <span class="badge mid">中</span><strong>EN prompt + 2×2 emoji grid</strong>
           <ul>
-            <li>EN prompt: "Which one is the <em>X</em>?" 強調目標單字 (🔊 可點念)</li>
+            <li>EN prompt: "Which one is the <em>X</em>?" 強調目標單字 (<img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> 可點念)</li>
             <li>4 emoji cell 大格 (2 列 × 2 行)
               <span class="var-tag">4 emoji + 1 correct lesson 設</span>
             </li>
@@ -1272,7 +1380,7 @@
         <div class="qt-pairs-wrap" style="gap:8px; padding:6px 10px;">
           <div class="qt-pair-col" style="gap:6px;">
             <div class="lbl" style="font-size:9px;">EN 英文</div>
-            <div class="qt-pair-tile matched" style="font-size:11px; padding:7px 6px;">peach 🔊</div>
+            <div class="qt-pair-tile matched" style="font-size:11px; padding:7px 6px;">peach <img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"></div>
             <div class="qt-pair-tile selected" style="font-size:11px; padding:7px 6px;">rain</div>
             <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">porch</div>
             <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">cat</div>
@@ -1295,7 +1403,7 @@
         <div class="section-card mid">
           <span class="badge mid">中</span><strong>2 欄配對 = <em class="zh">4 英 + 4 中文</em></strong>
           <ul>
-            <li><strong>左欄 4 EN tile</strong> (順序 shuffle) + 🔊 tap 念音</li>
+            <li><strong>左欄 4 EN tile</strong> (順序 shuffle) + <img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> tap 念音</li>
             <li><strong>右欄 4 中文 tile</strong> (順序獨立 shuffle)
               <span class="var-tag">8 個 tile 都 shuffle 動態</span>
             </li>
@@ -1319,9 +1427,9 @@
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
         <div class="qt-passage" style="font-size:9.5px; padding:9px 11px; margin:8px;">
           <span class="speaker" style="font-size:9px;">🎙 Grandma 奶奶</span>
-          "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro and raised him as their own." <span class="qt-replay" style="font-size:9px; padding:2px 8px;">🔊 Replay</span>
+          "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro and raised him as their own." <span class="qt-replay" style="font-size:9px; padding:2px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> Replay</span>
         </div>
-        <div style="font-size:9px; color:var(--muted); text-align:center; margin:2px 8px;">🔊 已用 1 次 重聽 (不限次)</div>
+        <div style="font-size:9px; color:var(--muted); text-align:center; margin:2px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> 已用 1 次 重聽 (不限次)</div>
         <div class="qt-q-prompt" style="font-size:10px; padding:6px 8px;">Where did they find Momotaro?</div>
         <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
           <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">inside a peach <span class="zh">桃子裡 ✓</span></div>
@@ -1336,7 +1444,7 @@
           <span class="badge mid">中</span><strong>長 passage + Q + 4 雙語選項</strong>
           <ul>
             <li>Speaker badge 🎙 narrator/角色名</li>
-            <li><strong>長 passage</strong> (3-5 句 narration) + 🔊 Replay button (可重聽 N 次)
+            <li><strong>長 passage</strong> (3-5 句 narration) + <img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> Replay button (可重聽 N 次)
               <span class="var-tag">passage 長度依 lesson 設</span>
             </li>
             <li>Q prompt: who/where/why/what 比 simple listen-mc 更需理解</li>
