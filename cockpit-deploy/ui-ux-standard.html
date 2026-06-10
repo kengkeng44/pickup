@@ -85,27 +85,31 @@
       align-items: start;
     }
     @media (max-width: 600px) {
-      .layout-grid { grid-template-columns: 1fr; gap: 16px; }
+      /* 2-column: mockup 釘左, spec 滑右 — 兩邊不重疊 */
+      .layout-grid {
+        grid-template-columns: 145px 1fr;
+        gap: 10px;
+      }
       .mockup-frame {
-        /* full-width opaque banner (不讓 spec 兩側漏) */
-        max-width: none;
-        margin: 0 -14px;
-        padding: 12px 0;
+        max-width: 145px;
+        margin: 0;
+        padding: 5px;
         position: sticky;
-        top: 0;
+        top: 10px;
         z-index: 5;
         background: var(--bg);
-        border: none;
-        border-radius: 0;
-        border-bottom: 2px solid var(--border);
-        box-shadow: 0 8px 14px -2px rgba(60,42,28,0.18);
-      }
-      .mockup-frame > .mockup-inner {
-        max-width: 200px;
-        margin: 0 auto;
         border: 3px solid #2a2520;
-        border-radius: 22px;
+        border-radius: 20px;
+        box-shadow: 0 4px 0 var(--border);
       }
+      /* spec column 字體縮 */
+      .section-card { padding: 9px 10px; }
+      .section-card ul { padding-left: 16px; }
+      .section-card li { font-size: 12px; }
+      .fx { font-size: 11px; padding: 7px 10px; }
+      h2 { font-size: 17px; }
+      h2.qt-h2 { font-size: 16px; }
+      .var-tag { font-size: 9px; }
     }
 
     .mockup-frame {
@@ -1260,12 +1264,12 @@
         <div class="qt-q-prompt" style="font-size:10px; padding:2px 8px;">Where does the cat sleep on rainy nights?</div>
         <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">under the porch <span class="zh">門廊下</span></div>
-          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">she stays dry <span class="zh">她保持乾燥 ✓</span></div>
+          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">she stays dry <span class="zh">她保持乾燥</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">on a warm bed <span class="zh">溫暖的床上</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in the garden <span class="zh">花園裡</span></div>
         </div>
         <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
-          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">答對! +10 XP</div>
           <div style="font-size:9px; color:var(--text); line-height:1.45;">"porch" = 門廊 · 貓躲雨的地方</div>
         </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
@@ -1300,19 +1304,17 @@
         <div class="qt-sentence" style="font-size:11px; padding:10px 12px; margin:8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> "The dog Hana sleeps inside Grandma's house."</div>
         <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:6px 0;">Is this true?</div>
         <div class="qt-tf-row" style="padding:8px;">
-          <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark); padding:18px 6px;">
-            <div class="ico" style="font-size:28px;">✓</div>
-            <div class="lbl" style="font-size:12px; margin-top:6px;">True</div>
-            <div class="lbl-zh" style="font-size:9px;">對 ✓</div>
+          <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark); padding:24px 6px;">
+            <div style="font-size:20px; font-weight:900; color:var(--olive-dark);">True</div>
+            <div style="font-size:11px; color:var(--olive-dark); margin-top:4px;">對</div>
           </div>
-          <div class="qt-tf-btn" style="padding:18px 6px;">
-            <div class="ico" style="font-size:28px;">✗</div>
-            <div class="lbl" style="font-size:12px; margin-top:6px;">False</div>
-            <div class="lbl-zh" style="font-size:9px;">不對</div>
+          <div class="qt-tf-btn" style="padding:24px 6px;">
+            <div style="font-size:20px; font-weight:900;">False</div>
+            <div style="font-size:11px; color:var(--muted); margin-top:4px;">不對</div>
           </div>
         </div>
         <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
-          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">答對! +10 XP</div>
           <div style="font-size:9px; color:var(--text); line-height:1.45;">花花 = 奶奶養的家犬, 住家裡; 糰糰 = 流浪貓, 跳牆來聽</div>
         </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
@@ -1323,7 +1325,7 @@
           <ul>
             <li><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> sentence card (auto-speak)</li>
             <li>Q prompt: "Is this true?" / 故事 anchored statement</li>
-            <li>2 巨型按鈕 50/50 split: <strong>✓ True / 對</strong> + <strong>✗ False / 不對</strong>
+            <li>2 巨型按鈕 50/50 split: <strong>True / 對</strong> + <strong>False / 不對</strong> (純文字, 無 ✓/✗ icon)
               <span class="var-tag">correctAnswer: 'true' | 'false' lesson 設</span>
             </li>
             <li>禁第三選項 ambiguous</li>
@@ -1348,7 +1350,7 @@
           <div class="qt-emoji-cell" style="padding:18px;"><div class="em" style="font-size:44px;">🍇</div></div>
         </div>
         <div style="margin:6px 8px; padding:8px 10px; background:#eaf6d5; border:1.5px solid var(--olive-dark); border-radius:8px;">
-          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">✓ 答對! +10 XP</div>
+          <div style="font-size:9px; font-weight:900; color:var(--olive-dark); margin-bottom:3px;">答對! +10 XP</div>
           <div style="font-size:9px; color:var(--text); line-height:1.45;">Peach 桃子 — Ch2 桃太郎 從桃子裡蹦出來!</div>
         </div>
         <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
@@ -1393,7 +1395,7 @@
             <div class="qt-pair-tile" style="font-size:11px; padding:7px 6px;">雨</div>
           </div>
         </div>
-        <div style="font-size:10px; color:var(--olive-dark); text-align:center; margin:6px 8px; font-weight:900;">1 / 4 paired ✓</div>
+        <div style="font-size:10px; color:var(--olive-dark); text-align:center; margin:6px 8px; font-weight:900;">1 / 4 paired</div>
         <div style="margin:6px 10px; padding:7px 10px; background:var(--card); border:1px dashed var(--accent-dark); border-radius:8px; font-size:9px; color:var(--muted); text-align:center; line-height:1.4;">
           💡 tap 1 個英文 → 再 tap 對應中文 → 配成功 olive 變色
         </div>
@@ -1432,7 +1434,7 @@
         <div style="font-size:9px; color:var(--muted); text-align:center; margin:2px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker"> 已用 1 次 重聽 (不限次)</div>
         <div class="qt-q-prompt" style="font-size:10px; padding:6px 8px;">Where did they find Momotaro?</div>
         <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
-          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">inside a peach <span class="zh">桃子裡 ✓</span></div>
+          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">inside a peach <span class="zh">桃子裡</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in the river <span class="zh">河裡</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in their house <span class="zh">家裡</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">on a mountain <span class="zh">山上</span></div>
@@ -1529,6 +1531,10 @@
       <li>MC <em class="zh">選擇題</em> 不要 question prompt <em class="zh">問題提示</em>, 選項自說明 (B.280)</li>
       <li>答錯 2-strike <em class="zh">兩次錯誤</em>: 1st 紅 retry, 2nd 知道了 reveal <em class="zh">揭曉答案</em></li>
       <li>書封 dynamic chapter <em class="zh">動態章節</em> = IntersectionObserver <em class="zh">視窗偵測器</em>, 不用 scrollY listener <em class="zh">滾動事件監聽</em></li>
+      <li style="background:#fff7e8; border-left:4px solid var(--accent); padding:6px 10px; margin-top:6px;">
+        <strong>⭐ 正確答案 = 綠色, 禁 ✓ 打勾 icon</strong> (B.264 user rule 2026-06-11)
+        <em class="zh">option 答對只用 olive bg + olive border, 不在 label 加 ✓; reveal banner 也不用 ✓</em>
+      </li>
     </ol>
 
     <footer>
