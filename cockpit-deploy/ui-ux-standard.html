@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Pickup UI/UX 標準 v2</title>
+  <title>Pickup UI/UX 標準 v3</title>
   <style>
     :root {
       --bg: #f1ebe1; --card: #fff7e8;
@@ -320,12 +320,259 @@
       border-radius: 999px;
       padding: 2px 8px;
     }
+
+    /* === Lesson question-type mockups (v3 additions) === */
+    .q-types-banner {
+      margin: 24px 0 14px;
+      background: linear-gradient(135deg, #fff7e8 0%, #f5e8d0 100%);
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 14px 18px;
+    }
+    .q-types-banner h2 {
+      margin: 0; border: none; font-size: 22px;
+    }
+    .q-types-banner .desc {
+      font-size: 13px; color: var(--muted); margin-top: 6px;
+    }
+    .q-types-banner .index {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;
+    }
+    .q-types-banner .index a {
+      font-size: 11px; font-weight: 800;
+      background: #fff; border: 1px solid var(--accent);
+      padding: 3px 9px; border-radius: 999px;
+      color: var(--accent-dark);
+    }
+
+    .qt-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px;
+    }
+    .qt-progress {
+      flex: 1; height: 6px; background: #ead8c4;
+      border-radius: 999px; overflow: hidden;
+    }
+    .qt-progress > div {
+      height: 100%; background: var(--olive); border-radius: 999px;
+    }
+    .qt-sentence {
+      margin: 4px 8px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 8px;
+      font-size: 9px; line-height: 1.4;
+      box-shadow: 0 2px 0 #c8a878;
+    }
+    .qt-q-prompt {
+      margin: 4px 8px;
+      font-size: 9px; font-weight: 800;
+      color: var(--text);
+    }
+    .qt-cta-row { margin: 6px 8px; }
+    .qt-cta {
+      background: var(--olive); color: #fff;
+      border-radius: 10px; padding: 6px; text-align: center;
+      font-weight: 900; box-shadow: 0 3px 0 var(--olive-dark);
+      font-size: 10px;
+    }
+    .qt-cta.disabled {
+      background: #c8b89f; color: #fff;
+      box-shadow: 0 3px 0 #8a7c66; opacity: 0.7;
+    }
+    .qt-cta.know {
+      background: var(--red); box-shadow: 0 3px 0 var(--red-dark);
+    }
+    .qt-cta.auto {
+      background: transparent; color: var(--muted);
+      box-shadow: none; font-size: 8px; font-style: italic;
+    }
+
+    /* listen-mc bilingual buttons */
+    .qt-mc-opts {
+      padding: 4px 8px; display: flex; flex-direction: column; gap: 4px;
+    }
+    .qt-mc-opt {
+      background: #fff; border: 1.5px solid var(--accent-dark);
+      border-radius: 8px; padding: 5px 8px;
+      font-size: 9px; font-weight: 800;
+      box-shadow: 0 2px 0 var(--accent-dark);
+      display: flex; justify-content: space-between;
+    }
+    .qt-mc-opt.correct {
+      background: #eaf6d5; border-color: var(--olive-dark);
+      box-shadow: 0 2px 0 var(--olive-dark);
+    }
+    .qt-mc-opt .zh {
+      color: var(--muted); font-weight: 700;
+    }
+    .qt-mc-opt.correct .zh { color: var(--olive-dark); }
+
+    /* listen-tf big True/False */
+    .qt-tf-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; padding: 6px 8px;
+    }
+    .qt-tf-btn {
+      background: #fff; border: 1.5px solid var(--accent-dark);
+      border-radius: 12px; padding: 14px 6px;
+      text-align: center; font-weight: 900;
+      box-shadow: 0 3px 0 var(--accent-dark);
+    }
+    .qt-tf-btn .ico { font-size: 22px; line-height: 1; }
+    .qt-tf-btn .lbl { font-size: 10px; margin-top: 4px; }
+    .qt-tf-btn .lbl-zh { font-size: 8px; color: var(--muted); }
+
+    /* emoji-pick 2x2 grid */
+    .qt-emoji-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; padding: 6px 8px;
+    }
+    .qt-emoji-cell {
+      background: #fff; border: 1.5px solid var(--accent-dark);
+      border-radius: 12px; padding: 10px;
+      text-align: center;
+      box-shadow: 0 3px 0 var(--accent-dark);
+    }
+    .qt-emoji-cell .em { font-size: 28px; line-height: 1; }
+    .qt-emoji-cell.correct {
+      background: #eaf6d5; border-color: var(--olive-dark);
+      box-shadow: 0 3px 0 var(--olive-dark);
+    }
+
+    /* tap-pairs 2-column matching */
+    .qt-pairs-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5px; padding: 4px 8px;
+    }
+    .qt-pair-col {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .qt-pair-col .lbl {
+      font-size: 7px; color: var(--muted);
+      text-align: center; font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .qt-pair-tile {
+      background: #fff; border: 1px solid var(--accent-dark);
+      border-radius: 6px; padding: 4px 5px;
+      font-size: 8.5px; font-weight: 800;
+      text-align: center;
+      box-shadow: 0 2px 0 var(--accent-dark);
+    }
+    .qt-pair-tile.matched {
+      background: #eaf6d5; border-color: var(--olive-dark);
+      box-shadow: 0 2px 0 var(--olive-dark);
+      color: var(--olive-dark);
+    }
+    .qt-pair-tile.selected {
+      background: #fff7e8; border-color: var(--accent);
+      box-shadow: 0 2px 0 var(--accent);
+    }
+
+    /* listen-comprehension long passage */
+    .qt-passage {
+      margin: 4px 8px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 8px;
+      font-size: 8px; line-height: 1.45;
+      box-shadow: 0 2px 0 #c8a878;
+      color: var(--muted);
+    }
+    .qt-passage .speaker {
+      font-size: 7px; font-weight: 900;
+      color: var(--accent-dark); display: block; margin-bottom: 2px;
+    }
+    .qt-replay {
+      display: inline-block; padding: 1px 6px;
+      background: var(--accent); color: #fff;
+      border-radius: 999px; font-size: 7px; font-weight: 900;
+      margin: 0 0 0 4px;
+    }
+
+    /* sentence-builder tile bank */
+    .qt-zh-prompt {
+      margin: 4px 8px;
+      background: #fff7e8; border: 1px solid var(--accent);
+      border-radius: 8px; padding: 4px 8px;
+      font-size: 10px; font-weight: 900; text-align: center;
+      color: var(--text);
+    }
+    .qt-answer-slot {
+      margin: 4px 8px;
+      min-height: 32px;
+      background: #fff; border: 1px dashed var(--accent-dark);
+      border-radius: 8px;
+      padding: 5px;
+      display: flex; flex-wrap: wrap; gap: 3px;
+      align-items: center;
+    }
+    .qt-tile-bank {
+      margin: 4px 8px;
+      padding: 5px;
+      background: #ead8c4;
+      border-radius: 8px;
+      display: flex; flex-wrap: wrap; gap: 3px;
+    }
+    .qt-tile {
+      background: #fff; border: 1px solid var(--accent-dark);
+      border-radius: 6px; padding: 3px 6px;
+      font-size: 8.5px; font-weight: 800;
+      box-shadow: 0 2px 0 var(--accent-dark);
+    }
+    .qt-tile.used {
+      opacity: 0.25; box-shadow: none;
+    }
+
+    /* narration auto-advance waveform */
+    .qt-narr-card {
+      margin: 4px 8px; padding: 8px;
+      background: #fff7e8; border: 1px solid var(--accent);
+      border-radius: 10px; text-align: center;
+    }
+    .qt-narr-card .av {
+      font-size: 28px; line-height: 1;
+    }
+    .qt-narr-card .name {
+      font-size: 8px; font-weight: 900;
+      color: var(--accent-dark); margin-top: 2px;
+    }
+    .qt-narr-card .text {
+      font-size: 9px; margin-top: 4px;
+      color: var(--text); font-style: italic;
+    }
+    .qt-narr-card .wave {
+      margin-top: 4px;
+      display: inline-flex; gap: 2px; align-items: end;
+    }
+    .qt-narr-card .wave span {
+      width: 3px; background: var(--accent-dark);
+      border-radius: 2px;
+    }
+    .qt-narr-card .wave span:nth-child(1) { height: 6px; }
+    .qt-narr-card .wave span:nth-child(2) { height: 10px; }
+    .qt-narr-card .wave span:nth-child(3) { height: 14px; }
+    .qt-narr-card .wave span:nth-child(4) { height: 9px; }
+    .qt-narr-card .wave span:nth-child(5) { height: 12px; }
+
+    .type-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 900;
+      background: var(--accent); color: #fff;
+      padding: 2px 8px; border-radius: 6px;
+      margin-left: 6px; letter-spacing: 0.5px;
+    }
+    .type-tag.story { background: var(--olive); }
+    .type-tag.input { background: var(--red); }
+
+    h2.qt-h2 {
+      margin-top: 22px; border-bottom: 2px solid var(--border);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎨 Pickup UI/UX 標準 v2</h1>
-    <div class="subtitle">User directive 2026-06-10:「3 區塊 + 中文 + 視覺樣子 + 變動元素標明」</div>
+    <h1>🎨 Pickup UI/UX 標準 v3</h1>
+    <div class="subtitle">User directive 2026-06-10:「3 區塊 + 中文 + 視覺樣子 + 變動元素標明」+「答題畫面拆 7 題型放最後」</div>
 
     <div class="rule-banner">
       <strong>規則:</strong> 每個畫面 lock 死 3-section 結構 <em class="zh">三區塊垂直架構</em>:
@@ -431,75 +678,7 @@
       </div>
     </div>
 
-    <!-- ═══════════════════ LESSON ═══════════════════ -->
-    <h2><span class="icon">📖</span> Lesson <em class="zh">答題畫面</em></h2>
-
-    <div class="layout-grid">
-      <div class="mockup-frame">
-        <div class="mockup-inner">
-          <div class="mk-header-l">
-            <span style="font-size:14px">✕</span>
-            <div class="mk-progress-track"><div class="mk-progress-fill"></div></div>
-            <span style="font-size:12px">🔇</span>
-          </div>
-          <div style="padding: 0 8px;">
-            <div style="font-size:8px; padding:2px 6px; background:#fff7e8; border-radius:999px; display:inline-block; color:var(--muted)">🎙 Narrator</div>
-          </div>
-          <div class="mk-sentence">"Here are 4 words you will meet in tonight's story." 🔊</div>
-          <div class="mk-options">
-            <div class="mk-opt">apple <span style="color:var(--muted)">蘋果</span></div>
-            <div class="mk-opt correct">orange <span style="color:#5d7a30">橘子 ✓</span></div>
-            <div class="mk-opt">banana</div>
-            <div class="mk-opt">grape</div>
-          </div>
-          <div style="flex:1"></div>
-          <div class="mk-cta">→</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="section-card top">
-          <span class="badge top">頂</span><strong>Header <em class="zh">頂部</em> (~80px)</strong>
-          <ul>
-            <li>✕ 關閉 (左) + progress bar <em class="zh">進度條</em> (中, olive 橄欖綠 14px 高) + 🔇 mute (右)
-              <span class="var-tag">進度依答題位置, 動態</span>
-            </li>
-          </ul>
-        </div>
-        <div class="section-card mid">
-          <span class="badge mid">中</span><strong>Q content <em class="zh">題目內容可滾</em></strong>
-          <ul>
-            <li>Speaker badge <em class="zh">說話者標</em> (optional): 🎙 Narrator / 🗣 角色名</li>
-            <li>Sentence card <em class="zh">句子卡</em> + 🔊 speaker 按鈕 (自動發音 250ms 延遲)</li>
-            <li>Renderer 依 <code>q.type</code> 題型:
-              <span class="var-tag">7 種題型, 按 lesson JSON 配置</span>
-              <ul>
-                <li>narration <em class="zh">旁白</em></li>
-                <li>listen-mc <em class="zh">聽選 4 選 1</em></li>
-                <li>listen-tf <em class="zh">是非題</em></li>
-                <li>emoji-pick <em class="zh">emoji 選</em></li>
-                <li>tap-pairs <em class="zh">中英配對</em></li>
-                <li>listen-comprehension <em class="zh">聽力理解</em></li>
-                <li>sentence-builder <em class="zh">翻譯造句</em> (新)</li>
-              </ul>
-            </li>
-            <li>Reveal explanation <em class="zh">解答揭曉</em>: 答對 → cream card / 答錯 2 次 → 紅 banner + 正確答案</li>
-          </ul>
-        </div>
-        <div class="section-card bot">
-          <span class="badge bot">底</span><strong>CTA fixed footer <em class="zh">底部固定按鈕</em></strong>
-          <ul>
-            <li>→ <strong>green CTA</strong> (預設, olive bg <code>#7d9a4f</code>) — 答對才能按</li>
-            <li>知道了 <strong>red CTA</strong> (答錯 2 次 reveal 後出, <code>#c84a3a</code>)
-              <span class="var-tag">2-strike 邏輯 derived</span>
-            </li>
-          </ul>
-        </div>
-        <div class="fx">
-          Auto-speak <em class="zh">自動發音</em> on Q mount + cleanup · per-option tap → Speech.speak <em class="zh">念出選項</em> + Haptic Medium <em class="zh">中強震感</em> · 答對 Confetti <em class="zh">彩帶</em> + Haptic Success · 1st wrong blindRetry <em class="zh">不揭答案</em> · 2nd wrong reveal · tap-pairs <em class="zh">配對</em> 對 olive 變色 · SquishButton 30ms 按下
-        </div>
-      </div>
-    </div>
+    <!-- (Lesson section moved to the bottom — 7 question types each get own mockup) -->
 
     <!-- ═══════════════════ PROFILE ═══════════════════ -->
     <h2><span class="icon">🐱</span> Profile <em class="zh">我的</em></h2>
@@ -764,6 +943,310 @@
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA</strong>: → Begin <em class="zh">開始</em> SquishButton olive</div>
     <div class="fx">mascot-idle-bob <em class="zh">站立左右搖晃</em> 動畫 · auto-speak narration on mount</div>
 
+    <!-- ═══════════════════ LESSON 答題畫面 ═══════════════════ -->
+    <div class="q-types-banner">
+      <h2 style="border:none; padding:0;">📖 Lesson 答題畫面 — 按題型分</h2>
+      <div class="desc">
+        共同部分 (所有題型一樣):<br/>
+        <span class="badge top">頂</span> <strong>✕ 關閉 + olive progress bar + 🔇 mute</strong> (~50px sticky <em class="zh">固定不滾</em>)<br/>
+        <span class="badge bot">底</span> <strong>→ 綠 CTA / 知道了 紅 CTA</strong> (~60px fixed footer <em class="zh">底部固定</em>)<br/>
+        差異全在 <span class="badge mid">中</span> middle scrollable <em class="zh">中段可滾</em> 的 renderer
+      </div>
+      <div class="index">
+        <a href="#qt-narration">① narration 旁白</a>
+        <a href="#qt-listen-mc">② listen-mc 聽選</a>
+        <a href="#qt-listen-tf">③ listen-tf 是非</a>
+        <a href="#qt-emoji-pick">④ emoji-pick 圖選</a>
+        <a href="#qt-tap-pairs">⑤ tap-pairs 配對 ⭐</a>
+        <a href="#qt-listen-comp">⑥ listen-comp 聽力理解</a>
+        <a href="#qt-sentence-builder">⑦ sentence-builder 造句</a>
+      </div>
+    </div>
+
+    <!-- ─── ① narration ─── -->
+    <h2 class="qt-h2" id="qt-narration"><span class="icon">①</span> narration <em class="zh">旁白</em> <span class="type-tag story">劇情 STORY</span></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><span>🔇</span></div>
+        <div class="qt-narr-card">
+          <div class="av">👵</div>
+          <div class="name">Grandma · 奶奶</div>
+          <div class="text">"Tonight I'll tell you a story about a stray cat who comes to my yard."</div>
+          <div class="wave"><span></span><span></span><span></span><span></span><span></span></div>
+          <div style="font-size:7px; color:var(--muted); margin-top:3px;">▸ 自動播放中…</div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta auto">音檔放完自動推進 (5s fallback)</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>Narration card <em class="zh">旁白卡</em></strong>
+          <ul>
+            <li>講者 avatar (奶奶 👵 / 糰糰 🐱 / 花花 🐕)
+              <span class="var-tag">speaker 依 q.speaker 動態</span>
+            </li>
+            <li>講者名字 EN · 中文</li>
+            <li>EN narration sentence (一句長, italic)</li>
+            <li>Waveform <em class="zh">波形</em> 動畫 = TTS 正在念</li>
+            <li>「自動播放中」微提示</li>
+          </ul>
+        </div>
+        <div class="fx">
+          on mount → <code>speak(text, onEnd)</code> <em class="zh">念完 callback</em> · onEnd → setLessonIdx(+1) <em class="zh">自動推進</em> · 5s timer fallback <em class="zh">後備計時</em> (B.160) · BGM duck 0.7→0.3 <em class="zh">降音</em> on speak / unduck on end · 無 user input <em class="zh">無互動</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ② listen-mc ─── -->
+    <h2 class="qt-h2" id="qt-listen-mc"><span class="icon">②</span> listen-mc <em class="zh">聽選 4 選 1</em></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><span>🔇</span></div>
+        <div class="qt-sentence">🔊 "She sleeps under the porch when the rain falls hard."</div>
+        <div class="qt-q-prompt">Where does the cat sleep on rainy nights?</div>
+        <div class="qt-mc-opts">
+          <div class="qt-mc-opt">under the porch <span class="zh">門廊下</span></div>
+          <div class="qt-mc-opt correct">she stays dry <span class="zh">她保持乾燥 ✓</span></div>
+          <div class="qt-mc-opt">on a warm bed <span class="zh">溫暖的床上</span></div>
+          <div class="qt-mc-opt">in the garden <span class="zh">花園裡</span></div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>Sentence + Q + 4 雙語選項</strong>
+          <ul>
+            <li>🔊 sentence card (auto-speak on mount + replay 可點)</li>
+            <li><strong>Q prompt</strong> = story-anchored <em class="zh">扣劇情</em> 不准用「Which word did you hear」(B.227 memory)</li>
+            <li>4 option = <strong>左 EN + 右中文 hint</strong> (bilingual, Duolingo style, B.229 memory)
+              <span class="var-tag">每章 lessons-ch{N}.json 配置</span>
+            </li>
+            <li>選錯 1 次: yellow blindRetry (不揭答)</li>
+            <li>選錯 2 次: red banner + reveal + 知道了 CTA</li>
+          </ul>
+        </div>
+        <div class="fx">
+          auto-speak sentence on mount · tap option → <code>Speech.speak(en)</code> + Haptic Medium · 答對 → Confetti emoji burst + Haptic Success + CTA enable · 1st wrong yellow shake + retry 同題 · 2nd wrong red reveal + 知道了 (red CTA)
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ③ listen-tf ─── -->
+    <h2 class="qt-h2" id="qt-listen-tf"><span class="icon">③</span> listen-tf <em class="zh">是非題</em></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><span>🔇</span></div>
+        <div class="qt-sentence">🔊 "The dog Hana sleeps inside Grandma's house."</div>
+        <div class="qt-q-prompt">Is this true?</div>
+        <div class="qt-tf-row">
+          <div class="qt-tf-btn" style="background:#eaf6d5; border-color:var(--olive-dark); box-shadow:0 3px 0 var(--olive-dark)">
+            <div class="ico">✓</div>
+            <div class="lbl">True</div>
+            <div class="lbl-zh">對 ✓</div>
+          </div>
+          <div class="qt-tf-btn">
+            <div class="ico">✗</div>
+            <div class="lbl">False</div>
+            <div class="lbl-zh">不對</div>
+          </div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>Sentence + 2 huge True/False</strong>
+          <ul>
+            <li>🔊 sentence card (auto-speak)</li>
+            <li>Q prompt: "Is this true?" / 故事 anchored statement</li>
+            <li>2 巨型按鈕 50/50 split: <strong>✓ True / 對</strong> + <strong>✗ False / 不對</strong>
+              <span class="var-tag">correctAnswer: 'true' | 'false' lesson 設</span>
+            </li>
+            <li>禁第三選項 ambiguous</li>
+          </ul>
+        </div>
+        <div class="fx">
+          auto-speak sentence · tap True/False → Haptic Medium · 答對 olive flash + Success Haptic + Confetti · 答錯 1st yellow shake + retry · 2nd reveal + 知道了
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ④ emoji-pick ─── -->
+    <h2 class="qt-h2" id="qt-emoji-pick"><span class="icon">④</span> emoji-pick <em class="zh">看圖選</em></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
+        <div class="qt-q-prompt" style="text-align:center; padding:8px;">🔊 Which one is the <strong>peach</strong>?</div>
+        <div class="qt-emoji-grid">
+          <div class="qt-emoji-cell correct"><div class="em">🍑</div></div>
+          <div class="qt-emoji-cell"><div class="em">🍎</div></div>
+          <div class="qt-emoji-cell"><div class="em">🍌</div></div>
+          <div class="qt-emoji-cell"><div class="em">🍇</div></div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>EN prompt + 2×2 emoji grid</strong>
+          <ul>
+            <li>EN prompt: "Which one is the <em>X</em>?" 強調目標單字 (🔊 可點念)</li>
+            <li>4 emoji cell 大格 (2 列 × 2 行)
+              <span class="var-tag">4 emoji + 1 correct lesson 設</span>
+            </li>
+            <li>tap emoji → 播放對應 EN word</li>
+            <li>選項層禁中文 (visual-only, B.245 EN-only rule)</li>
+          </ul>
+        </div>
+        <div class="fx">
+          tap emoji → <code>Speech.speak("peach")</code> + Haptic Medium · 答對 emoji bounce scale 1.2→1 + olive bg flash + Confetti · 答錯 yellow shake → 2nd reveal
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ⑤ tap-pairs (the one user asked about) ─── -->
+    <h2 class="qt-h2" id="qt-tap-pairs"><span class="icon">⑤</span> tap-pairs <em class="zh">中英配對</em> <span class="type-tag input">互動 INPUT</span> <span class="type-tag" style="background:var(--variable);">⭐ user 問的</span></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><span>🔇</span></div>
+        <div class="qt-q-prompt" style="text-align:center;">Match the pairs · 配對</div>
+        <div class="qt-pairs-wrap">
+          <div class="qt-pair-col">
+            <div class="lbl">EN</div>
+            <div class="qt-pair-tile matched">peach 🔊</div>
+            <div class="qt-pair-tile selected">rain</div>
+            <div class="qt-pair-tile">porch</div>
+            <div class="qt-pair-tile">cat</div>
+          </div>
+          <div class="qt-pair-col">
+            <div class="lbl">中文</div>
+            <div class="qt-pair-tile">門廊</div>
+            <div class="qt-pair-tile matched">桃子</div>
+            <div class="qt-pair-tile">貓</div>
+            <div class="qt-pair-tile">雨</div>
+          </div>
+        </div>
+        <div style="font-size:8px; color:var(--olive-dark); text-align:center; margin:4px 8px; font-weight:900;">1 / 4 paired</div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta disabled">→ 全部配完才能繼續</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>2 欄配對 = <em class="zh">4 英 + 4 中文</em></strong>
+          <ul>
+            <li><strong>左欄 4 EN tile</strong> (順序 shuffle) + 🔊 tap 念音</li>
+            <li><strong>右欄 4 中文 tile</strong> (順序獨立 shuffle)
+              <span class="var-tag">8 個 tile 都 shuffle 動態</span>
+            </li>
+            <li>tap EN → 高亮 amber → tap ZH → 配成功 olive 變色 (或 wrong shake)</li>
+            <li>↑ 這是 user 「四個中文四個英文對照」的真正題型</li>
+            <li>底部「N / 4 paired」即時計數
+              <span class="var-tag">已配對數 derived</span>
+            </li>
+          </ul>
+        </div>
+        <div class="fx">
+          tap EN tile → amber border + Speech.speak(en) + Haptic Medium · tap matching ZH → olive flash 雙方 + Haptic Success · mismatch → 紅 shake 0.3s 兩方 reset · 4/4 全配 → auto Confetti + CTA enable · 答錯 2 次配對 → 知道了 reveal
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ⑥ listen-comprehension ─── -->
+    <h2 class="qt-h2" id="qt-listen-comp"><span class="icon">⑥</span> listen-comprehension <em class="zh">聽力理解</em></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
+        <div class="qt-passage">
+          <span class="speaker">🎙 Grandma 奶奶</span>
+          "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro." <span class="qt-replay">🔊 Replay</span>
+        </div>
+        <div class="qt-q-prompt">Where did they find Momotaro?</div>
+        <div class="qt-mc-opts">
+          <div class="qt-mc-opt correct">inside a peach <span class="zh">桃子裡 ✓</span></div>
+          <div class="qt-mc-opt">in the river <span class="zh">河裡</span></div>
+          <div class="qt-mc-opt">in their house <span class="zh">家裡</span></div>
+          <div class="qt-mc-opt">on a mountain <span class="zh">山上</span></div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta">→ Continue</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>長 passage + Q + 4 雙語選項</strong>
+          <ul>
+            <li>Speaker badge 🎙 narrator/角色名</li>
+            <li><strong>長 passage</strong> (3-5 句 narration) + 🔊 Replay button (可重聽 N 次)
+              <span class="var-tag">passage 長度依 lesson 設</span>
+            </li>
+            <li>Q prompt: who/where/why/what 比 simple listen-mc 更需理解</li>
+            <li>4 option 同 listen-mc 雙語</li>
+            <li>禁直接抄 passage 原句 (X3_R1_VERBATIM_WORDS lint)</li>
+          </ul>
+        </div>
+        <div class="fx">
+          passage auto-speak on mount (rate 0.75) · Replay tap → re-speak (Haptic Light) · 同 listen-mc 答對 / 1st 黃 / 2nd 紅 reveal 邏輯
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── ⑦ sentence-builder ─── -->
+    <h2 class="qt-h2" id="qt-sentence-builder"><span class="icon">⑦</span> sentence-builder <em class="zh">翻譯造句</em> <span class="type-tag input">互動 INPUT</span></h2>
+    <div class="layout-grid">
+      <div class="mockup-frame"><div class="mockup-inner">
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:95%"></div></div><span>🔇</span></div>
+        <div class="qt-zh-prompt">把這句翻成英文 · 翻譯</div>
+        <div style="margin:4px 8px; font-size:11px; text-align:center; font-weight:900; color:var(--text);">「我今晚要說一個故事」</div>
+        <div class="qt-answer-slot">
+          <div class="qt-tile">I</div>
+          <div class="qt-tile">will</div>
+          <div class="qt-tile">tell</div>
+        </div>
+        <div style="font-size:7px; color:var(--muted); margin:0 8px; text-align:center;">↑ 答案區 (tap 移回) · ↓ tile 庫 (tap 移上去)</div>
+        <div class="qt-tile-bank">
+          <div class="qt-tile used">I</div>
+          <div class="qt-tile">a</div>
+          <div class="qt-tile">tonight</div>
+          <div class="qt-tile used">will</div>
+          <div class="qt-tile">story</div>
+          <div class="qt-tile used">tell</div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="qt-cta-row"><div class="qt-cta disabled">→ 拼完整句才能繼續</div></div>
+      </div></div>
+      <div>
+        <div class="section-card mid">
+          <span class="badge mid">中</span><strong>ZH prompt + answer slot + EN tile bank</strong>
+          <ul>
+            <li><strong>中文 prompt card</strong> (橘 cream bg) — 唯一在 surface 出現中文的題型 (其他題型答前禁中文 per B.243 memory)</li>
+            <li><strong>答案區</strong> 虛線框 (空 → 漸有 tile)</li>
+            <li><strong>tile bank</strong> 米咖色底 — 混序 EN words (含 distractor 多餘 tile)
+              <span class="var-tag">tiles + 順序 lesson 設 + shuffle</span>
+            </li>
+            <li>tap bank tile → 移到答案區 (used 樣式 opacity 0.25)</li>
+            <li>tap 答案 tile → 移回 bank</li>
+            <li>CTA disabled 直到答案區 = 預期句長</li>
+          </ul>
+        </div>
+        <div class="fx">
+          tap tile → spring fly 至 slot (200ms) + Haptic Light · 答對 → Confetti + Success Haptic + Speech.speak(完整句) · 答錯 yellow shake retain user 排列 (parity tap-pairs blind retry) · 2nd 紅 reveal + 知道了
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── 共同規則 (lesson 跨題型) ─── -->
+    <h2 class="qt-h2"><span class="icon">⚙️</span> Lesson 跨題型共同規則</h2>
+    <div class="section-card top"><span class="badge top">頂</span><strong>Header 50px sticky</strong>: 所有題型一致 = ✕ + olive progress + 🔇 mute · <span class="var-tag">progress 依 idx/total derived</span></div>
+    <div class="section-card bot"><span class="badge bot">底</span><strong>CTA footer 60px fixed</strong>: 答對 → 綠 (#7d9a4f) → Continue · 答錯 2 次 → 紅 (#c84a3a) 知道了 reveal</div>
+    <div class="fx" style="margin-top:6px;">
+      <strong style="color:var(--olive-dark);">所有題型共享:</strong>
+      auto-speak <em class="zh">自動發音</em> on Q mount + onUnmount cleanup <em class="zh">解除時清掉</em> ·
+      SquishButton 30ms 按下 + Haptic Medium ·
+      <strong>2-strike pattern</strong> <em class="zh">兩次錯誤揭曉</em> = 1st yellow blindRetry / 2nd red reveal + 知道了 ·
+      MapPage progress bar 推進 lesson idx 持久化 (localStorage) ·
+      mute toggle 影響所有 TTS (force:true option 仍 fire onEnd 不卡 advance) (B.251)
+    </div>
+
     <h2><span class="icon">📌</span> 規則總結 (違反 = revert)</h2>
     <ol style="padding-left:22px; font-size:13.5px; line-height:1.7">
       <li><strong>3-section 強制</strong>: top / middle / bottom 必須清楚分離</li>
@@ -779,7 +1262,7 @@
     </ol>
 
     <footer>
-      Pickup UI/UX Standard v2 · 2026-06-10 · 來源 <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/ui-ux-standard-v1.md">docs/standards/ui-ux-standard-v1.md</a><br/>
+      Pickup UI/UX Standard v3 · 2026-06-10 · 來源 <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/ui-ux-standard-v1.md">docs/standards/ui-ux-standard-v1.md</a><br/>
       <span style="color: var(--variable); font-weight: 900;">⚙️ 紫色標</span> = 用戶可改 / 動態 derived · 改動 cadence: 任何 layout / 按鈕 / 特效 PR → 來這 spec 加 1 行對應
     </footer>
   </div>
