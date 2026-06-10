@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#e7a44a" />
-  <meta name="description" content="Pickup (拾光) UI/UX 標準 v3.1 — 8 個 page + 7 答題題型完整 mockup + 中文註解 + 設計比例參考" />
-  <meta property="og:title" content="Pickup UI/UX 標準 v3.1" />
+  <meta name="description" content="Pickup (拾光) UI/UX 標準 v3.2 — 8 個 page + 7 答題題型完整 mockup + 中文註解 + 設計比例參考" />
+  <meta property="og:title" content="Pickup UI/UX 標準 v3.2" />
   <meta property="og:description" content="奶奶睡前英文童話 ELT 兒童 app · 8 page + 7 題型 mockup 全攻略" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./icon-speaker.webp" />
   <link rel="icon" type="image/webp" href="./icon-speaker.webp" />
   <link rel="apple-touch-icon" href="./icon-speaker.webp" />
-  <title>📖 Pickup UI/UX 標準 v3.1 童話版</title>
+  <title>📖 Pickup UI/UX 標準 v3.2 童話版</title>
   <style>
     :root {
       --bg: #f1ebe1; --card: #fff7e8;
@@ -222,40 +222,6 @@
       border: 1px solid #d68a52; border-radius: 7px;
       padding: 1px 5px;
     }
-
-    /* Lesson mockup */
-    .mk-header-l {
-      display: flex; align-items: center; gap: 6px;
-      padding: 6px 8px;
-    }
-    .mk-progress-track {
-      flex: 1; height: 6px; background: #ead8c4;
-      border-radius: 999px; overflow: hidden;
-    }
-    .mk-progress-fill { width: 38%; height: 100%; background: var(--olive); border-radius: 999px; }
-    .mk-sentence {
-      margin: 6px 8px;
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 8px; padding: 6px 8px;
-      font-size: 9px; line-height: 1.4;
-      box-shadow: 0 2px 0 #c8a878;
-    }
-    .mk-options { padding: 4px 8px; display: flex; flex-direction: column; gap: 4px; }
-    .mk-opt {
-      background: #fff; border: 1px solid var(--accent-dark);
-      border-radius: 8px; padding: 4px 8px;
-      font-size: 9px; font-weight: 800;
-      box-shadow: 0 2px 0 var(--accent-dark);
-    }
-    .mk-opt.correct { background: #eaf6d5; border-color: var(--olive-dark); box-shadow: 0 2px 0 var(--olive-dark); }
-    .mk-cta {
-      margin: 6px 8px;
-      background: var(--olive); color: #fff;
-      border-radius: 10px; padding: 6px;
-      text-align: center; font-weight: 900;
-      box-shadow: 0 3px 0 var(--olive-dark);
-    }
-    .mk-cta.know { background: var(--red); box-shadow: 0 3px 0 var(--red-dark); }
 
     /* Profile mockup */
     .mk-hero {
@@ -721,12 +687,6 @@
     }
 
     /* === Speaker icon (user-generated v1.9.41) === */
-    .qt-spk {
-      width: 18px; height: 18px;
-      vertical-align: middle;
-      display: inline-block;
-      margin-right: 2px;
-    }
     .qt-spk-sm {
       width: 13px; height: 13px;
       vertical-align: middle;
@@ -830,7 +790,7 @@
   <a href="#main" class="skip-link">跳到內容</a>
   <div class="container" id="top">
     <h1>📖 Pickup UI/UX 標準
-      <span class="sub-h1">奶奶睡前英文童話 · v3.1 童話版</span>
+      <span class="sub-h1">奶奶睡前英文童話 · v3.2 童話版</span>
     </h1>
     <div class="subtitle">User directive 2026-06-10/11:「3 區塊 + 中文 + 視覺樣子 + 變動元素標明 + 7 題型 + 真實手機 + TOC + 不擋 + 禁 ✓」</div>
 
@@ -1235,7 +1195,7 @@
             <li>31 cards 各帶 #N + 32px emoji + 中文標題 + 進度 %
               <span class="var-tag">章節 1-31 固定, 進度動態</span>
             </li>
-            <li>Collected <em class="zh">已蒐集</em> = olive bg + ✅ + olive border</li>
+            <li>Collected <em class="zh">已蒐集</em> = olive bg + olive border (禁 ✓ icon, B.264 rule)</li>
             <li>Locked <em class="zh">未蒐集</em>: ${N}%</li>
             <li>Tap → 跳 Map</li>
           </ul>
@@ -1393,8 +1353,8 @@
         <div class="qt-sentence" style="font-size:10px; padding:8px 10px; margin:6px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> "She sleeps under the porch when the rain falls hard."</div>
         <div class="qt-q-prompt" style="font-size:10px; padding:2px 8px;">Where does the cat sleep on rainy nights?</div>
         <div class="qt-mc-opts" style="gap:5px; padding:6px 8px;">
-          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">under the porch <span class="zh">門廊下</span></div>
-          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">she stays dry <span class="zh">她保持乾燥</span></div>
+          <div class="qt-mc-opt correct" style="font-size:10px; padding:7px 10px;">under the porch <span class="zh">門廊下</span></div>
+          <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">up in a tree <span class="zh">樹上</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">on a warm bed <span class="zh">溫暖的床上</span></div>
           <div class="qt-mc-opt" style="font-size:10px; padding:7px 10px;">in the garden <span class="zh">花園裡</span></div>
         </div>
@@ -1658,8 +1618,8 @@
       <li>chrome 顏色一律 cream <code>#f1ebe1</code> 跟 viewport bg <em class="zh">背景</em> 一致</li>
       <li>Haptic <em class="zh">觸感</em> Medium 配按下, Success 配答對</li>
       <li>TTS <em class="zh">文字轉語音</em> auto-speak on Q mount + cleanup <em class="zh">清除</em> on unmount</li>
-      <li>MC <em class="zh">選擇題</em> 不要 question prompt <em class="zh">問題提示</em>, 選項自說明 (B.280)</li>
-      <li>答錯 2-strike <em class="zh">兩次錯誤</em>: 1st 紅 retry, 2nd 知道了 reveal <em class="zh">揭曉答案</em></li>
+      <li>MC Q prompt 必須 story-anchored <em class="zh">扣劇情</em>, 禁「Which word did you hear」(B.227); 選項雙語自說明</li>
+      <li>答錯 2-strike <em class="zh">兩次錯誤</em>: 1st 黃 blindRetry <em class="zh">不揭答重試</em>, 2nd 紅 reveal + 知道了</li>
       <li>書封 dynamic chapter <em class="zh">動態章節</em> = IntersectionObserver <em class="zh">視窗偵測器</em>, 不用 scrollY listener <em class="zh">滾動事件監聽</em></li>
       <li style="background:#fff7e8; border-left:4px solid var(--accent); padding:6px 10px; margin-top:6px;">
         <strong>⭐ 正確答案 = 綠色, 禁 ✓ 打勾 icon</strong> (B.264 user rule 2026-06-11)
@@ -1668,7 +1628,7 @@
     </ol>
 
     <footer>
-      📖 Pickup UI/UX Standard v3.1 童話版 · 2026-06-11 · 來源 <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/ui-ux-standard-v1.md">docs/standards/ui-ux-standard-v1.md</a><br/>
+      📖 Pickup UI/UX Standard v3.2 童話版 · 2026-06-11 · 來源 <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/ui-ux-standard-v1.md">docs/standards/ui-ux-standard-v1.md</a><br/>
       <span style="color: var(--variable); font-weight: 900;">⚙️ 紫色標</span> = 用戶可改 / 動態 derived · 改動 cadence: 任何 layout / 按鈕 / 特效 PR → 來這 spec 加 1 行對應<br/>
       <span style="color:var(--muted); font-style:italic; font-size:10px;">✿ · ❀ · ✿ &nbsp; 每晚奶奶開書,糰糰跳牆 &nbsp; ✿ · ❀ · ✿</span>
     </footer>
