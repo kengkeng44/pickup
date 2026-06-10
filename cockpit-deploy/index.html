@@ -1259,9 +1259,83 @@ Lesson JSON questions.length 已可用，零資料層變動。
       <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master，接 content-cron 2026-06-10T0018 ARCH-REC #16:\n\n目標: tools/validate-lessons.js 加 X4_HIGH_VERBATIM_OVERLAP lint rule\n\n背景:\n- Ch27-31 batch-gen 產出 11 P0 R1_SUBSTRING + 8 X3 高重疊\n- 現有 R1_SUBSTRING 只抓完整 substring，漏掉 word-level 高重疊\n- kt-ch29-l3-q6: correct=\\'walk on its sand and touch its walls\\' sentence=\\'He longed to walk on its warm sand and touch its old stone walls\\' — 7/9 content words 重疊\n- CELPIP/Buck 2001 明文禁止 correct option 用 recording 原詞\n\n修法 (~20 行加進 tools/validate-lessons.js):\n\nconst STOPWORDS = new Set([\\'a\\',\\'an\\',\\'the\\',\\'and\\',\\'or\\',\\'but\\',\\'in\\',\\'on\\',\\'at\\',\\'to\\',\\'of\\',\\'with\\',\\'his\\',\\'her\\',\\'its\\',\\'they\\',\\'it\\',\\'he\\',\\'she\\',\\'was\\',\\'is\\',\\'had\\',\\'be\\',\\'for\\',\\'that\\',\\'not\\',\\'are\\',\\'from\\',\\'by\\',\\'as\\',\\'this\\',\\'we\\',\\'you\\',\\'do\\',\\'did\\',\\'has\\',\\'have\\',\\'been\\',\\'were\\',\\'all\\',\\'one\\',\\'two\\',\\'which\\',\\'their\\',\\'when\\',\\'would\\',\\'could\\',\\'what\\',\\'how\\',\\'who\\']);\n\nfunction verbatimOverlapRatio(sentence, option) {\n  const clean = s => s.toLowerCase().split(/\\\\W+/).filter(w => w.length > 2 && !STOPWORDS.has(w));\n  const sWords = new Set(clean(sentence));\n  const oWords = clean(option);\n  if (oWords.length === 0) return 0;\n  const overlap = oWords.filter(w => sWords.has(w)).length;\n  return overlap / oWords.length;\n}\n\n// Inside lintQuestion(), after R1 check:\nif (correctOption && q.sentence) {\n  const ratio = verbatimOverlapRatio(q.sentence, correctOption);\n  if (ratio >= 0.65 && ratio < 1.0) {\n    warns.push(`${q.id}: X4_HIGH_VERBATIM_OVERLAP (${Math.round(ratio*100)}% content-word overlap)`);\n  }\n}\n\n完整說明: docs/audits/2026-06-10T0018-content-qa-cron.md B1 + 🔬 Architecture Recommendation #16').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
     </div>
 
+    <!-- content-cron 2026-06-10T0614 ARCH-REC #17: WordNet antonym lint A4_ANTONYM_STRICT -->
+    <div style="background:white;border:1px solid var(--border);border-left:4px solid #5d9a35;border-radius:12px;padding:14px;margin-bottom:10px;">
+      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #17 (content-cron 2026-06-10T0614) — S · 2hr · ROI ⭐⭐⭐</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">WordNet-backed A4_ANTONYM_STRICT lint — 35-pair 手碼 → 7,604-pair</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
+        現有 validate-lessons.js 用 35 對手碼 adjective pairs → 今次 A4 cron 掃到 18 違規全部漏報 (0 catch rate)。
+        WordNet 3.1 有 7,604 antonym pairs (3,998 adjective)。<code>natural</code> npm (MIT) 已在 Node.js 生態。
+        S: install + async wrapper (~25 行)。讓 CI 自動攔截未來所有 antonym mirrors。
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">
+        來源: Springer NLI Toolkit 2024 (link.springer.com/chapter/10.1007/978-3-031-64299-9_18) · WordNet antonym pairs 7604 (lhncbc.nlm.nih.gov) · Rethinking Distractor Quality 2026 (doi.org/10.3390/computers15020130)
+      </div>
+      <button class="db-copy" data-prompt="請拉最新 master，接 content-cron 2026-06-10T0614 ARCH-REC #17:
+
+目標: tools/validate-lessons.js 加 A4_ANTONYM_STRICT lint (WordNet-backed)
+
+背景:
+- A4 cron 2026-06-10T0614 發現 18 個 antonym-cluster violations (10 P0) 全部漏報
+- 現有 lint 只有 35 手碼 adj pairs → 覆蓋率 ~0.5%
+- WordNet 3.1 有 7,604 antonym pairs (3,998 adjective) — npm 'natural' 已提供 WordNet lookup
+- 業界標準: Springer 2024 NLI Toolkit + 2026 multimodal distractor paper 都以 antonym detection 作為 distractor quality filter 第一層
+- 當 correct answer 是 antonym pair 其中一極, 8 歲學生不需聽故事, 只需對比兩個選項就能答對
+
+P0 Top 5 (必修):
+1. kt-ch3-l1-q6: [1★]'slow and quiet' vs [0]'fast and loud' — R1_SUBSTRING + A4_ANTONYM
+2. kt-ch28-l3-q5: [1★]'soft and slow' vs [0]'loud and fast' — 同上 (已在 WARN 清單但無 A4 tag)
+3. kt-ch6-l5-q9: [1★]'cold and unkind' vs [0]'warm and loving' — 'cold' 在 sentence
+4. kt-ch16-l6-q3: [1★]'dark all around' vs [0]'bright and warm' — 'dark' 在 sentence
+5. kt-ch23-l1-q3: [1★]'warm with tall trees' vs [0]'cold and rainy' — R1_SUBSTRING + A4
+
+修法步驟:
+1. tools/validate-lessons.js 頂部加: const ANTONYM_PAIRS = [ ... 現有35對 ... ] — 保留手碼作同步 fallback
+2. 安裝 natural: npm install --save-dev natural
+3. 加 async checkAntonymPair(a, b) function (25 行, 見下)
+4. 在 lintQuestion() 加 await loop:
+   for all pairs (i,j) in options:
+     if await checkAntonymPair(opts[i], opts[j]):
+       if i===correctIndex || j===correctIndex: WARN A4_ANTONYM_CORRECT_IN_PAIR (P0)
+       else: WARN A4_ANTONYM_CLUSTER (P1)
+
+// Implementation sketch (~25 lines):
+// const natural = require('natural');
+// const WordNet = natural.WordNet;
+// const wn = new WordNet();
+// const ANTONYM_PTR = '!';
+// function getAntonyms(word) {
+//   return new Promise(resolve => {
+//     wn.lookup(word.toLowerCase(), (results) => {
+//       if (!results) { resolve([]); return; }
+//       const ant = results.flatMap(r => (r.ptrs||[])
+//         .filter(p => p.pointerSymbol === ANTONYM_PTR)
+//         .map(p => p.lemma?.toLowerCase()));
+//       resolve(ant.filter(Boolean));
+//     });
+//   });
+// }
+// async function checkAntonymPair(optA, optB) {
+//   const wordsA = optA.replace(/\p{Emoji}/gu,'').toLowerCase().split(/\W+/).filter(w=>w.length>2);
+//   const wordsB = optB.replace(/\p{Emoji}/gu,'').toLowerCase().split(/\W+/).filter(w=>w.length>2);
+//   for (const wa of wordsA) {
+//     const ants = await getAntonyms(wa);
+//     if (ants.some(a => wordsB.includes(a))) return true;
+//   }
+//   return false;
+// }
+
+注意:
+- validate-lessons.js 目前 sync → 需改 async main() + await at top
+- emoji-pick 選項需 strip emoji 再查 WordNet: optA.replace(/\p{Emoji}/gu,'').trim()
+- 設定 warn-only (同 X3) 不 break build; 嚴格模式 ANTONYM_LINT_STRICT=1
+
+完整說明: docs/audits/2026-06-10T0614-content-qa-cron.md B + D + 🔬 ARCH-REC #17" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
+    </div>
+
     <div style="font-size:11px;color:var(--muted);padding:4px 2px;">
       已評估不適合: Liquid Glass translucency (v1.9.44「不要光暈」決策衝突) / Persistent mini-player full (超 scope，等 roadmap) / Framer Motion card stack (bundle budget 超限，CSS-only 替代 #4) / Duolingo multi-blank passage cloze (Ch1-8 A2 目標不宜，Phase 3 預留) / Automated perplexity distractor scoring (需 server-side LLM，純 static CDN 不適合) / Duolingo IRT 3PL adaptive per-question (需 server-side，static CDN 不適合) / Drops 5-min hard countdown timer (freemium gate — 兒童陪伴感衝突，time info 保留，timer gate 不適合).<br>
-      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221 + code-health-cron 2026-06-09T1237 + ui-ux-cron 2026-06-09T1510 + content-cron 2026-06-09T1807 + content-cron 2026-06-10T0018
+      來源: content-cron 2026-06-08T1805 + ui-ux-cron 2026-06-08T1807 + code-health-cron 2026-06-08T1837 + ui-ux-cron 2026-06-08T2107 + content-cron 2026-06-09T0007 + ui-ux-cron 2026-06-09T0009 + walkthrough-cron 2026-06-09T0016 + code-health-cron 2026-06-09T0037 + content-cron 2026-06-09T1208 + ui-ux-cron 2026-06-09T1209 + arch-cron 2026-06-09T1214 + walkthrough-cron 2026-06-09T1221 + code-health-cron 2026-06-09T1237 + ui-ux-cron 2026-06-09T1510 + content-cron 2026-06-09T1807 + content-cron 2026-06-10T0018 + content-cron 2026-06-10T0614
     </div>
   </section>
 
