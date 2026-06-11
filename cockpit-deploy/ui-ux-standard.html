@@ -8,7 +8,7 @@
   <meta property="og:title" content="Pickup UI/UX 標準 v3.2" />
   <meta property="og:description" content="奶奶睡前英文童話 ELT 兒童 app · 8 page + 7 題型 mockup 全攻略" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./icon-speaker.webp" />
+  <meta property="og:image" content="https://pickup-cockpit.pages.dev/icon-speaker.webp" />
   <link rel="icon" type="image/webp" href="./icon-speaker.webp" />
   <link rel="apple-touch-icon" href="./icon-speaker.webp" />
   <title>📖 Pickup UI/UX 標準 v3.2 童話版</title>
@@ -37,11 +37,7 @@
       line-height: 1.55;
       padding: max(12px, env(safe-area-inset-top)) 14px max(16px, env(safe-area-inset-bottom));
       -webkit-text-size-adjust: 100%;
-      /* 童話風 subtle paper texture */
-      background-image:
-        radial-gradient(circle at 15% 25%, rgba(231,164,74,0.04) 1px, transparent 1px),
-        radial-gradient(circle at 75% 65%, rgba(125,154,79,0.03) 1px, transparent 1px);
-      background-size: 32px 32px, 48px 48px;
+      /* flat cream — 禁 radial-gradient (flat color-block 設計語言) */
     }
     /* skip-to-content keyboard a11y */
     .skip-link {
@@ -69,7 +65,10 @@
       100% { background-color: transparent; }
     }
     .container { max-width: 820px; margin: 0 auto; }
-    h1 { font-size: 26px; font-weight: 900; margin: 16px 0 6px; letter-spacing: -0.5px; }
+    h1 {
+      font-size: 26px; font-weight: 900; margin: 16px 0 6px; letter-spacing: -0.5px;
+      font-family: -apple-system, "PingFang TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+    }
     .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
 
     .rule-banner {
@@ -87,11 +86,6 @@
       border-bottom: 2px dashed var(--border);
     }
     h2 .icon { font-size: 22px; }
-    h3 {
-      font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin: 14px 0 6px; color: var(--accent-dark);
-    }
 
     .badge {
       display: inline-block;
@@ -136,16 +130,13 @@
         gap: 10px;
       }
       .mockup-frame {
+        /* base 已有 sticky / bg / border / shadow — 只覆寫差異 */
         max-width: 145px;
         margin: 0;
         padding: 5px;
-        position: sticky;
         top: 10px;
         z-index: 5;
-        background: var(--bg);
-        border: 3px solid #2a2520;
         border-radius: 20px;
-        box-shadow: 0 4px 0 var(--border);
       }
       /* spec column 字體縮 */
       .section-card { padding: 9px 10px; }
@@ -199,7 +190,7 @@
     }
     .mk-paws {
       display: grid; grid-template-columns: 1fr 1fr 1fr;
-      gap: 4px; row-gap: 4px; margin-top: 2px;
+      gap: 4px; margin-top: 2px;
     }
     .mk-paw {
       width: 28px; height: 22px; border-radius: 999px;
@@ -209,16 +200,14 @@
       box-shadow: 0 3px 0 var(--accent-dark);
       margin: 0 auto;
     }
-    .mk-paw.done { background: var(--olive); box-shadow: 0 3px 0 var(--olive-dark); }
-    .mk-paw.chest { background: var(--accent); }
     .mk-paw.cur { background: #f5be6a; border: 1px solid #fff; }
     .mk-nav {
-      background: #fff7e8; border-top: 2px solid #c8a878;
+      background: var(--card); border-top: 2px solid #c8a878;
       display: flex; justify-content: space-around;
       padding: 6px; font-size: 16px;
     }
     .mk-nav .active {
-      background: rgba(231,164,74,0.20);
+      background: rgba(231,164,74,0.14); /* 對齊 spec 文件值 */
       border: 1px solid #d68a52; border-radius: 7px;
       padding: 1px 5px;
     }
@@ -279,7 +268,6 @@
       border-radius: 4px; padding: 3px 1px;
       text-align: center; font-size: 11px;
     }
-    .mk-chap.done { background: #eaf6d5; border-color: var(--olive-dark); }
 
     /* Badges mockup (成就) */
     .mk-badges-grid {
@@ -360,7 +348,7 @@
     /* === Lesson question-type mockups (v3 additions) === */
     .q-types-banner {
       margin: 24px 0 14px;
-      background: linear-gradient(135deg, #fff7e8 0%, #f5e8d0 100%);
+      background: var(--card);
       border: 2px solid var(--accent);
       border-radius: 14px;
       padding: 14px 18px;
@@ -414,9 +402,6 @@
     .qt-cta.disabled {
       background: #c8b89f; color: #fff;
       box-shadow: 0 3px 0 #8a7c66; opacity: 0.7;
-    }
-    .qt-cta.know {
-      background: var(--red); box-shadow: 0 3px 0 var(--red-dark);
     }
     .qt-cta.auto {
       background: transparent; color: var(--muted);
@@ -501,7 +486,7 @@
       color: var(--olive-dark);
     }
     .qt-pair-tile.selected {
-      background: #fff7e8; border-color: var(--accent);
+      background: var(--card); border-color: var(--accent);
       box-shadow: 0 2px 0 var(--accent);
     }
 
@@ -528,7 +513,7 @@
     /* sentence-builder tile bank */
     .qt-zh-prompt {
       margin: 4px 8px;
-      background: #fff7e8; border: 1px solid var(--accent);
+      background: var(--card); border: 1px solid var(--accent);
       border-radius: 8px; padding: 4px 8px;
       font-size: 10px; font-weight: 900; text-align: center;
       color: var(--text);
@@ -562,7 +547,7 @@
     /* narration auto-advance waveform */
     .qt-narr-card {
       margin: 4px 8px; padding: 8px;
-      background: #fff7e8; border: 1px solid var(--accent);
+      background: var(--card); border: 1px solid var(--accent);
       border-radius: 10px; text-align: center;
     }
     .qt-narr-card .av {
@@ -628,23 +613,19 @@
       border-radius: 50%;
       font-size: 22px;
       font-weight: 900;
-      box-shadow: 0 4px 0 var(--accent-dark), 0 6px 16px rgba(176,122,42,0.30);
+      box-shadow: 0 4px 0 var(--accent-dark); /* flat lift only, 禁 blur halo */
       cursor: pointer;
       z-index: 50;
       display: flex; align-items: center; justify-content: center;
       text-decoration: none;
-      transition: transform 0.08s ease-out;
+      /* 規則 #4: fixed element 禁 transition (iOS Safari jitter) */
     }
     .to-top:active {
       transform: translateY(3px);
-      box-shadow: 0 1px 0 var(--accent-dark), 0 2px 6px rgba(176,122,42,0.25);
+      box-shadow: 0 1px 0 var(--accent-dark);
     }
 
     /* h1 童話 italic touch */
-    h1 {
-      font-family: -apple-system, "PingFang TC", "Noto Serif TC", "Microsoft JhengHei", serif;
-      font-style: normal;
-    }
     h1 .sub-h1 {
       display: block;
       font-size: 13px; font-weight: 700;
@@ -659,7 +640,6 @@
       background: var(--accent);
       color: #fff;
       transform: translateY(-1px);
-      transition: all 0.15s ease-out;
     }
 
     /* === Print friendly === */
@@ -695,15 +675,19 @@
 
     /* === Quiz UX reference panel === */
     .ratio-ref {
-      background: linear-gradient(135deg, #fff7e8 0%, #f0e6d8 100%);
+      background: var(--card);
       border: 1.5px solid var(--accent);
       border-radius: 12px;
       padding: 12px 14px;
       margin: 14px 0;
     }
-    .ratio-ref h3 {
-      margin: 0 0 6px;
-      font-size: 13px; color: var(--accent-dark);
+    /* h2 視覺降為 panel title (修 h1→h3 heading-skip a11y) */
+    .ratio-ref h2 {
+      margin: 0 0 6px; padding-bottom: 0;
+      border-bottom: none; display: block;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent-dark);
     }
     .ratio-ref .row {
       display: grid;
@@ -764,13 +748,14 @@
       text-decoration: none;
       text-align: center;
       display: block;
+      transition: background 0.15s ease-out, color 0.15s ease-out, transform 0.15s ease-out;
     }
     .toc-links a:active {
       background: var(--accent);
       color: #fff;
     }
     .toc-links a.lesson {
-      background: linear-gradient(135deg, #fff7e8 0%, #f5e8d0 100%);
+      background: var(--card);
       border-color: var(--accent);
     }
     .toc-links a.lesson .num {
@@ -855,7 +840,7 @@
 
     <!-- === Quiz UX Reference (參考業界最佳 ratio) === -->
     <div class="ratio-ref">
-      <h3>📐 答題類 app 最佳設計比例參考</h3>
+      <h2>📐 答題類 app 最佳設計比例參考</h2>
       <div class="row">
         <div class="card">
           <strong>📱 螢幕長寬比 (aspect ratio)</strong><br/>
@@ -867,7 +852,7 @@
           <strong>👆 觸控目標最小尺寸</strong><br/>
           Apple HIG = <strong>44×44 pt</strong> · Material = 48×48 dp<br/>
           兒童 6-12 歲建議 <strong>56 pt+</strong> (細動作 fine motor 未成熟)<br/>
-          Pickup 4 選 1 button 高 ~52pt + paddingTop 8 = 60pt ✓<br/>
+          Pickup 4 選 1 button 高 ~52pt + paddingTop 8 = 60pt(達標)<br/>
           <span class="src">Apple HIG Layout · Tactile Targets</span>
         </div>
         <div class="card">
@@ -920,7 +905,7 @@
     <h2 id="sec-map"><span class="icon">🗺️</span> Map <em class="zh">首頁地圖</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame">
+      <div class="mockup-frame" role="img" aria-label="Map 首頁地圖手機畫面示意圖">
         <div class="mockup-inner">
           <div class="mk-hud">
             <span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span>
@@ -998,7 +983,7 @@
     <h2 id="sec-profile"><span class="icon">🐱</span> Profile <em class="zh">我的</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame">
+      <div class="mockup-frame" role="img" aria-label="Profile 我的頁手機畫面示意圖">
         <div class="mockup-inner">
           <div class="mk-hud">
             <span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span>
@@ -1067,7 +1052,7 @@
     <h2 id="sec-tasks"><span class="icon">⭐</span> Tasks <em class="zh">任務</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame">
+      <div class="mockup-frame" role="img" aria-label="Tasks 任務頁手機畫面示意圖">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div class="mk-streak">
@@ -1152,7 +1137,7 @@
     <h2 id="sec-cards"><span class="icon">📒</span> Cards <em class="zh">圖鑑</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame">
+      <div class="mockup-frame" role="img" aria-label="Cards 圖鑑頁手機畫面示意圖">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div style="margin:8px; background:#d68a52; color:#fff; border-radius:10px; padding:8px; text-align:center; box-shadow: 0 3px 0 #8b5a32">
@@ -1213,7 +1198,7 @@
     <h2 id="sec-alerts"><span class="icon">🔥</span> Alerts <em class="zh">成就</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame">
+      <div class="mockup-frame" role="img" aria-label="Alerts 成就頁手機畫面示意圖">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div style="margin:8px; background:#e7a44a; color:#fff; border-radius:10px; padding:8px; text-align:center; box-shadow: 0 3px 0 #b07a2a">
@@ -1305,7 +1290,7 @@
     <!-- ─── ① narration ─── -->
     <h2 class="qt-h2" id="qt-narration"><span class="icon">①</span> narration <em class="zh">旁白</em> <span class="type-tag story">劇情 STORY</span></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="narration 旁白題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><span>🔇</span></div>
         <div style="padding: 0 10px; margin-top: 4px;">
           <span style="font-size:9px; padding:3px 8px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1345,7 +1330,7 @@
     <!-- ─── ② listen-mc ─── -->
     <h2 class="qt-h2" id="qt-listen-mc"><span class="icon">②</span> listen-mc <em class="zh">聽選 4 選 1</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-mc 聽選題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><span>🔇</span></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1386,7 +1371,7 @@
     <!-- ─── ③ listen-tf ─── -->
     <h2 class="qt-h2" id="qt-listen-tf"><span class="icon">③</span> listen-tf <em class="zh">是非題</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-tf 是非題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><span>🔇</span></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1430,7 +1415,7 @@
     <!-- ─── ④ emoji-pick ─── -->
     <h2 class="qt-h2" id="qt-emoji-pick"><span class="icon">④</span> emoji-pick <em class="zh">看圖選</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="emoji-pick 看圖選題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
         <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
         <div class="qt-emoji-grid" style="gap:8px; padding:8px;">
@@ -1466,7 +1451,7 @@
     <!-- ─── ⑤ tap-pairs (the one user asked about) ─── -->
     <h2 class="qt-h2" id="qt-tap-pairs"><span class="icon">⑤</span> tap-pairs <em class="zh">中英配對</em> <span class="type-tag input">互動 INPUT</span> <span class="type-tag" style="background:var(--variable);">⭐ user 問的</span></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="tap-pairs 中英配對題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><span>🔇</span></div>
         <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:8px 0;">Match the pairs · 配對</div>
         <div class="qt-pairs-wrap" style="gap:8px; padding:6px 10px;">
@@ -1515,7 +1500,7 @@
     <!-- ─── ⑥ listen-comprehension ─── -->
     <h2 class="qt-h2" id="qt-listen-comp"><span class="icon">⑥</span> listen-comprehension <em class="zh">聽力理解</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-comprehension 聽力理解題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
         <div class="qt-passage" style="font-size:9.5px; padding:9px 11px; margin:8px;">
           <span class="speaker" style="font-size:9px;">🎙 Grandma 奶奶</span>
@@ -1553,7 +1538,7 @@
     <!-- ─── ⑦ sentence-builder ─── -->
     <h2 class="qt-h2" id="qt-sentence-builder"><span class="icon">⑦</span> sentence-builder <em class="zh">翻譯造句</em> <span class="type-tag input">互動 INPUT</span></h2>
     <div class="layout-grid">
-      <div class="mockup-frame"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="sentence-builder 翻譯造句題型手機畫面示意圖"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:95%"></div></div><span>🔇</span></div>
         <div class="qt-zh-prompt" style="font-size:10px; padding:6px 10px; margin:8px;">把這句翻成英文 · 翻譯</div>
         <div style="margin:6px 8px 10px; font-size:14px; text-align:center; font-weight:900; color:var(--text); line-height:1.4;">「我今晚要說一個故事」</div>

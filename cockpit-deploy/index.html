@@ -50,7 +50,7 @@ a.qa-shortcut {
 }
 a.qa-shortcut:hover, a.qa-shortcut:active {
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(139, 111, 74, 0.18);
+  box-shadow: 0 4px 0 rgba(139, 111, 74, 0.18); /* flat block shadow — zero blur (v1.9.44 rule) */
 }
 a.qa-shortcut .qa-icon {
   flex: 0 0 44px; height: 44px; width: 44px;
@@ -88,12 +88,7 @@ section.next-action {
 }
 section.next-action h2 { margin: 0 0 6px; font-size: 14px; font-weight: 900; }
 section.next-action .desc { font-size: 13px; line-height: 1.5; color: var(--text); margin-bottom: 8px; }
-section.next-action button {
-  padding: 8px 16px; background: var(--accent); color: white;
-  border: none; border-bottom: 3px solid var(--accent-dark);
-  border-radius: 10px; font-size: 13px; font-weight: 800;
-  cursor: pointer; font-family: inherit;
-}
+/* (dead generic `section.next-action button` block removed — only #next-btn exists and its rule below overrides every declaration) */
 section.next-action.urgent { background: linear-gradient(135deg, #fde0d2 0%, #fef2f0 100%); border-color: var(--danger); }
 
 section.cron-grid {
@@ -105,10 +100,10 @@ section.cron-grid {
   padding: 14px; cursor: pointer; transition: transform 0.15s;
   position: relative;
 }
-.cron-card:hover, .cron-card:active { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.cron-card:hover, .cron-card:active { transform: translateY(-2px); box-shadow: 0 4px 0 rgba(0,0,0,0.08); /* flat — zero blur */ }
 .cron-card .hint {
   font-size: 10px; color: var(--muted); text-align: center;
-  padding-top: 4px; opacity: 0.7;
+  padding-top: 4px; /* opacity 0.7 removed — dropped contrast below 3:1 on 10px text */
 }
 .cron-card.has-p0 { border: 2px solid var(--danger); background: #fef2f0; }
 .cron-card.blocked { border: 2px solid var(--accent); background: #fef3c7; }
@@ -144,6 +139,7 @@ section.cron-grid {
 .cron-card .actions button.primary {
   background: var(--accent-dark); color: white; border: none;
   padding: 10px 12px; font-size: 13px; font-weight: 800;
+  min-height: 44px; /* HIG thumb target */
   border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.1s, background 0.1s;
@@ -161,11 +157,6 @@ section.next-action button#next-btn {
 }
 section.next-action button#next-btn:hover { background: #8a5a18; }
 section.next-action button#next-btn:active { transform: scale(0.98); }
-/* quick-actions 4 個 1-click button 同款 ✓ feedback transition */
-.action-grid button {
-  transition: transform 0.1s, background 0.1s;
-}
-.action-grid button:active { transform: scale(0.97); }
 .empty {
   text-align: center; padding: 30px; color: var(--muted); font-size: 13px;
   border: 2px dashed var(--border); border-radius: 12px; background: var(--card);
@@ -179,17 +170,26 @@ section.quick-actions h2 { margin: 0 0 10px; font-size: 14px; font-weight: 900; 
 .action-grid button {
   background: white; color: var(--text);
   border: 1px solid var(--border); padding: 10px 8px;
+  min-height: 44px; /* HIG thumb target */
   border-radius: 10px; font-size: 12px; font-weight: 800;
   cursor: pointer; font-family: inherit; text-align: left;
   display: flex; align-items: center; gap: 6px;
+  transition: transform 0.1s, background 0.1s; /* ✓ feedback transition (merged from duplicate block) */
 }
+/* 「🔥 接最新 P0 修」是四鍵中的 primary — 對齊「接 P0 不用打字」核心動線, 填色突出 */
+.action-grid button:first-child {
+  background: var(--accent-dark); color: white; border-color: var(--accent-dark);
+}
+.action-grid button:first-child:hover { background: #8a5a18; }
+.action-grid button:active { transform: scale(0.97); }
 .action-grid button .icon { font-size: 18px; }
 section.links {
   display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
 }
 .link-btn {
   display: flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 10px 8px; background: var(--accent); color: white;
+  padding: 10px 8px; min-height: 44px; /* HIG thumb target */
+  background: var(--accent); color: white;
   border-radius: 10px; font-size: 12px; font-weight: 800;
   text-decoration: none; text-align: center;
 }
@@ -232,7 +232,7 @@ footer {
 .modal-header button {
   background: var(--accent); color: white; border: none;
   padding: 6px 12px; border-radius: 8px; font-weight: 700;
-  cursor: pointer; font-size: 13px;
+  cursor: pointer; font-size: 13px; font-family: inherit;
 }
 .modal-body {
   flex: 1 1 auto; overflow-y: auto; padding: 18px 18px 30px;
@@ -349,7 +349,10 @@ section.decision-board::before {
   border: 2px solid var(--accent-dark);
   border-bottom: 4px solid var(--accent-dark);
   background: #fff7e8;
+  /* flat top-highlight stripe (v1.9.47 pattern) — marks THE card to act on, zero blur */
+  box-shadow: inset 0 4px 0 rgba(231, 164, 74, 0.25);
 }
+.db-recommend .db-title { font-size: 16px; }
 .db-rank-tag {
   display: inline-block; font-size: 11px; font-weight: 900;
   background: var(--card); color: var(--accent-dark);
@@ -413,6 +416,7 @@ section.decision-board::before {
 }
 .db-copy {
   width: 100%;
+  min-height: 44px; /* HIG thumb target */
   background: var(--accent-dark); color: white;
   border: none; font-size: 13px; font-weight: 800;
   padding: 10px 12px; border-radius: 8px; cursor: pointer;
@@ -425,9 +429,12 @@ section.decision-board::before {
 .db-recommend .db-copy {
   background: var(--accent); color: white;
   border-bottom: 3px solid var(--accent-dark);
-  font-size: 14px;
+  font-size: 15px;
+  min-height: 48px; /* the single most important button on the page */
 }
 .db-recommend .db-copy:hover { background: #d18d2e; }
+/* arch-recs 區 19 顆 inline-styled copy button 統一全寬 + 44px 拇指尺寸 (inline style 沒設 width/height 所以可由 CSS 補) */
+.arch-recs button { width: 100%; min-height: 44px; }
 .db-stats {
   display: flex; gap: 10px; margin-top: 12px;
   padding: 10px 12px; background: white; border-radius: 8px;
@@ -439,9 +446,32 @@ section.decision-board::before {
 .db-stat .n { font-size: 20px; font-weight: 900; color: var(--accent-dark); }
 .db-stat .lbl { font-size: 10px; color: var(--muted); font-weight: 700; }
 
+/* a11y: visible keyboard focus on all interactive elements */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--accent-dark); outline-offset: 2px;
+}
+/* Safari: hide native disclosure triangle (we draw ▸/▾ via ::before) */
+.db-section summary::-webkit-details-marker { display: none; }
+/* long file paths in <code> must wrap, not overflow cards on mobile */
+main code { overflow-wrap: anywhere; }
+
 @media (max-width: 480px) {
   section.cron-grid { grid-template-columns: 1fr; }
   .action-grid { grid-template-columns: 1fr; }
+  .db-stats { flex-wrap: wrap; }
+  .db-stat { flex: 1 1 40%; }
+  #toast { max-width: calc(100vw - 32px); }
+}
+
+/* a11y: respect reduced-motion preference (project rule since v0.11) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  a.qa-shortcut:hover, a.qa-shortcut:active,
+  .cron-card:hover, .cron-card:active { transform: none; }
 }
 </style>
 </head>
@@ -464,63 +494,6 @@ section.decision-board::before {
       6 個跟 Web/DOM/Phaser/Web Audio 強綁的項目已搬到 <a href="/archive.html" style="color:var(--accent-dark);font-weight:800;">📦 archive →</a>。仍適用但實作要換棧的項目加 ⚠️ 標籤。
     </div>
   </div>
-
-  <!-- v2.0.B.182: Q&A inspection shortcut (always at top) -->
-  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
-    <div class="qa-icon">📖</div>
-    <div class="qa-body">
-      <div class="qa-title">Q&A 對照表 <span class="badge">SOURCE OF TRUTH</span></div>
-      <div class="qa-desc">章節 / 題型 / 搜尋 · 對照遊戲 sentence / question / 答案</div>
-    </div>
-    <div class="qa-arrow">›</div>
-  </a>
-
-  <!-- v2.0.B.263: Q&A 數據總覽 shortcut (stats + spec drift warnings) -->
-  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-stats.html" target="_blank" rel="noopener" style="margin-bottom:18px;">
-    <div class="qa-icon" style="background:#a78bfa; box-shadow:0 2px 0 #6d4fc7;">📊</div>
-    <div class="qa-body">
-      <div class="qa-title">Q&A 數據總覽 <span class="badge" style="color:#6d4fc7; background:rgba(167,139,250,0.20);">DECISION</span></div>
-      <div class="qa-desc">32 章 · 224 單元 · 2,472 題 · 題型佔比 + spec drift 警示</div>
-    </div>
-    <div class="qa-arrow">›</div>
-  </a>
-
-  <!-- UI/UX 標準 hero card v2 (2026-06-10 重設計) -->
-  <a href="./ui-ux-standard.html" style="
-    display: block; margin-bottom: 14px;
-    background: linear-gradient(135deg, #e7a44a 0%, #d68a52 100%);
-    color: #fff; text-decoration: none;
-    border-radius: 16px; padding: 16px 18px;
-    box-shadow: 0 4px 0 #8b5a32, 0 8px 18px rgba(176, 122, 42, 0.25);
-    position: relative; overflow: hidden;
-  ">
-    <div style="display: flex; align-items: center; gap: 14px;">
-      <div style="
-        font-size: 32px; width: 52px; height: 52px;
-        background: rgba(255, 255, 255, 0.22);
-        border-radius: 14px;
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-      ">🎨</div>
-      <div style="flex: 1; min-width: 0;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap;">
-          <span style="font-size: 17px; font-weight: 900; letter-spacing: -0.3px;">UI/UX 標準</span>
-          <span style="font-size: 10px; font-weight: 900; letter-spacing: 1.2px; background: rgba(255,255,255,0.30); padding: 2px 8px; border-radius: 999px;">v3.2 童話版</span>
-        </div>
-        <div style="font-size: 12px; opacity: 0.94; line-height: 1.45;">
-          7 題型 + 2-col mobile · 禁 ✓ · 規則對齊修正 · UX 比例參考
-        </div>
-        <div style="display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap;">
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🗺 Map</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🐱 Profile</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">⭐ Tasks</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">📖 ×7 題型</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">+4</span>
-        </div>
-      </div>
-      <div style="font-size: 28px; opacity: 0.7; flex-shrink: 0; align-self: center;">›</div>
-    </div>
-  </a>
 
   <!-- v2.0.B.255: Decision Board — 完整視角接什麼, ROI 排序 -->
   <section class="decision-board">
@@ -588,8 +561,39 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron walk P0-2)">📋 一鍵複製�
     </div>
   </section>
 
+  <!-- Next action banner (moved up beside Decision Board — round-2 UX pass) -->
+  <section class="next-action" id="next-action" style="display:none;">
+    <h2 id="next-title">⚡ 下一步建議</h2>
+    <div class="desc" id="next-desc">載入中…</div>
+    <button id="next-btn" onclick="cp('p0', this)">📋 接這個 → 開新 Claude session 貼上</button>
+  </section>
+
+  <!-- Cron card grid -->
+  <section class="cron-grid" id="cron-grid">
+    <div class="empty">載入中…</div>
+  </section>
+
+  <!-- Quick action -->
+  <section class="quick-actions">
+    <h2>🎯 一鍵指令 (複製 → 下次 session 貼)</h2>
+    <div class="action-grid">
+      <button onclick="cp('p0', this)">
+        <span class="icon">🔥</span>接最新 P0 修
+      </button>
+      <button onclick="cp('top3', this)">
+        <span class="icon">⭐</span>跑 Top 3 S-effort
+      </button>
+      <button onclick="cp('audit', this)">
+        <span class="icon">🔍</span>全套 5-agent audit
+      </button>
+      <button onclick="cp('snapshot', this)">
+        <span class="icon">📸</span>當前狀態 snapshot
+      </button>
+    </div>
+  </section>
+
   <!-- v2.0.B.cron-content-1805 + cron-ui-1807: Architecture Recommendations (業界 2026 掃描結果) -->
-  <section style="background:var(--card);border:2px solid #7d9a4f;border-radius:16px;padding:16px;margin-bottom:18px;">
+  <section class="arch-recs" style="background:var(--card);border:2px solid #7d9a4f;border-radius:16px;padding:16px;margin-bottom:18px;">
     <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 Architecture Recommendations <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">業界 2026 掃描</span></h2>
     <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 你決定要不要動.</div>
 
@@ -1334,7 +1338,7 @@ P0 Top 5 (必修):
     </div>
 
     <!-- content-cron 2026-06-10T1813 ARCH-REC #19: A2_KEY_POS lint — sentence-final/initial answer position -->
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
       <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #19 (content-cron 2026-06-10T1813) — S · 30min · ROI ⭐⭐⭐⭐</div>
       <div style="font-size:13px;font-weight:800;margin-bottom:6px;">A2_KEY_POS lint — 正確答案關鍵字落在句子開頭/結尾偵測 (Recency/Primacy shortcut)</div>
       <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
@@ -1382,7 +1386,7 @@ P0 Top 5 (必修):
     </div>
 
     <!-- content-cron 2026-06-10T1215 ARCH-REC #18: A1_Q_ECHO lint — stem echo detection -->
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
       <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #18 (content-cron 2026-06-10T1215) — S · 30min · ROI ⭐⭐⭐⭐</div>
       <div style="font-size:13px;font-weight:800;margin-bottom:6px;">A1_Q_ECHO lint — 問題幹字唯一出現於正確選項偵測</div>
       <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
@@ -1453,36 +1457,63 @@ P0 Top 5 (必修):
     </div>
   </section>
 
-  <!-- Next action banner -->
-  <section class="next-action" id="next-action" style="display:none;">
-    <h2 id="next-title">⚡ 下一步建議</h2>
-    <div class="desc" id="next-desc">載入中…</div>
-    <button id="next-btn" onclick="cp('p0', this)">📋 接這個 → 開新 Claude session 貼上</button>
-  </section>
-
-  <!-- Cron card grid -->
-  <section class="cron-grid" id="cron-grid">
-    <div class="empty">載入中…</div>
-  </section>
-
-  <!-- Quick action -->
-  <section class="quick-actions">
-    <h2>🎯 一鍵指令 (複製 → 下次 session 貼)</h2>
-    <div class="action-grid">
-      <button onclick="cp('p0', this)">
-        <span class="icon">🔥</span>接最新 P0 修
-      </button>
-      <button onclick="cp('top3', this)">
-        <span class="icon">⭐</span>跑 Top 3 S-effort
-      </button>
-      <button onclick="cp('audit', this)">
-        <span class="icon">🔍</span>全套 5-agent audit
-      </button>
-      <button onclick="cp('snapshot', this)">
-        <span class="icon">📸</span>當前狀態 snapshot
-      </button>
+  <!-- Reference shortcuts (demoted below actionable sections — round-2 UX pass) -->
+  <!-- v2.0.B.182: Q&A inspection shortcut -->
+  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
+    <div class="qa-icon" aria-hidden="true">📖</div>
+    <div class="qa-body">
+      <div class="qa-title">Q&A 對照表 <span class="badge">SOURCE OF TRUTH</span></div>
+      <div class="qa-desc">章節 / 題型 / 搜尋 · 對照遊戲 sentence / question / 答案</div>
     </div>
-  </section>
+    <div class="qa-arrow" aria-hidden="true">›</div>
+  </a>
+
+  <!-- v2.0.B.263: Q&A 數據總覽 shortcut (stats + spec drift warnings) -->
+  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-stats.html" target="_blank" rel="noopener" style="margin-bottom:18px;">
+    <div class="qa-icon" style="background:#a78bfa; box-shadow:0 2px 0 #6d4fc7;" aria-hidden="true">📊</div>
+    <div class="qa-body">
+      <div class="qa-title">Q&A 數據總覽 <span class="badge" style="color:#6d4fc7; background:rgba(167,139,250,0.20);">DECISION</span></div>
+      <div class="qa-desc">32 章 · 224 單元 · 2,472 題 · 題型佔比 + spec drift 警示</div>
+    </div>
+    <div class="qa-arrow" aria-hidden="true">›</div>
+  </a>
+
+  <!-- UI/UX 標準 hero card v2 (2026-06-10 重設計) -->
+  <a href="./ui-ux-standard.html" style="
+    display: block; margin-bottom: 14px;
+    background: linear-gradient(135deg, #e7a44a 0%, #d68a52 100%);
+    color: #fff; text-decoration: none;
+    border-radius: 16px; padding: 16px 18px;
+    box-shadow: 0 4px 0 #8b5a32;
+    position: relative; overflow: hidden;
+  ">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="
+        font-size: 32px; width: 52px; height: 52px;
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 14px;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      " aria-hidden="true">🎨</div>
+      <div style="flex: 1; min-width: 0;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap;">
+          <span style="font-size: 17px; font-weight: 900; letter-spacing: -0.3px;">UI/UX 標準</span>
+          <span style="font-size: 10px; font-weight: 900; letter-spacing: 1.2px; background: rgba(255,255,255,0.30); padding: 2px 8px; border-radius: 999px;">v3.2 童話版</span>
+        </div>
+        <div style="font-size: 12px; opacity: 0.94; line-height: 1.45;">
+          7 題型 + 2-col mobile · 禁 ✓ · 規則對齊修正 · UX 比例參考
+        </div>
+        <div style="display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap;">
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🗺 Map</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🐱 Profile</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">⭐ Tasks</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">📖 ×7 題型</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">+4</span>
+        </div>
+      </div>
+      <div style="font-size: 28px; opacity: 0.7; flex-shrink: 0; align-self: center;" aria-hidden="true">›</div>
+    </div>
+  </a>
 
   <!-- Cron control links -->
   <section class="links">
@@ -1499,10 +1530,10 @@ P0 Top 5 (必修):
   v1.6 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×12 · <a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
-<div id="toast"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 
 <!-- Audit content modal — inline render agent-generated markdown -->
-<div id="modal" role="dialog" aria-modal="true">
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-card">
     <div class="modal-header">
       <h2 id="modal-title">Audit</h2>
