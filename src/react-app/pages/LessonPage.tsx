@@ -41,6 +41,12 @@ interface Lesson {
   questions: RawQuestion[];
 }
 
+// v2.0.B.272: per-lesson resume key. Keyed on chapter + lessonId so each
+// lesson tracks its own mid-session position independently.
+function resumeKey(chapter?: string, lessonId?: string): string {
+  return `pickup.lesson.resume.ch${chapter ?? '?'}.${lessonId ?? '?'}`;
+}
+
 export default function LessonPage() {
   const { chapter, lessonId } = useParams<{ chapter: string; lessonId: string }>();
   const navigate = useNavigate();
@@ -62,15 +68,47 @@ export default function LessonPage() {
         setLesson(found ?? null);
         const maxL = arr.reduce((m, l) => Math.max(m, l.lessonInChapter ?? 0), 0);
         setMaxLessonInChapter(maxL);
-        setIdx(0);
-        setHistory([]);
-        answerLog.current = [];
+        // v2.0.B.272: resume mid-lesson position. 媽媽哄睡時關 app / 切走是 churn
+        // 主源 — 回來不該從第一題重練。還原 saved idx + 已顯示旁白 + answerLog
+        // (讓完成統計仍涵蓋整課)。只在 0 < idx < total 時還原,完成即清除。
+        let resumeIdx = 0;
+        let resumeHistory: string[] = [];
+        let resumeLog: typeof answerLog.current = [];
+        if (found) {
+          try {
+            const raw = localStorage.getItem(resumeKey(chapter, lessonId));
+            if (raw) {
+              const s = JSON.parse(raw) as { idx?: number; history?: string[]; log?: typeof answerLog.current };
+              if (typeof s.idx === 'number' && s.idx > 0 && s.idx < found.questions.length) {
+                resumeIdx = s.idx;
+                resumeHistory = Array.isArray(s.history) ? s.history : [];
+                resumeLog = Array.isArray(s.log) ? s.log : [];
+              }
+            }
+          } catch {}
+        }
+        setIdx(resumeIdx);
+        setHistory(resumeHistory);
+        answerLog.current = resumeLog;
         startedAt.current = Date.now();
         if (found) {
           try { track(EVENT.LESSON_START, { lesson_id: found.id, chapter: found.chapter, question_count: found.questions.length }); } catch {}
         }
       });
   }, [chapter, lessonId]);
+
+  // v2.0.B.272: persist mid-lesson progress on every advance; clear on finish.
+  useEffect(() => {
+    if (!lesson) return;
+    const key = resumeKey(chapter, lessonId);
+    try {
+      if (idx > 0 && idx < lesson.questions.length) {
+        localStorage.setItem(key, JSON.stringify({ idx, history, log: answerLog.current }));
+      } else if (idx >= lesson.questions.length) {
+        localStorage.removeItem(key);
+      }
+    } catch {}
+  }, [idx, history, lesson, chapter, lessonId]);
 
   if (!lesson) {
     return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>載入中…</div>;

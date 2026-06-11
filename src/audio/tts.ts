@@ -169,7 +169,31 @@ let silentLoopAudio: HTMLAudioElement | null = null;
 // fire (button taps), but tts.ts's ctx never received gesture-resume signal,
 // so Web Audio playback rejected. ONE singleton = both SFX + speech unlock
 // together on first gesture.
+// v2.0.B.272: LRU-capped to guard iOS low-memory crashes. Map preserves
+// insertion order → oldest key is keys().next(). cacheGet() re-inserts to mark
+// most-recently-used; cacheSet() evicts oldest past the cap. A full chapter is
+// ~32 buffers so 80 keeps the active + previous chapter hot without unbounded growth.
+const MAX_BUFFER_CACHE = 80;
 const audioBufferCache = new Map<string, AudioBuffer>();
+
+function cacheGet(url: string): AudioBuffer | null {
+  const buf = audioBufferCache.get(url);
+  if (buf === undefined) return null;
+  audioBufferCache.delete(url);
+  audioBufferCache.set(url, buf);
+  return buf;
+}
+
+function cacheSet(url: string, buf: AudioBuffer): void {
+  audioBufferCache.delete(url);
+  audioBufferCache.set(url, buf);
+  while (audioBufferCache.size > MAX_BUFFER_CACHE) {
+    const oldest = audioBufferCache.keys().next().value;
+    if (oldest === undefined) break;
+    audioBufferCache.delete(oldest);
+  }
+}
+
 let currentSource: AudioBufferSourceNode | null = null;
 
 function getAudioCtx(): AudioContext | null {
@@ -181,7 +205,8 @@ function getAudioCtx(): AudioContext | null {
 }
 
 async function loadBuffer(url: string): Promise<AudioBuffer | null> {
-  if (audioBufferCache.has(url)) return audioBufferCache.get(url) ?? null;
+  const hit = cacheGet(url);
+  if (hit) return hit;
   const ctx = getAudioCtx();
   if (!ctx) return null;
   try {
@@ -191,7 +216,7 @@ async function loadBuffer(url: string): Promise<AudioBuffer | null> {
     const buf = await new Promise<AudioBuffer>((resolve, reject) => {
       ctx.decodeAudioData(ab.slice(0), resolve, reject);
     });
-    audioBufferCache.set(url, buf);
+    cacheSet(url, buf);
     return buf;
   } catch (e) {
     debugLog(`buffer load fail: ${url} ${(e as Error)?.message?.slice(0, 40)}`);
@@ -338,7 +363,7 @@ export function speak(
     debugLog(`${isMochi?'🐱':'👵'} speak: ${audioId} map=${mapSize}`);
 
     // PRIMARY: Web Audio cached buffer (instant, gesture-token-immune)
-    const cached = audioBufferCache.get(url);
+    const cached = cacheGet(url);
     if (cached) {
       if (playBuffer(cached, rate)) {
         debugLog(`webaudio play OK: ${audioId}`);
@@ -545,7 +570,15 @@ function unlockAudio(): void {
 }
 
 if (typeof window !== 'undefined') {
-  const unlockOnce = () => unlockAudio();
+  // v2.0.B.272: unlock fires once per app lifetime (unlockAudio early-returns
+  // after first), so detach all three listeners on first gesture instead of
+  // leaving them firing a no-op on every tap forever.
+  const unlockOnce = () => {
+    unlockAudio();
+    window.removeEventListener('touchstart', unlockOnce, { capture: true });
+    window.removeEventListener('click', unlockOnce, { capture: true });
+    window.removeEventListener('pointerdown', unlockOnce, { capture: true });
+  };
   window.addEventListener('touchstart', unlockOnce, { capture: true, passive: true });
   window.addEventListener('click', unlockOnce, { capture: true });
   window.addEventListener('pointerdown', unlockOnce, { capture: true });
