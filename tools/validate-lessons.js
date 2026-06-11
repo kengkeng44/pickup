@@ -97,6 +97,34 @@ function lintExtended(lessons, file) {
   return issues;
 }
 
+// v2.0.B.273: R2 length-parity lint (ARCH-REC #21, follow-up to ARCH-REC #1).
+// Option length is a top-3 test-wiseness cue — when the correct option is the
+// longest, children aged 8-12 learn "longest = correct" in 2-3 trials. Applies
+// to any ≥3-option MCQ with a numeric correctIndex (listen-mc / emoji-pick /
+// listen-comprehension / listen-emoji / picture-mc). 2-option Yes/No (listen-tf)
+// is structurally exempt via the length<3 skip. warn-only like the other rules.
+function lintR2LengthParity(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (!Array.isArray(q.options) || q.options.length < 3) continue;
+      if (typeof q.correctIndex !== 'number') continue;
+      const lens = q.options.map(o => String(o).trim().length);
+      const maxL = Math.max(...lens);
+      const minL = Math.min(...lens);
+      if (minL === 0) continue;
+      if (lens[q.correctIndex] !== maxL) continue; // only flag when correct is the (tied) longest
+      const ratio = maxL / minL;
+      if (ratio > 2.0) {
+        issues.push(`${file} ${q.id}: X8_R2_LENGTH_SEVERE (ratio=${ratio.toFixed(2)}, correct=longest — near-certain length tell)`);
+      } else if (ratio > 1.5) {
+        issues.push(`${file} ${q.id}: X8_R2_LENGTH_WARN (ratio=${ratio.toFixed(2)}, correct=longest — likely length tell)`);
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -154,7 +182,8 @@ for (const file of files) {
     }
     const mirrorIssues = lintMirror(raw, file);
     const extendedIssues = lintExtended(raw, file);
-    const allIssues = [...mirrorIssues, ...extendedIssues];
+    const r2Issues = lintR2LengthParity(raw, file);
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
