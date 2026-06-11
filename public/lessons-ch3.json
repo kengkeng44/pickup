@@ -648,13 +648,13 @@
         "question": "What was the weather like?",
         "options": [
           "☀️ sunny and warm",
-          "🌧️ rainy",
+          "🌧️ rainy and wet",
           "❄️ cold and snowy",
           "🌪️ windy storm"
         ],
         "optionsZh": [
           "晴朗溫暖",
-          "下雨",
+          "下雨濕濕的",
           "寒冷下雪",
           "狂風暴雨"
         ],
@@ -857,16 +857,16 @@
         "sentence": "He did not look at the rabbit's soft fur or his white teeth.",
         "question": "What did the tortoise do?",
         "options": [
-          "woke the hare up",
+          "stopped to wake the hare up",
           "kept his eyes on the road",
-          "lay down too",
-          "ran home"
+          "lay down for a rest too",
+          "turned and ran back home"
         ],
         "optionsZh": [
-          "叫醒兔子",
+          "停下來叫醒兔子",
           "眼睛看著路",
-          "也躺下",
-          "跑回家"
+          "也躺下來休息",
+          "轉身跑回家"
         ],
         "correctIndex": 1,
         "explanationZh": "不看兔子 → 眼睛看著路。",
@@ -901,15 +901,15 @@
         "question": "How did he keep moving?",
         "options": [
           "🦶 one foot at a time",
-          "🚀 flying",
-          "⛵ on a boat",
-          "🐎 on a horse"
+          "🚀 flying in the sky",
+          "⛵ on a little boat",
+          "🐎 riding on a horse"
         ],
         "optionsZh": [
           "一次一隻腳",
-          "飛",
-          "搭船",
-          "騎馬"
+          "在天空中飛",
+          "坐一艘小船",
+          "騎在馬背上"
         ],
         "correctIndex": 0,
         "explanationZh": "一隻一隻腳交替 → 一次一隻腳。",
@@ -1198,14 +1198,14 @@
         "options": [
           "the brown jumper",
           "the small green animal",
-          "the fox judge",
-          "no one"
+          "the clever fox judge",
+          "neither of the runners"
         ],
         "optionsZh": [
           "棕色跳跳客",
           "綠色小動物",
-          "狐狸裁判",
-          "沒人"
+          "聰明的狐狸裁判",
+          "兩位選手都不是"
         ],
         "correctIndex": 1,
         "explanationZh": "綠色背 + 走得慢 → 綠色小動物 = 烏龜。",
@@ -1477,16 +1477,16 @@
         "sentence": "The hare ran very fast, but the big tree was very close to the tortoise, not him.",
         "question": "Could the hare win now?",
         "options": [
-          "yes, easily",
+          "yes, he can still win easily",
           "no, the tortoise is too close",
-          "maybe, if he flies",
-          "we cannot tell"
+          "maybe, if he jumps very high",
+          "we cannot tell from the story"
         ],
         "optionsZh": [
-          "是,輕鬆贏",
+          "可以,他還是能輕鬆贏",
           "不,烏龜太靠近終點了",
-          "也許,如果他會飛",
-          "看不出來"
+          "也許,如果他跳得很高",
+          "從故事裡看不出來"
         ],
         "correctIndex": 1,
         "explanationZh": "推理:樹靠近烏龜不是兔子 → 不,烏龜太靠近終點。",
@@ -1613,16 +1613,16 @@
         "sentence": "Every animal at the field began to cheer and stamp their feet.",
         "question": "How did the animals feel?",
         "options": [
-          "scared",
-          "sleepy",
+          "scared and quiet",
+          "sleepy and slow",
           "excited and happy",
-          "sad"
+          "sad and worried"
         ],
         "optionsZh": [
-          "害怕",
-          "想睡",
+          "害怕又安靜",
+          "想睡又慢吞吞",
           "興奮又開心",
-          "難過"
+          "難過又擔心"
         ],
         "correctIndex": 2,
         "explanationZh": "又喊又跺腳 → 興奮又開心。",
@@ -1729,16 +1729,16 @@
         "sentence": "The tortoise turned his head to the hare and smiled gently.",
         "question": "Why did the tortoise smile gently?",
         "options": [
-          "he was angry",
+          "he was still angry at the hare",
           "he wanted to share a lesson kindly",
           "he wanted to laugh at him",
-          "he was tired"
+          "he was tired after the long race"
         ],
         "optionsZh": [
-          "他生氣",
+          "他還在生兔子的氣",
           "他想溫和地分享一個道理",
           "他想笑他",
-          "他累了"
+          "長跑之後他累了"
         ],
         "correctIndex": 1,
         "explanationZh": "推理:溫柔微笑 → 他想溫和地分享一個道理。",

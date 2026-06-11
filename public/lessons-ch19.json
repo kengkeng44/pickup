@@ -397,14 +397,14 @@
         "options": [
           "🐊 lots of crocodiles",
           "🐠 small fish only",
-          "🦆 ducks",
-          "🐢 turtles"
+          "🦆 many noisy ducks",
+          "🐢 lots of old turtles"
         ],
         "optionsZh": [
           "很多鱷魚",
           "只有小魚",
-          "鴨子",
-          "烏龜"
+          "很多吵鬧的鴨子",
+          "很多老烏龜"
         ],
         "correctIndex": 0,
         "explanationZh": "黑水裡住很多鱷魚 → 很多鱷魚。",
@@ -720,16 +720,16 @@
         "sentence": "Mouse deer was about to tell the crocodiles something that was not true.",
         "question": "Why was mouse deer going to lie?",
         "options": [
-          "he liked lying",
+          "he liked telling lies for fun",
           "he needed a way to cross safely",
           "his mother told him to",
-          "he was bored"
+          "he was bored with nothing to do"
         ],
         "optionsZh": [
-          "他喜歡騙人",
+          "他喜歡說謊好玩",
           "他需要安全過河",
           "媽媽叫他",
-          "他無聊"
+          "他無聊沒事做"
         ],
         "correctIndex": 1,
         "explanationZh": "推理:不能游 + 鱷魚多 → 需要安全過河 → 才說謊。",
@@ -856,16 +856,16 @@
         "sentence": "The big crocodile lifted his head higher than the rest of the group.",
         "question": "Who asked mouse deer the question?",
         "options": [
-          "a small fish",
+          "a small silver fish",
           "the biggest crocodile",
-          "a tree",
-          "another deer"
+          "an old river bird",
+          "another small deer"
         ],
         "optionsZh": [
-          "小魚",
+          "一條銀色小魚",
           "最大的鱷魚",
-          "一棵樹",
-          "另一隻鹿"
+          "一隻河邊的老鳥",
+          "另一隻小鹿"
         ],
         "correctIndex": 1,
         "explanationZh": "抬頭比其他高 → 最大的鱷魚。",
@@ -943,16 +943,16 @@
         "sentence": "But the big one did not want to say he did not know.",
         "question": "Why did the big crocodile stay quiet?",
         "options": [
-          "he was tired",
+          "he was too tired to speak",
           "he did not want to look bad",
-          "he could not talk",
-          "he liked the king"
+          "his mouth was full of food",
+          "he liked the king very much"
         ],
         "optionsZh": [
-          "他累了",
+          "他累得說不出話",
           "他不想看起來不知道",
-          "他不會說話",
-          "他喜歡國王"
+          "他嘴裡都是食物",
+          "他非常喜歡國王"
         ],
         "correctIndex": 1,
         "explanationZh": "不想說「我不知道」 → 不想看起來不知道。",
@@ -1108,16 +1108,16 @@
         "sentence": "His small feet pressed soft on the wet skin of the long animal.",
         "question": "How did mouse deer move?",
         "options": [
-          "by swimming",
+          "by swimming slowly",
           "by jumping on backs",
           "by walking on water",
-          "by flying"
+          "by flying over them"
         ],
         "optionsZh": [
-          "游泳",
+          "慢慢游過去",
           "跳鱷魚背",
           "走在水上",
-          "飛"
+          "從他們上面飛過去"
         ],
         "correctIndex": 1,
         "explanationZh": "腳踩在鱷魚身上 → 跳鱷魚背。",
@@ -1152,15 +1152,15 @@
         "question": "How did mouse deer count?",
         "options": [
           "🔢 out loud at each jump",
-          "🤫 in his head",
-          "📝 on paper",
-          "🎵 in a song"
+          "🤫 quietly in his head",
+          "📝 on a piece of paper",
+          "🎵 in a slow happy song"
         ],
         "optionsZh": [
           "每跳一下大聲數",
-          "心裡數",
-          "寫在紙上",
-          "唱歌"
+          "安靜地在心裡數",
+          "寫在一張紙上",
+          "用一首慢慢的快樂歌"
         ],
         "correctIndex": 0,
         "explanationZh": "一邊跳一邊喊 → 每跳一下大聲數。",
@@ -1195,16 +1195,16 @@
         "sentence": "They kept very still so the small mouse deer could count them well.",
         "question": "Why did the crocodiles stay still?",
         "options": [
-          "they were tired",
+          "they were too tired to move",
           "they wanted to be counted right",
-          "mouse deer was heavy",
-          "they were asleep"
+          "mouse deer was too heavy to carry",
+          "they were asleep in the sun"
         ],
         "optionsZh": [
-          "他們累了",
+          "他們累得不能動",
           "他們想被好好數",
-          "鼠鹿很重",
-          "他們睡著了"
+          "鼠鹿太重,背不動",
+          "他們在太陽下睡著了"
         ],
         "correctIndex": 1,
         "explanationZh": "不動讓他好數 → 想被好好數。",
@@ -1447,16 +1447,16 @@
         "sentence": "Their bodies could go in the water but not up the dry land.",
         "question": "Why could the crocodiles not catch mouse deer?",
         "options": [
-          "they were full",
+          "they were full from a big meal",
           "they could not go on dry land",
-          "they liked him",
-          "they fell asleep"
+          "they were too busy playing games",
+          "they fell asleep by the river"
         ],
         "optionsZh": [
-          "他們吃飽了",
+          "他們吃了大餐很飽",
           "他們不能上岸",
-          "他們喜歡他",
-          "他們睡著了"
+          "他們忙著玩遊戲",
+          "他們在河邊睡著了"
         ],
         "correctIndex": 1,
         "explanationZh": "只能在水裡 → 不能上乾地。",
@@ -1612,16 +1612,16 @@
         "sentence": "His own voice sounded soft and slow, like a teacher in the woods.",
         "question": "What lesson did mouse deer learn?",
         "options": [
-          "big body wins",
+          "a big body always wins",
           "thinking helps small ones win",
-          "fruit is not good",
-          "rivers are dangerous"
+          "fruit is not good to eat",
+          "rivers are full of danger"
         ],
         "optionsZh": [
-          "身體大才會贏",
+          "身體大就一定會贏",
           "會想就能讓小的贏",
-          "水果不好",
-          "河很危險"
+          "水果不好吃",
+          "河裡充滿危險"
         ],
         "correctIndex": 1,
         "explanationZh": "小身體 + 聰明腦袋 → 會想就能贏。",
