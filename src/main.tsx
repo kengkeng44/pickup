@@ -7,6 +7,7 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './react-app/App';
+import './ui/theme/tokens.css';
 import './style.css';
 
 // v2.0.B.167: StrictMode disabled — caused dev double-mount race in

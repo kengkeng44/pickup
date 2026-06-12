@@ -1,0 +1,135 @@
+/* 拾光 (Pickup) — Design System v1 canonical tokens (v2.0.B.279).
+ *
+ * THE single source of truth going forward. Three palettes had drifted
+ * (style.css --pickup-*, src/ui/tokens.ts COLOR_*, and ~454 react-app
+ * inline hex). Light values here match what react-app ACTUALLY renders
+ * today → zero visual change on adoption. The old two systems stay put
+ * and migrate onto these later.
+ *
+ * Namespace: --t-*  (theme). Semantic names (success/danger/brand), not
+ * raw colors. Dark theme overrides COLOR tokens only via [data-theme].
+ * Consumed by both inline styles (via src/ui/theme/index.ts → var(--t-*))
+ * and component CSS classes (.t-btn etc.). */
+
+:root {
+  /* ── Color: surfaces ── */
+  --t-bg: #fef8ed;            /* app cream */
+  --t-surface: #ffffff;       /* card */
+  --t-surface-alt: #fff7e8;   /* tinted card / banner */
+  --t-border: #ead9bb;
+  --t-border-strong: #d4c098;
+
+  /* ── Color: text ── */
+  --t-text: #3c2a1c;          /* dominant warm dark (react-app 77×) */
+  --t-text-muted: #8b6f4a;
+  --t-text-inverse: #ffffff;
+
+  /* ── Color: brand + semantic ── */
+  --t-brand: #e7a44a;         /* amber */
+  --t-brand-dark: #b07a2a;
+  --t-success: #7d9a4f;       /* olive — canonical (kills #7ac74a / #5d9a35) */
+  --t-success-dark: #5e7a36;
+  --t-success-tint: #dde6c8;
+  --t-danger: #c84a3a;        /* terracotta */
+  --t-danger-dark: #7a2a20;
+  --t-danger-tint: #f5dad4;
+  --t-info: #4a6678;
+  --t-warn: #c4a040;
+  --t-focus: #1cb0f6;         /* focus ring (high-contrast, intentional) */
+
+  /* ── Space: 4pt scale ── */
+  --t-space-1: 4px;  --t-space-2: 8px;  --t-space-3: 12px; --t-space-4: 16px;
+  --t-space-5: 20px; --t-space-6: 24px; --t-space-8: 32px; --t-space-10: 40px;
+
+  /* ── Radius ── */
+  --t-radius-sm: 6px; --t-radius-md: 12px; --t-radius-lg: 20px; --t-radius-pill: 999px;
+
+  /* ── Type sizes ── */
+  --t-text-micro: 12px; --t-text-body: 16px; --t-text-button: 16px;
+  --t-text-title: 20px; --t-text-stat: 24px; --t-text-display: 28px;
+
+  /* ── Elevation: FLAT only (零 blur, per brand rule). depth = solid offset ── */
+  --t-elev-1: 0 2px 0 var(--t-border-strong);
+  --t-elev-2: 0 4px 0 var(--t-border-strong);
+  --t-elev-3: 0 6px 0 var(--t-border-strong);
+  --t-top-stripe: inset 0 4px 0 rgba(255, 255, 255, 0.28);
+
+  /* ── Motion ── */
+  --t-dur-fast: 120ms; --t-dur-base: 250ms; --t-dur-slow: 400ms;
+  --t-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Z-index ── */
+  --t-z-sticky: 10; --t-z-overlay: 100; --t-z-toast: 1000;
+}
+
+/* ── Dark theme: bedtime palette (v1, tune later). Colors only. ── */
+[data-theme="dark"] {
+  --t-bg: #1a1410;
+  --t-surface: #241c15;
+  --t-surface-alt: #2e241a;
+  --t-border: #3a2e22;
+  --t-border-strong: #4a3c2c;
+  --t-text: #f0e6d8;
+  --t-text-muted: #b09a7e;
+  --t-text-inverse: #1a1410;
+  --t-brand: #f0b25e;
+  --t-brand-dark: #b07a2a;
+  --t-success: #8fae5e;
+  --t-success-dark: #5e7a36;
+  --t-success-tint: #2f3a22;
+  --t-danger: #d96a58;
+  --t-danger-dark: #7a2a20;
+  --t-danger-tint: #3a221d;
+  --t-info: #6a8a9e;
+  --t-warn: #d4b45e;
+  --t-top-stripe: inset 0 4px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Button primitive — .t-btn (composed by src/ui/components/Button.tsx).
+ * Class-based (not inline) to demonstrate the migration off inline styles.
+ * ──────────────────────────────────────────────────────────────────── */
+.t-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--t-space-2);
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--t-radius-md);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform var(--t-dur-fast) var(--t-ease-out),
+              box-shadow var(--t-dur-fast) var(--t-ease-out);
+}
+.t-btn:disabled { opacity: 0.5; cursor: default; }
+.t-btn:focus-visible { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+
+/* sizes (height + horizontal padding + font) */
+.t-btn--sm { height: 36px; padding: 0 var(--t-space-3); font-size: 14px; }
+.t-btn--md { height: 44px; padding: 0 var(--t-space-4); font-size: var(--t-text-button); }
+.t-btn--lg { height: 52px; padding: 0 var(--t-space-5); font-size: 18px; }
+.t-btn--full { width: 100%; }
+.t-btn--icon { padding: 0; aspect-ratio: 1 / 1; }
+.t-btn--icon.t-btn--md { font-size: 24px; }
+
+/* variants */
+.t-btn--primary { background: var(--t-brand); color: var(--t-text-inverse); box-shadow: 0 4px 0 var(--t-brand-dark); }
+.t-btn--primary:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 var(--t-brand-dark); }
+.t-btn--danger { background: var(--t-danger); color: var(--t-text-inverse); box-shadow: 0 4px 0 var(--t-danger-dark); }
+.t-btn--danger:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 var(--t-danger-dark); }
+.t-btn--secondary { background: var(--t-surface); color: var(--t-text); border: 2px solid var(--t-border-strong); box-shadow: 0 4px 0 var(--t-border-strong); }
+.t-btn--secondary:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 var(--t-border-strong); }
+.t-btn--ghost { background: transparent; color: var(--t-text-muted); border-radius: var(--t-radius-sm); }
+.t-btn--ghost:active:not(:disabled) { transform: scale(0.94); }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-btn { transition: none; }
+  .t-btn--primary:active:not(:disabled),
+  .t-btn--danger:active:not(:disabled),
+  .t-btn--secondary:active:not(:disabled),
+  .t-btn--ghost:active:not(:disabled) { transform: none; }
+}

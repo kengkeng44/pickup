@@ -21,6 +21,7 @@ import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../ren
 import { getLessonHook } from '../../data/lessonHooks';
 import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
+import Button from '../../ui/components/Button';
 import ShareModal from '../components/ShareModal';
 // v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
 import NextStoryPicker from '../components/NextStoryPicker';
@@ -153,7 +154,7 @@ export default function LessonPage() {
       {/* v2.0.B.284 Duolingo-style lesson header: ✕ + progress bar (flex 1) + 🔇
           砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-        <button onClick={() => navigate('/')} aria-label="Close" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer', width: 44, height: 44, padding: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', flex: '0 0 auto' }}>✕</button>
+        <Button variant="ghost" size="md" iconOnly aria-label="Close" onClick={() => navigate('/')} style={{ flex: '0 0 auto' }}>✕</Button>
         {/* Progress bar — fills proportional to (idx+1)/total. olive success bg + inset top highlight (Duolingo flat) */}
         <div
           role="progressbar"
