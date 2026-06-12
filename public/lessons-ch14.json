@@ -380,15 +380,15 @@
         "question": "What did the turtle ask?",
         "options": [
           "🐢 climb on its back",
-          "🏊 swim alone",
-          "🚣 row home",
-          "😴 take a nap"
+          "🏊 swim back alone",
+          "🚣 row a boat home",
+          "😴 take a long nap"
         ],
         "optionsZh": [
           "爬到牠背上",
-          "自己游",
-          "划船回家",
-          "睡覺"
+          "自己游回去",
+          "划小船回家",
+          "好好睡一覺"
         ],
         "correctIndex": 0,
         "explanationZh": "爬上背 = climb on its back。",
@@ -423,16 +423,16 @@
         "sentence": "They went down past bright fish and soft coral.",
         "question": "What did they see on the way down?",
         "options": [
-          "snow and ice",
+          "white snow and cold ice",
           "sea life and reef plants",
-          "cars and roads",
-          "birds and clouds"
+          "busy cars and long roads",
+          "big birds and soft clouds"
         ],
         "optionsZh": [
-          "雪和冰",
+          "白雪和冰塊",
           "海洋生物和礁石植物",
-          "車和路",
-          "鳥和雲"
+          "車子和長長的路",
+          "大鳥和軟軟的雲"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: bright fish + soft coral → sea life + reef plants (paraphrase)。",
@@ -541,13 +541,13 @@
           "plain and grey",
           "bright and beautiful",
           "dark and broken",
-          "tall and cold"
+          "very tall and cold"
         ],
         "optionsZh": [
           "樸素灰色",
           "亮亮美美的",
           "暗又破",
-          "高又冷"
+          "很高又很冷"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: shone + pearl + shell → bright and beautiful。",
@@ -617,15 +617,15 @@
         "question": "How did she greet him?",
         "options": [
           "😊 with a soft smile",
-          "😠 with anger",
-          "😢 with tears",
-          "😨 with fear"
+          "😠 with angry words",
+          "😢 with sad tears",
+          "😨 with great fear"
         ],
         "optionsZh": [
           "溫柔的微笑",
-          "生氣",
-          "流淚",
-          "害怕"
+          "用生氣的話",
+          "流著傷心的眼淚",
+          "非常害怕"
         ],
         "correctIndex": 0,
         "explanationZh": "soft smile = 溫柔的微笑。",
@@ -660,15 +660,15 @@
         "sentence": "She led him into a long dining hall full of light.",
         "question": "Where did she lead him?",
         "options": [
-          "a dark cave",
+          "a dark deep cave",
           "a long bright room",
-          "a small boat",
+          "a small old boat",
           "an empty beach"
         ],
         "optionsZh": [
-          "暗洞",
+          "又深又暗的洞",
           "又長又亮的房間",
-          "小船",
+          "一艘老舊的小船",
           "空沙灘"
         ],
         "correctIndex": 1,
@@ -775,16 +775,16 @@
         "sentence": "Fish servants danced. Music played all night long.",
         "question": "How were the nights in the palace?",
         "options": [
-          "cold and silent",
+          "cold and very silent",
           "lively and full of music",
-          "sad and dark",
-          "short and tired"
+          "sad and very dark",
+          "short and very tiring"
         ],
         "optionsZh": [
-          "冷又靜",
+          "又冷又很安靜",
           "熱鬧又有音樂",
-          "悲傷又黑",
-          "短又累"
+          "悲傷又很暗",
+          "又短又累人"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: 跳舞 + 音樂整晚 → 熱鬧又有音樂。",
@@ -855,13 +855,13 @@
         "options": [
           "🪸 coral and bright fish",
           "🌵 cactus and sand",
-          "❄️ snow and ice",
+          "❄️ white snow and ice",
           "🏙️ tall buildings"
         ],
         "optionsZh": [
           "珊瑚和亮魚",
           "仙人掌和沙",
-          "雪和冰",
+          "白雪和冰塊",
           "高樓"
         ],
         "correctIndex": 0,
@@ -899,13 +899,13 @@
         "options": [
           "the sea palace",
           "his old life at home",
-          "the gold cup",
+          "the shiny gold cup",
           "the dancing fish"
         ],
         "optionsZh": [
           "海底宮殿",
           "老家的生活",
-          "金杯子",
+          "亮亮的金杯子",
           "跳舞的魚"
         ],
         "correctIndex": 1,
@@ -1015,13 +1015,13 @@
           "he hated the palace",
           "his family was waiting",
           "the food was bad",
-          "he was bored"
+          "he was bored every day"
         ],
         "optionsZh": [
           "討厭宮殿",
           "家人在等他",
           "吃的不好",
-          "無聊"
+          "他每天都很無聊"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: 媽媽 + 村莊 在等 → 家人在等他。",
@@ -1371,16 +1371,16 @@
         "sentence": "\"That name is in old stories. A long, long time ago.\"",
         "question": "What did the old man say about Urashima?",
         "options": [
-          "just left town",
+          "just left town this week",
           "lives in old stories now",
           "works in the palace",
-          "walks the beach"
+          "walks the beach each day"
         ],
         "optionsZh": [
-          "剛離開鎮上",
+          "這星期剛離開鎮上",
           "活在老故事裡",
           "在宮殿做事",
-          "在沙灘散步"
+          "每天在沙灘散步"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: in old stories → 活在老故事裡。",
@@ -1567,13 +1567,13 @@
           "☁️ a soft white cloud",
           "🪙 a pile of gold",
           "🐢 a tiny turtle",
-          "🎵 sweet music"
+          "🎵 a sweet soft song"
         ],
         "optionsZh": [
           "一團柔軟的白雲",
           "一堆金子",
           "小烏龜",
-          "甜甜的音樂"
+          "一首甜甜的歌"
         ],
         "correctIndex": 0,
         "explanationZh": "白雲 = soft white cloud。",
