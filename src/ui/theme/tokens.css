@@ -133,3 +133,265 @@
   .t-btn--secondary:active:not(:disabled),
   .t-btn--ghost:active:not(:disabled) { transform: none; }
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Card primitive — .t-card (src/ui/components/Card.tsx).
+ * flat  → border + border-radius, no bottom offset (info, stat tiles).
+ * raised → flat depth via solid bottom-offset (interactive cards).
+ * top-stripe → amber inset highlight band (Duolingo flat top highlight).
+ * ──────────────────────────────────────────────────────────────────── */
+.t-card {
+  background: var(--t-surface);
+  border: 2px solid var(--t-border);
+  border-radius: var(--t-radius-lg);
+  padding: var(--t-space-4);
+  color: var(--t-text);
+  box-sizing: border-box;
+}
+
+.t-card--flat {
+  box-shadow: none;
+}
+
+.t-card--raised {
+  box-shadow: var(--t-elev-2);
+}
+
+/* Amber inset top-stripe: reproduces the "flat top highlight band" pattern
+   used on banner cards, hero tiles, stat cards throughout the app. */
+.t-card--top-stripe {
+  box-shadow: var(--t-elev-2), var(--t-top-stripe);
+}
+
+/* flat + top-stripe (no bottom offset, just the amber highlight) */
+.t-card--flat.t-card--top-stripe {
+  box-shadow: var(--t-top-stripe);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * OptionTile primitive — .t-option-tile (src/ui/components/OptionTile.tsx).
+ * Reproduces the renderers.tsx OptionBtn look exactly.
+ * idle     → white bg, amber-tinted border, dark text.
+ * selected → brand-tint bg (surface-alt/amber tint), same border.
+ * correct  → success-tint bg, olive border + fg.
+ * wrong    → danger-tint bg, terracotta border + fg.
+ * shown    → surface-alt bg, muted fg (non-selected after reveal).
+ * ──────────────────────────────────────────────────────────────────── */
+.t-option-tile {
+  display: block;
+  width: 100%;
+  padding: var(--t-space-3) var(--t-space-4);
+  margin-bottom: var(--t-space-2);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: left;
+  border-radius: 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform var(--t-dur-fast) var(--t-ease-out),
+              box-shadow var(--t-dur-fast) var(--t-ease-out);
+}
+.t-option-tile:focus-visible { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+.t-option-tile:disabled { cursor: default; }
+
+/* idle: white surface, amber-tinted border (matches OptionBtn border #c8a878 ≈ borderStrong) */
+.t-option-tile--idle {
+  background: var(--t-surface);
+  color: var(--t-text);
+  border: 2px solid var(--t-border-strong);
+  border-bottom: 4px solid var(--t-brand-dark);
+}
+.t-option-tile--idle:not(:disabled):active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+
+/* selected: amber tint (user tapped, pre-reveal) — matches cardStyle 'selected' #fef3c7 */
+.t-option-tile--selected {
+  background: var(--t-surface-alt);
+  color: var(--t-text);
+  border: 2px solid var(--t-border-strong);
+  border-bottom: 4px solid var(--t-brand-dark);
+}
+
+/* correct: success-tint bg + olive border (matches OptionBtn 'correct' #eaf6d5 / #7ac74a) */
+.t-option-tile--correct {
+  background: var(--t-success-tint);
+  color: var(--t-success-dark);
+  border: 2px solid var(--t-success);
+  border-bottom: 4px solid var(--t-success-dark);
+}
+
+/* wrong: danger-tint bg + terracotta border (matches OptionBtn 'wrong' #fde0d2 / #c84a3a) */
+.t-option-tile--wrong {
+  background: var(--t-danger-tint);
+  color: var(--t-danger-dark);
+  border: 2px solid var(--t-danger);
+  border-bottom: 4px solid var(--t-danger-dark);
+}
+
+/* shown: cream surface, muted text (non-selected sibling after reveal) */
+.t-option-tile--shown {
+  background: var(--t-bg);
+  color: var(--t-text-muted);
+  border: 2px solid var(--t-border);
+  border-bottom: 4px solid var(--t-border-strong);
+}
+
+/* Chinese sub-label: muted, normal-weight, left-margin separator */
+.t-option-tile__zh {
+  color: var(--t-text-muted);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-option-tile { transition: none; }
+  .t-option-tile--idle:not(:disabled):active { transform: none; border-bottom-width: 4px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * ProgressBar primitive — .t-progress (src/ui/components/ProgressBar.tsx).
+ * Reproduces the LessonPage.tsx progress bar:
+ *   track bg #ead8c4 ≈ border, olive fill + inset top highlight, pill radius.
+ * Fill width is the ONLY inline style (dynamic %). Everything else is here.
+ * ──────────────────────────────────────────────────────────────────── */
+.t-progress {
+  flex: 1;
+  height: 14px;
+  background: var(--t-border);
+  border-radius: var(--t-radius-pill);
+  overflow: hidden;
+}
+
+.t-progress__fill {
+  height: 100%;
+  background: var(--t-success);
+  border-radius: var(--t-radius-pill);
+  /* Inset top-stripe = Duolingo flat highlight (white, no blur). */
+  box-shadow: var(--t-top-stripe);
+  /* Spring-eased width transition (matches LessonPage.tsx cubic-bezier). */
+  transition: width var(--t-dur-slow) var(--t-ease-spring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-progress__fill { transition: none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Sheet primitive — .t-sheet__* (src/ui/components/Sheet.tsx).
+ * Fixed backdrop + bottom slide-up panel. Safe-area aware.
+ * Backdrop: warm semi-opaque (rgba of --t-text @ 55%); zero blur.
+ * Panel: surface bg, border, radius-lg on top corners, full-width.
+ * ──────────────────────────────────────────────────────────────────── */
+.t-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(60, 42, 28, 0.55); /* --t-text raw @ 55% — zero blur */
+  z-index: var(--t-z-overlay);
+  display: flex;
+  align-items: flex-end;
+}
+
+.t-sheet__panel {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--t-surface);
+  border: 2px solid var(--t-border);
+  border-bottom: none;
+  border-radius: var(--t-radius-lg) var(--t-radius-lg) 0 0;
+  box-shadow: var(--t-elev-3);
+  /* Slide up from below */
+  animation: t-sheet-slide-up var(--t-dur-base) var(--t-ease-out) both;
+  /* Safe area: iOS home-bar clearance */
+  padding-bottom: max(var(--t-space-6), env(safe-area-inset-bottom));
+  max-height: 92dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+@keyframes t-sheet-slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.t-sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--t-space-4) var(--t-space-4) var(--t-space-3);
+  border-bottom: 1px solid var(--t-border);
+}
+
+.t-sheet__title {
+  font-size: var(--t-text-title);
+  font-weight: 900;
+  color: var(--t-text);
+}
+
+.t-sheet__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--t-radius-sm);
+  font-size: 22px;
+  color: var(--t-text-muted);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  flex-shrink: 0;
+}
+.t-sheet__close:focus-visible { outline: 3px solid var(--t-focus); outline-offset: 2px; }
+.t-sheet__close:active { transform: scale(0.90); }
+
+.t-sheet__body {
+  padding: var(--t-space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-sheet__panel { animation: none; }
+  .t-sheet__close:active { transform: none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * MascotSlot primitive — .t-mascot-slot (src/ui/components/MascotSlot.tsx).
+ * Avatar wrapper + optional solid ground-ellipse (zero blur, brand rule).
+ * Ellipse: rgba(60,42,28,0.28) matches StoryMapView + ChapterIntroPage.
+ * Size is dynamic (inline style) → width/height set by JS prop.
+ * ──────────────────────────────────────────────────────────────────── */
+.t-mascot-slot {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  line-height: 0;
+}
+
+.t-mascot-slot__img {
+  display: block;
+  position: relative;
+  z-index: 1;
+  /* object-fit contains the image within the fixed square */
+  object-fit: contain;
+}
+
+/* Solid ground ellipse — zero blur (brand rule: no drop-shadow halo).
+   Width/height are set via inline style from the component (dynamic). */
+.t-mascot-slot__floor {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(60, 42, 28, 0.28);
+  border-radius: 50%;
+  z-index: 0;
+}
