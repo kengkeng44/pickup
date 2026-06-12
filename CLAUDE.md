@@ -461,6 +461,28 @@ npx wrangler pages deploy dist \
 
 ---
 
+## 🤖 Model Routing（模型分工 — v2.0.B.278）
+
+> 目標：對的活用對的模型，省 Opus 額度、保品質。主 session(orchestration)維持 Opus；粗活 dispatch 給對的 subagent 模型。
+> ⚠️ 主 session 模型由 user 在 client 端切(`/model` / fast)，session 內無法自改；以下規範 dispatch subagent 用。
+
+| 工作類型 | 模型 | 理由 |
+|---------|------|------|
+| 策略 / 架構設計 / 風險重構 / orchestration / 決策 / code review 抓 bug | **Opus 4.8** (`claude-opus-4-8`) | 判斷力、跨檔影響、正確性最關鍵 |
+| 內容改寫(題目 / distractor / 旁白)、microcopy、角色語氣、創意 / 美感發想 | **Fable 5** (`claude-fable-5`) | 語言 + 美感最強、輸出快、適合大量並行 |
+| 一般功能實作、元件 coding、寫測試 | **Sonnet 4.6** (`claude-sonnet-4-6`) | 性價比工作馬，省 Opus 額度 |
+| 機械式 codemod、格式化、驗證腳本、大量瑣碎替換、查詢 | **Haiku 4.5** (`claude-haiku-4-5`) | 最快最省，不需判斷的活 |
+
+**4 大長期工作流的模型指派**：
+- 📄 策略文件 → Opus 設計撰寫
+- 🧱 design system 地基 → Opus 定 token 結構 + 元件 API；Sonnet 實作 / 抽 inline style；純機械替換丟 Haiku
+- 🌙 夜間模式 → Opus 定暗色 palette；Sonnet 套用
+- 🐱 Mochi 變關係 → Opus 設計機制 + 情感；角色文案 / 語氣 Fable；實作 Sonnet
+
+實證：v2.0.B.274-276 用 Fable 並行清 ~740 個 distractor length-tell、UI 掃描用 Fable、策略 / applier / 決策用 Opus。
+
+---
+
 ## 📜 Decision Log（重要設計取捨）
 
 | 決策 | 為什麼 |
