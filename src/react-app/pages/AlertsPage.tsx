@@ -12,21 +12,21 @@ const ACHIEVEMENTS = [
 export default function AlertsPage() {
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', margin: '0 0 16px' }}>成就</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>成就</h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         {ACHIEVEMENTS.map(a => (
           <div key={a.id} style={{
             background: a.earned ? '#fff' : '#f1ebe1',
-            border: `2px solid ${a.earned ? '#e7a44a' : '#c8a878'}`,
+            border: `2px solid ${a.earned ? 'var(--t-brand)' : '#c8a878'}`,
             borderRadius: 12,
             padding: 12,
             textAlign: 'center',
             opacity: a.earned ? 1 : 0.6,
           }}>
             <div style={{ fontSize: 32, marginBottom: 6 }}>{a.icon}</div>
-            <div style={{ fontSize: 12, fontWeight: 800, color: '#3c2a1c', marginBottom: 2 }}>{a.name}</div>
-            <div style={{ fontSize: 10, color: '#8b6f4a', lineHeight: 1.4 }}>{a.desc}</div>
+            <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--t-text)', marginBottom: 2 }}>{a.name}</div>
+            <div style={{ fontSize: 10, color: 'var(--t-text-muted)', lineHeight: 1.4 }}>{a.desc}</div>
           </div>
         ))}
       </div>

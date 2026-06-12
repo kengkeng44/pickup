@@ -14,14 +14,14 @@ export default function TasksPage() {
   const streakDone = streak > 0;
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', margin: '0 0 16px' }}>每日任務</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>每日任務</h1>
 
-      <div style={{ background: '#fff', border: '2px solid #e7a44a', borderBottom: '4px solid #b07a2a', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+      <div style={{ background: '#fff', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>{streak} 天</div>
-            <div style={{ fontSize: 12, color: '#8b6f4a', fontWeight: 700 }}>Daily Streak · 連續學習</div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{streak} 天</div>
+            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>Daily Streak · 連續學習</div>
           </div>
         </div>
       </div>
@@ -31,15 +31,15 @@ export default function TasksPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🧊</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>{freezes} 個</div>
-            <div style={{ fontSize: 12, color: '#8b6f4a', fontWeight: 700 }}>
+            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{freezes} 個</div>
+            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>
               Freeze · 漏一天 Mochi 自動幫你保住 streak
             </div>
           </div>
         </div>
       </div>
 
-      <h2 style={{ fontSize: 14, fontWeight: 800, color: '#8b6f4a', margin: '18px 0 8px' }}>今日目標</h2>
+      <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)', margin: '18px 0 8px' }}>今日目標</h2>
       {[
         { icon: '📖', text: '完成 1 個 lesson · Complete 1 lesson', done: hasCompletedAnyLesson },
         { icon: '🔥', text: '連續學習至少 1 天 · Daily streak active', done: streakDone },
@@ -47,8 +47,8 @@ export default function TasksPage() {
       ].map((t, i) => (
         <div key={i} style={{ background: '#fff', border: '1px solid #e0d0b8', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 22 }}>{t.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, color: '#3c2a1c', fontWeight: 600 }}>{t.text}</span>
-          <span style={{ fontSize: 14, color: t.done ? '#5d9a35' : '#c8a878', fontWeight: 800 }}>{t.done ? '✓' : '○'}</span>
+          <span style={{ flex: 1, fontSize: 14, color: 'var(--t-text)', fontWeight: 600 }}>{t.text}</span>
+          <span style={{ fontSize: 14, color: t.done ? 'var(--t-success)' : '#c8a878', fontWeight: 800 }}>{t.done ? '✓' : '○'}</span>
         </div>
       ))}
     </div>

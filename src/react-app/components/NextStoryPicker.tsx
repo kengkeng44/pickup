@@ -189,7 +189,7 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
       <div role="dialog" aria-modal="true" style={overlayStyle}>
         <div style={toastStyle}>
           <div style={{ fontSize: 44, lineHeight: 1, marginBottom: 8 }} aria-hidden="true">🐈💤</div>
-          <div style={{ fontSize: 17, fontWeight: 900, color: '#3c2a1c' }}>
+          <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)' }}>
             see you tomorrow
           </div>
           <div style={{ fontSize: 13, fontWeight: 700, color: '#7a6850', marginTop: 4, fontStyle: 'italic' }}>
@@ -247,8 +247,8 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
             aria-label="Schedule for tomorrow night"
             style={{
               ...actionBtnBase,
-              background: '#7d9a4f',
-              boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.18), 0 4px 0 #5e7a36',
+              background: 'var(--t-success)',
+              boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.18), 0 4px 0 var(--t-success-dark)',
               opacity: selectedChapter == null ? 0.5 : 1,
             }}
           >
@@ -265,8 +265,8 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
             aria-label="Continue listening now"
             style={{
               ...actionBtnBase,
-              background: '#e7a44a',
-              boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.18), 0 4px 0 #b07a2a',
+              background: 'var(--t-brand)',
+              boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.18), 0 4px 0 var(--t-brand-dark)',
               opacity: selectedChapter == null ? 0.5 : 1,
             }}
           >
@@ -313,7 +313,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
         position: 'relative',
         border: isSelected ? '2px solid #d68a52' : '2px solid #e7e3d0',
         borderRadius: 14,
-        background: isSelected ? '#fff7e8' : '#fef8ed',
+        background: isSelected ? 'var(--t-surface-alt)' : 'var(--t-bg)',
         padding: '12px 10px',
         textAlign: 'left',
         cursor: 'pointer',
@@ -338,7 +338,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
             position: 'absolute',
             top: -8,
             right: -6,
-            background: '#e7a44a',
+            background: 'var(--t-brand)',
             color: '#ffffff',
             fontSize: 10,
             fontWeight: 900,
@@ -355,7 +355,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">{emoji}</span>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
-            fontSize: 13, fontWeight: 900, color: '#3c2a1c', lineHeight: 1.2,
+            fontSize: 13, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.2,
             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
           }}>{titleZh}</div>
           <div style={{
@@ -388,7 +388,7 @@ const overlayStyle: React.CSSProperties = {
 };
 
 const cardContainerStyle: React.CSSProperties = {
-  background: '#fef8ed',
+  background: 'var(--t-bg)',
   borderRadius: 18,
   padding: '20px 18px 18px',
   width: '100%',
@@ -411,7 +411,7 @@ const headerBlock: React.CSSProperties = {
 const titleStyle: React.CSSProperties = {
   fontSize: 17,
   fontWeight: 900,
-  color: '#3c2a1c',
+  color: 'var(--t-text)',
   textAlign: 'center',
   lineHeight: 1.3,
   marginTop: 4,
@@ -484,7 +484,7 @@ const hintStyle: React.CSSProperties = {
 };
 
 const toastStyle: React.CSSProperties = {
-  background: '#fef8ed',
+  background: 'var(--t-bg)',
   borderRadius: 18,
   padding: '32px 28px',
   textAlign: 'center',

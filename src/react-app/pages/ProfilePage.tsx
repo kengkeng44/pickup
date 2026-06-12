@@ -54,7 +54,7 @@ export default function ProfilePage() {
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', margin: '0 0 16px' }}>我的</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>我的</h1>
 
       <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 64, height: 64, flex: '0 0 auto' }}>
@@ -74,11 +74,11 @@ export default function ProfilePage() {
             placeholder="貓咪名字"
             style={{
               width: '100%', padding: 8, fontSize: 16, fontWeight: 700,
-              border: '2px solid #c8a878', borderRadius: 8, color: '#3c2a1c',
-              fontFamily: 'inherit', background: '#fef8ed',
+              border: '2px solid #c8a878', borderRadius: 8, color: 'var(--t-text)',
+              fontFamily: 'inherit', background: 'var(--t-bg)',
             }}
           />
-          <div style={{ fontSize: 11, color: '#8b6f4a', marginTop: 4 }}>更改後重新整理生效</div>
+          <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginTop: 4 }}>更改後重新整理生效</div>
         </div>
       </div>
 
@@ -88,8 +88,8 @@ export default function ProfilePage() {
         aria-label="開啟衣櫥 · Open wardrobe"
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 14,
-          background: '#fff7e8', border: '2px solid #e7a44a',
-          borderBottom: '4px solid #b07a2a', borderRadius: 14,
+          background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)',
+          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14,
           padding: '14px 16px', marginBottom: 14,
           cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
           touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
@@ -97,18 +97,18 @@ export default function ProfilePage() {
       >
         <span style={{ fontSize: 32, lineHeight: 1 }} aria-hidden="true">👕</span>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 900, color: '#3c2a1c' }}>
+          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
             衣櫥 · Wardrobe
           </div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: '#8b6f4a', marginTop: 2 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
             目前 · Current: {outfitLabelZh} · {outfitLabelEn}
           </div>
         </div>
-        <span style={{ fontSize: 20, color: '#b07a2a', fontWeight: 900 }} aria-hidden="true">›</span>
+        <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>
 
       <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14 }}>
-        <h2 style={{ margin: '0 0 12px', fontSize: 15, fontWeight: 800, color: '#3c2a1c' }}>統計</h2>
+        <h2 style={{ margin: '0 0 12px', fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>統計</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Stat label="連勝 Streak" value={`${streak} 🔥`} />
           <Stat label="XP" value={String(xp)} />
@@ -120,8 +120,8 @@ export default function ProfilePage() {
       {/* v2.0.B.234 wiring: Mochi notifications toggle. Default off. */}
       <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 800, color: '#3c2a1c' }}>允許 Mochi 通知</div>
-          <div style={{ fontSize: 12, color: '#8b6f4a', marginTop: 2 }}>Mochi notifications · 偶爾捎封信給你</div>
+          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>允許 Mochi 通知</div>
+          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2 }}>Mochi notifications · 偶爾捎封信給你</div>
         </div>
         <button
           type="button"
@@ -131,7 +131,7 @@ export default function ProfilePage() {
           onClick={toggleNotifs}
           style={{
             width: 52, height: 30, borderRadius: 999, border: 'none', padding: 3,
-            background: notifsOn ? '#7d9a4f' : '#d8c9b3', cursor: 'pointer',
+            background: notifsOn ? 'var(--t-success)' : '#d8c9b3', cursor: 'pointer',
             position: 'relative', transition: 'background 160ms ease-out',
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
           }}
@@ -159,9 +159,9 @@ export default function ProfilePage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div style={{ padding: 10, background: '#fef8ed', borderRadius: 10, textAlign: 'center', border: '1px solid #e0d0b8' }}>
-      <div style={{ fontSize: 11, color: '#8b6f4a', marginBottom: 4, fontWeight: 700 }}>{label}</div>
-      <div style={{ fontSize: 17, fontWeight: 900, color: '#b07a2a' }}>{value}</div>
+    <div style={{ padding: 10, background: 'var(--t-bg)', borderRadius: 10, textAlign: 'center', border: '1px solid #e0d0b8' }}>
+      <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginBottom: 4, fontWeight: 700 }}>{label}</div>
+      <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-brand-dark)' }}>{value}</div>
     </div>
   );
 }

@@ -243,14 +243,14 @@ export default function LevelTest({ onComplete, questions = QUESTIONS }: LevelTe
             const isPicked = picked === i;
             const isCorrect = current.correctIndex === i;
             // Color tier: idle → cream, picked correct → olive, picked wrong → terracotta
-            let bg = '#fef8ed';
-            let textColor = '#3c2a1c';
+            let bg = 'var(--t-bg)';
+            let textColor = 'var(--t-text)';
             if (picked !== null) {
               if (isPicked && isCorrect) {
-                bg = '#7d9a4f';
+                bg = 'var(--t-success)';
                 textColor = '#ffffff';
               } else if (isPicked && !isCorrect) {
-                bg = '#c84a3a';
+                bg = 'var(--t-danger)';
                 textColor = '#ffffff';
               } else if (!isPicked && isCorrect) {
                 bg = '#e7e3d0';
@@ -306,7 +306,7 @@ const containerStyle: React.CSSProperties = {
 };
 
 const cardStyle: React.CSSProperties = {
-  background: '#fef8ed',
+  background: 'var(--t-bg)',
   borderRadius: 18,
   padding: '20px 18px 18px',
   width: '100%',
@@ -320,7 +320,7 @@ const cardStyle: React.CSSProperties = {
 const titleStyle: React.CSSProperties = {
   fontSize: 18,
   fontWeight: 900,
-  color: '#3c2a1c',
+  color: 'var(--t-text)',
   textAlign: 'center',
   lineHeight: 1.3,
 };
@@ -342,7 +342,7 @@ const progressBarTrack: React.CSSProperties = {
 
 const progressBarFill: React.CSSProperties = {
   height: '100%',
-  background: '#e7a44a',
+  background: 'var(--t-brand)',
   transition: 'width 220ms ease-out',
 };
 
@@ -428,7 +428,7 @@ const bilingualBlock: React.CSSProperties = {
 const zhLine: React.CSSProperties = {
   fontSize: 15,
   fontWeight: 700,
-  color: '#3c2a1c',
+  color: 'var(--t-text)',
 };
 
 const enLine: React.CSSProperties = {
@@ -441,7 +441,7 @@ const enLine: React.CSSProperties = {
 const primaryBtnStyle: React.CSSProperties = {
   border: 'none',
   borderRadius: 12,
-  background: '#e7a44a',
+  background: 'var(--t-brand)',
   color: '#ffffff',
   fontFamily: 'inherit',
   fontSize: 16,

@@ -21,8 +21,8 @@ export default function MapView({ onPickLesson }: Props) {
   return (
     <div style={{ padding: '16px 14px 24px' }}>
       <div style={{ textAlign: 'center', marginBottom: 18 }}>
-        <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>章節地圖</div>
-        <div style={{ fontSize: 12, color: '#8b6f4a' }}>Chapter Map</div>
+        <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>章節地圖</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)' }}>Chapter Map</div>
       </div>
 
       {CHAPTERS.map(ch => (
@@ -36,10 +36,10 @@ export default function MapView({ onPickLesson }: Props) {
             textAlign: 'left',
             padding: '14px 16px',
             marginBottom: 12,
-            background: ch.unlocked ? '#fff7e8' : '#e8dec8',
-            color: ch.unlocked ? '#3c2a1c' : '#8b6f4a',
-            border: `2px solid ${ch.unlocked ? '#e7a44a' : '#c8a878'}`,
-            borderBottom: `4px solid ${ch.unlocked ? '#b07a2a' : '#8b6f4a'}`,
+            background: ch.unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
+            color: ch.unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
+            border: `2px solid ${ch.unlocked ? 'var(--t-brand)' : '#c8a878'}`,
+            borderBottom: `4px solid ${ch.unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)'}`,
             borderRadius: 14,
             cursor: ch.unlocked ? 'pointer' : 'not-allowed',
             opacity: ch.unlocked ? 1 : 0.6,
@@ -47,35 +47,35 @@ export default function MapView({ onPickLesson }: Props) {
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-            <span style={{ fontSize: 11, fontWeight: 800, color: '#8b6f4a', letterSpacing: 1 }}>
+            <span style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', letterSpacing: 1 }}>
               SECTION {ch.id} · 第 {ch.id} 章
             </span>
             {!ch.unlocked && <span style={{ fontSize: 16 }}>🔒</span>}
           </div>
           <div style={{ fontSize: 17, fontWeight: 900, marginBottom: 4 }}>{ch.titleZh}</div>
-          <div style={{ fontSize: 12, color: '#8b6f4a', marginBottom: 8 }}>{ch.titleEn}</div>
+          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 8 }}>{ch.titleEn}</div>
           {ch.unlocked && (
             ch.progress === 0 ? (
               // v2.0.B.254 P0 fix (UX + PW agent from B.253 5-agent post-ship):
               // 兒童首訪看 0/24 + 空白條 = demotivate, t=5s 流失. 改 invitation banner
               // 邀請 framing, 完成 1 題後切回真實進度條. 雙語並列符合 memory rule.
-              <div style={{ padding: '8px 12px', background: '#fef3c7', border: '2px dashed #e7a44a', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 800, color: '#7a5e25' }}>
+              <div style={{ padding: '8px 12px', background: '#fef3c7', border: '2px dashed var(--t-brand)', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 800, color: '#7a5e25' }}>
                 👇 {ch.total} 題等你開始 · Tap to start {ch.total} lessons
               </div>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <div style={{ flex: 1, height: 6, background: '#fef3c7', borderRadius: 3, overflow: 'hidden' }}>
-                  {/* v2.0.B.254: Duo bright green #7ac74a → olive #7d9a4f (UI-UX cron 1208 P2 + v1.9.36 token migration) */}
-                  <div style={{ height: '100%', width: `${(ch.progress / ch.total) * 100}%`, background: '#7d9a4f' }} />
+                  {/* v2.0.B.254: Duo bright green var(--t-success) → olive var(--t-success) (UI-UX cron 1208 P2 + v1.9.36 token migration) */}
+                  <div style={{ height: '100%', width: `${(ch.progress / ch.total) * 100}%`, background: 'var(--t-success)' }} />
                 </div>
-                <span style={{ fontSize: 11, fontWeight: 700, color: '#8b6f4a' }}>{ch.progress}/{ch.total}</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--t-text-muted)' }}>{ch.progress}/{ch.total}</span>
               </div>
             )
           )}
         </button>
       ))}
 
-      <p style={{ fontSize: 11, color: '#8b6f4a', textAlign: 'center', marginTop: 20, opacity: 0.6 }}>
+      <p style={{ fontSize: 11, color: 'var(--t-text-muted)', textAlign: 'center', marginTop: 20, opacity: 0.6 }}>
         React JSX render · 0 innerHTML reparse
       </p>
     </div>

@@ -213,8 +213,8 @@ function Section<T extends string>({
               aria-pressed={isSelected}
               style={{
                 ...chipBtnStyle,
-                background: isSelected ? '#e7a44a' : '#fef8ed',
-                color: isSelected ? '#ffffff' : '#3c2a1c',
+                background: isSelected ? 'var(--t-brand)' : 'var(--t-bg)',
+                color: isSelected ? '#ffffff' : 'var(--t-text)',
                 borderColor: isSelected ? '#d68a52' : '#e7e3d0',
                 boxShadow: isSelected
                   ? 'inset 0 4px 0 rgba(255,255,255,0.18), 0 3px 0 rgba(60,42,28,0.24)'
@@ -249,7 +249,7 @@ const containerStyle: React.CSSProperties = {
 };
 
 const cardStyle: React.CSSProperties = {
-  background: '#fef8ed',
+  background: 'var(--t-bg)',
   borderRadius: 18,
   padding: '20px 18px 18px',
   width: '100%',
@@ -278,7 +278,7 @@ const mascotEmoji: React.CSSProperties = {
 const titleStyle: React.CSSProperties = {
   fontSize: 18,
   fontWeight: 900,
-  color: '#3c2a1c',
+  color: 'var(--t-text)',
   textAlign: 'center',
   lineHeight: 1.3,
 };
@@ -309,7 +309,7 @@ const sectionStyle: React.CSSProperties = {
 const sectionTitleZh: React.CSSProperties = {
   fontSize: 14,
   fontWeight: 900,
-  color: '#3c2a1c',
+  color: 'var(--t-text)',
 };
 
 const sectionTitleEn: React.CSSProperties = {
@@ -377,7 +377,7 @@ const footerBlock: React.CSSProperties = {
 const primaryBtnStyle: React.CSSProperties = {
   border: 'none',
   borderRadius: 12,
-  background: '#e7a44a',
+  background: 'var(--t-brand)',
   color: '#ffffff',
   fontFamily: 'inherit',
   fontSize: 15,
