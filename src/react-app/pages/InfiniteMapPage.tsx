@@ -75,37 +75,37 @@ export default function InfiniteMapPage() {
     <div style={{ padding: '14px 14px 80px', maxWidth: 480, margin: '0 auto' }}>
       {/* Hero header */}
       <div style={{ textAlign: 'center', marginBottom: 14 }}>
-        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 900, color: '#3c2a1c' }}>🗺️ 故事地圖</h1>
-        <div style={{ fontSize: 12, color: '#8b6f4a', marginTop: 4, letterSpacing: 1 }}>
+        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 900, color: 'var(--t-text)' }}>🗺️ 故事地圖</h1>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 4, letterSpacing: 1 }}>
           Story Map · {nodes.length} 課
         </div>
       </div>
 
       {/* Stats card */}
       <div style={{
-        background: 'linear-gradient(135deg, #fef8ed 0%, #fff7e8 100%)',
-        border: '2px solid #e7a44a',
-        borderBottom: '4px solid #b07a2a',
+        background: 'linear-gradient(135deg, var(--t-bg) 0%, var(--t-surface-alt) 100%)',
+        border: '2px solid var(--t-brand)',
+        borderBottom: '4px solid var(--t-brand-dark)',
         borderRadius: 14,
         padding: 14,
         marginBottom: 18,
         textAlign: 'center',
       }}>
-        <div style={{ fontSize: 13, color: '#8b6f4a', fontWeight: 700, marginBottom: 4 }}>已完成</div>
-        <div style={{ fontSize: 32, fontWeight: 900, color: '#3c2a1c', lineHeight: 1 }}>
-          {totalDone}<span style={{ fontSize: 16, color: '#8b6f4a', fontWeight: 700 }}> / {nodes.length}</span>
+        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 4 }}>已完成</div>
+        <div style={{ fontSize: 32, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
+          {totalDone}<span style={{ fontSize: 16, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {nodes.length}</span>
         </div>
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>{totalPct}%</div>
         <div style={{ marginTop: 8, height: 7, background: '#fef3c7', borderRadius: 4, overflow: 'hidden' }}>
           <div style={{
             height: '100%',
             width: `${totalPct}%`,
-            background: 'linear-gradient(90deg, #e7a44a 0%, #7d9a4f 100%)',
+            background: 'linear-gradient(90deg, var(--t-brand) 0%, var(--t-success) 100%)',
             transition: 'width 0.6s ease',
           }} />
         </div>
-        <div style={{ marginTop: 10, fontSize: 11, color: '#8b6f4a' }}>
-          <a href="/chapters" style={{ color: '#b07a2a', textDecoration: 'none', fontWeight: 800 }}>📖 開啟圖鑑 →</a>
+        <div style={{ marginTop: 10, fontSize: 11, color: 'var(--t-text-muted)' }}>
+          <a href="/chapters" style={{ color: 'var(--t-brand-dark)', textDecoration: 'none', fontWeight: 800 }}>📖 開啟圖鑑 →</a>
         </div>
       </div>
 
@@ -134,12 +134,12 @@ export default function InfiniteMapPage() {
                   width: 64,
                   height: 64,
                   borderRadius: '50%',
-                  background: n.done ? '#eaf6d5' : isCurrent ? '#fff7e8' : '#fefaee',
-                  border: `3px solid ${n.done ? '#7d9a4f' : isCurrent ? '#e7a44a' : '#d4c4a0'}`,
-                  borderBottom: `5px solid ${n.done ? '#5d7a35' : isCurrent ? '#b07a2a' : '#a89878'}`,
+                  background: n.done ? 'var(--t-success-tint)' : isCurrent ? 'var(--t-surface-alt)' : '#fefaee',
+                  border: `3px solid ${n.done ? 'var(--t-success)' : isCurrent ? 'var(--t-brand)' : '#d4c4a0'}`,
+                  borderBottom: `5px solid ${n.done ? 'var(--t-success)' : isCurrent ? 'var(--t-brand-dark)' : '#a89878'}`,
                   cursor: 'pointer',
                   fontSize: 26,
-                  color: n.done ? '#5d7a35' : '#b07a2a',
+                  color: n.done ? 'var(--t-success)' : 'var(--t-brand-dark)',
                   fontFamily: 'inherit',
                   padding: 0,
                   display: 'flex',
@@ -160,7 +160,7 @@ export default function InfiniteMapPage() {
       </div>
 
       {/* Footer hint */}
-      <div style={{ textAlign: 'center', fontSize: 11, color: '#8b6f4a', marginTop: 20, opacity: 0.7 }}>
+      <div style={{ textAlign: 'center', fontSize: 11, color: 'var(--t-text-muted)', marginTop: 20, opacity: 0.7 }}>
         {nodes.length} 課 · 蜿蜒 ~{Math.round((nodes.length * 86) / 1000)}k 像素
       </div>
     </div>

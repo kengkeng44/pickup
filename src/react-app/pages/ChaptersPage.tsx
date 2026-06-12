@@ -105,24 +105,24 @@ export default function ChaptersPage() {
         <button
           onClick={() => navigate(-1)}
           aria-label="返回地圖"
-          style={{ background: 'transparent', border: 'none', fontSize: 22, color: '#8b6f4a', cursor: 'pointer', padding: 4 }}
+          style={{ background: 'transparent', border: 'none', fontSize: 22, color: 'var(--t-text-muted)', cursor: 'pointer', padding: 4 }}
         >‹</button>
-        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>📖 故事圖鑑</h1>
+        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>📖 故事圖鑑</h1>
       </div>
 
       {/* Collection stats hero */}
       <div style={{
-        background: 'linear-gradient(135deg, #fef8ed 0%, #fff7e8 100%)',
-        border: '2px solid #e7a44a',
-        borderBottom: '4px solid #b07a2a',
+        background: 'linear-gradient(135deg, var(--t-bg) 0%, var(--t-surface-alt) 100%)',
+        border: '2px solid var(--t-brand)',
+        borderBottom: '4px solid var(--t-brand-dark)',
         borderRadius: 14,
         padding: 16,
         marginBottom: 14,
         textAlign: 'center',
       }}>
-        <div style={{ fontSize: 13, color: '#8b6f4a', fontWeight: 700, marginBottom: 6 }}>已搜集</div>
-        <div style={{ fontSize: 38, fontWeight: 900, color: '#3c2a1c', lineHeight: 1 }}>
-          {completedCount}<span style={{ fontSize: 18, color: '#8b6f4a', fontWeight: 700 }}> / {CHAPTERS.length}</span>
+        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>已搜集</div>
+        <div style={{ fontSize: 38, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
+          {completedCount}<span style={{ fontSize: 18, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {CHAPTERS.length}</span>
         </div>
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
           {totalPercent}% 完成
@@ -131,12 +131,12 @@ export default function ChaptersPage() {
           <div style={{
             height: '100%',
             width: `${totalPercent}%`,
-            background: 'linear-gradient(90deg, #e7a44a 0%, #7d9a4f 100%)',
+            background: 'linear-gradient(90deg, var(--t-brand) 0%, var(--t-success) 100%)',
             transition: 'width 0.6s ease',
           }} />
         </div>
         {completedCount === CHAPTERS.length && (
-          <div style={{ marginTop: 10, fontSize: 14, fontWeight: 900, color: '#5d7a35' }}>
+          <div style={{ marginTop: 10, fontSize: 14, fontWeight: 900, color: 'var(--t-success)' }}>
             🎉 全圖鑑搜集完成!
           </div>
         )}
@@ -162,10 +162,10 @@ export default function ChaptersPage() {
               style={{
                 flex: '0 0 auto',
                 padding: '8px 14px',
-                background: tab === t.id ? '#e7a44a' : '#fff7e8',
-                color: tab === t.id ? '#fff' : '#8b6f4a',
+                background: tab === t.id ? 'var(--t-brand)' : 'var(--t-surface-alt)',
+                color: tab === t.id ? '#fff' : 'var(--t-text-muted)',
                 border: tab === t.id ? 'none' : '1px solid #c8a878',
-                borderBottom: tab === t.id ? '3px solid #b07a2a' : '1px solid #c8a878',
+                borderBottom: tab === t.id ? '3px solid var(--t-brand-dark)' : '1px solid #c8a878',
                 borderRadius: 999,
                 fontSize: 13,
                 fontWeight: 800,
@@ -191,7 +191,7 @@ export default function ChaptersPage() {
               fontWeight: 900,
               color: '#7a5e25',
               paddingLeft: 8,
-              borderLeft: '4px solid #e7a44a',
+              borderLeft: '4px solid var(--t-brand)',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -223,12 +223,12 @@ export default function ChaptersPage() {
                     aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : unlocked ? ` ${pct} percent` : ' locked'}`}
                     style={{
                       minHeight: 160,
-                      background: isComplete ? '#eaf6d5' : unlocked ? '#fff7e8' : '#e8dec8',
-                      border: `2px solid ${isComplete ? '#7d9a4f' : unlocked ? '#e7a44a' : '#c8a878'}`,
-                      borderBottom: `4px solid ${isComplete ? '#5d7a35' : unlocked ? '#b07a2a' : '#8b6f4a'}`,
+                      background: isComplete ? 'var(--t-success-tint)' : unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
+                      border: `2px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand)' : '#c8a878'}`,
+                      borderBottom: `4px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)'}`,
                       borderRadius: 14,
                       padding: '12px 8px 10px',
-                      color: unlocked ? '#3c2a1c' : '#8b6f4a',
+                      color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
                       cursor: unlocked ? 'pointer' : 'not-allowed',
                       fontFamily: 'inherit',
                       opacity: unlocked ? 1 : 0.55,
@@ -245,7 +245,7 @@ export default function ChaptersPage() {
                     <div style={{
                       fontSize: 10,
                       fontWeight: 800,
-                      color: isComplete ? '#5d7a35' : unlocked ? '#b07a2a' : '#8b6f4a',
+                      color: isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)',
                       letterSpacing: 0.5,
                     }}>
                       #{ch.id.toString().padStart(2, '0')}
@@ -267,7 +267,7 @@ export default function ChaptersPage() {
                         position: 'absolute',
                         top: 6,
                         right: 6,
-                        background: '#7d9a4f',
+                        background: 'var(--t-success)',
                         color: '#fff',
                         fontSize: 9,
                         fontWeight: 900,
@@ -281,7 +281,7 @@ export default function ChaptersPage() {
                     {unlocked && !isComplete && completed > 0 && (
                       <div style={{
                         fontSize: 10,
-                        color: '#b07a2a',
+                        color: 'var(--t-brand-dark)',
                         fontWeight: 800,
                         marginTop: 2,
                       }}>

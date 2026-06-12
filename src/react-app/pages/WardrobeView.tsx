@@ -67,14 +67,14 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         onClick={(e) => e.stopPropagation()}
         className="pickup-fade-up"
         style={{
-          background: '#fef8ed',
+          background: 'var(--t-bg)',
           width: '100%', maxWidth: 460,
           margin: 'auto', borderRadius: 18,
           maxHeight: '92dvh',
           display: 'flex', flexDirection: 'column',
           overflow: 'hidden',
-          border: '2px solid #e7a44a',
-          borderBottom: '4px solid #b07a2a',
+          border: '2px solid var(--t-brand)',
+          borderBottom: '4px solid var(--t-brand-dark)',
           fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
         }}
       >
@@ -85,10 +85,10 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
           display: 'flex', alignItems: 'center', gap: 10,
         }}>
           <div style={{ flex: 1 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c', margin: 0 }}>
+            <h2 style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>
               衣櫥 · Wardrobe
             </h2>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#8b6f4a', marginTop: 2 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
               {unlockedCount} / {total} 套裝扮 · {unlockedCount} / {total} outfits
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
             aria-label="Close"
             style={{
               background: 'transparent', border: 'none',
-              fontSize: 22, color: '#8b6f4a', cursor: 'pointer',
+              fontSize: 22, color: 'var(--t-text-muted)', cursor: 'pointer',
               width: 44, height: 44, padding: 0,
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
               borderRadius: 8,
@@ -111,16 +111,16 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         {/* Preview pane */}
         <div style={{
           padding: '18px 18px 14px',
-          background: '#fff7e8',
+          background: 'var(--t-surface-alt)',
           borderBottom: '1px solid #e0d0b8',
           display: 'flex', gap: 14, alignItems: 'center',
         }}>
           <OutfitPreview outfit={preview} unlocked={isPreviewUnlocked} large />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 900, color: '#3c2a1c', lineHeight: 1.2 }}>
+            <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.2 }}>
               {preview.name.zh}
             </div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: '#8b6f4a', marginTop: 2 }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
               {preview.name.en}
             </div>
             <div style={{
@@ -130,7 +130,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
               {isPreviewUnlocked ? preview.bio.zh : preview.unlockHint.zh}
             </div>
             <div style={{
-              marginTop: 3, fontSize: 11, color: '#8b6f4a',
+              marginTop: 3, fontSize: 11, color: 'var(--t-text-muted)',
               fontWeight: 600, fontStyle: 'italic', lineHeight: 1.4,
             }}>
               {isPreviewUnlocked ? preview.bio.en : preview.unlockHint.en}
@@ -146,12 +146,12 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
             style={{
               width: '100%', padding: '12px 18px',
               background: isPreviewUnlocked
-                ? (isPreviewCurrent ? '#c8a878' : '#7ac74a')
+                ? (isPreviewCurrent ? '#c8a878' : 'var(--t-success)')
                 : '#c4b89c',
               color: '#fff', border: 'none',
               borderBottom: `4px solid ${
                 isPreviewUnlocked
-                  ? (isPreviewCurrent ? '#8b6f4a' : '#5d9a35')
+                  ? (isPreviewCurrent ? 'var(--t-text-muted)' : 'var(--t-success)')
                   : '#a89c80'
               }`,
               borderRadius: 12,
@@ -185,9 +185,9 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   onClick={() => setPreviewId(o.id)}
                   aria-label={`${o.name.zh} · ${o.name.en}${isUnlocked ? '' : ' (locked)'}`}
                   style={{
-                    background: isSelected ? '#fff7e8' : '#fff',
-                    border: `2px solid ${isSelected ? '#e7a44a' : isUnlocked ? '#c8a878' : '#c4b89c'}`,
-                    borderBottom: `4px solid ${isSelected ? '#b07a2a' : isUnlocked ? '#8b6f4a' : '#a89c80'}`,
+                    background: isSelected ? 'var(--t-surface-alt)' : '#fff',
+                    border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? '#c8a878' : '#c4b89c'}`,
+                    borderBottom: `4px solid ${isSelected ? 'var(--t-brand-dark)' : isUnlocked ? 'var(--t-text-muted)' : '#a89c80'}`,
                     borderRadius: 12,
                     padding: '10px 6px 8px',
                     display: 'flex', flexDirection: 'column',
@@ -202,7 +202,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   <OutfitPreview outfit={o} unlocked={isUnlocked} />
                   <div style={{
                     fontSize: 11, fontWeight: 900,
-                    color: isUnlocked ? '#3c2a1c' : '#8b6f4a',
+                    color: isUnlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
                     textAlign: 'center', lineHeight: 1.2, marginTop: 2,
                   }}>
                     {isUnlocked ? o.name.zh : '???'}
@@ -211,7 +211,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                     <div style={{
                       position: 'absolute',
                       top: 4, right: 4,
-                      background: '#7ac74a', color: '#fff',
+                      background: 'var(--t-success)', color: '#fff',
                       fontSize: 9, fontWeight: 900,
                       padding: '2px 6px', borderRadius: 999,
                       letterSpacing: 0.5,

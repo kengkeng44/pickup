@@ -25,7 +25,7 @@ const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
 
 function LoadingShell() {
-  return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>載入中…</div>;
+  return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
 }
 
 export default function App() {
@@ -87,7 +87,7 @@ export default function App() {
     };
   }, []);
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: '#fef8ed' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: 'var(--t-bg)' }}>
       {/* v2.0.B.276 ARCHITECTURE FIX: 拿掉 `overflowY: 'auto'` + `WebkitOverflowScrolling: 'touch'`.
           舊設計把 main 設成 scroll container, 但所有 React scroll listener / scrollRestoration /
           virtualization library / IntersectionObserver 都 default 對 window. 結果:
@@ -127,11 +127,11 @@ export default function App() {
             left: '50%',
             transform: 'translateX(-50%)',
             background: '#fef3c7',
-            color: '#8b6f4a',
+            color: 'var(--t-text-muted)',
             padding: '10px 18px',
             borderRadius: 999,
             border: '2px solid #c8a878',
-            borderBottom: '3px solid #8b6f4a',
+            borderBottom: '3px solid var(--t-text-muted)',
             fontSize: 14,
             fontWeight: 800,
             zIndex: 9999,

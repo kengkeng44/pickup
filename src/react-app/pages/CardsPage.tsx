@@ -31,15 +31,15 @@ export default function CardsPage() {
   return (
     <div style={{
       padding: '16px 14px 24px',
-      background: '#fef8ed',
+      background: 'var(--t-bg)',
       minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
       <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 24, fontWeight: 900, color: '#3c2a1c', margin: '0 0 6px' }}>
+        <h1 style={{ fontSize: 24, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 6px' }}>
           圖鑑 · Collection
         </h1>
-        <div style={{ fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>
+        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>
           {unlockedCount} / {total} 張卡片 · {unlockedCount} / {total} cards
         </div>
         {/* progress bar */}
@@ -49,7 +49,7 @@ export default function CardsPage() {
         }}>
           <div style={{
             width: `${total === 0 ? 0 : Math.round((unlockedCount / total) * 100)}%`,
-            height: '100%', background: '#e7a44a', borderRadius: 4,
+            height: '100%', background: 'var(--t-brand)', borderRadius: 4,
             transition: 'width 0.3s',
           }} />
         </div>
@@ -61,7 +61,7 @@ export default function CardsPage() {
         return (
           <section key={ch} style={{ marginBottom: 22 }}>
             <h2 style={{
-              fontSize: 14, fontWeight: 800, color: '#8b6f4a',
+              fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)',
               letterSpacing: 0.5, margin: '0 0 10px',
               textTransform: 'uppercase',
             }}>
@@ -105,8 +105,8 @@ function CardTile({ card, unlocked, onClick }: {
       aria-label={`${card.nameZh} · ${card.nameEn}${unlocked ? '' : ' (locked)'}`}
       style={{
         background: unlocked ? '#fff' : '#f1ebe1',
-        border: `2px solid ${unlocked ? '#e7a44a' : '#c4b89c'}`,
-        borderBottom: `4px solid ${unlocked ? '#b07a2a' : '#a89c80'}`,
+        border: `2px solid ${unlocked ? 'var(--t-brand)' : '#c4b89c'}`,
+        borderBottom: `4px solid ${unlocked ? 'var(--t-brand-dark)' : '#a89c80'}`,
         borderRadius: 14,
         padding: '14px 8px',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
@@ -134,13 +134,13 @@ function CardTile({ card, unlocked, onClick }: {
         }}>{card.emoji}</span>
       )}
       <div style={{
-        fontSize: 14, fontWeight: 900, color: unlocked ? '#3c2a1c' : '#8b6f4a',
+        fontSize: 14, fontWeight: 900, color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
         textAlign: 'center', lineHeight: 1.2,
       }}>
         {unlocked ? card.nameZh : '???'}
       </div>
       <div style={{
-        fontSize: 11, fontWeight: 700, color: unlocked ? '#8b6f4a' : '#a89c80',
+        fontSize: 11, fontWeight: 700, color: unlocked ? 'var(--t-text-muted)' : '#a89c80',
         textAlign: 'center', lineHeight: 1.2,
       }}>
         {unlocked ? card.nameEn : '???'}
@@ -170,8 +170,8 @@ function CardDetail({ card, unlocked, onClose }: {
           background: '#fff', borderRadius: 18,
           maxWidth: 380, width: '100%',
           padding: '24px 22px',
-          border: '2px solid #e7a44a',
-          borderBottom: '4px solid #b07a2a',
+          border: '2px solid var(--t-brand)',
+          borderBottom: '4px solid var(--t-brand-dark)',
           textAlign: 'center',
         }}
       >
@@ -192,14 +192,14 @@ function CardDetail({ card, unlocked, onClose }: {
             filter: unlocked ? 'none' : 'grayscale(1) opacity(0.45)',
           }}>{card.emoji}</div>
         )}
-        <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c' }}>
+        <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>
           {unlocked ? card.nameZh : '???'}
         </div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#8b6f4a', marginTop: 2 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
           {unlocked ? card.nameEn : 'Locked'}
         </div>
         <div style={{
-          fontSize: 11, fontWeight: 800, color: '#b07a2a',
+          fontSize: 11, fontWeight: 800, color: 'var(--t-brand-dark)',
           letterSpacing: 1, marginTop: 12,
           textTransform: 'uppercase',
         }}>
@@ -210,15 +210,15 @@ function CardDetail({ card, unlocked, onClose }: {
           <>
             <div style={{
               marginTop: 14, padding: '12px 14px',
-              background: '#fff7e8', borderRadius: 10,
-              fontSize: 14, fontWeight: 700, color: '#3c2a1c', lineHeight: 1.5,
+              background: 'var(--t-surface-alt)', borderRadius: 10,
+              fontSize: 14, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.5,
               textAlign: 'left',
             }}>
               {card.bioZh}
             </div>
             <div style={{
               marginTop: 8, padding: '12px 14px',
-              background: '#fef8ed', borderRadius: 10,
+              background: 'var(--t-bg)', borderRadius: 10,
               fontSize: 13, fontWeight: 600, color: '#5a4530', lineHeight: 1.5,
               textAlign: 'left', fontStyle: 'italic',
             }}>
@@ -228,8 +228,8 @@ function CardDetail({ card, unlocked, onClose }: {
         ) : (
           <div style={{
             marginTop: 14, padding: '12px 14px',
-            background: '#fef8ed', borderRadius: 10,
-            fontSize: 13, fontWeight: 700, color: '#8b6f4a', lineHeight: 1.5,
+            background: 'var(--t-bg)', borderRadius: 10,
+            fontSize: 13, fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.5,
           }}>
             <div>{card.unlockHintZh}</div>
             <div style={{ marginTop: 4, fontSize: 12, fontWeight: 600, fontStyle: 'italic' }}>
@@ -242,8 +242,8 @@ function CardDetail({ card, unlocked, onClose }: {
           onClick={onClose}
           style={{
             marginTop: 18, width: '100%', padding: '12px 18px',
-            background: '#7ac74a', color: '#fff', border: 'none',
-            borderBottom: '4px solid #5d9a35', borderRadius: 12,
+            background: 'var(--t-success)', color: '#fff', border: 'none',
+            borderBottom: '4px solid var(--t-success)', borderRadius: 12,
             fontSize: 15, fontWeight: 900, cursor: 'pointer',
             fontFamily: 'inherit',
             touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',

@@ -29,10 +29,10 @@ import { readUserProfile } from '../../data/userProfile';
 
 const CHAPTER_ACCENTS: Record<number, string> = {
   1: '#d68a52',
-  2: '#e7a44a',
+  2: 'var(--t-brand)',
   3: '#e7659c',
   4: '#6e7d5a',
-  5: '#e7a44a',
+  5: 'var(--t-brand)',
   6: '#6a7d8f',
   7: '#8a6ea8',
   8: '#6a7d8f',
@@ -90,7 +90,7 @@ interface RecCardProps {
   onTap: () => void;
 }
 function RecCard({ rec, onTap }: RecCardProps) {
-  const accent = CHAPTER_ACCENTS[rec.chapter] ?? '#e7a44a';
+  const accent = CHAPTER_ACCENTS[rec.chapter] ?? 'var(--t-brand)';
   const emoji = CHAPTER_EMOJI[rec.chapter] ?? '📖';
   const titleZh = CHAPTER_TITLE_ZH[rec.chapter] ?? STORY_TAGS[rec.chapter]?.story ?? '';
   const titleEn = CHAPTER_TITLE_EN[rec.chapter] ?? '';
@@ -188,7 +188,7 @@ export default function GrandmaRecommendCarousel({ forceShow = false, limit = 3 
       <div style={{
         display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 8,
       }}>
-        <span style={{ fontSize: 15, fontWeight: 900, color: '#3c2a1c' }}>
+        <span style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
           今天奶奶的推薦
         </span>
         <span style={{ fontSize: 11, fontWeight: 700, color: '#7a6850', fontStyle: 'italic' }}>

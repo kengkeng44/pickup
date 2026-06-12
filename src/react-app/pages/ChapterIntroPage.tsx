@@ -46,20 +46,20 @@ export default function ChapterIntroPage() {
   return (
     <div style={{ padding: '20px 18px 24px', display: 'flex', flexDirection: 'column', minHeight: '100dvh' }}>
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 18 }}>
-        <button onClick={() => navigate('/chapters')} aria-label="返回" style={{ background: 'transparent', border: 'none', fontSize: 24, color: '#8b6f4a', cursor: 'pointer' }}>‹</button>
-        <span style={{ marginLeft: 8, fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>SECTION {ch}</span>
+        <button onClick={() => navigate('/chapters')} aria-label="返回" style={{ background: 'transparent', border: 'none', fontSize: 24, color: 'var(--t-text-muted)', cursor: 'pointer' }}>‹</button>
+        <span style={{ marginLeft: 8, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>SECTION {ch}</span>
       </div>
 
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
         <div style={{ fontSize: 72, marginBottom: 12 }}>{meta?.emoji ?? '📖'}</div>
-        <div style={{ fontSize: 24, fontWeight: 900, color: '#3c2a1c', marginBottom: 4 }}>{meta?.zh}</div>
-        <div style={{ fontSize: 14, color: '#8b6f4a', fontWeight: 600, marginBottom: 28 }}>{meta?.en}</div>
+        <div style={{ fontSize: 24, fontWeight: 900, color: 'var(--t-text)', marginBottom: 4 }}>{meta?.zh}</div>
+        <div style={{ fontSize: 14, color: 'var(--t-text-muted)', fontWeight: 600, marginBottom: 28 }}>{meta?.en}</div>
 
         {introZh && (
           <div style={{
-            background: '#fff7e8', border: '2px solid #c8a878',
+            background: 'var(--t-surface-alt)', border: '2px solid #c8a878',
             borderRadius: 14, padding: '16px 18px',
-            fontSize: 15, color: '#3c2a1c', lineHeight: 1.7, fontWeight: 600,
+            fontSize: 15, color: 'var(--t-text)', lineHeight: 1.7, fontWeight: 600,
             marginBottom: 28, textAlign: 'left',
           }}>
             {introZh}
@@ -80,8 +80,8 @@ export default function ChapterIntroPage() {
         onClick={start}
         style={{
           width: '100%', padding: '16px 0',
-          background: '#7ac74a', color: '#fff',
-          border: 'none', borderBottom: '4px solid #5d9a35', borderRadius: 14,
+          background: 'var(--t-success)', color: '#fff',
+          border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 14,
           fontSize: 17, fontWeight: 900, letterSpacing: 1,
           cursor: 'pointer', fontFamily: 'inherit',
         }}
@@ -94,7 +94,7 @@ export default function ChapterIntroPage() {
         aria-label="Replay intro"
         style={{
           marginTop: 8, width: '100%', padding: '8px 0',
-          background: 'transparent', color: '#8b6f4a',
+          background: 'transparent', color: 'var(--t-text-muted)',
           border: 'none', fontSize: 12, fontWeight: 700,
           cursor: 'pointer', fontFamily: 'inherit',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6,

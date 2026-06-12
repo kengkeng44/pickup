@@ -112,7 +112,7 @@ export default function LessonPage() {
   }, [idx, history, lesson, chapter, lessonId]);
 
   if (!lesson) {
-    return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>載入中…</div>;
+    return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
   }
 
   const done = idx >= lesson.questions.length;
@@ -167,7 +167,7 @@ export default function LessonPage() {
           <div style={{
             width: `${Math.max(4, ((idx + 1) / lesson.questions.length) * 100)}%`,
             height: '100%',
-            background: '#7d9a4f',
+            background: 'var(--t-success)',
             borderRadius: 999,
             boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.28)',
             transition: 'width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -206,7 +206,7 @@ function MuteToggleBtn() {
         // v2.0.B.286: 統一用 icon-speaker.webp (user-generated, 跟 KeySentencesSheet 同 icon)
         // mute 狀態: opacity 0.4 + 紅斜線 overlay 表示靜音, 而非 🔇 emoji
         background: muted ? '#f0e6d8' : 'transparent',
-        border: muted ? '2px solid #8b6f4a' : '2px solid transparent',
+        border: muted ? '2px solid var(--t-text-muted)' : '2px solid transparent',
         cursor: 'pointer', width: 44, height: 44, padding: 0,
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
         borderRadius: 12, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -218,7 +218,7 @@ function MuteToggleBtn() {
         <span aria-hidden="true" style={{
           position: 'absolute', inset: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 30, color: '#c84a3a', fontWeight: 900, lineHeight: 1,
+          fontSize: 30, color: 'var(--t-danger)', fontWeight: 900, lineHeight: 1,
           transform: 'rotate(-20deg)', pointerEvents: 'none',
         }}>/</span>
       )}
@@ -233,7 +233,7 @@ function NarrativeLine({ text }: { text: string }) {
     if (ref.current) { try { wireSentenceHints(ref.current); } catch {} }
   });
   return (
-    <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: '#3c2a1c', lineHeight: 1.7, fontWeight: 600 }}>
+    <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: 'var(--t-text)', lineHeight: 1.7, fontWeight: 600 }}>
       {/* v2.0.B.187 P1-A: speaker tap 22 → 44px HIG (內含 20px img + 12px halo padding) */}
       <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 44, height: 44, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
         <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ opacity: 0.7 }} />
@@ -359,11 +359,11 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
-      <div style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
+      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
-        <Stat label="XP" value={xp} color="#b07a2a" bg="#fef3c7" />
-        <Stat label="ACCURACY" value={`${accuracy}%`} color="#5d9a35" bg="#eaf6d5" />
-        <Stat label="TIME" value={timeStr} color="#8b6f4a" bg="#fef8ed" />
+        <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="#fef3c7" />
+        <Stat label="ACCURACY" value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
+        <Stat label="TIME" value={timeStr} color="var(--t-text-muted)" bg="var(--t-bg)" />
       </div>
       {/* v2.0.B.232 招 1: streak / freeze 結果 banner.
           - 累積 / 新增 → 🔥 N 天
@@ -389,7 +389,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           background: 'transparent',
           border: '1.5px dashed #c8a878',
           borderRadius: 10,
-          color: '#8b6f4a',
+          color: 'var(--t-text-muted)',
           fontSize: 14,
           fontWeight: 700,
           textAlign: 'center',
@@ -410,8 +410,8 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           }}
           aria-label="Share key sentence"
           style={{
-            padding: '14px 20px', background: '#fff7e8', color: '#7a5e25',
-            border: '2px solid #e7a44a', borderBottom: '4px solid #b07a2a',
+            padding: '14px 20px', background: 'var(--t-surface-alt)', color: '#7a5e25',
+            border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)',
             borderRadius: 14, fontSize: 15, fontWeight: 800,
             cursor: 'pointer', fontFamily: 'inherit',
             width: '100%', maxWidth: 420, marginBottom: 10,
@@ -428,15 +428,15 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           Middle lessons keep the classic Continue button (no flow change). */}
       {isLastLessonOfChapter ? (
         <button onClick={() => setShowNextStoryPicker(true)} style={{
-          padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
-          borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          padding: '16px 24px', background: 'var(--t-success)', color: '#fff', border: 'none',
+          borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
       ) : (
         <button onClick={onBack} style={{
-          padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
-          borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          padding: '16px 24px', background: 'var(--t-success)', color: '#fff', border: 'none',
+          borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="完成 Continue">→</button>
@@ -569,7 +569,7 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
     <div className="pickup-fade-up" style={{
       marginBottom: 12,
       padding: '12px 14px',
-      background: '#fff7e8',
+      background: 'var(--t-surface-alt)',
       border: `2px solid ${accent}`,
       borderBottom: `4px solid ${accent}`,
       borderRadius: 12,
@@ -578,8 +578,8 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
     }}>
       <span style={{ fontSize: 28 }}>{icon}</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>{zh}</div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>{en}</div>
+        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>{zh}</div>
+        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>{en}</div>
       </div>
     </div>
   );
@@ -592,18 +592,18 @@ function NewCardsBanner({ count }: { count: number }) {
       marginBottom: 12,
       padding: '12px 14px',
       background: '#fef3c7',
-      border: '2px solid #e7a44a',
-      borderBottom: '4px solid #b07a2a',
+      border: '2px solid var(--t-brand)',
+      borderBottom: '4px solid var(--t-brand-dark)',
       borderRadius: 12,
       display: 'flex', alignItems: 'center', gap: 12,
       maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
     }}>
       <span style={{ fontSize: 28 }}>📒</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
           你解鎖了 {count} 張新卡片!
         </div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
+        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
           You unlocked {count} new card{count > 1 ? 's' : ''}. Check 圖鑑 tab.
         </div>
       </div>
@@ -625,21 +625,21 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
     <div className="pickup-fade-up" style={{
       marginBottom: 12,
       padding: '12px 14px',
-      background: '#fff7e8',
+      background: 'var(--t-surface-alt)',
       border: '2px solid #c8a878',
-      borderBottom: '4px solid #8b6f4a',
+      borderBottom: '4px solid var(--t-text-muted)',
       borderRadius: 12,
       display: 'flex', alignItems: 'center', gap: 12,
       maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
     }}>
       <span style={{ fontSize: 28 }} aria-hidden="true">{firstBadge}</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
+        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
           {outfits.length === 1
             ? `新裝扮:${namesZh}`
             : `${outfits.length} 套新裝扮:${namesZh}`}
         </div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
+        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
           New outfit{outfits.length > 1 ? 's' : ''}: {namesEn} · 我的 → 衣櫥 試穿
         </div>
       </div>
@@ -650,7 +650,7 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
 function Stat({ label, value, color, bg }: { label: string; value: number | string; color: string; bg: string }) {
   return (
     <div style={{ flex: 1, padding: '12px 8px', background: bg, border: `2px solid ${color}`, borderBottom: `4px solid ${color}`, borderRadius: 14, opacity: 0.95 }}>
-      <div style={{ fontSize: 11, fontWeight: 800, color: '#8b6f4a', letterSpacing: 1, marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', letterSpacing: 1, marginBottom: 4 }}>{label}</div>
       <div style={{ fontSize: 22, fontWeight: 900, color }}>{value}</div>
     </div>
   );
