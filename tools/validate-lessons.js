@@ -28,6 +28,10 @@ const repoRoot = resolve(__dirname, '..');
 const publicDir = resolve(repoRoot, 'public');
 
 const STRICT = process.env.MIRROR_LINT_STRICT === '1';
+// v2.0.B.277: R2 length-parity is now fail-on-violation by default (corpus is
+// at 0 after B.273-276, so this only catches regressions). Escape hatch:
+// R2_LINT_OFF=1 downgrades it back to warn-only.
+const R2_OFF = process.env.R2_LINT_OFF === '1';
 
 const STOPWORDS = new Set([
   'a', 'an', 'the', 'is', 'am', 'are', 'was', 'were', 'be', 'been', 'being',
@@ -171,6 +175,7 @@ if (files.length === 0) {
 
 let allOk = true;
 let totalIssues = 0;
+let r2Total = 0;
 for (const file of files) {
   const path = resolve(publicDir, file);
   try {
@@ -183,6 +188,7 @@ for (const file of files) {
     const mirrorIssues = lintMirror(raw, file);
     const extendedIssues = lintExtended(raw, file);
     const r2Issues = lintR2LengthParity(raw, file);
+    r2Total += r2Issues.length;
     const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
@@ -202,6 +208,11 @@ if (totalIssues > 0) {
   console.warn(`\nTotal mirror-lint issues: ${totalIssues}`);
   if (STRICT) console.error('STRICT mode: build failed.');
   else console.warn('(warn-only; set MIRROR_LINT_STRICT=1 to fail build)');
+}
+// R2 length-parity: fail-on-violation by default (regression guard).
+if (r2Total > 0 && !R2_OFF) {
+  console.error(`\n${r2Total} R2 length-tell violation(s) (X8_R2_LENGTH_*). R2 is fail-on-violation — expand short distractors to within 1.5× of the correct option, or set R2_LINT_OFF=1 to bypass.`);
+  allOk = false;
 }
 if (!allOk) {
   console.error('\nValidation failed. Run `npm test` for full Zod validation details.');
