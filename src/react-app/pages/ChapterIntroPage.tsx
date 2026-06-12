@@ -57,7 +57,7 @@ export default function ChapterIntroPage() {
 
         {introZh && (
           <div style={{
-            background: 'var(--t-surface-alt)', border: '2px solid #c8a878',
+            background: 'var(--t-surface-alt)', border: '2px solid var(--t-border-card)',
             borderRadius: 14, padding: '16px 18px',
             fontSize: 15, color: 'var(--t-text)', lineHeight: 1.7, fontWeight: 600,
             marginBottom: 28, textAlign: 'left',
@@ -80,7 +80,7 @@ export default function ChapterIntroPage() {
         onClick={start}
         style={{
           width: '100%', padding: '16px 0',
-          background: 'var(--t-success)', color: '#fff',
+          background: 'var(--t-success)', color: 'var(--t-surface)',
           border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 14,
           fontSize: 17, fontWeight: 900, letterSpacing: 1,
           cursor: 'pointer', fontFamily: 'inherit',

@@ -367,7 +367,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
       <span style={{
         alignSelf: 'flex-start',
         fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 999,
-        background: '#fef3c7', color: '#7a5e25', letterSpacing: 0.3,
+        background: 'var(--t-tint-warn)', color: '#7a5e25', letterSpacing: 0.3,
       }}>{culture}</span>
     </button>
   );

@@ -507,7 +507,7 @@ export default function MapPage() {
             margin: '4px 14px 6px',
             display: 'block',
             background: 'var(--t-surface-alt)',
-            border: '2px solid #c8a878',
+            border: '2px solid var(--t-border-card)',
             borderBottom: '4px solid var(--t-text-muted)',
             borderRadius: 12,
             padding: '10px 14px',

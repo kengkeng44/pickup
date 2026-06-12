@@ -140,7 +140,7 @@ function RecCard({ rec, onTap }: RecCardProps) {
         {chips.map((c, i) => (
           <span key={i} style={{
             fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 999,
-            background: 'rgba(255,255,255,0.22)', color: '#ffffff', letterSpacing: 0.3,
+            background: 'rgba(255,255,255,0.22)', color: 'var(--t-surface)', letterSpacing: 0.3,
           }}>{c}</span>
         ))}
       </div>

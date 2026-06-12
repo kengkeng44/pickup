@@ -46,7 +46,7 @@ export default function LessonView({ onComplete }: Props) {
     <div style={{ padding: '14px 14px 24px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 }}>
         <button onClick={onComplete} style={{ background: 'transparent', border: 'none', fontSize: 20, cursor: 'pointer', color: 'var(--t-text-muted)' }}>✕</button>
-        <span style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', background: '#fef3c7', padding: '4px 9px', borderRadius: 8 }}>q3/14</span>
+        <span style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', background: 'var(--t-tint-warn)', padding: '4px 9px', borderRadius: 8 }}>q3/14</span>
       </div>
 
       {/* Narrative chat flow (history archive) */}
@@ -68,7 +68,7 @@ export default function LessonView({ onComplete }: Props) {
         </div>
       ) : (
         <div style={{ padding: '14px 12px 6px' }}>
-          <div style={{ fontSize: 14, color: '#5a4530', lineHeight: 1.7, padding: '12px 14px', background: 'var(--t-bg)', borderLeft: '3px solid #c8a878', borderRadius: '0 10px 10px 0' }}>
+          <div style={{ fontSize: 14, color: '#5a4530', lineHeight: 1.7, padding: '12px 14px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 10px 10px 0' }}>
             {SAMPLE_Q.explanationZh}
           </div>
         </div>
@@ -85,9 +85,9 @@ export default function LessonView({ onComplete }: Props) {
                 width: '100%',
                 padding: '14px 16px',
                 marginBottom: 8,
-                background: '#fff',
+                background: 'var(--t-surface)',
                 color: 'var(--t-text)',
-                border: '2px solid #c8a878',
+                border: '2px solid var(--t-border-card)',
                 borderBottom: '4px solid var(--t-brand-dark)',
                 borderRadius: 14,
                 fontSize: 16,

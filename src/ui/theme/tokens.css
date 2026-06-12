@@ -18,6 +18,9 @@
   --t-surface-alt: #fff7e8;   /* tinted card / banner */
   --t-border: #ead9bb;
   --t-border-strong: #d4c098;
+  --t-border-card: #c8a878;   /* stronger card border (react-app 46×) */
+  --t-border-soft: #e0d0b8;   /* light divider / stat tile border */
+  --t-tint-warn: #fef3c7;     /* amber highlight tint */
 
   /* ── Color: text ── */
   --t-text: #3c2a1c;          /* dominant warm dark (react-app 77×) */
@@ -70,6 +73,9 @@
   --t-surface-alt: #2e241a;
   --t-border: #3a2e22;
   --t-border-strong: #4a3c2c;
+  --t-border-card: #4a3c2c;
+  --t-border-soft: #3a2e22;
+  --t-tint-warn: #3a3220;
   --t-text: #f0e6d8;
   --t-text-muted: #b09a7e;
   --t-text-inverse: #1a1410;

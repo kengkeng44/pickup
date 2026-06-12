@@ -96,7 +96,7 @@ export default function InfiniteMapPage() {
           {totalDone}<span style={{ fontSize: 16, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {nodes.length}</span>
         </div>
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>{totalPct}%</div>
-        <div style={{ marginTop: 8, height: 7, background: '#fef3c7', borderRadius: 4, overflow: 'hidden' }}>
+        <div style={{ marginTop: 8, height: 7, background: 'var(--t-tint-warn)', borderRadius: 4, overflow: 'hidden' }}>
           <div style={{
             height: '100%',
             width: `${totalPct}%`,

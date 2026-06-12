@@ -127,7 +127,7 @@ export default function ChaptersPage() {
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
           {totalPercent}% 完成
         </div>
-        <div style={{ marginTop: 10, height: 8, background: '#fef3c7', borderRadius: 4, overflow: 'hidden' }}>
+        <div style={{ marginTop: 10, height: 8, background: 'var(--t-tint-warn)', borderRadius: 4, overflow: 'hidden' }}>
           <div style={{
             height: '100%',
             width: `${totalPercent}%`,
@@ -164,8 +164,8 @@ export default function ChaptersPage() {
                 padding: '8px 14px',
                 background: tab === t.id ? 'var(--t-brand)' : 'var(--t-surface-alt)',
                 color: tab === t.id ? '#fff' : 'var(--t-text-muted)',
-                border: tab === t.id ? 'none' : '1px solid #c8a878',
-                borderBottom: tab === t.id ? '3px solid var(--t-brand-dark)' : '1px solid #c8a878',
+                border: tab === t.id ? 'none' : '1px solid var(--t-border-card)',
+                borderBottom: tab === t.id ? '3px solid var(--t-brand-dark)' : '1px solid var(--t-border-card)',
                 borderRadius: 999,
                 fontSize: 13,
                 fontWeight: 800,
@@ -224,7 +224,7 @@ export default function ChaptersPage() {
                     style={{
                       minHeight: 160,
                       background: isComplete ? 'var(--t-success-tint)' : unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
-                      border: `2px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand)' : '#c8a878'}`,
+                      border: `2px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
                       borderBottom: `4px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)'}`,
                       borderRadius: 14,
                       padding: '12px 8px 10px',
