@@ -38,7 +38,7 @@ export default function MapView({ onPickLesson }: Props) {
             marginBottom: 12,
             background: ch.unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
             color: ch.unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
-            border: `2px solid ${ch.unlocked ? 'var(--t-brand)' : '#c8a878'}`,
+            border: `2px solid ${ch.unlocked ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
             borderBottom: `4px solid ${ch.unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)'}`,
             borderRadius: 14,
             cursor: ch.unlocked ? 'pointer' : 'not-allowed',
@@ -59,12 +59,12 @@ export default function MapView({ onPickLesson }: Props) {
               // v2.0.B.254 P0 fix (UX + PW agent from B.253 5-agent post-ship):
               // 兒童首訪看 0/24 + 空白條 = demotivate, t=5s 流失. 改 invitation banner
               // 邀請 framing, 完成 1 題後切回真實進度條. 雙語並列符合 memory rule.
-              <div style={{ padding: '8px 12px', background: '#fef3c7', border: '2px dashed var(--t-brand)', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 800, color: '#7a5e25' }}>
+              <div style={{ padding: '8px 12px', background: 'var(--t-tint-warn)', border: '2px dashed var(--t-brand)', borderRadius: 8, textAlign: 'center', fontSize: 12, fontWeight: 800, color: '#7a5e25' }}>
                 👇 {ch.total} 題等你開始 · Tap to start {ch.total} lessons
               </div>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <div style={{ flex: 1, height: 6, background: '#fef3c7', borderRadius: 3, overflow: 'hidden' }}>
+                <div style={{ flex: 1, height: 6, background: 'var(--t-tint-warn)', borderRadius: 3, overflow: 'hidden' }}>
                   {/* v2.0.B.254: Duo bright green var(--t-success) → olive var(--t-success) (UI-UX cron 1208 P2 + v1.9.36 token migration) */}
                   <div style={{ height: '100%', width: `${(ch.progress / ch.total) * 100}%`, background: 'var(--t-success)' }} />
                 </div>

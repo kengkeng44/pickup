@@ -111,7 +111,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
 }) => {
   const bg = state === 'correct' ? 'var(--t-success-tint)' : state === 'wrong' ? '#fde0d2' : state === 'shown' ? 'var(--t-bg)' : '#fff';
   const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? '#a23829' : 'var(--t-text)';
-  const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : '#c8a878';
+  const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : 'var(--t-border-card)';
   return (
     <button onClick={onClick} disabled={disabled} style={{
       width: '100%', padding: '14px 16px', marginBottom: 8,
@@ -127,7 +127,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
 };
 
 const Explanation = ({ text }: { text: string }) => text ? (
-  <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
+  <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
     {text}
   </div>
 ) : null;
@@ -136,7 +136,7 @@ const Explanation = ({ text }: { text: string }) => text ? (
 // mochi 1st-person | grandma 奶奶說的 | hana 柴犬 | narrator 背景旁白
 const SPEAKER_META: Record<string, { emoji: string; label: string; bg: string; fg: string }> = {
   mochi:    { emoji: '🐱', label: 'Mochi',   bg: '#fed7aa', fg: '#9a3412' },
-  grandma:  { emoji: '👵', label: 'Grandma', bg: '#fef3c7', fg: '#78350f' },
+  grandma:  { emoji: '👵', label: 'Grandma', bg: 'var(--t-tint-warn)', fg: '#78350f' },
   hana:     { emoji: '🐕', label: 'Hana',    bg: '#f5e6d3', fg: '#6b4226' },
   narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
 };
@@ -251,7 +251,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     return (
       <div ref={ref} className="pickup-lesson-words">
         <SpeakerBadge speaker={q.speaker} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text-muted)', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
@@ -266,7 +266,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div ref={ref} className="pickup-lesson-words" style={{ padding: '14px 6px 8px' }}>
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', borderRadius: 12, border: '1px solid #e0d0b8', marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', borderRadius: 12, border: '1px solid var(--t-border-soft)', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={36} />
         <span dangerouslySetInnerHTML={{ __html: wrapWords(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }} />
       </div>
@@ -320,12 +320,12 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div ref={ref} className="pickup-lesson-words">
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <span dangerouslySetInnerHTML={{ __html: revealed ? wrapWords(en) : blanks(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: revealed ? 'var(--t-text)' : 'var(--t-text-muted)', letterSpacing: revealed ? 0 : '0.1em', lineHeight: 1.8 }} />
       </div>
       {qPrompt && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(qPrompt, 'en-US', { force: true })} size={36} />
           <span dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} style={{ flex: 1, fontSize: 16, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.5 }} />
         </div>
@@ -379,7 +379,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>聽聲音, 打出你聽到的句子</div>
       </div>
@@ -391,16 +391,16 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         rows={3}
         style={{
           width: '100%', padding: 10, fontSize: 15, fontFamily: 'inherit',
-          border: '2px solid #c8a878', borderRadius: 10, background: '#fff', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
+          border: '2px solid var(--t-border-card)', borderRadius: 10, background: 'var(--t-surface)', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
         }}
       />
       <button onClick={submit} disabled={revealed || !text.trim()} style={{
-        width: '100%', padding: '12px 0', background: revealed || !text.trim() ? '#c8a878' : 'var(--t-success)',
+        width: '100%', padding: '12px 0', background: revealed || !text.trim() ? 'var(--t-border-card)' : 'var(--t-success)',
         color: '#fff', border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 15, fontWeight: 900,
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
       }}>送出 · Submit</button>
       {revealed && (
-        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
+        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           正解: <strong>{en}</strong>
           {q.explanationZh && <div style={{ marginTop: 6 }}>{q.explanationZh}</div>}
         </div>
@@ -505,7 +505,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>
           聽聲音, 點字排出句子 · Tap words to fill the blanks
@@ -514,7 +514,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* ordered slots (one per word) — tap to place */}
       <div style={{
         minHeight: 60, padding: '12px 10px',
-        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
         marginBottom: 12,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
@@ -527,7 +527,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               display: 'inline-block',
               minWidth: filled ? undefined : 60,
               padding: filled ? '6px 12px' : '6px 10px',
-              background: filled ? 'var(--t-success-tint)' : isNext ? '#fef3c7' : '#f1ebe1',
+              background: filled ? 'var(--t-success-tint)' : isNext ? 'var(--t-tint-warn)' : '#f1ebe1',
               color: filled ? 'var(--t-text)' : '#a89c80',
               border: `2px dashed ${isNext ? 'var(--t-brand)' : '#c4b89c'}`,
               borderStyle: filled ? 'solid' : 'dashed',
@@ -558,9 +558,9 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               className={isWobble ? 'pickup-wobble' : undefined}
               style={{
                 padding: '10px 16px',
-                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : '#fff',
-                color: isPlaced ? '#c8a878' : 'var(--t-text)',
-                border: `2px solid ${isHint ? 'var(--t-brand)' : '#c8a878'}`,
+                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : 'var(--t-surface)',
+                color: isPlaced ? 'var(--t-border-card)' : 'var(--t-text)',
+                border: `2px solid ${isHint ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
                 borderBottom: `3px solid ${isHint ? 'var(--t-brand-dark)' : 'var(--t-brand-dark)'}`,
                 borderRadius: 10,
                 fontSize: 15, fontWeight: 700,
@@ -671,9 +671,9 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   // Shared card style — green when matched, amber when selected, white default
   const cardStyle = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
     padding: '14px 10px',
-    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? '#fef3c7' : '#fff',
+    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
     color: 'var(--t-text)',
-    border: state === 'matched' ? '2px solid var(--t-success)' : '2px solid #c8a878',
+    border: state === 'matched' ? '2px solid var(--t-success)' : '2px solid var(--t-border-card)',
     borderBottom: state === 'matched' ? '3px solid var(--t-success)' : '3px solid var(--t-brand-dark)',
     borderRadius: 12,
     fontSize: 15, fontWeight: 800,
@@ -786,7 +786,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" className="pickup-bounce" style={{ borderRadius: '50%', marginBottom: 18 }} />
         <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7, marginBottom: 24 }}>{afterText}</p>
         <button onClick={() => onAdvance(prompt)} style={{
-          padding: '16px 24px', background: 'var(--t-brand)', color: '#fff', border: 'none',
+          padding: '16px 24px', background: 'var(--t-brand)', color: 'var(--t-surface)', border: 'none',
           borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -807,8 +807,8 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           const isShaking = shakeIdx === i;
           return (
             <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : ''} aria-label={`${label} ${optsZh[i] || ''}`} style={{
-              padding: '14px 8px', background: '#fff', border: '2px solid #e0d0b8',
-              borderBottom: '4px solid #c8a878', borderRadius: 14,
+              padding: '14px 8px', background: 'var(--t-surface)', border: '2px solid var(--t-border-soft)',
+              borderBottom: '4px solid var(--t-border-card)', borderRadius: 14,
               cursor: 'pointer', fontFamily: 'inherit',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
               WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -881,7 +881,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words" style={{ textAlign: 'center', padding: '12px 4px' }}>
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 18 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 18 }}>
         <SpeakerBtn onClick={() => speak(word, 'en-US', { force: true })} size={56} />
         <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t-text-muted)' }}>聽聲音 · 選對應的圖</div>
       </div>
@@ -897,9 +897,9 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             : isCorrect ? 'var(--t-success-tint)'
             : isSel ? '#fde0d2' : '#fff';
           const border = !revealed
-            ? '#e0d0b8'
+            ? 'var(--t-border-soft)'
             : isCorrect ? 'var(--t-success)'
-            : isSel ? 'var(--t-danger)' : '#e0d0b8';
+            : isSel ? 'var(--t-danger)' : 'var(--t-border-soft)';
           return (
             <button
               key={i}
@@ -911,7 +911,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 padding: '20px 8px',
                 background: bg,
                 border: `2px solid ${border}`,
-                borderBottom: `4px solid ${revealed && isCorrect ? 'var(--t-success)' : '#c8a878'}`,
+                borderBottom: `4px solid ${revealed && isCorrect ? 'var(--t-success)' : 'var(--t-border-card)'}`,
                 borderRadius: 14,
                 cursor: revealed ? 'default' : 'pointer',
                 fontFamily: 'inherit',
@@ -973,7 +973,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '24px 16px', background: 'var(--t-surface-alt)',
-        border: '2px solid #e0d0b8', borderRadius: 16, marginBottom: 14,
+        border: '2px solid var(--t-border-soft)', borderRadius: 16, marginBottom: 14,
         minHeight: 140,
       }}>
         {q.imageUrl ? (
@@ -982,7 +982,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <span style={{ fontSize: 96, lineHeight: 1 }}>{q.imageEmoji ?? '🖼️'}</span>
         )}
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={32} />
         <span style={{ flex: 1, fontSize: 14, fontWeight: 800, color: 'var(--t-text)' }}>{prompt}</span>
       </div>
@@ -1053,14 +1053,14 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
       <SpeakerBadge speaker={q.speaker} />
       {/* prompt */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={36} />
         <span style={{ flex: 1, fontSize: 16, fontWeight: 800, color: 'var(--t-text)' }}>{prompt}</span>
       </div>
       {/* sentence with tappable words */}
       <div style={{
-        padding: '16px 14px', background: '#fff',
-        border: '2px solid #c8a878', borderRadius: 14, marginBottom: 10,
+        padding: '16px 14px', background: 'var(--t-surface)',
+        border: '2px solid var(--t-border-card)', borderRadius: 14, marginBottom: 10,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
         {words.map((w, i) => {
@@ -1070,8 +1070,8 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             ? isTapped ? '#fde0d2' : '#fff'
             : isCorrect ? 'var(--t-success-tint)' : isTapped && !isCorrect ? '#fde0d2' : '#fff';
           const border = !revealed
-            ? isTapped ? 'var(--t-danger)' : '#c8a878'
-            : isCorrect ? 'var(--t-success)' : isTapped && !isCorrect ? 'var(--t-danger)' : '#c8a878';
+            ? isTapped ? 'var(--t-danger)' : 'var(--t-border-card)'
+            : isCorrect ? 'var(--t-success)' : isTapped && !isCorrect ? 'var(--t-danger)' : 'var(--t-border-card)';
           const color = revealed && isCorrect ? 'var(--t-success)' : 'var(--t-text)';
           return (
             <button
@@ -1188,7 +1188,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <span key={`b${i}`} style={{
           display: 'inline-block', minWidth: filled ? undefined : 56,
           padding: '2px 10px',
-          background: filled ? 'var(--t-success-tint)' : i === nextSlot && !revealed ? '#fef3c7' : '#f1ebe1',
+          background: filled ? 'var(--t-success-tint)' : i === nextSlot && !revealed ? 'var(--t-tint-warn)' : '#f1ebe1',
           color: filled ? 'var(--t-text)' : '#a89c80',
           border: `2px ${filled ? 'solid var(--t-success)' : i === nextSlot && !revealed ? 'dashed var(--t-brand)' : 'dashed #c4b89c'}`,
           borderRadius: 8,
@@ -1203,7 +1203,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'), 'en-US', { force: true })} size={36} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>
           點字填空 · Tap to fill the blank
@@ -1212,7 +1212,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* sentence with slots */}
       <div style={{
         minHeight: 60, padding: '14px 12px',
-        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
         marginBottom: 14, fontSize: 15, fontWeight: 700, color: 'var(--t-text)',
         lineHeight: 1.9,
       }}>
@@ -1234,9 +1234,9 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               aria-label={`Tile: ${t}`}
               style={{
                 padding: '10px 16px',
-                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : '#fff',
-                color: isPlaced ? '#c8a878' : 'var(--t-text)',
-                border: `2px solid ${isHint ? 'var(--t-brand)' : '#c8a878'}`,
+                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : 'var(--t-surface)',
+                color: isPlaced ? 'var(--t-border-card)' : 'var(--t-text)',
+                border: `2px solid ${isHint ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
                 borderBottom: `3px solid ${isHint ? 'var(--t-brand-dark)' : 'var(--t-brand-dark)'}`,
                 borderRadius: 10,
                 fontSize: 15, fontWeight: 700,
@@ -1355,7 +1355,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{
         display: 'flex', alignItems: 'center', gap: 10,
         padding: '14px 16px',
-        background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8',
+        background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)',
         borderRadius: 12, marginBottom: 12,
       }}>
         <SpeakerBtn onClick={() => speak(sentence, 'en-US', { force: true })} size={52} />
@@ -1364,7 +1364,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           aria-label="Slow replay"
           style={{
             padding: '8px 12px',
-            background: '#fef3c7',
+            background: 'var(--t-tint-warn)',
             color: 'var(--t-text-muted)',
             border: '2px solid var(--t-brand)',
             borderBottom: '3px solid var(--t-brand-dark)',
@@ -1384,7 +1384,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* ordered slots — fully blind, no sentence template shown */}
       <div style={{
         minHeight: 60, padding: '14px 12px',
-        background: '#fff', border: '2px solid #c8a878', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
         marginBottom: 12,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
@@ -1396,7 +1396,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               display: 'inline-block',
               minWidth: filled ? undefined : 60,
               padding: filled ? '6px 12px' : '6px 10px',
-              background: filled ? 'var(--t-success-tint)' : isNext ? '#fef3c7' : '#f1ebe1',
+              background: filled ? 'var(--t-success-tint)' : isNext ? 'var(--t-tint-warn)' : '#f1ebe1',
               color: filled ? 'var(--t-text)' : '#a89c80',
               border: `2px ${filled ? 'solid var(--t-success)' : isNext ? 'dashed var(--t-brand)' : 'dashed #c4b89c'}`,
               borderRadius: 8,
@@ -1424,9 +1424,9 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               aria-label={`Tile: ${t}`}
               style={{
                 padding: '10px 16px',
-                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : '#fff',
-                color: isPlaced ? '#c8a878' : 'var(--t-text)',
-                border: `2px solid ${isHint ? 'var(--t-brand)' : '#c8a878'}`,
+                background: isPlaced ? '#e8dec8' : isHint ? 'var(--t-surface-alt)' : 'var(--t-surface)',
+                color: isPlaced ? 'var(--t-border-card)' : 'var(--t-text)',
+                border: `2px solid ${isHint ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
                 borderBottom: `3px solid ${isHint ? 'var(--t-brand-dark)' : 'var(--t-brand-dark)'}`,
                 borderRadius: 10,
                 fontSize: 15, fontWeight: 700,
@@ -1559,7 +1559,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <span style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.6 }}>{en}</span>
       </div>
@@ -1576,7 +1576,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             className={recording ? 'pickup-pulse' : ''}
             style={{
               width: 96, height: 96, borderRadius: '50%',
-              background: recording ? 'var(--t-danger)' : revealed ? '#c8a878' : 'var(--t-brand)',
+              background: recording ? 'var(--t-danger)' : revealed ? 'var(--t-border-card)' : 'var(--t-brand)',
               border: 'none', borderBottom: '5px solid var(--t-brand-dark)',
               color: '#fff', fontSize: 38,
               cursor: recording || revealed ? 'default' : 'pointer',
@@ -1590,7 +1590,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             onClick={skip}
             disabled={revealed}
             style={{
-              padding: '14px 20px', background: '#c8a878',
+              padding: '14px 20px', background: 'var(--t-border-card)',
               color: '#fff', border: 'none', borderBottom: '4px solid var(--t-text-muted)',
               borderRadius: 12, fontSize: 14, fontWeight: 800,
               cursor: revealed ? 'default' : 'pointer', fontFamily: 'inherit',
@@ -1605,7 +1605,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         </div>
       </div>
       {revealed && transcript && (
-        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
+        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           <div>聽到 · Heard: <strong>{transcript}</strong></div>
           <div style={{ marginTop: 4, color: matched ? 'var(--t-success)' : '#a23829', fontWeight: 800 }}>
             {matched ? '✓ 太棒了!' : '× 再練習一次'}

@@ -16,7 +16,7 @@ export default function TasksPage() {
     <div style={{ padding: '16px 14px 24px' }}>
       <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>每日任務</h1>
 
-      <div style={{ background: '#fff', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
           <div style={{ flex: 1 }}>
@@ -27,7 +27,7 @@ export default function TasksPage() {
       </div>
 
       {/* v2.0.B.232 招 1: freeze 🧊 hero card. Mochi 隊友 framing, not threat. */}
-      <div style={{ background: '#fff', border: '2px solid #5a8cc4', borderBottom: '4px solid #3e6da3', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid #5a8cc4', borderBottom: '4px solid #3e6da3', borderRadius: 14, padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🧊</span>
           <div style={{ flex: 1 }}>
@@ -45,10 +45,10 @@ export default function TasksPage() {
         { icon: '🔥', text: '連續學習至少 1 天 · Daily streak active', done: streakDone },
         { icon: '🎯', text: '正確率 ≥ 80% · Accuracy ≥ 80% (待 session log)', done: false },
       ].map((t, i) => (
-        <div key={i} style={{ background: '#fff', border: '1px solid #e0d0b8', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div key={i} style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border-soft)', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 22 }}>{t.icon}</span>
           <span style={{ flex: 1, fontSize: 14, color: 'var(--t-text)', fontWeight: 600 }}>{t.text}</span>
-          <span style={{ fontSize: 14, color: t.done ? 'var(--t-success)' : '#c8a878', fontWeight: 800 }}>{t.done ? '✓' : '○'}</span>
+          <span style={{ fontSize: 14, color: t.done ? 'var(--t-success)' : 'var(--t-border-card)', fontWeight: 800 }}>{t.done ? '✓' : '○'}</span>
         </div>
       ))}
     </div>

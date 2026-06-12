@@ -20,7 +20,7 @@ export default function BottomNav() {
   return (
     <nav style={{
       position: 'fixed', bottom: 0, left: 0, right: 0,
-      background: 'var(--t-surface-alt)', borderTop: '3px solid #c8a878',
+      background: 'var(--t-surface-alt)', borderTop: '3px solid var(--t-border-card)',
       display: 'flex', justifyContent: 'space-around', padding: '8px 0 calc(8px + env(safe-area-inset-bottom))',
       zIndex: 100,
     }}>
