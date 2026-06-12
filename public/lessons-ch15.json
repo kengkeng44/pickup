@@ -66,14 +66,14 @@
         "options": [
           "just one warm coat",
           "a huge number of coats",
-          "no coats at all",
-          "two old coats"
+          "no coats in his home",
+          "two old winter coats"
         ],
         "optionsZh": [
           "只有一件暖外套",
           "非常多件外套",
-          "完全沒外套",
-          "兩件舊外套"
+          "家裡完全沒外套",
+          "兩件舊的冬天外套"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: every hour of the day → 非常多件 (paraphrase)。",
@@ -318,13 +318,13 @@
         "options": [
           "yes, a big piece",
           "no, there was nothing",
-          "one small bit",
+          "yes, one small piece",
           "a soft blue scarf"
         ],
         "optionsZh": [
           "有,一大塊",
           "沒有,什麼都沒有",
-          "一小塊",
+          "有,一小片布",
           "一條軟藍圍巾"
         ],
         "correctIndex": 1,
@@ -425,13 +425,13 @@
         "options": [
           "people would pay double price",
           "no one would dare say it was empty",
-          "children loved it most",
+          "all the children loved it the most",
           "guards would protect them"
         ],
         "optionsZh": [
           "人們會付雙倍價錢",
           "沒人敢說看不到",
-          "小孩最喜歡",
+          "所有小孩都最喜歡它",
           "守衛會保護他們"
         ],
         "correctIndex": 1,
@@ -570,13 +570,13 @@
         "options": [
           "a bright blue cloth",
           "looms with no cloth on them",
-          "a basket of bread",
+          "a big basket of fresh bread",
           "a long silver sword"
         ],
         "optionsZh": [
           "亮藍色布",
           "空的織布機",
-          "一籃麵包",
+          "一大籃新鮮麵包",
           "長銀劍"
         ],
         "correctIndex": 1,
@@ -635,13 +635,13 @@
           "being seen as not clever",
           "too rich for the job",
           "sleepy after lunch",
-          "a bit too young"
+          "being seen as too young"
         ],
         "optionsZh": [
           "被當作不夠聰明",
           "太有錢",
           "午餐後想睡",
-          "有點太年輕"
+          "被當作太年輕"
         ],
         "correctIndex": 0,
         "explanationZh": "推理: 怕被當「不夠聰明」 → 不夠聰明 (paraphrase 直接套規則)。",
@@ -718,15 +718,15 @@
         "sentence": "How did the old minister really feel inside?",
         "question": "How did he really feel?",
         "options": [
-          "😊 truly proud",
+          "😊 truly proud and happy",
           "😨 worried about himself",
-          "😴 quite sleepy",
+          "😴 sleepy and very bored",
           "🤣 ready to laugh"
         ],
         "optionsZh": [
-          "真心驕傲",
+          "真心驕傲又開心",
           "擔心自己",
-          "想睡",
+          "想睡又很無聊",
           "想大笑"
         ],
         "correctIndex": 1,
@@ -972,14 +972,14 @@
         "options": [
           "📢 told the truth",
           "🙊 also told the same lie",
-          "🏃 ran away fast",
-          "😴 fell asleep"
+          "🏃 ran out of the palace",
+          "😴 fell asleep right there"
         ],
         "optionsZh": [
           "說真話",
           "也跟著說謊",
-          "快跑走",
-          "睡著"
+          "跑出皇宮外面",
+          "當場就睡著了"
         ],
         "correctIndex": 1,
         "explanationZh": "所有人點頭說美 → 也跟著說謊 (cascade)。",
@@ -1136,16 +1136,16 @@
         "sentence": "He walked tall under a soft cover held up by four men.",
         "question": "How was the emperor walking in the parade?",
         "options": [
-          "hiding behind a wall",
+          "hiding behind a tall wall",
           "showing himself for all to see",
           "sitting in a fast horse coach",
-          "running to the gate"
+          "running quickly to the gate"
         ],
         "optionsZh": [
-          "躲在牆後",
+          "躲在高牆後面",
           "讓所有人看見自己",
           "坐快馬車",
-          "跑到大門"
+          "快快跑向大門"
         ],
         "correctIndex": 1,
         "explanationZh": "推理: walked tall + four men cover → 公開展示 → 讓所有人看見 (paraphrase)。",
