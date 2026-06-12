@@ -17,8 +17,8 @@ export default function AlertsPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         {ACHIEVEMENTS.map(a => (
           <div key={a.id} style={{
-            background: a.earned ? '#fff' : '#f1ebe1',
-            border: `2px solid ${a.earned ? 'var(--t-brand)' : '#c8a878'}`,
+            background: a.earned ? 'var(--t-surface)' : '#f1ebe1',
+            border: `2px solid ${a.earned ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
             borderRadius: 12,
             padding: 12,
             textAlign: 'center',

@@ -8,6 +8,7 @@ import {
   bootScheduler,
 } from '../../notifications';
 import { readOutfit, getOutfitById } from '../../data/mascotOutfits';
+import { getTheme, toggleTheme } from '../../data/theme';
 
 // v2.0.B.234 招 3: lazy-load WardrobeView (modal opens on tap, not on mount).
 const WardrobeView = lazy(() => import('./WardrobeView'));
@@ -33,6 +34,8 @@ export default function ProfilePage() {
   const [notifsOn, setNotifsOn] = useState<boolean>(() => {
     try { return hasNotificationConsent(); } catch { return false; }
   });
+  // v2.0.B.282: night mode toggle.
+  const [dark, setDark] = useState<boolean>(() => getTheme() === 'dark');
 
   const saveCat = (v: string) => {
     setCatName(v);
@@ -56,7 +59,7 @@ export default function ProfilePage() {
     <div style={{ padding: '16px 14px 24px' }}>
       <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>我的</h1>
 
-      <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 64, height: 64, flex: '0 0 auto' }}>
           <img src="/mascots/calico-anchor.webp" width={64} height={64} alt={catName} style={{ display: 'block' }} />
           {outfitBadge && (
@@ -74,7 +77,7 @@ export default function ProfilePage() {
             placeholder="貓咪名字"
             style={{
               width: '100%', padding: 8, fontSize: 16, fontWeight: 700,
-              border: '2px solid #c8a878', borderRadius: 8, color: 'var(--t-text)',
+              border: '2px solid var(--t-border-card)', borderRadius: 8, color: 'var(--t-text)',
               fontFamily: 'inherit', background: 'var(--t-bg)',
             }}
           />
@@ -107,7 +110,7 @@ export default function ProfilePage() {
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>
 
-      <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14 }}>
         <h2 style={{ margin: '0 0 12px', fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>統計</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Stat label="連勝 Streak" value={`${streak} 🔥`} />
@@ -118,7 +121,7 @@ export default function ProfilePage() {
       </div>
 
       {/* v2.0.B.234 wiring: Mochi notifications toggle. Default off. */}
-      <div style={{ background: '#fff', border: '2px solid #c8a878', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>允許 Mochi 通知</div>
           <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2 }}>Mochi notifications · 偶爾捎封信給你</div>
@@ -138,8 +141,36 @@ export default function ProfilePage() {
         >
           <span style={{
             display: 'block', width: 24, height: 24, borderRadius: '50%',
-            background: '#fff', boxShadow: '0 1px 2px rgba(60,42,28,0.25)',
+            background: 'var(--t-surface)', boxShadow: '0 1px 2px rgba(60,42,28,0.25)',
             transform: notifsOn ? 'translateX(22px)' : 'translateX(0)',
+            transition: 'transform 160ms ease-out',
+          }} />
+        </button>
+      </div>
+
+      {/* v2.0.B.282: night mode toggle — bedtime-friendly dark theme. */}
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>夜間模式 🌙</div>
+          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2 }}>Night mode · 睡前護眼暗色</div>
+        </div>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={dark}
+          aria-label="夜間模式 · Night mode"
+          onClick={() => setDark(toggleTheme() === 'dark')}
+          style={{
+            width: 52, height: 30, borderRadius: 999, border: 'none', padding: 3,
+            background: dark ? 'var(--t-success)' : '#d8c9b3', cursor: 'pointer',
+            position: 'relative', transition: 'background 160ms ease-out',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >
+          <span style={{
+            display: 'block', width: 24, height: 24, borderRadius: '50%',
+            background: 'var(--t-surface)', boxShadow: '0 1px 2px rgba(60,42,28,0.25)',
+            transform: dark ? 'translateX(22px)' : 'translateX(0)',
             transition: 'transform 160ms ease-out',
           }} />
         </button>
@@ -159,7 +190,7 @@ export default function ProfilePage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div style={{ padding: 10, background: 'var(--t-bg)', borderRadius: 10, textAlign: 'center', border: '1px solid #e0d0b8' }}>
+    <div style={{ padding: 10, background: 'var(--t-bg)', borderRadius: 10, textAlign: 'center', border: '1px solid var(--t-border-soft)' }}>
       <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginBottom: 4, fontWeight: 700 }}>{label}</div>
       <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-brand-dark)' }}>{value}</div>
     </div>

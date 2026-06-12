@@ -106,7 +106,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
             <div
               key={q.id}
               style={{
-                background: '#ffffff',
+                background: 'var(--t-surface)',
                 border: '2px solid var(--t-border)',
                 borderRadius: 14,
                 padding: '12px 14px',

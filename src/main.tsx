@@ -9,6 +9,10 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './react-app/App';
 import './ui/theme/tokens.css';
 import './style.css';
+import { applyTheme } from './data/theme';
+
+// v2.0.B.282: apply persisted theme before first paint (avoids flash).
+applyTheme();
 
 // v2.0.B.167: StrictMode disabled — caused dev double-mount race in
 // audio onEnd + setTimeout fallback (B.166 audit). Production unaffected

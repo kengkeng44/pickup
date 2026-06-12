@@ -104,7 +104,7 @@ function CardTile({ card, unlocked, onClick }: {
       onClick={onClick}
       aria-label={`${card.nameZh} · ${card.nameEn}${unlocked ? '' : ' (locked)'}`}
       style={{
-        background: unlocked ? '#fff' : '#f1ebe1',
+        background: unlocked ? 'var(--t-surface)' : '#f1ebe1',
         border: `2px solid ${unlocked ? 'var(--t-brand)' : '#c4b89c'}`,
         borderBottom: `4px solid ${unlocked ? 'var(--t-brand-dark)' : '#a89c80'}`,
         borderRadius: 14,
@@ -167,7 +167,7 @@ function CardDetail({ card, unlocked, onClose }: {
         onClick={(e) => e.stopPropagation()}
         className="pickup-fade-up"
         style={{
-          background: '#fff', borderRadius: 18,
+          background: 'var(--t-surface)', borderRadius: 18,
           maxWidth: 380, width: '100%',
           padding: '24px 22px',
           border: '2px solid var(--t-brand)',
@@ -242,7 +242,7 @@ function CardDetail({ card, unlocked, onClose }: {
           onClick={onClose}
           style={{
             marginTop: 18, width: '100%', padding: '12px 18px',
-            background: 'var(--t-success)', color: '#fff', border: 'none',
+            background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
             borderBottom: '4px solid var(--t-success)', borderRadius: 12,
             fontSize: 15, fontWeight: 900, cursor: 'pointer',
             fontFamily: 'inherit',

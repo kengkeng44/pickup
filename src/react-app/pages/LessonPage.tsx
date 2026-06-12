@@ -361,7 +361,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
       </div>
       <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
-        <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="#fef3c7" />
+        <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
         <Stat label="ACCURACY" value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
         <Stat label="TIME" value={timeStr} color="var(--t-text-muted)" bg="var(--t-bg)" />
       </div>
@@ -387,7 +387,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           marginBottom: 14,
           padding: '10px 14px',
           background: 'transparent',
-          border: '1.5px dashed #c8a878',
+          border: '1.5px dashed var(--t-border-card)',
           borderRadius: 10,
           color: 'var(--t-text-muted)',
           fontSize: 14,
@@ -428,14 +428,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           Middle lessons keep the classic Continue button (no flow change). */}
       {isLastLessonOfChapter ? (
         <button onClick={() => setShowNextStoryPicker(true)} style={{
-          padding: '16px 24px', background: 'var(--t-success)', color: '#fff', border: 'none',
+          padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
           borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
       ) : (
         <button onClick={onBack} style={{
-          padding: '16px 24px', background: 'var(--t-success)', color: '#fff', border: 'none',
+          padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
           borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -558,7 +558,7 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
     icon = '🐾';
     zh = 'Mochi 等你回來 — 我們再走一次';
     en = `Welcome back. Let's start again.`;
-    accent = '#c8a878';
+    accent = 'var(--t-border-card)';
   } else {
     icon = '🔥';
     zh = `連續學習 ${result.count} 天!`;
@@ -591,7 +591,7 @@ function NewCardsBanner({ count }: { count: number }) {
     <div className="pickup-fade-up" style={{
       marginBottom: 12,
       padding: '12px 14px',
-      background: '#fef3c7',
+      background: 'var(--t-tint-warn)',
       border: '2px solid var(--t-brand)',
       borderBottom: '4px solid var(--t-brand-dark)',
       borderRadius: 12,
@@ -626,7 +626,7 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
       marginBottom: 12,
       padding: '12px 14px',
       background: 'var(--t-surface-alt)',
-      border: '2px solid #c8a878',
+      border: '2px solid var(--t-border-card)',
       borderBottom: '4px solid var(--t-text-muted)',
       borderRadius: 12,
       display: 'flex', alignItems: 'center', gap: 12,

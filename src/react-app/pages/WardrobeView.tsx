@@ -81,7 +81,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         {/* Header */}
         <div style={{
           padding: '16px 18px 12px',
-          borderBottom: '1px solid #e0d0b8',
+          borderBottom: '1px solid var(--t-border-soft)',
           display: 'flex', alignItems: 'center', gap: 10,
         }}>
           <div style={{ flex: 1 }}>
@@ -112,7 +112,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         <div style={{
           padding: '18px 18px 14px',
           background: 'var(--t-surface-alt)',
-          borderBottom: '1px solid #e0d0b8',
+          borderBottom: '1px solid var(--t-border-soft)',
           display: 'flex', gap: 14, alignItems: 'center',
         }}>
           <OutfitPreview outfit={preview} unlocked={isPreviewUnlocked} large />
@@ -139,14 +139,14 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         </div>
 
         {/* Apply button */}
-        <div style={{ padding: '12px 18px', borderBottom: '1px solid #e0d0b8' }}>
+        <div style={{ padding: '12px 18px', borderBottom: '1px solid var(--t-border-soft)' }}>
           <button
             onClick={handleApply}
             disabled={!isPreviewUnlocked || isPreviewCurrent}
             style={{
               width: '100%', padding: '12px 18px',
               background: isPreviewUnlocked
-                ? (isPreviewCurrent ? '#c8a878' : 'var(--t-success)')
+                ? (isPreviewCurrent ? 'var(--t-border-card)' : 'var(--t-success)')
                 : '#c4b89c',
               color: '#fff', border: 'none',
               borderBottom: `4px solid ${
@@ -185,8 +185,8 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   onClick={() => setPreviewId(o.id)}
                   aria-label={`${o.name.zh} · ${o.name.en}${isUnlocked ? '' : ' (locked)'}`}
                   style={{
-                    background: isSelected ? 'var(--t-surface-alt)' : '#fff',
-                    border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? '#c8a878' : '#c4b89c'}`,
+                    background: isSelected ? 'var(--t-surface-alt)' : 'var(--t-surface)',
+                    border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? 'var(--t-border-card)' : '#c4b89c'}`,
                     borderBottom: `4px solid ${isSelected ? 'var(--t-brand-dark)' : isUnlocked ? 'var(--t-text-muted)' : '#a89c80'}`,
                     borderRadius: 12,
                     padding: '10px 6px 8px',
@@ -211,7 +211,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                     <div style={{
                       position: 'absolute',
                       top: 4, right: 4,
-                      background: 'var(--t-success)', color: '#fff',
+                      background: 'var(--t-success)', color: 'var(--t-surface)',
                       fontSize: 9, fontWeight: 900,
                       padding: '2px 6px', borderRadius: 999,
                       letterSpacing: 0.5,
