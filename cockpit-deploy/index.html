@@ -1679,6 +1679,40 @@ function timeAgo(iso) {
   return `${d} 天前`;
 }
 
+// v2.0.B.287: audit-file-driven cron cards. Filename encodes the run time
+// (`2026-06-11T0613-content-qa-cron.md`) → reliable last-run that always
+// updates (each cron run commits a new dated file), independent of the
+// 50-commit window the old commit-classification path silently fell out of.
+function parseAuditTs(name) {
+  const m = name.match(/^(\d{4}-\d{2}-\d{2})T(\d{2})(\d{2})/);
+  return m ? `${m[1]}T${m[2]}:${m[3]}:00Z` : null;
+}
+
+// Best-effort parse of a cron audit markdown → on-card details. Reliable bits
+// (angle, P0 presence) drive the card; full breakdown stays in the modal.
+function parseAuditMd(md) {
+  const clean = (s) => (s || '').replace(/[*#`]/g, '').trim();
+  const angleM = md.match(/Today'?s angle[:：]?\s*(.+)/i);
+  const titleM = md.match(/^#\s+(.+)/m);
+  const angle = clean(angleM ? angleM[1] : (titleM ? titleM[1] : '')).slice(0, 120);
+  const p0 = new Set(md.match(/\bP0-\d+/g) || []).size;
+  const p1 = new Set(md.match(/\bP1-\d+/g) || []).size;
+  const p2 = new Set(md.match(/\bP2-\d+/g) || []).size;
+  // total violations / findings, if the audit states one
+  const totM = md.match(/Total[^\n:：]*[:：]\s*\*{0,2}(\d+)/i);
+  const total = totM ? parseInt(totM[1], 10) : 0;
+  // top finding: first "P0-1" line, else first bullet under a "Top … P0" heading
+  let topItem = '';
+  const p0m = md.match(/P0-1[^\n]*/);
+  if (p0m) topItem = clean(p0m[0]).replace(/^P0-1\s*[★:：\-]*\s*/, '');
+  if (!topItem) {
+    const dM = md.match(/##\s*[A-Z]?\.?\s*Top[^\n]*\n+\s*[-*]?\s*([^\n]+)/i);
+    if (dM) topItem = clean(dM[1]);
+  }
+  if (!topItem) topItem = angle;
+  return { angle, p0, p1, p2, total, topItem, hasP0: p0 > 0 || /⚠️\s*P0/.test(md) };
+}
+
 function parseMessage(msg) {
   // Parse commit msg for P0/P1/P2 counts + top item
   const p0Match = msg.match(/P0[:\s]+(\d+)/i);
@@ -1770,88 +1804,97 @@ function wireDecisionBoardCopy() {
 }
 
 async function loadDashboard(forceFresh) {
-  if (forceFresh) localStorage.removeItem(CACHE_KEY);
+  if (forceFresh) {
+    localStorage.removeItem(CACHE_KEY);
+    localStorage.removeItem('pickup.audits.files');
+    auditFilesCache = null;
+  }
   const grid = document.getElementById('cron-grid');
   const fetchedEl = document.getElementById('last-fetched');
   grid.innerHTML = '<div class="empty">載入中…</div>';
 
   try {
-    const commits = await fetchCommits();
-    const latestByType = {};
-    for (const c of commits) {
-      const type = classifyCommit(c.commit.message);
-      if (!type) continue;
-      if (!latestByType[type]) latestByType[type] = c;
+    // v2.0.B.287: audit-file-driven (was 50-commit classification, which went
+    // empty whenever cron commits fell out of the window). Filenames give a
+    // reliable last-run; file contents give on-card details.
+    const files = await listAuditFiles();
+    if (!files || !files.length) throw new Error('no audit files (API 限額?)');
+
+    const latestFileByType = {};
+    for (const [type, meta] of Object.entries(CRON_TYPES)) {
+      const matches = files
+        .filter(f => f.name && f.name.endsWith(`-${meta.suffix}.md`))
+        .sort((a, b) => b.name.localeCompare(a.name));
+      if (matches[0]) latestFileByType[type] = matches[0];
     }
+
+    // fetch each latest audit md via raw (NOT API rate-limited), in parallel
+    const dataByType = {};
+    await Promise.all(Object.entries(latestFileByType).map(async ([type, file]) => {
+      const path = `docs/audits/${file.name}`;
+      let parsed = { angle: '', p0: 0, p1: 0, p2: 0, total: 0, topItem: '', hasP0: false };
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${REPO}/master/${path}`);
+        if (res.ok) parsed = parseAuditMd(await res.text());
+      } catch {}
+      dataByType[type] = { ...parsed, ts: parseAuditTs(file.name), file: path };
+    }));
 
     grid.innerHTML = '';
     for (const [type, meta] of Object.entries(CRON_TYPES)) {
-      const commit = latestByType[type];
+      const d = dataByType[type];
       const card = document.createElement('div');
       card.className = 'cron-card';
 
-      if (!commit) {
+      if (!d) {
         card.innerHTML = `
-          <h3>${meta.icon} ${meta.name}</h3>
+          <h3>${meta.icon} ${meta.name} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
           <div class="interval">${meta.interval}</div>
           <div class="empty" style="margin-top:8px;font-size:11px;padding:14px;">尚未跑過 cron · 等首次 fire</div>
           <div class="actions" style="margin-top:8px;">
             <button onclick="window.open('https://claude.ai/code/routines/${meta.routine}', '_blank')">⚙️ 查看 cron</button>
-          </div>
-        `;
+          </div>`;
         grid.appendChild(card);
         continue;
       }
 
-      const parsed = parseMessage(commit.commit.message);
-      if (parsed.isBlocked) card.classList.add('blocked');
-      else if (parsed.p0 > 0 || parsed.hasP0Prefix) card.classList.add('has-p0');
-
-      const sha = commit.sha.substring(0, 7);
-      const auditFileMatch = commit.commit.message.match(/docs\/audits\/[^\s]+\.md/);
-      const auditFile = auditFileMatch ? auditFileMatch[0] : null;
+      if (d.hasP0) card.classList.add('has-p0');
+      const pills = [
+        `<span class="count-pill p0" title="此輪標記的 P0 急修">P0 ${d.p0}</span>`,
+        d.total ? `<span class="count-pill p2" title="此輪掃到的總違規 / 發現數">掃到 ${d.total}</span>` : '',
+        d.p1 ? `<span class="count-pill p1">P1 ${d.p1}</span>` : '',
+      ].filter(Boolean).join('');
+      const stamp = d.ts ? d.ts.slice(0, 16).replace('T', ' ') : '';
 
       card.innerHTML = `
-        <h3>${meta.icon} ${meta.name} ${parsed.hasP0Prefix ? '⚠️' : ''} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
+        <h3>${meta.icon} ${meta.name} ${d.hasP0 ? '⚠️' : ''} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
         <div class="interval">${meta.interval}</div>
-        <div class="last-run">${timeAgo(commit.commit.author.date)} · <code style="font-family:monospace;">${sha}</code></div>
-        <div class="counts">
-          <span class="count-pill p0" title="P0 = 急修 (玩家會關 app)">P0 ${parsed.p0} 急修</span>
-          <span class="count-pill p1" title="P1 = 體驗扣分">P1 ${parsed.p1} 體驗扣</span>
-          <span class="count-pill p2" title="P2 = polish 加分">P2 ${parsed.p2} polish</span>
-        </div>
-        ${parsed.topItem ? `<div class="top-item">📌 ${parsed.topItem.substring(0, 100)}${parsed.topItem.length > 100 ? '…' : ''}</div>` : ''}
+        <div class="last-run">🕒 上次跑 ${d.ts ? timeAgo(d.ts) : '—'}${stamp ? ` · ${stamp}` : ''}</div>
+        ${d.angle ? `<div class="top-item" style="background:var(--bg);">🎯 本輪角度:${d.angle}</div>` : ''}
+        <div class="counts">${pills}</div>
+        ${d.topItem ? `<div class="top-item">📌 ${d.topItem.slice(0, 110)}${d.topItem.length > 110 ? '…' : ''}</div>` : ''}
         <div class="actions">
-          <button class="primary" data-act="copy" data-type="${type}" data-sha="${commit.sha}">📋 接這條去修</button>
+          <button class="primary" data-act="copy" data-type="${type}" data-file="${d.file}">📋 接這條去修</button>
         </div>
-        <div class="hint">👆 點卡片任何地方看完整 audit</div>
-      `;
-      // Wire copy button (don't bubble to card click) + ✓ visual feedback 統一 Decision Board pattern
+        <div class="hint">👆 點卡片看完整 audit 詳情</div>`;
+
       card.querySelector('button[data-act="copy"]')?.addEventListener('click', (e) => {
         e.stopPropagation();
-        copyForCron(type, commit.sha);
+        copyForCron(type, d.file);
         const btn = e.currentTarget;
         const orig = btn.textContent;
         btn.textContent = '✓ 已複製 — 貼到新 Claude session';
         btn.style.background = '#5d9a35';
         setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1800);
       });
-      // Whole card click → open latest audit modal
-      card.addEventListener('click', async () => {
-        toast('載入 audit…');
-        const file = await findLatestAuditFile(meta.suffix);
-        if (!file) { toast('暫無 audit file'); return; }
-        openAuditModal(file, type, commit.sha, meta);
-      });
+      card.addEventListener('click', () => openAuditModal(d.file, type, d.ts || '', meta));
       grid.appendChild(card);
     }
 
     fetchedEl.textContent = '✓ 已載入 · ' + new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
-
-    // Update top "next action" banner — find most urgent cron
-    updateNextActionBanner(latestByType);
+    updateNextActionBanner(dataByType);
   } catch (err) {
-    grid.innerHTML = `<div class="empty">載入失敗: ${err.message}<br><br>(GitHub API 限額 60/hr 用完? 等 1 小時 OR 直接看 <a href="https://github.com/${REPO}/tree/master/docs/audits">repo</a>)</div>`;
+    grid.innerHTML = `<div class="empty">載入失敗: ${err.message}<br><br>(GitHub API 限額用完? 等一下 OR 直接看 <a href="https://github.com/${REPO}/tree/master/docs/audits">repo</a>)</div>`;
     fetchedEl.textContent = '✕ 載入失敗';
   }
 }
@@ -1879,9 +1922,12 @@ function fallbackCopy(text) {
   document.body.removeChild(ta);
 }
 
-function copyForCron(type, sha) {
+function copyForCron(type, ref) {
   const meta = CRON_TYPES[type];
-  const text = `請拉最新 master, 開 docs/audits/ 目錄找最新 ${meta.name} cron audit (sha ${sha.substring(0,7)}), 接 P0 第一條:
+  const target = (ref && String(ref).startsWith('docs/audits/'))
+    ? `Read ${ref}`
+    : `開 docs/audits/ 找最新 ${meta.name} cron audit`;
+  const text = `請拉最新 master, ${target}, 接 P0 第一條:
 1. Read 該 audit md
 2. 接 P0 修 (file 改動)
 3. npm run build 過
@@ -1939,40 +1985,34 @@ Markdown 表 + dense, < 500 字`;
 }
 
 // ─── Top "next action" banner ──────────────────────────────────────
-function updateNextActionBanner(latestByType) {
+function updateNextActionBanner(dataByType) {
   const banner = document.getElementById('next-action');
   const titleEl = document.getElementById('next-title');
   const descEl = document.getElementById('next-desc');
   banner.classList.remove('urgent');
 
-  // Find highest P0 cron
-  let topCron = null, topP0 = 0, topP1 = 0;
-  for (const [type, commit] of Object.entries(latestByType)) {
-    const p = parseMessage(commit.commit.message);
-    if (p.p0 > topP0) { topP0 = p.p0; topCron = { type, commit, parsed: p }; }
-    else if (p.p0 === topP0 && p.p1 > topP1) { topP1 = p.p1; topCron = { type, commit, parsed: p }; }
+  // highest-P0 cron (tie → most findings)
+  let top = null;
+  for (const [type, d] of Object.entries(dataByType)) {
+    if (!d) continue;
+    if (!top || d.p0 > top.d.p0 || (d.p0 === top.d.p0 && d.total > top.d.total)) top = { type, d };
   }
 
-  if (!topCron) {
-    banner.style.display = 'none';
-    return;
-  }
+  if (!top || (!top.d.p0 && !top.d.total)) { banner.style.display = 'none'; return; }
 
   banner.style.display = 'block';
-  const meta = CRON_TYPES[topCron.type];
-  if (topCron.parsed.p0 > 0) {
+  const meta = CRON_TYPES[top.type];
+  const short = top.d.topItem ? top.d.topItem.slice(0, 60) + '…' : '看下方 card 詳情';
+  if (top.d.p0 > 0) {
     banner.classList.add('urgent');
-    titleEl.textContent = `⚠️ 急修 ${topCron.parsed.p0} 條 (${meta.cnDesc})`;
-    const topShort = topCron.parsed.topItem ? topCron.parsed.topItem.substring(0, 60) + '…' : '看下方 card 詳情';
-    descEl.innerHTML = `<strong>${meta.name}</strong> 抓到 ${topCron.parsed.p0} 條會讓玩家關 app 的問題。<br>最緊那條:「${topShort}」`;
+    titleEl.textContent = `⚠️ 急修 ${top.d.p0} 條 (${meta.cnDesc})`;
+    descEl.innerHTML = `<strong>${meta.name}</strong> 標了 ${top.d.p0} 條 P0。最緊那條:「${short}」`;
   } else {
-    titleEl.textContent = `⭐ ${meta.cnDesc} 有 ${topCron.parsed.p1} 條體驗可改善`;
-    const topShort = topCron.parsed.topItem ? topCron.parsed.topItem.substring(0, 60) + '…' : '看下方 card 詳情';
-    descEl.innerHTML = `沒急修。<strong>${meta.name}</strong> 提了 ${topCron.parsed.p1} 條體驗 polish。<br>建議接:「${topShort}」`;
+    titleEl.textContent = `⭐ ${meta.cnDesc} 本輪掃到 ${top.d.total} 項可改善`;
+    descEl.innerHTML = `沒急修。<strong>${meta.name}</strong> 本輪掃到 ${top.d.total} 項。建議接:「${short}」`;
   }
 
-  // Wire "next-btn" to copy prompt for this top cron
-  document.getElementById('next-btn').onclick = () => copyForCron(topCron.type, topCron.commit.sha);
+  document.getElementById('next-btn').onclick = () => copyForCron(top.type, top.d.file);
 }
 
 // ─── Audit modal (inline agent-md render) ──────────────────────────
@@ -1983,7 +2023,8 @@ async function openAuditModal(file, type, sha, meta) {
   const modal = document.getElementById('modal');
   const title = document.getElementById('modal-title');
   const body = document.getElementById('modal-body');
-  title.textContent = `${meta.icon} ${meta.name} · ${sha.substring(0,7)}`;
+  const stamp = sha ? String(sha).slice(0, 16).replace('T', ' ') : '';
+  title.textContent = `${meta.icon} ${meta.name}${stamp ? ` · ${stamp}` : ''}`;
   body.innerHTML = '<div style="text-align:center;padding:30px;color:var(--muted);">載入中…</div>';
   modal.classList.add('show');
   document.body.style.overflow = 'hidden';
@@ -2016,8 +2057,8 @@ function openInGithub() {
 }
 
 function copyAuditPrompt() {
-  if (!currentAudit.type || !currentAudit.sha) return;
-  copyForCron(currentAudit.type, currentAudit.sha);
+  if (!currentAudit.type) return;
+  copyForCron(currentAudit.type, currentAudit.file);
 }
 
 // ESC to close

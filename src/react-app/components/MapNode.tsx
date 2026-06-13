@@ -22,6 +22,8 @@ interface MapNodeProps {
   size: number;
   height: number;
   done: boolean;
+  /** v2.0.B.286: started (has saved resume idx) but not yet completed. */
+  inProgress?: boolean;
   unlocked: boolean;
   isCurrent: boolean;
   isPressed: boolean;
@@ -39,7 +41,7 @@ interface MapNodeProps {
 
 function MapNodeImpl({
   lessonId, chapter, ariaLabel, leftPx, top, size, height,
-  done: _done, unlocked, isCurrent, isPressed,
+  done: _done, inProgress, unlocked, isCurrent, isPressed,
   baseColor, iconSrc, iconFilter, iconOpacity,
   restShadow, pressShadow,
   onTap, onPressDown, onPressEnd, innerRef,
@@ -85,6 +87,19 @@ function MapNodeImpl({
         width={36} height={36}
         style={{ display: 'block', filter: iconFilter, opacity: iconOpacity }}
       />
+      {/* v2.0.B.286: 進行中徽章 — 已開始未完成 (distinct from done star / locked grey).
+          Flat amber dot, zero blur. Hidden once done. */}
+      {inProgress && unlocked && !_done && (
+        <span
+          aria-hidden="true"
+          style={{
+            position: 'absolute', top: 4, right: 6,
+            width: 14, height: 14, borderRadius: '50%',
+            background: 'var(--t-brand)',
+            border: '2px solid var(--t-surface)',
+          }}
+        />
+      )}
     </button>
   );
 }
