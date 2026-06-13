@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRunStore } from '../../store/runStore';
 import { readXp, levelForXp } from '../../data/xp';
 import { readCoins } from '../../data/coins';
@@ -14,6 +15,7 @@ import { getTheme, toggleTheme } from '../../data/theme';
 const WardrobeView = lazy(() => import('./WardrobeView'));
 
 export default function ProfilePage() {
+  const navigate = useNavigate();
   const streak = useRunStore(s => s.streak);
   // v2.0.B.191 P1 fix (UI/UX): wire stats to real data layer (was '—' literals)
   const xp = readXp();
@@ -119,6 +121,31 @@ export default function ProfilePage() {
           <Stat label="Crown Level" value={`L${level}`} />
         </div>
       </div>
+
+      {/* Parent Corner entry — navigates to /parent (arithmetic-gated) */}
+      <button
+        onClick={() => navigate('/parent')}
+        aria-label="給家長 · Parent Corner"
+        style={{
+          width: '100%', display: 'flex', alignItems: 'center', gap: 14,
+          background: 'var(--t-surface)', border: '2px solid var(--t-border-card)',
+          borderBottom: '4px solid var(--t-border-card)', borderRadius: 14,
+          padding: '14px 16px', marginBottom: 14,
+          cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
+          touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+        }}
+      >
+        <span style={{ fontSize: 30, lineHeight: 1 }} aria-hidden="true">👨‍👩‍👧</span>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
+            給家長 · Parent Corner
+          </div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+            查看孩子的學習紀錄 · Learning history for parents
+          </div>
+        </div>
+        <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
+      </button>
 
       {/* v2.0.B.234 wiring: Mochi notifications toggle. Default off. */}
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
