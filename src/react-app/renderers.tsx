@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import { speak, stopSpeaking } from '../audio/tts';
 import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
+import SpeakZh from './components/SpeakZh';
 
 export interface RawQuestion {
   type: string;
@@ -121,14 +122,14 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
       cursor: disabled ? 'default' : 'pointer', fontFamily: 'inherit',
       textAlign: 'left',
     }}>
-      <div>{label}{labelZh ? <span style={{ color: 'var(--t-text-muted)', fontWeight: 600, marginLeft: 8 }}>· {labelZh}</span> : ''}</div>
+      <div>{label}{labelZh ? <span style={{ color: 'var(--t-text-muted)', fontWeight: 600, marginLeft: 8 }}>· <SpeakZh text={labelZh} /></span> : ''}</div>
     </button>
   );
 };
 
 const Explanation = ({ text }: { text: string }) => text ? (
   <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
-    {text}
+    <SpeakZh text={text} />
   </div>
 ) : null;
 
@@ -402,7 +403,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {revealed && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           正解: <strong>{en}</strong>
-          {q.explanationZh && <div style={{ marginTop: 6 }}>{q.explanationZh}</div>}
+          {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
         </div>
       )}
     </div>
@@ -921,7 +922,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               }}
             >
               <span style={{ fontSize: 52, lineHeight: 1 }}>{emoji}</span>
-              {revealed && <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--t-text)' }}>{label}{optsZh[i] ? ` · ${optsZh[i]}` : ''}</span>}
+              {revealed && <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--t-text)' }}>{label}{optsZh[i] ? <> · <SpeakZh text={optsZh[i]} /></> : ''}</span>}
             </button>
           );
         })}
