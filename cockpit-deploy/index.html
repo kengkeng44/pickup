@@ -597,7 +597,9 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron walk P0-2)">📋 一鍵複製�
     <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 Architecture Recommendations <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">業界 2026 掃描</span></h2>
     <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 自動顯示最新一筆 (audit-file 驅動, 不再累積).</div>
     <!-- v2.0.B.290: audit-file 驅動, JS 自動抓最新含 ARCH-REC 的 audit -->
+    <!-- v2.0.B.292: 已 ship 的 ARCH-REC 自動跳過 (shipped.json), 列入下方紀錄 -->
     <div id="arch-rec-card"><div class="empty">載入中…</div></div>
+    <div id="arch-rec-done"></div>
   </section>
 
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
@@ -1138,12 +1140,40 @@ function parseArchRec(md) {
   return { title, name, summary: summary.slice(0, 220) };
 }
 
+// v2.0.B.292: shipped ledger — ARCH-RECs already implemented are skipped on the
+// board (no longer shown as to-do) and listed under '已完成紀錄'. Append to
+// cockpit-deploy/shipped.json when an ARCH-REC ships.
+async function loadShipped() {
+  try {
+    const res = await fetch('shipped.json', { cache: 'no-store' });
+    if (!res.ok) return { set: new Set(), list: [] };
+    const j = await res.json();
+    const list = Array.isArray(j.shipped) ? j.shipped : [];
+    return { set: new Set(list.map((s) => s.audit)), list };
+  } catch { return { set: new Set(), list: [] }; }
+}
+
+function renderArchRecDone(list) {
+  const el = document.getElementById('arch-rec-done');
+  if (!el || !list.length) { if (el) el.innerHTML = ''; return; }
+  const rows = list.map((s) =>
+    `<li style="margin-bottom:4px;"><code>${s.version || ''}</code> ${s.archRec || ''} — ${s.what || ''} <span style="color:var(--muted);">· ${s.date || ''}</span></li>`
+  ).join('');
+  el.innerHTML = `
+    <details style="margin-top:10px;">
+      <summary style="cursor:pointer;font-size:12px;font-weight:800;color:var(--success);">✅ 已完成 ARCH-REC 紀錄 (${list.length})</summary>
+      <ul style="font-size:12px;color:var(--text);margin:8px 0 0;padding-left:18px;line-height:1.6;">${rows}</ul>
+    </details>`;
+}
+
 async function renderArchRec() {
   const el = document.getElementById('arch-rec-card');
   if (!el) return;
   try {
+    const shipped = await loadShipped();
+    renderArchRecDone(shipped.list);
     const files = (await listAuditFiles())
-      .filter((f) => f.name && f.name.endsWith('.md'))
+      .filter((f) => f.name && f.name.endsWith('.md') && !shipped.set.has(`docs/audits/${f.name}`))
       .sort((a, b) => b.name.localeCompare(a.name))
       .slice(0, 8);
     for (const f of files) {
@@ -1180,7 +1210,7 @@ async function renderArchRec() {
         openAuditModal(file, 'arch', ts || '', { icon: '🔬', name: 'ARCH-REC' }));
       return;
     }
-    el.innerHTML = '<div class="empty" style="font-size:11px;padding:14px;">最新 audit 暫無 ARCH-REC</div>';
+    el.innerHTML = '<div class="empty" style="font-size:11px;padding:14px;">目前沒有待辦的 ARCH-REC ✅ (見下方已完成紀錄)</div>';
   } catch {
     el.innerHTML = '<div class="empty" style="font-size:11px;padding:14px;">ARCH-REC 載入失敗 (API 限額?)</div>';
   }
