@@ -6,6 +6,7 @@
 import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
+import { getInProgressLessonIds } from '../../data/lessonProgress';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
@@ -316,6 +317,11 @@ export default function MapPage() {
     chapters.forEach(c => map.set(c, readCompletedLessons(c)));
     return map;
   }, [lessons, isAggregate, requestedChapter]);
+
+  // v2.0.B.286 (cron walk P0-2 P1): in-progress node marking. ONE localStorage
+  // walk per mount (not per node — honours B.275 217×→1× perf rule). Recomputes
+  // when lessons change (e.g. returning to map after a lesson remounts the page).
+  const inProgressIds = useMemo(() => getInProgressLessonIds(), [lessons]);
 
   // v2.0.B.283: Mochi Bond — record visit once on home mount.
   // Awards +20 on new calendar day; returns greeting bucket (sameDay/nextDay/fewDays).
@@ -689,6 +695,7 @@ export default function MapPage() {
             const lessonCompletedSet = completedByChapter.get(lessonChapter) ?? new Set<string>();
             const done = lessonCompletedSet.has(l.id);
             const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
+            const inProgress = unlocked && !done && inProgressIds.has(l.id);
             const baseColor = done ? COLOR_NODE_DONE : unlocked ? COLOR_NODE : COLOR_NODE_LOCKED;
             const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? COLOR_NODE_DARK : COLOR_NODE_LOCKED_DARK;
             const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
@@ -698,7 +705,7 @@ export default function MapPage() {
             const isCurrent = i === currentNodeIdx;
             const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
             const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
-            const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${isCurrent ? ' (current)' : ''}`;
+            const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
             return (
               <MapNode
                 key={l.id}
@@ -710,6 +717,7 @@ export default function MapPage() {
                 size={NODE_SIZE}
                 height={NODE_HEIGHT}
                 done={done}
+                inProgress={inProgress}
                 unlocked={unlocked}
                 isCurrent={isCurrent}
                 isPressed={isPressed}

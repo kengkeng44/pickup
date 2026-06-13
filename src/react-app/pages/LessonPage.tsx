@@ -18,6 +18,8 @@ import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { addLessonBond, type AddLessonBondResult } from '../../data/bond';
 // Parent Corner: log learning history for parent-facing stats.
 import { logLesson } from '../../data/learnLog';
+// v2.0.B.286: shared resume key (was local resumeKey in B.272).
+import { lessonResumeKey as resumeKey } from '../../data/lessonProgress';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
@@ -48,11 +50,8 @@ interface Lesson {
   questions: RawQuestion[];
 }
 
-// v2.0.B.272: per-lesson resume key. Keyed on chapter + lessonId so each
-// lesson tracks its own mid-session position independently.
-function resumeKey(chapter?: string, lessonId?: string): string {
-  return `pickup.lesson.resume.ch${chapter ?? '?'}.${lessonId ?? '?'}`;
-}
+// v2.0.B.286: resume key extracted to src/data/lessonProgress.ts (shared with
+// the map's in-progress node marking). Behaviour unchanged from B.272.
 
 export default function LessonPage() {
   const { chapter, lessonId } = useParams<{ chapter: string; lessonId: string }>();
