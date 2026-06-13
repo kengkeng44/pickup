@@ -14,6 +14,8 @@ import { markLessonCompleted } from '../../store/runStore';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
+// v2.0.B.283 Mochi Bond: award +10 per lesson completion.
+import { addLessonBond, type AddLessonBondResult } from '../../data/bond';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
@@ -25,6 +27,8 @@ import Button from '../../ui/components/Button';
 import ShareModal from '../components/ShareModal';
 // v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
 import NextStoryPicker from '../components/NextStoryPicker';
+// v2.0.B.283: Mochi Bond stage-up celebration overlay.
+import BondStageUpToast from '../components/BondStageUpToast';
 import {
   evaluateTriggers,
   scheduleNotif,
@@ -286,12 +290,17 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
   // v2.0.B.239: NextStoryPicker visibility — opens on chapter-final lesson
   // complete (replaces the Continue button on the final lesson).
   const [showNextStoryPicker, setShowNextStoryPicker] = useState(false);
+  // v2.0.B.283 Mochi Bond: track stage-up for celebration toast.
+  const [bondStageUp, setBondStageUp] = useState<AddLessonBondResult | null>(null);
 
   useEffect(() => {
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
     try { addXp(xp); } catch {}
     try { addCoins(coinDelta); } catch {}
     try { setStreakResult(updateStreak()); } catch {}
+    // v2.0.B.283 Mochi Bond: award +10, capture stage-up (fires toast if leveledUpTo != null).
+    // Guard: runs exactly once via empty-dep useEffect — no double-fire risk.
+    try { setBondStageUp(addLessonBond()); } catch {}
     try { setNewCards(unlockCardsForLesson(lesson.id)); } catch {}
     // v2.0.B.234 招 3: mascot outfit unlock check (chapterComplete / lessonComplete
     // / milestoneStreak). Runs AFTER updateStreak() so streak count is current.
@@ -475,6 +484,15 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
         <NextStoryPicker
           completedChapter={lesson.chapter}
           onClose={() => setShowNextStoryPicker(false)}
+        />
+      )}
+
+      {/* v2.0.B.283 Mochi Bond: stage-up celebration overlay.
+          Only shown when crossing a threshold (leveledUpTo != null). */}
+      {bondStageUp?.leveledUpTo != null && (
+        <BondStageUpToast
+          newStageId={bondStageUp.leveledUpTo}
+          onDismiss={() => setBondStageUp(null)}
         />
       )}
     </div>
