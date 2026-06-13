@@ -589,3 +589,32 @@ export function autoSpeak(text: string, lang = 'en-US', delayMs = 280): void {
   if (IS_IOS_DEVICE && !isAudioUnlocked) return;
   window.setTimeout(() => speak(text, lang), delayMs);
 }
+
+/**
+ * speakZh — user-initiated Mandarin TTS for Chinese glosses.
+ *
+ * Speaks `text` via WebSpeech with lang='zh-TW', rate ~0.9 (clear for
+ * young/heritage learners). Always plays regardless of the app mute
+ * setting — mute gates auto-narration only; a deliberate tap to hear
+ * pronunciation should always fire (no isMuted() import here).
+ *
+ * Does NOT route through the MP3 audioLookup — ZH text has no pre-generated
+ * MP3 and fetching a 404 then timing out would be a bad UX. Goes directly
+ * to WebSpeech. Cancels any in-flight speech first (same cancel pattern as
+ * speakWebSpeech). SSR/no-API safe.
+ */
+export function speakZh(text: string): void {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+  if (!text) return;
+  try {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'zh-TW';
+    u.rate = 0.9;
+    u.pitch = 1;
+    u.volume = 1;
+    window.speechSynthesis.speak(u);
+  } catch {
+    // silent fallback — if WebSpeech is unavailable, tap is a no-op
+  }
+}
