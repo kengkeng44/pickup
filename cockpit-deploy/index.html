@@ -1631,8 +1631,6 @@ P0 Top 5 (必修):
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 const REPO = 'kengkeng44/pickup';
-const CACHE_KEY = 'pickup.dashboard.cache';
-const CACHE_TTL = 5 * 60 * 1000; // 5 min
 
 const CRON_TYPES = {
   'ui-ux':       { icon: '🎨', name: 'UI/UX',         interval: '每 3 小時',  routine: 'trig_01J5sPriYi16mNsHWuTWiLch', suffix: 'ui-ux-cron',       cnDesc: '介面美感' },
@@ -1659,13 +1657,6 @@ async function listAuditFiles() {
     localStorage.setItem('pickup.audits.files', JSON.stringify({ts: Date.now(), files}));
     return files;
   } catch { return []; }
-}
-
-async function findLatestAuditFile(suffix) {
-  const files = await listAuditFiles();
-  const matches = files.filter(f => f.name && f.name.endsWith(`-${suffix}.md`))
-    .sort((a, b) => b.name.localeCompare(a.name));
-  return matches[0] ? `docs/audits/${matches[0].name}` : null;
 }
 
 function timeAgo(iso) {
@@ -1713,58 +1704,6 @@ function parseAuditMd(md) {
   return { angle, p0, p1, p2, total, topItem, hasP0: p0 > 0 || /⚠️\s*P0/.test(md) };
 }
 
-function parseMessage(msg) {
-  // Parse commit msg for P0/P1/P2 counts + top item
-  const p0Match = msg.match(/P0[:\s]+(\d+)/i);
-  const p1Match = msg.match(/P1[:\s]+(\d+)/i);
-  const p2Match = msg.match(/P2[:\s]+(\d+)/i);
-  const violationMatch = msg.match(/Violations[:\s]+(\d+)/i);
-
-  const hasP0Prefix = /⚠️\s*P0|warning.*P0/i.test(msg.split('\n')[0]);
-  const isBlocked = /BLOCKED[:\s]|拿不準|need direction/i.test(msg);
-
-  // Top item: first line after counts
-  const lines = msg.split('\n').filter(l => l.trim());
-  let topItem = '';
-  for (const l of lines.slice(1)) {
-    if (l.startsWith('-') || l.startsWith('Top')) {
-      topItem = l.replace(/^[-*\s]+/, '').replace(/^Top\s*\d*\s*[:：]?\s*/i, '');
-      if (topItem.length > 5) break;
-    }
-  }
-
-  return {
-    p0: p0Match ? parseInt(p0Match[1]) : (violationMatch ? parseInt(violationMatch[1]) : 0),
-    p1: p1Match ? parseInt(p1Match[1]) : 0,
-    p2: p2Match ? parseInt(p2Match[1]) : 0,
-    hasP0Prefix,
-    isBlocked,
-    topItem,
-    cycleSkipped: /CYCLE: no new|skip commit/i.test(msg),
-  };
-}
-
-function classifyCommit(msg) {
-  const first = msg.split('\n')[0];
-  if (/cron-ui-ux|UI\/UX audit/i.test(first)) return 'ui-ux';
-  if (/cron-content|Content QA|QA \d/i.test(first)) return 'content';
-  if (/cron-code|code health|Code Health/i.test(first)) return 'code';
-  if (/cron-walk|walkthrough|Walkthrough/i.test(first)) return 'walk';
-  if (/cron-arch|architecture|Architecture/i.test(first)) return 'arch';
-  return null;
-}
-
-async function fetchCommits() {
-  const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
-  if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
-
-  const res = await fetch(`https://api.github.com/repos/${REPO}/commits?per_page=50`);
-  if (!res.ok) throw new Error('GitHub API ' + res.status);
-  const data = await res.json();
-  localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
-  return data;
-}
-
 // v2.0.B.257: 統一 copy feedback — call copyPrompt + visual ✓ on the originating button
 function cp(kind, btn) {
   copyPrompt(kind);
@@ -1805,7 +1744,6 @@ function wireDecisionBoardCopy() {
 
 async function loadDashboard(forceFresh) {
   if (forceFresh) {
-    localStorage.removeItem(CACHE_KEY);
     localStorage.removeItem('pickup.audits.files');
     auditFilesCache = null;
   }
