@@ -595,20 +595,9 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron walk P0-2)">📋 一鍵複製�
   <!-- v2.0.B.cron-content-1805 + cron-ui-1807: Architecture Recommendations (業界 2026 掃描結果) -->
   <section class="arch-recs" style="background:var(--card);border:2px solid #7d9a4f;border-radius:16px;padding:16px;margin-bottom:18px;">
     <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 Architecture Recommendations <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">業界 2026 掃描</span></h2>
-    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 你決定要不要動.</div>
-
-    <!-- v2.0.B.289: 只留最新一張 ARCH-REC; 執行完手動刪 (per user) -->
-    <!-- content-cron 2026-06-13T0613 ARCH-REC #28: cleanText() CJK+paren co-strip + EM_DASH/ellipsis normalization — Ch7 P0 listen-mc broken TTS (青衣→"a (blue cloak)") + 2 EM_DASH in listen-* types + 56 ellipsis narration endings -->
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
-      <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ARCH-REC #28 (content-cron 2026-06-13T0613) — S · 30min · ROI ⭐⭐⭐ <span style="font-size:10px;background:rgba(93,154,53,0.12);color:#5d9a35;padding:2px 6px;border-radius:999px;margin-left:4px;font-weight:800;">角#10 Audio Sync Rd3</span></div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">cleanText() CJK+paren co-strip + EM_DASH/ellipsis normalize — Ch7 P0 listen-mc TTS broken</div>
-      <div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">
-        <b>問題</b>: Ch7 葉限 (Yexian) 故事在 sentence 欄位嵌入中文字 + 英文括號 (e.g., <code>a 青衣 (blue cloak)</code>)。tts.ts cleanText() 目前只 strip CJK 字元，但括號殘留 → TTS 收到 <code>"a (blue cloak)"</code>。<b>P0: kt-ch7-l5-q5 (listen-mc)</b> — iOS Safari 可能說 "a open paren blue cloak close paren"，聆聽理解題直接壞掉。另有 <code>kt-ch6-l3-q10</code> (listen-comprehension) + <code>kt-ch7-l6-q5</code> (listen-mc) 各含 EM_DASH <code>—</code>，iOS choppy playback 風險。56 個 narration q11 用 <code>...</code> 結尾，部分引擎 over-pause。<br>
-        <b>業界根據</b>: SFMS-ALR ArXiv Oct 2025 (混語 TTS 需 per-segment 正規化); Microsoft Azure TTS docs (EM_DASH → prosodic pause guidance); Dev.to cross-browser speech synthesis 2025 (ellipsis normalization)。現行 cleanText() 只做 CJK strip — 不完整。<br>
-        <b>影響</b>: P0 Ch7 listen-mc TTS broken; P1 2 EM_DASH listen Q; P2 56 narration ellipsis endings. S size fix in one function.
-      </div>
-      <button onclick="var t=this;navigator.clipboard.writeText('請拉最新 master，接 content-cron 2026-06-13T0613 ARCH-REC #28:\n\n【背景】\n- Audio Sync Rd3 (2026-06-13T0613) Ch6-14 WebSpeech TTS 危害掃描\n- Ch7 葉限故事: 10 個 sentence 欄位嵌入中文字 + 英文括號 (e.g., "a 青衣 (blue cloak)")\n- tts.ts cleanText() 目前: strip CJK → 殘留孤立括號 "(blue cloak)"\n- P0★: kt-ch7-l5-q5 listen-mc: "In a soft flash, a (blue cloak) and two small gold shoes..."\n  iOS Safari 可能說 "a open paren blue cloak close paren" → 聆聽理解題直接壞掉\n- P1: kt-ch6-l3-q10 listen-comprehension 有 EM_DASH; kt-ch7-l6-q5 listen-mc 有 EM_DASH\n- P2: 56 個 narration q11 用 "..." 結尾 (TTS over-pause 風險)\n- 業界: SFMS-ALR 2025 + Azure TTS docs + Dev.to 2025 均建議 per-char normalization\n\n【目標 1 — src/audio/tts.ts cleanText() 更新 (~10 行)】\nRead src/audio/tts.ts，找 cleanText() function (line ~274):\n\n// CURRENT:\nfunction cleanText(text: string): string {\n  return text\n    .replace(/_{2,}/g, \' \')\n    .replace(/[一-鿿]/g, \'\')\n    .replace(/\\s+/g, \' \')\n    .trim();\n}\n\n// PROPOSED (ARCH-REC #28):\nfunction cleanText(text: string): string {\n  return text\n    // CJK+paren co-strip: "葉限 (Yexian)" → "Yexian", "a 青衣 (blue cloak)" → "a blue cloak"\n    .replace(/[一-鿿]+\\s*\\(([^)]+)\\)/g, \'$1\')\n    // Remaining standalone CJK (no paren partner)\n    .replace(/[一-鿿]+/g, \'\')\n    // EM_DASH → space (iOS Safari prosodic gap fix)\n    .replace(/—/g, \' \')\n    // Ellipsis → period (WebSpeech normalization)\n    .replace(/\\.\\.\\./, \'.\')\n    // Cleanup\n    .replace(/_{2,}/g, \' \')\n    .replace(/\\s+/g, \' \')\n    .trim();\n}\n\n注意: cleanText() 只影響 speak() 呼叫的 TTS path — DOM text nodes 不動。...\n在 DOM 顯示仍保留 "..." 視覺效果; TTS 聽到 "." (period) 即可。\n\n手動測試 (在 console 跑):\n  cleanText("a girl named 葉限 (Yexian) lived")\n  // expected → "a girl named Yexian lived"\n  cleanText("In a soft flash, a 青衣 (blue cloak) and")\n  // expected → "In a soft flash, a blue cloak and"\n  cleanText("Her hands grew cold. The empty beds said one thing — her brothers were gone.")\n  // expected → "Her hands grew cold. The empty beds said one thing  her brothers were gone." (double space collapses)\n  cleanText("Something cold and slow turned inside her chest...")\n  // expected → "Something cold and slow turned inside her chest."\n\n改完後跑: npx tsc --noEmit && node tools/validate-lessons.js\n\n【目標 2 — public/lessons-ch7.json: 清掉 10 個 sentence 欄位的中文字 (Option B)】\n即使 cleanText() 更新, sentence 欄位仍有中文字在 DOM 顯示 — 對 8-12 兒童學英文是 content noise。\n建議一起清掉:\n\n找 public/lessons-ch7.json，以下 10 個 q 的 sentence 欄位逐一改純英文:\n\n1. kt-ch7-l1-q2: "Long ago in southern China, a girl named 葉限 (Yexian) lived in a cave village."\n   → "Long ago in southern China, a girl named Yexian lived in a cave village."\n   explanationZh 加: "葉限 (Yexian) = 這個故事主角的名字。"\n\n2. kt-ch7-l2-q4: "In the water lived a fish with bright 紅鰭 (red fins) and golden eyes."\n   → "In the water lived a fish with bright red fins and golden eyes."\n   explanationZh 加: "紅鰭 = red fins (魚鰭 = fins, 紅 = red)"\n\n3. kt-ch7-l3-q2: "One morning, 後母 (the new wife) put on Yexian\'s torn dress."\n   → "One morning, the new wife put on Yexian\'s torn dress."\n   explanationZh 加: "後母 = stepmother (後 = behind/after, 母 = mother)"\n\n4. kt-ch7-l4-q2: "An 老人 (old man) in a sky-colored robe stepped down beside her."\n   → "An old man in a sky-colored robe stepped down beside her."\n   explanationZh 加: "老人 = old man"\n\n5. kt-ch7-l4-q6: "\\\"Hide the 魚骨 (fish-bone). Speak to them. They will give you anything.\\\""\n   → "\\\"Hide the fish-bone. Speak to them. They will give you anything.\\\""\n   explanationZh 加: "魚骨 = fish-bone (魚 = fish, 骨 = bone)"\n\n6. kt-ch7-l5-q2: "The 洞節 (cave festival) night came. Lanterns lit up every doorway."\n   → "The night of the cave festival came. Lanterns lit up every doorway."\n\n7. kt-ch7-l5-q5 (P0 CRITICAL): "In a soft flash, a 青衣 (blue cloak) and two small gold shoes lay on the floor."\n   → "In a soft flash, a blue cloak and two small gold shoes lay on the floor."\n\n8. kt-ch7-l6-q4: "As she ran, one 金鞋 (gold shoe) fell off her foot onto the road."\n   → "As she ran, one gold shoe fell off her foot onto the road."\n\n9. kt-ch7-l7-q6: "鞋 (the shoe) slipped onto her foot like clear water."\n   → "The shoe slipped onto her foot like clear water."\n\n10. kt-ch7-l7-q9: "That night, 飛石 (flying stones) fell from the sky and buried the new wife and her daughter."\n    → "That night, flying stones fell from the sky and buried the new wife and her daughter."\n\n【目標 3 — EM_DASH fixes in listen-* question sentences】\n\npublic/lessons-ch6.json kt-ch6-l3-q10 (listen-comprehension):\n  FROM: "Her hands grew cold. The empty beds said one thing — her brothers were gone."\n  TO:   "Her hands grew cold. The empty beds told her one thing: her brothers were gone."\n\npublic/lessons-ch7.json kt-ch7-l6-q5 (listen-mc):\n  FROM: "She did not stop to pick it up — the voices behind her were too close."\n  TO:   "She did not stop to pick it up. The voices behind her were too close."\n\n完整說明: docs/audits/2026-06-13T0613-content-qa-cron.md').then(function(){t.textContent='✓ 已複製 — 貼到新 Claude session';t.style.background='#5d9a35';setTimeout(function(){t.textContent='📋 一鍵複製這個 prompt';t.style.background='';},1800)});" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;">📋 一鍵複製這個 prompt</button>
-    </div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 自動顯示最新一筆 (audit-file 驅動, 不再累積).</div>
+    <!-- v2.0.B.290: audit-file 驅動, JS 自動抓最新含 ARCH-REC 的 audit -->
+    <div id="arch-rec-card"><div class="empty">載入中…</div></div>
   </section>
 
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
@@ -1131,8 +1120,75 @@ document.getElementById('modal').addEventListener('click', (e) => {
   if (e.target.id === 'modal') closeModal();
 });
 
+// v2.0.B.290: ARCH-REC section is now audit-file-driven (was ~28 hardcoded
+// cards that accumulated forever). Always shows ONLY the newest audit's
+// Architecture Recommendation — never piles up.
+function parseArchRec(md) {
+  const m = md.match(/ARCH-REC #\d+[^\n]*/);
+  if (!m) return null;
+  const clean = (s) => (s || '').replace(/[#*`]/g, '').trim();
+  const title = clean(m[0]);
+  const after = md.slice(m.index + m[0].length);
+  const nameM = after.match(/\*\*(.+?)\*\*/);
+  const name = nameM ? clean(nameM[1]) : '';
+  let summary = '';
+  const probM = after.match(/(問題|Issue|Pickup 現狀|業界根據)\s*[:：]?\s*\*{0,2}([^\n]+)/);
+  if (probM) summary = clean(probM[2]);
+  if (!summary) summary = (after.split('\n').map(clean).find((l) => l.length > 20) || '');
+  return { title, name, summary: summary.slice(0, 220) };
+}
+
+async function renderArchRec() {
+  const el = document.getElementById('arch-rec-card');
+  if (!el) return;
+  try {
+    const files = (await listAuditFiles())
+      .filter((f) => f.name && f.name.endsWith('.md'))
+      .sort((a, b) => b.name.localeCompare(a.name))
+      .slice(0, 8);
+    for (const f of files) {
+      let md;
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${REPO}/master/docs/audits/${f.name}`);
+        if (!res.ok) continue;
+        md = await res.text();
+      } catch { continue; }
+      const rec = parseArchRec(md);
+      if (!rec) continue;
+      const ts = parseAuditTs(f.name);
+      const file = `docs/audits/${f.name}`;
+      const stamp = ts ? ts.slice(0, 16).replace('T', ' ') : '';
+      const prompt = `請拉最新 master, Read ${file}, 實作其 Architecture Recommendation:\n1. Read 該 audit 的 ARCH-REC 段\n2. 按建議實作 (lint / code 改動)\n3. npm run build 過\n4. 跑 5-agent audit (R11)\n5. commit + push + deploy\n\nCommit msg: v2.0.B.NEXT: <fix desc> (ARCH-REC)`;
+      el.innerHTML = `
+        <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;">
+          <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ${rec.title}</div>
+          ${rec.name ? `<div style="font-size:13px;font-weight:800;margin-bottom:6px;">${rec.name}</div>` : ''}
+          ${rec.summary ? `<div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">${rec.summary}…</div>` : ''}
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">📁 來源: <code>${file}</code>${stamp ? ` · 🕒 ${stamp}` : ''}</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="archrec-copy" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;min-height:44px;">📋 一鍵複製這個 prompt</button>
+            <button class="archrec-view" style="background:var(--card);color:var(--accent-dark);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer;font-family:inherit;font-size:13px;min-height:44px;">看完整 audit →</button>
+          </div>
+        </div>`;
+      el.querySelector('.archrec-copy').addEventListener('click', (e) => {
+        copyText(prompt);
+        const b = e.currentTarget; const o = b.textContent;
+        b.textContent = '✓ 已複製 — 貼到新 Claude session'; b.style.background = '#5d9a35';
+        setTimeout(() => { b.textContent = o; b.style.background = 'var(--accent)'; }, 1800);
+      });
+      el.querySelector('.archrec-view').addEventListener('click', () =>
+        openAuditModal(file, 'arch', ts || '', { icon: '🔬', name: 'ARCH-REC' }));
+      return;
+    }
+    el.innerHTML = '<div class="empty" style="font-size:11px;padding:14px;">最新 audit 暫無 ARCH-REC</div>';
+  } catch {
+    el.innerHTML = '<div class="empty" style="font-size:11px;padding:14px;">ARCH-REC 載入失敗 (API 限額?)</div>';
+  }
+}
+
 loadDashboard();
 wireDecisionBoardCopy();
+renderArchRec();
 </script>
 
 </body>
