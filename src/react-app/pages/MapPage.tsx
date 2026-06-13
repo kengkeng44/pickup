@@ -24,10 +24,6 @@ import {
   isTomorrowBannerDue,
   type TomorrowQueueEntry,
 } from '../../data/tomorrowQueue';
-// v2.0.B.283: Mochi Bond — record visit on home mount (awards +20 on new day).
-import { recordVisit } from '../../data/bond';
-// v2.0.B.283: Mochi Bond greeting card.
-import MochiGreeting from '../components/MochiGreeting';
 
 interface Lesson {
   id: string;
@@ -323,13 +319,6 @@ export default function MapPage() {
   // when lessons change (e.g. returning to map after a lesson remounts the page).
   const inProgressIds = useMemo(() => getInProgressLessonIds(), [lessons]);
 
-  // v2.0.B.283: Mochi Bond — record visit once on home mount.
-  // Awards +20 on new calendar day; returns greeting bucket (sameDay/nextDay/fewDays).
-  // Runs exactly once (empty deps) — idempotent if user navigates back same day.
-  useEffect(() => {
-    try { recordVisit(); } catch {}
-  }, []);
-
   // v2.0.B.239: tomorrow-queue banner. Read on mount; only show after 18:00
   // local + when entry exists + not yet consumed. Banner tap consumes the
   // queue + navigates to that chapter.
@@ -503,9 +492,6 @@ export default function MapPage() {
       {/* v2.0.B.288 static spacer: HUD ~50 + 書封 ~80 (B.283 加厚後) + 留 padding ≈ 140
           + iOS safe-area-inset-top. 動態 ResizeObserver 已砍 (jitter 源) */}
       <div style={{ height: 'calc(140px + env(safe-area-inset-top))' }} aria-hidden="true" />
-
-      {/* v2.0.B.283 Mochi Bond greeting card — warm daily welcome, above chapter map */}
-      <MochiGreeting />
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />

@@ -19,7 +19,6 @@ import ProgressBar from '../../ui/components/ProgressBar';
 import { t } from '../../ui/theme/index';
 import { getTodayStats, getWeekStats, getRecentLessons } from '../../data/learnLog';
 import { readStreak } from '../../data/streak';
-import { getStage } from '../../data/bond';
 import { getKeySentenceForLesson } from '../../data/keySentences';
 
 // ─── ParentGate ─────────────────────────────────────────────────────────────
@@ -160,7 +159,6 @@ function ParentContent() {
   const todayStats = getTodayStats();
   const weekStats = getWeekStats();
   const streak = readStreak();
-  const bondStage = getStage();
 
   // Most recent lesson for key sentence
   const recent = getRecentLessons(1);
@@ -268,36 +266,17 @@ function ParentContent() {
               />
             </div>
 
-            {/* Streak + Bond row */}
-            <div style={{ display: 'flex', gap: 8 }}>
-              <div style={{
-                flex: 1,
-                background: t.color.bg,
-                border: `1.5px solid ${t.color.borderSoft}`,
-                borderRadius: 10,
-                padding: '10px 8px',
-                textAlign: 'center',
-              }}>
-                <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>連勝 Streak</div>
-                <div style={{ fontSize: 20, fontWeight: 900, color: t.color.brandDark }}>
-                  {streak} 🔥
-                </div>
-              </div>
-              <div style={{
-                flex: 1,
-                background: t.color.bg,
-                border: `1.5px solid ${t.color.borderSoft}`,
-                borderRadius: 10,
-                padding: '10px 8px',
-                textAlign: 'center',
-              }}>
-                <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>Mochi 羈絆</div>
-                <div style={{ fontSize: 14, fontWeight: 900, color: t.color.brandDark }}>
-                  {bondStage.name_zh}
-                </div>
-                <div style={{ fontSize: 10, color: t.color.textMuted, marginTop: 2, fontWeight: 600 }}>
-                  {bondStage.name_en}
-                </div>
+            {/* Streak */}
+            <div style={{
+              background: t.color.bg,
+              border: `1.5px solid ${t.color.borderSoft}`,
+              borderRadius: 10,
+              padding: '10px 8px',
+              textAlign: 'center',
+            }}>
+              <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>連勝 Streak</div>
+              <div style={{ fontSize: 20, fontWeight: 900, color: t.color.brandDark }}>
+                {streak} 🔥
               </div>
             </div>
           </Card>

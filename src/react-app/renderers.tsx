@@ -687,9 +687,11 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   });
 
   return (
-    <div>
+    // v2.0.B.293: tap-pairs 版面下移 (per user) — flexGrow 撐滿 lesson 區,
+    // 配對格 marginTop:auto 沉到畫面下方 (拇指好按, 不再上方擠一團+下面空白)。
+    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
       {/* v2.0.B.281 minimalist: 砍 "Match pairs" heading — 2 卡片左右排列本身 self-evident */}
-      <div style={{ display: 'flex', gap: 10 }}>
+      <div style={{ display: 'flex', gap: 10, marginTop: 'auto' }}>
         {/* LEFT — 中文 */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
           {pairs.map((p, i) => {
