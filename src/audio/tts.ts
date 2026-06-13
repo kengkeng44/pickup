@@ -272,14 +272,21 @@ function playBuffer(buf: AudioBuffer, rate = 1.0): boolean {
 }
 
 function cleanText(text: string): string {
-  // v2.0.B.227 P0-1: strip CJK Unified Ideographs before WebSpeech.
-  // Ch7 葉限 code-switch narration 內嵌漢字 ("Her name was 葉限 (Yexian)"),
-  // en-US engine 讀到漢字會 stutter 0.2-0.3s on iOS, A2 玩家以為 app 壞了.
-  // Range U+4E00–U+9FFF covers CJK Unified Ideographs (basic Han chars).
-  // Per docs/audits/2026-06-04-walkthrough-ch7.md P0 finding.
+  // v2.0.B.227 P0-1: strip CJK before WebSpeech (en-US engine stutters on 漢字).
+  // v2.0.B.291 (cron content 0613 ARCH-REC #28): CJK+paren CO-strip first, so
+  // "葉限 (Yexian)" → "Yexian" and "a 青衣 (blue cloak)" → "a blue cloak" — the
+  // old char-by-char CJK strip left an orphaned "(blue cloak)" that iOS Safari
+  // read as "open paren". Plus EM_DASH → space (prosodic-gap / "dash" readout fix).
   return text
     .replace(/_{2,}/g, ' ')
+    // CJK + adjacent English paren → keep only the English gloss
+    .replace(/[一-鿿]+\s*\(([^)]+)\)/g, '$1')
+    // any remaining standalone CJK (no paren gloss) → drop
     .replace(/[一-鿿]/g, '')
+    // EM_DASH → space (iOS Safari choppy / literal "dash" fix)
+    .replace(/—/g, ' ')
+    // tidy any empty parens left behind
+    .replace(/\(\s*\)/g, '')
     .replace(/\s+/g, ' ')
     .trim();
 }
