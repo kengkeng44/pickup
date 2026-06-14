@@ -505,6 +505,74 @@ main code { overflow-wrap: anywhere; }
     </div>
   </div>
 
+  <!-- Reference shortcuts (moved to top — 直接跳轉, B.300 per user) -->
+  <!-- v2.0.B.182: Q&A inspection shortcut -->
+  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
+    <div class="qa-icon" aria-hidden="true">📖</div>
+    <div class="qa-body">
+      <div class="qa-title">Q&A 對照表 <span class="badge">SOURCE OF TRUTH</span></div>
+      <div class="qa-desc">章節 / 題型 / 搜尋 · 對照遊戲 sentence / question / 答案</div>
+    </div>
+    <div class="qa-arrow" aria-hidden="true">›</div>
+  </a>
+
+  <!-- v2.0.B.263: Q&A 數據總覽 shortcut (stats + spec drift warnings) -->
+  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-stats.html" target="_blank" rel="noopener" style="margin-bottom:18px;">
+    <div class="qa-icon" style="background:#a78bfa; box-shadow:0 2px 0 #6d4fc7;" aria-hidden="true">📊</div>
+    <div class="qa-body">
+      <div class="qa-title">Q&A 數據總覽 <span class="badge" style="color:#6d4fc7; background:rgba(167,139,250,0.20);">DECISION</span></div>
+      <div class="qa-desc">32 章 · 224 單元 · 2,472 題 · 題型佔比 + spec drift 警示</div>
+    </div>
+    <div class="qa-arrow" aria-hidden="true">›</div>
+  </a>
+
+  <!-- UI/UX 標準 hero card v2 (2026-06-10 重設計) -->
+  <a href="./ui-ux-standard.html" style="
+    display: block; margin-bottom: 14px;
+    background: linear-gradient(135deg, #e7a44a 0%, #d68a52 100%);
+    color: #fff; text-decoration: none;
+    border-radius: 16px; padding: 16px 18px;
+    box-shadow: 0 4px 0 #8b5a32;
+    position: relative; overflow: hidden;
+  ">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="
+        font-size: 32px; width: 52px; height: 52px;
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 14px;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      " aria-hidden="true">🎨</div>
+      <div style="flex: 1; min-width: 0;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap;">
+          <span style="font-size: 17px; font-weight: 900; letter-spacing: -0.3px;">UI/UX 標準</span>
+          <span style="font-size: 10px; font-weight: 900; letter-spacing: 1.2px; background: rgba(255,255,255,0.30); padding: 2px 8px; border-radius: 999px;">v3.2 童話版</span>
+        </div>
+        <div style="font-size: 12px; opacity: 0.94; line-height: 1.45;">
+          7 題型 + 2-col mobile · 禁 ✓ · 規則對齊修正 · UX 比例參考
+        </div>
+        <div style="display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap;">
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🗺 Map</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🐱 Profile</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">⭐ Tasks</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">📖 ×7 題型</span>
+          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">+4</span>
+        </div>
+      </div>
+      <div style="font-size: 28px; opacity: 0.7; flex-shrink: 0; align-self: center;" aria-hidden="true">›</div>
+    </div>
+  </a>
+
+  <!-- Cron control links -->
+  <section class="links" style="margin-bottom:18px;">
+    <a class="link-btn" href="https://pickupwords.pages.dev/" target="_blank">🎮 玩 app</a>
+    <a class="link-btn" href="/cockpit.html" target="_blank">📋 派工表 + Docs</a>
+    <a class="link-btn" href="https://github.com/kengkeng44/pickup/tree/master/docs/audits" target="_blank">📁 audit 全列表</a>
+    <a class="link-btn" href="https://claude.ai/code/routines" target="_blank">⚙️ Cron 管理</a>
+    <a class="link-btn" href="https://github.com/kengkeng44/pickup" target="_blank">📦 GitHub repo</a>
+    <a class="link-btn" href="/archive.html" style="background:var(--card);color:var(--accent-dark);">📦 Archive (RN pivot)</a>
+  </section>
+
   <!-- v2.0.B.255: Decision Board — 完整視角接什麼, ROI 排序 -->
   <!-- Next action banner (moved up beside Decision Board — round-2 UX pass) -->
   <section class="next-action" id="next-action" style="display:none;">
@@ -577,73 +645,6 @@ main code { overflow-wrap: anywhere; }
     </div>
   </section>
 
-  <!-- Reference shortcuts (demoted below actionable sections — round-2 UX pass) -->
-  <!-- v2.0.B.182: Q&A inspection shortcut -->
-  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
-    <div class="qa-icon" aria-hidden="true">📖</div>
-    <div class="qa-body">
-      <div class="qa-title">Q&A 對照表 <span class="badge">SOURCE OF TRUTH</span></div>
-      <div class="qa-desc">章節 / 題型 / 搜尋 · 對照遊戲 sentence / question / 答案</div>
-    </div>
-    <div class="qa-arrow" aria-hidden="true">›</div>
-  </a>
-
-  <!-- v2.0.B.263: Q&A 數據總覽 shortcut (stats + spec drift warnings) -->
-  <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-stats.html" target="_blank" rel="noopener" style="margin-bottom:18px;">
-    <div class="qa-icon" style="background:#a78bfa; box-shadow:0 2px 0 #6d4fc7;" aria-hidden="true">📊</div>
-    <div class="qa-body">
-      <div class="qa-title">Q&A 數據總覽 <span class="badge" style="color:#6d4fc7; background:rgba(167,139,250,0.20);">DECISION</span></div>
-      <div class="qa-desc">32 章 · 224 單元 · 2,472 題 · 題型佔比 + spec drift 警示</div>
-    </div>
-    <div class="qa-arrow" aria-hidden="true">›</div>
-  </a>
-
-  <!-- UI/UX 標準 hero card v2 (2026-06-10 重設計) -->
-  <a href="./ui-ux-standard.html" style="
-    display: block; margin-bottom: 14px;
-    background: linear-gradient(135deg, #e7a44a 0%, #d68a52 100%);
-    color: #fff; text-decoration: none;
-    border-radius: 16px; padding: 16px 18px;
-    box-shadow: 0 4px 0 #8b5a32;
-    position: relative; overflow: hidden;
-  ">
-    <div style="display: flex; align-items: center; gap: 14px;">
-      <div style="
-        font-size: 32px; width: 52px; height: 52px;
-        background: rgba(255, 255, 255, 0.22);
-        border-radius: 14px;
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-      " aria-hidden="true">🎨</div>
-      <div style="flex: 1; min-width: 0;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 3px; flex-wrap: wrap;">
-          <span style="font-size: 17px; font-weight: 900; letter-spacing: -0.3px;">UI/UX 標準</span>
-          <span style="font-size: 10px; font-weight: 900; letter-spacing: 1.2px; background: rgba(255,255,255,0.30); padding: 2px 8px; border-radius: 999px;">v3.2 童話版</span>
-        </div>
-        <div style="font-size: 12px; opacity: 0.94; line-height: 1.45;">
-          7 題型 + 2-col mobile · 禁 ✓ · 規則對齊修正 · UX 比例參考
-        </div>
-        <div style="display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap;">
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🗺 Map</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">🐱 Profile</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">⭐ Tasks</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">📖 ×7 題型</span>
-          <span style="font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,0.22);">+4</span>
-        </div>
-      </div>
-      <div style="font-size: 28px; opacity: 0.7; flex-shrink: 0; align-self: center;" aria-hidden="true">›</div>
-    </div>
-  </a>
-
-  <!-- Cron control links -->
-  <section class="links">
-    <a class="link-btn" href="https://pickupwords.pages.dev/" target="_blank">🎮 玩 app</a>
-    <a class="link-btn" href="/cockpit.html" target="_blank">📋 派工表 + Docs</a>
-    <a class="link-btn" href="https://github.com/kengkeng44/pickup/tree/master/docs/audits" target="_blank">📁 audit 全列表</a>
-    <a class="link-btn" href="https://claude.ai/code/routines" target="_blank">⚙️ Cron 管理</a>
-    <a class="link-btn" href="https://github.com/kengkeng44/pickup" target="_blank">📦 GitHub repo</a>
-    <a class="link-btn" href="/archive.html" style="background:var(--card);color:var(--accent-dark);">📦 Archive (RN pivot)</a>
-  </section>
 </main>
 
 <footer>
