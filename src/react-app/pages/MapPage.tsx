@@ -10,7 +10,7 @@ import { getInProgressLessonIds } from '../../data/lessonProgress';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
-import { readCoins } from '../../data/coins';
+import { readCoins, addCoins } from '../../data/coins';
 import { readStreak, readFreezes } from '../../data/streak';
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
@@ -644,8 +644,8 @@ export default function MapPage() {
                     if (opened) return;
                     try {
                       localStorage.setItem(chestKey, '1');
-                      const curCoins = readCoins();
-                      localStorage.setItem('pickup.coins', String(curCoins + 10));
+                      // v2.0.B.306 fix: 原寫 'pickup.coins' (孤兒 key) → readCoins 讀 'pickup.coins.total', +10 從沒進帳. 改用 addCoins.
+                      addCoins(10);
                     } catch {}
                     setOpenedChests(prev => new Set(prev).add(i));
                     setChestTick(t => t + 1); // trigger HUD coin re-read
