@@ -691,7 +691,9 @@ export default function MapPage() {
             const isCurrent = i === currentNodeIdx;
             const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
             const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
-            const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`}${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
+            // v2.0.B.301 (cron ui-ux D1): pre-session time signal — 22s/Q (3s auto-advance + ~19s read/answer, A2-conservative)
+            const estMin = Math.max(1, Math.ceil(l.questions.length * 22 / 60));
+            const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`} · ~${estMin}min${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
             return (
               <MapNode
                 key={l.id}
