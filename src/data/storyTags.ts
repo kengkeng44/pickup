@@ -24,7 +24,9 @@
  * Hook association comes from src/data/lessonHooks.ts (B1-B6 framework).
  */
 import { LESSON_HOOKS } from './lessonHooks';
-import type { AbilityLevel } from './userProfile';
+// v2.0.B.298 (arch-cron P0): from types.ts (was './userProfile') to break the
+// userProfile ↔ storyTags circular dependency (latent TDZ risk).
+import type { AbilityLevel } from './types';
 
 export type StoryTagAxis = 'theme' | 'mood' | 'protagonist';
 
