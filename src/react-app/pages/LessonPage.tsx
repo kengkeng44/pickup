@@ -10,7 +10,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
-import { markLessonCompleted } from '../../store/runStore';
+import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
@@ -137,6 +137,7 @@ export default function LessonPage() {
       log={answerLog.current}
       elapsedMs={Date.now() - startedAt.current}
       isLastLessonOfChapter={maxLessonInChapter > 0 && lesson.lessonInChapter >= maxLessonInChapter}
+      isPreview={isPreview}
       onBack={() => navigate('/')}
     />;
   }
@@ -259,11 +260,12 @@ function NarrativeLine({ text }: { text: string }) {
   );
 }
 
-function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }: {
+function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPreview, onBack }: {
   lesson: Lesson;
   log: Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>;
   elapsedMs: number;
   isLastLessonOfChapter: boolean;
+  isPreview?: boolean;
   onBack: () => void;
 }) {
   // v2.0.B.192 (UI/UX P1 #35 + cron P0 latent): wire addXp + addCoins on
@@ -276,6 +278,11 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
   const xp = correct * 10;
   const coinDelta = correct * 3;
   const accuracy = total > 0 ? Math.round(correct / total * 100) : 100;
+  // v2.0.B.306: 擋重複領獎 — freeze 完成前狀態. 已完成過 → 重玩不再發 XP/coins
+  // (金幣可花後, 重玩刷獎是 economy 漏洞); preview 模式完全不寫.
+  const [alreadyDone] = useState(() => {
+    try { return readCompletedLessons(Number(lesson.chapter)).has(lesson.id); } catch { return false; }
+  });
 
   // v2.0.B.230 (was B.221, mis-landed in dead LessonScene.ts): hook framework
   // metadata for inquiry microcopy + PostHog tag. Per docs/research/chapter-
@@ -304,9 +311,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
   const [showNextStoryPicker, setShowNextStoryPicker] = useState(false);
 
   useEffect(() => {
+    // v2.0.B.306: preview (spec-doc iframe) = read-only, 完全不寫任何狀態.
+    if (isPreview) return;
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
-    try { addXp(xp); } catch {}
-    try { addCoins(coinDelta); } catch {}
+    // 只在「首次完成」發 XP/coins, 重玩不再發 (economy farming guard)
+    if (!alreadyDone) {
+      try { addXp(xp); } catch {}
+      try { addCoins(coinDelta); } catch {}
+    }
     try { setStreakResult(updateStreak()); } catch {}
     // Parent Corner: persist learning record for parent-facing stats.
     try { logLesson({ ts: Date.now(), chapter: lesson.chapter, lessonId: lesson.id, total, correct, ms: elapsedMs }); } catch {}
