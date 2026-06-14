@@ -913,31 +913,33 @@ function copyForCron(type, ref) {
   const target = (ref && String(ref).startsWith('docs/audits/'))
     ? `Read ${ref}`
     : `開 docs/audits/ 找最新 ${meta.name} cron audit`;
-  const text = `請拉最新 master, ${target}, 接 P0 第一條:
+  const text = `請拉最新 master, ${target}, 接「最優先的第一條」:
+- 有 P0 → 接 P0 第一條
+- 無 P0 → 接 audit 最高優先的 actionable (通常是 'Top 3 actionable' 的 D1, 或 polish 表 P1 第一條)
 1. Read 該 audit md
-2. 接 P0 修 (file 改動)
+2. 接該條修 (file 改動)
 3. npm run build 過
-4. 跑 5-agent audit (R11 既有)
+4. 按改動規模驗證: 大/跨檔改動跑 5-agent audit (R11); 小改動 (S effort / 純文字 / a11y) 做重點自審即可
 5. commit + push + deploy
 
-Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron ${type} P0)`;
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron ${type} P{0/1/2})`;
   copyText(text);
 }
 
 function copyPrompt(kind) {
   let text = '';
   if (kind === 'p0') {
-    text = `請拉最新 master, 打開 docs/audits/ 找最新 5 個 cron audit, 統合所有 ⚠️ P0 標的 item, 排優先序 (依 P0 effort S/M/L), 接 Top 3 P0:
+    text = `請拉最新 master, 打開 docs/audits/ 找最新 5 個 cron audit, 統合所有 P0 標的 item, 排優先序 (依 effort S/M/L), 接 Top 3:
 1. Read 5 個 cron audit
-2. 統合 P0 清單
+2. 統合 P0 清單; 若 P0 不足 3 條, 用各 audit 最高優先的 actionable (P1 / 'Top 3 actionable' D1) 補滿到 3 條
 3. 對 Top 3 (priority by effort × impact) 各自:
    - Read affected files
    - Edit fix
    - npm run build verify
 4. Commit all 3 fix + push + deploy
-5. 5-agent audit post-ship
+5. 按改動規模驗證 (大/跨檔改動跑 5-agent audit; 小改動做重點自審)
 
-Output: 給我 P0 表 (table) + 每個 fix 對應 file:line + 整 batch URL`;
+Output: 給我優先級表 (table, 每條標 P0/P1/P2) + 每個 fix 對應 file:line + 整 batch URL`;
   } else if (kind === 'top3') {
     text = `請拉最新 master, 打開 docs/audits/ 找最新 5 cron audit, 提取每個 audit 的 'Top 3 actionable (S effort)', 統合成 1 個 S-effort 清單, 接做前 5 條:
 1. Read 5 audit
