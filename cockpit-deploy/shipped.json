@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-14T0012-content-qa-cron.md",
+      "archRec": "#31",
+      "what": "culturalLoad schema 欄 + A5_CULTURAL_SCHEMA/A5_HIGH_FAMILIAR lint + 8 個 A5 文化參照違規修正",
+      "version": "v2.0.B.295",
+      "date": "2026-06-14"
+    },
+    {
       "audit": "docs/audits/2026-06-13T0613-content-qa-cron.md",
       "archRec": "#28",
       "what": "cleanText CJK+括號共除 + EM_DASH 正規化 (Ch7 listen-mc TTS P0)",
