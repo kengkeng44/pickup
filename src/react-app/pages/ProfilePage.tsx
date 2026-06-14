@@ -2,7 +2,7 @@ import { useState, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRunStore } from '../../store/runStore';
 import { readXp, levelForXp } from '../../data/xp';
-import { readCoins } from '../../data/coins';
+import { readCoins, addCoins } from '../../data/coins';
 import {
   hasNotificationConsent,
   setNotificationConsent,
@@ -24,6 +24,15 @@ export default function ProfilePage() {
   const [catName, setCatName] = useState(() => {
     try { return localStorage.getItem('pickup.catName') ?? 'Mochi'; } catch { return 'Mochi'; }
   });
+  // v2.0.B.305: rename limit — 3 免費改名, 之後每次扣 coins (per user)
+  const FREE_RENAMES = 3;
+  const RENAME_COST = 100;
+  const [draft, setDraft] = useState(catName);
+  const [renameCount, setRenameCount] = useState(() => {
+    try { return Math.max(0, Number(localStorage.getItem('pickup.catName.changes') || '0') || 0); } catch { return 0; }
+  });
+  const [coinBal, setCoinBal] = useState(coins);
+  const [renameFlash, setRenameFlash] = useState('');
   // v2.0.B.234 招 3: wardrobe state + current outfit display.
   const [wardrobeOpen, setWardrobeOpen] = useState(false);
   const [outfitId, setOutfitId] = useState<string>(() => readOutfit());
@@ -39,9 +48,27 @@ export default function ProfilePage() {
   // v2.0.B.282: night mode toggle.
   const [dark, setDark] = useState<boolean>(() => getTheme() === 'dark');
 
-  const saveCat = (v: string) => {
+  const willCost = renameCount >= FREE_RENAMES;
+  const trimmed = draft.trim();
+  const canSave = trimmed.length > 0 && trimmed !== catName;
+  const remaining = Math.max(0, FREE_RENAMES - renameCount);
+
+  const saveCat = () => {
+    const v = draft.trim();
+    if (!v || v === catName) return;
+    if (renameCount >= FREE_RENAMES) {
+      if (coinBal < RENAME_COST) {
+        setRenameFlash(`金幣不足 — 改名要 ${RENAME_COST} 🪙,你只有 ${coinBal}`);
+        return;
+      }
+      setCoinBal(addCoins(-RENAME_COST));
+    }
     setCatName(v);
     try { localStorage.setItem('pickup.catName', v); } catch {}
+    const nextCount = renameCount + 1;
+    setRenameCount(nextCount);
+    try { localStorage.setItem('pickup.catName.changes', String(nextCount)); } catch {}
+    setRenameFlash('已改名 ✓ 重新整理生效');
   };
 
   // v2.0.B.234 wiring: toggle handler — fires native permission prompt on
@@ -72,18 +99,43 @@ export default function ProfilePage() {
             }}>{outfitBadge}</span>
           )}
         </div>
-        <div style={{ flex: 1 }}>
-          <input
-            value={catName}
-            onChange={(e) => saveCat(e.target.value)}
-            placeholder="貓咪名字"
-            style={{
-              width: '100%', padding: 8, fontSize: 16, fontWeight: 700,
-              border: '2px solid var(--t-border-card)', borderRadius: 8, color: 'var(--t-text)',
-              fontFamily: 'inherit', background: 'var(--t-bg)',
-            }}
-          />
-          <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginTop: 4 }}>更改後重新整理生效</div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <input
+              value={draft}
+              onChange={(e) => { setDraft(e.target.value); if (renameFlash) setRenameFlash(''); }}
+              placeholder="貓咪名字"
+              maxLength={12}
+              aria-label="貓咪名字"
+              style={{
+                flex: '1 1 auto', width: '100%', maxWidth: 150, minWidth: 0,
+                padding: 8, fontSize: 16, fontWeight: 700,
+                border: '2px solid var(--t-border-card)', borderRadius: 8, color: 'var(--t-text)',
+                fontFamily: 'inherit', background: 'var(--t-bg)',
+              }}
+            />
+            <button
+              type="button"
+              onClick={saveCat}
+              disabled={!canSave}
+              style={{
+                flex: '0 0 auto', padding: '8px 12px', fontSize: 13, fontWeight: 800,
+                border: 'none', borderRadius: 8, fontFamily: 'inherit',
+                color: '#fff', background: canSave ? 'var(--t-brand-dark)' : '#cdbfa8',
+                cursor: canSave ? 'pointer' : 'default',
+                WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+              }}
+            >
+              {willCost ? `儲存 ${RENAME_COST}🪙` : '儲存'}
+            </button>
+          </div>
+          <div style={{ fontSize: 11, color: renameFlash.startsWith('金幣不足') ? 'var(--t-error, #c84a3a)' : 'var(--t-text-muted)', marginTop: 4 }}>
+            {renameFlash
+              ? renameFlash
+              : remaining > 0
+                ? `更改後重新整理生效 · 免費改名剩 ${remaining} 次`
+                : `免費改名已用完 · 再改 ${RENAME_COST} 🪙(你有 ${coinBal})`}
+          </div>
         </div>
       </div>
 
