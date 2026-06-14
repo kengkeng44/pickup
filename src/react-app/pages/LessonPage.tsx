@@ -63,6 +63,9 @@ export default function LessonPage() {
   const [history, setHistory] = useState<string[]>([]);
   const startedAt = useRef(Date.now());
   const answerLog = useRef<Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>>([]);
+  // v2.0.B.303: ?preview=N — deep-link to a specific question index (used by the
+  // UI/UX spec doc's live 1:1 iframes). Read-only: does NOT persist resume state.
+  const isPreview = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('preview');
 
   useEffect(() => {
     fetch(`/lessons-ch${chapter}.json`)
@@ -91,6 +94,13 @@ export default function LessonPage() {
             }
           } catch {}
         }
+        // preview deep-link overrides resume (spec-doc iframe), fresh history/log
+        if (found && isPreview) {
+          const p = parseInt(new URLSearchParams(window.location.search).get('preview') || '', 10);
+          if (Number.isFinite(p) && p >= 0 && p < found.questions.length) {
+            resumeIdx = p; resumeHistory = []; resumeLog = [];
+          }
+        }
         setIdx(resumeIdx);
         setHistory(resumeHistory);
         answerLog.current = resumeLog;
@@ -103,7 +113,7 @@ export default function LessonPage() {
 
   // v2.0.B.272: persist mid-lesson progress on every advance; clear on finish.
   useEffect(() => {
-    if (!lesson) return;
+    if (!lesson || isPreview) return;
     const key = resumeKey(chapter, lessonId);
     try {
       if (idx > 0 && idx < lesson.questions.length) {
