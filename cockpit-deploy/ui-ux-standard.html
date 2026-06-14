@@ -769,6 +769,55 @@
       border-color: var(--variable);
       color: var(--variable);
     }
+
+    /* v2.0.B.303: live 1:1 真實 app 嵌入 — 取代手繪 mockup. iframe 以真機寬度 (390px)
+       渲染後縮放塞進手機外框, 比例 = 跟真實畫面一比一. 「🔍 放大」開全螢幕近原寸. */
+    .live-stage {
+      overflow: hidden; border-radius: 14px; background: var(--bg);
+      position: relative;
+    }
+    .live-stage iframe { border: 0; display: block; background: var(--bg); }
+    .live-zoom {
+      margin-top: 6px; width: 100%;
+      background: var(--accent-dark); color: #fff; border: 0;
+      border-radius: 8px; padding: 7px; font-size: 11px; font-weight: 800;
+      cursor: pointer; font-family: inherit; min-height: 36px;
+    }
+    .live-zoom:hover { background: #8a5a18; }
+    .live-loading {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--muted); font-weight: 700; pointer-events: none;
+    }
+    .live-note {
+      font-size: 10px; color: var(--muted); text-align: center;
+      margin-top: 4px; line-height: 1.3;
+    }
+    /* fullscreen 放大 modal */
+    .zoom-modal {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(42,37,32,0.72);
+      display: none; align-items: center; justify-content: center; padding: 12px;
+    }
+    .zoom-modal.show { display: flex; }
+    .zoom-card {
+      position: relative;
+      width: min(390px, 96vw); height: min(845px, 88vh);
+      background: var(--bg); border: 4px solid #2a2520; border-radius: 24px;
+      overflow: hidden; box-shadow: 0 10px 0 rgba(0,0,0,0.25);
+    }
+    .zoom-card iframe { width: 100%; height: 100%; border: 0; background: var(--bg); }
+    .zoom-close {
+      position: absolute; top: 8px; right: 8px; z-index: 3;
+      background: #2a2520; color: #fff; border: 0; border-radius: 999px;
+      width: 36px; height: 36px; font-size: 16px; font-weight: 900;
+      cursor: pointer; line-height: 1;
+    }
+    .zoom-open {
+      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 3;
+      background: var(--accent-dark); color: #fff; text-decoration: none;
+      font-size: 12px; font-weight: 800; padding: 7px 14px; border-radius: 999px;
+      box-shadow: 0 3px 0 rgba(0,0,0,0.25);
+    }
   </style>
 </head>
 <body>
@@ -829,6 +878,10 @@
       <span class="badge top">頂</span> chrome <em class="zh">框架不滾</em> ·
       <span class="badge mid">中</span> content <em class="zh">主內容可滾</em> ·
       <span class="badge bot">底</span> nav / CTA <em class="zh">底部固定操作</em>
+    </div>
+
+    <div class="rule-banner" style="border-color: var(--accent);">
+      <strong>🔴 即時 1:1:</strong> 各頁手機框內是<strong>真實 app 即時嵌入</strong>(pickupwords.pages.dev),非手繪示意 — 跟線上畫面永遠一致。點「🔍 放大看」開近原寸全螢幕。<em class="zh">註:顯示的是你裝置的真實進度狀態(XP / streak 等),需連網;sentence-builder 題型目前內容未使用,維持手繪。</em>
     </div>
 
     <div class="legend">
@@ -905,7 +958,7 @@
     <h2 id="sec-map"><span class="icon">🗺️</span> Map <em class="zh">首頁地圖</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="Map 首頁地圖手機畫面示意圖">
+      <div class="mockup-frame" role="img" aria-label="Map 首頁地圖手機畫面示意圖" data-route="/">
         <div class="mockup-inner">
           <div class="mk-hud">
             <span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span>
@@ -983,7 +1036,7 @@
     <h2 id="sec-profile"><span class="icon">🐱</span> Profile <em class="zh">我的</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="Profile 我的頁手機畫面示意圖">
+      <div class="mockup-frame" role="img" aria-label="Profile 我的頁手機畫面示意圖" data-route="/profile">
         <div class="mockup-inner">
           <div class="mk-hud">
             <span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span>
@@ -1052,7 +1105,7 @@
     <h2 id="sec-tasks"><span class="icon">⭐</span> Tasks <em class="zh">任務</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="Tasks 任務頁手機畫面示意圖">
+      <div class="mockup-frame" role="img" aria-label="Tasks 任務頁手機畫面示意圖" data-route="/tasks">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div class="mk-streak">
@@ -1137,7 +1190,7 @@
     <h2 id="sec-cards"><span class="icon">📒</span> Cards <em class="zh">圖鑑</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="Cards 圖鑑頁手機畫面示意圖">
+      <div class="mockup-frame" role="img" aria-label="Cards 圖鑑頁手機畫面示意圖" data-route="/cards">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div style="margin:8px; background:#d68a52; color:#fff; border-radius:10px; padding:8px; text-align:center; box-shadow: 0 3px 0 #8b5a32">
@@ -1198,7 +1251,7 @@
     <h2 id="sec-alerts"><span class="icon">🔥</span> Alerts <em class="zh">成就</em></h2>
 
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="Alerts 成就頁手機畫面示意圖">
+      <div class="mockup-frame" role="img" aria-label="Alerts 成就頁手機畫面示意圖" data-route="/alerts">
         <div class="mockup-inner">
           <div class="mk-hud"><span>🏳️ EN</span><span>👑 L1</span><span>🪙 0</span><span>🔥 0</span><span>🧊 2</span></div>
           <div style="margin:8px; background:#e7a44a; color:#fff; border-radius:10px; padding:8px; text-align:center; box-shadow: 0 3px 0 #b07a2a">
@@ -1290,7 +1343,7 @@
     <!-- ─── ① narration ─── -->
     <h2 class="qt-h2" id="qt-narration"><span class="icon">①</span> narration <em class="zh">旁白</em> <span class="type-tag story">劇情 STORY</span></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="narration 旁白題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="narration 旁白題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=1"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><span>🔇</span></div>
         <div style="padding: 0 10px; margin-top: 4px;">
           <span style="font-size:9px; padding:3px 8px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1330,7 +1383,7 @@
     <!-- ─── ② listen-mc ─── -->
     <h2 class="qt-h2" id="qt-listen-mc"><span class="icon">②</span> listen-mc <em class="zh">聽選 4 選 1</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="listen-mc 聽選題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-mc 聽選題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=5"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><span>🔇</span></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1371,7 +1424,7 @@
     <!-- ─── ③ listen-tf ─── -->
     <h2 class="qt-h2" id="qt-listen-tf"><span class="icon">③</span> listen-tf <em class="zh">是非題</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="listen-tf 是非題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-tf 是非題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=3"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><span>🔇</span></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
@@ -1415,7 +1468,7 @@
     <!-- ─── ④ emoji-pick ─── -->
     <h2 class="qt-h2" id="qt-emoji-pick"><span class="icon">④</span> emoji-pick <em class="zh">看圖選</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="emoji-pick 看圖選題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="emoji-pick 看圖選題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=9"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
         <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
         <div class="qt-emoji-grid" style="gap:8px; padding:8px;">
@@ -1451,7 +1504,7 @@
     <!-- ─── ⑤ tap-pairs (the one user asked about) ─── -->
     <h2 class="qt-h2" id="qt-tap-pairs"><span class="icon">⑤</span> tap-pairs <em class="zh">中英配對</em> <span class="type-tag input">互動 INPUT</span> <span class="type-tag" style="background:var(--variable);">⭐ user 問的</span></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="tap-pairs 中英配對題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="tap-pairs 中英配對題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=0"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><span>🔇</span></div>
         <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:8px 0;">Match the pairs · 配對</div>
         <div class="qt-pairs-wrap" style="gap:8px; padding:6px 10px;">
@@ -1500,7 +1553,7 @@
     <!-- ─── ⑥ listen-comprehension ─── -->
     <h2 class="qt-h2" id="qt-listen-comp"><span class="icon">⑥</span> listen-comprehension <em class="zh">聽力理解</em></h2>
     <div class="layout-grid">
-      <div class="mockup-frame" role="img" aria-label="listen-comprehension 聽力理解題型手機畫面示意圖"><div class="mockup-inner">
+      <div class="mockup-frame" role="img" aria-label="listen-comprehension 聽力理解題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l2?preview=9"><div class="mockup-inner">
         <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
         <div class="qt-passage" style="font-size:9.5px; padding:9px 11px; margin:8px;">
           <span class="speaker" style="font-size:9px;">🎙 Grandma 奶奶</span>
@@ -1619,5 +1672,97 @@
     </footer>
   </div>
   <a href="#top" class="to-top" aria-label="回頂部" title="回頂部">↑</a>
+
+  <!-- v2.0.B.303: 放大預覽 modal — 近原寸真實 app -->
+  <div id="zoom" class="zoom-modal" role="dialog" aria-modal="true" aria-label="放大預覽真實畫面">
+    <div class="zoom-card">
+      <button class="zoom-close" type="button" onclick="closeZoom()" aria-label="關閉放大">✕</button>
+      <iframe id="zoom-iframe" title="放大預覽真實畫面"></iframe>
+      <a id="zoom-open" class="zoom-open" target="_blank" rel="noopener">↗ 開新分頁</a>
+    </div>
+  </div>
+
+  <script>
+    // v2.0.B.303: 把手繪 mockup 換成真實 app 的縮放 iframe (一比一比例).
+    // 真機寬 390px 渲染 → scale 塞進手機外框; 「🔍 放大」開全螢幕近原寸.
+    var APP_BASE = 'https://pickupwords.pages.dev';
+    var NATIVE_W = 390, NATIVE_H = 845;
+
+    function sizeStage(stage) {
+      var ifr = stage.querySelector('iframe');
+      if (!ifr) return;
+      var w = stage.clientWidth || (stage.parentElement && stage.parentElement.clientWidth) || NATIVE_W;
+      var s = w / NATIVE_W;
+      ifr.style.width = NATIVE_W + 'px';
+      ifr.style.height = NATIVE_H + 'px';
+      ifr.style.transformOrigin = 'top left';
+      ifr.style.transform = 'scale(' + s + ')';
+      stage.style.height = (NATIVE_H * s) + 'px';
+    }
+
+    function buildLiveMockups() {
+      var frames = document.querySelectorAll('.mockup-frame[data-route]');
+      frames.forEach(function (frame) {
+        var route = frame.getAttribute('data-route');
+        var label = frame.getAttribute('aria-label') || '';
+        // 隱藏原手繪內容 (留在 source 當 fallback / 離線參考), 改放真實 iframe
+        Array.prototype.forEach.call(frame.children, function (c) { c.style.display = 'none'; });
+        frame.removeAttribute('role'); // 不再是 static img
+
+        var stage = document.createElement('div');
+        stage.className = 'live-stage';
+        var loading = document.createElement('div');
+        loading.className = 'live-loading';
+        loading.textContent = '載入真實畫面…';
+        var ifr = document.createElement('iframe');
+        ifr.title = label;
+        ifr.loading = 'lazy';
+        ifr.setAttribute('scrolling', 'no');
+        ifr.src = APP_BASE + route;
+        ifr.addEventListener('load', function () { loading.style.display = 'none'; });
+        stage.appendChild(ifr);
+        stage.appendChild(loading);
+
+        var btn = document.createElement('button');
+        btn.className = 'live-zoom';
+        btn.type = 'button';
+        btn.textContent = '🔍 放大看';
+        btn.setAttribute('aria-label', '放大看 ' + label);
+        btn.addEventListener('click', function (e) { e.stopPropagation(); openZoom(route); });
+
+        frame.appendChild(stage);
+        frame.appendChild(btn);
+        sizeStage(stage);
+      });
+    }
+
+    function openZoom(route) {
+      var m = document.getElementById('zoom');
+      document.getElementById('zoom-iframe').src = APP_BASE + route;
+      document.getElementById('zoom-open').href = APP_BASE + route;
+      m.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeZoom() {
+      var m = document.getElementById('zoom');
+      m.classList.remove('show');
+      document.getElementById('zoom-iframe').src = 'about:blank';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('zoom').addEventListener('click', function (e) {
+      if (e.target.id === 'zoom') closeZoom();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeZoom(); });
+
+    var _rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(_rt);
+      _rt = setTimeout(function () {
+        document.querySelectorAll('.live-stage').forEach(sizeStage);
+      }, 150);
+    });
+
+    buildLiveMockups();
+  </script>
 </body>
 </html>
