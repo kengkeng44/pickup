@@ -818,7 +818,7 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "In front of her stood a fence, but it was not made of wood.",
+        "sentence": "In front of her stood a fence. It was not made of wood. It was made of white bones.",
         "question": "What was the fence made of?",
         "options": [
           "stone",
@@ -833,7 +833,8 @@
           "冷冰冰的金屬"
         ],
         "correctIndex": 1,
-        "explanationZh": "不是木頭 → 骨頭(see Q4)。",
+        "culturalLoad": "high_unfamiliar",
+        "explanationZh": "不是木頭 → 骨頭!Baba Yaga 的院子用白骨圍著 — 聽故事時注意每根柱子上的東西。",
         "tags": [
           "story",
           "ch5",
@@ -1196,18 +1197,19 @@
         "sentence": "She turned her head left and right, breathing in the air.",
         "question": "What was Baba Yaga doing at the door?",
         "options": [
-          "looking for her broom",
+          "standing very still",
           "smelling the air",
           "singing softly",
           "kicking the dirt"
         ],
         "optionsZh": [
-          "找掃把",
+          "靜靜站著",
           "在聞空氣",
           "輕聲唱歌",
           "踢泥土"
         ],
         "correctIndex": 1,
+        "culturalLoad": "high_unfamiliar",
         "explanationZh": "抬鼻 + 用力呼吸 → 聞氣味。",
         "tags": [
           "story",

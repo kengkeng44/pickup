@@ -129,6 +129,40 @@ function lintR2LengthParity(lessons, file) {
   return issues;
 }
 
+// v2.0.B.295 (cron content 0614 ARCH-REC #31): A5 cultural-reference schema gate.
+// high_unfamiliar Q → correct answer MUST be audio-anchored (content-word overlap
+// with sentence ≥ 0.25 OR a sentence word appears inside the correct option),
+// else the answer relies on cultural schema, not listening. high_familiar Q →
+// must be difficulty 'easy' (over-familiar to Taiwanese kids = difficulty floor).
+function lintCulturalSchema(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (!q.culturalLoad || q.culturalLoad === 'low') continue;
+      if (q.culturalLoad === 'high_familiar') {
+        if (q.difficulty && q.difficulty !== 'easy') {
+          issues.push(`${file} ${q.id}: A5_HIGH_FAMILIAR_DIFF (high_familiar 應標 difficulty: easy, 現為 ${q.difficulty})`);
+        }
+        continue;
+      }
+      if (q.culturalLoad === 'high_unfamiliar') {
+        const correct = (q.options || [])[q.correctIndex];
+        const sentence = q.sentence || q.sentenceEn || q.text || '';
+        if (typeof correct !== 'string' || !sentence) continue;
+        const corr = contentTokens(correct);
+        if (corr.length === 0) continue;
+        const sent = contentTokens(sentence);
+        const overlap = corr.filter((w) => sent.includes(w)).length / corr.length;
+        const substringAnchor = sent.some((w) => correct.toLowerCase().includes(w));
+        if (overlap < 0.25 && !substringAnchor) {
+          issues.push(`${file} ${q.id}: A5_CULTURAL_SCHEMA (high_unfamiliar Q: 正解未被句子錨定 — 靠文化背景才答得出)`);
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -188,8 +222,9 @@ for (const file of files) {
     const mirrorIssues = lintMirror(raw, file);
     const extendedIssues = lintExtended(raw, file);
     const r2Issues = lintR2LengthParity(raw, file);
+    const culturalIssues = lintCulturalSchema(raw, file);
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);

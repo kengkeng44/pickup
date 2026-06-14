@@ -30,6 +30,12 @@ const QuestionBaseFields = {
   // inference + ≥2 vocab/function). Optional — only L1-L10 of Ch1
   // tagged at introduction; future lessons add as they're written.
   subSkill: z.enum(['gist', 'detail', 'inference', 'vocab', 'function']).optional(),
+  // v2.0.B.295 (cron content 0614 ARCH-REC #31): A5 cultural-reference load.
+  // 'high_unfamiliar' = non-Taiwanese folk prop/role → correct answer MUST be
+  // audio-anchored (lint checks). 'high_familiar' = Taiwan-curriculum-known
+  // concept (玉兔/玉皇大帝) → difficulty floor risk, must be marked easy.
+  // 'low' (default when absent) = no cultural presupposition.
+  culturalLoad: z.enum(['high_unfamiliar', 'high_familiar', 'low']).optional(),
 };
 
 // 4-option multiple choice shape (5 types share this).
