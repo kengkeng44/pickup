@@ -118,6 +118,8 @@ export default function LessonPage() {
     return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
   }
 
+  // v2.0.B.301 (cron ui-ux D1): pre-session time signal in header — 22s/Q (A2-conservative)
+  const estMin = Math.max(1, Math.ceil(lesson.questions.length * 22 / 60));
   const done = idx >= lesson.questions.length;
   if (done) {
     return <CompletePanel
@@ -176,6 +178,7 @@ export default function LessonPage() {
             transition: 'width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }} />
         </div>
+        <span aria-hidden="true" style={{ fontSize: 11, color: '#a08060', fontWeight: 700, flex: '0 0 auto' }}>~{estMin}m</span>
         <MuteToggleBtn />
       </div>
 
