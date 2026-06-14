@@ -106,6 +106,8 @@ section.cron-grid {
   padding-top: 4px; /* opacity 0.7 removed — dropped contrast below 3:1 on 10px text */
 }
 .cron-card.has-p0 { border: 2px solid var(--danger); background: #fef2f0; }
+/* v2.0.B.298: audit 已做過 → 綠框 + 淡化, 不再有「接」按鈕 (反重複) */
+.cron-card.cron-done { border: 2px solid var(--success); background: #f3f8ee; opacity: 0.72; }
 .cron-card.blocked { border: 2px solid var(--accent); background: #fef3c7; }
 .cron-card.blocked::before {
   content: '⏸ 需要你回答'; position: absolute; top: -8px; right: 8px;
@@ -815,6 +817,11 @@ async function loadDashboard(forceFresh) {
       dataByType[type] = { ...parsed, ts: parseAuditTs(file.name), file: path };
     }));
 
+    // v2.0.B.298: shipped-aware — audits already done show ✅ 已處理, no 接 button
+    // (fixes 重複: dashboard 一直餵已做過的 cron audit).
+    const shipped = await loadShipped();
+    const shippedByFile = Object.fromEntries(shipped.list.map((s) => [s.audit, s]));
+
     grid.innerHTML = '';
     for (const [type, meta] of Object.entries(CRON_TYPES)) {
       const d = dataByType[type];
@@ -840,17 +847,20 @@ async function loadDashboard(forceFresh) {
         d.p1 ? `<span class="count-pill p1">P1 ${d.p1}</span>` : '',
       ].filter(Boolean).join('');
       const stamp = d.ts ? d.ts.slice(0, 16).replace('T', ' ') : '';
+      const doneEntry = shippedByFile[d.file];
+      if (doneEntry) card.classList.add('cron-done');
+      const actionsHtml = doneEntry
+        ? `<div class="actions"><span style="flex:1;text-align:center;font-size:12px;font-weight:800;color:var(--success);">✅ 已處理 · ${doneEntry.version || ''}</span></div>`
+        : `<div class="actions"><button class="primary" data-act="copy" data-type="${type}" data-file="${d.file}">📋 接這條去修</button></div>`;
 
       card.innerHTML = `
-        <h3>${meta.icon} ${meta.name} ${d.hasP0 ? '⚠️' : ''} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
+        <h3>${meta.icon} ${meta.name} ${doneEntry ? '✅' : (d.hasP0 ? '⚠️' : '')} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
         <div class="interval">${meta.interval}</div>
         <div class="last-run">🕒 上次跑 ${d.ts ? timeAgo(d.ts) : '—'}${stamp ? ` · ${stamp}` : ''}</div>
         ${d.angle ? `<div class="top-item" style="background:var(--bg);">🎯 本輪角度:${d.angle}</div>` : ''}
         <div class="counts">${pills}</div>
         ${d.topItem ? `<div class="top-item">📌 ${d.topItem.slice(0, 110)}${d.topItem.length > 110 ? '…' : ''}</div>` : ''}
-        <div class="actions">
-          <button class="primary" data-act="copy" data-type="${type}" data-file="${d.file}">📋 接這條去修</button>
-        </div>
+        ${actionsHtml}
         <div class="hint">👆 點卡片看完整 audit 詳情</div>`;
 
       card.querySelector('button[data-act="copy"]')?.addEventListener('click', (e) => {

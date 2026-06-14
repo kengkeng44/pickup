@@ -26,13 +26,12 @@ import type {
 
 /**
  * v2.0.B.237 — CEFR-aligned ability tier used by chapter recommender.
- *
- *   - 'A0'  = pre-A1 / 零基礎 / 沒玩過, 推 Ch0 ground floor
- *   - 'A1'  = 完了 Ch0, 還沒進 A2 主章
- *   - 'A2'  = 完成 ≥ 2 主章 + 答對率 > 70%
- *   - 'A2+' = 完成 ≥ 5 主章 + 答對率 > 85% (詩意 / dark 章節 ok)
+ * v2.0.B.298 (arch-cron P0): moved to src/data/types.ts to break the
+ * userProfile ↔ storyTags circular dep; imported for internal use +
+ * re-exported here so existing `from './userProfile'` importers keep working.
  */
-export type AbilityLevel = 'A0' | 'A1' | 'A2' | 'A2+';
+import type { AbilityLevel } from './types';
+export type { AbilityLevel };
 
 export interface UserProfile {
   /** chapter ids the user has substantively completed */
