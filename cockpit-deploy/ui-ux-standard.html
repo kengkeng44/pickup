@@ -306,7 +306,7 @@
       font-size: 12.5px;
     }
     .fx::before {
-      content: "✨ 特效 (animations): ";
+      content: "✨ 動效 (粉色) + 機制註記: ";
       font-weight: 900; color: var(--olive-dark);
     }
 
@@ -771,53 +771,18 @@
     }
 
     /* v2.0.B.303: live 1:1 真實 app 嵌入 — 取代手繪 mockup. iframe 以真機寬度 (390px)
-       渲染後縮放塞進手機外框, 比例 = 跟真實畫面一比一. 「🔍 放大」開全螢幕近原寸. */
+       渲染後縮放塞進手機外框, 比例 = 跟真實畫面一比一. */
     .live-stage {
       overflow: hidden; border-radius: 14px; background: var(--bg);
       position: relative;
     }
     .live-stage iframe { border: 0; display: block; background: var(--bg); }
-    .live-zoom {
-      margin-top: 6px; width: 100%;
-      background: var(--accent-dark); color: #fff; border: 0;
-      border-radius: 8px; padding: 7px; font-size: 11px; font-weight: 800;
-      cursor: pointer; font-family: inherit; min-height: 36px;
-    }
-    .live-zoom:hover { background: #8a5a18; }
     .live-loading {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
       font-size: 11px; color: var(--muted); font-weight: 700; pointer-events: none;
     }
-    .live-note {
-      font-size: 10px; color: var(--muted); text-align: center;
-      margin-top: 4px; line-height: 1.3;
-    }
-    /* fullscreen 放大 modal */
-    .zoom-modal {
-      position: fixed; inset: 0; z-index: 300;
-      background: rgba(42,37,32,0.72);
-      display: none; align-items: center; justify-content: center; padding: 12px;
-    }
-    .zoom-modal.show { display: flex; }
-    .zoom-card {
-      position: relative;
-      width: min(390px, 96vw); height: min(845px, 88vh);
-      background: var(--bg); border: 4px solid #2a2520; border-radius: 24px;
-      overflow: hidden; box-shadow: 0 10px 0 rgba(0,0,0,0.25);
-    }
-    .zoom-card iframe { width: 100%; height: 100%; border: 0; background: var(--bg); }
-    .zoom-close {
-      position: absolute; top: 8px; right: 8px; z-index: 3;
-      background: #2a2520; color: #fff; border: 0; border-radius: 999px;
-      width: 36px; height: 36px; font-size: 16px; font-weight: 900;
-      cursor: pointer; line-height: 1;
-    }
-    .zoom-open {
-      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 3;
-      background: var(--accent-dark); color: #fff; text-decoration: none;
-      font-size: 12px; font-weight: 800; padding: 7px 14px; border-radius: 999px;
-      box-shadow: 0 3px 0 rgba(0,0,0,0.25);
-    }
+    /* v2.0.B.304: fx 框真動效標色 — 框內混了真動效 + 機制註記, 粉色 = 真正的動效/特效 */
+    .fx-hl { color: #c0398a; font-weight: 900; }
   </style>
 </head>
 <body>
@@ -881,7 +846,7 @@
     </div>
 
     <div class="rule-banner" style="border-color: var(--accent);">
-      <strong>🔴 即時 1:1:</strong> 各頁手機框內是<strong>真實 app 即時嵌入</strong>(pickupwords.pages.dev),非手繪示意 — 跟線上畫面永遠一致。點「🔍 放大看」開近原寸全螢幕。<em class="zh">註:顯示的是你裝置的真實進度狀態(XP / streak 等),需連網;sentence-builder 題型目前內容未使用,維持手繪。</em>
+      <strong>🔴 即時 1:1:</strong> 各頁手機框內是<strong>真實 app 即時嵌入</strong>(pickupwords.pages.dev),非手繪示意 — 跟線上畫面永遠一致。<em class="zh">註:顯示的是你裝置的真實進度狀態(XP / streak 等),需連網;sentence-builder 題型目前內容未使用,維持手繪。</em>
     </div>
 
     <div class="legend">
@@ -889,6 +854,7 @@
       <span class="legend-item">📦 黃 = 頂部 chrome 框架</span>
       <span class="legend-item">📜 綠 = 中段 scrollable 內容</span>
       <span class="legend-item">⬛ 紅 = 底部 nav / CTA</span>
+      <span class="legend-item"><span style="color:#c0398a;font-weight:900;">✨ 粉</span> = 真動效 (fx 框內其餘為機制 / 技術註記)</span>
     </div>
 
     <!-- === Quiz UX Reference (參考業界最佳 ratio) === -->
@@ -1025,7 +991,7 @@
           </ul>
         </div>
         <div class="fx">
-          SquishButton press <em class="zh">按下變平面</em> · Container height <em class="zh">容器高度</em> 預固定 280 nodes · IntersectionObserver <em class="zh">視窗偵測</em> 抓章節 · 1-shot lessons load <em class="zh">一次載入</em> (B.297) · 寶箱 tap +10 coins · current node pulse <em class="zh">脈動高亮</em>
+          <span class="fx-hl">SquishButton press <em class="zh">按下變平面</em></span> · Container height <em class="zh">容器高度</em> 預固定 280 nodes · IntersectionObserver <em class="zh">視窗偵測</em> 抓章節 · 1-shot lessons load <em class="zh">一次載入</em> (B.297) · 寶箱 tap +10 coins · <span class="fx-hl">current node pulse <em class="zh">脈動高亮</em></span>
         </div>
       </div>
     </div>
@@ -1096,7 +1062,7 @@
           <span class="badge bot">底</span><strong>BottomNav</strong> (跟 Map 同)
         </div>
         <div class="fx">
-          Mochi avatar 偶爾 blink <em class="zh">眨眼</em> · Save 按鈕 → AsyncStorage <em class="zh">儲存</em> + toast 短訊
+          <span class="fx-hl">Mochi avatar 偶爾 blink <em class="zh">眨眼</em></span> · Save 按鈕 → AsyncStorage <em class="zh">儲存</em> + toast 短訊
         </div>
       </div>
     </div>
@@ -1181,7 +1147,7 @@
           <span class="badge bot">底</span><strong>BottomNav</strong>
         </div>
         <div class="fx">
-          Streak 升級 hero card scale bounce <em class="zh">縮放彈跳</em> 1.3 → 1 · XP bar fill transition <em class="zh">填充動畫</em>
+          <span class="fx-hl">Streak 升級 hero card scale bounce <em class="zh">縮放彈跳</em> 1.3 → 1</span> · <span class="fx-hl">XP bar fill transition <em class="zh">填充動畫</em></span>
         </div>
       </div>
     </div>
@@ -1242,7 +1208,7 @@
           <span class="badge bot">底</span><strong>BottomNav</strong>
         </div>
         <div class="fx">
-          Card complete unlock <em class="zh">完成解鎖</em> scale 0.82→1.12→1 pop · Hero N 變化 → 短 pulse
+          <span class="fx-hl">Card complete unlock <em class="zh">完成解鎖</em> scale 0.82→1.12→1 pop</span> · <span class="fx-hl">Hero N 變化 → 短 pulse</span>
         </div>
       </div>
     </div>
@@ -1301,7 +1267,7 @@
           <span class="badge bot">底</span><strong>BottomNav</strong>
         </div>
         <div class="fx">
-          解鎖瞬間 confetti <em class="zh">彩帶</em> + Haptic Success + scale 0.7→1.15→1 · Tap unlocked badge 念 description
+          <span class="fx-hl">解鎖瞬間 confetti <em class="zh">彩帶</em></span> + Haptic Success + <span class="fx-hl">scale 0.7→1.15→1</span> · Tap unlocked badge 念 description
         </div>
       </div>
     </div>
@@ -1318,7 +1284,7 @@
     <div class="section-card top"><span class="badge top">頂</span><strong>Mascot Scene (~250px)</strong>: 奶奶 + 柴犬 illustration + 章節 floor band <em class="zh">章節地板色條</em> 50px inset</div>
     <div class="section-card mid"><span class="badge mid">中</span><strong>Narration <em class="zh">旁白</em></strong> + <img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> SquishButton replay <em class="zh">重播</em></div>
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA</strong>: → Begin <em class="zh">開始</em> SquishButton olive</div>
-    <div class="fx">mascot-idle-bob <em class="zh">站立左右搖晃</em> 動畫 · auto-speak narration on mount</div>
+    <div class="fx"><span class="fx-hl">mascot-idle-bob <em class="zh">站立左右搖晃</em> 動畫</span> · auto-speak narration on mount</div>
 
     <!-- ═══════════════════ LESSON 答題畫面 ═══════════════════ -->
     <div class="q-types-banner">
@@ -1416,7 +1382,7 @@
           </ul>
         </div>
         <div class="fx">
-          auto-speak sentence on mount · tap option → <code>Speech.speak(en)</code> + Haptic Medium · 答對 → Confetti emoji burst + Haptic Success + CTA enable · 1st wrong yellow shake + retry 同題 · 2nd wrong red reveal + 知道了 (red CTA)
+          auto-speak sentence on mount · tap option → <code>Speech.speak(en)</code> + Haptic Medium · 答對 → <span class="fx-hl">Confetti emoji burst</span> + Haptic Success + CTA enable · 1st wrong <span class="fx-hl">yellow shake</span> + retry 同題 · 2nd wrong <span class="fx-hl">red reveal</span> + 知道了 (red CTA)
         </div>
       </div>
     </div>
@@ -1460,7 +1426,7 @@
           </ul>
         </div>
         <div class="fx">
-          auto-speak sentence · tap True/False → Haptic Medium · 答對 olive flash + Success Haptic + Confetti · 答錯 1st yellow shake + retry · 2nd reveal + 知道了
+          auto-speak sentence · tap True/False → Haptic Medium · 答對 <span class="fx-hl">olive flash</span> + Success Haptic + <span class="fx-hl">Confetti</span> · 答錯 1st <span class="fx-hl">yellow shake</span> + retry · 2nd <span class="fx-hl">reveal</span> + 知道了
         </div>
       </div>
     </div>
@@ -1496,7 +1462,7 @@
           </ul>
         </div>
         <div class="fx">
-          tap emoji → <code>Speech.speak("peach")</code> + Haptic Medium · 答對 emoji bounce scale 1.2→1 + olive bg flash + Confetti · 答錯 yellow shake → 2nd reveal
+          tap emoji → <code>Speech.speak("peach")</code> + Haptic Medium · 答對 <span class="fx-hl">emoji bounce scale 1.2→1</span> + <span class="fx-hl">olive bg flash</span> + <span class="fx-hl">Confetti</span> · 答錯 <span class="fx-hl">yellow shake</span> → 2nd <span class="fx-hl">reveal</span>
         </div>
       </div>
     </div>
@@ -1545,7 +1511,7 @@
           </ul>
         </div>
         <div class="fx">
-          tap EN tile → amber border + Speech.speak(en) + Haptic Medium · tap matching ZH → olive flash 雙方 + Haptic Success · mismatch → 紅 shake 0.3s 兩方 reset · 4/4 全配 → auto Confetti + CTA enable · 答錯 2 次配對 → 知道了 reveal
+          tap EN tile → <span class="fx-hl">amber border</span> + Speech.speak(en) + Haptic Medium · tap matching ZH → <span class="fx-hl">olive flash 雙方</span> + Haptic Success · mismatch → <span class="fx-hl">紅 shake 0.3s 兩方 reset</span> · 4/4 全配 → auto <span class="fx-hl">Confetti</span> + CTA enable · 答錯 2 次配對 → 知道了 <span class="fx-hl">reveal</span>
         </div>
       </div>
     </div>
@@ -1583,7 +1549,7 @@
           </ul>
         </div>
         <div class="fx">
-          passage auto-speak on mount (rate 0.75) · Replay tap → re-speak (Haptic Light) · 同 listen-mc 答對 / 1st 黃 / 2nd 紅 reveal 邏輯
+          passage auto-speak on mount (rate 0.75) · Replay tap → re-speak (Haptic Light) · 同 listen-mc 答對 / <span class="fx-hl">1st 黃 / 2nd 紅 reveal</span> 邏輯
         </div>
       </div>
     </div>
@@ -1629,7 +1595,7 @@
           </ul>
         </div>
         <div class="fx">
-          tap tile → spring fly 至 slot (200ms) + Haptic Light · 答對 → Confetti + Success Haptic + Speech.speak(完整句) · 答錯 yellow shake retain user 排列 (parity tap-pairs blind retry) · 2nd 紅 reveal + 知道了
+          tap tile → <span class="fx-hl">spring fly 至 slot (200ms)</span> + Haptic Light · 答對 → <span class="fx-hl">Confetti</span> + Success Haptic + Speech.speak(完整句) · 答錯 <span class="fx-hl">yellow shake</span> retain user 排列 (parity tap-pairs blind retry) · 2nd <span class="fx-hl">紅 reveal</span> + 知道了
         </div>
       </div>
     </div>
@@ -1641,8 +1607,8 @@
     <div class="fx" style="margin-top:6px;">
       <strong style="color:var(--olive-dark);">所有題型共享:</strong>
       auto-speak <em class="zh">自動發音</em> on Q mount + onUnmount cleanup <em class="zh">解除時清掉</em> ·
-      SquishButton 30ms 按下 + Haptic Medium ·
-      <strong>2-strike pattern</strong> <em class="zh">兩次錯誤揭曉</em> = 1st yellow blindRetry / 2nd red reveal + 知道了 ·
+      <span class="fx-hl">SquishButton 30ms 按下</span> + Haptic Medium ·
+      <strong>2-strike pattern</strong> <em class="zh">兩次錯誤揭曉</em> = <span class="fx-hl">1st yellow blindRetry / 2nd red reveal</span> + 知道了 ·
       MapPage progress bar 推進 lesson idx 持久化 (localStorage) ·
       mute toggle 影響所有 TTS (force:true option 仍 fire onEnd 不卡 advance) (B.251)
     </div>
@@ -1673,18 +1639,9 @@
   </div>
   <a href="#top" class="to-top" aria-label="回頂部" title="回頂部">↑</a>
 
-  <!-- v2.0.B.303: 放大預覽 modal — 近原寸真實 app -->
-  <div id="zoom" class="zoom-modal" role="dialog" aria-modal="true" aria-label="放大預覽真實畫面">
-    <div class="zoom-card">
-      <button class="zoom-close" type="button" onclick="closeZoom()" aria-label="關閉放大">✕</button>
-      <iframe id="zoom-iframe" title="放大預覽真實畫面"></iframe>
-      <a id="zoom-open" class="zoom-open" target="_blank" rel="noopener">↗ 開新分頁</a>
-    </div>
-  </div>
-
   <script>
     // v2.0.B.303: 把手繪 mockup 換成真實 app 的縮放 iframe (一比一比例).
-    // 真機寬 390px 渲染 → scale 塞進手機外框; 「🔍 放大」開全螢幕近原寸.
+    // 真機寬 390px 渲染 → scale 塞進手機外框.
     var APP_BASE = 'https://pickupwords.pages.dev';
     var NATIVE_W = 390, NATIVE_H = 845;
 
@@ -1723,36 +1680,10 @@
         stage.appendChild(ifr);
         stage.appendChild(loading);
 
-        var btn = document.createElement('button');
-        btn.className = 'live-zoom';
-        btn.type = 'button';
-        btn.textContent = '🔍 放大看';
-        btn.setAttribute('aria-label', '放大看 ' + label);
-        btn.addEventListener('click', function (e) { e.stopPropagation(); openZoom(route); });
-
         frame.appendChild(stage);
-        frame.appendChild(btn);
         sizeStage(stage);
       });
     }
-
-    function openZoom(route) {
-      var m = document.getElementById('zoom');
-      document.getElementById('zoom-iframe').src = APP_BASE + route;
-      document.getElementById('zoom-open').href = APP_BASE + route;
-      m.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeZoom() {
-      var m = document.getElementById('zoom');
-      m.classList.remove('show');
-      document.getElementById('zoom-iframe').src = 'about:blank';
-      document.body.style.overflow = '';
-    }
-    document.getElementById('zoom').addEventListener('click', function (e) {
-      if (e.target.id === 'zoom') closeZoom();
-    });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeZoom(); });
 
     var _rt;
     window.addEventListener('resize', function () {
