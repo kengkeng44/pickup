@@ -666,6 +666,25 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
         <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
       </div>
     </div>
+
+    <div class="todo-item" data-todo-id="offsite-reminder">
+      <div class="todo-title">🔔 站外提醒 (真實 push 通知) — 以後再做</div>
+      <div class="todo-meta">
+        <span>B.311 砍掉舊「Mochi 通知」(只是站內 toast, 非站外)</span>
+        <span>預估: 中</span>
+        <span>相依: 需 PWA push / Capacitor 原生通知</span>
+      </div>
+      <ul class="todo-checklist">
+        <li>目標:app 關著時也能提醒「奶奶今晚的故事在等你」(真站外 push)</li>
+        <li>web:PWA Service Worker Push API + VAPID key + 後端排程發送 (接 D1 後)</li>
+        <li>iOS:Capacitor 原生 local/push notification (上架後)</li>
+        <li>copy framework 舊稿在 git 歷史 (B.311 砍的 src/notifications/copy.ts) 可參考</li>
+      </ul>
+      <div class="todo-actions">
+        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/strategy/2026-06-15-backend-options.md" target="_blank">📄 後端 doc (排程發送靠 D1)</a>
+        <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
+      </div>
+    </div>
   </section>
 
   <!-- v2.0.B.266: RN pivot banner (2026-06-09) — 移到最下面 (B.309 per user) -->

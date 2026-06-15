@@ -4,11 +4,6 @@ import { useRunStore } from '../../store/runStore';
 import { readXp, levelForXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverRename } from '../../data/backend';
-import {
-  hasNotificationConsent,
-  setNotificationConsent,
-  bootScheduler,
-} from '../../notifications';
 import { readOutfit, getOutfitById } from '../../data/mascotOutfits';
 import { getTheme, toggleTheme } from '../../data/theme';
 
@@ -41,11 +36,6 @@ export default function ProfilePage() {
   const outfitLabelZh = outfit?.name.zh ?? 'Mochi 原樣';
   const outfitLabelEn = outfit?.name.en ?? 'Mochi (default)';
   const outfitBadge = outfit?.emojiBadge ?? '';
-  // v2.0.B.234 wiring: Mochi notifications toggle. Default off (per
-  // src/notifications/consent.tsx — requires explicit user opt-in).
-  const [notifsOn, setNotifsOn] = useState<boolean>(() => {
-    try { return hasNotificationConsent(); } catch { return false; }
-  });
   // v2.0.B.282: night mode toggle.
   const [dark, setDark] = useState<boolean>(() => getTheme() === 'dark');
 
@@ -72,19 +62,6 @@ export default function ProfilePage() {
     setRenameCount(nextCount);
     try { localStorage.setItem('pickup.catName.changes', String(nextCount)); } catch {}
     setRenameFlash('已改名 ✓ 重新整理生效');
-  };
-
-  // v2.0.B.234 wiring: toggle handler — fires native permission prompt on
-  // first enable (must be in user-gesture click handler per iOS Safari).
-  const toggleNotifs = async () => {
-    const next = !notifsOn;
-    setNotifsOn(next);
-    try {
-      await setNotificationConsent(next);
-      if (next) {
-        try { bootScheduler(); } catch {}
-      }
-    } catch {}
   };
 
   return (
@@ -201,34 +178,6 @@ export default function ProfilePage() {
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>
-
-      {/* v2.0.B.234 wiring: Mochi notifications toggle. Default off. */}
-      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>允許 Mochi 通知</div>
-          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2 }}>Mochi notifications · 偶爾捎封信給你</div>
-        </div>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={notifsOn}
-          aria-label="允許 Mochi 通知 · Mochi notifications"
-          onClick={toggleNotifs}
-          style={{
-            width: 52, height: 30, borderRadius: 999, border: 'none', padding: 3,
-            background: notifsOn ? 'var(--t-success)' : '#d8c9b3', cursor: 'pointer',
-            position: 'relative', transition: 'background 160ms ease-out',
-            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-          }}
-        >
-          <span style={{
-            display: 'block', width: 24, height: 24, borderRadius: '50%',
-            background: 'var(--t-surface)', boxShadow: '0 1px 2px rgba(60,42,28,0.25)',
-            transform: notifsOn ? 'translateX(22px)' : 'translateX(0)',
-            transition: 'transform 160ms ease-out',
-          }} />
-        </button>
-      </div>
 
       {/* v2.0.B.282: night mode toggle — bedtime-friendly dark theme. */}
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', alignItems: 'center', gap: 12 }}>

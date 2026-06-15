@@ -32,14 +32,6 @@ import ShareModal from '../components/ShareModal';
 // v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
 import NextStoryPicker from '../components/NextStoryPicker';
 // v2.0.B.283: Mochi Bond stage-up celebration overlay.
-import {
-  evaluateTriggers,
-  scheduleNotif,
-  shouldShowSoftPrompt,
-  NotifConsentPrompt,
-  bootScheduler,
-  getHistory,
-} from '../../notifications';
 
 interface Lesson {
   id: string;
@@ -299,10 +291,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
   // v2.0.B.234 招 3 mascot outfits: capture outfits newly unlocked by this
   // lesson completion (chapter-complete + lesson-id + streak milestones).
   const [newOutfits, setNewOutfits] = useState<OutfitId[]>([]);
-  // v2.0.B.234 wiring: soft consent prompt visibility. Only shows for
-  // L3+ first time `shouldShowSoftPrompt()` evaluates truthy. Inside
-  // useState init so we evaluate once per panel mount, not every render.
-  const [showConsent, setShowConsent] = useState(false);
   // v2.0.B.235 招 4: 分享金句 modal visibility — only opens when user taps
   // the share button. KeySentence resolved lazily from chapter + lessonId.
   const [showShare, setShowShare] = useState(false);
@@ -343,31 +331,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         hook_type: hook?.type ?? 'none',
         has_inquiry: hook != null,
       });
-    } catch {}
-
-    // v2.0.B.234 wiring (notification scaffold goes live):
-    // (a) L3+ + shouldShowSoftPrompt() true → render NotifConsentPrompt
-    // (b) Regardless of consent, evaluateTriggers(ctx) → scheduleNotif()
-    //     (scheduler internally gates on consent + permission, so calling
-    //     unconditionally is safe — drops to no-op when not granted.)
-    try {
-      if (lesson.lessonInChapter >= 3 && shouldShowSoftPrompt()) {
-        setShowConsent(true);
-      }
-    } catch {}
-    try {
-      const ctx = buildTriggerContext({
-        lesson,
-        accuracy,
-        isLastLessonOfChapter,
-      });
-      const intents = evaluateTriggers(ctx);
-      for (const intent of intents) {
-        scheduleNotif(intent.kind, intent.fireAt, {
-          chapter: intent.chapter,
-          tag: intent.tag,
-        });
-      }
     } catch {}
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -475,24 +438,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         }} aria-label="完成 Continue">→</button>
       )}
 
-      {/* v2.0.B.234 wiring: soft notification consent prompt — only renders
-          for L3+ when shouldShowSoftPrompt() was truthy at mount. Native
-          permission prompt is triggered inside accept handler (user gesture
-          required by iOS Safari). bootScheduler re-runs after accept so
-          scheduleNotif() calls made earlier in this useEffect (gated to
-          no-op while consent missing) can be retried via past-due replay
-          on next mount — but since intents we just scheduled are FUTURE,
-          we simply re-arm timers post-consent. */}
-      {showConsent && (
-        <NotifConsentPrompt
-          onAccept={() => {
-            setShowConsent(false);
-            try { bootScheduler(); } catch {}
-          }}
-          onDecline={() => setShowConsent(false)}
-        />
-      )}
-
       {/* v2.0.B.235 招 4: 分享金句 modal — only mounts when explicitly opened. */}
       {showShare && keySentence && (
         <ShareModal
@@ -513,68 +458,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
 
     </div>
   );
-}
-
-/**
- * v2.0.B.234 wiring helper: assemble TriggerContext from current lesson +
- * localStorage state. Cheap reads (streak, last-fired history) so safe to
- * call per CompletePanel mount. Defaults are defensive — if any read
- * throws, helper still returns a usable context (scheduler will no-op).
- */
-function buildTriggerContext(opts: {
-  lesson: Lesson;
-  accuracy: number;
-  isLastLessonOfChapter: boolean;
-}): import('../../notifications').TriggerContext {
-  const now = new Date();
-
-  // streak: localStorage 'pickup.streak.count'
-  let streak = 0;
-  try {
-    const v = localStorage.getItem('pickup.streak.count');
-    const n = v == null ? 0 : Number(v);
-    if (Number.isFinite(n) && n >= 0) streak = Math.floor(n);
-  } catch {}
-
-  // notifs fired this week: count history entries within last 7 days.
-  let notifsFiredThisWeek = 0;
-  try {
-    const sevenDaysAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
-    notifsFiredThisWeek = getHistory().filter(h => {
-      const t = new Date(h.firedAtIso).getTime();
-      return Number.isFinite(t) && t >= sevenDaysAgo;
-    }).length;
-  } catch {}
-
-  // SRS queue size — defensive read (storyKitten SRS list, may not exist).
-  let srsQueueSize = 0;
-  try {
-    // v2.0.B.253 P0 fix (ui-ux cron 2026-06-07T1208 SRS Babbel):
-    // storyKitten.ts:302 寫入 key 是 'wordwar.srs.kitten', 這裡讀的 'pickup.story.srs' 永遠 null
-    // → srsQueueSize 一直 0 → notif gate / HUD 複習提示全部失效。改齊。
-    const raw = localStorage.getItem('wordwar.srs.kitten');
-    if (raw) {
-      const arr = JSON.parse(raw);
-      if (Array.isArray(arr)) srsQueueSize = arr.length;
-    }
-  } catch {}
-
-  // chapter completion state
-  const isLast = opts.isLastLessonOfChapter;
-  const completedLessonsThisChapter = isLast ? opts.lesson.lessonInChapter : opts.lesson.lessonInChapter;
-
-  return {
-    now,
-    lastAppOpenAt: now, // current mount = app open
-    lastLessonCompleteAt: now, // just completed
-    currentChapter: opts.lesson.chapter,
-    completedLessonsThisChapter,
-    lastChapterCompletedAt: isLast ? now : null,
-    srsQueueSize,
-    streak,
-    activeHour: now.getHours(),
-    notifsFiredThisWeek,
-  };
 }
 
 // v2.0.B.232 招 1: streak result banner. Three states, all warm framing.
