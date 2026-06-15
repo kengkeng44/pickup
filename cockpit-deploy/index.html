@@ -644,35 +644,32 @@ main code { overflow-wrap: anywhere; }
       </div>
     </div>
 
-    <div class="todo-item" data-todo-id="backend-p1">
-      <div class="todo-title">🗄️ 後端 P1 — CF Workers + D1 匿名帳號 + 狀態同步</div>
+    <div class="todo-item" data-todo-id="backend-provision">
+      <div class="todo-title">🗄️ 後端啟用 — 程式碼已 ship (B.308),剩你外部 provision</div>
       <div class="todo-meta">
-        <span>方案: Cloudflare Workers + D1 (已選定)</span>
-        <span>預估: 3-4 天</span>
-        <span>風險: 中</span>
-        <span>頻率: 一次 (之後 P2-P4 接續)</span>
+        <span>程式碼: ✅ P1-P4 全寫完 (functions/ + D1 schema + 前端 client)</span>
+        <span>你要做: ~20 min (P1+P2)</span>
+        <span>風險: 低 (沒接好前 app 照常)</span>
       </div>
       <ul class="todo-checklist">
-        <li>建 D1 database + schema (users / economy / lesson_completions / ledger, 見 doc §6.3)</li>
-        <li>Pages Functions: <code>/api/auth/anon</code> 發匿名 JWT + <code>/api/state</code> 拉狀態</li>
-        <li><code>/api/migrate</code>: 首次登入上推本機 coins/xp/streak/completed, server 取 max 合併</li>
-        <li>前端: 開 app 領匿名 token, localStorage 降級為 cache</li>
-        <li>wrangler d1 migrations 接進 CI (複用現有 CLOUDFLARE_API_TOKEN)</li>
-        <li>build 過 + 部署, 跨裝置同步驗證一次</li>
-        <li>✅ 完成後接 P2 (lesson/complete + chest + rename 改 server 權威 → 作弊堵死)</li>
+        <li><strong>P1+P2 (作弊堵死,先做這個):</strong></li>
+        <li><code>wrangler d1 create pickup-db</code> → 把 database_id 填進 <code>wrangler.toml</code></li>
+        <li><code>wrangler d1 migrations apply pickup-db --remote</code>(套 migrations/0001_init.sql)</li>
+        <li>CF dashboard → Pages → pickupwords → Settings → Variables and Secrets:設 <code>JWT_SECRET</code>(任意長隨機字串)</li>
+        <li>重新部署 → 開 app 自動領匿名帳號 + 上推進度;換裝置驗證同步;改 localStorage 重開被洗掉 = 作弊堵死</li>
+        <li><strong>P3 (家長 email,選):</strong> 設 <code>RESEND_API_KEY</code> + 驗證寄信網域</li>
+        <li><strong>P4 (金流,上架時):</strong> Stripe → <code>STRIPE_SECRET</code> + <code>STRIPE_WEBHOOK_SECRET</code> + webhook 指向 <code>/api/iap/verify</code>;Apple → IAP 商品 + <code>APPLE_SHARED_SECRET</code></li>
       </ul>
       <div class="todo-actions">
-        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/strategy/2026-06-15-backend-options.md" target="_blank">📄 完整設計 doc</a>
+        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/strategy/2026-06-15-backend-options.md" target="_blank">📄 設計 doc</a>
         <a href="https://dash.cloudflare.com/" target="_blank" class="secondary">🔗 CF dashboard</a>
-        <button class="db-copy" type="button" data-prompt="請拉最新 master, Read docs/strategy/2026-06-15-backend-options.md, 實作後端 P1 (Cloudflare Workers + D1):
-1. 建 D1 database + 跑 §6.3 schema (users / economy / lesson_completions / ledger)
-2. Pages Functions: /api/auth/anon (發匿名 UUID + HS256 JWT) + /api/state (拉全狀態) + /api/migrate (上推本機 state, server 取 max 合併)
-3. 前端: 首次開 app 領匿名 token 存 localStorage, 之後 localStorage 降級為 cache, 上線 reconcile
-4. wrangler d1 migrations 接進 CI (複用現有 CLOUDFLARE_API_TOKEN secret)
-5. npm run build 過 + 部署, 換裝置驗證進度同步
+        <button class="db-copy" type="button" data-prompt="請拉最新 master. 後端程式碼 (functions/api/* + migrations/0001_init.sql + wrangler.toml + src/data/backend.ts) 已 ship (B.308). 我已在 CF 建好 D1 (database_id 填進 wrangler.toml) + 套了 migrations + 設了 JWT_SECRET + 重新部署. 請:
+1. 驗證 /api/auth/anon /api/state /api/migrate 正常回應 (curl 或從 app)
+2. 確認前端 initBackend 領到 token + migrate + reconcile 正常
+3. 把 P2 economy 從『鏡像 + 開機 pull 覆寫』升級成『hard server-authoritative』(client 不再本機 addCoins/addXp, 改等 server 回傳值更新 HUD) — 評估風險後實作
+4. build + 部署, 跨裝置驗證
 
-Commit: v2.0.B.NEXT: 後端 P1 匿名帳號 + 狀態同步 (CF D1)
-完成後 P2 把 lesson/complete + chest/open + rename 改 server 權威結算 (反作弊)" style="margin-top:6px;">📋 複製 P1 kickoff prompt</button>
+Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-top:6px;">📋 複製「provision 後的硬化」prompt</button>
         <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRunStore } from '../../store/runStore';
 import { readXp, levelForXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
+import { isBackendLive, serverRename } from '../../data/backend';
 import {
   hasNotificationConsent,
   setNotificationConsent,
@@ -65,6 +66,8 @@ export default function ProfilePage() {
     }
     setCatName(v);
     try { localStorage.setItem('pickup.catName', v); } catch {}
+    // v2.0.B.308 (P2): 鏡像給 server (server 自有 3-free / 100-coin 檢查; 開機 pull 為準)
+    try { if (isBackendLive()) void serverRename(v); } catch {}
     const nextCount = renameCount + 1;
     setRenameCount(nextCount);
     try { localStorage.setItem('pickup.catName.changes', String(nextCount)); } catch {}

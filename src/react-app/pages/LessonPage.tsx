@@ -11,6 +11,7 @@ import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
+import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
@@ -319,6 +320,8 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       try { addXp(xp); } catch {}
       try { addCoins(coinDelta); } catch {}
     }
+    // v2.0.B.308 (P2): 鏡像給 server (idempotent; 開機 pull 時 server 值為準, 防竄改)
+    try { if (isBackendLive()) void serverCompleteLesson(Number(lesson.chapter), lesson.id, correct, total); } catch {}
     try { setStreakResult(updateStreak()); } catch {}
     // Parent Corner: persist learning record for parent-facing stats.
     try { logLesson({ ts: Date.now(), chapter: lesson.chapter, lessonId: lesson.id, total, correct, ms: elapsedMs }); } catch {}

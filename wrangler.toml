@@ -1,0 +1,21 @@
+# 拾光 Pickup — Cloudflare Pages + Functions + D1 設定
+# Pages 部署: wrangler pages deploy dist --project-name=pickupwords
+# Functions: /functions/** 由 CF Pages 自動 bundle (esbuild)
+#
+# ⚠️ 啟用後端前必做 (見 cockpit todo / docs §6):
+#   1. wrangler d1 create pickup-db          → 取得 database_id 填到下方
+#   2. wrangler d1 migrations apply pickup-db → 套用 migrations/0001_init.sql
+#   3. CF dashboard → Pages → pickupwords → Settings → Variables and Secrets:
+#        設 JWT_SECRET (任意長隨機字串)
+#   4. 重新部署. 端點未設好前一律回 503, 前端自動降級為 localStorage (app 照常)
+
+name = "pickupwords"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-06-01"
+
+# D1 binding — env.DB. database_id 由 `wrangler d1 create pickup-db` 產生後填入.
+[[d1_databases]]
+binding = "DB"
+database_name = "pickup-db"
+database_id = "REPLACE_AFTER_D1_CREATE"
+migrations_dir = "migrations"

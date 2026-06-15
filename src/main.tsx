@@ -10,9 +10,14 @@ import App from './react-app/App';
 import './ui/theme/tokens.css';
 import './style.css';
 import { applyTheme } from './data/theme';
+import { initBackend } from './data/backend';
 
 // v2.0.B.282: apply persisted theme before first paint (avoids flash).
 applyTheme();
+
+// v2.0.B.308: backend sync (P1) — fire-and-forget. No-op until backend is
+// provisioned (endpoints 503 → client stays on localStorage, app unaffected).
+initBackend();
 
 // v2.0.B.167: StrictMode disabled — caused dev double-mount race in
 // audio onEnd + setTimeout fallback (B.166 audit). Production unaffected
