@@ -185,6 +185,23 @@ CREATE TABLE ledger (               -- 每筆經濟異動稽核
 
 ---
 
-## 7. 待你決定
+## 7. 實作狀態(2026-06-15 更新)
 
-選 §3 的哪一個(預設 ⭐1 CF Workers + D1)。選定後,下個 session 可直接從 §6.3 schema + §6.4 API 開工,不用再設計。
+**已選定 ⭐1 CF Workers + D1。程式碼 P1-P4 全 ship(B.308)**,剩外部 provision(見 cockpit todo `backend-provision`)。
+
+已 ship 的檔案:
+- `migrations/0001_init.sql` — 全 schema(users/economy/lesson_completions/chests_opened/ledger/login_tokens/purchases)
+- `wrangler.toml` — D1 binding(database_id 待填)
+- `functions/_lib/*` — jwt(HS256 Web Crypto)/ http(auth guard + 503 gate)/ db helpers / types
+- `functions/api/*` — auth/anon · auth/link · auth/consume · state · migrate · lesson/complete · chest/open · rename · iap/verify
+- `src/data/backend.ts` — 前端 client:匿名 token + migrate + reconcile;P2 鏡像 helper;P3 magic-link consume
+- `src/main.tsx` — boot 呼叫 `initBackend()`(fire-and-forget)
+- 鏡像接點:LessonPage 領獎 / MapPage 寶箱 / ProfilePage 改名(`isBackendLive()` 守門)
+
+**安全設計**:所有端點未 provision 一律回 503 → 前端標記 off → 全程 no-op,**app 照常用 localStorage**。provision(建 D1 + JWT_SECRET + apply migrations + redeploy)後自動啟用。
+
+**剩餘(需外部帳號 / 金鑰,在 cockpit todo)**:
+- P1+P2 啟用:`wrangler d1 create` + 填 id + apply migrations + 設 JWT_SECRET + redeploy(~20 min)
+- P2 硬化:從「鏡像 + 開機 pull 覆寫」升級成 hard server-authoritative(client 不再本機加幣,等 server 回傳)— 需 live DB 才能測
+- P3:`RESEND_API_KEY` + 寄信網域
+- P4:Stripe / Apple Developer 帳號 + 金鑰

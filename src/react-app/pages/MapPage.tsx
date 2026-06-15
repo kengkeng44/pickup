@@ -11,6 +11,7 @@ import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
+import { isBackendLive, serverOpenChest } from '../../data/backend';
 import { readStreak, readFreezes } from '../../data/streak';
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
@@ -646,6 +647,8 @@ export default function MapPage() {
                       localStorage.setItem(chestKey, '1');
                       // v2.0.B.306 fix: 原寫 'pickup.coins' (孤兒 key) → readCoins 讀 'pickup.coins.total', +10 從沒進帳. 改用 addCoins.
                       addCoins(10);
+                      // v2.0.B.308 (P2): 鏡像給 server (idempotent per chest)
+                      if (isBackendLive()) void serverOpenChest(String(i));
                     } catch {}
                     setOpenedChests(prev => new Set(prev).add(i));
                     setChestTick(t => t + 1); // trigger HUD coin re-read
