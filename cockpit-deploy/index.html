@@ -645,9 +645,10 @@ main code { overflow-wrap: anywhere; }
       </div>
       <ul class="todo-checklist">
         <li><strong>P1+P2 (作弊堵死,先做這個):</strong></li>
-        <li><code>wrangler d1 create pickup-db</code> → 把 database_id 填進 <code>wrangler.toml</code></li>
-        <li><code>wrangler d1 migrations apply pickup-db --remote</code>(套 migrations/0001_init.sql)</li>
-        <li>CF dashboard → Pages → pickupwords → Settings → Variables and Secrets:設 <code>JWT_SECRET</code>(任意長隨機字串)</li>
+        <li><code>wrangler d1 create pickup-db</code></li>
+        <li><code>wrangler d1 execute pickup-db --remote --file=migrations/0001_init.sql</code></li>
+        <li>CF dashboard → Pages → pickupwords → Settings → Functions → <strong>D1 database bindings</strong>:Variable name = <code>DB</code> 選 pickup-db(<strong>用 dashboard 綁,別寫 wrangler.toml 假 id — 會讓 deploy 掛</strong>)</li>
+        <li>同頁 Variables and Secrets:設 <code>JWT_SECRET</code>(任意長隨機字串)</li>
         <li>重新部署 → 開 app 自動領匿名帳號 + 上推進度;換裝置驗證同步;改 localStorage 重開被洗掉 = 作弊堵死</li>
         <li><strong>P3 (家長 email,選):</strong> 設 <code>RESEND_API_KEY</code> + 驗證寄信網域</li>
         <li><strong>P4 (金流,上架時):</strong> Stripe → <code>STRIPE_SECRET</code> + <code>STRIPE_WEBHOOK_SECRET</code> + webhook 指向 <code>/api/iap/verify</code>;Apple → IAP 商品 + <code>APPLE_SHARED_SECRET</code></li>
@@ -655,7 +656,7 @@ main code { overflow-wrap: anywhere; }
       <div class="todo-actions">
         <a href="https://github.com/kengkeng44/pickup/blob/master/docs/strategy/2026-06-15-backend-options.md" target="_blank">📄 設計 doc</a>
         <a href="https://dash.cloudflare.com/" target="_blank" class="secondary">🔗 CF dashboard</a>
-        <button class="db-copy" type="button" data-prompt="請拉最新 master. 後端程式碼 (functions/api/* + migrations/0001_init.sql + wrangler.toml + src/data/backend.ts) 已 ship (B.308). 我已在 CF 建好 D1 (database_id 填進 wrangler.toml) + 套了 migrations + 設了 JWT_SECRET + 重新部署. 請:
+        <button class="db-copy" type="button" data-prompt="請拉最新 master. 後端程式碼 (functions/api/* + migrations/0001_init.sql + src/data/backend.ts) 已 ship (B.308). 我已在 CF 建好 D1 + execute 了 migrations + 在 dashboard 綁好 D1 binding (name=DB) + 設了 JWT_SECRET + 重新部署. 請:
 1. 驗證 /api/auth/anon /api/state /api/migrate 正常回應 (curl 或從 app)
 2. 確認前端 initBackend 領到 token + migrate + reconcile 正常
 3. 把 P2 economy 從『鏡像 + 開機 pull 覆寫』升級成『hard server-authoritative』(client 不再本機 addCoins/addXp, 改等 server 回傳值更新 HUD) — 評估風險後實作
