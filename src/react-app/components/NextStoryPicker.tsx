@@ -31,7 +31,6 @@ import { defaultCandidatePool } from '../../data/storyTags';
 import { readUserProfile, readUserPreferences } from '../../data/userProfile';
 import { queueTomorrow } from '../../data/tomorrowQueue';
 import { addXp } from '../../data/xp';
-import { scheduleNotif } from '../../notifications';
 
 // ── Chapter metadata (mirror MapPage CHAPTER_META + GrandmaRecommendCarousel)
 const CHAPTER_EMOJI: Record<number, string> = {
@@ -156,14 +155,6 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
     if (selectedChapter == null) return;
     try { queueTomorrow(selectedChapter); } catch {}
     try { addXp(5); } catch {}
-    try {
-      const slot = new Date();
-      slot.setDate(slot.getDate() + 1);
-      slot.setHours(21, 0, 0, 0);
-      // Reuse cross-chapter-hook NotifKind — copy framework already covers
-      // tomorrow-evening "今晚的故事是 X" framing per chapter (copy.ts § Type 2).
-      scheduleNotif('cross-chapter-hook', slot, { chapter: selectedChapter });
-    } catch {}
     setPhase('toast');
     // Mochi toast displays for 1500ms, then dismiss + navigate home.
     window.setTimeout(() => {
