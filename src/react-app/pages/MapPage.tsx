@@ -3,7 +3,7 @@
  * Constants from src/ui/StoryMapView.ts. User: '嚴格遵守原版設計 不要有
  * 任何的不一樣'.
  */
-import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
+import { useEffect, useState, useMemo, useRef, useCallback, Fragment } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import { getInProgressLessonIds } from '../../data/lessonProgress';
@@ -681,12 +681,32 @@ export default function MapPage() {
             const isCurrent = i === currentNodeIdx;
             const restShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 10px 0 ${shadowColor}`;
             const pressShadow = `inset 0 8px 0 ${lighten(baseColor, 0.20)}, 0 3px 0 ${shadowColor}`;
+            // v2.0.B.315: 章節分隔標 — aggregate 模式每章第一關上方放「CH N · 標題」.
+            // 跟著捲動 (絕對定位在 scroll 容器內, 非 fixed) → 滑動中 0 mutation = 不會跳;
+            // 取代 B.313 拿掉的「書封跟滑動換章」, 讓玩家滑到哪章看得出來.
+            const showChapterLabel = isAggregate && l.lessonInChapter === 1 && i > 0;
+            const chMeta = CHAPTER_META[lessonChapter] ?? CHAPTER_META[1];
             // v2.0.B.301 (cron ui-ux D1): pre-session time signal — 22s/Q (3s auto-advance + ~19s read/answer, A2-conservative)
             const estMin = Math.max(1, Math.ceil(l.questions.length * 22 / 60));
             const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`} · ~${estMin}min${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
             return (
+              <Fragment key={l.id}>
+              {showChapterLabel && (
+                <div style={{
+                  position: 'absolute', left: 0, right: 0, top: slot.top - 46,
+                  display: 'flex', justifyContent: 'center',
+                  pointerEvents: 'none', zIndex: 4,
+                }}>
+                  <div style={{
+                    background: chMeta.accent, color: '#fff',
+                    fontSize: 12, fontWeight: 900, letterSpacing: 0.3,
+                    padding: '5px 14px', borderRadius: 999,
+                    boxShadow: '0 3px 0 rgba(60,42,28,0.28)',
+                    whiteSpace: 'nowrap',
+                  }}>CH {lessonChapter} · {chMeta.titleZh}</div>
+                </div>
+              )}
               <MapNode
-                key={l.id}
                 lessonId={l.id}
                 chapter={lessonChapter}
                 ariaLabel={ariaLabel}
@@ -710,6 +730,7 @@ export default function MapPage() {
                 onPressEnd={handlePressEnd}
                 innerRef={isCurrent ? currentNodeRef : undefined}
               />
+              </Fragment>
             );
           })}
         </div>

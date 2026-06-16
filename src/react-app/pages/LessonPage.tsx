@@ -159,7 +159,7 @@ export default function LessonPage() {
   };
 
   return (
-    <div style={{ padding: '14px 14px 24px', minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ padding: '14px 14px 14px', height: '100dvh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* v2.0.B.284 Duolingo-style lesson header: ✕ + progress bar (flex 1) + 🔇
           砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
@@ -186,13 +186,17 @@ export default function LessonPage() {
         <MuteToggleBtn />
       </div>
 
-      {history.length > 0 && (
-        <div style={{ marginBottom: 14 }}>
-          {history.map((s, i) => <NarrativeLine key={i} text={s} />)}
-        </div>
-      )}
-
-      <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
+      {/* v2.0.B.315 RULE (per user): lesson 完全符合手機大小, 不往下延伸.
+          外層 100dvh + overflow hidden; 內容區 flex 撐滿剩餘高度, 內容過長才『內部』捲動,
+          整頁永不外溢. 各題型上方自帶內容/圖片槽, 選項不再下沉到畫面外. */}
+      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+        {history.length > 0 && (
+          <div style={{ marginBottom: 14 }}>
+            {history.map((s, i) => <NarrativeLine key={i} text={s} />)}
+          </div>
+        )}
+        <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
+      </div>
     </div>
   );
 }
