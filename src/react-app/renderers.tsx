@@ -694,8 +694,8 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ flexShrink: 0, height: 132, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
         <img src="/mascots/calico-anchor.webp" width={92} height={92} alt="" style={{ borderRadius: '50%', display: 'block' }} />
       </div>
-      {/* v2.0.B.281 minimalist: 砍 "Match pairs" heading — 2 卡片左右排列本身 self-evident */}
-      <div style={{ display: 'flex', gap: 10 }}>
+      {/* v2.0.B.317 (per user): 配對格往下移 — marginTop/Bottom auto 垂直置中於圖片槽下方剩餘空間 */}
+      <div style={{ display: 'flex', gap: 10, marginTop: 'auto', marginBottom: 'auto' }}>
         {/* LEFT — 中文 */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
           {pairs.map((p, i) => {

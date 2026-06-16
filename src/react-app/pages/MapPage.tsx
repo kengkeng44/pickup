@@ -715,18 +715,19 @@ export default function MapPage() {
             return (
               <Fragment key={l.id}>
               {showChapterLabel && (
-                // v2.0.B.316: 章節分隔線 — 置中於章界空檔 (CH_GAP), 一條橫線 + 線中間章名.
+                // v2.0.B.317 (per user): 分隔線延伸到螢幕邊緣 (100vw 突破 320 容器) + 更粗更透明 + 英文章名.
                 <div style={{
-                  position: 'absolute', left: 16, right: 16, top: nodeTop - CH_GAP / 2,
-                  display: 'flex', alignItems: 'center', gap: 10,
+                  position: 'absolute', left: '50%', width: '100vw', transform: 'translateX(-50%)',
+                  top: nodeTop - CH_GAP / 2,
+                  display: 'flex', alignItems: 'center', gap: 12,
                   pointerEvents: 'none', zIndex: 4,
                 }}>
-                  <div style={{ flex: 1, height: 2, background: chMeta.accent, opacity: 0.55, borderRadius: 2 }} />
+                  <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
                     fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
-                  }}>CH {lessonChapter} · {chMeta.titleZh}</div>
-                  <div style={{ flex: 1, height: 2, background: chMeta.accent, opacity: 0.55, borderRadius: 2 }} />
+                  }}>CH {lessonChapter} · {chMeta.titleEn}</div>
+                  <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
               <MapNode
