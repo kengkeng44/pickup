@@ -687,11 +687,15 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   });
 
   return (
-    // v2.0.B.293: tap-pairs 版面下移 (per user) — flexGrow 撐滿 lesson 區,
-    // 配對格 marginTop:auto 沉到畫面下方 (拇指好按, 不再上方擠一團+下面空白)。
+    // v2.0.B.315 (per user): 塞滿手機不外溢 + 選項上移 + 上方留圖片槽.
+    // 砍 B.293 marginTop:auto 下沉 (會把最後一行推出畫面); 改頂部固定圖片槽 + 配對格緊接其下.
     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+      {/* 圖片槽 — 預留給未來插圖 (per user「留個放圖片的位置就好」). 暫放 Mochi 當佔位 */}
+      <div style={{ flexShrink: 0, height: 132, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
+        <img src="/mascots/calico-anchor.webp" width={92} height={92} alt="" style={{ borderRadius: '50%', display: 'block' }} />
+      </div>
       {/* v2.0.B.281 minimalist: 砍 "Match pairs" heading — 2 卡片左右排列本身 self-evident */}
-      <div style={{ display: 'flex', gap: 10, marginTop: 'auto' }}>
+      <div style={{ display: 'flex', gap: 10 }}>
         {/* LEFT — 中文 */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
           {pairs.map((p, i) => {

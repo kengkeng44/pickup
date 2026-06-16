@@ -1624,7 +1624,11 @@
       <li>TTS <em class="zh">文字轉語音</em> auto-speak on Q mount + cleanup <em class="zh">清除</em> on unmount</li>
       <li>MC Q prompt 必須 story-anchored <em class="zh">扣劇情</em>, 禁「Which word did you hear」(B.227); 選項雙語自說明</li>
       <li>答錯 2-strike <em class="zh">兩次錯誤</em>: 1st 黃 blindRetry <em class="zh">不揭答重試</em>, 2nd 紅 reveal + 知道了</li>
-      <li>書封 dynamic chapter <em class="zh">動態章節</em> = IntersectionObserver <em class="zh">視窗偵測器</em>, 不用 scrollY listener <em class="zh">滾動事件監聽</em></li>
+      <li><strong>書封章節 = 你的進度章</strong> (currentNodeIdx 的章), <strong>不跟滑動</strong> (B.313). 滑動中改 fixed 書封內容 = iOS WebKit 跳頂. 想讓玩家「滑到哪章看得出來」用<strong>捲動內容裡的章節分隔標</strong> (絕對定位非 fixed, 跟著捲, 不跳, B.315)</li>
+      <li style="background:#fff7e8; border-left:4px solid var(--accent); padding:6px 10px; margin-top:6px;">
+        <strong>⭐ Lesson 完全符合手機高度, 不往下延伸</strong> (B.315 user rule 2026-06-16)
+        <em class="zh">外層 height:100dvh + overflow:hidden; 內容區 flex 撐滿, 過長才『內部』捲動; 選項不下沉到畫面外; 各題型上方留圖片槽</em>
+      </li>
       <li style="background:#fff7e8; border-left:4px solid var(--accent); padding:6px 10px; margin-top:6px;">
         <strong>⭐ 正確答案 = 綠色, 禁 ✓ 打勾 icon</strong> (B.264 user rule 2026-06-11)
         <em class="zh">option 答對只用 olive bg + olive border, 不在 label 加 ✓; reveal banner 也不用 ✓</em>
