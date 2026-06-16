@@ -63,6 +63,13 @@ export function wrapWords(text: string): string {
   }).join('');
 }
 
+// v2.0.B.319: plain (non-tappable) HTML-escape — read-comprehension 答題前段落用這個
+// (無 .word span → 不可點中文 / 無虛線), 答完才換 wrapWords.
+export function escapeText(text: string): string {
+  return String(text || '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function useWordHint(ref: React.RefObject<HTMLElement | null>, deps: unknown[]) {
   useEffect(() => {
     if (ref.current) { try { wireSentenceHints(ref.current); } catch {} }
@@ -342,6 +349,94 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         })}
       </div>
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
+// ─── read-comprehension (v2.0.B.319 per user) ───────────────────────────────
+// 角色講一段「可讀」段落 + 提問 + 4選1。跟 listen-comprehension 不同:段落一開始就
+// 看得到 (非聽力盲填)。per user 規則:
+//   1. 答題時段落「不能點中文」(純文字, 無 .word / 無虛線)
+//   2. 答完後段落才開放「點詞看中文」(wrapWords + WordHint)
+//   3. 答完後清掉選項 (回答跟原文理解非必要 → 留乾淨段落讓玩家學字)
+const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const passage = q.sentence ?? '';
+  const qPrompt = q.question ?? q.questionEn ?? '';
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const [selected, setSelected] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [done, setDone] = useState(false);
+  const passageRef = useRef<HTMLDivElement>(null);
+  // done 後段落才有 .word → 才可點看中文
+  useWordHint(passageRef, [done, q.id]);
+
+  useEffect(() => {
+    setSelected(null); setRevealed(false); setDone(false);
+    try { speak(passage, 'en-US'); } catch {}
+    return () => stopSpeaking();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  const click = (i: number) => {
+    if (revealed) return;
+    sfxCardPress();
+    const correct = i === correctIdx;
+    setSelected(i);
+    setRevealed(true);
+    onAnswer(i, correct);
+    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+    // 答完 (對/錯都算完成作答) → 1.2s 顯示對錯後進入閱讀模式
+    window.setTimeout(() => setDone(true), 1200);
+  };
+
+  return (
+    <div>
+      <SpeakerBadge speaker={q.speaker} />
+      {/* 段落泡泡 — 一直可讀; done 前純文字 (不可點), done 後 wrapWords (可點看中文) */}
+      <div ref={passageRef} className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)', borderRadius: 14, marginBottom: 14 }}>
+        <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
+        <div style={{ flex: 1, position: 'relative' }}>
+          <SpeakerBtn onClick={() => speak(passage, 'en-US', { force: true })} />
+          <span style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}
+            dangerouslySetInnerHTML={{ __html: done ? wrapWords(passage) : escapeText(passage) }} />
+        </div>
+      </div>
+
+      {!done ? (
+        <>
+          {qPrompt && (
+            <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--t-text)', margin: '0 4px 12px', lineHeight: 1.5 }}>{qPrompt}</div>
+          )}
+          <div className="pickup-answer-sticky">
+            {opts.map((o, i) => {
+              const isCorrect = i === correctIdx;
+              const isSel = i === selected;
+              const state: 'idle' | 'correct' | 'wrong' | 'shown' =
+                !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+              return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
+            })}
+          </div>
+        </>
+      ) : (
+        <>
+          <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, textAlign: 'center', margin: '8px 0 14px' }}>
+            👆 點句子裡的字看中文 · Tap a word for Chinese
+          </div>
+          <button
+            type="button"
+            onClick={() => onAdvance(passage)}
+            className="pickup-answer-sticky"
+            style={{
+              width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+              background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+              fontFamily: 'inherit', cursor: 'pointer',
+              WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+            }}
+          >繼續 →</button>
+        </>
+      )}
     </div>
   );
 };
@@ -1631,6 +1726,7 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'listen-tf-zh': ListenTfRenderer,
   'listen-mc': ListenMcRenderer,
   'listen-comprehension': ListenMcRenderer,
+  'read-comprehension': ReadComprehensionRenderer,
   // v2.0.B.232: listen-emoji 從 ListenMcRenderer 改自己的 big-emoji renderer
   'listen-emoji': ListenEmojiRenderer,
   'read-mc-with-audio': ListenMcRenderer,

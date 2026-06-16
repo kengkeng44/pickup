@@ -62,6 +62,11 @@ export const ListenEmojiSchema = FourOptionShape.extend({
 export const ListenComprehensionSchema = FourOptionShape.extend({
   type: z.literal('listen-comprehension'),
 });
+// v2.0.B.319 (per user): read-comprehension — 角色講一段 (可讀, 非聽力盲填) + 提問 + 4選1.
+// 答題時 sentence 段落不可點中文; 答完才開放點詞看中文 + 清掉選項 (renderer 行為).
+export const ReadComprehensionSchema = FourOptionShape.extend({
+  type: z.literal('read-comprehension'),
+});
 export const ReadMcWithAudioSchema = FourOptionShape.extend({
   type: z.literal('read-mc-with-audio'),
 });
@@ -191,6 +196,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
   ListenEmojiSchema,
   ListenComprehensionSchema,
+  ReadComprehensionSchema,
   ReadMcWithAudioSchema,
   TypeWhatYouHearSchema,
   TapTilesSchema,
