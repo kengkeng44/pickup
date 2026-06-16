@@ -191,6 +191,16 @@ export const TapPairsSchema = z.object({
     right: z.string(),
   })).length(4),
 });
+// v2.0.B.321 (per user): phrase-pairs — 片語題型. 復用 tap-pairs 配對 UI/renderer,
+// 但內容是多字片語 (look after / run away / once upon a time) ↔ 中文意思. 3-4 對 (片語較長).
+export const PhrasePairsSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('phrase-pairs'),
+  pairs: z.array(z.object({
+    left: z.string(),
+    right: z.string(),
+  })).min(3).max(4),
+});
 
 const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
@@ -201,6 +211,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   TypeWhatYouHearSchema,
   TapTilesSchema,
   TapPairsSchema,
+  PhrasePairsSchema,
   NarrationSchema,
   ListenTfZhSchema,
   ListenTfSchema,

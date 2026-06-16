@@ -1733,6 +1733,7 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'type-what-you-hear': TypeWhatYouHearRenderer,
   'tap-tiles': TapTilesRenderer,
   'tap-pairs': TapPairsRenderer,
+  'phrase-pairs': TapPairsRenderer, // v2.0.B.321: 片語配對復用 tap-pairs UI
   'emoji-pick': EmojiPickRenderer,
   // v2.0.B.232 new types (TODO content expansion)
   'picture-mc': PictureMcRenderer,
