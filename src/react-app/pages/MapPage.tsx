@@ -279,8 +279,14 @@ export default function MapPage() {
   // momentum scroll 期間做 fixed element content mutation 觸發 paint invalidation = 強行跳回.
   // IO async + off-main-thread, 跟 momentum scroll 不競爭, 1 callback per chapter boundary.
   const [chapter, setChapter] = useState(requestedChapter);
+  // v2.0.B.312 ROOT FIX「滑下去跳回最上面」: setChapter 會改 fixed 書封 (meta/title/accent) 內容.
+  // WebKit 在 momentum scroll 期間 mutate fixed element content → paint invalidation → 強制跳頂.
+  // (B.294 試 contain:paint / translateZ 隔離 paint 仍擋不住「內容 swap」本身.)
+  // 修法: debounce setChapter, 只在 scroll 停下 ~280ms 後才更新書封 → 滑動期間 0 fixed mutation = 不跳.
+  const chapterDebounceRef = useRef<number | null>(null);
   useEffect(() => {
     if (!isAggregate || lessons.length === 0) return;
+    let pending: number | null = null;
     const observer = new IntersectionObserver((entries) => {
       // 找 intersection ratio 最高 + viewport 中段內的 lesson
       const visible = entries
@@ -292,7 +298,12 @@ export default function MapPage() {
       if (!lessonId) return;
       const l = lessons.find(x => x.id === lessonId);
       if (!l) return;
-      setChapter(prev => prev !== l.chapter ? l.chapter : prev);
+      pending = l.chapter;
+      // 滑動中持續 reset timer → 只有停下後那一刻才 setChapter (改書封)
+      if (chapterDebounceRef.current != null) window.clearTimeout(chapterDebounceRef.current);
+      chapterDebounceRef.current = window.setTimeout(() => {
+        setChapter(prev => (pending != null && prev !== pending ? pending : prev));
+      }, 280);
     }, {
       threshold: [0.3, 0.5, 0.7],
       // 判定區壓 viewport 中段 40% (上 30% + 下 30% 抓不到), 邊界穩定
@@ -300,7 +311,10 @@ export default function MapPage() {
     });
     const els = document.querySelectorAll('[data-lesson-id]');
     els.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (chapterDebounceRef.current != null) window.clearTimeout(chapterDebounceRef.current);
+    };
   }, [lessons, isAggregate]);
   const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
 
