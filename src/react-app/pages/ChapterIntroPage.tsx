@@ -12,14 +12,14 @@ interface Lesson {
 }
 
 const CHAPTER_META: Record<number, { zh: string; en: string; emoji: string }> = {
-  1: { zh: '院子裡的第一個故事', en: 'A Story in the Yard', emoji: '🌧️' },
-  2: { zh: '桃太郎', en: 'Momotaro', emoji: '🍑' },
-  3: { zh: '醜小鴨', en: 'The Ugly Duckling', emoji: '🦢' },
-  4: { zh: '龜兔賽跑', en: 'Tortoise and Hare', emoji: '🐢' },
-  5: { zh: '駱駝為什麼有駝峰', en: 'How the Camel Got Its Hump', emoji: '🐪' },
-  6: { zh: 'Baba Yaga 雞腳屋', en: 'Baba Yaga', emoji: '🏚️' },
-  7: { zh: '六隻天鵝', en: 'The Six Swans', emoji: '🦢' },
-  8: { zh: '葉限', en: 'Ye Xian', emoji: '🏺' },
+  1: { zh: '桃太郎', en: 'Momotaro', emoji: '🍑' },
+  2: { zh: '醜小鴨', en: 'The Ugly Duckling', emoji: '🦢' },
+  3: { zh: '龜兔賽跑', en: 'Tortoise and Hare', emoji: '🐢' },
+  4: { zh: '駱駝為什麼有駝峰', en: 'How the Camel Got Its Hump', emoji: '🐪' },
+  5: { zh: 'Baba Yaga 雞腳屋', en: 'Baba Yaga', emoji: '🏚️' },
+  6: { zh: '六隻天鵝', en: 'The Six Swans', emoji: '🦢' },
+  7: { zh: '葉限', en: 'Ye Xian', emoji: '🏺' },
+  8: { zh: '三隻小豬', en: 'The Three Little Pigs', emoji: '🐷' },
 };
 
 export default function ChapterIntroPage() {

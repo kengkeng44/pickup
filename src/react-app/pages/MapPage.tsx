@@ -86,14 +86,14 @@ function getNodeSlot(i: number): { dx: number; top: number } {
 }
 
 const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string }> = {
-  1: { titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', accent: '#d68a52' },
-  2: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: 'var(--t-brand)' },
-  3: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#e7659c' },
-  4: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e7d5a' },
-  5: { titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', accent: 'var(--t-brand)' },
-  6: { titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', accent: '#6a7d8f' },
-  7: { titleZh: '六隻天鵝', titleEn: 'The Six Swans', accent: '#8a6ea8' },
-  8: { titleZh: '葉限', titleEn: 'Ye Xian', accent: '#6a7d8f' },
+  1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: 'var(--t-brand)' },
+  2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#e7659c' },
+  3: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e7d5a' },
+  4: { titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', accent: 'var(--t-brand)' },
+  5: { titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', accent: '#6a7d8f' },
+  6: { titleZh: '六隻天鵝', titleEn: 'The Six Swans', accent: '#8a6ea8' },
+  7: { titleZh: '葉限', titleEn: 'Ye Xian', accent: '#6a7d8f' },
+  8: { titleZh: '三隻小豬', titleEn: 'The Three Little Pigs', accent: '#6e7d5a' },
   // v2.0.B.259: 補 Ch9-Ch29 (user 反映 MapPage 只 7-8 顆按鈕, 已 ship 30 章但只顯示 8)
   9: { titleZh: '灰姑娘', titleEn: 'Cinderella', accent: '#e7659c' },
   10: { titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', accent: '#8a6ea8' },

@@ -39,14 +39,14 @@ interface ChapterMeta {
 }
 
 const CHAPTERS: ChapterMeta[] = [
-  { id: 1, titleZh: '院子裡的第一個故事', titleEn: 'A Story in the Yard', emoji: '📖', category: 'special', subCat: '序章' },
-  { id: 2, titleZh: '桃太郎', titleEn: 'Momotaro', emoji: '🍑', category: 'east', subCat: '日本童話' },
-  { id: 3, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', emoji: '🦢', category: 'west', subCat: '安徒生' },
-  { id: 4, titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', emoji: '🐢', category: 'fable', subCat: '伊索寓言' },
-  { id: 5, titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', emoji: '🐪', category: 'fable', subCat: '吉卜林' },
-  { id: 6, titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', emoji: '🏚️', category: 'west', subCat: '斯拉夫民俗' },
-  { id: 7, titleZh: '六隻天鵝', titleEn: 'The Six Swans', emoji: '🦢', category: 'west', subCat: '格林兄弟' },
-  { id: 8, titleZh: '葉限', titleEn: 'Ye Xian', emoji: '👠', category: 'east', subCat: '中華神話' },
+  { id: 1, titleZh: '桃太郎', titleEn: 'Momotaro', emoji: '🍑', category: 'east', subCat: '日本童話' },
+  { id: 2, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', emoji: '🦢', category: 'west', subCat: '安徒生' },
+  { id: 3, titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', emoji: '🐢', category: 'fable', subCat: '伊索寓言' },
+  { id: 4, titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', emoji: '🐪', category: 'fable', subCat: '吉卜林' },
+  { id: 5, titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', emoji: '🏚️', category: 'west', subCat: '斯拉夫民俗' },
+  { id: 6, titleZh: '六隻天鵝', titleEn: 'The Six Swans', emoji: '🦢', category: 'west', subCat: '格林兄弟' },
+  { id: 7, titleZh: '葉限', titleEn: 'Ye Xian', emoji: '👠', category: 'east', subCat: '中華神話' },
+  { id: 8, titleZh: '三隻小豬', titleEn: 'The Three Little Pigs', emoji: '🐷', category: 'west', subCat: '英國童話' },
   { id: 9, titleZh: '灰姑娘', titleEn: 'Cinderella', emoji: '👗', category: 'west', subCat: '佩羅' },
   { id: 10, titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', emoji: '🌙', category: 'east', subCat: '中華神話' },
   { id: 11, titleZh: '后羿射日', titleEn: 'Hou Yi Shoots the Suns', emoji: '☀️', category: 'east', subCat: '中華神話' },

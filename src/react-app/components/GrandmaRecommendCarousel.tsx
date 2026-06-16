@@ -50,14 +50,14 @@ const CHAPTER_EMOJI: Record<number, string> = {
 };
 
 const CHAPTER_TITLE_ZH: Record<number, string> = {
-  1: '院子裡的第一個故事',
-  2: '桃太郎',
-  3: '醜小鴨',
-  4: '龜兔賽跑',
-  5: '駱駝為什麼有駝峰',
-  6: 'Baba Yaga 雞腳屋',
-  7: '六隻天鵝',
-  8: '葉限',
+  1: '桃太郎',
+  2: '醜小鴨',
+  3: '龜兔賽跑',
+  4: '駱駝為什麼有駝峰',
+  5: 'Baba Yaga 雞腳屋',
+  6: '六隻天鵝',
+  7: '葉限',
+  8: '三隻小豬',
 };
 
 const CHAPTER_TITLE_EN: Record<number, string> = {
