@@ -52,8 +52,7 @@ function loadChapterLessons(chapter: number): Promise<Lesson[]> {
 
 // ─── strict constants from StoryMapView.ts ─────────────────────────────────
 const COLOR_BG = '#f1ebe1';
-const COLOR_NODE = '#a47148';
-const COLOR_NODE_DARK = '#7a5b3a';
+// v2.0.B.318: COLOR_NODE / COLOR_NODE_DARK 移除 — 未完成節點改用各章 chMeta.accent
 const COLOR_NODE_DONE = 'var(--t-success)';
 const COLOR_NODE_DONE_DARK = 'var(--t-success-dark)';
 const COLOR_NODE_LOCKED = '#c4b89c';
@@ -85,40 +84,43 @@ function getNodeSlot(i: number): { dx: number; top: number } {
   return { dx: base.dx, top: base.top + cycle * NODE_CYCLE_HEIGHT };
 }
 
-const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string }> = {
-  1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: 'var(--t-brand)' },
-  2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#e7659c' },
-  3: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e7d5a' },
-  4: { titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', accent: 'var(--t-brand)' },
-  5: { titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', accent: '#6a7d8f' },
-  6: { titleZh: '六隻天鵝', titleEn: 'The Six Swans', accent: '#8a6ea8' },
-  7: { titleZh: '葉限', titleEn: 'Ye Xian', accent: '#6a7d8f' },
-  8: { titleZh: '三隻小豬', titleEn: 'The Three Little Pigs', accent: '#6e7d5a' },
+// v2.0.B.318 (per user): 每章專屬配色 (全 hex, 不再 var() — 讓 lighten/darken 陰影生效) +
+// 故事 emoji. accent 套到該章「節點 + 分隔線 + 書封」, 整段路徑跟著故事變色. 色系挑暖中明度,
+// 白字 (書封) + 米色爪 (節點) 都讀得清; 相鄰章不同色.
+const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
+  1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e98a52', emoji: '🍑' },
+  2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#5b91a5', emoji: '🦢' },
+  3: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e9a4f', emoji: '🐢' },
+  4: { titleZh: '駱駝為什麼有駝峰', titleEn: 'How the Camel Got Its Hump', accent: '#c79a4a', emoji: '🐪' },
+  5: { titleZh: 'Baba Yaga 雞腳屋', titleEn: 'Baba Yaga', accent: '#7a6a9a', emoji: '🏚️' },
+  6: { titleZh: '六隻天鵝', titleEn: 'The Six Swans', accent: '#8f9cc0', emoji: '🦢' },
+  7: { titleZh: '葉限', titleEn: 'Ye Xian', accent: '#c0473a', emoji: '🐟' },
+  8: { titleZh: '三隻小豬', titleEn: 'The Three Little Pigs', accent: '#db7d96', emoji: '🐷' },
   // v2.0.B.259: 補 Ch9-Ch29 (user 反映 MapPage 只 7-8 顆按鈕, 已 ship 30 章但只顯示 8)
-  9: { titleZh: '灰姑娘', titleEn: 'Cinderella', accent: '#e7659c' },
-  10: { titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', accent: '#8a6ea8' },
-  11: { titleZh: '后羿射日', titleEn: 'Hou Yi Shoots the Suns', accent: 'var(--t-brand)' },
-  12: { titleZh: '牛郎織女', titleEn: 'The Cowherd and the Weaver Girl', accent: '#6a7d8f' },
-  13: { titleZh: '小紅帽', titleEn: 'Little Red Riding Hood', accent: 'var(--t-danger)' },
-  14: { titleZh: '浦島太郎', titleEn: 'Urashima Taro', accent: '#6a7d8f' },
-  15: { titleZh: '國王的新衣', titleEn: "The Emperor's New Clothes", accent: '#d68a52' },
-  16: { titleZh: '一寸法師', titleEn: 'Issun-boshi', accent: 'var(--t-brand)' },
-  17: { titleZh: '鶴的報恩', titleEn: "The Crane's Return", accent: '#6e7d5a' },
-  18: { titleZh: '興夫和孬夫', titleEn: 'Heungbu and Nolbu', accent: 'var(--t-brand)' },
-  19: { titleZh: 'Sang Kancil 與鱷魚', titleEn: 'Sang Kancil', accent: '#6e7d5a' },
-  20: { titleZh: '蘿蔔大冒險', titleEn: 'The Enormous Turnip', accent: 'var(--t-danger)' },
-  21: { titleZh: 'Anansi 蜘蛛', titleEn: 'Anansi the Spider', accent: 'var(--t-text)' },
-  22: { titleZh: '孟母三遷', titleEn: "Mencius's Mother", accent: '#d68a52' },
-  23: { titleZh: '司馬光砸缸', titleEn: 'Sima Guang Smashes the Vat', accent: '#6a7d8f' },
-  24: { titleZh: '孔融讓梨', titleEn: 'Kong Rong Gives Up the Pear', accent: '#6e7d5a' },
-  25: { titleZh: '愚公移山', titleEn: 'The Foolish Old Man Moves Mountains', accent: '#8a6ea8' },
-  26: { titleZh: 'Archimedes 尤里卡', titleEn: 'Archimedes Eureka', accent: 'var(--t-brand)' },
-  27: { titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', accent: '#d68a52' },
-  28: { titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", accent: '#6a7d8f' },
-  29: { titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', accent: '#8a6ea8' },
+  9: { titleZh: '灰姑娘', titleEn: 'Cinderella', accent: '#5a7fb0', emoji: '👗' },
+  10: { titleZh: '嫦娥奔月', titleEn: 'Chang E Flies to the Moon', accent: '#6b6fa8', emoji: '🌙' },
+  11: { titleZh: '后羿射日', titleEn: 'Hou Yi Shoots the Suns', accent: '#e0892f', emoji: '☀️' },
+  12: { titleZh: '牛郎織女', titleEn: 'The Cowherd and the Weaver Girl', accent: '#4f6aa0', emoji: '🌌' },
+  13: { titleZh: '小紅帽', titleEn: 'Little Red Riding Hood', accent: '#cc4d4d', emoji: '🧺' },
+  14: { titleZh: '浦島太郎', titleEn: 'Urashima Taro', accent: '#3f9aa0', emoji: '🐢' },
+  15: { titleZh: '國王的新衣', titleEn: "The Emperor's New Clothes", accent: '#9a6fb0', emoji: '👑' },
+  16: { titleZh: '一寸法師', titleEn: 'Issun-boshi', accent: '#6e9a5a', emoji: '🍚' },
+  17: { titleZh: '鶴的報恩', titleEn: "The Crane's Return", accent: '#7fa0b5', emoji: '🕊️' },
+  18: { titleZh: '興夫和孬夫', titleEn: 'Heungbu and Nolbu', accent: '#cba03f', emoji: '🪺' },
+  19: { titleZh: 'Sang Kancil 與鱷魚', titleEn: 'Sang Kancil', accent: '#5a9a6a', emoji: '🐭' },
+  20: { titleZh: '蘿蔔大冒險', titleEn: 'The Enormous Turnip', accent: '#b56fa0', emoji: '🥕' },
+  21: { titleZh: 'Anansi 蜘蛛', titleEn: 'Anansi the Spider', accent: '#9a6a3a', emoji: '🕷️' },
+  22: { titleZh: '孟母三遷', titleEn: "Mencius's Mother", accent: '#c07248', emoji: '🏠' },
+  23: { titleZh: '司馬光砸缸', titleEn: 'Sima Guang Smashes the Vat', accent: '#5588a8', emoji: '🏺' },
+  24: { titleZh: '孔融讓梨', titleEn: 'Kong Rong Gives Up the Pear', accent: '#9aa84f', emoji: '🍐' },
+  25: { titleZh: '愚公移山', titleEn: 'The Foolish Old Man Moves Mountains', accent: '#6a8a7a', emoji: '⛰️' },
+  26: { titleZh: 'Archimedes 尤里卡', titleEn: 'Archimedes Eureka', accent: '#3f9a9a', emoji: '🛁' },
+  27: { titleZh: '西遊記·取經出發', titleEn: 'Journey to the West', accent: '#d98736', emoji: '🐵' },
+  28: { titleZh: '諸葛亮·三顧茅廬', titleEn: "Zhuge Liang's Strategems", accent: '#4a9a7a', emoji: '🪶' },
+  29: { titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', accent: '#4a7fb0', emoji: '⛵' },
   // v2.0.B.260: round 2 mid-long ship
-  30: { titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', accent: 'var(--t-danger)' },
-  31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#6e7d5a' },
+  30: { titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', accent: '#b5563a', emoji: '🦁' },
+  31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#5a8a4a', emoji: '🏹' },
 };
 
 // Color helpers (from StoryMapView.ts)
@@ -488,7 +490,7 @@ export default function MapPage() {
               CH {displayChapter}
             </div>
             <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {meta.titleEn}
+              <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{meta.titleEn}
             </div>
           </div>
           <span aria-hidden="true" style={{
@@ -691,12 +693,14 @@ export default function MapPage() {
             // 用 completedByChapter map 不再 per-lesson localStorage read (217× → 1× per render)
             const l = lessons[item.lessonIdx!];
             const lessonChapter = isAggregate ? l.chapter : chapter;
+            const chMeta = CHAPTER_META[lessonChapter] ?? CHAPTER_META[1];
             const lessonCompletedSet = completedByChapter.get(lessonChapter) ?? new Set<string>();
             const done = lessonCompletedSet.has(l.id);
             const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const inProgress = unlocked && !done && inProgressIds.has(l.id);
-            const baseColor = done ? COLOR_NODE_DONE : unlocked ? COLOR_NODE : COLOR_NODE_LOCKED;
-            const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? COLOR_NODE_DARK : COLOR_NODE_LOCKED_DARK;
+            // v2.0.B.318 (per user): 未完成且解鎖的節點 = 該章專屬色 (done 仍金星, locked 仍灰) → 整段路徑跟故事變色
+            const baseColor = done ? COLOR_NODE_DONE : unlocked ? chMeta.accent : COLOR_NODE_LOCKED;
+            const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? darken(chMeta.accent, 0.30) : COLOR_NODE_LOCKED_DARK;
             const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
             const iconFilter = !unlocked && !done ? 'grayscale(1)' : 'none';
             const iconOpacity = !unlocked && !done ? 0.65 : 1;
@@ -708,7 +712,6 @@ export default function MapPage() {
             // 跟著捲動 (絕對定位在 scroll 容器內, 非 fixed) → 滑動中 0 mutation = 不會跳;
             // 取代 B.313 拿掉的「書封跟滑動換章」, 讓玩家滑到哪章看得出來.
             const showChapterLabel = isAggregate && l.lessonInChapter === 1 && i > 0;
-            const chMeta = CHAPTER_META[lessonChapter] ?? CHAPTER_META[1];
             // v2.0.B.301 (cron ui-ux D1): pre-session time signal — 22s/Q (3s auto-advance + ~19s read/answer, A2-conservative)
             const estMin = Math.max(1, Math.ceil(l.questions.length * 22 / 60));
             const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`} · ~${estMin}min${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
@@ -726,7 +729,8 @@ export default function MapPage() {
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
                     fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
-                  }}>CH {lessonChapter} · {chMeta.titleEn}</div>
+                    display: 'flex', alignItems: 'center', gap: 6,
+                  }}><span style={{ fontSize: 18 }} aria-hidden="true">{chMeta.emoji}</span>CH {lessonChapter} · {chMeta.titleEn}</div>
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
