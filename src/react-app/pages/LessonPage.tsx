@@ -174,7 +174,9 @@ export default function LessonPage() {
           style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 999, overflow: 'hidden' }}
         >
           <div style={{
-            width: `${Math.max(4, ((idx + 1) / lesson.questions.length) * 100)}%`,
+            // v2.0.B.320 (per user): 進度條前快後慢 — 用 pow(linear, 0.6) 前載曲線,
+            // 前幾題跳得多 (momentum/多巴胺), 後面增量變小. 最後一題仍精確到 100%.
+            width: `${Math.max(4, Math.pow((idx + 1) / lesson.questions.length, 0.6) * 100)}%`,
             height: '100%',
             background: 'var(--t-success)',
             borderRadius: 999,
@@ -302,6 +304,27 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
   // v2.0.B.239: NextStoryPicker visibility — opens on chapter-final lesson
   // complete (replaces the Continue button on the final lesson).
   const [showNextStoryPicker, setShowNextStoryPicker] = useState(false);
+  // v2.0.B.322 (per user): 大單元 (章節) 完成獎勵 — 統計本章新單字 (tap-pairs) + 新片語 (phrase-pairs).
+  const [chapterReward, setChapterReward] = useState<{ words: number; phrases: number } | null>(null);
+  useEffect(() => {
+    if (!isLastLessonOfChapter) return;
+    let alive = true;
+    fetch(`/lessons-ch${lesson.chapter}.json`).then((r) => r.json()).then((arr: Lesson[]) => {
+      if (!alive) return;
+      const words = new Set<string>(); const phrases = new Set<string>();
+      for (const l of arr) for (const q of (l.questions ?? [])) {
+        if (q.type === 'tap-pairs' || q.type === 'phrase-pairs') {
+          for (const p of ((q as { pairs?: Array<{ left: string; right: string }> }).pairs ?? [])) {
+            const en = /[a-zA-Z]/.test(p.right ?? '') ? p.right : p.left;
+            if (!en) continue;
+            (q.type === 'phrase-pairs' ? phrases : words).add(String(en).toLowerCase().trim());
+          }
+        }
+      }
+      setChapterReward({ words: words.size, phrases: phrases.size });
+    }).catch(() => {});
+    return () => { alive = false; };
+  }, [isLastLessonOfChapter, lesson.chapter]);
 
   useEffect(() => {
     // v2.0.B.306: preview (spec-doc iframe) = read-only, 完全不寫任何狀態.
@@ -359,12 +382,26 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
-      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>Lesson complete!</div>
+      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
         <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
         <Stat label="ACCURACY" value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
         <Stat label="TIME" value={timeStr} color="var(--t-text-muted)" bg="var(--t-bg)" />
       </div>
+      {/* v2.0.B.322 (per user): 大單元完成獎勵 — 本章新單字 + 新片語統整 */}
+      {isLastLessonOfChapter && chapterReward && (chapterReward.words > 0 || chapterReward.phrases > 0) && (
+        <div style={{
+          background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)',
+          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14,
+          padding: '14px 16px', marginBottom: 24,
+        }}>
+          <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>🏆 這個單元你學會了</div>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <Stat label="新單字 Words" value={chapterReward.words} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
+            <Stat label="新片語 Phrases" value={chapterReward.phrases} color="var(--t-success)" bg="var(--t-success-tint)" />
+          </div>
+        </div>
+      )}
       {/* v2.0.B.232 招 1: streak / freeze 結果 banner.
           - 累積 / 新增 → 🔥 N 天
           - 漏一天但用 freeze 保住 → 🧊 Mochi 幫你保住 streak
