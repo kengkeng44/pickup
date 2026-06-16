@@ -270,6 +270,24 @@ export default function MapPage() {
     return out;
   }, [lessons.length]);
 
+  // v2.0.B.316: 每個章節交界插一段垂直空檔 (放分隔線用), 後續節點累加下移.
+  // 回傳每個 stream index 的累計位移 px. 章界 = aggregate 模式某 lesson 的 lessonInChapter===1 (非首項).
+  const CH_GAP = 56;
+  const chapterOffsets = useMemo(() => {
+    const offs: number[] = [];
+    let acc = 0;
+    for (let i = 0; i < stream.length; i++) {
+      const item = stream[i];
+      if (item.kind === 'lesson') {
+        const l = lessons[item.lessonIdx!];
+        if (isAggregate && l && l.lessonInChapter === 1 && i > 0) acc += CH_GAP;
+      }
+      offs[i] = acc;
+    }
+    return offs;
+  }, [stream, lessons, isAggregate]);
+  const totalChapterGap = chapterOffsets.length ? chapterOffsets[chapterOffsets.length - 1] : 0;
+
   // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
   // v2.0.B.296: 砍 visStart 計算 (已不需要 — chapter detection 改 IO, 虛擬化已砍).
   const NODE_PITCH = 84;
@@ -325,6 +343,10 @@ export default function MapPage() {
     return -1;
   }, [lessons, chapter, isAggregate, completedByChapter]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
+  // v2.0.B.316: 貓也要跟著章界位移下移 (current node 的 stream index = lesson idx + 前面 chest 數)
+  const catOffsetY = currentNodeIdx >= 0
+    ? (chapterOffsets[currentNodeIdx + Math.floor(currentNodeIdx / 5)] ?? 0)
+    : 0;
 
   // v2.0.B.313: 書封章節 = 你的進度章 (currentNodeIdx 的 lesson.chapter), 非滑動位置.
   // currentNodeIdx 只在「完成 lesson」時變, 滑動時恆定 → fixed 書封滑動中 0 mutation = 不跳.
@@ -548,7 +570,7 @@ export default function MapPage() {
           // → browser scroll-anchoring 補償 → user 看到 mid-scroll jump.
           // 改用 final size 250 (預期 217 lesson + 43 chest, round up safety) × NODE_PITCH 從 mount 就到位.
           // stream 之後 fill 進來不再改 container 高度 = browser 從未看到 height change = 不跳.
-          height: Math.max(2032, 280 * NODE_PITCH) + NODE_HEIGHT + 80,
+          height: Math.max(2032, 280 * NODE_PITCH) + NODE_HEIGHT + 80 + totalChapterGap,
           overflowAnchor: 'none',
           contain: 'layout' as const,
         }}>
@@ -560,7 +582,7 @@ export default function MapPage() {
                 left: 0, top: 0,
                 width: CAT_W, height: CAT_H,
                 pointerEvents: 'none', zIndex: 5,
-                transform: `translate(${catPos.x}px, ${catPos.y}px)`,
+                transform: `translate(${catPos.x}px, ${catPos.y + catOffsetY}px)`,
                 transformOrigin: '50% 100%',
                 // v2.0.B.290: 砍 cubic-bezier overshoot (1.5 = 50% 超出後彈回). iOS Safari 對 transform overshoot
                 // 在 scroll 同時觸發 viewport repaint, 已知 jitter. 改 ease-out 400ms 短暫且不超目標.
@@ -615,6 +637,7 @@ export default function MapPage() {
           {stream.map((item, localIdx) => {
             const i = localIdx;
             const slot = getNodeSlot(i);
+            const nodeTop = slot.top + (chapterOffsets[i] ?? 0);
             const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
             // v2.0.B.271: 寶箱 — 純 🎁 emoji, 無按鈕 chrome (user: 「寶箱不要用按鈕 直接用那個寶箱」)
@@ -642,7 +665,7 @@ export default function MapPage() {
                   }}
                   style={{
                     position: 'absolute',
-                    left: leftPx, top: slot.top,
+                    left: leftPx, top: nodeTop,
                     width: NODE_SIZE, height: NODE_HEIGHT,
                     background: 'transparent',
                     border: 'none',
@@ -692,18 +715,18 @@ export default function MapPage() {
             return (
               <Fragment key={l.id}>
               {showChapterLabel && (
+                // v2.0.B.316: 章節分隔線 — 置中於章界空檔 (CH_GAP), 一條橫線 + 線中間章名.
                 <div style={{
-                  position: 'absolute', left: 0, right: 0, top: slot.top - 46,
-                  display: 'flex', justifyContent: 'center',
+                  position: 'absolute', left: 16, right: 16, top: nodeTop - CH_GAP / 2,
+                  display: 'flex', alignItems: 'center', gap: 10,
                   pointerEvents: 'none', zIndex: 4,
                 }}>
+                  <div style={{ flex: 1, height: 2, background: chMeta.accent, opacity: 0.55, borderRadius: 2 }} />
                   <div style={{
-                    background: chMeta.accent, color: '#fff',
-                    fontSize: 12, fontWeight: 900, letterSpacing: 0.3,
-                    padding: '5px 14px', borderRadius: 999,
-                    boxShadow: '0 3px 0 rgba(60,42,28,0.28)',
-                    whiteSpace: 'nowrap',
+                    flex: '0 0 auto', color: chMeta.accent,
+                    fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
                   }}>CH {lessonChapter} · {chMeta.titleZh}</div>
+                  <div style={{ flex: 1, height: 2, background: chMeta.accent, opacity: 0.55, borderRadius: 2 }} />
                 </div>
               )}
               <MapNode
@@ -711,7 +734,7 @@ export default function MapPage() {
                 chapter={lessonChapter}
                 ariaLabel={ariaLabel}
                 leftPx={leftPx}
-                top={slot.top}
+                top={nodeTop}
                 size={NODE_SIZE}
                 height={NODE_HEIGHT}
                 done={done}
