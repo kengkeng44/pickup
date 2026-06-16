@@ -278,45 +278,11 @@ export default function MapPage() {
   // 之前 11 patch 失敗的真根因 = setState in scroll listener mobile broken + iOS Safari
   // momentum scroll 期間做 fixed element content mutation 觸發 paint invalidation = 強行跳回.
   // IO async + off-main-thread, 跟 momentum scroll 不競爭, 1 callback per chapter boundary.
-  const [chapter, setChapter] = useState(requestedChapter);
-  // v2.0.B.312 ROOT FIX「滑下去跳回最上面」: setChapter 會改 fixed 書封 (meta/title/accent) 內容.
-  // WebKit 在 momentum scroll 期間 mutate fixed element content → paint invalidation → 強制跳頂.
-  // (B.294 試 contain:paint / translateZ 隔離 paint 仍擋不住「內容 swap」本身.)
-  // 修法: debounce setChapter, 只在 scroll 停下 ~280ms 後才更新書封 → 滑動期間 0 fixed mutation = 不跳.
-  const chapterDebounceRef = useRef<number | null>(null);
-  useEffect(() => {
-    if (!isAggregate || lessons.length === 0) return;
-    let pending: number | null = null;
-    const observer = new IntersectionObserver((entries) => {
-      // 找 intersection ratio 最高 + viewport 中段內的 lesson
-      const visible = entries
-        .filter(e => e.isIntersecting && e.intersectionRatio > 0.3)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      const top = visible[0];
-      if (!top) return;
-      const lessonId = (top.target as HTMLElement).dataset.lessonId;
-      if (!lessonId) return;
-      const l = lessons.find(x => x.id === lessonId);
-      if (!l) return;
-      pending = l.chapter;
-      // 滑動中持續 reset timer → 只有停下後那一刻才 setChapter (改書封)
-      if (chapterDebounceRef.current != null) window.clearTimeout(chapterDebounceRef.current);
-      chapterDebounceRef.current = window.setTimeout(() => {
-        setChapter(prev => (pending != null && prev !== pending ? pending : prev));
-      }, 280);
-    }, {
-      threshold: [0.3, 0.5, 0.7],
-      // 判定區壓 viewport 中段 40% (上 30% + 下 30% 抓不到), 邊界穩定
-      rootMargin: '-30% 0px -30% 0px',
-    });
-    const els = document.querySelectorAll('[data-lesson-id]');
-    els.forEach(el => observer.observe(el));
-    return () => {
-      observer.disconnect();
-      if (chapterDebounceRef.current != null) window.clearTimeout(chapterDebounceRef.current);
-    };
-  }, [lessons, isAggregate]);
-  const meta = CHAPTER_META[chapter] ?? CHAPTER_META[1];
+  // v2.0.B.313 ROOT FIX「滑動跳回章節」: 砍掉 scroll-driven chapter 偵測 (IntersectionObserver
+  // + debounce, B.296/B.312). 真因 = 滑動中改 fixed 書封內容 → WebKit momentum repaint 跳頂,
+  // debounce 只把跳延到鬆手. 改成書封跟「你的進度章節」(currentNodeIdx 的章) 走 = 滑動期間
+  // 永不 mutate fixed 書封 = 根治. (見下方 displayChapter / meta.)
+  const [chapter] = useState(requestedChapter);
 
   // v2.0.B.275 perf: completedByChapter memo — 把 render loop 內 217× readCompletedLessons
   // localStorage.getItem + JSON.parse 收成 1× per render. 收益 ~80% scroll re-render 成本.
@@ -359,6 +325,13 @@ export default function MapPage() {
     return -1;
   }, [lessons, chapter, isAggregate, completedByChapter]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
+
+  // v2.0.B.313: 書封章節 = 你的進度章 (currentNodeIdx 的 lesson.chapter), 非滑動位置.
+  // currentNodeIdx 只在「完成 lesson」時變, 滑動時恆定 → fixed 書封滑動中 0 mutation = 不跳.
+  const displayChapter = isAggregate
+    ? (lessons[currentNodeIdx >= 0 ? currentNodeIdx : 0]?.chapter ?? requestedChapter)
+    : chapter;
+  const meta = CHAPTER_META[displayChapter] ?? CHAPTER_META[1];
 
   // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
   // 從硬編 xp=0/level=1/coins=0 改成讀 localStorage 實際資料。
@@ -460,7 +433,7 @@ export default function MapPage() {
         {/* Chapter book cover — flow 在 HUD 下方, 不再 position:fixed */}
         <button
           type="button"
-          aria-label={`第 ${chapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
+          aria-label={`第 ${displayChapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
           aria-expanded={showKeySheet}
           onClick={() => setShowKeySheet(s => !s)}
           style={{
@@ -490,7 +463,7 @@ export default function MapPage() {
           <div style={{ flex: 1, minWidth: 0 }}>
             {/* v2.0.B.283: 加位置 ch{N} 標 (user「要有位置 ch1」), 仍保留英文 title 為主 */}
             <div style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
-              CH {chapter}
+              CH {displayChapter}
             </div>
             <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {meta.titleEn}
@@ -745,7 +718,7 @@ export default function MapPage() {
       {/* Key Sentences overlay */}
       {showKeySheet && (
         <KeySentencesSheet
-          chapter={chapter}
+          chapter={displayChapter}
           titleEn={meta.titleEn}
           onClose={() => setShowKeySheet(false)}
         />
