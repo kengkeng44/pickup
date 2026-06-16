@@ -18,6 +18,8 @@ export interface RawQuestion {
   type: string;
   id: string;
   sentence?: string;
+  sentenceEasy?: string;     // v2.0.B.323 三難度
+  sentenceHard?: string;     // v2.0.B.323 三難度 (原文/原典)
   questionEn?: string;
   questionZh?: string;
   question?: string;
@@ -61,6 +63,17 @@ export function wrapWords(text: string): string {
     const e = esc(tok);
     return `<span class="word" data-word="${e}">${e}</span>`;
   }).join('');
+}
+
+// v2.0.B.323 (per user): 三難度文本選版 — 依 pickup.difficulty 選 sentenceHard(原文)/
+// sentenceEasy(簡化)/sentence(medium 預設). 缺版 fallback 到 sentence.
+export function pickSentence(q: RawQuestion): string {
+  const base = q.sentence ?? '';
+  let d = 'medium';
+  try { d = localStorage.getItem('pickup.difficulty') || 'medium'; } catch { /* ignore */ }
+  if (d === 'hard' && q.sentenceHard) return q.sentenceHard;
+  if (d === 'easy' && q.sentenceEasy) return q.sentenceEasy;
+  return base;
 }
 
 // v2.0.B.319: plain (non-tappable) HTML-escape — read-comprehension 答題前段落用這個
@@ -166,7 +179,7 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
 
 // ─── 1. narration ───────────────────────────────────────────────────────────
 const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
-  const text = q.sentence ?? '';
+  const text = pickSentence(q); // v2.0.B.323 三難度文本
   const advancedRef = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
   useWordHint(ref, [q.id]);
@@ -360,7 +373,7 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 //   2. 答完後段落才開放「點詞看中文」(wrapWords + WordHint)
 //   3. 答完後清掉選項 (回答跟原文理解非必要 → 留乾淨段落讓玩家學字)
 const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
-  const passage = q.sentence ?? '';
+  const passage = pickSentence(q); // v2.0.B.323 三難度文本
   const qPrompt = q.question ?? q.questionEn ?? '';
   const opts = q.options ?? [];
   const optsZh = q.optionsZh ?? [];

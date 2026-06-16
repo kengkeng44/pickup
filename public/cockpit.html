@@ -181,7 +181,7 @@ footer {
 
 - **版本** v2.0.B.161.6 / SW v2.0.B.155 / ~300 commits / CLAUDE.md drift 已修齊
 - **部署** [pickupwords.pages.dev](https://pickupwords.pages.dev/) / repo `kengkeng44/pickup`
-- **章節** Ch1-8 ship 198 lessons / 1,233 Q. **僅 Ch1 符合 Duolingo Stories spec v2 R1-R2**
+- **章節** Ch1-8 ship 198 lessons / 1,233 Q. **僅 Ch1 符合 Stories 規格 v2 R1-R2**
 - **MP3** 僅 Ch1 (~200 files). Ch2-8 全靠 WebSpeech fallback
 - **Telemetry** PostHog stub 接好 + consent banner ship, 6/8 event live (等 user 提 key)
 - **DEV_UNLOCK_ALL** = true (production 沒 gate, 待 paywall infra)
@@ -191,7 +191,7 @@ footer {
 | Rank | 功能 | 成本 | 效果 | 數據引用 |
 |---|---|---|---|---|
 | 1 | **Lesson Review screen** ✅ ship B.161 | 2 人天 | D7 +8-12% | 已 ship |
-| 2 | **Streak Freeze** (每週 1 張免費凍結卡) | 5 人天 | churn -21% | Duolingo case |
+| 2 | **Streak Freeze** (每週 1 張免費凍結卡) | 5 人天 | churn -21% | 業界案例 |
 | 3 | **Push notification** (Streak 提醒) | 3 人天 | D7 +15-25% | Mobile edu benchmark |
 | 4 | **完整 SRS** (forgetting curve) | 7 人天 | 30 天詞彙保留 20%→70% | SRS 文獻 |
 | 5 | **PostHog 分析** stub ✅ ship B.161.4-6 | 3 hr + user key | 解盲決策 | 6/8 event live |
@@ -202,7 +202,7 @@ footer {
 
 ## C. Spec compliance gap (P0)
 
-1. **Ch2-8 全部 0 narration / 0 listen-tf** — 違反 spec v2 R1-R2. 1100 Q 需 Duolingo Stories 格式重寫
+1. **Ch2-8 全部 0 narration / 0 listen-tf** — 違反 spec v2 R1-R2. 1100 Q 需 Stories 規格格式重寫
 2. **Ch2-8 0 MP3** — fallback WebSpeech 體驗差. 需 ~$40-60 OpenAI grandma TTS budget
 3. **CLAUDE.md drift** ✅ 修齊 B.161.1
 4. **DEV_UNLOCK_ALL=true** — v1.0 ship 前 flip (paywall 規劃: 見 Paywall tab)
@@ -602,7 +602,7 @@ Target: D1 retention > 40%
 
 ### Funnel 2 — Lesson completion rate
 `lesson_start → lesson_complete`
-Target: > 75% (Duolingo 60-70%)
+Target: > 75% (業界 app 60-70%)
 
 ### Funnel 3 — Free → Premium conversion (post-paywall)
 `lesson_complete (ch2 l25) → paywall_view → [purchase]`

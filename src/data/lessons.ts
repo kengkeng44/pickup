@@ -18,6 +18,10 @@ const QuestionBaseFields = {
   level: ClozeLevelSchema,
   difficulty: DifficultySchema.optional(),
   sentence: z.string(),
+  // v2.0.B.323 (per user): 三難度文本 — sentence = medium (A2 改寫, 預設);
+  // sentenceHard = 原文/原典; sentenceEasy = 簡化版. renderer 依 pickup.difficulty 選, 缺版 fallback sentence.
+  sentenceEasy: z.string().optional(),
+  sentenceHard: z.string().optional(),
   question: z.string().optional(),
   explanationZh: z.string(),
   tags: z.array(z.string()).optional(),
