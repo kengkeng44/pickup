@@ -88,6 +88,13 @@ renderer 依 `localStorage pickup.difficulty` 選 `sentenceHard ?? sentence` (ha
 
 - **前快後慢**: `width = pow((idx+1)/total, 0.6) × 100%`。前幾題跳得多 (momentum), 後面增量小, 最後一題精確 100%。
 
+## 6b. 地圖寶箱分配標準 (B.326 per user)
+
+- **每 5 關一個寶箱** (`CHEST_EVERY = 5`, 距上個寶箱 ≥5 關才放)。
+- **不貼章節開頭/結尾**: 只在章節中段放 (當前關 `lessonInChapter ≥ 2` 且下一關不是新章第一關) → 寶箱不會撞到章節分隔線、不會緊鄰章首。
+- 書封 (頂部) 跟著滑動換章, 但用**直接 DOM 更新** (非 React setState) 避開 iOS 跳頂 (B.326)。
+- 地圖含 **ch0 入門** (ABC/數字/顏色) 在最前。
+
 ---
 
 ## 7. 落地狀態
