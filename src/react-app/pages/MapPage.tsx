@@ -455,17 +455,27 @@ export default function MapPage() {
       if (coverBtnRef.current) {
         coverBtnRef.current.style.background = m.accent;
         coverBtnRef.current.style.boxShadow = `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(m.accent, 0.28)}`;
+        // v2.0.B.327 (per user): 切換特效 — 快速 scale+fade pop (WAAPI, 不需 CSS)
+        try {
+          coverBtnRef.current.animate(
+            [{ transform: 'translateZ(0) scale(0.94)', opacity: 0.5 }, { transform: 'translateZ(0) scale(1)', opacity: 1 }],
+            { duration: 340, easing: 'cubic-bezier(0.34,1.4,0.64,1)' },
+          );
+        } catch { /* ignore */ }
       }
     };
+    // v2.0.B.327 (per user「3-4-3-4 來回多跳」): 改超窄觸發線 (~2% 高), 同時只命中 1 個節點 →
+    // 章界附近不再兩章 ratio 互搶 → 單向切一次. 中間 CH_GAP 空檔無命中 → 維持上一章, 不抖.
     const observer = new IntersectionObserver((entries) => {
-      const top = entries
-        .filter(e => e.isIntersecting && e.intersectionRatio > 0.3)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!top) return;
-      const id = (top.target as HTMLElement).dataset.lessonId;
+      let best: IntersectionObserverEntry | null = null;
+      for (const e of entries) {
+        if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+      }
+      if (!best) return;
+      const id = (best.target as HTMLElement).dataset.lessonId;
       const l = id ? lessons.find(x => x.id === id) : null;
       if (l) apply(l.chapter);
-    }, { threshold: [0.3, 0.5, 0.7], rootMargin: '-30% 0px -45% 0px' });
+    }, { threshold: [0, 0.5, 1], rootMargin: '-42% 0px -56% 0px' });
     document.querySelectorAll('[data-lesson-id]').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, [lessons, isAggregate]);
