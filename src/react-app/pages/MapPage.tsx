@@ -88,6 +88,7 @@ function getNodeSlot(i: number): { dx: number; top: number } {
 // 故事 emoji. accent 套到該章「節點 + 分隔線 + 書封」, 整段路徑跟著故事變色. 色系挑暖中明度,
 // 白字 (書封) + 米色爪 (節點) 都讀得清; 相鄰章不同色.
 const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
+  0: { titleZh: '入門 · ABC 數字顏色', titleEn: 'Ground Floor', accent: '#8a9a6a', emoji: '🔤' },
   1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e98a52', emoji: '🍑' },
   2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#5b91a5', emoji: '🦢' },
   3: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e9a4f', emoji: '🐢' },
@@ -261,16 +262,26 @@ export default function MapPage() {
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
   const freezes = readFreezes();
-  // v2.0.B.270: stream 包含 lesson + 每 5 lesson 一個寶箱 (user: 「每五個按鈕中間要加一個寶箱」)
-  // 217 lessons + 43 chests = 260 nodes total (43 = floor(217/5))
+  // v2.0.B.326 寶箱分配標準 (per user):「每 5 關一個寶箱, 且不能離章節開頭太近」。
+  // 規則: 距上個寶箱 ≥5 關才放; 只在章節中段放 (當前關 lessonInChapter≥2 且下一關不是新章第一關),
+  // → 寶箱永不貼章首/章尾, 不會撞到章節分隔線.
+  const CHEST_EVERY = 5;
   const stream = useMemo(() => {
     const out: Array<{ kind: 'lesson' | 'chest'; lessonIdx?: number }> = [];
-    lessons.forEach((_, i) => {
+    let sinceChest = 0;
+    lessons.forEach((l, i) => {
       out.push({ kind: 'lesson', lessonIdx: i });
-      if ((i + 1) % 5 === 0) out.push({ kind: 'chest' });
+      sinceChest++;
+      const next = lessons[i + 1];
+      const curMid = (l.lessonInChapter ?? 99) >= 2;            // 不貼章首
+      const nextNotStart = !next || next.lessonInChapter !== 1; // 不貼下一章首
+      if (sinceChest >= CHEST_EVERY && curMid && nextNotStart) {
+        out.push({ kind: 'chest' });
+        sinceChest = 0;
+      }
     });
     return out;
-  }, [lessons.length]);
+  }, [lessons]);
 
   // v2.0.B.316: 每個章節交界插一段垂直空檔 (放分隔線用), 後續節點累加下移.
   // 回傳每個 stream index 的累計位移 px. 章界 = aggregate 模式某 lesson 的 lessonInChapter===1 (非首項).
@@ -382,7 +393,7 @@ export default function MapPage() {
   useEffect(() => {
     setLoading(true);
     if (isAggregate) {
-      const chapters = Array.from({ length: 31 }, (_, i) => i + 1);
+      const chapters = Array.from({ length: 32 }, (_, i) => i); // v2.0.B.326: 含 ch0 (入門 ABC)
       Promise.all(chapters.map(c => loadChapterLessons(c).catch(() => [] as Lesson[])))
         .then(arrs => {
           setLessons(arrs.flat());
@@ -426,6 +437,39 @@ export default function MapPage() {
   // chromeRef 留著 ref binding 兼容, 不再 observe.
   const chromeRef = useRef<HTMLDivElement>(null);
 
+  // v2.0.B.326 (per user 3rd ask「書封還是沒有變」): 書封跟著滑動換章, 但用「直接 DOM 更新」
+  // (textContent / style), 不走 React setState → 避開 B.296/B.312 的 setState-in-scroll 跳頂.
+  // IntersectionObserver 抓 viewport 中段的 lesson → 直接寫書封 ref, 不 re-render 260 顆節點.
+  const coverBtnRef = useRef<HTMLButtonElement>(null);
+  const coverChRef = useRef<HTMLDivElement>(null);
+  const coverTitleRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isAggregate || lessons.length === 0) return;
+    let lastCh = -999;
+    const apply = (ch: number) => {
+      if (ch === lastCh) return;
+      lastCh = ch;
+      const m = CHAPTER_META[ch] ?? CHAPTER_META[1];
+      if (coverChRef.current) coverChRef.current.textContent = `CH ${ch}`;
+      if (coverTitleRef.current) coverTitleRef.current.textContent = `${m.emoji} ${m.titleEn}`;
+      if (coverBtnRef.current) {
+        coverBtnRef.current.style.background = m.accent;
+        coverBtnRef.current.style.boxShadow = `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(m.accent, 0.28)}`;
+      }
+    };
+    const observer = new IntersectionObserver((entries) => {
+      const top = entries
+        .filter(e => e.isIntersecting && e.intersectionRatio > 0.3)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!top) return;
+      const id = (top.target as HTMLElement).dataset.lessonId;
+      const l = id ? lessons.find(x => x.id === id) : null;
+      if (l) apply(l.chapter);
+    }, { threshold: [0.3, 0.5, 0.7], rootMargin: '-30% 0px -45% 0px' });
+    document.querySelectorAll('[data-lesson-id]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, [lessons, isAggregate]);
+
   return (
     <div className="pickup-full-bleed" style={{
       background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
@@ -456,6 +500,7 @@ export default function MapPage() {
         </div>
         {/* Chapter book cover — flow 在 HUD 下方, 不再 position:fixed */}
         <button
+          ref={coverBtnRef}
           type="button"
           aria-label={`第 ${displayChapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
           aria-expanded={showKeySheet}
@@ -486,10 +531,10 @@ export default function MapPage() {
         >
           <div style={{ flex: 1, minWidth: 0 }}>
             {/* v2.0.B.283: 加位置 ch{N} 標 (user「要有位置 ch1」), 仍保留英文 title 為主 */}
-            <div style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
+            <div ref={coverChRef} style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
               CH {displayChapter}
             </div>
-            <div style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{meta.titleEn}
             </div>
           </div>
