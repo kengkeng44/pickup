@@ -705,6 +705,26 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
         <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
       </div>
     </div>
+
+    <div class="todo-item" data-todo-id="native-audio-mix">
+      <div class="todo-title">🎧 Capacitor 原生音訊 — 外部音樂混音 + 題目語音不壓 — 上架時做</div>
+      <div class="todo-meta">
+        <span>per user 2026-06-18</span>
+        <span>預估: 小-中</span>
+        <span>相依: Capacitor iOS shell (Phase 2.5)</span>
+      </div>
+      <ul class="todo-checklist">
+        <li>目標:玩家自己耳機的音樂 + app 同時播,且<strong>題目語音 (TTS) 絕對不被壓低</strong>(鐵則 #5)</li>
+        <li>iOS: AVAudioSession category <code>.ambient</code> + <code>.mixWithOthers</code> → 不中斷外部音樂</li>
+        <li>但題目語音播放時要全音量蓋過(或短暫 duck 外部音樂),BGM 可降(現有 duckBgm 已只降 BGM)</li>
+        <li>web 端現況:設定可關 BGM 讓外部音樂播(已做 B.329);完整混音是原生才有</li>
+        <li>Android: AudioManager focus gain transient-may-duck 對應設定</li>
+      </ul>
+      <div class="todo-actions">
+        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/lesson-design-standard.md" target="_blank">📄 音訊鐵則 #5</a>
+        <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
+      </div>
+    </div>
   </section>
 
   <!-- v2.0.B.266: RN pivot banner (2026-06-09) — 移到最下面 (B.309 per user) -->
