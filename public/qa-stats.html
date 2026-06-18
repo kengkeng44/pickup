@@ -167,30 +167,30 @@
 
   <!-- 2. ✅ Anchor confirmed (2026-06-09 user decision) -->
   <div class="section" style="background:linear-gradient(135deg,#e8f4dd 0%,#f4f9e8 100%); border:2px solid var(--ok); border-bottom:4px solid #3d7a23;">
-    <h2 style="color:var(--ok);">✅ 定位 anchor 確認 (2026-06-09)</h2>
-    <p class="desc">narration 48% by design — Pickup 是「親子陸聽英文」路線,不是「兒童主動答題」路線。下游 5 個策略(題型優先 / 評分機制 / TTS 語速 / 內容長度 / commercial pitch)都跟著這條走。</p>
+    <h2 style="color:var(--ok);">✅ 定位主軸確認 (2026-06-09)</h2>
+    <p class="desc">旁白(narration)佔 48% 是刻意的 — Pickup 走「親子一起聽英文」路線,不是「小孩自己一直答題」路線。後續 5 個方向(題型優先序 / 怎麼評分 / 語音速度 / 文章長度 / 對外賣點)都跟著這條走。</p>
   </div>
 
-  <!-- 3. ⚠️ Discrepancy panel (剩下未解的 spec drift) -->
+  <!-- 3. ⚠️ 差異面板 (規格與實際對不上之處) -->
   <div class="discrepancy">
-    <h2>🚨 Spec ↔ Reality 剩餘差異</h2>
-    <p class="desc">narration 那條已 reconcile (上方綠卡)。下面 4 個 drift 仍需處理 — 更新 CLAUDE.md or 補 production。</p>
+    <h2>🚨 規格 ↔ 實際 剩餘差異</h2>
+    <p class="desc">旁白那條已對齊(上方綠卡)。下面 4 個「對不上」的地方還要處理 — 更新文件 或 補上線內容。</p>
     <ul>
-      <li><b>單元數差距</b> — Spec 寫每章 24 lesson,實際全 32 章都是 <b>7 lesson</b> (ch28 例外)</li>
-      <li><b>4 個 Segment 0 出現</b> — Spec 寫 5 種 segment (outer-prologue / main-story / <s>aesop-side</s> / <s>outer-outro</s> / <s>review</s>),實際只 main-story (96.9%) + ch0 outer-prologue (3.1%)</li>
-      <li><b>3 個 spec 題型 0 出現</b> — <s>type-what-you-hear</s> / <s>tap-tiles</s> / <s>read-mc-with-audio</s> 全部 0 題</li>
-      <li><b>2 個未文檔化題型出現</b> — <code>emoji-pick</code> (9.1%) + <code>picture-mc</code> (0.3%) — qa-dashboard CSS 還沒對應顏色</li>
+      <li><b>單元數差距</b> — 規格寫每章 24 小節,實際全 32 章都是 <b>7 小節</b>(ch28 例外)</li>
+      <li><b>4 種「章節段落」0 出現</b> — 規格寫 5 種段落(開場序幕 outer-prologue / 主線 main-story / <s>伊索支線 aesop-side</s> / <s>結尾 outer-outro</s> / <s>複習 review</s>),實際只有 主線(96.9%)+ 入門章開場(3.1%)</li>
+      <li><b>3 個「規格寫了的題型」目前 0 題</b> — <s>type-what-you-hear</s> / <s>tap-tiles</s> / <s>read-mc-with-audio</s> 全部 0 題</li>
+      <li><b>2 個「規格沒寫到的題型」卻出現了</b> — <code>emoji-pick</code> (9.1%) + <code>picture-mc</code> (0.3%) — 「題目對照表」的顏色還沒對應</li>
     </ul>
   </div>
 
   <!-- 3. Type distribution -->
   <div class="section">
     <h2>📋 題型分布 Question Type</h2>
-    <p class="desc">Production 真實數據 · 共 8 種題型 · 點題型可跳 qa-dashboard 篩選</p>
+    <p class="desc">正式上線的真實數據 · 共 8 種題型 · 點題型可跳到「題目對照表」篩選</p>
 
     <a class="row t-narration" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">narration <span class="tag ok">by design · 親子陸聽 anchor</span></span>
+        <span class="label">narration · 旁白(故事敘述) <span class="tag ok">刻意設計 · 親子一起聽的主軸</span></span>
         <span class="count"><span class="pct">48.0%</span>1,186</span>
       </div>
       <div class="bar"><div class="fill" style="width:48.0%"></div></div>
@@ -198,7 +198,7 @@
 
     <a class="row t-listen-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-mc <span class="tag ok">on target</span></span>
+        <span class="label">listen-mc · 聽選(聽聲音 4 選 1) <span class="tag ok">比例剛好</span></span>
         <span class="count"><span class="pct">21.2%</span>525</span>
       </div>
       <div class="bar"><div class="fill" style="width:21.2%"></div></div>
@@ -206,7 +206,7 @@
 
     <a class="row t-emoji-pick" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">emoji-pick <span class="tag warn">未文檔化</span></span>
+        <span class="label">emoji-pick · 看圖選(看圖案選) <span class="tag warn">規格沒寫到</span></span>
         <span class="count"><span class="pct">9.1%</span>224</span>
       </div>
       <div class="bar"><div class="fill" style="width:9.1%"></div></div>
@@ -214,7 +214,7 @@
 
     <a class="row t-listen-tf" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-tf</span>
+        <span class="label">listen-tf · 聽是非(對/錯)</span>
         <span class="count"><span class="pct">8.8%</span>218</span>
       </div>
       <div class="bar"><div class="fill" style="width:8.8%"></div></div>
@@ -222,7 +222,7 @@
 
     <a class="row t-tap-pairs" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">tap-pairs</span>
+        <span class="label">tap-pairs · 中英配對</span>
         <span class="count"><span class="pct">8.8%</span>217</span>
       </div>
       <div class="bar"><div class="fill" style="width:8.8%"></div></div>
@@ -230,7 +230,7 @@
 
     <a class="row t-listen-comprehension" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-comprehension <span class="tag warn">偏低</span></span>
+        <span class="label">listen-comprehension · 聽力理解 <span class="tag warn">比例偏少</span></span>
         <span class="count"><span class="pct">2.3%</span>56</span>
       </div>
       <div class="bar"><div class="fill" style="width:2.3%"></div></div>
@@ -238,7 +238,7 @@
 
     <a class="row t-listen-emoji" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-emoji <span class="tag warn">只在 ch0</span></span>
+        <span class="label">listen-emoji · 聽音選圖 <span class="tag warn">只出現在入門章</span></span>
         <span class="count"><span class="pct">1.6%</span>39</span>
       </div>
       <div class="bar"><div class="fill" style="width:1.6%"></div></div>
@@ -246,7 +246,7 @@
 
     <a class="row t-picture-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">picture-mc <span class="tag bad">只 7 題,全 ch0</span></span>
+        <span class="label">picture-mc · 看圖選句 <span class="tag bad">只 7 題,全在入門章</span></span>
         <span class="count"><span class="pct">0.3%</span>7</span>
       </div>
       <div class="bar"><div class="fill" style="width:0.3%"></div></div>
@@ -255,31 +255,31 @@
 
   <!-- 4. Segment distribution -->
   <div class="section">
-    <h2>🎬 Segment 分布</h2>
-    <p class="desc">Spec 設計 5 種 segment,production 只 2 種有資料</p>
+    <h2>🎬 章節段落分布 Segment</h2>
+    <p class="desc">規格設計 5 種段落,實際上線只有 2 種有資料</p>
 
     <div class="row s-main">
-      <span class="label">main-story</span>
+      <span class="label">main-story · 主線故事</span>
       <span class="count"><span class="pct">96.9%</span>217 lesson</span>
       <div class="bar"><div class="fill" style="width:96.9%"></div></div>
     </div>
     <div class="row s-prologue">
-      <span class="label">outer-prologue <span class="tag warn">只 ch0</span></span>
+      <span class="label">outer-prologue · 開場序幕 <span class="tag warn">只在入門章</span></span>
       <span class="count"><span class="pct">3.1%</span>7 lesson</span>
       <div class="bar"><div class="fill" style="width:3.1%"></div></div>
     </div>
     <div class="row" style="opacity:0.4">
-      <span class="label">aesop-side <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="label">aesop-side · 伊索寓言支線 <span class="tag bad">規格有寫但目前 0 題</span></span>
       <span class="count"><span class="pct">0%</span>0</span>
       <div class="bar"><div class="fill" style="width:0%"></div></div>
     </div>
     <div class="row" style="opacity:0.4">
-      <span class="label">outer-outro <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="label">outer-outro · 結尾收場 <span class="tag bad">規格有寫但目前 0 題</span></span>
       <span class="count"><span class="pct">0%</span>0</span>
       <div class="bar"><div class="fill" style="width:0%"></div></div>
     </div>
     <div class="row" style="opacity:0.4">
-      <span class="label">review <span class="tag bad">spec 寫了但 0 個</span></span>
+      <span class="label">review · 複習 <span class="tag bad">規格有寫但目前 0 題</span></span>
       <span class="count"><span class="pct">0%</span>0</span>
       <div class="bar"><div class="fill" style="width:0%"></div></div>
     </div>
@@ -295,37 +295,37 @@
       </thead>
       <tbody>
         <tr><td class="ch">0</td><td class="title">入門:ABC・數字</td><td class="r">7</td><td class="r">78</td><td class="dom">listen-emoji</td></tr>
-        <tr><td class="ch">1</td><td class="title">桃太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">2</td><td class="title">醜小鴨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">3</td><td class="title">龜兔賽跑</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">4</td><td class="title">駱駝駝峰</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">5</td><td class="title">Baba Yaga</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">6</td><td class="title">六隻天鵝</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">7</td><td class="title">葉限</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">8</td><td class="title">三隻小豬</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">9</td><td class="title">灰姑娘</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">10</td><td class="title">嫦娥奔月</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">11</td><td class="title">后羿射日</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">12</td><td class="title">牛郎織女</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">13</td><td class="title">小紅帽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">14</td><td class="title">浦島太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">15</td><td class="title">國王的新衣</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">16</td><td class="title">一寸法師</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">17</td><td class="title">鶴的報恩</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">18</td><td class="title">興夫和孬夫</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">19</td><td class="title">Sang Kancil</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">20</td><td class="title">蘿蔔大冒險</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">21</td><td class="title">Anansi 蜘蛛</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">22</td><td class="title">孟母三遷</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">23</td><td class="title">司馬光砸缸</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">24</td><td class="title">孔融讓梨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">25</td><td class="title">愚公移山</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">26</td><td class="title">Archimedes</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">27</td><td class="title">西遊記</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr style="background:rgba(214,139,58,0.10)"><td class="ch">28</td><td class="title">三國諸葛亮 ⚠️</td><td class="r">7</td><td class="r"><b>84</b></td><td class="dom">narration</td></tr>
-        <tr><td class="ch">29</td><td class="title">奧德賽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">30</td><td class="title">赫拉克勒斯</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
-        <tr><td class="ch">31</td><td class="title">Robin Hood</td><td class="r">7</td><td class="r">77</td><td class="dom">narration</td></tr>
+        <tr><td class="ch">1</td><td class="title">桃太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">2</td><td class="title">醜小鴨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">3</td><td class="title">龜兔賽跑</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">4</td><td class="title">駱駝駝峰</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">5</td><td class="title">Baba Yaga</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">6</td><td class="title">六隻天鵝</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">7</td><td class="title">葉限</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">8</td><td class="title">三隻小豬</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">9</td><td class="title">灰姑娘</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">10</td><td class="title">嫦娥奔月</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">11</td><td class="title">后羿射日</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">12</td><td class="title">牛郎織女</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">13</td><td class="title">小紅帽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">14</td><td class="title">浦島太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">15</td><td class="title">國王的新衣</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">16</td><td class="title">一寸法師</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">17</td><td class="title">鶴的報恩</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">18</td><td class="title">興夫和孬夫</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">19</td><td class="title">Sang Kancil</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">20</td><td class="title">蘿蔔大冒險</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">21</td><td class="title">Anansi 蜘蛛</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">22</td><td class="title">孟母三遷</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">23</td><td class="title">司馬光砸缸</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">24</td><td class="title">孔融讓梨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">25</td><td class="title">愚公移山</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">26</td><td class="title">Archimedes</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">27</td><td class="title">西遊記</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr style="background:rgba(214,139,58,0.10)"><td class="ch">28</td><td class="title">三國諸葛亮 ⚠️</td><td class="r">7</td><td class="r"><b>84</b></td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">29</td><td class="title">奧德賽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">30</td><td class="title">赫拉克勒斯</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
+        <tr><td class="ch">31</td><td class="title">Robin Hood</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
       </tbody>
     </table>
 

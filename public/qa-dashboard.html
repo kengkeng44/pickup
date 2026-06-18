@@ -316,6 +316,29 @@
     20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
     30, 31,
   ];
+  // v2.0.B.332 (per user): 題型英文名 → 中文白話 (chip 同時顯示)
+  const TYPE_ZH = {
+    'narration': '旁白(故事敘述)',
+    'listen-mc': '聽選(聽聲音4選1)',
+    'listen-comprehension': '聽力理解',
+    'read-comprehension': '閱讀理解',
+    'read-mc-with-audio': '讀+聽選',
+    'listen-tf': '聽是非(對/錯)',
+    'listen-tf-zh': '聽是非(中文)',
+    'listen-emoji': '聽音選圖',
+    'emoji-pick': '看圖選',
+    'picture-mc': '看圖選句',
+    'tap-pairs': '中英配對',
+    'phrase-pairs': '片語配對',
+    'tap-tiles': '排字成句',
+    'type-what-you-hear': '聽打字',
+    'read-and-tap': '讀句點詞',
+    'drag-blank': '拖字填空',
+    'speak-back': '跟讀',
+    'sentence-builder': '翻譯造句',
+    'listen-build': '聽力排字',
+  };
+
   const CHAPTER_TITLES = {
     0: '入門:ABC・數字・顏色',
     1: '桃太郎',
@@ -516,7 +539,7 @@
 
     const parts = [];
     parts.push(`<div class="q-head">`);
-    parts.push(`<span class="type-chip" data-type="${escapeHtml(q.type)}">${escapeHtml(q.type)}</span>`);
+    parts.push(`<span class="type-chip" data-type="${escapeHtml(q.type)}">${escapeHtml(q.type)}${TYPE_ZH[q.type] ? ' · ' + escapeHtml(TYPE_ZH[q.type]) : ''}</span>`);
     parts.push(`<span class="q-id">${escapeHtml(q.id)}</span>`);
     parts.push(`<span class="q-tags">${escapeHtml(tags + subSkill + level + diff)}</span>`);
     parts.push(`</div>`);
