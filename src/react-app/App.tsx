@@ -15,6 +15,7 @@ import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
 import CardsPage from './pages/CardsPage';
 import ParentPage from './pages/ParentPage';
+import SettingsPage from './pages/SettingsPage';
 import BottomNav from './components/BottomNav';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
@@ -89,6 +90,7 @@ export default function App() {
             <Route path="/alerts" element={<AlertsPage />} />
             <Route path="/cards" element={<CardsPage />} />
             <Route path="/parent" element={<ParentPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<ChaptersPage />} />
           </Routes>
         </Suspense>
