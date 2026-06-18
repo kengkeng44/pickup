@@ -6,9 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { getTheme, toggleTheme } from '../../data/theme';
 import { isBgmEnabled, setBgmEnabled, isSfxEnabled, setSfxEnabled } from '../../data/audioSettings';
 import { startBgm, stopBgm } from '../../audio/bgm';
-import { readDogName, writeDogName } from '../../data/dogName';
-import { resetXp } from '../../data/xp';
-import { resetCoins } from '../../data/coins';
 
 type Diff = 'easy' | 'medium' | 'hard';
 function readDiff(): Diff {
@@ -57,33 +54,15 @@ export default function SettingsPage() {
   const [bgm, setBgm] = useState(() => isBgmEnabled());
   const [sfx, setSfx] = useState(() => isSfxEnabled());
   const [diff, setDiff] = useState<Diff>(() => readDiff());
-  const [dog, setDog] = useState(() => readDogName());
 
   const applyDiff = (d: Diff) => {
     setDiff(d);
     try { localStorage.setItem('pickup.difficulty', d); } catch { /* ignore */ }
   };
-  const saveDog = () => { const v = dog.trim(); if (v) writeDogName(v); };
 
   const onBgm = () => {
     const next = !bgm; setBgm(next); setBgmEnabled(next);
     if (next) { try { startBgm(); } catch { /* ignore */ } } else { stopBgm(); }
-  };
-
-  const resetProgress = () => {
-    if (!window.confirm('確定要重置所有進度嗎?(XP、金幣、連勝、已完成關卡都會清空,無法復原)')) return;
-    try {
-      resetXp(); resetCoins();
-      const store = window.localStorage;
-      const kill: string[] = [];
-      for (let i = 0; i < store.length; i++) {
-        const k = store.key(i);
-        if (!k) continue;
-        if (/^pickup\.(chapter|chest|streak|lesson|map)\b/.test(k) || k === 'wordwar.srs.kitten') kill.push(k);
-      }
-      kill.forEach(k => store.removeItem(k));
-    } catch { /* ignore */ }
-    window.location.href = '/';
   };
 
   return (
@@ -130,18 +109,6 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* 角色 */}
-      <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 8 }}>狗狗名字 🐶</div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <input value={dog} onChange={(e) => setDog(e.target.value)} maxLength={12} placeholder="狗狗名字"
-            style={{ flex: 1, maxWidth: 180, minWidth: 0, padding: 8, fontSize: 16, fontWeight: 700, borderRadius: 8, color: 'var(--t-text)', border: '2px solid var(--t-border-card)', fontFamily: 'inherit', background: 'var(--t-bg)' }} />
-          <button type="button" onClick={saveDog}
-            style={{ flex: '0 0 auto', padding: '8px 14px', fontSize: 13, fontWeight: 800, border: 'none', borderRadius: 8, color: '#fff', background: 'var(--t-brand-dark)', fontFamily: 'inherit', cursor: 'pointer' }}>儲存</button>
-        </div>
-        <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginTop: 4 }}>貓咪名字在「我的」頁設定</div>
-      </div>
-
       {/* 家長 */}
       <button type="button" onClick={() => navigate('/parent')}
         style={{ ...cardStyle, width: '100%', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', borderBottom: '4px solid var(--t-border-card)' }}>
@@ -151,12 +118,6 @@ export default function SettingsPage() {
           <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>孩子的學習紀錄</div>
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
-      </button>
-
-      {/* 重置 (danger) */}
-      <button type="button" onClick={resetProgress}
-        style={{ width: '100%', padding: '14px 16px', borderRadius: 14, border: '2px solid var(--t-danger)', background: 'transparent', color: 'var(--t-danger)', fontSize: 14, fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer', marginTop: 6 }}>
-        ♻️ 重置所有進度
       </button>
     </div>
   );
