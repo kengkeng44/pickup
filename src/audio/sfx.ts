@@ -8,6 +8,7 @@
  */
 
 import { audio } from './AudioManager';
+import { isSfxEnabled } from '../data/audioSettings';
 
 interface ToneOpts {
   freq: number;
@@ -107,6 +108,7 @@ function deferAudio(fn: () => void): void {
 
 /** Soft click on card press (~50ms) + 10ms vibrate. */
 export function sfxCardPress(): void {
+  if (!isSfxEnabled()) return; // v2.0.B.329 音效開關
   audio.ensureContext();
   deferAudio(() => {
     tone({ freq: 880, type: 'triangle', duration: 0.05, attack: 0.002, gain: 0.18 });
@@ -165,6 +167,7 @@ function bellTone(
  * "encouraging" not "video-gamey."
  */
 export function sfxCorrect(): void {
+  if (!isSfxEnabled()) return; // v2.0.B.329 音效開關
   audio.ensureContext();
   // v2.0.B.190 INP fix: defer 11 sync Web Audio nodes 1 frame
   deferAudio(() => {
@@ -185,6 +188,7 @@ export function sfxCorrect(): void {
  * "BUZZ WRONG."
  */
 export function sfxWrong(): void {
+  if (!isSfxEnabled()) return; // v2.0.B.329 音效開關
   audio.ensureContext();
   vibrate([60, 40, 60]);
   // v2.0.B.190 INP fix: defer Web Audio node creation 1 frame

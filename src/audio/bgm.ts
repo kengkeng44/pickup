@@ -14,6 +14,7 @@
  *     (cheap, instant).
  */
 import { audio } from './AudioManager';
+import { isBgmEnabled } from '../data/audioSettings';
 
 const BGM_URL = '/audio/peace.mp3';
 
@@ -49,7 +50,17 @@ async function loadBgm(ctx: AudioContext): Promise<AudioBuffer | null> {
   return inflightLoad;
 }
 
+// module-scope handle so settings 可 stop/start
+let activeHandle: BgmHandle | undefined;
+
+export function stopBgm(): void {
+  try { activeHandle?.stop(); } catch { /* ignore */ }
+  activeHandle = undefined;
+}
+
 export function startBgm(): BgmHandle | undefined {
+  // v2.0.B.329 (per user): 設定關背景音樂 → 不播, 讓玩家自己的音樂繼續.
+  if (!isBgmEnabled()) return undefined;
   audio.ensureContext();
   const ctx = audio.ctx;
   const dest = audio.getBgmDestination();
@@ -89,5 +100,6 @@ export function startBgm(): BgmHandle | undefined {
   };
 
   audio.registerBgm(() => handle.stop());
+  activeHandle = handle;
   return handle;
 }
