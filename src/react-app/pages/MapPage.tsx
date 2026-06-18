@@ -491,15 +491,16 @@ export default function MapPage() {
       <div
         ref={chromeRef}
         style={{
+          // v2.0.B.328 (per user): 書封周圍透明 (露出地圖), 只有 HUD 功能列保留背景.
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-          background: COLOR_BG,
-          paddingTop: 'env(safe-area-inset-top)',
-          boxShadow: '0 6px 12px -6px rgba(60,42,28,0.10)',
+          background: 'transparent',
         }}
       >
         {/* HUD icons row */}
         <div style={{
+          background: COLOR_BG,
           padding: '6px 12px 4px',
+          paddingTop: 'calc(6px + env(safe-area-inset-top))',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2,
         }}>
           <HudIcon src="/mascots/flag-en.webp" value="" valueColor="var(--t-text)" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
@@ -784,8 +785,7 @@ export default function MapPage() {
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
                     fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
-                    display: 'flex', alignItems: 'center', gap: 6,
-                  }}><span style={{ fontSize: 18 }} aria-hidden="true">{chMeta.emoji}</span>CH {lessonChapter} · {chMeta.titleEn}</div>
+                  }}>CH {lessonChapter} · {chMeta.titleEn}</div>
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
