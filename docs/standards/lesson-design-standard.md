@@ -18,7 +18,7 @@
 ## 2. 題型配比標準表 (一節 ~10 題)
 
 > v2.0.B.cron (2026-06-19 per user) 兩項決策落地:
-> 1. **理解題合併**: `read-comprehension` + `listen-comprehension` → 單一「**理解選擇** (comprehension)」題型。「聽 or 讀」**不再綁題型**, 由**全域開關**決定 (設定頁 · `src/data/comprehensionMode.ts`, 預設「聽」)。
+> 1. **理解題合併**: `read-comprehension` + `listen-comprehension` → 單一「**理解選擇** (comprehension)」題型。「聽 or 讀」**不再綁題型**, 由**全域開關**決定 (設定頁 · `src/data/comprehensionMode.ts`)。開關三檔: `auto`(預設) / `listen` / `read`。**`auto` = 跟著難度鷹架** (per user, 兒童 ELT 最佳實踐): easy→讀(有字零挫折) / medium→混(交錯, `q.id` hash ~1/3 讀 2/3 聽) / hard→聽(盲聽原文)。家長可手動鎖 listen/read。
 > 2. **配比重新平衡**: narration 36→30, 理解類拉到 30, 其餘 (是非 / 單字 / 片語 / 看圖) 各升到 10。
 
 | 題型 | 佔比 | 題數 | 作用 | 難度敏感 |

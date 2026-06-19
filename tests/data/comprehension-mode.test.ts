@@ -19,15 +19,15 @@ if (typeof (globalThis as { window?: unknown }).window === 'undefined') {
 import {
   getComprehensionMode,
   setComprehensionMode,
-  toggleComprehensionMode,
+  resolveComprehension,
   subscribeComprehensionMode,
 } from '../../src/data/comprehensionMode';
 
 describe('comprehensionMode global switch (理解選擇 merge)', () => {
   beforeEach(() => localStorage.clear());
 
-  it("defaults to 'listen'", () => {
-    expect(getComprehensionMode()).toBe('listen');
+  it("defaults to 'auto'", () => {
+    expect(getComprehensionMode()).toBe('auto');
   });
 
   it('persists set value to localStorage', () => {
@@ -36,14 +36,9 @@ describe('comprehensionMode global switch (理解選擇 merge)', () => {
     expect(localStorage.getItem('pickup.comprehensionMode')).toBe('read');
   });
 
-  it('toggle flips listen <-> read', () => {
-    expect(toggleComprehensionMode()).toBe('read');
-    expect(toggleComprehensionMode()).toBe('listen');
-  });
-
   it('falls back to default for garbage values', () => {
     localStorage.setItem('pickup.comprehensionMode', 'nonsense');
-    expect(getComprehensionMode()).toBe('listen');
+    expect(getComprehensionMode()).toBe('auto');
   });
 
   it('notifies subscribers on change, stops after unsubscribe', () => {
@@ -54,5 +49,36 @@ describe('comprehensionMode global switch (理解選擇 merge)', () => {
     off();
     setComprehensionMode('read'); // after unsubscribe — should not fire
     expect(hits).toBe(2);
+  });
+
+  describe('resolveComprehension (auto = 跟著難度鷹架)', () => {
+    it('manual listen/read overrides difficulty', () => {
+      setComprehensionMode('listen');
+      localStorage.setItem('pickup.difficulty', 'easy');
+      expect(resolveComprehension('any-id')).toBe('listen');
+      setComprehensionMode('read');
+      localStorage.setItem('pickup.difficulty', 'hard');
+      expect(resolveComprehension('any-id')).toBe('read');
+    });
+
+    it('auto: easy → read, hard → listen', () => {
+      setComprehensionMode('auto');
+      localStorage.setItem('pickup.difficulty', 'easy');
+      expect(resolveComprehension('kt-ch1-l1-q6')).toBe('read');
+      localStorage.setItem('pickup.difficulty', 'hard');
+      expect(resolveComprehension('kt-ch1-l1-q6')).toBe('listen');
+    });
+
+    it('auto + medium → deterministic mix (same id stable, ~1/3 read)', () => {
+      setComprehensionMode('auto');
+      localStorage.setItem('pickup.difficulty', 'medium');
+      const r1 = resolveComprehension('kt-ch1-l1-q6');
+      const r2 = resolveComprehension('kt-ch1-l1-q6');
+      expect(r1).toBe(r2); // stable per id
+      const modes = Array.from({ length: 60 }, (_, i) => resolveComprehension(`q-${i}`));
+      const reads = modes.filter((m) => m === 'read').length;
+      expect(reads).toBeGreaterThan(0);    // 有讀
+      expect(reads).toBeLessThan(modes.length); // 也有聽 (混合)
+    });
   });
 });

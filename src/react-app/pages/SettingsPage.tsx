@@ -116,15 +116,15 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* 理解題模式 — 聽 vs 讀 (v2.0.B.cron 理解選擇 merge) */}
+      {/* 理解題模式 — 聽 / 讀 / 跟著難度 (v2.0.B.cron 理解選擇 merge + 鷹架自動切) */}
       <div style={cardStyle}>
         <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>理解題 👂📖</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>理解選擇題用「聽」還是「讀」段落</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>理解選擇題用「聽」還是「讀」段落<br />「跟著難度」= 簡單用讀 / 適中混合 / 原文用聽</div>
         <div style={{ display: 'flex', gap: 8 }}>
-          {([['listen', '👂 用聽的'], ['read', '📖 用讀的']] as [ComprehensionMode, string][]).map(([m, label]) => (
+          {([['auto', '✨ 跟著難度'], ['listen', '👂 用聽的'], ['read', '📖 用讀的']] as [ComprehensionMode, string][]).map(([m, label]) => (
             <button key={m} type="button" onClick={() => applyCompMode(m)}
               style={{
-                flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 14,
+                flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
                 cursor: 'pointer', minHeight: 44,
                 border: compMode === m ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
                 background: compMode === m ? 'var(--t-brand-dark)' : 'var(--t-bg)',

@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import { speak, stopSpeaking } from '../audio/tts';
 import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
-import { getComprehensionMode, subscribeComprehensionMode } from '../data/comprehensionMode';
+import { resolveComprehension, subscribeComprehensionMode } from '../data/comprehensionMode';
 import SpeakZh from './components/SpeakZh';
 
 export interface RawQuestion {
@@ -485,14 +485,19 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
 // ─── 理解選擇 (merged, v2.0.B.cron per user) ─────────────────────────────────
 // read-comprehension + listen-comprehension 合併。資料 shape 相同 (段落 sentence
 // + question + 4 options + correctIndex), 唯一差別是「呈現方式」, 由全域開關決定:
-//   getComprehensionMode() === 'read'  → ReadComprehensionRenderer (段落可見, 答完點詞)
-//   getComprehensionMode() === 'listen' → ListenMcRenderer (段落盲聽 blanks, 答完 reveal)
-// 開關在 設定頁; 跨關生效。三個 type ('comprehension'/'listen-comprehension'/
+//   resolveComprehension(id) === 'read'   → ReadComprehensionRenderer (段落可見, 答完點詞)
+//   resolveComprehension(id) === 'listen' → ListenMcRenderer (段落盲聽 blanks, 答完 reveal)
+// 開關 'auto' (預設) = 跟著難度鷹架: easy→讀 / hard→聽 / medium→混 (見 comprehensionMode.ts)。
+// 設定頁可手動鎖 listen/read。三個 type ('comprehension'/'listen-comprehension'/
 // 'read-comprehension') 全導向這裡 → 內容不需遷移, 行為被開關統一。
 const ComprehensionRenderer = (props: RendererProps) => {
-  const [mode, setMode] = useState(() => getComprehensionMode());
-  useEffect(() => subscribeComprehensionMode(() => setMode(getComprehensionMode())), []);
-  return mode === 'read' ? <ReadComprehensionRenderer {...props} /> : <ListenMcRenderer {...props} />;
+  // q.id 進 resolve → 同題穩定; mode/難度變動時重算 (subscribe + q.id 依賴)
+  const [resolved, setResolved] = useState(() => resolveComprehension(props.q.id));
+  useEffect(() => {
+    setResolved(resolveComprehension(props.q.id));
+    return subscribeComprehensionMode(() => setResolved(resolveComprehension(props.q.id)));
+  }, [props.q.id]);
+  return resolved === 'read' ? <ReadComprehensionRenderer {...props} /> : <ListenMcRenderer {...props} />;
 };
 
 // ─── 4. type-what-you-hear (text input) ─────────────────────────────────────
