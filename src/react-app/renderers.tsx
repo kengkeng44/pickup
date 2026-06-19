@@ -127,8 +127,8 @@ const SpeakerBtn = ({ onClick, size = 22 }: { onClick: () => void; size?: number
   </button>
 );
 
-// v2.0.B.cron 聽力配對: 聲音波形視覺 (per user screenshot — 喇叭 icon + 藍色波形長條).
-// 純視覺 affordance, 不帶文字 (聽力題不可洩漏英文). active=選中 → 藍色加深。
+// v2.0.B.cron 聽力配對: 聲音波形視覺 (喇叭 icon + 波形長條, 暖色琥珀系 per user — 非藍).
+// 純視覺 affordance, 不帶文字 (聽力題不可洩漏英文). active=選中 → 琥珀加深。
 // 每列 seed 不同 → 波形高低各異 (像真的聲紋), 純靜態 (尊重 reduce-motion)。
 const WAVE_BARS = 13;
 const Waveform = ({ active, seed = 0 }: { active?: boolean; seed?: number }) => {
@@ -140,7 +140,7 @@ const Waveform = ({ active, seed = 0 }: { active?: boolean; seed?: number }) => 
     const h = 0.28 + (0.45 * center + 0.27 * wobble);
     bars.push(Math.min(1, h));
   }
-  const color = active ? '#1c93de' : '#5bb4e8';
+  const color = active ? 'var(--t-brand-dark)' : 'var(--t-brand)';
   return (
     <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', gap: 2.5, height: 28, flex: 1, justifyContent: 'flex-start' }}>
       {bars.map((h, i) => (
@@ -970,8 +970,8 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   // 聲音格 — 選中藍底藍框 (照 screenshot), 配對成功綠, 預設白
   const audioCell = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
     padding: '12px 12px',
-    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? '#dcf0fb' : 'var(--t-surface)',
-    border: `2px solid ${state === 'matched' ? 'var(--t-success)' : state === 'selected' ? '#1c93de' : 'var(--t-border-card)'}`,
+    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
+    border: `2px solid ${state === 'matched' ? 'var(--t-success)' : state === 'selected' ? 'var(--t-brand-dark)' : 'var(--t-border-card)'}`,
     borderRadius: 14, cursor: state === 'matched' ? 'default' : 'pointer', fontFamily: 'inherit',
     minHeight: 56, display: 'flex', alignItems: 'center', gap: 8,
     touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
