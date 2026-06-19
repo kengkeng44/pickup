@@ -127,6 +127,33 @@ const SpeakerBtn = ({ onClick, size = 22 }: { onClick: () => void; size?: number
   </button>
 );
 
+// v2.0.B.cron 聽力配對: 聲音波形視覺 (per user screenshot — 喇叭 icon + 藍色波形長條).
+// 純視覺 affordance, 不帶文字 (聽力題不可洩漏英文). active=選中 → 藍色加深。
+// 每列 seed 不同 → 波形高低各異 (像真的聲紋), 純靜態 (尊重 reduce-motion)。
+const WAVE_BARS = 13;
+const Waveform = ({ active, seed = 0 }: { active?: boolean; seed?: number }) => {
+  const bars = [];
+  for (let i = 0; i < WAVE_BARS; i++) {
+    // deterministic pseudo-random 高度 0.28–1.0, 中段較高 (像語音能量包絡)
+    const center = 1 - Math.abs(i - (WAVE_BARS - 1) / 2) / ((WAVE_BARS - 1) / 2);
+    const wobble = (Math.sin((i + 1) * (seed + 1) * 1.7) + 1) / 2;
+    const h = 0.28 + (0.45 * center + 0.27 * wobble);
+    bars.push(Math.min(1, h));
+  }
+  const color = active ? '#1c93de' : '#5bb4e8';
+  return (
+    <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', gap: 2.5, height: 28, flex: 1, justifyContent: 'flex-start' }}>
+      {bars.map((h, i) => (
+        <span key={i} style={{
+          display: 'inline-block', width: 3, borderRadius: 2,
+          height: `${Math.round(h * 26)}px`, background: color,
+          transition: 'background 160ms ease',
+        }} />
+      ))}
+    </span>
+  );
+};
+
 const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
   label: string; labelZh?: string; state: 'idle' | 'correct' | 'wrong' | 'shown';
   onClick: () => void; disabled?: boolean;
@@ -871,6 +898,140 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         }}>
           🎉
         </div>
+      )}
+    </div>
+  );
+};
+
+// ─── 聽力配對 listen-pairs (v2.0.B.cron per user「選擇配對」Duolingo std) ──────
+// 「聽力選中文」: 左欄 = 聲音波形按鈕 (播英文, 不顯示英文字), 右欄 = 中文。
+// 用聽的把音檔配到中文意思。圖片槽 + 框框 + 波形 = 照 user screenshot 標準設計。
+// 資料沿用 tap-pairs {left:中文, right:英文}: 左格播 right(英文), 右格顯示 left(中文)。
+const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const pairs: Array<[string, string]> = (
+    (q.pairs as Array<{ left: string; right: string } | [string, string]> | undefined) ??
+    q.pairsEn ??
+    []
+  ).map((p) => (Array.isArray(p) ? p : [p.left, p.right]));
+  const [matched, setMatched] = useState<number[]>([]);
+  const [selected, setSelected] = useState<{ side: 'audio' | 'zh'; idx: number } | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [justMatched, setJustMatched] = useState<number | null>(null);
+  const [shakeIds, setShakeIds] = useState<{ audio: number | null; zh: number | null }>({ audio: null, zh: null });
+
+  const rightShuffle = useRef<number[]>([]);
+  useEffect(() => {
+    rightShuffle.current = pairs.map((_, i) => i).sort(() => Math.random() - 0.5);
+    setMatched([]); setSelected(null); setRevealed(false);
+    setJustMatched(null); setShakeIds({ audio: null, zh: null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+
+  const speakEn = (origIdx: number) => {
+    try { if (pairs[origIdx]) speak(pairs[origIdx][1], 'en-US', { rate: 0.85, force: true }); } catch {}
+  };
+
+  const tap = (side: 'audio' | 'zh', idx: number) => {
+    if (revealed) return;
+    if (side === 'audio' && matched.includes(idx)) return;
+    if (side === 'zh' && matched.includes(rightShuffle.current[idx])) return;
+    sfxCardPress();
+    // 聽力題: 點左格永遠播該音檔英文 (聽力是答題唯一線索)
+    if (side === 'audio') speakEn(idx);
+    if (!selected) { setSelected({ side, idx }); return; }
+    if (selected.side === side) { setSelected({ side, idx }); return; }
+    const audioIdx = selected.side === 'audio' ? selected.idx : idx;
+    const zhSIdx = selected.side === 'zh' ? selected.idx : idx;
+    const actualZh = rightShuffle.current[zhSIdx];
+    if (audioIdx === actualZh) {
+      try { sfxCorrect(); } catch {}
+      setJustMatched(audioIdx);
+      window.setTimeout(() => setJustMatched(null), 600);
+      const next = [...matched, audioIdx];
+      setMatched(next);
+      setSelected(null);
+      if (next.length === pairs.length) {
+        setRevealed(true);
+        onAnswer(0, true);
+        window.setTimeout(() => onAdvance(), 2200);
+      }
+    } else {
+      try { sfxWrong(); } catch {}
+      setShakeIds({ audio: audioIdx, zh: zhSIdx });
+      window.setTimeout(() => setShakeIds({ audio: null, zh: null }), 420);
+      setSelected(null);
+    }
+  };
+
+  if (pairs.length === 0) {
+    return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>(本題沒有配對資料)</div>;
+  }
+
+  // 聲音格 — 選中藍底藍框 (照 screenshot), 配對成功綠, 預設白
+  const audioCell = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
+    padding: '12px 12px',
+    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? '#dcf0fb' : 'var(--t-surface)',
+    border: `2px solid ${state === 'matched' ? 'var(--t-success)' : state === 'selected' ? '#1c93de' : 'var(--t-border-card)'}`,
+    borderRadius: 14, cursor: state === 'matched' ? 'default' : 'pointer', fontFamily: 'inherit',
+    minHeight: 56, display: 'flex', alignItems: 'center', gap: 8,
+    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+    transition: 'background 160ms ease, border-color 160ms ease',
+  });
+  // 中文格 — 選中暖琥珀, 配對成功綠, 預設白
+  const zhCell = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
+    padding: '12px 10px',
+    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
+    color: 'var(--t-text)',
+    border: `2px solid ${state === 'matched' ? 'var(--t-success)' : 'var(--t-border-card)'}`,
+    borderBottom: state === 'matched' ? '3px solid var(--t-success)' : '3px solid var(--t-brand-dark)',
+    borderRadius: 14, fontSize: 16, fontWeight: 800, cursor: state === 'matched' ? 'default' : 'pointer',
+    fontFamily: 'inherit', minHeight: 56, display: 'flex', alignItems: 'center', justifyContent: 'center',
+    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+    transition: 'background 160ms ease, border-color 160ms ease',
+  });
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+      {/* 圖片槽 — 角色置中 (照 screenshot 標準位置) + 下方分隔線 */}
+      <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid var(--t-border-soft)' }}>
+        <img src="/mascots/calico-anchor.webp" width={104} height={104} alt="" style={{ borderRadius: '50%', display: 'block' }} />
+      </div>
+      {/* 題型標題 (照 screenshot「選擇配對」) */}
+      <div style={{ textAlign: 'center', fontSize: 17, fontWeight: 900, color: 'var(--t-text)', marginBottom: 14 }}>選擇配對</div>
+
+      <div style={{ display: 'flex', gap: 10, marginTop: 'auto', marginBottom: 'auto' }}>
+        {/* LEFT — 聲音波形 (播英文) */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {pairs.map((_, i) => {
+            const isMatched = matched.includes(i);
+            const isSelected = selected?.side === 'audio' && selected.idx === i;
+            const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
+            const className = justMatched === i ? 'pickup-pair-success' : shakeIds.audio === i ? 'pickup-pair-wrong' : undefined;
+            return (
+              <button key={`A${i}`} onClick={() => tap('audio', i)} disabled={isMatched} className={className} style={audioCell(state)} aria-label="播放聲音 · Play audio">
+                <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ flex: '0 0 auto', opacity: isMatched ? 0.45 : 0.85 }} />
+                <Waveform active={isSelected} seed={i} />
+              </button>
+            );
+          })}
+        </div>
+        {/* RIGHT — 中文 */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {rightShuffle.current.map((origIdx, sIdx) => {
+            const isMatched = matched.includes(origIdx);
+            const isSelected = selected?.side === 'zh' && selected.idx === sIdx;
+            const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
+            const className = justMatched === origIdx ? 'pickup-pair-success' : shakeIds.zh === sIdx ? 'pickup-pair-wrong' : undefined;
+            return (
+              <button key={`Z${sIdx}`} onClick={() => tap('zh', sIdx)} disabled={isMatched} className={className} style={zhCell(state)}>
+                <span>{pairs[origIdx]?.[0]}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {revealed && (
+        <div className="pickup-pair-celebrate" style={{ marginTop: 20, textAlign: 'center', fontSize: 44, lineHeight: 1 }}>🎉</div>
       )}
     </div>
   );
@@ -1764,6 +1925,7 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'tap-tiles': TapTilesRenderer,
   'tap-pairs': TapPairsRenderer,
   'phrase-pairs': TapPairsRenderer, // v2.0.B.321: 片語配對復用 tap-pairs UI
+  'listen-pairs': ListenPairsRenderer, // v2.0.B.cron: 聽力選中文配對 (波形 ↔ 中文)
   'emoji-pick': EmojiPickRenderer,
   // v2.0.B.232 new types (TODO content expansion)
   'picture-mc': PictureMcRenderer,

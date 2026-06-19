@@ -87,6 +87,19 @@ describe('QuestionSchema (discriminated union)', () => {
     expect(() => QuestionSchema.parse(invalid)).toThrow();
   });
 
+  // v2.0.B.cron 聽力配對 — listen-pairs (audio ↔ 中文), 3-4 對。
+  it('accepts listen-pairs with 4 pairs, rejects 2', () => {
+    const mk = (n: number) => ({
+      type: 'listen-pairs', id: 'test-lp-1', level: 'A2', difficulty: 'easy',
+      sentence: 'Listen and match the sound to the Chinese.',
+      pairs: Array.from({ length: n }, (_, i) => ({ left: `中${i}`, right: `word${i}` })),
+      explanationZh: '聽力選中文',
+    });
+    expect(() => QuestionSchema.parse(mk(4))).not.toThrow();
+    expect(() => QuestionSchema.parse(mk(3))).not.toThrow();
+    expect(() => QuestionSchema.parse(mk(2))).toThrow(); // <3 pairs
+  });
+
   // v2.0.B.cron 理解選擇 merge — new unified type + legacy aliases all valid.
   it('accepts merged comprehension type + keeps legacy aliases valid', () => {
     const base = {

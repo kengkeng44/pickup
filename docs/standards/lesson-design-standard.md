@@ -56,6 +56,12 @@
 - 例: `once upon a time ↔ 很久很久以前` / `look after ↔ 照顧` / `run away ↔ 逃跑`。
 - 每章建議 3-6 個片語 (跨 1-2 個 phrase-pairs 題)。
 
+### listen-pairs 聽力配對「聽力選中文」題型 (B.cron 已實作, per user screenshot 標準)
+- **聽力版的配對題**: 左欄 = **聲音波形按鈕** (點下去播英文, **不顯示英文字**), 右欄 = **中文**。玩家**用聽的**把音檔配到中文意思 → 訓練「聽音辨義」。
+- 資料 shape **沿用 tap-pairs**: `pairs: [{ left: 中文, right: 英文 }]` (3-4 對)。renderer 播 `right`(英文) + 顯示波形, 右側文字格顯示 `left`(中文)。
+- **標準設計** (照 Duolingo「選擇配對」screenshot): 角色圖置中於頂部圖片槽 + 下方分隔線 → 「選擇配對」標題 → 左聲波 / 右中文 兩欄圓角框。選中 = 聲音格藍底藍框 / 中文格暖琥珀; 配對成功 = 綠; 答錯 = shake。聲音以**藍色波形長條**呈現 (`Waveform` component, 靜態尊重 reduce-motion)。
+- 與 tap-pairs 差別: tap-pairs 看得到英文字 (閱讀 / 拼字), listen-pairs **盲聽** (聽力)。同一批單字可一題 tap-pairs (讀) + 一題 listen-pairs (聽) 雙軌複習。
+
 ---
 
 ## 4. 三難度模型 (per user:文章用原文 + 簡單版 + 困難版)
@@ -117,6 +123,7 @@ renderer 依 `localStorage pickup.difficulty` 選 `sentenceHard ?? sentence` (ha
 | 章節獎勵畫面 (§5) | ✅ B.322 |
 | read-comprehension (§2) | ✅ B.319 |
 | **理解選擇合併 (comprehension) + 全域聽/讀開關 (§2)** | ✅ B.cron (schema + ComprehensionRenderer + 設定頁 toggle + validate-lessons) |
+| **listen-pairs 聽力選中文配對 (§3)** | ✅ B.cron (schema + ListenPairsRenderer + Waveform + Ch1 範例) |
 | 三難度文本 schema + renderer (§4) | ⬜ 待內容 pass |
 | 各章依配比表鋪題 + 片語 + 三版文章 (§2/§4) | ⬜ 內容 pass (Fable 寫 / Sonnet 接) |
 | 各章舊 listen/read-comprehension → 新 comprehension type 遷移 (§2) | ⬜ 非必要 (向後相容, 行為已統一); 內容 pass 順手換 |

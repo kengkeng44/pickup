@@ -214,6 +214,19 @@ export const PhrasePairsSchema = z.object({
   })).min(3).max(4),
 });
 
+// v2.0.B.cron 聽力配對 (per user, 2026-06-19 screenshot「選擇配對」Duolingo std):
+// 「聽力選中文」題型 — 左欄是「聲音波形按鈕」(播英文, 不顯示英文字), 右欄是中文,
+// 玩家用聽的把英文音檔配到中文意思。沿用 tap-pairs 的 {left:中文, right:英文} 約定:
+// renderer 播 right(英文) + 顯示左欄波形; 右側文字格顯示 left(中文)。3-4 對。
+export const ListenPairsSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('listen-pairs'),
+  pairs: z.array(z.object({
+    left: z.string(),
+    right: z.string(),
+  })).min(3).max(4),
+});
+
 const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
   ListenEmojiSchema,
@@ -225,6 +238,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   TapTilesSchema,
   TapPairsSchema,
   PhrasePairsSchema,
+  ListenPairsSchema,
   NarrationSchema,
   ListenTfZhSchema,
   ListenTfSchema,
