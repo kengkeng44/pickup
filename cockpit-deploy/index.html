@@ -744,34 +744,31 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
     </div>
 
     <div class="todo-item" data-todo-id="autofix-phase2">
-      <div class="todo-title">🤖 啟用 cron 自動修 Phase 2(Tier A 機械式自動修+merge)</div>
+      <div class="todo-title">🤖 啟用 cron 自動修(全部安全的都修,剩下分隔報告)</div>
       <div class="todo-meta">
         <span>地基已就緒(護欄+分級+prompt)</span>
         <span>你做: 1 步</span>
-        <span>風險: 低(只自動修機械式、過 build+答案不變才上)</span>
+        <span>風險: 中(內容改寫也自動上;但過 build+答案不變才上)</span>
       </div>
       <ul class="todo-checklist">
         <li>已備好:<code>tools/check-answer-index.cjs</code>(答案位置防竄改護欄)+ <code>docs/standards/auto-fix-tiers.md</code>(分級+gate)</li>
         <li>啟用步驟:複製下面 prompt → 貼到 claude.ai/code/routines 的「content cron」routine,取代原本「只寫 audit」的 prompt</li>
-        <li>Tier A(標點/emoji 去重/格式)→ 自動修+merge;Tier B/C → 照舊只報告</li>
-        <li>每次 ≤5 條、只動 lessons、過 build + 答案不變才上、Telegram 通知</li>
-        <li>穩了再進 Phase 3(Tier B 開 PR):改 prompt 一行即可</li>
+        <li><b>全部修</b>:Tier A 機械式 + Tier B 內容改寫,只要過 build + 答案不變就自動修+merge</li>
+        <li><b>剩下分隔出來</b>:Tier C 結構/判斷 + 任何沒過 gate 被還原的 → 不自動改,寫 audit + Telegram 逐條列給你看</li>
+        <li>只動 lessons、碰正解/schema/標準 = 禁;想保守回 Tier-A-only:prompt 第 4 步加「只 Tier A」</li>
       </ul>
       <div class="todo-actions">
         <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/auto-fix-tiers.md" target="_blank">📄 分級+prompt</a>
         <button class="db-copy" type="button" data-prompt="你是 Pickup 內容自動修復 cron。只動 public/lessons-ch*.json。
 1. 拉最新 master。讀 docs/standards/auto-fix-tiers.md + docs/standards/lesson-design-standard.md。
 2. 反重複: 讀 cockpit-deploy/shipped.json, 已登記的 audit 跳過。
-3. 跑內容稽核 (找干擾項太好猜 / 標點 / emoji 輪替 / 鏡像 等), 每個 finding 分 Tier。
-4. 只處理 Tier A (本階段), 取 P0 優先, 最多 5 條:
-   a. 改 lessons JSON (Tier A 機械式)
-   b. npm run build — 不綠 → git checkout 還原該筆, 跳過
-   c. node tools/check-answer-index.cjs — 紅 → 還原該筆, 跳過
-   d. 通過 → 留著
-5. 有過關的修正: commit (v2.0.B.NEXT: <fix> (cron auto-fix Tier-A)) + 在 shipped.json 登記這次 audit + push + merge master。
-6. Tier B/C: 只寫 audit md 到 docs/audits/, 不自動改。
-7. Telegram 通知: 自動修了幾條 (Tier A) + 連結; Tier B/C 還剩幾條要人看。
-絕不碰: correctIndex / schema / renderer / docs/standards / 非 lessons 檔。" style="margin-top:6px;">📋 複製 Phase 2 cron prompt(貼到 routine 啟用)</button>
+3. 跑內容稽核 (找干擾項太好猜 / 標點 / emoji 輪替 / 鏡像 / 級距極端 等), 每個 finding 分 Tier。
+4. 全部修 (Tier A 機械式 + Tier B 內容改寫都修, 依 P0>P1>P2):
+   每筆: 改 lessons JSON → npm run build (不綠 → git checkout 還原該筆) → node tools/check-answer-index.cjs (紅 → 還原該筆) → 過才留。
+5. 所有過關的: commit (v2.0.B.NEXT: <fix> (cron auto-fix)) + 在 shipped.json 登記這次 audit + push + merge master。
+6. 剩下分隔出來 (不自動改): Tier C 結構/判斷 + 任何『修了但沒過 gate 被還原』的 → 寫進 docs/audits/ 的 audit md。
+7. Telegram 通知: ✅ 自動修了 N 條 (附 commit/PR 連結) | ⚠️ 還剩 M 條要你看 — 逐條列 (Tier C + 沒過 gate 的, 各附一句原因)。
+絕不碰: correctIndex / schema / renderer / docs/standards / 非 lessons 檔。" style="margin-top:6px;">📋 複製 cron prompt(全部修 + 剩下分隔,貼到 routine 啟用)</button>
         <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
       </div>
     </div>

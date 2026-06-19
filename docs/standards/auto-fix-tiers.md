@@ -23,28 +23,23 @@ node tools/check-answer-index.cjs   # correctIndex 前後不變 (HARD_STOP)
 
 → 自動修動不到標準, 因為標準寫成 lint + build + answer-index 把關。
 
-## Phase 2 cron routine prompt(貼到 claude.ai/code/routines 該 cron)
+## cron routine prompt(全部修 + 剩下分隔,貼到 claude.ai/code/routines 該 cron)
 
 ```
 你是 Pickup 內容自動修復 cron。只動 public/lessons-ch*.json。
 
 1. 拉最新 master。讀 docs/standards/auto-fix-tiers.md + docs/standards/lesson-design-standard.md。
 2. 反重複: 讀 cockpit-deploy/shipped.json, 已登記的 audit 跳過。
-3. 跑內容稽核 (找干擾項太好猜 / 標點 / emoji 輪替 / 鏡像 等), 每個 finding 分 Tier。
-4. 只處理 Tier A (本階段), 取 P0 優先, ≤5 條:
-   a. 改 lessons JSON (Tier A 機械式)
-   b. npm run build  — 不綠 → git checkout 還原該筆, 跳過
-   c. node tools/check-answer-index.cjs — 紅 → 還原該筆, 跳過
-   d. 通過 → 留著
-5. 有過關的修正:
-   - commit (msg: v2.0.B.NEXT: <fix> (cron auto-fix Tier-A))
-   - 在 shipped.json 登記這次 audit
-   - push + merge master (CI 會再驗一次)
-6. Tier B/C: 只寫 audit md 到 docs/audits/, 不自動改。
-7. Telegram 通知: 自動修了 N 條 (Tier A) + 連結; Tier B/C 還剩 M 條要人看。
+3. 跑內容稽核 (干擾項太好猜 / 標點 / emoji 輪替 / 鏡像 / 級距極端 等), 每個 finding 分 Tier。
+4. 全部修 (Tier A 機械式 + Tier B 內容改寫都修, 依 P0>P1>P2):
+   每筆: 改 lessons → npm run build (不綠 → git checkout 還原該筆) → node tools/check-answer-index.cjs (紅 → 還原該筆) → 過才留。
+5. 所有過關的: commit (v2.0.B.NEXT: <fix> (cron auto-fix)) + shipped.json 登記 + push + merge master。
+6. 剩下分隔出來 (不自動改): Tier C 結構/判斷 + 任何『修了但沒過 gate 被還原』的 → 寫進 docs/audits/ audit md。
+7. Telegram: ✅ 自動修了 N 條 (連結) | ⚠️ 還剩 M 條要人看 — 逐條列 (Tier C + 沒過 gate, 各附原因)。
 
 絕不碰: correctIndex / schema / renderer / docs/standards / 非 lessons 檔。
 ```
 
-> Phase 2 = 只開 Tier A 自動 merge(最安全)。觀察幾輪穩了再開 Phase 3(Tier B 開 PR)。
-> 改 prompt 第 4 步「只處理 Tier A」→「Tier A 自動 merge、Tier B 開 PR」即進 Phase 3。
+> 預設 = **全部安全的都修 (A+B)**, 過 gate 才上, 剩下 (C + 沒過 gate) 分隔報告。
+> 想保守回「只機械式」: 第 4 步改「只處理 Tier A」, Tier B 改成只寫 audit。
+
