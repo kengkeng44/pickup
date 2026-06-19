@@ -497,6 +497,23 @@ main code { overflow-wrap: anywhere; }
 </header>
 
 <main>
+  <!-- v2.0.B.333 (per user): 名詞速查 — 小白看得懂. 折疊不擋路. -->
+  <details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 14px;margin-bottom:14px;">
+    <summary style="cursor:pointer;font-size:13px;font-weight:800;color:var(--accent-dark);">📖 名詞速查（看不懂的詞點這）</summary>
+    <ul style="font-size:12px;line-height:1.7;color:var(--text);margin:8px 0 2px;padding-left:18px;">
+      <li><b>cron / 定時稽核</b>：系統每隔幾小時自動「健檢」一次 app，找問題。</li>
+      <li><b>audit / 稽核</b>：一次健檢報告。</li>
+      <li><b>急修 P0</b>：最嚴重、要馬上修。<b>次要 P1</b>：重要但不急。<b>P2</b>：小改善。</li>
+      <li><b>掃到 N</b>：這輪健檢總共找到幾個問題。</li>
+      <li><b>5 個 AI 稽核</b>：派 5 個 AI 從不同角度（題目品質 / bug / 體驗 / 語音 / 玩家視角）一起檢查。</li>
+      <li><b>架構建議 (ARCH-REC)</b>：要不要改技術做法的建議。</li>
+      <li><b>ROI</b>：投報率（做了划不划算)。<b>effort S/M/L</b>：工作量 小/中/大。</li>
+      <li><b>快照 snapshot</b>：把目前狀態整理成一份摘要。</li>
+      <li><b>deploy / 部署</b>：把改好的版本推上線。</li>
+      <li><b>接這條</b>：複製一段指令，貼到新的 Claude 對話就會自動修。</li>
+    </ul>
+  </details>
+
   <!-- Reference shortcuts (moved to top — 直接跳轉, B.300 per user) -->
   <!-- v2.0.B.182: Q&A inspection shortcut -->
   <a class="qa-shortcut" href="https://pickupwords.pages.dev/qa-dashboard.html" target="_blank" rel="noopener">
@@ -589,17 +606,17 @@ main code { overflow-wrap: anywhere; }
         <span class="icon">⭐</span>跑 Top 3 S-effort
       </button>
       <button onclick="cp('audit', this)">
-        <span class="icon">🔍</span>全套 5-agent audit
+        <span class="icon">🔍</span>全套 5 個 AI 稽核
       </button>
       <button onclick="cp('snapshot', this)">
-        <span class="icon">📸</span>當前狀態 snapshot
+        <span class="icon">📸</span>當前狀態快照
       </button>
     </div>
   </section>
 
   <!-- v2.0.B.cron-content-1805 + cron-ui-1807: Architecture Recommendations (業界 2026 掃描結果) -->
   <section class="arch-recs" style="background:var(--card);border:2px solid #7d9a4f;border-radius:16px;padding:16px;margin-bottom:18px;">
-    <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 Architecture Recommendations <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">業界 2026 掃描</span></h2>
+    <h2 style="margin:0 0 6px;font-size:16px;font-weight:900;">🔬 架構建議 <span style="font-size:11px;font-weight:600;color:var(--muted);margin-left:6px;">Architecture · 業界 2026 掃描</span></h2>
     <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">每次 cron 掃業界做法 → 分析 Pickup 適配 → 推薦是否改架構. 自動顯示最新一筆 (audit-file 驅動, 不再累積).</div>
     <!-- v2.0.B.290: audit-file 驅動, JS 自動抓最新含 ARCH-REC 的 audit -->
     <!-- v2.0.B.292: 已 ship 的 ARCH-REC 自動跳過 (shipped.json), 列入下方紀錄 -->
@@ -610,7 +627,7 @@ main code { overflow-wrap: anywhere; }
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
   <section class="pending-todos">
     <h2>📌 一次性 Todos</h2>
-    <div class="desc">設定一次永解,跟 cron audit P0 不同性質的「基建任務」</div>
+    <div class="desc">設定一次永久解決,跟「定時稽核」的急修不同性質的基礎建設任務</div>
 
     <div class="todo-item" data-todo-id="perm-token">
       <div class="todo-title">🔑 永久 token 設定 — 從此 deploy 不卡 infisical login</div>
@@ -753,7 +770,7 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
     <div class="modal-body" id="modal-body">載入中…</div>
     <div class="modal-actions">
       <button class="secondary" id="modal-github" onclick="openInGithub()">📄 GitHub raw</button>
-      <button id="modal-copy" onclick="copyAuditPrompt()">📋 接這條 P0</button>
+      <button id="modal-copy" onclick="copyAuditPrompt()">📋 接這條急修 (P0)</button>
     </div>
   </div>
 </div>
@@ -933,9 +950,9 @@ async function loadDashboard(forceFresh) {
 
       if (d.hasP0) card.classList.add('has-p0');
       const pills = [
-        `<span class="count-pill p0" title="此輪標記的 P0 急修">P0 ${d.p0}</span>`,
-        d.total ? `<span class="count-pill p2" title="此輪掃到的總違規 / 發現數">掃到 ${d.total}</span>` : '',
-        d.p1 ? `<span class="count-pill p1">P1 ${d.p1}</span>` : '',
+        `<span class="count-pill p0" title="這輪標記的急修項目 (P0)">急修 ${d.p0}</span>`,
+        d.total ? `<span class="count-pill p2" title="這輪掃到的總問題數">掃到 ${d.total}</span>` : '',
+        d.p1 ? `<span class="count-pill p1">次要 ${d.p1}</span>` : '',
       ].filter(Boolean).join('');
       const stamp = d.ts ? d.ts.slice(0, 16).replace('T', ' ') : '';
       const doneEntry = shippedByFile[d.file];
