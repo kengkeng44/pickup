@@ -13,6 +13,7 @@ import { speak, stopSpeaking } from '../audio/tts';
 import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
 import SpeakZh from './components/SpeakZh';
+import { getComprehensionMode, subscribeComprehensionMode } from '../data/comprehensionModeSetting';
 
 export interface RawQuestion {
   type: string;
@@ -1732,14 +1733,27 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── comprehension (聽 or 讀, 全域單一開關) ───────────────────────────────────
+// 理解類題型 (listen-comprehension / read-comprehension) schema 結構相同, 差別只在
+// 呈現方式。全域 comprehensionMode 決定走盲聽 (ListenMcRenderer) 或可讀段落
+// (ReadComprehensionRenderer)。內容 JSON 不分聽/讀, 由玩家偏好統一切換。
+// 切換時 inner renderer component type 改變 → React 自然 remount 出新題型 UI。
+const ComprehensionRenderer: React.FC<RendererProps> = (props) => {
+  const [mode, setMode] = useState(() => getComprehensionMode());
+  useEffect(() => subscribeComprehensionMode(() => setMode(getComprehensionMode())), []);
+  const Inner = mode === 'read' ? ReadComprehensionRenderer : ListenMcRenderer;
+  return <Inner {...props} />;
+};
+
 // ─── registry ───────────────────────────────────────────────────────────────
 export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'narration': NarrationRenderer,
   'listen-tf': ListenTfRenderer,
   'listen-tf-zh': ListenTfRenderer,
   'listen-mc': ListenMcRenderer,
-  'listen-comprehension': ListenMcRenderer,
-  'read-comprehension': ReadComprehensionRenderer,
+  // 理解類兩型走全域聽/讀開關 (ComprehensionRenderer 依 comprehensionMode 派 renderer)
+  'listen-comprehension': ComprehensionRenderer,
+  'read-comprehension': ComprehensionRenderer,
   // v2.0.B.232: listen-emoji 從 ListenMcRenderer 改自己的 big-emoji renderer
   'listen-emoji': ListenEmojiRenderer,
   'read-mc-with-audio': ListenMcRenderer,

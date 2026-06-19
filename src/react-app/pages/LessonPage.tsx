@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
+import { getComprehensionMode, toggleComprehensionMode, subscribeComprehensionMode } from '../../data/comprehensionModeSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
@@ -185,6 +186,7 @@ export default function LessonPage() {
           }} />
         </div>
         <span aria-hidden="true" style={{ fontSize: 11, color: '#a08060', fontWeight: 700, flex: '0 0 auto' }}>~{estMin}m</span>
+        <ListenReadToggleBtn />
         <MuteToggleBtn />
       </div>
 
@@ -200,6 +202,32 @@ export default function LessonPage() {
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
     </div>
+  );
+}
+
+// v2.0: 理解題「聽 ⇄ 讀」全域切換鈕 (per user 決策「全域單一開關」).
+// 點一下在 listen / read 間切, localStorage 持久化 + window event 同步所有 instance。
+// 影響所有 listen-comprehension / read-comprehension 題型的呈現 (見 renderers.tsx
+// ComprehensionRenderer)。44px HIG 命中區, 跟 MuteToggleBtn 同 palette。
+function ListenReadToggleBtn() {
+  const [mode, setMode] = useState(() => getComprehensionMode());
+  useEffect(() => subscribeComprehensionMode(() => setMode(getComprehensionMode())), []);
+  const isRead = mode === 'read';
+  return (
+    <button
+      onClick={() => setMode(toggleComprehensionMode())}
+      aria-label={isRead ? '理解題:閱讀模式 (點切換成聆聽) / Reading mode' : '理解題:聆聽模式 (點切換成閱讀) / Listening mode'}
+      title={isRead ? 'Reading mode' : 'Listening mode'}
+      style={{
+        background: 'transparent', border: '2px solid transparent',
+        cursor: 'pointer', width: 44, height: 44, padding: 0,
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        borderRadius: 12, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        fontSize: 22, lineHeight: 1,
+      }}
+    >
+      <span aria-hidden="true">{isRead ? '📖' : '🎧'}</span>
+    </button>
   );
 }
 
