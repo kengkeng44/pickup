@@ -439,6 +439,17 @@ vX.Y[.Z]: short description
 
 語氣：**列重點不寫散文**，用 `+`、`—`、`fix` 分段。
 
+### 🔴 接 cron audit 鐵律（user 2026-06-19 定，不可退回）
+
+> 接到任何 cron audit 報告(`docs/audits/*-content-qa-cron.md` 等),**一律強制把所有能安全修的(Tier A+B / 全部 P0)一次全修。不問、不一條一條、不「順手只修一條」。**
+
+- ❌ 不要問「要不要順手把剩下的也修?」— 預設就是全修
+- ❌ 不要一條一條 ship — 報告內所有 P0(+ 能安全修的 P1/P2)同一個 commit 全清
+- ✅ 修完核對：報告列幾條 P0 就要動到幾條(跨檔也要追,別漏掉不在主檔清單的 Q,如 ch26)
+- ✅ gate 全過才算完成：`npm run build`(validate + 392 tests + tsc + vite)+ correctIndex 不位移
+- ✅ commit body 列出每條修了什麼 + 「強制全修 per user」
+- ⚠️ 教訓(B.341):commit message 寫「全部 6 P0 完成」但檔案只動 4 章 5 條 —— 第 6 條剛好早一輪修過才沒出包。**以「報告 P0 清單」為準逐條核對,不要相信自己的 commit 摘要。**
+
 ### Deploy flow
 每次改動完跑這 3 個：
 ```bash
