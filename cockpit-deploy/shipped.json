@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-19T0600-content-qa-cron.md",
+      "archRec": "P0-1",
+      "what": "kt-ch29-l1-q3 級距極端干擾項 (few days vs ten years) → 同級距 'about two years'. 反 SCALE_EXTREME.",
+      "version": "v2.0.B.336",
+      "date": "2026-06-19"
+    },
+    {
       "audit": "docs/audits/2026-06-19T0009-content-qa-cron.md",
       "archRec": "P0-1",
       "what": "kt-ch26-l2-q8 機械式反轉干擾項 (yes 一分鐘想到) → 合理但無依據 inference (休息靈感來). 反 ANTONYM/NEGATION_MIRROR.",
