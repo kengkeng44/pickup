@@ -15,18 +15,28 @@
 
 ---
 
-## 2. 題型配比標準表 (一節 ~11 題)
+## 2. 題型配比標準表 (一節 ~10 題)
+
+> v2.0.B.cron (2026-06-19 per user) 兩項決策落地:
+> 1. **理解題合併**: `read-comprehension` + `listen-comprehension` → 單一「**理解選擇** (comprehension)」題型。「聽 or 讀」**不再綁題型**, 由**全域開關**決定 (設定頁 · `src/data/comprehensionMode.ts`, 預設「聽」)。
+> 2. **配比重新平衡**: narration 36→30, 理解類拉到 30, 其餘 (是非 / 單字 / 片語 / 看圖) 各升到 10。
 
 | 題型 | 佔比 | 題數 | 作用 | 難度敏感 |
 |------|------|------|------|---------|
-| **narration** 旁白 | 36% | 4 | 故事推進 (聽+讀, 無作答) | ✅ 文章三版 |
-| **read-comprehension** 閱讀理解 (B.319) | 9% | 1 | 讀段落→選1; 答完開放點中文 | ✅ 文章三版 |
-| **listen-comprehension / listen-mc** 聽理解 | 18% | 2 | 聽力選1 | ◐ |
-| **listen-tf** 是非 | 9% | 1 | 快速理解確認 | ◐ |
-| **tap-pairs** 單字配對 | 9% | 1 | 詞彙 (新單字來源) | — |
-| **phrase-pairs** 片語配對 (B.321) | 9% | 1 | 片語 (新片語來源) | — |
-| **emoji-pick** 看圖選 | 9% | 1 | 圖像詞彙 | — |
-| 合計 | 100% | 11 | ~4.5-5 min | |
+| **narration** 旁白 | 30% | 3 | 故事推進 (聽+讀, 無作答) | ✅ 文章三版 |
+| **comprehension** 理解選擇 (merged) | 30% | 3 | 段落 (聽/讀由全域開關決定) → 提問 4選1 | ✅ 文章三版 |
+| **listen-tf** 是非 | 10% | 1 | 快速理解確認 | ◐ |
+| **tap-pairs** 單字配對 | 10% | 1 | 詞彙 (新單字來源) | — |
+| **phrase-pairs** 片語配對 (B.321) | 10% | 1 | 片語 (新片語來源) | — |
+| **emoji-pick** 看圖選 | 10% | 1 | 圖像詞彙 | — |
+| 合計 | 100% | 10 | ~4.5-5 min | |
+
+**理解選擇 (comprehension)** 資料 shape = 段落 `sentence` + `question` + 4 `options` + `correctIndex` (同舊 read/listen-comprehension)。呈現方式由全域開關:
+- **聽模式** (預設): 段落以 blanks 隱藏 + 自動 TTS, 答完才 reveal (舊 listen-comprehension 流程)。
+- **讀模式**: 段落一直可見, 答完開放點詞看中文 (舊 read-comprehension 流程)。
+- 舊 `listen-comprehension` / `read-comprehension` type **仍合法** (向後相容, 既有 30+ 章 JSON 不需遷移) — renderer 把三者全導向同一 `ComprehensionRenderer`, 行為被開關統一。新內容請直接用 `comprehension`。
+
+> 註: `listen-mc` (純聽力選 1, 非段落理解) **不在此合併內**, 維持獨立題型。
 
 **章末最後一節** 加重 review (tap-pairs + phrase-pairs ↑) + 觸發 §5 獎勵畫面。
 **Ch0 / 入門節** 可降 narration, 升 emoji-pick / tap-pairs。
@@ -106,5 +116,7 @@ renderer 依 `localStorage pickup.difficulty` 選 `sentenceHard ?? sentence` (ha
 | phrase-pairs 片語題型 (§3) | ✅ B.321 (renderer/schema) |
 | 章節獎勵畫面 (§5) | ✅ B.322 |
 | read-comprehension (§2) | ✅ B.319 |
+| **理解選擇合併 (comprehension) + 全域聽/讀開關 (§2)** | ✅ B.cron (schema + ComprehensionRenderer + 設定頁 toggle + validate-lessons) |
 | 三難度文本 schema + renderer (§4) | ⬜ 待內容 pass |
 | 各章依配比表鋪題 + 片語 + 三版文章 (§2/§4) | ⬜ 內容 pass (Fable 寫 / Sonnet 接) |
+| 各章舊 listen/read-comprehension → 新 comprehension type 遷移 (§2) | ⬜ 非必要 (向後相容, 行為已統一); 內容 pass 順手換 |

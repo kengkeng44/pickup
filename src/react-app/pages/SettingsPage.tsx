@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { getTheme, toggleTheme } from '../../data/theme';
 import { isBgmEnabled, setBgmEnabled, isSfxEnabled, setSfxEnabled } from '../../data/audioSettings';
 import { startBgm, stopBgm } from '../../audio/bgm';
+import { getComprehensionMode, setComprehensionMode, type ComprehensionMode } from '../../data/comprehensionMode';
 
 type Diff = 'easy' | 'medium' | 'hard';
 function readDiff(): Diff {
@@ -54,10 +55,16 @@ export default function SettingsPage() {
   const [bgm, setBgm] = useState(() => isBgmEnabled());
   const [sfx, setSfx] = useState(() => isSfxEnabled());
   const [diff, setDiff] = useState<Diff>(() => readDiff());
+  const [compMode, setCompMode] = useState<ComprehensionMode>(() => getComprehensionMode());
 
   const applyDiff = (d: Diff) => {
     setDiff(d);
     try { localStorage.setItem('pickup.difficulty', d); } catch { /* ignore */ }
+  };
+
+  const applyCompMode = (m: ComprehensionMode) => {
+    setCompMode(m);
+    setComprehensionMode(m);
   };
 
   const onBgm = () => {
@@ -104,6 +111,24 @@ export default function SettingsPage() {
                 border: diff === d ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
                 background: diff === d ? 'var(--t-brand-dark)' : 'var(--t-bg)',
                 color: diff === d ? '#fff' : 'var(--t-text)',
+              }}>{label}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* 理解題模式 — 聽 vs 讀 (v2.0.B.cron 理解選擇 merge) */}
+      <div style={cardStyle}>
+        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>理解題 👂📖</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>理解選擇題用「聽」還是「讀」段落</div>
+        <div style={{ display: 'flex', gap: 8 }}>
+          {([['listen', '👂 用聽的'], ['read', '📖 用讀的']] as [ComprehensionMode, string][]).map(([m, label]) => (
+            <button key={m} type="button" onClick={() => applyCompMode(m)}
+              style={{
+                flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 14,
+                cursor: 'pointer', minHeight: 44,
+                border: compMode === m ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
+                background: compMode === m ? 'var(--t-brand-dark)' : 'var(--t-bg)',
+                color: compMode === m ? '#fff' : 'var(--t-text)',
               }}>{label}</button>
           ))}
         </div>

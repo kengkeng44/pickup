@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import { speak, stopSpeaking } from '../audio/tts';
 import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
+import { getComprehensionMode, subscribeComprehensionMode } from '../data/comprehensionMode';
 import SpeakZh from './components/SpeakZh';
 
 export interface RawQuestion {
@@ -452,6 +453,19 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
       )}
     </div>
   );
+};
+
+// ─── 理解選擇 (merged, v2.0.B.cron per user) ─────────────────────────────────
+// read-comprehension + listen-comprehension 合併。資料 shape 相同 (段落 sentence
+// + question + 4 options + correctIndex), 唯一差別是「呈現方式」, 由全域開關決定:
+//   getComprehensionMode() === 'read'  → ReadComprehensionRenderer (段落可見, 答完點詞)
+//   getComprehensionMode() === 'listen' → ListenMcRenderer (段落盲聽 blanks, 答完 reveal)
+// 開關在 設定頁; 跨關生效。三個 type ('comprehension'/'listen-comprehension'/
+// 'read-comprehension') 全導向這裡 → 內容不需遷移, 行為被開關統一。
+const ComprehensionRenderer = (props: RendererProps) => {
+  const [mode, setMode] = useState(() => getComprehensionMode());
+  useEffect(() => subscribeComprehensionMode(() => setMode(getComprehensionMode())), []);
+  return mode === 'read' ? <ReadComprehensionRenderer {...props} /> : <ListenMcRenderer {...props} />;
 };
 
 // ─── 4. type-what-you-hear (text input) ─────────────────────────────────────
@@ -1738,8 +1752,11 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'listen-tf': ListenTfRenderer,
   'listen-tf-zh': ListenTfRenderer,
   'listen-mc': ListenMcRenderer,
-  'listen-comprehension': ListenMcRenderer,
-  'read-comprehension': ReadComprehensionRenderer,
+  // v2.0.B.cron 理解選擇 merge: 三個 type 全導向 ComprehensionRenderer,
+  // 聽/讀由全域開關決定 (comprehensionMode.ts)。
+  'comprehension': ComprehensionRenderer,
+  'listen-comprehension': ComprehensionRenderer,
+  'read-comprehension': ComprehensionRenderer,
   // v2.0.B.232: listen-emoji 從 ListenMcRenderer 改自己的 big-emoji renderer
   'listen-emoji': ListenEmojiRenderer,
   'read-mc-with-audio': ListenMcRenderer,

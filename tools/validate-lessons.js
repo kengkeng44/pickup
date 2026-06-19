@@ -73,8 +73,8 @@ function lintExtended(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
     for (const q of lesson.questions || []) {
-      // Rule X1: listen-comprehension sentence-is-question (TTS plays question)
-      if (q.type === 'listen-comprehension' && typeof q.sentence === 'string' && q.sentence.trim().endsWith('?')) {
+      // Rule X1: listen/comprehension sentence-is-question (TTS plays question)
+      if ((q.type === 'listen-comprehension' || q.type === 'comprehension') && typeof q.sentence === 'string' && q.sentence.trim().endsWith('?')) {
         issues.push(`${file} ${q.id}: X1_SENTENCE_IS_QUESTION ("${q.sentence.slice(0, 40)}")`);
       }
       // Rule X2: option-list-bias (all 4 options share first word)
@@ -85,7 +85,7 @@ function lintExtended(lessons, file) {
         }
       }
       // Rule X3: R1 verbatim word-level — every word of correct option appears in sentence
-      if ((q.type === 'listen-mc' || q.type === 'listen-comprehension') && q.subSkill !== 'vocab') {
+      if ((q.type === 'listen-mc' || q.type === 'listen-comprehension' || q.type === 'comprehension') && q.subSkill !== 'vocab') {
         const correct = (q.options || [])[q.correctIndex];
         const sentence = q.sentence || q.sentenceEn || q.text || '';
         if (typeof correct === 'string' && correct.length > 3 && sentence) {
@@ -181,8 +181,8 @@ function lintMirror(lessons, file) {
           if (j >= 0.7) issues.push(`${file} ${q.id}: MIRROR_GRAMMAR (jaccard ${j.toFixed(2)})`);
         }
       }
-      // listen-mc / listen-comprehension: option leak in sentence/question
-      if ((q.type === 'listen-mc' || q.type === 'listen-comprehension') && q.subSkill !== 'vocab') {
+      // listen-mc / listen-comprehension / comprehension: option leak in sentence/question
+      if ((q.type === 'listen-mc' || q.type === 'listen-comprehension' || q.type === 'comprehension') && q.subSkill !== 'vocab') {
         const correct = (q.options || [])[q.correctIndex];
         if (typeof correct !== 'string' || correct.length < 3) continue;
         if (substring3(sentence, correct)) {

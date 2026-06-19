@@ -63,11 +63,19 @@ export const ListenMcSchema = FourOptionShape.extend({
 export const ListenEmojiSchema = FourOptionShape.extend({
   type: z.literal('listen-emoji'),
 });
+// v2.0.B.cron 理解選擇 merge (per user 2026-06-19): 統一「理解選擇」題型。
+// read-comprehension + listen-comprehension 合併成這個 type — 段落 + 提問 + 4選1,
+// 「聽 or 讀」由全域開關 (src/data/comprehensionMode.ts) 決定, 不綁 type。
+// 舊 listen-comprehension / read-comprehension 仍為合法 type (向後相容, 內容不需遷移),
+// 但 renderer 把三者全導向同一個 ComprehensionRenderer → 行為由開關統一。
+export const ComprehensionSchema = FourOptionShape.extend({
+  type: z.literal('comprehension'),
+});
+// (deprecated alias — 保留供既有 JSON 解析, 新內容請用 'comprehension')
 export const ListenComprehensionSchema = FourOptionShape.extend({
   type: z.literal('listen-comprehension'),
 });
-// v2.0.B.319 (per user): read-comprehension — 角色講一段 (可讀, 非聽力盲填) + 提問 + 4選1.
-// 答題時 sentence 段落不可點中文; 答完才開放點詞看中文 + 清掉選項 (renderer 行為).
+// (deprecated alias — 同上) v2.0.B.319 原 read-comprehension: 角色講一段 + 提問 + 4選1.
 export const ReadComprehensionSchema = FourOptionShape.extend({
   type: z.literal('read-comprehension'),
 });
@@ -209,6 +217,7 @@ export const PhrasePairsSchema = z.object({
 const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
   ListenEmojiSchema,
+  ComprehensionSchema,
   ListenComprehensionSchema,
   ReadComprehensionSchema,
   ReadMcWithAudioSchema,

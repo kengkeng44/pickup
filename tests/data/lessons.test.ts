@@ -86,4 +86,18 @@ describe('QuestionSchema (discriminated union)', () => {
     };
     expect(() => QuestionSchema.parse(invalid)).toThrow();
   });
+
+  // v2.0.B.cron 理解選擇 merge — new unified type + legacy aliases all valid.
+  it('accepts merged comprehension type + keeps legacy aliases valid', () => {
+    const base = {
+      id: 'test-comp-1', level: 'A2', difficulty: 'medium',
+      sentence: 'Mochi sat on the wall and waited for grandma.',
+      question: 'Where did Mochi sit?',
+      options: ['On the wall', 'In the house', 'Under the tree', 'On the bed'],
+      correctIndex: 0, explanationZh: '坐在牆上',
+    } as const;
+    for (const type of ['comprehension', 'listen-comprehension', 'read-comprehension'] as const) {
+      expect(() => QuestionSchema.parse({ ...base, type })).not.toThrow();
+    }
+  });
 });
