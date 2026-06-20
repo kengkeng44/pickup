@@ -9,6 +9,7 @@ import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import { getInProgressLessonIds } from '../../data/lessonProgress';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
+import { useT } from '../i18n';
 import { readXp, levelForXp, levelProgress } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverOpenChest } from '../../data/backend';
@@ -226,6 +227,9 @@ function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void 
 
 export default function MapPage() {
   const navigate = useNavigate();
+  const { t, lang } = useT();
+  // 章名依介面語言: zh → titleZh, en → titleEn (故事名本身是雙語內容)
+  const chTitle = (m: { titleZh: string; titleEn: string }) => (lang === 'zh' ? m.titleZh : m.titleEn);
   const [searchParams] = useSearchParams();
   // v2.0.B.266: aggregate mode (user: 「拓展成無限顆」)
   const isAggregate = !searchParams.has('ch');
@@ -451,7 +455,7 @@ export default function MapPage() {
       lastCh = ch;
       const m = CHAPTER_META[ch] ?? CHAPTER_META[1];
       if (coverChRef.current) coverChRef.current.textContent = `CH ${ch}`;
-      if (coverTitleRef.current) coverTitleRef.current.textContent = `${m.emoji} ${m.titleEn}`;
+      if (coverTitleRef.current) coverTitleRef.current.textContent = `${m.emoji} ${chTitle(m)}`;
       if (coverBtnRef.current) {
         coverBtnRef.current.style.background = m.accent;
         coverBtnRef.current.style.boxShadow = `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(m.accent, 0.28)}`;
@@ -478,7 +482,7 @@ export default function MapPage() {
     }, { threshold: [0, 0.5, 1], rootMargin: '-42% 0px -56% 0px' });
     document.querySelectorAll('[data-lesson-id]').forEach(el => observer.observe(el));
     return () => observer.disconnect();
-  }, [lessons, isAggregate]);
+  }, [lessons, isAggregate, lang]);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -513,7 +517,7 @@ export default function MapPage() {
         <button
           ref={coverBtnRef}
           type="button"
-          aria-label={`第 ${displayChapter} 章 ${meta.titleZh} · 點看本章金句集錦`}
+          aria-label={t('map.coverAria').replace('{ch}', String(displayChapter)).replace('{title}', chTitle(meta))}
           aria-expanded={showKeySheet}
           onClick={() => setShowKeySheet(s => !s)}
           style={{
@@ -546,7 +550,7 @@ export default function MapPage() {
               CH {displayChapter}
             </div>
             <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{meta.titleEn}
+              <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{chTitle(meta)}
             </div>
           </div>
           <span aria-hidden="true" style={{
@@ -576,7 +580,7 @@ export default function MapPage() {
             setTomorrowQueue(null);
             navigate(`/map?ch=${ch}`);
           }}
-          aria-label={`Tonight's story: chapter ${tomorrowQueue.chapter}`}
+          aria-label={t('map.tonightAria').replace('{ch}', String(tomorrowQueue.chapter))}
           style={{
             margin: '4px 14px 6px',
             display: 'block',
@@ -597,10 +601,10 @@ export default function MapPage() {
             <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">🌙</span>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
-                Mochi 記得了 — 今晚講 {CHAPTER_META[tomorrowQueue.chapter]?.titleZh ?? '故事'}
+                {t('map.tonight').replace('{title}', CHAPTER_META[tomorrowQueue.chapter] ? chTitle(CHAPTER_META[tomorrowQueue.chapter]) : t('map.story'))}
               </div>
               <div style={{ fontSize: 11, fontWeight: 700, color: '#7a6850', marginTop: 2, fontStyle: 'italic' }}>
-                Tonight: {CHAPTER_META[tomorrowQueue.chapter]?.titleEn ?? 'your pick'}
+                {t('map.tonightSub').replace('{title}', CHAPTER_META[tomorrowQueue.chapter] ? chTitle(CHAPTER_META[tomorrowQueue.chapter]) : t('map.story'))}
               </div>
             </div>
           </div>
@@ -708,7 +712,7 @@ export default function MapPage() {
                 <button
                   key={`chest-${i}`}
                   type="button"
-                  aria-label={opened ? '寶箱 (已開啟)' : '寶箱 (+10 金幣)'}
+                  aria-label={opened ? t('map.chestOpened') : t('map.chest')}
                   onClick={() => {
                     if (opened) return;
                     try {
@@ -823,7 +827,7 @@ export default function MapPage() {
       {showKeySheet && (
         <KeySentencesSheet
           chapter={displayChapter}
-          titleEn={meta.titleEn}
+          titleEn={chTitle(meta)}
           onClose={() => setShowKeySheet(false)}
         />
       )}

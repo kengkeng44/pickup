@@ -5,12 +5,14 @@ import { readXp, levelForXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverRename } from '../../data/backend';
 import { readOutfit, getOutfitById } from '../../data/mascotOutfits';
+import { useT } from '../i18n';
 
 // v2.0.B.234 招 3: lazy-load WardrobeView (modal opens on tap, not on mount).
 const WardrobeView = lazy(() => import('./WardrobeView'));
 
 export default function ProfilePage() {
   const navigate = useNavigate();
+  const { t, lang } = useT();
   const streak = useRunStore(s => s.streak);
   // v2.0.B.191 P1 fix (UI/UX): wire stats to real data layer (was '—' literals)
   const xp = readXp();
@@ -28,12 +30,12 @@ export default function ProfilePage() {
   });
   const [coinBal, setCoinBal] = useState(coins);
   const [renameFlash, setRenameFlash] = useState('');
+  const [renameErr, setRenameErr] = useState(false);
   // v2.0.B.234 招 3: wardrobe state + current outfit display.
   const [wardrobeOpen, setWardrobeOpen] = useState(false);
   const [outfitId, setOutfitId] = useState<string>(() => readOutfit());
   const outfit = getOutfitById(outfitId);
-  const outfitLabelZh = outfit?.name.zh ?? 'Mochi 原樣';
-  const outfitLabelEn = outfit?.name.en ?? 'Mochi (default)';
+  const outfitLabel = outfit ? (lang === 'zh' ? outfit.name.zh : outfit.name.en) : t('profile.outfitDefault');
   const outfitBadge = outfit?.emojiBadge ?? '';
 
   const willCost = renameCount >= FREE_RENAMES;
@@ -46,7 +48,8 @@ export default function ProfilePage() {
     if (!v || v === catName) return;
     if (renameCount >= FREE_RENAMES) {
       if (coinBal < RENAME_COST) {
-        setRenameFlash(`金幣不足 — 改名要 ${RENAME_COST} 🪙,你只有 ${coinBal}`);
+        setRenameErr(true);
+        setRenameFlash(t('profile.notEnough').replace('{cost}', String(RENAME_COST)).replace('{bal}', String(coinBal)));
         return;
       }
       setCoinBal(addCoins(-RENAME_COST));
@@ -58,12 +61,13 @@ export default function ProfilePage() {
     const nextCount = renameCount + 1;
     setRenameCount(nextCount);
     try { localStorage.setItem('pickup.catName.changes', String(nextCount)); } catch {}
-    setRenameFlash('已改名 ✓ 重新整理生效');
+    setRenameErr(false);
+    setRenameFlash(t('profile.renamed'));
   };
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>我的</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('profile.title')}</h1>
 
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 64, height: 64, flex: '0 0 auto' }}>
@@ -80,10 +84,10 @@ export default function ProfilePage() {
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <input
               value={draft}
-              onChange={(e) => { setDraft(e.target.value); if (renameFlash) setRenameFlash(''); }}
-              placeholder="貓咪名字"
+              onChange={(e) => { setDraft(e.target.value); if (renameFlash) { setRenameFlash(''); setRenameErr(false); } }}
+              placeholder={t('profile.catName')}
               maxLength={12}
-              aria-label="貓咪名字"
+              aria-label={t('profile.catName')}
               style={{
                 flex: '1 1 auto', width: '100%', maxWidth: 150, minWidth: 0,
                 padding: 8, fontSize: 16, fontWeight: 700,
@@ -103,15 +107,15 @@ export default function ProfilePage() {
                 WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
               }}
             >
-              {willCost ? `儲存 ${RENAME_COST}🪙` : '儲存'}
+              {willCost ? t('profile.saveCost').replace('{cost}', String(RENAME_COST)) : t('profile.save')}
             </button>
           </div>
-          <div style={{ fontSize: 11, color: renameFlash.startsWith('金幣不足') ? 'var(--t-error, #c84a3a)' : 'var(--t-text-muted)', marginTop: 4 }}>
+          <div style={{ fontSize: 11, color: renameErr ? 'var(--t-error, #c84a3a)' : 'var(--t-text-muted)', marginTop: 4 }}>
             {renameFlash
               ? renameFlash
               : remaining > 0
-                ? `更改後重新整理生效 · 免費改名剩 ${remaining} 次`
-                : `免費改名已用完 · 再改 ${RENAME_COST} 🪙(你有 ${coinBal})`}
+                ? t('profile.renameRemaining').replace('{n}', String(remaining))
+                : t('profile.renameUsedUp').replace('{cost}', String(RENAME_COST)).replace('{bal}', String(coinBal))}
           </div>
         </div>
       </div>
@@ -119,7 +123,7 @@ export default function ProfilePage() {
       {/* v2.0.B.234 招 3: 衣櫥 entry — opens WardrobeView modal */}
       <button
         onClick={() => setWardrobeOpen(true)}
-        aria-label="開啟衣櫥 · Open wardrobe"
+        aria-label={t('profile.wardrobe.aria')}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 14,
           background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)',
@@ -132,10 +136,10 @@ export default function ProfilePage() {
         <span style={{ fontSize: 32, lineHeight: 1 }} aria-hidden="true">👕</span>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
-            衣櫥 · Wardrobe
+            {t('profile.wardrobe')}
           </div>
           <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
-            目前 · Current: {outfitLabelZh} · {outfitLabelEn}
+            {t('profile.wardrobe.current')}: {outfitLabel}
           </div>
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
@@ -144,17 +148,17 @@ export default function ProfilePage() {
       {/* v2.0.B.329: 統計 (拿掉「統計」標題, 直接呈現 4 格 — 更簡潔) */}
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          <Stat label="連勝 Streak" value={`${streak} 🔥`} />
-          <Stat label="XP" value={String(xp)} />
-          <Stat label="Coins" value={String(coins)} />
-          <Stat label="Crown Level" value={`L${level}`} />
+          <Stat label={t('profile.stat.streak')} value={`${streak} 🔥`} />
+          <Stat label={t('profile.stat.xp')} value={String(xp)} />
+          <Stat label={t('profile.stat.coins')} value={String(coins)} />
+          <Stat label={t('profile.stat.crown')} value={`L${level}`} />
         </div>
       </div>
 
       {/* v2.0.B.329: 「給家長」→「設定」入口 (夜間/音訊/難度/狗名/家長紀錄/重置 都在設定裡) */}
       <button
         onClick={() => navigate('/settings')}
-        aria-label="設定 · Settings"
+        aria-label={t('settings.title')}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 14,
           background: 'var(--t-surface)', border: '2px solid var(--t-border-card)',
@@ -167,10 +171,10 @@ export default function ProfilePage() {
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">⚙️</span>
         <div style={{ flex: 1 }}>
           <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
-            設定 · Settings
+            {t('settings.title')}
           </div>
           <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
-            音訊 · 夜間模式 · 難度 · 家長專區
+            {t('profile.settings.sub')}
           </div>
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
