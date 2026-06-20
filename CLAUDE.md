@@ -510,6 +510,7 @@ npx wrangler pages deploy dist \
 - 完成後 Telegram 推「v0.X 完成 + URL」單獨一條
 - **每次 dispatch subagent 前先列「會碰哪些檔 + 跑哪些指令」**，避免瞎簽 permission
 - Permission prompt 跳出來前先在 Telegram 解釋為什麼 + permit 什麼 + 拒絕的影響
+- **拆小任務、避免巨型單輪輸出**（防 session 卡住/壓縮）：大工作切成可獨立 commit 的小步,或 dispatch subagent 並行,不要在主 session 一輪塞滿。長表/逐項掃描丟 subagent,主 session 只收結論。(2026-06-20 regression-after-fix 教訓:「已內化」但沒寫進這裡的習慣會跟著 session 死掉)
 
 ### 文體偏好
 - 禁贅字（「🤖」「※」「簡言之」這些）
