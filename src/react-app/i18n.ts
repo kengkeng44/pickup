@@ -1,7 +1,8 @@
 // v2.0.B.cron 介面文案字典 + useT() hook (per user 中/英切換).
-// 用法: const t = useT(); t('settings.title') → 依當前語言回字串, 切語言自動 re-render。
+// 用法: const { t } = useT(); t('settings.title') → 依當前語言回字串, 切語言自動 re-render。
 // 字典 key 用 dot-namespace。缺 key fallback 回 key 本身 (開發期易抓漏譯)。
-// Phase 1 涵蓋: 設定頁 + 難度 + 理解題 + 底部導覽。其餘 surface 之後分批接。
+// 涵蓋已接 useT 的 surface: 設定 / 導覽 / 個人 / 地圖 / 成就 / 任務 / 圖鑑。
+// 其餘 surface (chapters/parent/lesson/...) 之後分批接時再加 key。
 import { useEffect, useState } from 'react';
 import { getLang, subscribeLang, type UiLang } from '../data/lang';
 
@@ -11,10 +12,8 @@ const ZH: Dict = {
   // 設定頁
   'settings.title': '設定 · Settings',
   'settings.back': '返回',
-  'settings.display': '顯示',
   'settings.night': '夜間模式 🌙',
   'settings.night.sub': '睡前護眼暗色',
-  'settings.audio': '音訊',
   'settings.bgm': '背景音樂 🎵',
   'settings.bgm.sub': '關掉可同時聽你自己的音樂',
   'settings.sfx': '音效 🔔',
@@ -69,15 +68,38 @@ const ZH: Dict = {
   'map.tonightSub': '今晚:{title}',
   'map.tonightAria': '今晚的故事:第 {ch} 章',
   'map.story': '故事',
+  // 通用
+  'common.close': '關閉',
+  // 成就頁
+  'alerts.title': '成就',
+  'ach.1.name': '第一步', 'ach.1.desc': '完成第一個 lesson',
+  'ach.2.name': '三日連擊', 'ach.2.desc': '連續 3 天學習',
+  'ach.3.name': '七日狂熱', 'ach.3.desc': '連續 7 天學習',
+  'ach.4.name': '完美主義', 'ach.4.desc': '滿分完成 1 個 lesson',
+  'ach.5.name': '探索者', 'ach.5.desc': '解鎖 Ch2',
+  'ach.6.name': '說書人', 'ach.6.desc': '完成 Ch1 全章',
+  'ach.7.name': '神射手', 'ach.7.desc': 'XP 達 1000',
+  'ach.8.name': '畢業生', 'ach.8.desc': '完成所有章節',
+  // 圖鑑頁
+  'cards.title': '圖鑑',
+  'cards.count': '{u} / {t} 張卡片',
+  // 每日任務頁
+  'tasks.title': '每日任務',
+  'tasks.streakDays': '{n} 天',
+  'tasks.streakLabel': '連續學習',
+  'tasks.freezeCount': '{n} 個',
+  'tasks.freezeLabel': '漏一天 Mochi 自動幫你保住 streak',
+  'tasks.goals': '今日目標',
+  'tasks.goal.lesson': '完成 1 個 lesson',
+  'tasks.goal.streak': '連續學習至少 1 天',
+  'tasks.goal.accuracy': '正確率 ≥ 80%',
 };
 
 const EN: Dict = {
   'settings.title': 'Settings · 設定',
   'settings.back': 'Back',
-  'settings.display': 'Display',
   'settings.night': 'Night mode 🌙',
   'settings.night.sub': 'Dark theme, easy on the eyes',
-  'settings.audio': 'Audio',
   'settings.bgm': 'Background music 🎵',
   'settings.bgm.sub': 'Turn off to play your own music',
   'settings.sfx': 'Sound effects 🔔',
@@ -127,6 +149,27 @@ const EN: Dict = {
   'map.tonightSub': 'Tonight: {title}',
   'map.tonightAria': "Tonight's story: chapter {ch}",
   'map.story': 'your pick',
+  'common.close': 'Close',
+  'alerts.title': 'Trophies',
+  'ach.1.name': 'First Step', 'ach.1.desc': 'Complete your first lesson',
+  'ach.2.name': '3-Day Streak', 'ach.2.desc': 'Study 3 days in a row',
+  'ach.3.name': '7-Day Streak', 'ach.3.desc': 'Study 7 days in a row',
+  'ach.4.name': 'Perfectionist', 'ach.4.desc': 'Ace a lesson with full marks',
+  'ach.5.name': 'Explorer', 'ach.5.desc': 'Unlock Chapter 2',
+  'ach.6.name': 'Storyteller', 'ach.6.desc': 'Finish all of Chapter 1',
+  'ach.7.name': 'Sharpshooter', 'ach.7.desc': 'Reach 1000 XP',
+  'ach.8.name': 'Graduate', 'ach.8.desc': 'Complete every chapter',
+  'cards.title': 'Collection',
+  'cards.count': '{u} / {t} cards',
+  'tasks.title': 'Daily Tasks',
+  'tasks.streakDays': '{n} days',
+  'tasks.streakLabel': 'Daily streak',
+  'tasks.freezeCount': '{n}',
+  'tasks.freezeLabel': 'Miss a day and Mochi keeps your streak',
+  'tasks.goals': "Today's goals",
+  'tasks.goal.lesson': 'Complete 1 lesson',
+  'tasks.goal.streak': 'Keep at least a 1-day streak',
+  'tasks.goal.accuracy': 'Accuracy ≥ 80%',
 };
 
 const DICTS: Record<UiLang, Dict> = { zh: ZH, en: EN };

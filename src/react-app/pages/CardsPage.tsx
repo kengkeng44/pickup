@@ -9,8 +9,10 @@
  */
 import { useState, useMemo } from 'react';
 import { getAllCards, readUnlockedCardIds, type CharacterCard } from '../../data/cards';
+import { useT } from '../i18n';
 
 export default function CardsPage() {
+  const { t } = useT();
   const [selected, setSelected] = useState<CharacterCard | null>(null);
   const unlocked = useMemo(() => readUnlockedCardIds(), []);
   const cards = getAllCards();
@@ -37,10 +39,10 @@ export default function CardsPage() {
     }}>
       <header style={{ marginBottom: 16 }}>
         <h1 style={{ fontSize: 24, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 6px' }}>
-          圖鑑 · Collection
+          {t('cards.title')}
         </h1>
         <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>
-          {unlockedCount} / {total} 張卡片 · {unlockedCount} / {total} cards
+          {t('cards.count').replace('{u}', String(unlockedCount)).replace('{t}', String(total))}
         </div>
         {/* progress bar */}
         <div style={{
@@ -152,6 +154,7 @@ function CardTile({ card, unlocked, onClick }: {
 function CardDetail({ card, unlocked, onClose }: {
   card: CharacterCard; unlocked: boolean; onClose: () => void;
 }) {
+  const { t } = useT();
   return (
     <div
       onClick={onClose}
@@ -249,7 +252,7 @@ function CardDetail({ card, unlocked, onClose }: {
             touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
           }}
         >
-          關閉 · Close
+          {t('common.close')}
         </button>
       </div>
     </div>

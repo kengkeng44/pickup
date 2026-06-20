@@ -17,6 +17,7 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { readCompletedLessons } from '../../store/runStore';
+import { useT } from '../i18n';
 
 type Category = 'all' | 'east' | 'west' | 'fable' | 'mid-long' | 'special';
 
@@ -79,6 +80,7 @@ function isChapterUnlocked(chId: number): boolean {
 
 export default function ChaptersPage() {
   const navigate = useNavigate();
+  const { t } = useT();
   const [tab, setTab] = useState<Category>('all');
 
   const filtered = useMemo(
@@ -104,10 +106,10 @@ export default function ChaptersPage() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
         <button
           onClick={() => navigate(-1)}
-          aria-label="返回地圖"
+          aria-label={t('chapters.back')}
           style={{ background: 'transparent', border: 'none', fontSize: 22, color: 'var(--t-text-muted)', cursor: 'pointer', padding: 4 }}
         >‹</button>
-        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>📖 故事圖鑑</h1>
+        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('chapters.title')}</h1>
       </div>
 
       {/* Collection stats hero */}
@@ -120,12 +122,12 @@ export default function ChaptersPage() {
         marginBottom: 14,
         textAlign: 'center',
       }}>
-        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>已搜集</div>
+        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>{t('chapters.collected')}</div>
         <div style={{ fontSize: 38, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
           {completedCount}<span style={{ fontSize: 18, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {CHAPTERS.length}</span>
         </div>
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
-          {totalPercent}% 完成
+          {totalPercent}{t('chapters.pct')}
         </div>
         <div style={{ marginTop: 10, height: 8, background: 'var(--t-tint-warn)', borderRadius: 4, overflow: 'hidden' }}>
           <div style={{
@@ -137,7 +139,7 @@ export default function ChaptersPage() {
         </div>
         {completedCount === CHAPTERS.length && (
           <div style={{ marginTop: 10, fontSize: 14, fontWeight: 900, color: 'var(--t-success)' }}>
-            🎉 全圖鑑搜集完成!
+            {t('chapters.allDone')}
           </div>
         )}
       </div>
@@ -151,21 +153,21 @@ export default function ChaptersPage() {
         padding: '4px 0',
         WebkitOverflowScrolling: 'touch',
       }}>
-        {TABS.map(t => {
-          const count = t.id === 'all'
+        {TABS.map(tabItem => {
+          const count = tabItem.id === 'all'
             ? CHAPTERS.length
-            : CHAPTERS.filter(c => c.category === t.id).length;
+            : CHAPTERS.filter(c => c.category === tabItem.id).length;
           return (
             <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
+              key={tabItem.id}
+              onClick={() => setTab(tabItem.id)}
               style={{
                 flex: '0 0 auto',
                 padding: '8px 14px',
-                background: tab === t.id ? 'var(--t-brand)' : 'var(--t-surface-alt)',
-                color: tab === t.id ? '#fff' : 'var(--t-text-muted)',
-                border: tab === t.id ? 'none' : '1px solid var(--t-border-card)',
-                borderBottom: tab === t.id ? '3px solid var(--t-brand-dark)' : '1px solid var(--t-border-card)',
+                background: tab === tabItem.id ? 'var(--t-brand)' : 'var(--t-surface-alt)',
+                color: tab === tabItem.id ? '#fff' : 'var(--t-text-muted)',
+                border: tab === tabItem.id ? 'none' : '1px solid var(--t-border-card)',
+                borderBottom: tab === tabItem.id ? '3px solid var(--t-brand-dark)' : '1px solid var(--t-border-card)',
                 borderRadius: 999,
                 fontSize: 13,
                 fontWeight: 800,
@@ -174,7 +176,7 @@ export default function ChaptersPage() {
                 fontFamily: 'inherit',
               }}
             >
-              {t.label} <span style={{ opacity: 0.75, fontWeight: 700 }}>{count}</span>
+              {tabItem.label} <span style={{ opacity: 0.75, fontWeight: 700 }}>{count}</span>
             </button>
           );
         })}
@@ -275,7 +277,7 @@ export default function ChaptersPage() {
                         borderRadius: 999,
                         letterSpacing: 0.3,
                       }}>
-                        ✓ 搜集
+                          {t('chapters.badge')}
                       </div>
                     )}
                     {unlocked && !isComplete && completed > 0 && (

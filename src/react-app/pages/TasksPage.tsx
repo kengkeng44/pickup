@@ -1,7 +1,9 @@
 import { readCompletedLessons } from '../../store/runStore';
 import { readStreak, readFreezes } from '../../data/streak';
+import { useT } from '../i18n';
 
 export default function TasksPage() {
+  const { t } = useT();
   // v2.0.B.232 招 1: persistent daily streak + freeze count from localStorage
   const streak = readStreak();
   const freezes = readFreezes();
@@ -12,16 +14,21 @@ export default function TasksPage() {
     if (readCompletedLessons(ch).size > 0) { hasCompletedAnyLesson = true; break; }
   }
   const streakDone = streak > 0;
+  const goals = [
+    { icon: '📖', text: t('tasks.goal.lesson'), done: hasCompletedAnyLesson },
+    { icon: '🔥', text: t('tasks.goal.streak'), done: streakDone },
+    { icon: '🎯', text: t('tasks.goal.accuracy'), done: false },
+  ];
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>每日任務</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('tasks.title')}</h1>
 
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{streak} 天</div>
-            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>Daily Streak · 連續學習</div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.streakDays').replace('{n}', String(streak))}</div>
+            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>{t('tasks.streakLabel')}</div>
           </div>
         </div>
       </div>
@@ -31,24 +38,20 @@ export default function TasksPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🧊</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{freezes} 個</div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.freezeCount').replace('{n}', String(freezes))}</div>
             <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>
-              Freeze · 漏一天 Mochi 自動幫你保住 streak
+              {t('tasks.freezeLabel')}
             </div>
           </div>
         </div>
       </div>
 
-      <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)', margin: '18px 0 8px' }}>今日目標</h2>
-      {[
-        { icon: '📖', text: '完成 1 個 lesson · Complete 1 lesson', done: hasCompletedAnyLesson },
-        { icon: '🔥', text: '連續學習至少 1 天 · Daily streak active', done: streakDone },
-        { icon: '🎯', text: '正確率 ≥ 80% · Accuracy ≥ 80% (待 session log)', done: false },
-      ].map((t, i) => (
+      <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)', margin: '18px 0 8px' }}>{t('tasks.goals')}</h2>
+      {goals.map((g, i) => (
         <div key={i} style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border-soft)', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
-          <span style={{ fontSize: 22 }}>{t.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, color: 'var(--t-text)', fontWeight: 600 }}>{t.text}</span>
-          <span style={{ fontSize: 14, color: t.done ? 'var(--t-success)' : 'var(--t-border-card)', fontWeight: 800 }}>{t.done ? '✓' : '○'}</span>
+          <span style={{ fontSize: 22 }}>{g.icon}</span>
+          <span style={{ flex: 1, fontSize: 14, color: 'var(--t-text)', fontWeight: 600 }}>{g.text}</span>
+          <span style={{ fontSize: 14, color: g.done ? 'var(--t-success)' : 'var(--t-border-card)', fontWeight: 800 }}>{g.done ? '✓' : '○'}</span>
         </div>
       ))}
     </div>

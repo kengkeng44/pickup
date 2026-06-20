@@ -27,6 +27,7 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { readCompletedLessons } from '../../store/runStore';
+import { useT } from '../i18n';
 
 // Shipped chapters Ch1-31 (Ch0 ground-floor 跳過, 不在主 path)
 const SHIPPED_CHAPTERS = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -46,6 +47,7 @@ interface NodeRef {
 
 export default function InfiniteMapPage() {
   const navigate = useNavigate();
+  const { t } = useT();
   const currentRef = useRef<HTMLDivElement>(null);
 
   // Build stream of all lessons across all shipped chapters
@@ -75,9 +77,9 @@ export default function InfiniteMapPage() {
     <div style={{ padding: '14px 14px 80px', maxWidth: 480, margin: '0 auto' }}>
       {/* Hero header */}
       <div style={{ textAlign: 'center', marginBottom: 14 }}>
-        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 900, color: 'var(--t-text)' }}>🗺️ 故事地圖</h1>
+        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 900, color: 'var(--t-text)' }}>{t('infiniteMap.title')}</h1>
         <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 4, letterSpacing: 1 }}>
-          Story Map · {nodes.length} 課
+          {t('infiniteMap.subtitle').replace('{total}', String(nodes.length))}
         </div>
       </div>
 
@@ -91,7 +93,7 @@ export default function InfiniteMapPage() {
         marginBottom: 18,
         textAlign: 'center',
       }}>
-        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 4 }}>已完成</div>
+        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 4 }}>{t('infiniteMap.done')}</div>
         <div style={{ fontSize: 32, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
           {totalDone}<span style={{ fontSize: 16, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {nodes.length}</span>
         </div>
@@ -105,7 +107,7 @@ export default function InfiniteMapPage() {
           }} />
         </div>
         <div style={{ marginTop: 10, fontSize: 11, color: 'var(--t-text-muted)' }}>
-          <a href="/chapters" style={{ color: 'var(--t-brand-dark)', textDecoration: 'none', fontWeight: 800 }}>📖 開啟圖鑑 →</a>
+          <a href="/chapters" style={{ color: 'var(--t-brand-dark)', textDecoration: 'none', fontWeight: 800 }}>{t('infiniteMap.openCards')}</a>
         </div>
       </div>
 
@@ -129,7 +131,7 @@ export default function InfiniteMapPage() {
             >
               <button
                 onClick={() => navigate(`/lesson/${n.ch}/${n.lid}`)}
-                aria-label={n.done ? 'Completed lesson' : isCurrent ? 'Current lesson' : 'Future lesson'}
+                aria-label={n.done ? t('infiniteMap.nodeCompleted') : isCurrent ? t('infiniteMap.nodeCurrent') : t('infiniteMap.nodeFuture')}
                 style={{
                   width: 64,
                   height: 64,
@@ -161,7 +163,7 @@ export default function InfiniteMapPage() {
 
       {/* Footer hint */}
       <div style={{ textAlign: 'center', fontSize: 11, color: 'var(--t-text-muted)', marginTop: 20, opacity: 0.7 }}>
-        {nodes.length} 課 · 蜿蜒 ~{Math.round((nodes.length * 86) / 1000)}k 像素
+        {t('infiniteMap.footer').replace('{total}', String(nodes.length)).replace('{km}', String(Math.round((nodes.length * 86) / 1000)))}
       </div>
     </div>
   );
