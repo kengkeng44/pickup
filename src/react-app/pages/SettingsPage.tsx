@@ -1,12 +1,14 @@
 // v2.0.B.329 (per user): 設定頁 — 取代舊「給家長」入口。集中必要設定, 各項即時連動。
-// 上網查 + 精簡: 兒童 ELT app 必要設定 = 音訊 / 顯示(夜間)/ 難度 / 角色名 / 家長紀錄 / 重置。
-// 不放: 語言(固定中→英)、通知(站外提醒在 todo)、帳號(後端 P1 後再加)。
+// v2.0.B.cron (per user): 全頁接 i18n (useT) + 加「語言 中/英」切換 + 難度命名對齊
+// 其他 app (初級/中級/高級, 中級標預設)。介面語言開關見 src/data/lang.ts。
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTheme, toggleTheme } from '../../data/theme';
 import { isBgmEnabled, setBgmEnabled, isSfxEnabled, setSfxEnabled } from '../../data/audioSettings';
 import { startBgm, stopBgm } from '../../audio/bgm';
 import { getComprehensionMode, setComprehensionMode, type ComprehensionMode } from '../../data/comprehensionMode';
+import { getLang, setLang, type UiLang } from '../../data/lang';
+import { useT } from '../i18n';
 
 type Diff = 'easy' | 'medium' | 'hard';
 function readDiff(): Diff {
@@ -49,23 +51,42 @@ function Row({ title, sub, children }: { title: string; sub?: string; children: 
   );
 }
 
+// 共用「分段選擇」按鈕列 (難度 / 理解題 / 語言 共用)
+function SegRow<T extends string>({ value, options, onPick }: {
+  value: T; options: [T, string][]; onPick: (v: T) => void;
+}) {
+  return (
+    <div style={{ display: 'flex', gap: 8 }}>
+      {options.map(([v, label]) => (
+        <button key={v} type="button" onClick={() => onPick(v)}
+          style={{
+            flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
+            cursor: 'pointer', minHeight: 44,
+            border: value === v ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
+            background: value === v ? 'var(--t-brand-dark)' : 'var(--t-bg)',
+            color: value === v ? '#fff' : 'var(--t-text)',
+          }}>{label}</button>
+      ))}
+    </div>
+  );
+}
+
 export default function SettingsPage() {
   const navigate = useNavigate();
+  const { t } = useT();
   const [dark, setDark] = useState(() => getTheme() === 'dark');
   const [bgm, setBgm] = useState(() => isBgmEnabled());
   const [sfx, setSfx] = useState(() => isSfxEnabled());
   const [diff, setDiff] = useState<Diff>(() => readDiff());
   const [compMode, setCompMode] = useState<ComprehensionMode>(() => getComprehensionMode());
+  const [lang, setLangState] = useState<UiLang>(() => getLang());
 
   const applyDiff = (d: Diff) => {
     setDiff(d);
     try { localStorage.setItem('pickup.difficulty', d); } catch { /* ignore */ }
   };
-
-  const applyCompMode = (m: ComprehensionMode) => {
-    setCompMode(m);
-    setComprehensionMode(m);
-  };
+  const applyCompMode = (m: ComprehensionMode) => { setCompMode(m); setComprehensionMode(m); };
+  const applyLang = (l: UiLang) => { setLangState(l); setLang(l); /* useT subscribe → 整頁即時換語言 */ };
 
   const onBgm = () => {
     const next = !bgm; setBgm(next); setBgmEnabled(next);
@@ -75,63 +96,56 @@ export default function SettingsPage() {
   return (
     <div style={{ padding: '16px 14px 32px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-        <button type="button" onClick={() => navigate('/profile')} aria-label="返回"
+        <button type="button" onClick={() => navigate('/profile')} aria-label={t('settings.back')}
           style={{ background: 'transparent', border: 'none', fontSize: 26, color: 'var(--t-text-muted)', cursor: 'pointer', lineHeight: 1 }}>‹</button>
-        <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>設定 · Settings</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>{t('settings.title')}</h1>
+      </div>
+
+      {/* 語言 — 中 / 英 (v2.0.B.cron) */}
+      <div style={cardStyle}>
+        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.lang')}</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.lang.sub')}</div>
+        <SegRow<UiLang> value={lang} onPick={applyLang} options={[['zh', '中文'], ['en', 'English']]} />
       </div>
 
       {/* 顯示 */}
       <div style={cardStyle}>
-        <Row title="夜間模式 🌙" sub="Night mode · 睡前護眼暗色">
-          <Toggle on={dark} onChange={() => setDark(toggleTheme() === 'dark')} ariaLabel="夜間模式" />
+        <Row title={t('settings.night')} sub={t('settings.night.sub')}>
+          <Toggle on={dark} onChange={() => setDark(toggleTheme() === 'dark')} ariaLabel={t('settings.night')} />
         </Row>
       </div>
 
       {/* 音訊 */}
       <div style={cardStyle}>
-        <Row title="背景音樂 🎵" sub="關掉可同時聽你自己的音樂">
-          <Toggle on={bgm} onChange={onBgm} ariaLabel="背景音樂" />
+        <Row title={t('settings.bgm')} sub={t('settings.bgm.sub')}>
+          <Toggle on={bgm} onChange={onBgm} ariaLabel={t('settings.bgm')} />
         </Row>
         <div style={{ height: 1, background: 'var(--t-border-soft)', margin: '12px 0' }} />
-        <Row title="音效 🔔" sub="答對 / 答錯 / 點擊音">
-          <Toggle on={sfx} onChange={() => { const n = !sfx; setSfx(n); setSfxEnabled(n); }} ariaLabel="音效" />
+        <Row title={t('settings.sfx')} sub={t('settings.sfx.sub')}>
+          <Toggle on={sfx} onChange={() => { const n = !sfx; setSfx(n); setSfxEnabled(n); }} ariaLabel={t('settings.sfx')} />
         </Row>
       </div>
 
-      {/* 難度 */}
+      {/* 難度 — 初級 / 中級(預設) / 高級 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>難度 🎚️</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>文章難易:簡單 / 適中 / 原文</div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          {([['easy', '簡單'], ['medium', '適中'], ['hard', '原文']] as [Diff, string][]).map(([d, label]) => (
-            <button key={d} type="button" onClick={() => applyDiff(d)}
-              style={{
-                flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 14,
-                cursor: 'pointer', minHeight: 44,
-                border: diff === d ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
-                background: diff === d ? 'var(--t-brand-dark)' : 'var(--t-bg)',
-                color: diff === d ? '#fff' : 'var(--t-text)',
-              }}>{label}</button>
-          ))}
-        </div>
+        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.difficulty')}</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.difficulty.sub')}</div>
+        <SegRow<Diff> value={diff} onPick={applyDiff} options={[
+          ['easy', t('diff.easy')],
+          ['medium', `${t('diff.medium')} · ${t('diff.default')}`],
+          ['hard', t('diff.hard')],
+        ]} />
       </div>
 
-      {/* 理解題模式 — 聽 / 讀 / 跟著難度 (v2.0.B.cron 理解選擇 merge + 鷹架自動切) */}
+      {/* 理解題模式 — 跟著難度 / 聽 / 讀 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>理解題 👂📖</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>理解選擇題用「聽」還是「讀」段落<br />「跟著難度」= 簡單用讀 / 適中混合 / 原文用聽</div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          {([['auto', '✨ 跟著難度'], ['listen', '👂 用聽的'], ['read', '📖 用讀的']] as [ComprehensionMode, string][]).map(([m, label]) => (
-            <button key={m} type="button" onClick={() => applyCompMode(m)}
-              style={{
-                flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
-                cursor: 'pointer', minHeight: 44,
-                border: compMode === m ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
-                background: compMode === m ? 'var(--t-brand-dark)' : 'var(--t-bg)',
-                color: compMode === m ? '#fff' : 'var(--t-text)',
-              }}>{label}</button>
-          ))}
-        </div>
+        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.comp')}</div>
+        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.comp.sub')}<br />{t('settings.comp.autoHint')}</div>
+        <SegRow<ComprehensionMode> value={compMode} onPick={applyCompMode} options={[
+          ['auto', t('comp.auto')],
+          ['listen', t('comp.listen')],
+          ['read', t('comp.read')],
+        ]} />
       </div>
 
       {/* 家長 */}
@@ -139,8 +153,8 @@ export default function SettingsPage() {
         style={{ ...cardStyle, width: '100%', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', borderBottom: '4px solid var(--t-border-card)' }}>
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">👨‍👩‍👧</span>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>家長專區</div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>孩子的學習紀錄</div>
+          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>{t('settings.parent')}</div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>{t('settings.parent.sub')}</div>
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>

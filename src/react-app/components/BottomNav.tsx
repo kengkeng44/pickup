@@ -1,18 +1,20 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useT } from '../i18n';
 
-// v2.0.B.280 嚴格 EN-only UI rule (見 memory feedback_pickup_no_chinese_ui.md)
-// 除對話框/故事/角色 voice 外, UI 一律 EN. aria-label 保留中文 (screen reader)
+// v2.0.B.cron: UI 語言可切 (zh/en, src/data/lang.ts) — aria-label 走 i18n。
+// 原「EN-only UI」rule 改為使用者可選語言。
 const TABS = [
-  { path: '/', label: 'Map', ariaLabel: '地圖', icon: '/mascots/node-paw.webp', emoji: null as string | null },
-  { path: '/tasks', label: 'Tasks', ariaLabel: '任務', icon: '/mascots/icon-star.webp', emoji: null as string | null },
-  { path: '/cards', label: 'Cards', ariaLabel: '圖鑑', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
-  { path: '/alerts', label: 'Trophy', ariaLabel: '成就', icon: '/mascots/flame.webp', emoji: null as string | null },
-  { path: '/profile', label: 'Me', ariaLabel: '我的', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
+  { path: '/', i18nKey: 'nav.map', icon: '/mascots/node-paw.webp', emoji: null as string | null },
+  { path: '/tasks', i18nKey: 'nav.tasks', icon: '/mascots/icon-star.webp', emoji: null as string | null },
+  { path: '/cards', i18nKey: 'nav.cards', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
+  { path: '/alerts', i18nKey: 'nav.alerts', icon: '/mascots/flame.webp', emoji: null as string | null },
+  { path: '/profile', i18nKey: 'nav.me', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
 ] as const;
 
 export default function BottomNav() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useT();
 
   // Hide on Lesson immersive routes
   if (location.pathname.startsWith('/lesson/')) return null;
@@ -30,7 +32,7 @@ export default function BottomNav() {
           <button
             key={tab.path}
             onClick={() => navigate(tab.path)}
-            aria-label={tab.ariaLabel}
+            aria-label={t(tab.i18nKey)}
             style={{
               // v2.0.B.271: active state 改暖色系框框 (user: 「用一個暖色系框框顯示」)
               // 從原本的 borderTop line 改成 2.5px 完整框 + 淡 amber tint
