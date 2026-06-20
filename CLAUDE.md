@@ -111,6 +111,9 @@
 
 **Slice-of-life,Arabian Nights 結構**。每章 = 一個 storytelling evening。**v1.x 「小貓回家路 8 章 + false-ending」整段廢棄**(v2.0 重新設計,參考 `docs/superpowers/specs/2026-05-29-pickup-duolingo-nested-redesign.md`)。
 
+> ⚠️ **章數現況**:下面是**核心設計弧(8 夜)**,但實際 shipped 內容已擴張到 **32 章**(`public/lessons-ch0..31.json`,ch9+ = 童話 + 歷史故事擴張)。章名/狀態 source of truth = `src/data/storyRegistry.ts`(110 registry)。完整對照見 `docs/architecture/2026-06-20-spec-vs-actual-state.md`。
+> 💡 **規劃中支線**:奶奶「現實悄悄話」— 故事寓意接到 Mochi/Hana 日常,設計 spec `docs/superpowers/specs/2026-06-20-grandma-real-world-sidebranch.md`。
+
 ### Outer frame (8 章 recurring)
 
 - Mochi(三花貓 / 流浪)每晚跳上奶奶矮牆
@@ -151,11 +154,12 @@
 
 ## 🧠 Core Mechanics
 
-### 1. Cloze 答題（核心）
-- 一個英文句子有空格 → 4 選 1
-- 答錯：blindRetry flow — **只標紅錯誤鈕，不揭露正確答案**，玩家自己試到對為止（v0.13 強化）
+### 1. 答題核心 + blindRetry
+- 4 選 1 為主,答對推進、答錯 blindRetry — **只標紅錯誤鈕，不揭露正確答案**，玩家自己試到對為止（v0.13 強化）
 - 答錯選項：保留原位（訓練位置記憶），不 shuffle
 - 答對：簡短解答 + 自動推進 2-4 秒（也可按 Continue 加速）
+
+> ⚠️ **題型現況**:`cloze` 是 v1.x 概念(`sentences.ts`/`ClozeUI.ts`),**v2.0 nested 內容沒用**。v2.0 lessons schema(`lessons.ts`)定義 **20 種 type**,content 實用 **9 種**,主力 `listen-mc`(524)。`narration`(旁白)佔全部 entry 的 48%,**不算題型/題數**。完整 roster + 計數規則見 `docs/architecture/2026-06-20-spec-vs-actual-state.md` §2-3。
 
 ### 2. SRS Lite（簡化間隔重複）
 - 答錯的題進 localStorage 復習庫
