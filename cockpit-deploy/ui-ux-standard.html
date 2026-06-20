@@ -543,6 +543,16 @@
     .qt-tile.used {
       opacity: 0.25; box-shadow: none;
     }
+    /* sentence-builder hand-drawn helpers — 標準化尺寸, 對齊 live-embed frame, 不再 inline override */
+    .qt-sb-target {
+      margin: 6px 8px; text-align: center;
+      font-size: 13px; font-weight: 900;
+      color: var(--text); line-height: 1.35;
+    }
+    .qt-sb-hint {
+      margin: 3px 8px; text-align: center;
+      font-size: 7.5px; color: var(--muted); line-height: 1.45;
+    }
 
     /* narration auto-advance waveform */
     .qt-narr-card {
@@ -847,6 +857,14 @@
 
     <div class="rule-banner" style="border-color: var(--accent);">
       <strong>🔴 即時 1:1:</strong> 各頁手機框內是<strong>真實 app 即時嵌入</strong>(pickupwords.pages.dev),非手繪示意 — 跟線上畫面永遠一致。<em class="zh">註:顯示的是你裝置的真實進度狀態(XP / streak 等),需連網;sentence-builder 題型目前內容未使用,維持手繪。</em>
+    </div>
+
+    <div class="rule-banner" style="border-color: var(--accent-dark);">
+      <strong>📐 Mockup 格式標準 (所有題型一律遵守):</strong>
+      <span class="zh">① 同一手機框 = <code>.mockup-inner</code> 固定 <code>aspect-ratio 9/19.5</code>,所有 mockup 同尺寸,不准 inline 撐大。
+      ② 有內容的題型 = <strong>真實 app 即時嵌入</strong>(<code>data-route</code>);0 內容的題型 = 手繪 fallback,但<strong>必須對齊嵌入框尺寸 + 吃共用 <code>.qt-*</code> class</strong>,不准逐元素 inline override。
+      ③ 喇叭一律用 brand <code>icon-speaker.webp</code>(B.286),禁 <code>🔇 / 🔊</code> emoji。
+      ④ 內容要塞得進固定框,不溢出/不裁切 — 說明文字放右側卡,不重複塞進手機框。</span>
     </div>
 
     <div class="legend">
@@ -1291,7 +1309,7 @@
       <h2 style="border:none; padding:0;">📖 Lesson 答題畫面 — 按題型分</h2>
       <div class="desc">
         共同部分 (所有題型一樣):<br/>
-        <span class="badge top">頂</span> <strong>✕ 關閉 + olive progress bar + 🔇 mute</strong> (~50px sticky <em class="zh">固定不滾</em>)<br/>
+        <span class="badge top">頂</span> <strong>✕ 關閉 + olive progress bar + 喇叭 mute (icon-speaker.webp)</strong> (~50px sticky <em class="zh">固定不滾</em>)<br/>
         <span class="badge bot">底</span> <strong>→ 綠 CTA / 知道了 紅 CTA</strong> (~60px fixed footer <em class="zh">底部固定</em>)<br/>
         差異全在 <span class="badge mid">中</span> middle scrollable <em class="zh">中段可滾</em> 的 renderer
       </div>
@@ -1310,7 +1328,7 @@
     <h2 class="qt-h2" id="qt-narration"><span class="icon">①</span> narration <em class="zh">旁白</em> <span class="type-tag story">劇情 STORY</span></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="narration 旁白題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=1"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:8%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div style="padding: 0 10px; margin-top: 4px;">
           <span style="font-size:9px; padding:3px 8px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
@@ -1350,7 +1368,7 @@
     <h2 class="qt-h2" id="qt-listen-mc"><span class="icon">②</span> listen-mc <em class="zh">聽選 4 選 1</em></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="listen-mc 聽選題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=5"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:28%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
@@ -1391,7 +1409,7 @@
     <h2 class="qt-h2" id="qt-listen-tf"><span class="icon">③</span> listen-tf <em class="zh">是非題</em></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="listen-tf 是非題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=3"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:42%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div style="padding: 0 8px; margin-top:2px;">
           <span style="font-size:8px; padding:2px 6px; background:#fff7e8; border:1px solid var(--accent); border-radius:999px; display:inline-block; color:var(--accent-dark); font-weight:900;">🎙 Narrator</span>
         </div>
@@ -1435,7 +1453,7 @@
     <h2 class="qt-h2" id="qt-emoji-pick"><span class="icon">④</span> emoji-pick <em class="zh">看圖選</em></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="emoji-pick 看圖選題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=9"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:55%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div class="qt-q-prompt" style="text-align:center; padding:14px 8px 8px; font-size:12px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> Which one is the <strong style="color:var(--accent-dark);">peach</strong>?</div>
         <div class="qt-emoji-grid" style="gap:8px; padding:8px;">
           <div class="qt-emoji-cell correct" style="padding:18px;"><div class="em" style="font-size:44px;">🍑</div></div>
@@ -1471,7 +1489,7 @@
     <h2 class="qt-h2" id="qt-tap-pairs"><span class="icon">⑤</span> tap-pairs <em class="zh">中英配對</em> <span class="type-tag input">互動 INPUT</span> <span class="type-tag" style="background:var(--variable);">⭐ user 問的</span></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="tap-pairs 中英配對題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l1?preview=0"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:78%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div class="qt-q-prompt" style="text-align:center; font-size:11px; padding:8px 0;">Match the pairs · 配對</div>
         <div class="qt-pairs-wrap" style="gap:8px; padding:6px 10px;">
           <div class="qt-pair-col" style="gap:6px;">
@@ -1520,7 +1538,7 @@
     <h2 class="qt-h2" id="qt-listen-comp"><span class="icon">⑥</span> listen-comprehension <em class="zh">聽力理解</em></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="listen-comprehension 聽力理解題型手機畫面示意圖" data-route="/lesson/1/kt-ch1-l2?preview=9"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><span>🔇</span></div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:88%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
         <div class="qt-passage" style="font-size:9.5px; padding:9px 11px; margin:8px;">
           <span class="speaker" style="font-size:9px;">🎙 Grandma 奶奶</span>
           "Long ago, an old couple found a giant peach in the river. Inside the peach was a tiny boy. They named him Momotaro and raised him as their own." <span class="qt-replay" style="font-size:9px; padding:2px 8px;"><img class="qt-spk-sm" src="./icon-speaker.webp" alt="speaker" width="13" height="13" loading="lazy"> Replay</span>
@@ -1558,25 +1576,22 @@
     <h2 class="qt-h2" id="qt-sentence-builder"><span class="icon">⑦</span> sentence-builder <em class="zh">翻譯造句</em> <span class="type-tag input">互動 INPUT</span></h2>
     <div class="layout-grid">
       <div class="mockup-frame" role="img" aria-label="sentence-builder 翻譯造句題型手機畫面示意圖"><div class="mockup-inner">
-        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:95%"></div></div><span>🔇</span></div>
-        <div class="qt-zh-prompt" style="font-size:10px; padding:6px 10px; margin:8px;">把這句翻成英文 · 翻譯</div>
-        <div style="margin:6px 8px 10px; font-size:14px; text-align:center; font-weight:900; color:var(--text); line-height:1.4;">「我今晚要說一個故事」</div>
-        <div class="qt-answer-slot" style="min-height:42px; padding:8px;">
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">I</div>
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">will</div>
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">tell</div>
+        <div class="qt-header"><span>✕</span><div class="qt-progress"><div style="width:95%"></div></div><img class="qt-spk-sm" src="./icon-speaker.webp" alt="mute" width="14" height="14" loading="lazy"></div>
+        <div class="qt-zh-prompt">把這句翻成英文 · 翻譯</div>
+        <div class="qt-sb-target">「我今晚要說一個故事」</div>
+        <div class="qt-answer-slot">
+          <div class="qt-tile">I</div>
+          <div class="qt-tile">will</div>
+          <div class="qt-tile">tell</div>
         </div>
-        <div style="font-size:8px; color:var(--muted); margin:4px 8px; text-align:center; line-height:1.5;">↑ 答案區 (tap 移回) · ↓ tile 庫 (tap 移上去)</div>
-        <div class="qt-tile-bank" style="padding:8px; gap:5px;">
-          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">I</div>
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">a</div>
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">tonight</div>
-          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">will</div>
-          <div class="qt-tile" style="font-size:10px; padding:5px 8px;">story</div>
-          <div class="qt-tile used" style="font-size:10px; padding:5px 8px;">tell</div>
-        </div>
-        <div style="margin:6px 8px; padding:7px 10px; background:var(--card); border:1px dashed var(--accent-dark); border-radius:8px; font-size:9px; color:var(--muted); text-align:center; line-height:1.45;">
-          💡 預期答案 = "I will tell a story tonight"<br/>(distractor "a"/"story"/"tonight" 已混在 bank)
+        <div class="qt-sb-hint">↑ 答案區 tap 移回 · ↓ tile 庫 tap 移上去</div>
+        <div class="qt-tile-bank">
+          <div class="qt-tile used">I</div>
+          <div class="qt-tile">a</div>
+          <div class="qt-tile">tonight</div>
+          <div class="qt-tile used">will</div>
+          <div class="qt-tile">story</div>
+          <div class="qt-tile used">tell</div>
         </div>
         <div class="qt-cta-row"><div class="qt-cta disabled">→ 拼完整句才能繼續</div></div>
       </div></div>
@@ -1591,7 +1606,7 @@
             </li>
             <li>tap bank tile → 移到答案區 (used 樣式 opacity 0.25)</li>
             <li>tap 答案 tile → 移回 bank</li>
-            <li>CTA disabled 直到答案區 = 預期句長</li>
+            <li>CTA disabled 直到答案區 = 預期句長 <span class="var-tag">範例預期答案 = "I will tell a story tonight"</span></li>
           </ul>
         </div>
         <div class="fx">
@@ -1602,7 +1617,7 @@
 
     <!-- ─── 共同規則 (lesson 跨題型) ─── -->
     <h2 class="qt-h2"><span class="icon">⚙️</span> Lesson 跨題型共同規則</h2>
-    <div class="section-card top"><span class="badge top">頂</span><strong>Header 50px sticky</strong>: 所有題型一致 = ✕ + olive progress + 🔇 mute · <span class="var-tag">progress 依 idx/total derived</span></div>
+    <div class="section-card top"><span class="badge top">頂</span><strong>Header 50px sticky</strong>: 所有題型一致 = ✕ + olive progress + 喇叭 mute (icon-speaker.webp) · <span class="var-tag">progress 依 idx/total derived</span></div>
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA footer 60px fixed</strong>: 答對 → 綠 (#7d9a4f) → Continue · 答錯 2 次 → 紅 (#c84a3a) 知道了 reveal</div>
     <div class="fx" style="margin-top:6px;">
       <strong style="color:var(--olive-dark);">所有題型共享:</strong>
