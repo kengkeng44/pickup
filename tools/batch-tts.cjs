@@ -69,7 +69,7 @@ Usage:
   node tools/batch-tts.cjs [--ch=N] [--dry] [--voice=V] [--limit=N] [--from-r2]
 
 Flags:
-  --ch=N        Only chapter N (1-8). Omit = run all CHAPTERS_WITH_MP3 set.
+  --ch=N        Only chapter N (0-31). Omit = run all CHAPTERS_WITH_MP3 set.
   --dry         List would-generate IDs, don't call OpenAI.
   --voice=V     Force voice for ALL items. V in {grandma, mochi, hana} or
                 a raw OpenAI voice name (nova/alloy/echo/onyx/shimmer/fable).
@@ -92,8 +92,8 @@ Output:
   process.exit(0);
 }
 
-if (flags.ch !== null && (isNaN(flags.ch) || flags.ch < 1 || flags.ch > 8)) {
-  console.error(`Bad --ch=${flags.ch}. Must be 1-8.`);
+if (flags.ch !== null && (isNaN(flags.ch) || flags.ch < 0 || flags.ch > 31)) {
+  console.error(`Bad --ch=${flags.ch}. Must be 0-31.`);
   process.exit(2);
 }
 if (flags.limit !== null && (isNaN(flags.limit) || flags.limit < 1)) {
