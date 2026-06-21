@@ -182,14 +182,14 @@ function renderReason(ctx: ReasonContext): { zh: string; en: string } {
     const { user, chapter: chDiff } = abilityMatch;
     if (user === 'A0' && chDiff === 'A0') {
       return {
-        zh: '零基礎 ok!我們從 ABC 開始,慢慢來',
+        zh: '零基礎 ok!從奶奶撿到 Mochi 的故事開始,慢慢來',
         en: 'Beginner-friendly start. Adapted to your level.',
       };
     }
     if (user === 'A1' && chapter === 0) {
       return {
-        zh: '先把 ABC 跟基本字穩了 — 這課適合你目前的程度',
-        en: 'Lock in ABC + base words — this story matches your level.',
+        zh: '先從奶奶撿到 Mochi 的由來故事暖身 — 這課適合你目前的程度',
+        en: 'Warm up with how Grandma found Mochi — this story matches your level.',
       };
     }
     if (user === 'A2+' && chDiff === 'A2+') {

@@ -127,12 +127,12 @@ export interface StoryEntry {
 // ─── 110 entries — 27 shipped + 73 short candidate + 10 mid-long candidate ─
 
 export const STORY_REGISTRY: StoryEntry[] = [
-  // ─── Shipped Ch0 ground floor ──────────────────────────────────────────
+  // ─── Shipped Ch0 origin story (奶奶撿到 Mochi · 每晚故事的由來) ──────────
   {
     id: 'ground-floor',
-    nameEn: 'Ground Floor (ABC + numbers + colors)',
-    nameZh: '入門:ABC・數字・顏色',
-    source: 'Pickup original onboarding aisle',
+    nameEn: 'How Grandma Found Mochi',
+    nameZh: '奶奶撿到 Mochi:每晚故事的由來',
+    source: 'Pickup original origin story',
     copyright: 'public-domain',
     culture: ['global-folk'],
     style: ['warm'],
