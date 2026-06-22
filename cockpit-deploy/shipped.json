@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-09T1510-ui-ux-cron.md",
+      "archRec": "ARCH-REC #14 (D1-D3 session pacing)",
+      "what": "全為 renderer/UI 程式碼 finding (MapPage/LessonPage/TasksPage 時長信號) — 0 條 lessons-only 可自動修, 不在 cron 全修範圍. 標記已處理防重複.",
+      "version": "v2.0.B.358",
+      "date": "2026-06-22"
+    },
+    {
       "audit": "docs/audits/2026-06-19T0600-content-qa-cron.md",
       "archRec": "P0-1,2,3,5 (全部內容 P0)",
       "what": "kt-ch29-l1-q3 級距 + kt-ch30-l2-q3 絕對級距 + kt-ch28-l4-q10 情緒極性 + kt-ch28-l3-q5 荒謬方法 干擾項全改合理. 剩 P0-4 結構性(emoji 模板)需人決定.",

@@ -1134,6 +1134,7 @@ async function openAuditModal(file, type, sha, meta) {
   const modal = document.getElementById('modal');
   const title = document.getElementById('modal-title');
   const body = document.getElementById('modal-body');
+  const copyBtn = document.getElementById('modal-copy');
   const stamp = sha ? String(sha).slice(0, 16).replace('T', ' ') : '';
   title.textContent = `${meta.icon} ${meta.name}${stamp ? ` · ${stamp}` : ''}`;
   body.innerHTML = '<div style="text-align:center;padding:30px;color:var(--muted);">載入中…</div>';
@@ -1141,16 +1142,53 @@ async function openAuditModal(file, type, sha, meta) {
   document.body.style.overflow = 'hidden';
 
   try {
+    const esc = (s) => String(s || '').replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
     const rawUrl = `https://raw.githubusercontent.com/${REPO}/master/${file}`;
-    const res = await fetch(rawUrl);
+    // v2.0.B.358 (per user): shipped-aware modal — 防重複指令 + 中文重點優先, 英文原文收摺疊.
+    const [res, shipped] = await Promise.all([fetch(rawUrl), loadShipped()]);
     if (!res.ok) throw new Error('Fetch ' + res.status);
     const md = await res.text();
-    if (typeof marked !== 'undefined') {
-      body.innerHTML = marked.parse(md);
-    } else {
-      body.innerHTML = '<pre style="white-space:pre-wrap;">' + md.replace(/[<>]/g, c => c === '<' ? '&lt;' : '&gt;') + '</pre>';
-    }
+    const p = parseAuditMd(md);
+    const done = (shipped.list || []).find((s) => s.audit === file);
+
+    const doneBanner = done
+      ? `<div style="background:#f3f8ee;border:2px solid var(--success);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:13px;font-weight:800;color:#3d6b1f;">✅ 已處理過 · ${esc(done.version || '')}<div style="font-weight:600;color:var(--muted);font-size:12px;margin-top:4px;">${esc(done.what || '')}</div><div style="font-weight:700;color:#3d6b1f;font-size:11px;margin-top:4px;">→ 不用再接,接了也是重複。</div></div>`
+      : '';
+    const counts = [
+      `<span class="count-pill p0">急修 ${p.p0}</span>`,
+      p.p1 ? `<span class="count-pill p1">次要 ${p.p1}</span>` : '',
+      p.total ? `<span class="count-pill p2">掃到 ${p.total}</span>` : '',
+    ].filter(Boolean).join(' ');
+    const summaryHtml = `
+      ${doneBanner}
+      <div style="background:var(--bg);border-radius:10px;padding:12px;margin-bottom:10px;">
+        ${p.angle ? `<div style="font-size:13px;font-weight:800;margin-bottom:6px;">🎯 本輪角度:${esc(p.angle)}</div>` : ''}
+        <div style="margin-bottom:8px;">${counts}</div>
+        ${p.topItem ? `<div style="font-size:13px;line-height:1.6;">📌 最關鍵:${esc(p.topItem.slice(0, 160))}</div>` : ''}
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">這是 cron 自動產生的稽核報告,原文多為英文。上面是中文重點;要看完整原文點下面展開。</div>`;
+    const rawHtml = (typeof marked !== 'undefined')
+      ? marked.parse(md)
+      : '<pre style="white-space:pre-wrap;">' + md.replace(/[<>]/g, c => c === '<' ? '&lt;' : '&gt;') + '</pre>';
+    body.innerHTML = summaryHtml + `<details style="margin-top:4px;"><summary style="cursor:pointer;font-weight:800;font-size:13px;color:var(--accent-dark);padding:6px 0;">📄 看完整原文（英文）</summary><div style="margin-top:8px;">${rawHtml}</div></details>`;
     body.scrollTop = 0;
+
+    // shipped → 停用「全部修」按鈕 (防重複指令的根因修正)
+    if (copyBtn) {
+      if (done) {
+        copyBtn.disabled = true;
+        copyBtn.textContent = `✅ 已處理 · ${done.version || ''}`;
+        copyBtn.style.opacity = '0.5';
+        copyBtn.style.cursor = 'not-allowed';
+        copyBtn.style.background = '#9bbf7a';
+      } else {
+        copyBtn.disabled = false;
+        copyBtn.textContent = '📋 全部修這份 audit';
+        copyBtn.style.opacity = '';
+        copyBtn.style.cursor = '';
+        copyBtn.style.background = '';
+      }
+    }
   } catch (err) {
     body.innerHTML = `<div style="padding:20px;color:var(--danger);">載入失敗: ${err.message}<br><br>直接到 <a href="https://github.com/${REPO}/blob/master/${file}" target="_blank">GitHub</a> 看</div>`;
   }
