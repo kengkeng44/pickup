@@ -55,6 +55,8 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .type-chip[data-type="tap-tiles"] { background: #84cc16; }
 .type-chip[data-type="tap-pairs"] { background: #3d8aae; }
 .type-chip[data-type="read-mc-with-audio"] { background: #b08838; }
+.type-chip[data-type="emoji-pick"] { background: #ec4899; }
+.type-chip[data-type="grammar-mc"] { background: #7c3aed; }
 .q-id { font-family: ui-monospace,Consolas,monospace; font-size: 10px; color: var(--muted); }
 .q-tags { font-size: 10px; color: var(--muted); margin-left: auto; }
 
@@ -120,6 +122,11 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
   border-radius: 10px; padding: 12px 14px; margin-bottom: 14px;
   font-size: 12px; color: var(--text); line-height: 1.6; }
 .note strong { color: var(--accent-dark); }
+.dist-wrap { background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:14px 16px; margin-bottom:16px; }
+.dist-table { width:100%; border-collapse:collapse; font-size:11px; }
+.dist-table th { text-align:left; font-size:10px; color:var(--muted); border-bottom:1.5px solid var(--border); padding:4px 8px; }
+.dist-table td { border-bottom:1px solid #eee2cf; padding:6px 8px; vertical-align:top; }
+.dist-table code { font-size:10px; }
 </style>
 </head>
 <body>
@@ -135,11 +142,155 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     3. 改完按右下角 <strong>📤 export 改動</strong> 按鈕 → 自動 copy 改動清單到剪貼簿<br>
     4. 貼給 Claude → 我跑 script 改 JSON + regen 靜態頁
   </div>
+  
+  <div class="dist-wrap">
+    <h2 style="font-size:15px;font-weight:900;margin:0 0 4px;">📊 題型分佈總覽</h2>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">每章「按鈕數(lessons)」+ 各題型計數/佔比(不含旁白 narration)。🚩 = listen-mc &gt; 40%(依分佈標準偏食)。標準見 <code>docs/standards/2026-06-22-question-distribution-standard.md</code>。</div>
+    <table class="dist-table">
+      <thead><tr><th>章</th><th>按鈕</th><th>題數</th><th>題型分佈</th></tr></thead>
+      <tbody><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch0.html" style="color:var(--accent-dark);text-decoration:none;">Ch0</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">27</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 21</span> <span class="type-chip" data-type="listen-emoji" style="">listen-emoji 6 · 22%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 6 · 22%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 6 · 22%</span> <span class="type-chip" data-type="picture-mc" style="">picture-mc 3 · 11%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 2 · 7%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 2 · 7%</span> <span class="type-chip" data-type="grammar-mc" style="">grammar-mc 2 · 7%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch1.html" style="color:var(--accent-dark);text-decoration:none;">Ch1</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">38</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 40</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 13 · 34%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 18%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 18%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 18%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 2 · 5%</span> <span class="type-chip" data-type="listen-pairs" style="">listen-pairs 1 · 3%</span> <span class="type-chip" data-type="phrase-pairs" style="">phrase-pairs 1 · 3%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch2.html" style="color:var(--accent-dark);text-decoration:none;">Ch2</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 6 · 17%</span> <span class="type-chip" data-type="phrase-pairs" style="">phrase-pairs 1 · 3%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch3.html" style="color:var(--accent-dark);text-decoration:none;">Ch3</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 33%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch4.html" style="color:var(--accent-dark);text-decoration:none;">Ch4</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 4 · 11%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 3 · 9%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch5.html" style="color:var(--accent-dark);text-decoration:none;">Ch5</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">41</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 36</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 34%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 6 · 15%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch6.html" style="color:var(--accent-dark);text-decoration:none;">Ch6</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">49</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 28</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 43% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 14%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 14%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 14%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 7 · 14%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch7.html" style="color:var(--accent-dark);text-decoration:none;">Ch7</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 33%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch8.html" style="color:var(--accent-dark);text-decoration:none;">Ch8</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">36</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 41</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 15 · 42% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 19%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 19%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 19%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch9.html" style="color:var(--accent-dark);text-decoration:none;">Ch9</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">36</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 41</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 15 · 42% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 19%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 19%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 19%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch10.html" style="color:var(--accent-dark);text-decoration:none;">Ch10</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch11.html" style="color:var(--accent-dark);text-decoration:none;">Ch11</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">36</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 41</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 15 · 42% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 19%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 19%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 19%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch12.html" style="color:var(--accent-dark);text-decoration:none;">Ch12</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">36</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 41</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 15 · 42% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 19%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 19%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 19%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch13.html" style="color:var(--accent-dark);text-decoration:none;">Ch13</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch14.html" style="color:var(--accent-dark);text-decoration:none;">Ch14</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch15.html" style="color:var(--accent-dark);text-decoration:none;">Ch15</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch16.html" style="color:var(--accent-dark);text-decoration:none;">Ch16</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch17.html" style="color:var(--accent-dark);text-decoration:none;">Ch17</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch18.html" style="color:var(--accent-dark);text-decoration:none;">Ch18</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">35</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 42</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 40%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 20%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 20%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 20%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch19.html" style="color:var(--accent-dark);text-decoration:none;">Ch19</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 33%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch20.html" style="color:var(--accent-dark);text-decoration:none;">Ch20</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="">listen-mc 14 · 33%</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch21.html" style="color:var(--accent-dark);text-decoration:none;">Ch21</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 4 · 10%</span> <span class="type-chip" data-type="comprehension" style="">comprehension 3 · 7%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch22.html" style="color:var(--accent-dark);text-decoration:none;">Ch22</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch23.html" style="color:var(--accent-dark);text-decoration:none;">Ch23</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch24.html" style="color:var(--accent-dark);text-decoration:none;">Ch24</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch25.html" style="color:var(--accent-dark);text-decoration:none;">Ch25</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr><tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch26.html" style="color:var(--accent-dark);text-decoration:none;">Ch26</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">7</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">42</td>
+      <td style="line-height:2;"><span class="type-chip" data-type="narration" style="opacity:.45;">narration 35</span> <span class="type-chip" data-type="listen-mc" style="outline:2px solid #c84a3a;">listen-mc 21 · 50% 🚩</span> <span class="type-chip" data-type="tap-pairs" style="">tap-pairs 7 · 17%</span> <span class="type-chip" data-type="listen-tf" style="">listen-tf 7 · 17%</span> <span class="type-chip" data-type="emoji-pick" style="">emoji-pick 7 · 17%</span></td>
+    </tr></tbody>
+    </table>
+  </div>
   <div class="ch-grid">
     <a class="ch-card" href="qa-static-ch0.html">
       <div class="ch-num">Ch0</div>
       <div class="ch-title">Intro · 認識 Mochi 與奶奶</div>
-      <div class="ch-stats">7 lessons · 46 Q</div>
+      <div class="ch-stats">7 lessons · 48 Q</div>
     </a>
   
     <a class="ch-card" href="qa-static-ch1.html">
