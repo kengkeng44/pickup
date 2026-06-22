@@ -50,3 +50,6 @@ ios/build/
 
 # Codemagic local cache (none expected in repo)
 .codemagic/
+
+# Claude Code harness worktrees (agent isolation) — never commit
+.claude/worktrees/
