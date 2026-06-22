@@ -28,6 +28,9 @@
 
 // ─── Dictionary loader (module-cached, async-safe) ──────────────────────────
 
+// v2.0.B.365: 單字卡 — tooltip 加「＋」收藏到個人單字庫.
+import { vocab } from '../store/vocabStore';
+
 type Dict = Record<string, string>;
 
 let dict: Dict | null = null;
@@ -216,6 +219,32 @@ function showTooltipFor(anchor: HTMLElement, word: string, gloss: string): void 
   g.textContent = gloss;
   t.el.appendChild(w);
   t.el.appendChild(g);
+
+  // v2.0.B.365: 「＋」加入單字卡. tooltip 本身 pointer-events:none, 故按鈕單獨開 auto.
+  const add = document.createElement('button');
+  const saved0 = vocab.has(word);
+  add.className = 'pickup-word-tooltip-add';
+  add.textContent = saved0 ? '✓ 已收藏' : '＋ 單字卡';
+  add.setAttribute('aria-label', saved0 ? '已在單字庫' : '加入單字庫');
+  add.style.cssText = 'pointer-events:auto;margin-top:6px;align-self:stretch;border:none;border-radius:8px;padding:5px 8px;font-size:12px;font-weight:800;font-family:inherit;cursor:pointer;background:' + (saved0 ? '#9bbf7a' : 'var(--t-brand-dark,#b07a2a)') + ';color:#fff;';
+  // pointerdown stopPropagation: 不讓 document 的「點別處關 tooltip」搶先關閉.
+  add.addEventListener('pointerdown', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    if (vocab.has(word)) return;
+    const r = vocab.add(word, gloss);
+    if (r.ok) {
+      add.textContent = '✓ 已收藏';
+      add.style.background = '#9bbf7a';
+    } else if (r.reason === 'cap') {
+      add.textContent = '🔒 已滿 100';
+      add.title = '免費單字卡上限 100 張,升級解鎖更多';
+    } else if (r.reason === 'exists') {
+      add.textContent = '✓ 已收藏';
+      add.style.background = '#9bbf7a';
+    }
+  });
+  t.el.appendChild(add);
 
   // Make visible BEFORE measuring, so getBoundingClientRect has real
   // dimensions. CSS animation handles the fade-in.
