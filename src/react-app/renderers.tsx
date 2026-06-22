@@ -324,6 +324,85 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── RevealSentence (v2.0.B.360 per user) — 句子 3-段點擊揭示 ──────────────────
+// 空白 → 點 1 下出英文 → 點 2 下出中文 (sentenceZh). 文章式輕量呈現, 不每句框起來.
+// answered=true (答完) 時自動至少到英文段, 讓解析有上下文. 缺 sentenceZh → 揭示只到英文.
+const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; big?: boolean }> = ({ en, zh, answered, big }) => {
+  const [stage, setStage] = useState(0); // 0 空白, 1 英文, 2 英文+中文
+  useEffect(() => { setStage(0); }, [en]);
+  useEffect(() => { if (answered) setStage((s) => Math.max(s, 1)); }, [answered]);
+  const maxStage = zh ? 2 : 1;
+  const advance = () => setStage((s) => Math.min(maxStage, s + 1));
+  const hint = stage === 0 ? '👆 點一下看英文' : (stage === 1 && zh ? '👆 再點一下看中文' : '');
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 4px', marginBottom: 14 }}>
+      <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={40} />
+      <div onClick={advance} style={{ flex: 1, cursor: stage < maxStage ? 'pointer' : 'default', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+        {stage === 0 ? (
+          <span style={{ fontSize: big ? 17 : 16, fontWeight: 700, color: 'var(--t-text-muted)', letterSpacing: '0.12em', lineHeight: 1.9 }}
+            dangerouslySetInnerHTML={{ __html: blanks(en) }} />
+        ) : (
+          <span style={{ fontSize: big ? 17 : 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}>{en}</span>
+        )}
+        {stage >= 2 && zh && (
+          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 6, lineHeight: 1.6 }}>{zh}</div>
+        )}
+        {hint && <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--t-brand-dark)', marginTop: 6 }}>{hint}</div>}
+      </div>
+    </div>
+  );
+};
+
+// ─── grammar-mc (v2.0.B.360) — 文法題: 原文句子「恆可見」(才看得到要填的空位) + 標籤 ──
+const GrammarMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const sentence = pickSentence(q);
+  const qPrompt = q.question ?? q.questionEn ?? '';
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const [selected, setSelected] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    setSelected(null); setRevealed(false);
+    try { speak(sentence, 'en-US'); } catch {}
+    return () => stopSpeaking();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+  useEffect(() => {
+    if (!revealed) return;
+    const t = window.setTimeout(() => onAdvance(sentence), 3000);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+  const click = (i: number) => {
+    if (revealed) return;
+    sfxCardPress();
+    setSelected(i); setRevealed(true);
+    onAnswer(i, i === correctIdx);
+    try { (i === correctIdx ? sfxCorrect : sfxWrong)(); } catch {}
+  };
+  return (
+    <div>
+      <SpeakerBadge speaker={q.speaker} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 4px', marginBottom: 8 }}>
+        <SpeakerBtn onClick={() => speak(sentence, 'en-US', { force: true })} size={40} />
+        <span style={{ flex: 1, fontSize: 17, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}>{sentence}</span>
+      </div>
+      <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-brand-dark)', margin: '0 4px 12px' }}>📘 文法 · {qPrompt}</div>
+      <div className="pickup-answer-sticky">
+        {opts.map((o, i) => {
+          const isCorrect = i === correctIdx;
+          const isSel = i === selected;
+          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
+        })}
+      </div>
+      {revealed && <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
 // ─── 3. listen-mc / listen-comprehension / listen-emoji / read-mc-with-audio (blind 4-option) ──
 const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const en = q.sentence ?? '';
@@ -369,10 +448,7 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div ref={ref} className="pickup-lesson-words">
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
-        <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
-        <span dangerouslySetInnerHTML={{ __html: revealed ? wrapWords(en) : blanks(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: revealed ? 'var(--t-text)' : 'var(--t-text-muted)', letterSpacing: revealed ? 0 : '0.1em', lineHeight: 1.8 }} />
-      </div>
+      <RevealSentence en={en} zh={q.sentenceZh} answered={revealed} />
       {qPrompt && (
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(qPrompt, 'en-US', { force: true })} size={36} />
@@ -409,9 +485,6 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
   const [selected, setSelected] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [done, setDone] = useState(false);
-  const passageRef = useRef<HTMLDivElement>(null);
-  // done 後段落才有 .word → 才可點看中文
-  useWordHint(passageRef, [done, q.id]);
 
   useEffect(() => {
     setSelected(null); setRevealed(false); setDone(false);
@@ -435,15 +508,8 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
   return (
     <div>
       <SpeakerBadge speaker={q.speaker} />
-      {/* 段落泡泡 — 一直可讀; done 前純文字 (不可點), done 後 wrapWords (可點看中文) */}
-      <div ref={passageRef} className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)', borderRadius: 14, marginBottom: 14 }}>
-        <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
-        <div style={{ flex: 1, position: 'relative' }}>
-          <SpeakerBtn onClick={() => speak(passage, 'en-US', { force: true })} />
-          <span style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}
-            dangerouslySetInnerHTML={{ __html: done ? wrapWords(passage) : escapeText(passage) }} />
-        </div>
-      </div>
+      {/* v2.0.B.360: 段落改 3-段點擊揭示 (空白→英文→中文), 文章式輕量呈現 */}
+      <RevealSentence en={passage} zh={q.sentenceZh} answered={revealed} big />
 
       {!done ? (
         <>
@@ -463,7 +529,7 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
       ) : (
         <>
           <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, textAlign: 'center', margin: '8px 0 14px' }}>
-            👆 點句子裡的字看中文 · Tap a word for Chinese
+            👆 點上面句子可看英文 → 再點看中文
           </div>
           <button
             type="button"
@@ -1932,8 +1998,8 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'phrase-pairs': TapPairsRenderer, // v2.0.B.321: 片語配對復用 tap-pairs UI
   'listen-pairs': ListenPairsRenderer, // v2.0.B.cron: 聽力選中文配對 (波形 ↔ 中文)
   'emoji-pick': EmojiPickRenderer,
-  // v2.0.B.355: grammar-mc — 文法題恆「可讀」(原文句子可見) → 復用 read-comprehension renderer.
-  'grammar-mc': ReadComprehensionRenderer,
+  // v2.0.B.360: grammar-mc 改用專屬 renderer (原文句子恆可見 + 📘文法 標籤).
+  'grammar-mc': GrammarMcRenderer,
   // v2.0.B.232 new types (TODO content expansion)
   'picture-mc': PictureMcRenderer,
   'read-and-tap': ReadAndTapRenderer,

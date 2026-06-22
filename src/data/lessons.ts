@@ -22,6 +22,9 @@ const QuestionBaseFields = {
   // sentenceHard = 原文/原典; sentenceEasy = 簡化版. renderer 依 pickup.difficulty 選, 缺版 fallback sentence.
   sentenceEasy: z.string().optional(),
   sentenceHard: z.string().optional(),
+  // v2.0.B.360 (per user): 句子中文翻譯 — 句子 3-段揭示 (空白→點英文→再點中文) 的中文那段.
+  // 選填; 缺版時揭示只到英文 (無中文段). listen-mc / comprehension 都吃這欄.
+  sentenceZh: z.string().optional(),
   question: z.string().optional(),
   explanationZh: z.string(),
   tags: z.array(z.string()).optional(),
