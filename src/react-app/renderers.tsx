@@ -208,43 +208,30 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
 // ─── 1. narration ───────────────────────────────────────────────────────────
 const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
   const text = pickSentence(q); // v2.0.B.323 三難度文本
-  const advancedRef = useRef(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useWordHint(ref, [q.id]);
-
+  // v2.0.B.361 (per user B): 旁白也納入「空白→英文→中文」揭示 + 去框 + 手動繼續
+  // (不再自動推進, 否則空白會直接被跳過讀不到). 旁白的 explanationZh 即中文翻譯.
+  const zh = q.sentenceZh ?? q.explanationZh ?? '';
   useEffect(() => {
-    advancedRef.current = false;
-    const advanceOnce = () => {
-      if (advancedRef.current) return;
-      advancedRef.current = true;
-      onAdvance(text);
-    };
-    // v2.0.B.185 P0-B fix (Walkthrough audit): TTS 結束後多等 2000ms 再 advance,
-    // 給 senior 讀者視覺確認窗口。fallback timer 同步 bump 2000ms (字數×600+4000)。
-    const dwellAdvance = () => window.setTimeout(advanceOnce, 2000);
-    try { speak(text, 'en-US', { onEnd: dwellAdvance }); } catch { dwellAdvance(); }
-    const fallbackMs = Math.max(7000, text.split(/\s+/).length * 600 + 4000);
-    const timer = window.setTimeout(advanceOnce, fallbackMs);
-    // v2.0.B.253 P0 fix (code-health cron 2026-06-07T1236):
-    // 用戶中途按 ✕ 退出時, dwellAdvance 仍 fire 在已死 scene → race condition.
-    // cleanup 必須同時 stopSpeaking() 清掉 speechEndCallback, 不然 onEnd 還會排新 setTimeout.
-    return () => {
-      window.clearTimeout(timer);
-      stopSpeaking();
-    };
+    try { speak(text, 'en-US'); } catch {}
+    return () => stopSpeaking();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
   return (
     <div>
       <SpeakerBadge speaker={q.speaker} />
-      <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '14px 12px', background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)', borderRadius: 14 }}>
-        <img src="/mascots/calico-anchor.webp" width={44} height={44} alt="" style={{ borderRadius: '50%' }} />
-        <div style={{ flex: 1, position: 'relative' }}>
-          <SpeakerBtn onClick={() => speak(text, 'en-US', { force: true })} />
-          <span ref={ref as React.RefObject<HTMLSpanElement>} style={{ marginLeft: 6, fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
-        </div>
-      </div>
+      <RevealSentence en={text} zh={zh || undefined} big />
+      <button
+        type="button"
+        onClick={() => onAdvance(text)}
+        className="pickup-answer-sticky"
+        style={{
+          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+          background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+          fontFamily: 'inherit', cursor: 'pointer',
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}
+      >繼續 →</button>
     </div>
   );
 };
