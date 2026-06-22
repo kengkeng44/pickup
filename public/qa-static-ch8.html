@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch8-1</a><a class="lesson-jump" href="#L2">Ch8-2</a><a class="lesson-jump" href="#L3">Ch8-3</a><a class="lesson-jump" href="#L4">Ch8-4</a><a class="lesson-jump" href="#L5">Ch8-5</a><a class="lesson-jump" href="#L6">Ch8-6</a><a class="lesson-jump" href="#L7">Ch8-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-1</span>
 <span class="lesson-beat">三兄弟離家 — 媽媽說:小心狼</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch8-l1-q10</span><span class="q-tags">story, ch8, three-pigs, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="What kind of house did mother ask for?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="sentence">What kind of house did mother ask for?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="What kind of house?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="question">What kind of house?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="options" data-idx="0">🏰 a strong one</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="optionsZh" data-idx="0">堅固的</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="options" data-idx="1">🍃 a thin one</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="optionsZh" data-idx="1">薄薄的</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="options" data-idx="2">🚗 a fast one</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="optionsZh" data-idx="2">快的</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="options" data-idx="3">🍰 a sweet one</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="optionsZh" data-idx="3">甜的</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l1-q10" data-field="explanationZh">堅固的家 = strong one。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l1-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Mother&#39;s words hang in the air: build a strong house...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l1-q11" data-field="sentence">Mother&#39;s words hang in the air: build a strong house...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l1-q11" data-field="explanationZh">媽媽的話留在空氣中:蓋一間堅固的家……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-2</span>
 <span class="lesson-beat">草屋蓋好 — 風吹草搖</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l2-q10</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="But the first pig only smiled and ate.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l2-q10" data-field="sentence">But the first pig only smiled and ate.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l2-q10" data-field="explanationZh">但第一隻小豬只是笑笑,繼續吃。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l2-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The straw walls sway again. And again. And again...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l2-q11" data-field="sentence">The straw walls sway again. And again. And again...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l2-q11" data-field="explanationZh">稻草牆又搖了。又搖了。又搖了……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-3</span>
 <span class="lesson-beat">木屋蓋好 — 遠處腳步聲</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l3-q10</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The second pig stood still. He listened.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l3-q10" data-field="sentence">The second pig stood still. He listened.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l3-q10" data-field="explanationZh">第二隻小豬站著不動。他聽。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l3-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heavy steps. Heavy steps. Coming closer down the path...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l3-q11" data-field="sentence">Heavy steps. Heavy steps. Coming closer down the path...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l3-q11" data-field="explanationZh">重重的腳步。重重的腳步。沿著路越走越近……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-4</span>
 <span class="lesson-beat">大野狼敲草屋的門</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l4-q10</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;Little pig, little pig, let me come in!&quot; he called.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l4-q10" data-field="sentence">&quot;Little pig, little pig, let me come in!&quot; he called.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l4-q10" data-field="explanationZh">「小豬小豬,讓我進來!」他叫著。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l4-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The first pig held his breath. He did not know what to say...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l4-q11" data-field="sentence">The first pig held his breath. He did not know what to say...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l4-q11" data-field="explanationZh">第一隻小豬屏住呼吸。他不知道該說什麼……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-5</span>
 <span class="lesson-beat">草屋倒了 — 木屋擋得住嗎?</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l5-q10</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="He ran to the wood house and banged on the door.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l5-q10" data-field="sentence">He ran to the wood house and banged on the door.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l5-q10" data-field="explanationZh">他跑到木屋,猛敲門。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l5-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;Let me in! Let me in!&quot; he cried. &quot;The wolf is coming!&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l5-q11" data-field="sentence">&quot;Let me in! Let me in!&quot; he cried. &quot;The wolf is coming!&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l5-q11" data-field="explanationZh">「讓我進!讓我進!」他大叫。「大野狼來了!」</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-6</span>
 <span class="lesson-beat">木屋倒了 — 磚屋是希望</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l6-q10</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="They raced to the brick house with their hearts pounding.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l6-q10" data-field="sentence">They raced to the brick house with their hearts pounding.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l6-q10" data-field="explanationZh">他們跑向磚屋,心臟撲通跳。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch8-l6-q11</span><span class="q-tags">story, ch8, three-pigs · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The third pig opened the door just in time. Just in time...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch8-l6-q11" data-field="sentence">The third pig opened the door just in time. Just in time...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch8-l6-q11" data-field="explanationZh">第三隻小豬剛好打開門。剛好趕上……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch8-7</span>
 <span class="lesson-beat">磚屋擋住狼 — 但狼還在外面</span>

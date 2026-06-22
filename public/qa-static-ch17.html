@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch17-1</a><a class="lesson-jump" href="#L2">Ch17-2</a><a class="lesson-jump" href="#L3">Ch17-3</a><a class="lesson-jump" href="#L4">Ch17-4</a><a class="lesson-jump" href="#L5">Ch17-5</a><a class="lesson-jump" href="#L6">Ch17-6</a><a class="lesson-jump" href="#L7">Ch17-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-1</span>
 <span class="lesson-beat">老爺爺救受傷的鶴 — 鶴會回來嗎?</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch17-l1-q10</span><span class="q-tags">story, ch17, crane-gratitude, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Where did the crane fly?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="sentence">Where did the crane fly?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="Where did it go?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="question">Where did it go?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="options" data-idx="0">☁️ up into the grey sky</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="optionsZh" data-idx="0">飛上灰灰的天空</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="options" data-idx="1">🌊 down to the sea</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="optionsZh" data-idx="1">飛到海裡</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="options" data-idx="2">🏠 into the old man&#39;s house</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="optionsZh" data-idx="2">飛進老人家裡</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="options" data-idx="3">🌳 into a tree hole</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="optionsZh" data-idx="3">飛進樹洞</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l1-q10" data-field="explanationZh">flew up → up into the sky。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l1-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The crane flies up into the grey sky — will it come back?...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l1-q11" data-field="sentence">The crane flies up into the grey sky — will it come back?...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l1-q11" data-field="explanationZh">鶴飛上灰灰的天空——牠會回來嗎?……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-2</span>
 <span class="lesson-beat">美麗女孩來敲門 — 她是誰?</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l2-q10</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="She sat by the fire. She smiled with a quiet face.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l2-q10" data-field="sentence">She sat by the fire. She smiled with a quiet face.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l2-q10" data-field="explanationZh">她坐在火邊。她安靜的笑了。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l2-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="She smiles with a quiet face. But who is she really?...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l2-q11" data-field="sentence">She smiles with a quiet face. But who is she really?...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l2-q11" data-field="explanationZh">她安靜的笑著。但她到底是誰?……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-3</span>
 <span class="lesson-beat">女孩織出珍貴的布 — 為什麼她要躲起來織?</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l3-q10</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The old man sat by the door. He listened all night.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l3-q10" data-field="sentence">The old man sat by the door. He listened all night.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l3-q10" data-field="explanationZh">老人坐在門邊。他聽了整晚。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l3-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Why must she hide while she weaves? Why never look?...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l3-q11" data-field="sentence">Why must she hide while she weaves? Why never look?...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l3-q11" data-field="explanationZh">為什麼她織布時要躲起來?為什麼不能看?……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-4</span>
 <span class="lesson-beat">商人來看布讚不絕口 — 老爺爺好奇了</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l4-q10</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="At night, the small back door stayed closed and quiet.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l4-q10" data-field="sentence">At night, the small back door stayed closed and quiet.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l4-q10" data-field="explanationZh">晚上,小後門安安靜靜的關著。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l4-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;How can she weave such magic? Who is she really?...&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l4-q11" data-field="sentence">&quot;How can she weave such magic? Who is she really?...&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l4-q11" data-field="explanationZh">「她怎麼會織出這樣的奇蹟?她到底是誰?……」</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-5</span>
 <span class="lesson-beat">偷看的衝動越來越強 — 他會偷看嗎?</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l5-q10</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="His hand moved slowly toward the door of the room.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l5-q10" data-field="sentence">His hand moved slowly toward the door of the room.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l5-q10" data-field="explanationZh">他的手慢慢的伸向房間的門。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l5-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;Just one small peek,&quot; he thinks. &quot;She will never know...&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l5-q11" data-field="sentence">&quot;Just one small peek,&quot; he thinks. &quot;She will never know...&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l5-q11" data-field="explanationZh">「只看一下下,」他想。「她不會知道……」</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-6</span>
 <span class="lesson-beat">看到鶴在拔自己的羽毛織布 — 她會留下嗎?</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l6-q10</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The crane turned her head. Their eyes met in silence.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l6-q10" data-field="sentence">The crane turned her head. Their eyes met in silence.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l6-q10" data-field="explanationZh">鶴轉過頭。他們安靜的對到眼。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch17-l6-q11</span><span class="q-tags">story, ch17, crane-gratitude · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Their eyes meet in silence. Will she still stay?...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch17-l6-q11" data-field="sentence">Their eyes meet in silence. Will she still stay?...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch17-l6-q11" data-field="explanationZh">他們安靜的對到眼。她還會留下嗎?……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch17-7</span>
 <span class="lesson-beat">鶴飛走的天空 — 學到什麼?</span>

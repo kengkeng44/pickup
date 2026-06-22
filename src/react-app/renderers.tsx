@@ -208,30 +208,29 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
 // ─── 1. narration ───────────────────────────────────────────────────────────
 const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
   const text = pickSentence(q); // v2.0.B.323 三難度文本
-  // v2.0.B.361 (per user B): 旁白也納入「空白→英文→中文」揭示 + 去框 + 手動繼續
-  // (不再自動推進, 否則空白會直接被跳過讀不到). 旁白的 explanationZh 即中文翻譯.
+  // v2.0.B.363 (per user AB): 旁白「預設顯示英文 + 自動推進」(只題目才空白).
+  // 保留去框 (RevealSentence) + 點看中文 (startStage=1 → 直接英文, 點一下出中文).
   const zh = q.sentenceZh ?? q.explanationZh ?? '';
+  const advancedRef = useRef(false);
   useEffect(() => {
-    try { speak(text, 'en-US'); } catch {}
-    return () => stopSpeaking();
+    advancedRef.current = false;
+    const advanceOnce = () => {
+      if (advancedRef.current) return;
+      advancedRef.current = true;
+      onAdvance(text);
+    };
+    const dwellAdvance = () => window.setTimeout(advanceOnce, 2000);
+    try { speak(text, 'en-US', { onEnd: dwellAdvance }); } catch { dwellAdvance(); }
+    const fallbackMs = Math.max(7000, text.split(/\s+/).length * 600 + 4000);
+    const timer = window.setTimeout(advanceOnce, fallbackMs);
+    return () => { window.clearTimeout(timer); stopSpeaking(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
   return (
     <div>
       <SpeakerBadge speaker={q.speaker} />
-      <RevealSentence en={text} zh={zh || undefined} big />
-      <button
-        type="button"
-        onClick={() => onAdvance(text)}
-        className="pickup-answer-sticky"
-        style={{
-          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
-          background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
-          fontFamily: 'inherit', cursor: 'pointer',
-          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }}
-      >繼續 →</button>
+      <RevealSentence en={text} zh={zh || undefined} big startStage={1} />
     </div>
   );
 };
@@ -314,9 +313,9 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 // ─── RevealSentence (v2.0.B.360 per user) — 句子 3-段點擊揭示 ──────────────────
 // 空白 → 點 1 下出英文 → 點 2 下出中文 (sentenceZh). 文章式輕量呈現, 不每句框起來.
 // answered=true (答完) 時自動至少到英文段, 讓解析有上下文. 缺 sentenceZh → 揭示只到英文.
-const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; big?: boolean }> = ({ en, zh, answered, big }) => {
-  const [stage, setStage] = useState(0); // 0 空白, 1 英文, 2 英文+中文
-  useEffect(() => { setStage(0); }, [en]);
+const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; big?: boolean; startStage?: number }> = ({ en, zh, answered, big, startStage }) => {
+  const [stage, setStage] = useState(startStage ?? 0); // 0 空白, 1 英文, 2 英文+中文
+  useEffect(() => { setStage(startStage ?? 0); }, [en, startStage]);
   useEffect(() => { if (answered) setStage((s) => Math.max(s, 1)); }, [answered]);
   const maxStage = zh ? 2 : 1;
   const advance = () => setStage((s) => Math.min(maxStage, s + 1));

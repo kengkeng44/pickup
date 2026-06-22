@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch10-1</a><a class="lesson-jump" href="#L2">Ch10-2</a><a class="lesson-jump" href="#L3">Ch10-3</a><a class="lesson-jump" href="#L4">Ch10-4</a><a class="lesson-jump" href="#L5">Ch10-5</a><a class="lesson-jump" href="#L6">Ch10-6</a><a class="lesson-jump" href="#L7">Ch10-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-1</span>
 <span class="lesson-beat">后羿射日 + 娶嫦娥 — 神會盯著他們嗎?</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch10-l1-q10</span><span class="q-tags">story, ch10, change, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="How did the people feel about Hou Yi?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="sentence">How did the people feel about Hou Yi?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="How did the people feel?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="question">How did the people feel?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="options" data-idx="0">💖 they loved him</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="optionsZh" data-idx="0">他們愛他</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="options" data-idx="1">😠 they were angry</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="optionsZh" data-idx="1">生氣</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="options" data-idx="2">😨 they ran away</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="optionsZh" data-idx="2">逃走</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="options" data-idx="3">😴 they were sleepy</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="optionsZh" data-idx="3">想睡</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l1-q10" data-field="explanationZh">人民愛戴他 → they loved him。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l1-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The people loved them both. Would the gods watch them, too?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l1-q11" data-field="sentence">The people loved them both. Would the gods watch them, too?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l1-q11" data-field="explanationZh">人民都愛他們倆。神,會也盯著他們嗎?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-2</span>
 <span class="lesson-beat">西王母給仙藥 — 仙藥是什麼?</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l2-q10</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Hou Yi put the pill in a small box. He hid the box.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l2-q10" data-field="sentence">Hou Yi put the pill in a small box. He hid the box.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l2-q10" data-field="explanationZh">后羿把藥丸放進一個小盒子。他把盒子藏起來。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l2-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The little white pill sat alone in its box. What was it really?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l2-q11" data-field="sentence">The little white pill sat alone in its box. What was it really?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l2-q11" data-field="explanationZh">小小的白藥丸,獨自躺在盒子裡。它,究竟是什麼?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-3</span>
 <span class="lesson-beat">壞學生覬覦仙藥 — 誰會吃?</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l3-q10</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Chang&#39;e was home alone. The box was inside.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l3-q10" data-field="sentence">Chang&#39;e was home alone. The box was inside.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l3-q10" data-field="explanationZh">嫦娥獨自在家。盒子就在屋內。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l3-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="One day Hou Yi went out to hunt. Chang&#39;e was home alone with the pill...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l3-q11" data-field="sentence">One day Hou Yi went out to hunt. Chang&#39;e was home alone with the pill...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l3-q11" data-field="explanationZh">一天后羿出去打獵。嫦娥獨自在家,身邊就是仙藥……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-4</span>
 <span class="lesson-beat">壞學生拿刀威脅 — 她會吞下去嗎?</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l4-q10</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="She held the pill close to her mouth.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l4-q10" data-field="sentence">She held the pill close to her mouth.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l4-q10" data-field="explanationZh">她把藥丸靠近嘴邊。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l4-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Chang&#39;e looked at the pill. She picked it up. She held it close to her mouth...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l4-q11" data-field="sentence">Chang&#39;e looked at the pill. She picked it up. She held it close to her mouth...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l4-q11" data-field="explanationZh">嫦娥看著藥丸。她拿了起來。她把藥丸靠到嘴邊……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-5</span>
 <span class="lesson-beat">嫦娥吞藥 — 接下來會發生什麼?</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l5-q10</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Then to the window. Then to the open sky.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l5-q10" data-field="sentence">Then to the window. Then to the open sky.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l5-q10" data-field="explanationZh">然後到窗邊。然後到敞開的天空。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l5-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="She began to float to the window. To the open sky. What now?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l5-q11" data-field="sentence">She began to float to the window. To the open sky. What now?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l5-q11" data-field="explanationZh">她開始飄向窗邊。飄向敞開的天空。接下來呢?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-6</span>
 <span class="lesson-beat">飛向月亮 — 后羿會怎麼樣?</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l6-q10</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="He was too late. She was already on the moon.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l6-q10" data-field="sentence">He was too late. She was already on the moon.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l6-q10" data-field="explanationZh">他太晚了。她已經在月亮上。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch10-l6-q11</span><span class="q-tags">story, ch10, change · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Hou Yi was running back home. He looked up at the sky. He was too late.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch10-l6-q11" data-field="sentence">Hou Yi was running back home. He looked up at the sky. He was too late.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch10-l6-q11" data-field="explanationZh">后羿正跑回家。他抬頭望天。已經來不及了。</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch10-7</span>
 <span class="lesson-beat">玉兔陪伴 + 中秋月圓 — 你想念的人是誰?</span>

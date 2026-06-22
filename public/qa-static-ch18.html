@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch18-1</a><a class="lesson-jump" href="#L2">Ch18-2</a><a class="lesson-jump" href="#L3">Ch18-3</a><a class="lesson-jump" href="#L4">Ch18-4</a><a class="lesson-jump" href="#L5">Ch18-5</a><a class="lesson-jump" href="#L6">Ch18-6</a><a class="lesson-jump" href="#L7">Ch18-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-1</span>
 <span class="lesson-beat">兩兄弟父母過世 → 興夫被趕出家門</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch18-l1-q10</span><span class="q-tags">story, ch18, heungbu-nolbu, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="How does Heungbu feel as he walks away?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="sentence">How does Heungbu feel as he walks away?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="How does he feel?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="question">How does he feel?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="options" data-idx="0">😢 sad and alone</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="optionsZh" data-idx="0">難過又孤單</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="options" data-idx="1">😄 happy and free</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="optionsZh" data-idx="1">開心又自由</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="options" data-idx="2">😡 ready to fight</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="optionsZh" data-idx="2">想打架</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="options" data-idx="3">😴 sleepy and full</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="optionsZh" data-idx="3">想睡又飽</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l1-q10" data-field="explanationZh">被趕出家門 + 走遠路 → 難過又孤單。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l1-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heungbu walks away with only one small bag...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l1-q11" data-field="sentence">Heungbu walks away with only one small bag...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l1-q11" data-field="explanationZh">興夫帶著一個小袋子,默默走遠……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-2</span>
 <span class="lesson-beat">興夫家裡很窮 → 他怎麼養家?</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l2-q10</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="His wife sat next to him. She held his hand.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l2-q10" data-field="sentence">His wife sat next to him. She held his hand.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l2-q10" data-field="explanationZh">他的妻子坐在他旁邊。她握住他的手。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l2-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heungbu looks at the empty rice pot. What can he do?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l2-q11" data-field="sentence">Heungbu looks at the empty rice pot. What can he do?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l2-q11" data-field="explanationZh">興夫看著空空的米鍋。他能怎麼辦?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-3</span>
 <span class="lesson-beat">受傷小燕子掉下來 → 興夫會救嗎?</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l3-q10</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The bird was small and warm in his hand.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l3-q10" data-field="sentence">The bird was small and warm in his hand.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l3-q10" data-field="explanationZh">小鳥又小又溫暖,在他手裡。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l3-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heungbu jumps up. Can he save the little bird?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l3-q11" data-field="sentence">Heungbu jumps up. Can he save the little bird?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l3-q11" data-field="explanationZh">興夫跳起來。他能救這隻小鳥嗎?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-4</span>
 <span class="lesson-beat">燕子春天回來 → 給興夫什麼禮物?</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l4-q10</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The children pointed at the vine and laughed.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l4-q10" data-field="sentence">The children pointed at the vine and laughed.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l4-q10" data-field="explanationZh">小孩們指著葫蘆藤笑著。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l4-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="A gourd seed. What will grow from it?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l4-q11" data-field="sentence">A gourd seed. What will grow from it?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l4-q11" data-field="explanationZh">一顆葫蘆種子。會長出什麼來?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-5</span>
 <span class="lesson-beat">葫蘆種子長出寶物 → 興夫變富</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l5-q10</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heungbu looked up at the sky. He thanked the swallow.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l5-q10" data-field="sentence">Heungbu looked up at the sky. He thanked the swallow.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l5-q10" data-field="explanationZh">興夫抬頭看天空。他謝謝燕子。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l5-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Heungbu is rich now — but is the story over?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l5-q11" data-field="sentence">Heungbu is rich now — but is the story over?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l5-q11" data-field="explanationZh">興夫變富有了——但故事結束了嗎?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-6</span>
 <span class="lesson-beat">哥哥孬夫嫉妒打傷燕子 → 報應</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l6-q10</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The bird looked at him. Its eyes were quiet and dark.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l6-q10" data-field="sentence">The bird looked at him. Its eyes were quiet and dark.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l6-q10" data-field="explanationZh">小鳥看著他。牠的眼睛安靜又深沉。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch18-l6-q11</span><span class="q-tags">story, ch18, heungbu-nolbu · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The swallow looks at him with silent eyes...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch18-l6-q11" data-field="sentence">The swallow looks at him with silent eyes...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch18-l6-q11" data-field="explanationZh">燕子用沉默的眼神看著他……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch18-7</span>
 <span class="lesson-beat">興夫分財給哥哥 → 學到什麼?</span>

@@ -374,7 +374,7 @@ function renderChapter(ch, lessons) {
     // v2.0.B.207: display Ch{N}-{L} convention (e.g. Ch1-1, Ch1-2) instead of raw id
     const displayId = `Ch${ch}-${lesson.lessonInChapter}`;
     const qCount = (lesson.questions || []).length;
-    lessonsHtml.push(`<div class="lesson-block">`);
+    lessonsHtml.push(`<div class="lesson-block" id="L${lesson.lessonInChapter}">`);
     lessonsHtml.push(`<div class="lesson-head">`);
     lessonsHtml.push(`<span class="lesson-id">${escapeHtml(displayId)}</span>`);
     if (lesson.storyBeat) lessonsHtml.push(`<span class="lesson-beat">${escapeHtml(applyDefaults(lesson.storyBeat))}</span>`);
@@ -389,6 +389,11 @@ function renderChapter(ch, lessons) {
     lessonsHtml.push(`</div>`);
   }
 
+  // v2.0.B.363 (per user A): 小章節快速跳 — Ch{N}-1 / -2 … 按鈕列, 點了跳到該 lesson.
+  const jumpNav = lessons.map((l) =>
+    `<a class="lesson-jump" href="#L${l.lessonInChapter}">Ch${ch}-${l.lessonInChapter}</a>`
+  ).join('');
+
   return `<!doctype html>
 <html lang="zh-TW">
 <head>
@@ -396,6 +401,14 @@ function renderChapter(ch, lessons) {
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Pickup QA Ch${ch} ${CHAPTER_TITLES[ch] || ''} — Static</title>
 ${SHARED_CSS}
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -405,6 +418,7 @@ ${SHARED_CSS}
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:${jumpNav}</div>
 <main>
 ${lessonsHtml.join('\n')}
 </main>

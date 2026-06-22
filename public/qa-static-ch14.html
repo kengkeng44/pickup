@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch14-1</a><a class="lesson-jump" href="#L2">Ch14-2</a><a class="lesson-jump" href="#L3">Ch14-3</a><a class="lesson-jump" href="#L4">Ch14-4</a><a class="lesson-jump" href="#L5">Ch14-5</a><a class="lesson-jump" href="#L6">Ch14-6</a><a class="lesson-jump" href="#L7">Ch14-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-1</span>
 <span class="lesson-beat">浦島救烏龜 — 烏龜會謝謝他嗎?</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch14-l1-q10</span><span class="q-tags">story, ch14, urashima, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="How did Urashima set the turtle down?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="sentence">How did Urashima set the turtle down?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="How did he set it down?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="question">How did he set it down?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="options" data-idx="0">🐢 gently on the sand</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="optionsZh" data-idx="0">輕輕放在沙上</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="options" data-idx="1">🪨 onto a sharp rock</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="optionsZh" data-idx="1">丟到尖石上</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="options" data-idx="2">🌊 thrown far away</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="optionsZh" data-idx="2">丟很遠</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="options" data-idx="3">🔥 by a hot fire</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="optionsZh" data-idx="3">丟到火邊</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l1-q10" data-field="explanationZh">慢慢、小心 → 輕輕放在沙上。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l1-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The turtle looks up at him with quiet, dark eyes...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l1-q11" data-field="sentence">The turtle looks up at him with quiet, dark eyes...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l1-q11" data-field="explanationZh">烏龜抬頭看他,眼神安靜又深邃……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-2</span>
 <span class="lesson-beat">烏龜帶他下海 — 海底是什麼?</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l2-q10</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Down and down they went, into the blue water.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l2-q10" data-field="sentence">Down and down they went, into the blue water.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l2-q10" data-field="explanationZh">他們一直往下、往下,進入藍色的水裡。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l2-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Down and down they go. The light above grows dim...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l2-q11" data-field="sentence">Down and down they go. The light above grows dim...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l2-q11" data-field="explanationZh">他們一直往下、往下。上面的光越來越暗……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-3</span>
 <span class="lesson-beat">龍宮公主歡迎他 — 他能留下嗎?</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l3-q10</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Music played softly. The doors closed behind them.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l3-q10" data-field="sentence">Music played softly. The doors closed behind them.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l3-q10" data-field="explanationZh">音樂輕輕響起。門在他們身後關上。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l3-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;Stay one day,&quot; she says. &quot;Or stay forever...&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l3-q11" data-field="sentence">&quot;Stay one day,&quot; she says. &quot;Or stay forever...&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l3-q11" data-field="explanationZh">「住一天,」她說。「或者永遠住下來……」</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-4</span>
 <span class="lesson-beat">浦島開心住下 — 真的開心嗎?</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l4-q10</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Every night, his heart felt warm and a little heavy.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l4-q10" data-field="sentence">Every night, his heart felt warm and a little heavy.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l4-q10" data-field="explanationZh">每個晚上,他的心又暖又有一點沉。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l4-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="But late at night, he thinks of his old mother by the sea...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l4-q11" data-field="sentence">But late at night, he thinks of his old mother by the sea...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l4-q11" data-field="explanationZh">但深夜裡,他想念海邊年老的媽媽……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-5</span>
 <span class="lesson-beat">想家了要回去 — 公主給他寶盒</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l5-q10</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The big turtle was waiting at the palace gate.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l5-q10" data-field="sentence">The big turtle was waiting at the palace gate.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l5-q10" data-field="explanationZh">大烏龜在宮殿門口等。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l5-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;Take this Tamatebako,&quot; she says. &quot;But never, never open it...&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l5-q11" data-field="sentence">&quot;Take this Tamatebako,&quot; she says. &quot;But never, never open it...&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l5-q11" data-field="explanationZh">「拿著這個玉手箱,」她說。「但永遠、永遠不要打開……」</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-6</span>
 <span class="lesson-beat">回到岸上 — 沒人認得他了</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l6-q10</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;He went out to sea and never came back.&quot;">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l6-q10" data-field="sentence">&quot;He went out to sea and never came back.&quot;</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l6-q10" data-field="explanationZh">「他出海以後就再也沒回來。」</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch14-l6-q11</span><span class="q-tags">story, ch14, urashima · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="&quot;That was a hundred years ago.&quot; Nothing — and no one — is the same...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch14-l6-q11" data-field="sentence">&quot;That was a hundred years ago.&quot; Nothing — and no one — is the same...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch14-l6-q11" data-field="explanationZh">「那是一百年前的事。」一切——還有每一個人——都不一樣了……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch14-7</span>
 <span class="lesson-beat">打開寶盒 → 變老頭 (時間紅利)</span>

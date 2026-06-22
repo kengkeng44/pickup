@@ -106,6 +106,14 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .toast.show { opacity: 1; }
 </style>
 
+<style>
+.lesson-jump-bar { position: sticky; top: 0; z-index: 40; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 12px; background: rgba(241,235,225,0.97); border-bottom: 1px solid var(--border); }
+.lesson-jump { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--accent-dark); color: var(--accent-dark); text-decoration: none; }
+.lesson-jump:active { background: var(--accent-dark); color: #fff; }
+.lesson-block { scroll-margin-top: 52px; }
+</style>
 </head>
 <body>
 <header>
@@ -115,8 +123,9 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
     <a class="btn secondary" href="qa-static.html">← 索引</a>
   </div>
 </header>
+<div class="lesson-jump-bar">📑 小章節:<a class="lesson-jump" href="#L1">Ch16-1</a><a class="lesson-jump" href="#L2">Ch16-2</a><a class="lesson-jump" href="#L3">Ch16-3</a><a class="lesson-jump" href="#L4">Ch16-4</a><a class="lesson-jump" href="#L5">Ch16-5</a><a class="lesson-jump" href="#L6">Ch16-6</a><a class="lesson-jump" href="#L7">Ch16-7</a></div>
 <main>
-<div class="lesson-block">
+<div class="lesson-block" id="L1">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-1</span>
 <span class="lesson-beat">老夫婦求子 — 會生出什麼?</span>
@@ -140,7 +149,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="emoji-pick">emoji-pick</span><span class="q-id">kt-ch16-l1-q10</span><span class="q-tags">story, ch16, issun-boshi, hook · vocab · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="How big was the baby?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="sentence">How big was the baby?</div></div><div class="question-pill"><button class="speaker-btn" data-speak="How big was the baby?">🔊</button><div class="question-text" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="question">How big was the baby?</div></div><div style="margin-bottom:6px; font-size:10px; font-weight:900; color:var(--muted); letter-spacing:.5px; text-transform:uppercase;">Options · 正解 #0</div><div class="opts"><div class="opt correct"><span class="opt-num">0</span><span class="opt-en" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="options" data-idx="0">👍 only as tall as a thumb</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="optionsZh" data-idx="0">只有拇指那麼高</span></div><div class="opt"><span class="opt-num">1</span><span class="opt-en" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="options" data-idx="1">👶 like a normal baby</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="optionsZh" data-idx="1">像普通寶寶</span></div><div class="opt"><span class="opt-num">2</span><span class="opt-en" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="options" data-idx="2">🐘 very big and very heavy</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="optionsZh" data-idx="2">非常大又非常重</span></div><div class="opt"><span class="opt-num">3</span><span class="opt-en" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="options" data-idx="3">🍼 just a little smaller</span><span class="opt-zh" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="optionsZh" data-idx="3">只小一點點</span></div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l1-q10" data-field="explanationZh">tiny baby + in her hand → 拇指那麼高。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l1-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The old couple smile and cry with joy. What kind of child will he be?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l1-q11" data-field="sentence">The old couple smile and cry with joy. What kind of child will he be?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l1-q11" data-field="explanationZh">老夫婦又笑又哭,好開心。這小孩會變成怎樣呢?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L2">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-2</span>
 <span class="lesson-beat">拇指大小的男孩 — 他能做什麼?</span>
@@ -164,7 +173,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l2-q10</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="But they nodded slowly. They believed in him.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l2-q10" data-field="sentence">But they nodded slowly. They believed in him.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l2-q10" data-field="explanationZh">但他們慢慢點頭。他們相信他。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l2-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Issun is tiny but clever. What can a tiny boy do out there?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l2-q11" data-field="sentence">Issun is tiny but clever. What can a tiny boy do out there?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l2-q11" data-field="explanationZh">一寸又小又聰明。一個拇指大的男孩在外面能做什麼呢?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L3">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-3</span>
 <span class="lesson-beat">一寸帶碗船出發 — 路上會遇誰?</span>
@@ -188,7 +197,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l3-q10</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="Day after day, the bowl floated on.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l3-q10" data-field="sentence">Day after day, the bowl floated on.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l3-q10" data-field="explanationZh">一天又一天,小碗一直漂著。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l3-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="A tiny boy in a rice bowl, going to the big city. Who will he meet on the way?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l3-q11" data-field="sentence">A tiny boy in a rice bowl, going to the big city. Who will he meet on the way?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l3-q11" data-field="explanationZh">一個小男孩坐在飯碗裡,要去大城市。路上他會遇到誰呢?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L4">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-4</span>
 <span class="lesson-beat">京都當侍衛 — 公主出去散步</span>
@@ -212,7 +221,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l4-q10</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The path led through a quiet wood.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l4-q10" data-field="sentence">The path led through a quiet wood.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l4-q10" data-field="explanationZh">路穿過一片安靜的樹林。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l4-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The wood is too quiet. Something is hiding in the trees...">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l4-q11" data-field="sentence">The wood is too quiet. Something is hiding in the trees...</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l4-q11" data-field="explanationZh">樹林安靜得不太對勁。樹後面有東西躲著……</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L5">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-5</span>
 <span class="lesson-beat">鬼來抓公主 — 他能擋住嗎?</span>
@@ -236,7 +245,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l5-q10</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The big demon reached down with one huge hand.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l5-q10" data-field="sentence">The big demon reached down with one huge hand.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l5-q10" data-field="explanationZh">大鬼用一隻大手伸下來。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l5-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="A tiny boy stands between the demon and the princess. Can he stop him?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l5-q11" data-field="sentence">A tiny boy stands between the demon and the princess. Can he stop him?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l5-q11" data-field="explanationZh">一個拇指大的男孩站在鬼跟公主中間。他擋得住嗎?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L6">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-6</span>
 <span class="lesson-beat">一寸跳進鬼嘴用針刺 — 鬼會怎樣?</span>
@@ -260,7 +269,7 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l6-q10</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The demon gave up and ran away into the wood.">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l6-q10" data-field="sentence">The demon gave up and ran away into the wood.</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l6-q10" data-field="explanationZh">鬼放棄了,跑進樹林裡。</div></div>
 <div class="q-card"><div class="q-head"><span style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:#e5e7eb;color:#4b5563;font-size:10px;font-weight:800;letter-spacing:.3px;margin-right:6px;"><span style="font-size:12px;">📖</span>背景</span><span class="type-chip" data-type="narration">narration</span><span class="q-id">kt-ch16-l6-q11</span><span class="q-tags">story, ch16, issun-boshi · LA2 · easy</span></div><div class="sentence-card"><button class="speaker-btn" data-speak="The demon drops a small wooden mallet behind him. What can it do?">🔊</button><div class="sentence-prose" contenteditable="true" data-qid="kt-ch16-l6-q11" data-field="sentence">The demon drops a small wooden mallet behind him. What can it do?</div></div><div class="explanation" contenteditable="true" data-qid="kt-ch16-l6-q11" data-field="explanationZh">鬼留下一個小小的木槌。這個木槌會做什麼呢?</div></div>
 </div>
-<div class="lesson-block">
+<div class="lesson-block" id="L7">
 <div class="lesson-head">
 <span class="lesson-id">Ch16-7</span>
 <span class="lesson-beat">打鼓變大人娶公主 — 變大那刻</span>
