@@ -1,6 +1,6 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-22T02:08:53.614Z
+**Generated**: 2026-06-22T02:10:15.420Z
 
 ## Aggregate
 
