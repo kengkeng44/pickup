@@ -864,6 +864,20 @@ function parseAuditMd(md) {
   return { angle, p0, p1, p2, total, topItem, hasP0: p0 > 0 || /⚠️\s*P0/.test(md) };
 }
 
+// v2.0.B.362 (per user): 白話判讀 — 取代卡片/modal 的英文 angle/topItem jargon.
+// 用「掃到數 + 急修數 + cron 類型」產生一句中文「要不要接」, 降決策成本.
+function plainVerdict(d, type, done) {
+  if (done) return '✅ 已處理過,不用再接';
+  const worth = type === 'content'; // 只有「題目品質」類有 lessons 可自動修
+  const p0 = (d && d.p0) || 0, total = (d && d.total) || 0;
+  let s;
+  if (p0 > 0) s = `有 ${p0} 個急修要處理`;
+  else if (total > 0) s = `掃到 ${total} 個小改善、沒有急修`;
+  else s = '這輪沒掃到問題';
+  const tip = worth ? '👉 題目內容,值得接' : '👉 多是程式碼/架構,看看就好';
+  return `${s} · ${tip}`;
+}
+
 // v2.0.B.257: 統一 copy feedback — call copyPrompt + visual ✓ on the originating button
 function cp(kind, btn) {
   copyPrompt(kind);
@@ -978,9 +992,8 @@ async function loadDashboard(forceFresh) {
         <h3>${meta.icon} ${meta.name} ${doneEntry ? '✅' : (d.hasP0 ? '⚠️' : '')} <span style="font-size:11px;color:var(--muted);font-weight:600;">· ${meta.cnDesc}</span></h3>
         <div class="interval">${meta.interval}</div>
         <div class="last-run">🕒 上次跑 ${d.ts ? timeAgo(d.ts) : '—'}${stamp ? ` · ${stamp}` : ''}</div>
-        ${d.angle ? `<div class="top-item" style="background:var(--bg);">🎯 本輪角度:${d.angle}</div>` : ''}
         <div class="counts">${pills}</div>
-        ${d.topItem ? `<div class="top-item">📌 ${d.topItem.slice(0, 110)}${d.topItem.length > 110 ? '…' : ''}</div>` : ''}
+        <div class="top-item" style="background:var(--bg);">📋 ${plainVerdict(d, type, !!doneEntry)}</div>
         ${actionsHtml}
         <div class="hint">👆 點卡片看完整 audit 詳情</div>`;
 
@@ -1113,14 +1126,13 @@ function updateNextActionBanner(dataByType) {
 
   banner.style.display = 'block';
   const meta = CRON_TYPES[top.type];
-  const short = top.d.topItem ? top.d.topItem.slice(0, 60) + '…' : '看下方 card 詳情';
   if (top.d.p0 > 0) {
     banner.classList.add('urgent');
-    titleEl.textContent = `⚠️ 急修 ${top.d.p0} 條 (${meta.cnDesc})`;
-    descEl.innerHTML = `<strong>${meta.name}</strong> 標了 ${top.d.p0} 條 P0。最緊那條:「${short}」`;
+    titleEl.textContent = `⚠️ ${meta.cnDesc} 有 ${top.d.p0} 個急修`;
+    descEl.innerHTML = plainVerdict(top.d, top.type, false);
   } else {
     titleEl.textContent = `⭐ ${meta.cnDesc} 本輪掃到 ${top.d.total} 項可改善`;
-    descEl.innerHTML = `沒急修。<strong>${meta.name}</strong> 本輪掃到 ${top.d.total} 項。建議接:「${short}」`;
+    descEl.innerHTML = plainVerdict(top.d, top.type, false);
   }
 
   document.getElementById('next-btn').onclick = () => copyForCron(top.type, top.d.file);
@@ -1162,11 +1174,10 @@ async function openAuditModal(file, type, sha, meta) {
     const summaryHtml = `
       ${doneBanner}
       <div style="background:var(--bg);border-radius:10px;padding:12px;margin-bottom:10px;">
-        ${p.angle ? `<div style="font-size:13px;font-weight:800;margin-bottom:6px;">🎯 本輪角度:${esc(p.angle)}</div>` : ''}
         <div style="margin-bottom:8px;">${counts}</div>
-        ${p.topItem ? `<div style="font-size:13px;line-height:1.6;">📌 最關鍵:${esc(p.topItem.slice(0, 160))}</div>` : ''}
+        <div style="font-size:14px;font-weight:800;line-height:1.6;">📋 ${esc(plainVerdict(p, type, !!done))}</div>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">這是 cron 自動產生的稽核報告,原文多為英文。上面是中文重點;要看完整原文點下面展開。</div>`;
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">這是 cron 自動產生的稽核報告,原文是英文 + 技術細節。上面是白話判讀;要看完整原文點下面展開。</div>`;
     const rawHtml = (typeof marked !== 'undefined')
       ? marked.parse(md)
       : '<pre style="white-space:pre-wrap;">' + md.replace(/[<>]/g, c => c === '<' ? '&lt;' : '&gt;') + '</pre>';
