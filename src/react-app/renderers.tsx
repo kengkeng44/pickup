@@ -1932,6 +1932,8 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'phrase-pairs': TapPairsRenderer, // v2.0.B.321: 片語配對復用 tap-pairs UI
   'listen-pairs': ListenPairsRenderer, // v2.0.B.cron: 聽力選中文配對 (波形 ↔ 中文)
   'emoji-pick': EmojiPickRenderer,
+  // v2.0.B.355: grammar-mc — 文法題恆「可讀」(原文句子可見) → 復用 read-comprehension renderer.
+  'grammar-mc': ReadComprehensionRenderer,
   // v2.0.B.232 new types (TODO content expansion)
   'picture-mc': PictureMcRenderer,
   'read-and-tap': ReadAndTapRenderer,

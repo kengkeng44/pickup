@@ -137,6 +137,8 @@ main { padding: 14px; max-width: 720px; margin: 0 auto 80px; }
 .type-chip[data-type="tap-tiles"] { background: #84cc16; }
 .type-chip[data-type="tap-pairs"] { background: #3d8aae; }
 .type-chip[data-type="read-mc-with-audio"] { background: #b08838; }
+.type-chip[data-type="emoji-pick"] { background: #ec4899; }
+.type-chip[data-type="grammar-mc"] { background: #7c3aed; }
 .q-id { font-family: ui-monospace,Consolas,monospace; font-size: 10px; color: var(--muted); }
 .q-tags { font-size: 10px; color: var(--muted); margin-left: auto; }
 
@@ -414,6 +416,39 @@ ${SHARED_JS}
 </html>`;
 }
 
+// v2.0.B.355: 題型分佈總覽 — 索引最上方. 每章一列: 按鈕(lessons) 數 + 各題型計數 chip.
+// narration 是旁白不算題, 標灰提示. listen-mc 佔比 > 40% 時標紅旗 (依分佈標準 §5).
+function renderDistribution(stats) {
+  const NON_Q = new Set(['narration']);
+  const rows = stats.map(s => {
+    const tc = s.typeCounts || {};
+    const qTotal = Object.entries(tc).reduce((n, [t, c]) => n + (NON_Q.has(t) ? 0 : c), 0);
+    const chips = Object.entries(tc)
+      .sort((a, b) => b[1] - a[1])
+      .map(([t, c]) => {
+        const isNarr = NON_Q.has(t);
+        const pct = !isNarr && qTotal ? Math.round((c / qTotal) * 100) : null;
+        const over = t === 'listen-mc' && pct !== null && pct > 40;
+        return `<span class="type-chip" data-type="${escapeHtml(t)}" style="${isNarr ? 'opacity:.45;' : ''}${over ? 'outline:2px solid #c84a3a;' : ''}">${escapeHtml(t)} ${c}${pct !== null ? ` · ${pct}%` : ''}${over ? ' 🚩' : ''}</span>`;
+      }).join(' ');
+    return `<tr>
+      <td style="white-space:nowrap;font-weight:800;"><a href="qa-static-ch${s.ch}.html" style="color:var(--accent-dark);text-decoration:none;">Ch${s.ch}</a></td>
+      <td style="white-space:nowrap;font-weight:800;text-align:center;">${s.lessons}</td>
+      <td style="white-space:nowrap;text-align:center;color:var(--muted);">${qTotal}</td>
+      <td style="line-height:2;">${chips}</td>
+    </tr>`;
+  }).join('');
+  return `
+  <div class="dist-wrap">
+    <h2 style="font-size:15px;font-weight:900;margin:0 0 4px;">📊 題型分佈總覽</h2>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">每章「按鈕數(lessons)」+ 各題型計數/佔比(不含旁白 narration)。🚩 = listen-mc &gt; 40%(依分佈標準偏食)。標準見 <code>docs/standards/2026-06-22-question-distribution-standard.md</code>。</div>
+    <table class="dist-table">
+      <thead><tr><th>章</th><th>按鈕</th><th>題數</th><th>題型分佈</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
 function renderIndex(stats) {
   const cards = stats.map(s => `
     <a class="ch-card" href="qa-static-ch${s.ch}.html">
@@ -446,6 +481,11 @@ ${SHARED_CSS}
   border-radius: 10px; padding: 12px 14px; margin-bottom: 14px;
   font-size: 12px; color: var(--text); line-height: 1.6; }
 .note strong { color: var(--accent-dark); }
+.dist-wrap { background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:14px 16px; margin-bottom:16px; }
+.dist-table { width:100%; border-collapse:collapse; font-size:11px; }
+.dist-table th { text-align:left; font-size:10px; color:var(--muted); border-bottom:1.5px solid var(--border); padding:4px 8px; }
+.dist-table td { border-bottom:1px solid #eee2cf; padding:6px 8px; vertical-align:top; }
+.dist-table code { font-size:10px; }
 </style>
 </head>
 <body>
@@ -461,6 +501,7 @@ ${SHARED_CSS}
     3. 改完按右下角 <strong>📤 export 改動</strong> 按鈕 → 自動 copy 改動清單到剪貼簿<br>
     4. 貼給 Claude → 我跑 script 改 JSON + regen 靜態頁
   </div>
+  ${renderDistribution(stats)}
   <div class="ch-grid">${cards}</div>
 </main>
 </body>
@@ -480,7 +521,14 @@ for (const ch of CHAPTERS) {
   const outPath = path.join(PUBLIC, `qa-static-ch${ch}.html`);
   fs.writeFileSync(outPath, html, 'utf-8');
   const qCount = lessons.reduce((s, l) => s + (l.questions?.length || 0), 0);
-  stats.push({ ch, lessons: lessons.length, questions: qCount, size: Buffer.byteLength(html) });
+  // v2.0.B.355 (per user): per-chapter 題型分佈 — 索引最上方總覽用.
+  const typeCounts = {};
+  for (const l of lessons) {
+    for (const q of (l.questions || [])) {
+      typeCounts[q.type] = (typeCounts[q.type] || 0) + 1;
+    }
+  }
+  stats.push({ ch, lessons: lessons.length, questions: qCount, typeCounts, size: Buffer.byteLength(html) });
   console.log(`OK   ch${ch}: ${lessons.length} lessons / ${qCount} Q → ${outPath} (${(Buffer.byteLength(html)/1024).toFixed(1)}KB)`);
 }
 

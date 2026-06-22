@@ -93,6 +93,16 @@ export const EmojiPickSchema = FourOptionShape.extend({
   type: z.literal('emoji-pick'),
 });
 
+// v2.0.B.355 (per user): grammar-mc — 文法題. 顯示故事「原文句子」(可見, 非盲聽),
+// 提問一個文法點 (時態 / 冠詞 / 介系詞 / 單複數 / 詞序 / be 動詞), 4 選 1.
+// distractor 是「文法變體」(同字不同形) 而非語意干擾 → 練文法不練猜意思.
+// 「貼近原文」鐵律: sentence 必須是該課故事真的出現過的句子 (或極小改寫).
+// renderer 復用 ReadComprehensionRenderer (段落恆可見) — 文法題不能盲聽.
+// 比例: 每章只 2-3 lessons 各放 1 題 (低密度, 不喧賓奪主). subSkill='function'.
+export const GrammarMcSchema = FourOptionShape.extend({
+  type: z.literal('grammar-mc'),
+});
+
 // v2.0.B.232 (TODO content expansion 1/5): picture-mc — 顯示 1 張圖
 // (emoji big or img URL), 4 個英文句子選 1 描述。培養「圖 → 語言」翻譯。
 // imageEmoji 與 imageUrl 至少要有一個 (cross-field guard in QuestionSchema).
@@ -243,6 +253,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   ListenTfZhSchema,
   ListenTfSchema,
   EmojiPickSchema,
+  GrammarMcSchema,
   // v2.0.B.232 new types
   PictureMcSchema,
   ReadAndTapSchema,

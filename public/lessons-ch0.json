@@ -715,6 +715,36 @@
         "subSkill": "detail"
       },
       {
+        "type": "grammar-mc",
+        "id": "kt-ch0-l5-g1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi ___ up on the low wall every night.",
+        "question": "Which word is correct?",
+        "options": [
+          "jumps",
+          "jump",
+          "jumping",
+          "jumped"
+        ],
+        "optionsZh": [
+          "跳 (牠,加 s)",
+          "跳 (原形)",
+          "正在跳",
+          "跳 (過去式)"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "主詞 Mochi 是單數(他/她/牠),現在式動詞要加 -s → jumps。原文:Mochi jumps up on the low wall.",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
         "type": "narration",
         "id": "kt-ch0-l5-n5",
         "level": "A1",
@@ -875,6 +905,36 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch0-l6-g1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One night, Grandma ___ a book of stories.",
+        "question": "Which word is correct?",
+        "options": [
+          "opened",
+          "opens",
+          "opening",
+          "open"
+        ],
+        "optionsZh": [
+          "打開 (過去式)",
+          "打開 (現在式)",
+          "正在打開",
+          "打開 (原形)"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事在講過去發生的事(One night…),動詞用過去式 → opened。原文:Grandma opened a book.",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "grammar"
+        ],
+        "subSkill": "function"
       },
       {
         "type": "narration",
