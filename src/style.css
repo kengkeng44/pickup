@@ -1422,3 +1422,41 @@ h1, h2 {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* ─── v2.0.B.366 (per user): 答對彈兩下 + 喇叭按壓動畫 (Duolingo-style) ─────── */
+@keyframes pickup-correct-pop {
+  0%   { transform: scale(1); }
+  22%  { transform: scale(1.06); }
+  44%  { transform: scale(0.98); }
+  66%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+.pickup-correct-pop { animation: pickup-correct-pop 0.5s var(--pickup-spring, cubic-bezier(.34,1.56,.64,1)); }
+
+@keyframes pickup-speaker-pop {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+.pickup-speaker-pop { animation: pickup-speaker-pop 0.45s var(--pickup-spring, cubic-bezier(.34,1.56,.64,1)); }
+
+/* 按下喇叭時往外擴一圈聲波環 */
+.pickup-speaker-ping::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid var(--t-brand, #e7a44a);
+  animation: pickup-speaker-ring 0.6s ease-out;
+  pointer-events: none;
+}
+@keyframes pickup-speaker-ring {
+  0%   { transform: scale(0.55); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pickup-correct-pop,
+  .pickup-speaker-pop { animation: none; }
+  .pickup-speaker-ping::after { animation: none; display: none; }
+}

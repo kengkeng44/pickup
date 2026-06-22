@@ -116,16 +116,27 @@ function editDistance(a: string, b: string): number {
   return dp[bl];
 }
 
-const SpeakerBtn = ({ onClick, size = 22 }: { onClick: () => void; size?: number }) => (
-  <button onClick={onClick} aria-label="Replay" style={{
-    flex: '0 0 auto', width: size, height: size, padding: 0,
-    background: 'transparent', border: 'none', cursor: 'pointer',
-    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-  }}>
-    <img src="/mascots/icon-speaker.webp" width={size - 2} height={size - 2} alt="" style={{ opacity: 0.7 }} />
-  </button>
-);
+// v2.0.B.366 (per user): 按壓動畫 — icon 彈一下 (pop) + 外擴一圈聲波環 (ping), Duolingo-style.
+const SpeakerBtn = ({ onClick, size = 22 }: { onClick: () => void; size?: number }) => {
+  const [ping, setPing] = useState(false);
+  const handle = () => {
+    setPing(false);
+    // 強制 reflow 讓動畫每次重播
+    requestAnimationFrame(() => setPing(true));
+    window.setTimeout(() => setPing(false), 620);
+    onClick();
+  };
+  return (
+    <button onClick={handle} aria-label="Replay" className={ping ? 'pickup-speaker-ping' : undefined} style={{
+      flex: '0 0 auto', width: size, height: size, padding: 0, position: 'relative',
+      background: 'transparent', border: 'none', cursor: 'pointer',
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+    }}>
+      <img src="/mascots/icon-speaker.webp" width={size - 2} height={size - 2} alt="" className={ping ? 'pickup-speaker-pop' : undefined} style={{ opacity: 0.78 }} />
+    </button>
+  );
+};
 
 // v2.0.B.cron 聽力配對: 聲音波形視覺 (喇叭 icon + 波形長條, 暖色琥珀系 per user — 非藍).
 // 純視覺 affordance, 不帶文字 (聽力題不可洩漏英文). active=選中 → 琥珀加深。
@@ -162,7 +173,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
   const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? '#a23829' : 'var(--t-text)';
   const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : 'var(--t-border-card)';
   return (
-    <button onClick={onClick} disabled={disabled} style={{
+    <button onClick={onClick} disabled={disabled} className={state === 'correct' ? 'pickup-correct-pop' : undefined} style={{
       width: '100%', padding: '14px 16px', marginBottom: 8,
       background: bg, color: fg,
       border: `2px solid ${border}`, borderBottom: '4px solid var(--t-brand-dark)',
