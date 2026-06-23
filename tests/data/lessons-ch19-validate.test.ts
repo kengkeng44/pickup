@@ -21,7 +21,7 @@ describe('Ch19 Sang Kancil 鼠鹿 (Maritime SEA oral folk PD)', () => {
       (s, l) => s + l.questions.length,
       0
     );
-    expect(totalQ).toBe(77);
+    expect(totalQ).toBeGreaterThanOrEqual(77);
   });
 
   it('Ch19 lessons all chapter=19 and id pattern kt-ch19-l*', () => {

@@ -225,6 +225,207 @@
         "sentenceZh": "媽媽要的是什麼樣的家？"
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "pig",
+            "right": "豬"
+          },
+          {
+            "left": "mother",
+            "right": "媽媽"
+          },
+          {
+            "left": "road",
+            "right": "路"
+          },
+          {
+            "left": "leave",
+            "right": "離開"
+          }
+        ],
+        "explanationZh": "配對練習一下！pig=豬、mother=媽媽、road=路、leave=離開。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Three little pigs grew up and left their mother's house one spring day.",
+        "question": "What is this story mainly about?",
+        "options": [
+          "three pigs starting their own lives",
+          "a wolf who can sing and dance",
+          "mother building a big garden",
+          "pigs who found some gold coins"
+        ],
+        "optionsZh": [
+          "三隻小豬開始自己的生活",
+          "一隻會唱歌跳舞的狼",
+          "媽媽蓋了一個大花園",
+          "小豬找到金幣"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事一開頭就說三兄弟從媽媽家出發，要各自蓋房子——主題是「三隻小豬開始自己的生活」！",
+        "sentenceZh": "三隻小豬長大後，在一個春天離開了媽媽的家。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mother gave the pigs one key piece of advice before they left.",
+        "questionEn": "Did mother want the pigs to build any kind of house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "媽媽說的是「堅固的」家，不是隨便什麼樣的家——所以她不是說「隨便蓋就好」，答案是 No。",
+        "sentenceZh": "媽媽在小豬出發前，給了他們一個重要的叮嚀。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The big bad wolf lived in the woods and was always hungry.",
+        "question": "Which word describes the wolf?",
+        "options": [
+          "😠 dangerous and mean",
+          "😇 gentle and kind",
+          "😂 funny and soft",
+          "😴 lazy and slow"
+        ],
+        "optionsZh": [
+          "😠 危險又壞心",
+          "😇 溫柔又善良",
+          "😂 好笑又無害",
+          "😴 懶惰又慢吞吞"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「壞」又「餓」——大野狼是危險的角色，而不是善良、搞笑或懶惰的！",
+        "sentenceZh": "大野狼住在森林裡，肚子老是餓著。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each pig would build his own home along this road.",
+        "question": "Why did the three pigs go different ways?",
+        "options": [
+          "each one wanted his own place",
+          "mother told them to fight",
+          "they were angry with each other",
+          "the wolf chased them apart"
+        ],
+        "optionsZh": [
+          "每隻都想要自己的家",
+          "媽媽叫他們去打架",
+          "兄弟三個鬧翻了",
+          "被大野狼追散了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說每隻小豬要蓋「自己的」家——所以他們分開走，是因為「每隻都想要自己的家」！",
+        "sentenceZh": "每隻小豬都要沿著這條路，蓋自己的家。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the description to the right character.",
+        "pairs": [
+          {
+            "left": "gave advice",
+            "right": "mother"
+          },
+          {
+            "left": "was hungry",
+            "right": "wolf"
+          },
+          {
+            "left": "left home",
+            "right": "pigs"
+          },
+          {
+            "left": "lived in woods",
+            "right": "wolf"
+          }
+        ],
+        "explanationZh": "故事裡誰做了什麼？mother 給建議、wolf 肚子餓、pigs 離家、wolf 住森林！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They walked down the road together, side by side.",
+        "questionEn": "Did the three brothers walk alone at first?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "side by side 就是「並肩走」——三兄弟一起走，不是一個人，所以答案是 No。",
+        "sentenceZh": "三兄弟肩並肩走在路上。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch8-l1-q11",
         "level": "A2",
@@ -463,6 +664,215 @@
           "story",
           "ch8",
           "three-pigs"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "straw",
+            "right": "稻草"
+          },
+          {
+            "left": "fast",
+            "right": "快"
+          },
+          {
+            "left": "wind",
+            "right": "風"
+          },
+          {
+            "left": "wall",
+            "right": "牆"
+          }
+        ],
+        "explanationZh": "快複習一下這節的生字：straw=稻草、fast=快、wind=風、wall=牆！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He chose straw because it was light and easy to lift. He took the straw and built a house in one hour.",
+        "question": "What does this tell us about the first pig?",
+        "options": [
+          "wanted the easiest and quickest way",
+          "was the hardest working brother",
+          "was already scared of the wolf",
+          "had no money for better materials"
+        ],
+        "optionsZh": [
+          "想走最輕鬆快速的路",
+          "是最勤奮的那個兄弟",
+          "已經在害怕大野狼了",
+          "沒錢買更好的材料"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "選輕的稻草、一小時就蓋好——這說明第一隻小豬「想走輕鬆快速的路」，不想多費力氣。",
+        "sentenceZh": "他選了稻草，因為輕又好搬；拿了稻草，一個小時就把家蓋好了。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The wind began to blow across the field.",
+        "questionEn": "Was the wind a sign of danger for the straw house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "牆一碰風就搖——風對草屋當然是危險的警訊，所以答案是 Yes！",
+        "sentenceZh": "風開始吹過田野。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The straw walls leaned and shook with every soft breeze.",
+        "question": "What word fits the straw walls best?",
+        "options": [
+          "🍃 fragile",
+          "🧱 solid",
+          "🏔️ mighty",
+          "🌟 shining"
+        ],
+        "optionsZh": [
+          "🍃 脆弱的",
+          "🧱 堅實的",
+          "🏔️ 強壯的",
+          "🌟 閃亮的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "一陣風就搖——稻草牆是「脆弱的」，fragile 就是這個意思！",
+        "sentenceZh": "稻草牆在每一陣輕風中搖晃歪斜。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch8-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He _____ down to rest and ate his lunch.",
+        "question": "Which word fits in the blank?",
+        "options": [
+          "sat",
+          "sit",
+          "sits",
+          "sitting"
+        ],
+        "optionsZh": [
+          "sat（過去式，坐下）",
+          "sit（現在原形）",
+          "sits（第三人稱現在）",
+          "sitting（現在分詞）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事用的是過去式——「他坐下來」要說 sat，不是 sit 或 sits。記住：sit → sat，過去式！",
+        "sentenceZh": "他坐下來休息，吃了午飯。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But the first pig only smiled and ate. The straw walls sway again.",
+        "question": "What is the problem at the end of this lesson?",
+        "options": [
+          "walls shaking but the pig does nothing",
+          "pig cannot find any food to eat",
+          "wind has stopped and it is too quiet",
+          "pig wants to go back to mother"
+        ],
+        "optionsZh": [
+          "牆一直搖，小豬卻不在乎",
+          "小豬找不到吃的東西",
+          "風停了，四周太安靜",
+          "小豬想回到媽媽身邊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "牆搖了又搖，小豬卻只是笑著吃飯——問題是「牆一直搖，小豬卻不在乎」，這才是隱患！",
+        "sentenceZh": "可是第一隻小豬只是笑笑繼續吃，稻草牆又搖了一下。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the action to who did it.",
+        "pairs": [
+          {
+            "left": "built in one hour",
+            "right": "first pig"
+          },
+          {
+            "left": "blew across the field",
+            "right": "wind"
+          },
+          {
+            "left": "leaned and shook",
+            "right": "straw walls"
+          },
+          {
+            "left": "smiled and ate",
+            "right": "first pig"
+          }
+        ],
+        "explanationZh": "這節誰做了什麼？第一隻小豬一小時蓋好房子、笑著吃飯；風吹過田野；稻草牆搖晃！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
         ]
       },
       {
@@ -707,6 +1117,206 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "sticks",
+            "right": "木枝"
+          },
+          {
+            "left": "second",
+            "right": "第二"
+          },
+          {
+            "left": "proud",
+            "right": "驕傲"
+          },
+          {
+            "left": "steps",
+            "right": "腳步聲"
+          }
+        ],
+        "explanationZh": "複習一下！sticks=木枝、second=第二、proud=驕傲、steps=腳步聲。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He picked sticks because they felt firmer than straw. He worked all day. He did not stop.",
+        "question": "How was the second pig different from the first?",
+        "options": [
+          "worked longer and chose stronger material",
+          "was much lazier and built much faster",
+          "used the same straw as his brother",
+          "asked mother to come and help him"
+        ],
+        "optionsZh": [
+          "花更多時間，選了更硬的材料",
+          "更懶惰，但蓋得更快",
+          "用了跟哥哥一樣的稻草",
+          "請媽媽來幫他"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他選了比稻草更硬的木枝，還做了一整天不休息——比第一隻小豬「花更多時間，選了更硬的材料」！",
+        "sentenceZh": "他選了比稻草硬的木枝，做了整整一天都沒停下來。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "From the dark path came a soft sound, slow and heavy.",
+        "questionEn": "Was the sound coming closer to the pig?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "從黑暗路上傳來腳步聲——這個聲音越來越近，對第二隻小豬來說當然是越來越靠近，答案是 Yes。",
+        "sentenceZh": "從黑暗的小路上，傳來又輕又沉的聲音。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The second pig stood still and listened carefully.",
+        "question": "How did the pig feel when he heard the sound?",
+        "options": [
+          "😨 nervous",
+          "😂 amused",
+          "😴 sleepy",
+          "😋 hungry"
+        ],
+        "optionsZh": [
+          "😨 緊張害怕",
+          "😂 覺得好笑",
+          "😴 昏昏欲睡",
+          "😋 肚子好餓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "站著不動、豎耳靜聽——面對不明腳步聲，小豬是「緊張害怕」的，nervous 就對了！",
+        "sentenceZh": "第二隻小豬一動不動，仔細聆聽。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He looked at his new home and felt proud. The sun went down behind the trees.",
+        "question": "What changed the mood at the end of this lesson?",
+        "options": [
+          "night came and something unknown moved closer",
+          "pig started laughing loudly at the moon",
+          "pig heard his brothers calling from far away",
+          "wind stopped and everything became calm"
+        ],
+        "optionsZh": [
+          "夜晚降臨，有什麼不明的東西越來越近",
+          "小豬對著月亮大聲笑起來",
+          "小豬聽到兄弟從遠處呼喚",
+          "風停了，一切都變得平靜"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "太陽下山後，黑暗的路上傳來腳步聲——氣氛從開心驕傲，突然轉成「夜晚降臨，有不明東西越來越近」！",
+        "sentenceZh": "他看著新蓋好的家，覺得好驕傲。太陽沉到樹後面去了。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match these words from the story.",
+        "pairs": [
+          {
+            "left": "firmer",
+            "right": "更硬"
+          },
+          {
+            "left": "proud",
+            "right": "驕傲"
+          },
+          {
+            "left": "still",
+            "right": "不動"
+          },
+          {
+            "left": "heavy",
+            "right": "沉重"
+          }
+        ],
+        "explanationZh": "記好這幾個詞：firmer=更硬、proud=驕傲、still=不動、heavy=沉重。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He built his house in one afternoon.",
+        "questionEn": "Did the second pig finish faster than the first pig?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "第一隻小豬一小時蓋完，第二隻做了整個下午——所以第二隻比較慢，答案是 No。",
+        "sentenceZh": "第二隻小豬在一個下午裡蓋好了他的家。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch8-l3-q11",
         "level": "A2",
@@ -945,6 +1555,204 @@
           "story",
           "ch8",
           "three-pigs"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "brick",
+            "right": "磚"
+          },
+          {
+            "left": "knock",
+            "right": "敲門"
+          },
+          {
+            "left": "breath",
+            "right": "呼吸"
+          },
+          {
+            "left": "thick",
+            "right": "厚"
+          }
+        ],
+        "explanationZh": "brick=磚、knock=敲門、breath=呼吸、thick=厚——都是今晚的關鍵字！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He lifted heavy red blocks and mixed cold wet earth all day. The other two pigs laughed at him for working so slow.",
+        "question": "Why did the two brothers laugh at the third pig?",
+        "options": [
+          "he was still working while they had finished",
+          "he dropped the bricks on his own feet",
+          "he was singing the wrong song too loudly",
+          "his house was painted a funny color"
+        ],
+        "optionsZh": [
+          "他們已經蓋完，他還在努力",
+          "他把磚頭掉在自己腳上",
+          "他大聲唱錯歌",
+          "他的房子被漆成奇怪的顏色"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "兩個哥哥早就蓋完了，第三隻小豬還在慢慢搬磚——所以他們覺得他「工作太慢」，就嘲笑他！",
+        "sentenceZh": "他整天搬沉重的紅磚和泥土。另外兩隻小豬嘲笑他做得太慢。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His walls were tall. His walls were thick.",
+        "questionEn": "Were the brick walls stronger than the straw and stick houses?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "既高又厚的磚牆，當然比稻草屋和木枝屋都更堅固——答案是 Yes！",
+        "sentenceZh": "他的牆砌得又高又厚。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "That same night, the wolf came to the straw house with hungry eyes.",
+        "question": "What was the wolf planning to do?",
+        "options": [
+          "🐺 catch the pigs",
+          "🎁 bring them gifts",
+          "🏡 build his own house",
+          "🌙 watch the night sky"
+        ],
+        "optionsZh": [
+          "🐺 去抓小豬",
+          "🎁 送禮物給他們",
+          "🏡 蓋自己的家",
+          "🌙 欣賞夜空"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大野狼肚子餓、眼神兇——他的計畫當然是「去抓小豬」！",
+        "sentenceZh": "就在那天晚上，大野狼帶著飢餓的眼神走向草屋。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch8-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He _____ on the wooden door three times.",
+        "question": "Which word fits in the blank?",
+        "options": [
+          "knocked",
+          "knocks",
+          "knock",
+          "knocking"
+        ],
+        "optionsZh": [
+          "knocked（過去式，敲了）",
+          "knocks（第三人稱現在）",
+          "knock（原形）",
+          "knocking（現在分詞）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事發生在過去，所以要用過去式——knock 的過去式是 knocked，就是「敲了」！",
+        "sentenceZh": "大野狼敲了木門三下。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His knocks were loud, and his voice was soft like honey.",
+        "question": "Why did the wolf use a sweet voice while knocking hard?",
+        "options": [
+          "to trick the pig into opening the door",
+          "because he was happy to visit the pig",
+          "he was tired and just wanted to sleep",
+          "the soft voice made his knocks lighter"
+        ],
+        "optionsZh": [
+          "想騙小豬開門",
+          "因為他很開心來拜訪小豬",
+          "他累了只想睡覺",
+          "輕柔的聲音讓他的敲門聲變小"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大聲敲、假甜聲——這是大野狼的把戲，目的是「騙小豬開門」。壞蛋最愛裝好人！",
+        "sentenceZh": "他的敲門聲很大，說話的聲音卻甜得像蜂蜜。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The first pig held his breath and did not know what to say.",
+        "questionEn": "Was the first pig confident when the wolf knocked?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "屏住呼吸、不知道說什麼——這可不是有信心的樣子，他是嚇到了，答案是 No。",
+        "sentenceZh": "第一隻小豬屏住呼吸，不知道該怎麼辦。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
         ]
       },
       {
@@ -1189,6 +1997,206 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "chin",
+            "right": "下巴"
+          },
+          {
+            "left": "blow",
+            "right": "吹"
+          },
+          {
+            "left": "fall",
+            "right": "倒"
+          },
+          {
+            "left": "run",
+            "right": "跑"
+          }
+        ],
+        "explanationZh": "chin=下巴、blow=吹、fall=倒、run=跑——這節的動詞都超重要！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He huffed. He puffed. He blew with all his might. The straw house flew apart in just a few seconds.",
+        "question": "What does this tell us about the straw house?",
+        "options": [
+          "it was too weak to protect the pig",
+          "it was strong enough to hold for a while",
+          "the wolf needed many days to knock it down",
+          "the house was too big for the wolf to blow"
+        ],
+        "optionsZh": [
+          "它太脆弱，根本保護不了小豬",
+          "它夠堅固，撐了一段時間",
+          "大野狼花了好幾天才吹倒它",
+          "房子太大，大野狼吹不倒"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "幾秒鐘就四散了——稻草屋「太脆弱，根本保護不了小豬」，媽媽的警告應驗了！",
+        "sentenceZh": "大野狼吹啊吹，稻草屋在幾秒鐘內就四散崩塌。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The first pig dashed away, with his short legs going fast.",
+        "questionEn": "Did the first pig escape from the wolf?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他拔腿就跑——雖然緊張，但他成功逃走了，答案是 Yes！",
+        "sentenceZh": "第一隻小豬拔腿就跑，短腿跑得飛快。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He ran to the wood house and banged on the door. The wolf is coming!",
+        "question": "How did the first pig feel when he ran?",
+        "options": [
+          "😱 totally terrified",
+          "😊 very relaxed now",
+          "😎 cool and calm",
+          "🤔 a bit puzzled"
+        ],
+        "optionsZh": [
+          "😱 嚇得半死",
+          "😊 非常放鬆",
+          "😎 超級淡定",
+          "🤔 有點搞不清楚"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "拼命敲門、大喊「狼來了」——第一隻小豬是「嚇壞了」！terrified 就是這個感覺。",
+        "sentenceZh": "他跑到木屋去拼命敲門，大野狼來了！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He told the wolf he would never open the door. But the wolf huffed and puffed and blew the straw house in.",
+        "question": "What can we learn from this?",
+        "options": [
+          "saying no is not enough without a strong house",
+          "the wolf gives up if the pig shouts back hard",
+          "a straw house is fine if you lock the door tight",
+          "the wolf is too tired to blow very hard"
+        ],
+        "optionsZh": [
+          "光說不行，要有一間堅固的家才行",
+          "只要大聲回嗆，大野狼就會放棄",
+          "草屋只要把門鎖好就沒問題",
+          "大野狼已經太累，吹不了太用力"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小豬嘴上說不，但草屋還是倒了——這說明「光說不行，要有一間堅固的家才行」！",
+        "sentenceZh": "他告訴大野狼永遠不開門。但大野狼呼呼一吹，草屋就倒了。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match these actions to what happened.",
+        "pairs": [
+          {
+            "left": "huffed and puffed",
+            "right": "wolf"
+          },
+          {
+            "left": "flew apart",
+            "right": "straw house"
+          },
+          {
+            "left": "dashed away",
+            "right": "first pig"
+          },
+          {
+            "left": "banged on door",
+            "right": "first pig"
+          }
+        ],
+        "explanationZh": "大野狼吹、草屋倒、第一隻小豬逃跑——這是這一節的重點事件！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The wolf smiled and his eyes grew bright.",
+        "questionEn": "Did the wolf feel happy when the pig refused to open the door?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "嘴角上揚、眼睛發亮——大野狼反而更興奮了，他覺得可以大顯身手，所以答案是 Yes。",
+        "sentenceZh": "大野狼嘴角上揚，眼睛突然亮了起來。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch8-l5-q11",
         "level": "A2",
@@ -1427,6 +2435,206 @@
           "story",
           "ch8",
           "three-pigs"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "lock",
+            "right": "鎖"
+          },
+          {
+            "left": "roof",
+            "right": "屋頂"
+          },
+          {
+            "left": "hope",
+            "right": "希望"
+          },
+          {
+            "left": "back",
+            "right": "後面"
+          }
+        ],
+        "explanationZh": "lock=鎖、roof=屋頂、hope=希望、back=後面——把這幾個記牢！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His knock shook the wood walls and rattled the windows. The wolf huffed and puffed and blew the wood house in.",
+        "question": "What happened to the two pigs' plan to stay safe?",
+        "options": [
+          "wood house failed just like the straw one",
+          "locked door kept the wolf out for good",
+          "two brothers pushed the wolf away together",
+          "wood walls held up and protected everyone"
+        ],
+        "optionsZh": [
+          "木屋跟草屋一樣倒了",
+          "鎖好的門永遠擋住了大野狼",
+          "兩兄弟合力把大野狼推走了",
+          "木牆撐住了，保護了所有人"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "一吹木屋就倒——木屋的命運跟草屋一樣，「木屋跟草屋一樣倒了」！",
+        "sentenceZh": "大野狼的拳頭把木牆震動，大野狼吹啊吹，木屋就倒了。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They raced to the brick house with their hearts pounding.",
+        "questionEn": "Were the two brothers calm when they ran to the brick house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "心臟砰砰跳、拼命跑——根本不平靜！他們嚇壞了，所以答案是 No。",
+        "sentenceZh": "兩兄弟心跳猛烈，拼命往磚屋跑去。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The third pig opened the door just in time. Just in time.",
+        "question": "How did the two brothers feel when the door opened?",
+        "options": [
+          "😮‍💨 relieved and glad",
+          "😡 furious and mad",
+          "🤩 excited and proud",
+          "😑 bored and tired"
+        ],
+        "optionsZh": [
+          "😮‍💨 鬆了一口氣、好高興",
+          "😡 非常憤怒、很生氣",
+          "🤩 超興奮、好驕傲",
+          "😑 無聊、很累"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "剛好趕上！那種感覺就是「鬆了一口氣」——relieved，總算逃過一劫。",
+        "sentenceZh": "第三隻小豬剛好及時打開了門。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Both brothers ran out the back, fast as they could. They raced to the brick house.",
+        "question": "What was now the only safe place left?",
+        "options": [
+          "the third pig's brick house",
+          "the deep forest behind the field",
+          "mother's old house far away",
+          "a tall tree by the road"
+        ],
+        "optionsZh": [
+          "第三隻小豬的磚屋",
+          "田野後面的深林",
+          "遠處媽媽的老家",
+          "路邊一棵高樹"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "兩兄弟拼命跑向磚屋——那裡是「唯一剩下的安全地方」，只剩第三隻小豬的磚屋了！",
+        "sentenceZh": "兩兄弟從後面衝出去，拼命跑向磚屋。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match these story events in order.",
+        "pairs": [
+          {
+            "left": "locked the door",
+            "right": "two pigs"
+          },
+          {
+            "left": "blew harder",
+            "right": "wolf"
+          },
+          {
+            "left": "fell down",
+            "right": "wood house"
+          },
+          {
+            "left": "opened in time",
+            "right": "brick house door"
+          }
+        ],
+        "explanationZh": "兩隻豬鎖門、大野狼吹得更用力、木屋倒了、磚屋門及時打開——這節的順序！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The wolf knocked even harder this time.",
+        "questionEn": "Was the wolf getting weaker each time he attacked?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "這次敲得「更用力」——他不是越來越弱，反而越來越猛，答案是 No。",
+        "sentenceZh": "大野狼這次敲得更用力了。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
         ]
       },
       {
@@ -1684,6 +2892,206 @@
           "story",
           "ch8",
           "three-pigs"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the word to its meaning.",
+        "pairs": [
+          {
+            "left": "climb",
+            "right": "爬"
+          },
+          {
+            "left": "fire",
+            "right": "火"
+          },
+          {
+            "left": "smoke",
+            "right": "煙"
+          },
+          {
+            "left": "safe",
+            "right": "安全"
+          }
+        ],
+        "explanationZh": "climb=爬、fire=火、smoke=煙、safe=安全——這節結局的關鍵詞！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But the brick walls stood still and did not move at all. The wolf tried to climb the roof to get in.",
+        "question": "Why did the wolf try the roof?",
+        "options": [
+          "the walls would not fall so he tried another way",
+          "he could see smoke and wanted to warm himself",
+          "a window on the roof was open for him",
+          "the third pig invited him to come up"
+        ],
+        "optionsZh": [
+          "牆吹不倒，他想另外找辦法",
+          "他看見煙，想去取暖",
+          "屋頂上有一扇開著的窗",
+          "第三隻小豬邀請他上去"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "吹了又吹，磚牆紋絲不動——大野狼沒辦法，只好爬屋頂試試，「牆吹不倒，他想另外找辦法」！",
+        "sentenceZh": "磚牆紋絲不動。大野狼試著爬上屋頂鑽進去。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The third pig built a hot fire inside a big pot.",
+        "questionEn": "Was the fire the third pig's way to stop the wolf?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在大鍋裡生火——這就是第三隻小豬的聰明計謀，用火嚇走大野狼，所以答案是 Yes！",
+        "sentenceZh": "第三隻小豬在一口大鍋裡，生起了熊熊的火。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch8-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The wolf jumped down from the roof and ran fast to the trees.",
+        "question": "How did the wolf feel when he ran away?",
+        "options": [
+          "😨 scared",
+          "😏 proud",
+          "😂 silly",
+          "😴 tired"
+        ],
+        "optionsZh": [
+          "😨 嚇到了",
+          "😏 很驕傲",
+          "😂 覺得自己好蠢",
+          "😴 累了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "看到熱騰騰的煙，大野狼跳下屋頂就跑——他「嚇到了」，scared 就是這個感覺！",
+        "sentenceZh": "大野狼從屋頂跳下來，拼命往樹林裡跑。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The three brothers sat warm and safe inside the brick house. But the wolf is still out there.",
+        "question": "What is the lesson of this story?",
+        "options": [
+          "working hard and building well keeps you safe",
+          "being the fastest builder wins every time",
+          "you should always shout to scare away wolves",
+          "fire is the only way to stop a big bad wolf"
+        ],
+        "optionsZh": [
+          "認真建造才能保護自己",
+          "蓋得最快就能每次獲勝",
+          "大叫就能嚇走大野狼",
+          "只有火才能阻止大野狼"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "草屋、木屋都倒了，只有磚屋撐住——故事的道理就是「認真建造才能保護自己」！",
+        "sentenceZh": "三兄弟坐在溫暖又安全的磚屋裡。但大野狼還在外面。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch8-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match these story moments.",
+        "pairs": [
+          {
+            "left": "stood still",
+            "right": "brick walls"
+          },
+          {
+            "left": "climbed up",
+            "right": "wolf"
+          },
+          {
+            "left": "built a fire",
+            "right": "third pig"
+          },
+          {
+            "left": "ran away",
+            "right": "wolf"
+          }
+        ],
+        "explanationZh": "磚牆不動、大野狼爬上去、第三隻小豬生火、大野狼逃跑——這節的四大重點！",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch8-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The three brothers sat warm and safe inside the brick house.",
+        "questionEn": "Did the third pig's hard work help all three brothers?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "三兄弟都在磚屋裡，安全又溫暖——第三隻小豬的努力救了所有人，所以答案是 Yes！",
+        "sentenceZh": "三兄弟坐在磚屋裡，又暖和又安全。",
+        "tags": [
+          "story",
+          "ch8",
+          "three-pigs",
+          "detail"
         ]
       },
       {

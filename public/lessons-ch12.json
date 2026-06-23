@@ -237,6 +237,259 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the key words from the opening.",
+        "pairs": [
+          {
+            "left": "善良",
+            "right": "kind"
+          },
+          {
+            "left": "一個人",
+            "right": "alone"
+          },
+          {
+            "left": "白袍",
+            "right": "robe"
+          },
+          {
+            "left": "銀光",
+            "right": "silver light"
+          }
+        ],
+        "explanationZh": "今晚故事的開場詞，配對記起來：\n🔑 kind = 善良\n🔑 alone = 一個人\n🔑 robe = 白袍\n🔑 silver light = 銀光",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in China, a kind boy lived alone with one old cow.",
+        "sentenceZh": "很久以前，有個善良的男孩，只跟一頭老牛住在一起。",
+        "question": "Who did Niulang live with?",
+        "options": [
+          "his large family",
+          "just one old cow",
+          "many farm workers",
+          "friendly neighbours"
+        ],
+        "optionsZh": [
+          "他的大家庭",
+          "只有一頭老牛",
+          "很多農場工人",
+          "友善的鄰居"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「只跟一頭老牛住在一起」——他身邊就只有「一頭老牛」，非常孤單。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "No one came to talk. No one sat with him at meals.",
+        "sentenceZh": "沒有人過來說話，也沒有人陪他坐下來吃飯。",
+        "questionEn": "Did Niulang have company at mealtimes?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「沒有人陪他吃飯」——他一個人吃，沒有人作伴，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One bright day, a magic lady came down from the sky.",
+        "sentenceZh": "那是個晴朗的日子，一位仙女從天上輕輕降下來了。",
+        "question": "Where did the magic lady come from?",
+        "options": [
+          "deep in a forest",
+          "high in the sky",
+          "a distant town",
+          "under the river"
+        ],
+        "optionsZh": [
+          "深林裡",
+          "高高的天上",
+          "遠方城鎮",
+          "河底下"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "仙女「從天上輕輕降下來」——她是從「天上」來的。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Her white robe floated like a soft cloud near the water.",
+        "sentenceZh": "她的白袍在水邊飄動，像一片輕柔的雲。",
+        "questionEn": "Did the magic lady look heavy and solid?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她的袍子像雲一樣輕飄——輕盈得很，一點都不沉重，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Her name was Zhinu. She wove cloth for the sky.",
+        "sentenceZh": "她叫織女，專門為天空織布。",
+        "question": "What was Zhinu's special skill?",
+        "options": [
+          "growing rice in fields",
+          "weaving cloth for heaven",
+          "carving wood for ships",
+          "painting clouds by hand"
+        ],
+        "optionsZh": [
+          "種田",
+          "為天空織布",
+          "雕刻木頭",
+          "用手畫雲"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「織女為天空織布」——她的技藝是「為天空織布」，這也是她名字的由來。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang stood by the tall grass and watched her quietly.",
+        "sentenceZh": "牛郎站在高草後面，靜靜地看著她。",
+        "question": "What was Niulang doing when he saw Zhinu?",
+        "options": [
+          "🏃 running toward her",
+          "👁️ watching her in silence",
+          "📢 calling out her name",
+          "🤝 walking up to greet"
+        ],
+        "optionsZh": [
+          "跑向她",
+          "靜靜看著她",
+          "大叫她的名字",
+          "走上前打招呼"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他「靜靜地看著她」——不是跑去、不是叫她，而是「靜靜看著她在沉默中」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l1-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each thread in her hands turned into bright silver light.",
+        "sentenceZh": "她手中的每一根絲線，都化成閃閃發亮的銀光。",
+        "questionEn": "Was Zhinu's weaving magical and glowing?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「每根絲線都化成銀色亮光」——是的，她的織布很神奇、會發光，答案是 Yes。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l1-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A magic lady ___ down from the sky that bright morning.",
+        "sentenceZh": "那個晴朗的早晨，一位仙女從天上輕輕飄降下來。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "comes",
+          "come",
+          "came",
+          "coming"
+        ],
+        "optionsZh": [
+          "comes（現在第三人稱）",
+          "come（原形）",
+          "came（過去式）",
+          "coming（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "「那個早晨」說的是過去的事——come 的過去式是 came，所以填 came。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
       }
     ]
   },
@@ -478,6 +731,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match these words about sharing and learning.",
+        "pairs": [
+          {
+            "left": "一起",
+            "right": "together"
+          },
+          {
+            "left": "教",
+            "right": "teach"
+          },
+          {
+            "left": "日子",
+            "right": "day"
+          },
+          {
+            "left": "溫暖",
+            "right": "warm"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字，配對記起來：\n🔑 together = 一起\n🔑 teach = 教\n🔑 day = 日子\n🔑 warm = 溫暖",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang and Zhinu sat by the river and talked all day.",
+        "sentenceZh": "牛郎和織女在河邊坐下來，聊啊聊，聊了整整一天。",
+        "question": "What did Niulang and Zhinu do when they first met?",
+        "options": [
+          "raced along the river",
+          "spent the day talking",
+          "wove cloth together",
+          "searched for the cow"
+        ],
+        "optionsZh": [
+          "他們沿河比賽",
+          "他們聊了一整天",
+          "他們一起織布",
+          "他們找牛"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「在河邊坐下，聊了整整一天」——他們第一次見面就是「聊了一整天」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She showed him how to weave with bright silver thread.",
+        "sentenceZh": "她教他用閃亮的銀線織布，一格一格，慢慢來。",
+        "questionEn": "Did only Niulang teach Zhinu things?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "是「她教他」織布——織女也在教牛郎，不是只有牛郎教她，答案是 No，是互相教。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He held the thread close. He learned each move slowly.",
+        "sentenceZh": "他緊緊握著絲線，認真學著每一個動作。",
+        "question": "How did Niulang approach learning from Zhinu?",
+        "options": [
+          "laughed and gave up fast",
+          "paid close careful attention",
+          "just watched without trying",
+          "turned away in boredom"
+        ],
+        "optionsZh": [
+          "笑著很快放棄",
+          "認真專注地學",
+          "只看不動手",
+          "無聊轉過身去"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "緊握絲線、慢慢學每一個動作——他「認真專注地學」，非常用心。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They sewed warm clothes together for the long cold winter.",
+        "sentenceZh": "他們一起縫冬天的暖衣，一針一針，慢慢縫。",
+        "question": "What were they making together?",
+        "options": [
+          "sweet spiced cakes",
+          "warm winter clothes",
+          "a birthday present",
+          "cold river water"
+        ],
+        "optionsZh": [
+          "香甜蛋糕",
+          "冬天的暖衣",
+          "生日禮物",
+          "冷河水"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「一起縫冬天的暖衣」——他們在縫的是「冬天的暖衣」，為了熬過寒冬。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At night, they sat by the small fire and laughed soft.",
+        "sentenceZh": "夜裡，他們坐在小火邊，輕輕地笑。",
+        "questionEn": "Were their evenings quiet and happy?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小火邊輕輕地笑——安靜、溫馨、快樂，當然是 Yes，他們的夜晚既安靜又幸福。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Day after day, they grew closer. Like family. Almost...",
+        "sentenceZh": "日復一日，他們越來越親——像家人，幾乎是……",
+        "question": "How did their relationship change over time?",
+        "options": [
+          "started to argue more",
+          "felt more like family",
+          "worked in separate fields",
+          "stopped talking at meals"
+        ],
+        "optionsZh": [
+          "他們開始吵架",
+          "他們越來越像家人",
+          "他們各自工作",
+          "他們吃飯不說話了"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「日復一日越來越親，像家人」——他們的關係「越來越像家人」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l2-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each stitch ___ like a small bridge between their hands.",
+        "sentenceZh": "每一針，都像一座小橋，連著他們兩雙手。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "feel",
+          "feels",
+          "felt",
+          "feeling"
+        ],
+        "optionsZh": [
+          "feel（原形）",
+          "feels（現在第三人稱）",
+          "felt（過去式）",
+          "feeling（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這是過去發生的故事，主詞是「Each stitch（每一針）」——說過去的感覺，用過去式 felt。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l2-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each stitch felt like a small bridge between their hands.",
+        "sentenceZh": "每一針，都像一座小橋，連著他們兩雙手。",
+        "question": "What does the image of a bridge show?",
+        "options": [
+          "🌊 they were far apart",
+          "💞 they were getting close",
+          "😴 they were both tired",
+          "🌧️ a storm was coming"
+        ],
+        "optionsZh": [
+          "他們距離很遠",
+          "他們越來越親近",
+          "他們都累了",
+          "一場風暴要來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "橋連著兩邊——每針都是一座橋，說明他們「越來越親近」，心越來越靠在一起。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -719,6 +1234,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words about the Heavenly Queen.",
+        "pairs": [
+          {
+            "left": "天上",
+            "right": "heaven"
+          },
+          {
+            "left": "皺眉",
+            "right": "frown"
+          },
+          {
+            "left": "命令",
+            "right": "order"
+          },
+          {
+            "left": "不彎",
+            "right": "unbending"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字：\n🔑 heaven = 天上\n🔑 frown = 皺眉\n🔑 order = 命令\n🔑 unbending = 不彎",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Heavenly Queen watched from the high sky above.",
+        "sentenceZh": "王母娘娘從高高的天上看著這一切。",
+        "question": "Where was the Heavenly Queen when she watched them?",
+        "options": [
+          "hiding in the tall reeds",
+          "watching from the heavens",
+          "standing down by the bank",
+          "hidden behind rain cloud"
+        ],
+        "optionsZh": [
+          "躲在高蘆葦裡",
+          "從天界俯視著",
+          "站在河岸邊",
+          "藏在雨雲後面"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「從高高的天上看著這一切」——王母娘娘是在「高高的天上」看著他們。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Her brow drew tight. Her lips made a thin line.",
+        "sentenceZh": "她眉頭皺緊，嘴唇抿成一條線。",
+        "questionEn": "Was the Heavenly Queen pleased with what she saw?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "眉頭皺緊、嘴唇抿緊——這樣的表情，根本是不高興，當然不是滿意，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She did not smile. She did not bend.",
+        "sentenceZh": "她沒有笑，也沒有要彎腰讓步的意思。",
+        "question": "What kind of person was the Heavenly Queen?",
+        "options": [
+          "kind and full of mercy",
+          "firm and unwilling to yield",
+          "shy and easy to talk to",
+          "gentle and open to change"
+        ],
+        "optionsZh": [
+          "仁慈溫柔",
+          "強硬不願妥協",
+          "害羞好說話",
+          "溫柔願意改變"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "不笑、不彎——「強硬不願妥協」，這就是她的樣子。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Zhinu, go back to the sky. Your work is up there.\"",
+        "sentenceZh": "「織女，回去天上，你的工作在那裡。」",
+        "question": "What did the Queen demand?",
+        "options": [
+          "🎁 bring her a gift",
+          "🏠 return to heaven",
+          "🌊 swim in the river",
+          "🌸 pick more flowers"
+        ],
+        "optionsZh": [
+          "帶禮物給她",
+          "回天上去",
+          "在河裡游泳",
+          "再採些花"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「回去天上，你的工作在那裡」——王母娘娘要織女「回天上去」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Zhinu shook her head. She held Niulang's hand tight.",
+        "sentenceZh": "織女搖搖頭，把牛郎的手握得更緊。",
+        "questionEn": "Was Zhinu willing to go back to the sky?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "搖頭、緊握牛郎的手——她不願意走，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One day she came down on a long white cloud.",
+        "sentenceZh": "有一天，王母娘娘駕著長長的白雲下來。",
+        "question": "How did the Heavenly Queen travel to reach them?",
+        "options": [
+          "swam down a river",
+          "rode down on a cloud",
+          "walked through the forest",
+          "flew on a large bird"
+        ],
+        "optionsZh": [
+          "從河裡游下來",
+          "駕著雲下來",
+          "走進森林",
+          "騎著大鳥飛"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「駕著長長的白雲下來」——她是「駕著雲下來」的。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l3-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Her face ___ hard as she gave her order.",
+        "sentenceZh": "她臉色一沉，下達命令。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "go",
+          "goes",
+          "went",
+          "going"
+        ],
+        "optionsZh": [
+          "go（原形）",
+          "goes（現在第三人稱）",
+          "went（過去式）",
+          "going（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這是過去的故事，go 的過去式是 went——所以填 went。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l3-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Queen reached out her long thin hand. What happened next?",
+        "sentenceZh": "王母娘娘伸出那細長的手——接下來會發生什麼？",
+        "question": "What was the Queen about to do?",
+        "options": [
+          "🤝 offer to be friends",
+          "🌊 part the silver river",
+          "🎁 give them a present",
+          "🌸 pick a garden flower"
+        ],
+        "optionsZh": [
+          "伸手要交朋友",
+          "分開銀河",
+          "給他們禮物",
+          "摘花"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她伸出那細長的手——奶奶說這個動作讓人屏氣，她要「分開銀河」，把兩人分開。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -960,6 +1737,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words about the silver river.",
+        "pairs": [
+          {
+            "left": "分開",
+            "right": "apart"
+          },
+          {
+            "left": "寬",
+            "right": "wide"
+          },
+          {
+            "left": "淚",
+            "right": "tear"
+          },
+          {
+            "left": "等待",
+            "right": "wait"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字：\n🔑 apart = 分開\n🔑 wide = 寬\n🔑 tear = 淚\n🔑 wait = 等待",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Queen pulled a silver pin from her own hair.",
+        "sentenceZh": "王母娘娘從自己頭上拔下一根銀髮夾。",
+        "question": "What did the Queen use to create the silver river?",
+        "options": [
+          "one long sharp sword",
+          "the small silver hairpin",
+          "white silk ribbon",
+          "short golden wand"
+        ],
+        "optionsZh": [
+          "一把長刀",
+          "銀色小髮夾",
+          "白色絲帶",
+          "短金棒"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「從頭上拔下一根銀髮夾」——她用的是「銀色小髮夾」，一個小東西，卻改變了一切。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She drew a line across the sky from east to west.",
+        "sentenceZh": "她從東到西，在天上畫了一條線。",
+        "questionEn": "Did the Queen draw the line from north to south?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「從東到西」——不是從北到南，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A great silver river flowed where she drew the line.",
+        "sentenceZh": "那條線劃過的地方，出現了一條巨大閃亮的銀河。",
+        "question": "What appeared after the Queen drew the line?",
+        "options": [
+          "tall stone wall",
+          "wide shining river",
+          "deep dark forest",
+          "long wooden bridge"
+        ],
+        "optionsZh": [
+          "高石牆",
+          "寬闊閃亮的河",
+          "深暗的森林",
+          "一座木橋"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「劃過的地方出現了一條巨大閃亮的銀河」——出現的是「寬闊閃亮的河」，就是銀河。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang stood on one side. Zhinu stood far on the other.",
+        "sentenceZh": "牛郎站在這一邊，織女站在遠遠的那一邊。",
+        "question": "How did the silver river change things?",
+        "options": [
+          "🤝 brought them closer",
+          "🌊 kept them far apart",
+          "🌸 gave them more flowers",
+          "🏠 built them a new home"
+        ],
+        "optionsZh": [
+          "讓他們更近",
+          "把他們分得很遠",
+          "給他們更多花",
+          "幫他們建新家"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "牛郎在這邊、織女在那邊——銀河「把他們分得很遠」，再也碰不到。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They reached out. Their fingers could not meet.",
+        "sentenceZh": "兩人都伸出手，卻碰不到彼此。",
+        "questionEn": "Could their hands touch across the silver river?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「伸出手，卻碰不到」——銀河太寬，碰不到，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Tears fell on both sides of the wide silver river.",
+        "sentenceZh": "銀河兩邊，都有眼淚滑落。",
+        "question": "Who was crying beside the silver river?",
+        "options": [
+          "only Niulang cried",
+          "only Zhinu cried",
+          "both of them cried",
+          "nobody cried at all"
+        ],
+        "optionsZh": [
+          "只有牛郎哭",
+          "只有織女哭",
+          "兩個人都哭了",
+          "沒有人哭"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「銀河兩邊都有眼淚」——兩邊都在哭，是「兩個人都哭了」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l4-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Queen ___ a line across the sky with her silver pin.",
+        "sentenceZh": "王母娘娘用銀髮夾在天空中劃了一條線。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "draw",
+          "draws",
+          "drawn",
+          "drew"
+        ],
+        "optionsZh": [
+          "draw（原形）",
+          "draws（現在第三人稱）",
+          "drawn（過去分詞）",
+          "drew（過去式）"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "這是過去故事中做的動作——draw 的過去式是 drew，所以填 drew。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l4-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The silver river kept flowing. It would not stop.",
+        "sentenceZh": "銀河一直流，停不下來……",
+        "question": "What feeling does the never-stopping river bring?",
+        "options": [
+          "😊 happy and free",
+          "💔 endless longing",
+          "😴 calm and resting",
+          "🎉 fun and celebrating"
+        ],
+        "optionsZh": [
+          "開心又自由",
+          "止不住的思念",
+          "平靜休息",
+          "快樂慶祝"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "銀河停不下來——就像思念停不下來，這樣的感覺是「止不住的思念」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -1217,6 +2256,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words about the cow's gift.",
+        "pairs": [
+          {
+            "left": "犧牲",
+            "right": "sacrifice"
+          },
+          {
+            "left": "披風",
+            "right": "cloak"
+          },
+          {
+            "left": "飛",
+            "right": "fly"
+          },
+          {
+            "left": "感謝",
+            "right": "grateful"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字：\n🔑 sacrifice = 犧牲\n🔑 cloak = 披風\n🔑 fly = 飛\n🔑 grateful = 感謝",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang sat by the river and cried for many days.",
+        "sentenceZh": "牛郎坐在河邊，哭了好多天。",
+        "question": "What did Niulang do after Zhinu was taken away?",
+        "options": [
+          "found a new friend right away",
+          "sat weeping by the river",
+          "went to work in the fields",
+          "started weaving by himself"
+        ],
+        "optionsZh": [
+          "馬上找了新朋友",
+          "坐在河邊哭泣",
+          "去田裡工作",
+          "自己開始織布"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「坐在河邊哭了好多天」——他做的是「坐在河邊哭泣」，難過得不能自已。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He did not eat. He did not sleep. He just looked up.",
+        "sentenceZh": "他不吃不睡，只是一直仰頭看天。",
+        "questionEn": "Was Niulang taking good care of himself after Zhinu left?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "不吃不睡——他根本沒有好好照顧自己，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old cow opened her mouth. Words came out clear.",
+        "sentenceZh": "老牛張開嘴，清清楚楚地說出話來。",
+        "question": "What was surprising about the old cow?",
+        "options": [
+          "ran away in a hurry",
+          "spoke in a clear human voice",
+          "flew into the sky above",
+          "changed into a young woman"
+        ],
+        "optionsZh": [
+          "快跑逃走",
+          "用清晰的人聲說話",
+          "飛上天空",
+          "變成了年輕女人"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「老牛張開嘴，清楚地說出話來」——普通的牛不會說話，這是「用清晰的人聲說話」的奇蹟。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Take my soft skin,\" she said. \"Wear it like a cloak.\"",
+        "sentenceZh": "「把我柔軟的皮拿去，像披風一樣穿上，」她說。",
+        "question": "What did the cow offer to give Niulang?",
+        "options": [
+          "🥛 fresh warm milk",
+          "🐄 her own soft skin",
+          "🌿 a bunch of grass",
+          "💧 cold river water"
+        ],
+        "optionsZh": [
+          "新鮮的暖牛奶",
+          "她自己柔軟的皮",
+          "一把草",
+          "冷河水"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「把我柔軟的皮拿去」——老牛送出的是「她自己柔軟的皮」，這是一份犧牲。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His feet left the ground. The wind held him gently.",
+        "sentenceZh": "他的腳慢慢離開地面，風輕輕把他捧起來。",
+        "questionEn": "Did Niulang stay on the ground after wearing the skin?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「腳離了地，風把他托住」——他已經飛起來了，不在地面上，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cow watched him rise. She did not speak again.",
+        "sentenceZh": "老牛看著他慢慢升高，沒有再說話。",
+        "question": "Why did the cow stay silent after Niulang rose?",
+        "options": [
+          "still angry at him",
+          "her gift was enough",
+          "she forgot the words",
+          "she was too cold to talk"
+        ],
+        "optionsZh": [
+          "她還在對他生氣",
+          "她的禮物已夠了",
+          "她忘記話了",
+          "她太冷說不了"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "把禮物送出去就夠了——「她的禮物已夠了」，不需要再多說什麼。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l5-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His feet ___ the ground as the wind gently held him.",
+        "sentenceZh": "風輕輕把他捧起，他的腳離了地。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "leave",
+          "leaves",
+          "left",
+          "leaving"
+        ],
+        "optionsZh": [
+          "leave（原形）",
+          "leaves（現在第三人稱）",
+          "left（過去式）",
+          "leaving（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這是過去故事中的動作——leave 的過去式是 left，所以填 left。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l5-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang put on the soft skin with kind tears in his eyes.",
+        "sentenceZh": "牛郎含著感激的淚，把柔軟的牛皮披上身。",
+        "question": "How did Niulang feel as he put on the skin?",
+        "options": [
+          "😡 angry at the cow",
+          "🥹 moved and thankful",
+          "😴 calm and sleepy",
+          "😂 laughing out loud"
+        ],
+        "optionsZh": [
+          "對老牛生氣",
+          "感動又感謝",
+          "平靜又想睡",
+          "大笑出來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「含著感激的淚」——牛郎是「感動又感謝」，感謝老牛的犧牲。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -1458,6 +2759,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words about the magpie bridge.",
+        "pairs": [
+          {
+            "left": "奇跡",
+            "right": "miracle"
+          },
+          {
+            "left": "背",
+            "right": "back"
+          },
+          {
+            "left": "相見",
+            "right": "meet again"
+          },
+          {
+            "left": "高興的淚",
+            "right": "glad tears"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字：\n🔑 miracle = 奇跡\n🔑 back = 背\n🔑 meet again = 相見\n🔑 glad tears = 高興的淚",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "All the magpies in the world flew up to the silver river.",
+        "sentenceZh": "世界上所有的喜鵲，全都飛到銀河邊。",
+        "question": "Why did all the magpies come?",
+        "options": [
+          "came fleeing a storm",
+          "came to build a bridge",
+          "wanted to see the stars",
+          "followed the old cow"
+        ],
+        "optionsZh": [
+          "他們在逃風暴",
+          "他們來搭橋",
+          "他們想看星星",
+          "他們跟著老牛"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "喜鵲全聚集在銀河——等一下翅膀連翅膀搭成橋，他們是「來搭橋」的！",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The whole sky went black with their feathers.",
+        "sentenceZh": "喜鵲多到整片天空都黑掉了。",
+        "questionEn": "Were there only a few magpies in the sky?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "整片天空都黑掉——喜鵲多得數不清，不是「只有幾隻」，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They held wing to wing across the wide silver river.",
+        "sentenceZh": "喜鵲翅膀連著翅膀，橫跨整條寬銀河。",
+        "question": "How did the magpies form a bridge?",
+        "options": [
+          "piled stones in the water",
+          "linked their wings side by side",
+          "flew in one straight line",
+          "tied their tails together"
+        ],
+        "optionsZh": [
+          "在水裡堆石頭",
+          "翅膀肩並肩相連",
+          "排成直線飛",
+          "尾巴綁在一起"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「翅膀連著翅膀」橫跨銀河——就是「翅膀肩並肩相連」，搭成了橋。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Niulang ran on the magpie bridge. Zhinu ran toward him.",
+        "sentenceZh": "牛郎在橋上跑，織女從對面跑過來。",
+        "question": "How did they move on the magpie bridge?",
+        "options": [
+          "🚶 walked very slowly",
+          "🏃 ran toward each other",
+          "😴 sat and waited calmly",
+          "🤔 stood still and waved"
+        ],
+        "optionsZh": [
+          "非常慢地走",
+          "跑向彼此",
+          "平靜坐著等",
+          "站著揮手"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「牛郎跑，織女跑過來」——兩個人都「跑向彼此」！",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They met in the middle of the sky and held each other tight.",
+        "sentenceZh": "他們在天空的正中間相遇，緊緊抱在一起。",
+        "questionEn": "Was the place they met on the ground?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「在天空的正中間相遇」——是天空中，不是在地上，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They both cried, but this time the tears were warm and glad.",
+        "sentenceZh": "兩人都哭了，但這次是開心的淚。",
+        "question": "How were these tears different from before?",
+        "options": [
+          "sobbed from pain",
+          "wept tears of joy",
+          "trembled with fright",
+          "shook from bitter cold"
+        ],
+        "optionsZh": [
+          "因為痛苦而哭",
+          "因為喜悅落淚",
+          "害怕得發抖",
+          "因為寒冷而顫抖"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「這次的眼淚是溫暖且開心的」——不再是悲傷，是「因為喜悅落淚」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l6-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The magpie bridge ___ just for tonight.",
+        "sentenceZh": "鵲橋只為今晚撐住。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "hold",
+          "holds",
+          "held",
+          "holding"
+        ],
+        "optionsZh": [
+          "hold（原形）",
+          "holds（現在第三人稱）",
+          "held（過去式）",
+          "holding（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這是過去故事中的狀態——hold 的過去式是 held，所以填 held。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l6-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The magpie bridge held just for tonight. Just for them.",
+        "sentenceZh": "鵲橋只為今晚撐住，只為他們。",
+        "question": "What does 'just for tonight' make you feel?",
+        "options": [
+          "😊 totally relaxed",
+          "💔 precious but soon gone",
+          "😡 angry at the bridge",
+          "😴 ready for long sleep"
+        ],
+        "optionsZh": [
+          "完全放鬆",
+          "珍貴卻即將消失",
+          "對橋很生氣",
+          "準備長睡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「只有今晚」——知道很快就要分開，這一刻「珍貴卻即將消失」，讓人很心疼。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -1698,6 +3261,268 @@
           "ch12",
           "cowherd-weaver"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch12-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the festival words from this ending.",
+        "pairs": [
+          {
+            "left": "傳說",
+            "right": "legend"
+          },
+          {
+            "left": "每年",
+            "right": "every year"
+          },
+          {
+            "left": "仰頭",
+            "right": "look up"
+          },
+          {
+            "left": "星星",
+            "right": "star"
+          }
+        ],
+        "explanationZh": "今晚結尾的關鍵字：\n🔑 legend = 傳說\n🔑 every year = 每年\n🔑 look up = 仰頭\n🔑 star = 星星",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Queen saw them meet. Her heart became a little soft.",
+        "sentenceZh": "王母娘娘看到他們相見，她的心稍微軟了一點。",
+        "question": "Why did the Queen's heart soften?",
+        "options": [
+          "the cow sang to her",
+          "she missed her own kin",
+          "Niulang gave her gifts",
+          "Zhinu begged on her knees"
+        ],
+        "optionsZh": [
+          "老牛對她唱歌",
+          "她思念自己的家人",
+          "牛郎送她禮物",
+          "織女跪地求她"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「她想到了自己遠在天上的家人」——思念家人的感覺，讓她的心「稍微軟了一點」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Once each year,\" she said, \"on the seventh night of the seventh moon.\"",
+        "sentenceZh": "「每年一次，在七月的第七個夜晚，」她說。",
+        "questionEn": "Did the Queen allow them to meet every month?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「每年一次」——不是每個月，是一年才一次，答案是 No。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"The magpies will come. You may meet on the bridge for one night.\"",
+        "sentenceZh": "「喜鵲會來，你們可以在橋上見面一晚。」",
+        "question": "How long could they stay together each year?",
+        "options": [
+          "one whole week",
+          "just one single night",
+          "three long days",
+          "one full month"
+        ],
+        "optionsZh": [
+          "整整一個星期",
+          "只有一個晚上",
+          "三天",
+          "整整一個月"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「在橋上見面一晚」——每年只有「一個晚上」可以相聚。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "And so every Qixi, Chinese families look up at the sky.",
+        "sentenceZh": "所以每年七夕，中華家庭都會抬頭看天。",
+        "question": "Why do people look up at the sky on Qixi?",
+        "options": [
+          "🌧️ to check for rain",
+          "🌟 to see their two stars",
+          "☀️ to watch the sunrise",
+          "🌙 to find the full moon"
+        ],
+        "optionsZh": [
+          "看會不會下雨",
+          "尋找那兩顆星",
+          "看日出",
+          "找滿月"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "七夕就是牛郎和織女相見的日子——人們抬頭，是「尋找那兩顆星」，一顆牽牛，一顆織女。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch12-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every other night, the silver river kept them apart.",
+        "sentenceZh": "除了那一晚，銀河每天都把他們隔開。",
+        "questionEn": "Were Niulang and Zhinu apart for most of the year?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「除了那一晚，每天都被隔開」——是的，大部分的時間都被分開，答案是 Yes。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They tell the story to their children under the bright stars.",
+        "sentenceZh": "大家對孩子說這個故事，就在那片明亮的星空下。",
+        "question": "When do Chinese families tell this story?",
+        "options": [
+          "on cold winter mornings",
+          "under the night stars on Qixi",
+          "at the dinner table daily",
+          "in school on weekday mornings"
+        ],
+        "optionsZh": [
+          "寒冷的冬天早晨",
+          "七夕夜晚在星空下",
+          "每天晚餐時",
+          "學校平日早上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「在明亮的星星下說故事」，配合七夕節日——就是在「七夕夜晚在星空下」。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch12-l7-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Children ___ at two bright stars across the silver river.",
+        "sentenceZh": "孩子們指著銀河兩端的兩顆亮星。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "point",
+          "points",
+          "pointed",
+          "pointing"
+        ],
+        "optionsZh": [
+          "point（原形）",
+          "points（現在第三人稱）",
+          "pointed（過去式）",
+          "pointing（進行式）"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這是故事結尾說「過去」發生的事——point 的過去式是 pointed，所以填 pointed。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "grammar"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch12-l7-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One star on each side. Waiting. Until next Qixi.",
+        "sentenceZh": "兩邊各一顆星。等待。等到下一個七夕……",
+        "question": "What word best fits this ending?",
+        "options": [
+          "very exciting",
+          "deeply bittersweet",
+          "really hilarious",
+          "quite uneventful"
+        ],
+        "optionsZh": [
+          "令人興奮",
+          "甜中帶苦",
+          "非常好笑",
+          "很平淡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "愛人隔著銀河等待——這樣的結局是「甜中帶苦」，又溫柔又讓人心疼。",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference"
+        ],
+        "subSkill": "inference"
       }
     ]
   }

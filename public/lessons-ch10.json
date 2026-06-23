@@ -225,6 +225,213 @@
         "sentenceZh": "人民對后羿的感情是怎樣的？"
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each action to its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "lift his bow",
+            "right": "舉起弓"
+          },
+          {
+            "left": "dry up",
+            "right": "乾枯"
+          },
+          {
+            "left": "shoot the suns",
+            "right": "射下太陽"
+          },
+          {
+            "left": "save the land",
+            "right": "拯救大地"
+          }
+        ],
+        "explanationZh": "這 4 個詞是今天故事的核心動作：\n🔑 lift his bow = 舉起弓\n🔑 dry up = 乾枯\n🔑 shoot the suns = 射下太陽\n🔑 save the land = 拯救大地",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in old China, ten suns came up in the sky. The land was hot. The rivers dried up. The plants died.",
+        "question": "What is the main idea of this part?",
+        "options": [
+          "ten suns caused great suffering on earth",
+          "farmers worked hard in a warm summer",
+          "rivers carried fresh water to the villages",
+          "a heavy rain flooded the whole land"
+        ],
+        "optionsZh": [
+          "十個太陽讓大地受苦",
+          "農夫在溫暖夏天辛勤耕作",
+          "河水把清水帶到村莊",
+          "一場大雨把大地淹沒了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "十個太陽讓大地熱壞了，河流乾了、植物死了——這整段說的是「十個太陽讓大地受苦」。",
+        "sentenceZh": "很久很久以前，中國天空升起了十個太陽。大地滾燙，河流枯乾，植物也死了。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "gist"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He shot the suns one by one. Only one sun was left.",
+        "questionEn": "Did Hou Yi shoot all ten suns down?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他一個個射，但最後留下一個——不是全部射光，所以答案是 No。",
+        "sentenceZh": "他一個個把太陽射落，最後只剩一個。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The land was saved. The people loved Hou Yi.",
+        "question": "Why did the people love Hou Yi?",
+        "options": [
+          "brought rain and saved the harvest",
+          "shot the extra suns and saved everyone",
+          "built houses for all the poor families",
+          "drove away dangerous animals for them"
+        ],
+        "optionsZh": [
+          "帶來雨水、救了收成",
+          "射落多餘的太陽、救了所有人",
+          "為窮人蓋了房子",
+          "為他們趕走了危險動物"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "后羿射下多餘的太陽，大地才得救——他是英雄，人民當然愛他。所以是「射落多餘的太陽，救了所有人」。",
+        "sentenceZh": "大地得救了，人民都好愛后羿。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Queen Mother said he could marry a sweet young woman.",
+        "questionEn": "Was the Queen Mother angry at Hou Yi?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "西王母讓后羿娶個好女子——這是獎勵，不是懲罰，她不是在生氣，所以答案是 No。",
+        "sentenceZh": "西王母說他可以娶一個溫柔的好女子。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He married Chang'e. They lived in a small house.",
+        "question": "What do we learn about Hou Yi and Chang'e's life together?",
+        "options": [
+          "quiet and simple, away from the palace",
+          "busy and grand, full of visitors every day",
+          "lonely and cold, with no one around them",
+          "dangerous and exciting, on a long journey"
+        ],
+        "optionsZh": [
+          "平靜簡單，遠離皇宮",
+          "熱鬧隆重，每天都有訪客",
+          "孤單又冷清，身邊沒有人",
+          "充滿危險和刺激，踏上長途旅程"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他們住在一間小屋子裡——是平靜、簡單的生活，不是什麼宮殿大宅。所以是「平靜簡單，遠離皇宮」。",
+        "sentenceZh": "他娶了嫦娥，兩個人住在一間小屋子裡。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the English words to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "hero",
+            "right": "英雄"
+          },
+          {
+            "left": "marry",
+            "right": "結婚"
+          },
+          {
+            "left": "loved",
+            "right": "喜愛"
+          },
+          {
+            "left": "saved",
+            "right": "救了"
+          }
+        ],
+        "explanationZh": "再複習一次：\n🔑 hero = 英雄\n🔑 marry = 結婚\n🔑 loved = 喜愛\n🔑 saved = 救了",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "narration",
         "id": "kt-ch10-l1-q11",
         "level": "A2",
@@ -464,6 +671,210 @@
           "ch10",
           "change"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each word to its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "spring",
+            "right": "春天"
+          },
+          {
+            "left": "pill",
+            "right": "藥丸"
+          },
+          {
+            "left": "live for ever",
+            "right": "永遠活著"
+          },
+          {
+            "left": "hide",
+            "right": "藏起來"
+          }
+        ],
+        "explanationZh": "今天的重點詞：\n🔑 spring = 春天\n🔑 pill = 藥丸\n🔑 live for ever = 永遠活著\n🔑 hide = 藏起來",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She gave Hou Yi a small white pill in her hand. The pill shone with a soft warm light.",
+        "question": "What tells us the pill was special?",
+        "options": [
+          "its gentle glow showed it had power",
+          "its sweet smell filled the whole room",
+          "it was heavier than any stone",
+          "it made a loud sound when touched"
+        ],
+        "optionsZh": [
+          "它柔和的光芒顯示它有神力",
+          "它的香氣充滿整個房間",
+          "它比任何石頭都沉",
+          "碰到它會發出很大的聲音"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "那顆藥丸會發出柔柔的暖光——光芒代表它有神力。「它柔和的光芒顯示它有力量」就是這個意思。",
+        "sentenceZh": "她把一顆白色小藥丸輕輕放在手心遞給后羿，那顆藥丸散發著柔和的暖光。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"But only one of you can take it,\" she said.",
+        "questionEn": "Could Hou Yi and Chang'e both take the pill?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "西王母說只有一個人可以吃——不能兩個都吃，所以答案是 No。",
+        "sentenceZh": "「但你們只有一個人可以吃，」她說。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hou Yi put the pill in a small box. He hid the box.",
+        "question": "What did Hou Yi do with the pill?",
+        "options": [
+          "💊 locked it away safely",
+          "🌊 threw it into the river",
+          "🔥 burned it in the fire",
+          "🎁 gave it away as a gift"
+        ],
+        "optionsZh": [
+          "把它鎖起來藏好",
+          "丟進河裡",
+          "在火裡燒掉",
+          "當禮物送人"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "后羿把藥丸放進盒子、把盒子藏起來——也就是「把它鎖起來藏好」。",
+        "sentenceZh": "后羿把藥丸放進小盒子，把盒子藏了起來。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch10-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She _____ Hou Yi a small white pill.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "gave",
+          "give",
+          "gives",
+          "giving"
+        ],
+        "optionsZh": [
+          "給了（過去式）",
+          "給（原形）",
+          "給（第三人稱現在式）",
+          "給（進行式）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "這是過去發生的事，主詞是「她（she）」，動詞要用過去式——「give」的過去式是「gave」，所以選 gave。",
+        "sentenceZh": "她___后羿一顆白色小藥丸。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "There was just one pill. There were two of them.",
+        "question": "What does this situation tell us?",
+        "options": [
+          "one of them would have to give up living forever",
+          "they could take turns eating the pill every year",
+          "the pill would grow bigger if they waited longer",
+          "the Queen Mother would bring two pills next time"
+        ],
+        "optionsZh": [
+          "其中一個人要放棄長生不老",
+          "他們可以輪流每年吃一次",
+          "只要等久一點，藥丸會變大",
+          "西王母下次會帶兩顆藥來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "一顆藥、兩個人——這代表只有一個人能長生不老，另一個人必須放棄。這才是真正的難題。",
+        "sentenceZh": "只有一顆藥丸，卻有兩個人。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hou Yi put the pill in a small box. He hid the box.",
+        "questionEn": "Had Hou Yi already decided who would take the pill?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他把藥丸收起來、藏起來——如果已經決定了，他應該直接吃，所以他還沒決定，答案是 No。",
+        "sentenceZh": "后羿把藥丸放進小盒子，把盒子藏了起來。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
       },
       {
         "type": "narration",
@@ -707,6 +1118,210 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "bad heart",
+            "right": "壞心腸"
+          },
+          {
+            "left": "think of himself",
+            "right": "只想自己"
+          },
+          {
+            "left": "wait for a chance",
+            "right": "等機會"
+          },
+          {
+            "left": "open the box",
+            "right": "打開盒子"
+          }
+        ],
+        "explanationZh": "今天的詞組：\n🔑 bad heart = 壞心腸\n🔑 think of himself = 只想自己\n🔑 wait for a chance = 等機會\n🔑 open the box = 打開盒子",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But his heart was bad. He thought only of himself.",
+        "question": "What kind of person is the student?",
+        "options": [
+          "selfish and dangerous, not to be trusted",
+          "strong but clumsy, always making mistakes",
+          "quiet and lonely, with no friends at all",
+          "brave and honest, just a little too proud"
+        ],
+        "optionsZh": [
+          "自私又危險，不值得信任",
+          "強壯但笨手笨腳，常出錯",
+          "安靜又孤單，完全沒有朋友",
+          "勇敢誠實，只是有點太驕傲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "心壞、只想自己——這種人「自私又危險，不值得信任」，要小心他。",
+        "sentenceZh": "但他的心很壞，只想著自己一個人。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One day, the student saw Hou Yi open the box.",
+        "questionEn": "Did the student find out about the pill by accident?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他剛好看見后羿打開盒子——這是意外看到的，不是故意打探的，所以是「偶然發現」，答案是 Yes。",
+        "sentenceZh": "有一天，學生看見后羿打開了那個小盒子。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The student's eyes locked on the white pill. He wanted to live for ever, too. He waited.",
+        "question": "What does 'he waited' tell us about his plan?",
+        "options": [
+          "patient and cunning — waiting for the right moment to strike",
+          "afraid and unsure — waiting to ask his teacher for permission",
+          "kind and polite — waiting to tell Hou Yi what he had seen",
+          "bored and idle — waiting because he had nothing else to do"
+        ],
+        "optionsZh": [
+          "他很有耐心又狡猾，等著找機會下手",
+          "他害怕又猶豫，等著向師父請求",
+          "他善良有禮貌，等著告訴后羿他看到了什麼",
+          "他無聊又懶，只是沒事做而等著"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他想要仙藥，所以在等機會——這種「等」是有計謀的，「很有耐心又狡猾，等著找機會下手」。",
+        "sentenceZh": "學生的眼睛緊緊盯著白藥丸，他也想永遠活著，他開始等待。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Day after day, he watched the door of the house.",
+        "question": "What shows the student was planning something bad?",
+        "options": [
+          "😈 watching and waiting every day",
+          "😴 sleeping late every morning",
+          "🎨 drawing pictures of the house",
+          "🙂 smiling at everyone he passed"
+        ],
+        "optionsZh": [
+          "每天盯著那扇門等待",
+          "每天早上睡到很晚",
+          "在畫那棟房子的圖",
+          "對路過的人微笑"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "天天盯著那扇門——這不是好事，這是在等機會「下手」，所以是「每天盯著那扇門等待」。",
+        "sentenceZh": "他天天盯著那扇門。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One morning, Hou Yi went out to hunt. Chang'e was home alone. The box was inside.",
+        "question": "Why is this moment dangerous?",
+        "options": [
+          "Chang'e was alone with the pill and no one to protect her",
+          "Hou Yi forgot to take his bow when he went hunting",
+          "the box was left open on the table by mistake",
+          "a wild animal had been seen near the house that day"
+        ],
+        "optionsZh": [
+          "嫦娥一個人在家，身邊有仙藥，沒人保護她",
+          "后羿出門打獵忘了帶弓箭",
+          "盒子不小心被留在桌上沒蓋好",
+          "那天有野獸被看見在房子附近"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "后羿出去了，嫦娥獨自在家，藥就在屋子裡——這是壞學生等的機會，當然危險！「嫦娥一個人，沒人保護她」。",
+        "sentenceZh": "那天早上，后羿出去打獵了，嫦娥一個人待在家，盒子就在屋子裡。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e was home alone. The box was inside.",
+        "questionEn": "Was Chang'e in danger?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她一個人在家、有藥在旁邊、壞學生又在等機會——她當然有危險，答案是 Yes。",
+        "sentenceZh": "嫦娥一個人在家，盒子就放在屋子裡。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
         "type": "narration",
         "id": "kt-ch10-l3-q11",
         "level": "A2",
@@ -946,6 +1561,218 @@
           "ch10",
           "change"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "pull out a knife",
+            "right": "拔出刀"
+          },
+          {
+            "left": "stood very still",
+            "right": "站著不動"
+          },
+          {
+            "left": "thought fast",
+            "right": "快速思考"
+          },
+          {
+            "left": "hurt many people",
+            "right": "傷害很多人"
+          }
+        ],
+        "explanationZh": "今天的重要詞組：\n🔑 pull out a knife = 拔出刀\n🔑 stood very still = 站著不動\n🔑 thought fast = 快速思考\n🔑 hurt many people = 傷害很多人",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He pulled out a long sharp knife from his coat. \"Give me the pill!\" he said in a hard voice.",
+        "question": "What does using a knife tell us about the student?",
+        "options": [
+          "ready to use violence to get what he wanted",
+          "just showing off the new knife he bought",
+          "afraid of something dangerous outside the house",
+          "trying to cut the food he brought for dinner"
+        ],
+        "optionsZh": [
+          "為了得到想要的東西，他準備用暴力",
+          "只是在炫耀他新買的刀",
+          "他怕外面有危險的東西",
+          "想切他帶來的食物吃"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "拔出刀、大聲要藥——這很清楚：他準備用暴力逼嫦娥交出仙藥，「為了得到想要的，他準備用暴力」。",
+        "sentenceZh": "他從外套裡抽出一把細長尖刀，用冷硬的聲音說：「把藥丸給我！」",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His face was red. His hand did not shake.",
+        "questionEn": "Was the student nervous and unsure?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "手一點都不抖——不抖代表他很鎮定，不是猶豫不決，所以他不緊張，答案是 No。",
+        "sentenceZh": "他的臉漲得通紅，但手一點都不抖。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e stood very still. She thought fast.",
+        "question": "What does Chang'e's reaction show?",
+        "options": [
+          "calm and clever even in danger",
+          "too scared to think or move at all",
+          "angry and ready to fight back hard",
+          "confused and not sure what was happening"
+        ],
+        "optionsZh": [
+          "面對危險仍然冷靜聰明",
+          "嚇到完全不能思考或動作",
+          "很生氣，準備好好反擊",
+          "搞不清楚狀況，覺得很困惑"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她站著不動，但腦子快速在想——這說明她「面對危險仍然冷靜聰明」。",
+        "sentenceZh": "嫦娥站著一動不動，腦子卻快速轉著。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch10-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e _____ very still while the student demanded the pill.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "stood",
+          "stand",
+          "stands",
+          "standing"
+        ],
+        "optionsZh": [
+          "站著（過去式）",
+          "站（原形）",
+          "站（第三人稱現在式）",
+          "站著（進行式）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事是過去發生的，主詞是「Chang'e（她）」，所以動詞用過去式——「stand」的過去式是「stood」，選 stood。",
+        "sentenceZh": "嫦娥_____一動不動，學生還在威脅她交出藥丸。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "If she gave him the pill, he would hurt many people.",
+        "question": "Why is giving the pill to the student so dangerous?",
+        "options": [
+          "a bad man would never stop hurting people",
+          "the pill would make him stronger than ten horses",
+          "the Queen Mother would punish Hou Yi if she found out",
+          "the pill was the only medicine left in the whole village"
+        ],
+        "optionsZh": [
+          "壞人會永遠不停傷害別人",
+          "藥丸會讓他強壯到勝過十匹馬",
+          "西王母知道了會懲罰后羿",
+          "這是全村僅剩的藥"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "壞人如果長生不老，就可以永遠作惡——「長生不老的壞人可以永遠傷害大家」，這才是最可怕的事。",
+        "sentenceZh": "如果她把藥給他，他會傷害很多人。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She opened the box. She picked up the small white pill.",
+        "question": "How did Chang'e feel at this moment?",
+        "options": [
+          "😰 scared but determined",
+          "😴 calm and half asleep",
+          "😂 happy and very excited",
+          "😤 furious and impatient"
+        ],
+        "optionsZh": [
+          "很害怕，但下定決心了",
+          "平靜又有點昏昏欲睡",
+          "開心又很興奮",
+          "憤怒又不耐煩"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她在威脅下打開盒子、拿起藥丸——她一定是「很害怕，但下定決心了」，要保護大家。",
+        "sentenceZh": "她打開盒子，把那顆小白藥丸拿了起來。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
       },
       {
         "type": "narration",
@@ -1189,6 +2016,210 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "swallow",
+            "right": "吞"
+          },
+          {
+            "left": "float",
+            "right": "飄起來"
+          },
+          {
+            "left": "frozen with shock",
+            "right": "驚呆了"
+          },
+          {
+            "left": "mouth fell open",
+            "right": "嘴巴大張"
+          }
+        ],
+        "explanationZh": "重點詞：\n🔑 swallow = 吞\n🔑 float = 飄起來\n🔑 frozen with shock = 驚呆了\n🔑 mouth fell open = 嘴巴大張",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e put the pill in her mouth. She closed her eyes. She let it go down her throat.",
+        "question": "What does swallowing the pill mean for Chang'e?",
+        "options": [
+          "leaving her husband and home behind forever",
+          "getting stronger so she could fight the student",
+          "making herself invisible to hide from danger",
+          "putting herself to sleep until Hou Yi came home"
+        ],
+        "optionsZh": [
+          "永遠離開丈夫和家",
+          "讓自己變強，可以對抗學生",
+          "讓自己隱形，躲開危險",
+          "讓自己睡著，等到后羿回來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "吃了仙藥就會升天——她這個選擇，代表她要「永遠離開丈夫和家」，這才是真正的代價。",
+        "sentenceZh": "嫦娥把藥丸放進嘴裡，閉上眼睛，讓藥丸順著喉嚨滑下去。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Her feet left the floor. Her hair flew up.",
+        "questionEn": "Did the pill begin to work right away?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "腳剛離地、頭髮就飄起來——這是藥在作用的跡象，馬上就發生了，所以是 Yes。",
+        "sentenceZh": "她的腳慢慢離開地板，頭髮也飄了起來。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The bad student stopped. His mouth fell open. He could not move. He could not say a word.",
+        "question": "Why did the student freeze?",
+        "options": [
+          "what he saw was impossible and terrifying",
+          "Chang'e had used a spell to stop him moving",
+          "a loud noise outside had startled him badly",
+          "he felt sick after eating something that morning"
+        ],
+        "optionsZh": [
+          "他看到的事根本不可能，嚇壞他了",
+          "嫦娥用咒語讓他動不了",
+          "外面突然的聲音把他嚇到了",
+          "他早上吃了什麼，身體不舒服"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "嫦娥飛起來了——這種事根本不可能，他被嚇呆了，「他看到的事根本不可能，嚇壞他了」。",
+        "sentenceZh": "壞學生停了下來，嘴巴張大，動不了，一個字也說不出來。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e began to float to the door.",
+        "questionEn": "Was Chang'e still inside the house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她飄向門口——還沒出門，還在屋子裡飄著，所以是 Yes。",
+        "sentenceZh": "嫦娥的身體開始慢慢飄向門口。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e began to float to the window, then out to the open sky.",
+        "question": "What feeling does the question 'What now?' give us?",
+        "options": [
+          "uncertain — no one knows what comes next",
+          "relieved — the danger is finally over now",
+          "bored — nothing more interesting will happen",
+          "angry — someone should have stopped her"
+        ],
+        "optionsZh": [
+          "不確定——沒人知道接下來會怎樣",
+          "如釋重負——危險終於過去了",
+          "無聊——不會再有有趣的事了",
+          "生氣——應該有人阻止她"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「What now?（接下來怎麼辦？）」這個問句，帶著懸念，讓人不確定會發生什麼——「不確定，沒人知道接下來會怎樣」。",
+        "sentenceZh": "她飄向窗邊，飄向敞開的天空。接下來呢？",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Chang'e swallowed the pill to stop the bad student from getting it.",
+        "question": "Was Chang'e brave?",
+        "options": [
+          "🦁 yes — she gave up everything to protect others",
+          "😴 no — she just did not know what the pill would do",
+          "😅 maybe — she was just lucky it worked out",
+          "😠 no — she was being selfish and chose herself"
+        ],
+        "optionsZh": [
+          "是的——她放棄一切保護了大家",
+          "不是——她只是不知道藥丸會怎樣",
+          "也許——只是剛好運氣好",
+          "不是——她自私，只選了自己"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她吞下藥，是為了不讓壞人得到，犧牲了自己的生活——「她放棄一切保護了大家」，這才是真正的勇敢。",
+        "sentenceZh": "嫦娥吞下仙藥，阻止壞學生得到它。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
         "type": "narration",
         "id": "kt-ch10-l5-q11",
         "level": "A2",
@@ -1430,6 +2461,210 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "past the clouds",
+            "right": "飛過雲層"
+          },
+          {
+            "left": "cold grey ground",
+            "right": "冰冷灰暗的地"
+          },
+          {
+            "left": "too late",
+            "right": "太晚了"
+          },
+          {
+            "left": "looked up",
+            "right": "抬頭看"
+          }
+        ],
+        "explanationZh": "今天的詞組：\n🔑 past the clouds = 飛過雲層\n🔑 cold grey ground = 冰冷灰暗的地\n🔑 too late = 太晚了\n🔑 looked up = 抬頭看",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She went past the trees. Past the hills. Past the clouds.",
+        "question": "What does the list of things she passed tell us?",
+        "options": [
+          "rising very high, very fast through the air",
+          "walking a long way on the ground below",
+          "stopping to look at each place along the way",
+          "lost and unsure of which way to go"
+        ],
+        "optionsZh": [
+          "在空中越飛越高、越飛越快",
+          "在地上還有很長的路要走",
+          "每到一個地方都停下來看",
+          "她迷路了，不知道該往哪走"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "樹梢、山頭、雲層——一個比一個高，說明她「越飛越高、越飛越快」。",
+        "sentenceZh": "她飛過樹，飛過山頭，飛過雲層。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She landed on the cold grey ground of the moon.",
+        "questionEn": "Was the moon a warm and welcoming place?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "月亮的地是「冰冷又灰暗」的——不是溫暖的地方，所以答案是 No。",
+        "sentenceZh": "她降落在月亮冰冷灰暗的地面上。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "From up there, she could still see her home far below.",
+        "question": "How might Chang'e feel seeing her home so far below?",
+        "options": [
+          "longing — close enough to see but too far to reach",
+          "proud — happy to be higher than everyone else",
+          "curious — wondering who now lived in her house",
+          "relieved — glad to finally be far from the danger"
+        ],
+        "optionsZh": [
+          "思念——看得到卻回不去",
+          "驕傲——開心自己比其他人高",
+          "好奇——在想誰現在住在她家",
+          "如釋重負——終於遠離了危險"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "從遠遠的月亮上，還看得見家——看得到，卻永遠回不去。「思念——看得到卻回不去」，這才是最心酸的感覺。",
+        "sentenceZh": "從那麼高的地方，她還能看見遠遠下面的家。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hou Yi was running back home. He looked up at the sky.",
+        "question": "How did Hou Yi feel when he saw Chang'e on the moon?",
+        "options": [
+          "💔 heartbroken and helpless",
+          "😲 surprised but very happy",
+          "😤 angry and wanting to fight",
+          "😌 calm and not very worried"
+        ],
+        "optionsZh": [
+          "心碎又無能為力",
+          "驚訝但是很開心",
+          "生氣，很想打架",
+          "平靜，不太擔心"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他跑回來，一抬頭，嫦娥已經在月亮上了，追不回來——這種感覺，只有「心碎又無能為力」。",
+        "sentenceZh": "后羿跑著回家，抬頭望向天空。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He was too late. She was already on the moon.",
+        "question": "What does 'too late' tell us about Hou Yi?",
+        "options": [
+          "nothing could be changed now, no matter what",
+          "arriving home before her and looking for the pill",
+          "already knowing she would fly away and was ready",
+          "feeling angry because she had not waited for him"
+        ],
+        "optionsZh": [
+          "不管怎樣，事情已經無法改變",
+          "他比她先回家，還在找那顆藥",
+          "早就知道她會飛走，心理已有準備",
+          "他很生氣，因為她沒有等他回來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "太晚了——她已經在月亮上，再怎麼跑都追不回來，「不管他怎麼做，事情已經無法改變」。",
+        "sentenceZh": "他太晚了，她已經在月亮上了。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He was too late. She was already on the moon.",
+        "questionEn": "Could Hou Yi bring Chang'e back to earth?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "已經太晚了——她在月亮上，沒辦法帶她回來，所以答案是 No。",
+        "sentenceZh": "他太晚了，她已經在月亮上了。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
+      },
+      {
         "type": "narration",
         "id": "kt-ch10-l6-q11",
         "level": "A2",
@@ -1591,14 +2826,14 @@
         "sentence": "He put out her favourite food in the yard each night.",
         "question": "Why did Hou Yi put food in the yard?",
         "options": [
-          "to feed a hungry stray cat",
-          "to show he still loved her",
-          "to give food to the moon",
-          "to ask the sky for rain"
+          "feeding a hungry stray cat",
+          "showing he still loved her",
+          "sending food up to the moon",
+          "asking the sky to bring rain"
         ],
         "optionsZh": [
           "餵肚子餓的流浪貓",
-          "表示他還愛她",
+          "告訴她他還愛她",
           "把食物送給月亮",
           "向天空求雨"
         ],
@@ -1670,6 +2905,210 @@
           "ch10",
           "change"
         ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch10-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words to their Chinese meanings.",
+        "pairs": [
+          {
+            "left": "not alone",
+            "right": "不孤單"
+          },
+          {
+            "left": "put its nose on her hand",
+            "right": "把鼻子靠在她手上"
+          },
+          {
+            "left": "miss",
+            "right": "想念"
+          },
+          {
+            "left": "full and round",
+            "right": "又圓又滿"
+          }
+        ],
+        "explanationZh": "最後幾個詞，記好：\n🔑 not alone = 不孤單\n🔑 put its nose on her hand = 把鼻子靠在她手上\n🔑 miss = 想念\n🔑 full and round = 又圓又滿",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "On the moon, Chang'e was not alone. A small white rabbit lived there. It came to her.",
+        "question": "What does the rabbit coming to her mean?",
+        "options": [
+          "she had a gentle companion on the lonely moon",
+          "the rabbit was guarding the moon from visitors",
+          "she had to take care of a baby animal all day",
+          "the rabbit was sent by the Queen Mother to watch her"
+        ],
+        "optionsZh": [
+          "在孤寂的月亮上，她有了溫柔的陪伴",
+          "兔子在守護月亮，不讓人靠近",
+          "她必須整天照顧一隻小動物",
+          "兔子是西王母派來監視她的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小白兔走向她——那是陪伴。在那麼孤寂的月亮上，有個溫柔的朋友，「她有了溫柔的陪伴」。",
+        "sentenceZh": "月亮上，嫦娥並不是一個人。一隻小白兔住在那裡，牠走了過來陪她。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Down on earth, Hou Yi looked up every night.",
+        "questionEn": "Did Hou Yi forget about Chang'e over time?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "每天晚上都抬頭看月亮——他沒有忘記，他在思念她，所以答案是 No。",
+        "sentenceZh": "地球上，后羿每天晚上都抬頭仰望月亮。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He put out her favourite food in the yard each night.",
+        "question": "What does putting out her food tell us about Hou Yi?",
+        "options": [
+          "still deeply in love — keeping her close in his heart",
+          "very hungry — cooking too much food every night",
+          "frightened — hoping the food would keep him safe",
+          "confused — forgetting she was no longer at home"
+        ],
+        "optionsZh": [
+          "深愛著她——在心裡把她留住",
+          "很肚子餓——每天晚上煮太多",
+          "很害怕——希望食物能保護他",
+          "搞不清楚——忘了她已經不在了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每晚擺她最愛吃的食物——這是對她的思念，告訴她「我沒有忘記你」，「深愛著她，在心裡把她留住」。",
+        "sentenceZh": "他每晚把她最愛的食物擺在院子裡。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch10-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "People look up. They see the moon. They miss the ones they love.",
+        "question": "What feeling does looking at the moon bring?",
+        "options": [
+          "🌙 longing for someone far away",
+          "😴 feeling sleepy and ready for bed",
+          "😱 scared of the dark night sky",
+          "😤 angry at the cold night air"
+        ],
+        "optionsZh": [
+          "思念遠方的人",
+          "覺得好睏，想上床睡覺",
+          "被黑暗的夜空嚇到了",
+          "對冷冷的夜氣感到煩躁"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "仰望月亮，心裡想起遠遠的人——那就是「思念」，「思念遠方的人」。",
+        "sentenceZh": "大家抬頭看月亮，想念著遠方的人。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Once each year, in autumn, the moon is full and round. People look up. They miss the ones they love.",
+        "question": "What is the main feeling of this story's ending?",
+        "options": [
+          "bittersweet — love and loss carried across time",
+          "joyful — everyone is happy the story is done",
+          "scary — the moon reminds people of the bad student",
+          "funny — the whole thing was just a silly mistake"
+        ],
+        "optionsZh": [
+          "甜蜜中帶著苦澀——愛與失去跨越時間",
+          "快樂——大家都很開心故事結束了",
+          "可怕——月亮讓人想起壞學生",
+          "好笑——這整件事只是個小誤會"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每年秋天，月亮又圓，人們思念遠方的人——愛還在、但也有失去的遺憾，「甜蜜中帶著苦澀，愛與失去跨越時間」。",
+        "sentenceZh": "每年秋天，月亮又圓又滿，人們仰頭，思念自己愛的人。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "gist"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch10-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Once each year, in autumn, the moon is full and round.",
+        "questionEn": "Does the moon look this way every single night?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「once each year（每年一次）」——不是每天都這樣，只有一年一次，所以答案是 No。",
+        "sentenceZh": "每年一次，到了秋天，月亮又圓又滿。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "detail"
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "narration",

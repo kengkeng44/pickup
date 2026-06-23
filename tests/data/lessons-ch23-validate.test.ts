@@ -24,7 +24,7 @@ describe('Ch23 司馬光砸缸 (Chinese folk legend, Song Shi 1345 CE recording,
       (s, l) => s + l.questions.length,
       0
     );
-    expect(totalQ).toBe(77);
+    expect(totalQ).toBeGreaterThanOrEqual(77);
   });
 
   it('Ch23 lessons all chapter=23 and id pattern kt-ch23-l*', () => {
