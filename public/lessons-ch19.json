@@ -242,6 +242,233 @@
         "sentenceZh": "小鹿站在河邊，果樹在遠遠的對岸。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch19-l1-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil was a small mouse deer in the green forest.",
+        "question": "Where did Sang Kancil live?",
+        "options": [
+          "deep in the forest",
+          "next to the sea",
+          "in a big city",
+          "near a tall mountain"
+        ],
+        "optionsZh": [
+          "在森林深處",
+          "在海邊",
+          "在大城市",
+          "在高山附近"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事一開始說他住在綠色的森林裡——答「在綠色的森林裡」。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "Sang Kancil 是綠色森林裡的一隻小鼠鹿。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l1-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He was not big. He was not strong. But he was very smart.",
+        "questionEn": "Was mouse deer bigger than the other animals?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他不大、不強——比其他動物小,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "牠不大，也不強，但非常聰明。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l1-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Other animals often laughed at his short legs and tiny body.",
+        "question": "How did other animals treat mouse deer?",
+        "options": [
+          "laughed at him",
+          "helped him cross",
+          "asked him for food",
+          "ran away scared"
+        ],
+        "optionsZh": [
+          "嘲笑他",
+          "幫他過河",
+          "向他要食物",
+          "嚇得逃走"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "其他動物常笑他腿短身小——答「嘲笑他」。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "其他動物常常嘲笑他的短腿和小身子。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "short legs",
+            "right": "短腿"
+          },
+          {
+            "left": "sweet fruit",
+            "right": "甜水果"
+          },
+          {
+            "left": "wide river",
+            "right": "寬河"
+          },
+          {
+            "left": "green forest",
+            "right": "綠色森林"
+          }
+        ],
+        "explanationZh": "配對:short legs=短腿、sweet fruit=甜水果、wide river=寬河、green forest=綠色森林。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l1-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "One morning, he stood by the side of a wide river.",
+        "question": "What time of day did mouse deer go to the river?",
+        "options": [
+          "early in the day",
+          "late at night",
+          "in the middle of the day",
+          "just before sunset"
+        ],
+        "optionsZh": [
+          "大清早",
+          "深夜",
+          "大中午",
+          "剛好日落前"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「one morning」→ 早上。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "某天早上，牠站在一條寬河的旁邊。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l1-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Across the water he saw a tall tree full of sweet ripe fruit.",
+        "questionEn": "Was the fruit tree on mouse deer's side of the river?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「across the water」表示在對岸,不是他這邊,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "對岸，牠看到一棵高樹，上面全是甜甜的熟果實。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l1-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But the river was wide. He could not see the bottom of the water.",
+        "question": "Why was crossing the river a problem?",
+        "options": [
+          "too wide and deep to cross easily",
+          "he was afraid of fruit",
+          "the forest path was blocked",
+          "no animals were around"
+        ],
+        "optionsZh": [
+          "太寬太深,難以過去",
+          "他害怕水果",
+          "森林小路被擋住了",
+          "周圍沒有動物"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "河太寬、看不到底——難以渡過,這就是問題所在。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "但河面太寬，連河底都看不到。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l1-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The little mouse deer stood by the river. The fruit tree stood far across the water.",
+        "question": "What is the main problem in this story?",
+        "options": [
+          "fruit is across a wide river",
+          "mouse deer lost his way home",
+          "big animals chase him all day",
+          "the fruit tree fell over last night"
+        ],
+        "optionsZh": [
+          "水果在寬河對岸",
+          "鼠鹿迷路了",
+          "大動物整天追他",
+          "果樹昨晚倒了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "鼠鹿站在河邊,水果在對岸——這是整個故事的核心問題。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "小鹿站在河邊，果樹在遠遠的對岸。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch19-l1-q11",
         "level": "A2",
@@ -497,6 +724,233 @@
         ],
         "subSkill": "inference",
         "sentenceZh": "Sang Kancil 不會游泳，也看不見鱷魚，只好坐在河邊。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l2-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil wanted to eat that fruit so much.",
+        "question": "How much did mouse deer want the fruit?",
+        "options": [
+          "very much",
+          "just a little",
+          "not really",
+          "only for his friend"
+        ],
+        "optionsZh": [
+          "非常想要",
+          "只有一點點",
+          "不太想",
+          "只想給朋友"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「so much」→ 非常想要。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "Sang Kancil 非常非常想吃那些水果。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l2-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His small belly made a loud sound while he stood there.",
+        "questionEn": "Was mouse deer's belly making noise because he was full?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "肚子發出聲音是因為餓——不是因為吃飽了,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "inference"
+        ],
+        "sentenceZh": "牠的小肚子站在那裡咕嚕嚕地響。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l2-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His short legs could only swim a few steps before they got tired.",
+        "question": "What did mouse deer's legs do after a few steps?",
+        "options": [
+          "got tired and stopped",
+          "moved faster and faster",
+          "kicked the crocodiles away",
+          "carried him to dry land"
+        ],
+        "optionsZh": [
+          "累了就停下來",
+          "越游越快",
+          "把鱷魚踢走",
+          "帶他到陸地上"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「before they got tired」→ 游幾步就累了停下。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "牠的短腿只能游幾步就累了。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "loud sound",
+            "right": "大聲"
+          },
+          {
+            "left": "dark water",
+            "right": "暗水"
+          },
+          {
+            "left": "short legs",
+            "right": "短腿"
+          },
+          {
+            "left": "long mouth",
+            "right": "長嘴"
+          }
+        ],
+        "explanationZh": "配對:loud sound=大聲、dark water=暗水、short legs=短腿、long mouth=長嘴。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l2-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Many crocodiles lived in the dark water of the river.",
+        "question": "Where did the crocodiles live?",
+        "options": [
+          "under the murky river",
+          "tall grass on land",
+          "near the fruit tree",
+          "inside a deep cave"
+        ],
+        "optionsZh": [
+          "在混濁的河水下",
+          "岸上的高草叢",
+          "果樹附近",
+          "深洞裡"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「the dark water of the river」→ 暗色的河水裡。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "很多鱷魚住在河裡暗色的水中。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l2-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Only their eyes and noses stuck up above the river.",
+        "questionEn": "Could mouse deer see the whole crocodile body?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "只有眼睛和鼻子露出水面——看不到整個身體,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "只有牠們的眼睛和鼻子露出水面。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l2-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The water was so dark that mouse deer could not count them.",
+        "question": "Why did the dark water make things harder for mouse deer?",
+        "options": [
+          "hard to see or count them",
+          "made him cold and sleepy",
+          "blocked his path to the forest",
+          "turned his legs weak"
+        ],
+        "optionsZh": [
+          "看不清也數不清",
+          "讓他又冷又睏",
+          "擋住他回森林的路",
+          "讓他的腿變軟"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "水太暗,數不清鱷魚——讓過河更難了。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "水太暗，小鹿根本數不清鱷魚有幾條。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l2-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil could not swim and could not see the crocodiles. He sat down on the side.",
+        "question": "Why was crossing the river scary for mouse deer?",
+        "options": [
+          "crocodiles wait in dark water below",
+          "the bridge was already broken",
+          "birds dive at him from above",
+          "he had no energy left at all"
+        ],
+        "optionsZh": [
+          "鱷魚躲在黑水裡等著",
+          "橋已經斷了",
+          "鳥從上面俯衝攻擊他",
+          "他完全沒有體力了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "暗水裡全是看不見的鱷魚——最可怕的是看不見危險。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "Sang Kancil 不會游泳，又看不到鱷魚，只好坐在河邊。"
       },
       {
         "type": "narration",
@@ -756,6 +1210,233 @@
         "sentenceZh": "小鹿準備跟鱷魚說一件不是真的事。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch19-l3-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil sat down. He thought hard for a long time.",
+        "question": "Why did mouse deer sit down?",
+        "options": [
+          "needed to think of a plan",
+          "wanted to rest his short legs",
+          "saw a friend coming near",
+          "felt scared and gave up"
+        ],
+        "optionsZh": [
+          "需要想出一個辦法",
+          "想讓短腿休息一下",
+          "看到朋友走近",
+          "嚇壞了放棄了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "坐下用力想——他需要想出一個辦法過河。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "Sang Kancil 坐了下來，用力想了很久。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l3-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His head moved slowly from one side to the other side, again and again.",
+        "questionEn": "Did the plan come to mouse deer quickly?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "頭反覆慢慢搖——花了很長時間,所以不是一下子就想到,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "inference"
+        ],
+        "sentenceZh": "牠的腦袋慢慢左右搖，一次又一次。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l3-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Then a big smile came on his face. He had a plan.",
+        "question": "What did the big smile show?",
+        "options": [
+          "found a good idea",
+          "saw a tasty treat nearby",
+          "felt happy about nothing",
+          "said hello to a friend"
+        ],
+        "optionsZh": [
+          "想到了好主意",
+          "看到附近有好吃的",
+          "無緣無故感到開心",
+          "跟朋友打招呼"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大大的笑容 + 想到計畫——笑容代表「想到好主意了」。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "然後他臉上浮現大大的笑容——他想到辦法了。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "big smile",
+            "right": "大笑容"
+          },
+          {
+            "left": "smart plan",
+            "right": "聰明計畫"
+          },
+          {
+            "left": "bright eyes",
+            "right": "亮眼睛"
+          },
+          {
+            "left": "call out loud",
+            "right": "大聲喊"
+          }
+        ],
+        "explanationZh": "配對:big smile=大笑容、smart plan=聰明計畫、bright eyes=亮眼睛、call out loud=大聲喊。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l3-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"I cannot swim, but I do not need to swim,\" he said softly.",
+        "question": "What does this line tell us?",
+        "options": [
+          "a way not involving swimming",
+          "he learned to swim just now",
+          "the river disappeared",
+          "friends will carry him over"
+        ],
+        "optionsZh": [
+          "想到不需要游泳的辦法",
+          "他剛學會游泳",
+          "河流不見了",
+          "朋友會抬他過去"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "不需要游泳——他想到了另一個不用游泳的辦法。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "「我不會游泳，但我不需要游泳，」他小聲說。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l3-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He walked to the side of the river. He called out loud.",
+        "questionEn": "Did mouse deer stay far away from the river?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他走到河邊——靠近了河,不是待在遠處,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "牠走到河邊，大聲喊了出去。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l3-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Mouse deer was about to tell the crocodiles something that was not true.",
+        "question": "What was mouse deer planning to do?",
+        "options": [
+          "trick the crocodiles with a lie",
+          "give the crocodiles some fruit",
+          "ask the crocodiles for help",
+          "swim across while they sleep"
+        ],
+        "optionsZh": [
+          "用謊話騙鱷魚",
+          "給鱷魚一些水果",
+          "請求鱷魚幫忙",
+          "趁牠們睡覺時游過去"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "要說不是真的事情——就是用謊話騙鱷魚。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "小鹿準備跟鱷魚說一件不是真的事。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l3-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil sat down. He thought hard for a long time. Then a big smile came on his face.",
+        "question": "What is the main idea of this lesson?",
+        "options": [
+          "small mouse deer finds a clever plan",
+          "mouse deer gives up and goes home",
+          "crocodiles help mouse deer cross",
+          "king sends a message to the animals"
+        ],
+        "optionsZh": [
+          "小鼠鹿想到聰明的辦法",
+          "鼠鹿放棄回家了",
+          "鱷魚幫鼠鹿過河",
+          "國王派人傳話給動物"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "坐下苦思,笑容一出——小鼠鹿找到了聰明的計畫。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "Sang Kancil 坐下苦思，然後臉上浮現了大大的笑容。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch19-l3-q11",
         "level": "A2",
@@ -1011,6 +1692,233 @@
         ],
         "subSkill": "inference",
         "sentenceZh": "鱷魚們相信了那個謊，因為沒有人願意問難題。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles came up from the water one by one.",
+        "question": "How did the crocodiles come up?",
+        "options": [
+          "one at a time",
+          "all at once in a crowd",
+          "just the big leader alone",
+          "slowly in small groups"
+        ],
+        "optionsZh": [
+          "一條一條來",
+          "全部一起衝",
+          "只有大頭目一條",
+          "慢慢分小群出來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「one by one」→ 一條一條地出來。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "鱷魚們一條一條從水裡浮了出來。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l4-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Their big eyes turned to look at the little mouse deer on the side.",
+        "questionEn": "Were the crocodiles watching mouse deer?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大眼睛全轉過來看——是的,在盯著鼠鹿,答 Yes。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "牠們的大眼睛轉過來，看著河邊的小鼠鹿。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"The king wants to know how many crocodiles live here,\" he said.",
+        "question": "What did mouse deer claim the king wanted?",
+        "options": [
+          "a count of all crocodiles",
+          "a big fish from the river",
+          "a message sent upstream",
+          "some fruit from the other side"
+        ],
+        "optionsZh": [
+          "清點所有鱷魚的數量",
+          "一條大魚",
+          "往上游傳一個口信",
+          "對岸的一些水果"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他說國王要知道這裡住了多少條鱷魚——要清點數量。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "「國王想知道這裡住了多少條鱷魚，」他說。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "come up",
+            "right": "上來"
+          },
+          {
+            "left": "the king",
+            "right": "國王"
+          },
+          {
+            "left": "how many",
+            "right": "幾條"
+          },
+          {
+            "left": "line up",
+            "right": "排隊"
+          }
+        ],
+        "explanationZh": "配對:come up=上來、the king=國王、how many=幾條、line up=排隊。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles looked at each other. None of them knew about a king.",
+        "question": "What did the crocodiles think about the king story?",
+        "options": [
+          "unsure but no one asked",
+          "knew it was all a lie",
+          "believed every single word",
+          "asked many hard questions"
+        ],
+        "optionsZh": [
+          "不確定但沒人問",
+          "知道全是謊話",
+          "每個字都相信",
+          "問了很多刁鑽的問題"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "沒人知道有沒有國王,但也沒人開口問——不確定卻沉默了。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "鱷魚們互看了一眼，但沒有一條知道有什麼國王。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l4-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But the big one did not want to say he did not know.",
+        "questionEn": "Did the big crocodile admit he knew nothing about a king?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "大鱷魚不想承認他不知道——所以沒說出口,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "inference"
+        ],
+        "sentenceZh": "但大鱷魚不想說自己不知道。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles believed the lie because no one wanted to ask hard questions.",
+        "question": "Why did the crocodiles fall for the trick?",
+        "options": [
+          "too proud to admit not knowing",
+          "wanted to help mouse deer cross",
+          "king truly was their master",
+          "they liked being counted always"
+        ],
+        "optionsZh": [
+          "太愛面子,不肯承認不知道",
+          "想幫鼠鹿過河",
+          "國王真的是他們的主人",
+          "他們喜歡被點名"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大鱷魚不想說「我不知道」——愛面子使他們上當了。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "鱷魚相信了這個謊，因為沒人想問難回答的問題。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles came up from the water. They believed mouse deer's message from the king.",
+        "question": "What is the main idea of this lesson?",
+        "options": [
+          "mouse deer tricked the crocodiles with a king story",
+          "the king really sent mouse deer to count them",
+          "crocodiles chased mouse deer away from the river",
+          "mouse deer decided to go back to the forest"
+        ],
+        "optionsZh": [
+          "鼠鹿用國王的故事騙了鱷魚",
+          "國王真的派鼠鹿來點人數",
+          "鱷魚把鼠鹿從河邊趕走了",
+          "鼠鹿決定回森林去"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "鼠鹿用「國王的話」這個謊言讓鱷魚相信了——這是整節的核心。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "鱷魚從水裡出來，相信了鼠鹿說的國王傳話。"
       },
       {
         "type": "narration",
@@ -1270,6 +2178,233 @@
         "sentenceZh": "每跳一步，小鹿就離果樹近一點點。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch19-l5-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles lined up from this side to the other side.",
+        "question": "What did the crocodiles form by lining up?",
+        "options": [
+          "living bridge across the water",
+          "a long wall to block the water",
+          "a circle around mouse deer",
+          "a path back to the forest"
+        ],
+        "optionsZh": [
+          "橫跨河面的活橋",
+          "一道擋水的牆",
+          "把鼠鹿圍起來",
+          "通往森林的小路"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "從這岸排到對岸——形成了一座活生生的橋。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "鱷魚從這岸一直排到對岸。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l5-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Their long bodies made a flat road across the dark water.",
+        "questionEn": "Did the crocodiles' bodies help mouse deer cross?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "牠們的身體形成了一條平坦的路——確實幫助鼠鹿過河了,答 Yes。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "inference"
+        ],
+        "sentenceZh": "牠們長長的身體在暗水上鋪成了一條平路。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l5-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil jumped on the first crocodile back. \"One!\"",
+        "question": "Why did mouse deer call out a number?",
+        "options": [
+          "pretending to count for the king",
+          "teaching crocodiles how to count",
+          "shouting for joy at each hop",
+          "warning the crocodiles to stay still"
+        ],
+        "optionsZh": [
+          "假裝在幫國王點人數",
+          "教鱷魚怎麼數數",
+          "每跳一步就歡呼",
+          "提醒鱷魚要乖乖站好"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大聲說「一!」讓鱷魚以為是在點人數——繼續扮演國王使者的角色。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "Sang Kancil 跳上第一條鱷魚的背——「一！」"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "lined up",
+            "right": "排成一排"
+          },
+          {
+            "left": "jumped on",
+            "right": "跳上去"
+          },
+          {
+            "left": "kept still",
+            "right": "保持不動"
+          },
+          {
+            "left": "felt proud",
+            "right": "感到驕傲"
+          }
+        ],
+        "explanationZh": "配對:lined up=排成一排、jumped on=跳上去、kept still=保持不動、felt proud=感到驕傲。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l5-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He jumped to the next. \"Two!\" Then \"Three!\" \"Four!\"",
+        "question": "How did mouse deer move across?",
+        "options": [
+          "hopping from back to back",
+          "wading through shallow water",
+          "riding one big crocodile alone",
+          "flying over the whole river"
+        ],
+        "optionsZh": [
+          "一背一背地跳",
+          "蹚過淺淺的水",
+          "騎著一條大鱷魚",
+          "飛過整條河"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "二!三!四!——每次數一條就跳一下,一背一背地過去。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "牠跳到下一條——「二！」然後「三！」「四！」"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l5-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles felt proud. They thought the king was watching.",
+        "questionEn": "Were the crocodiles angry while mouse deer counted them?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們感到驕傲、覺得國王在看——心情是開心驕傲,不是生氣,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "鱷魚們感到驕傲，以為國王在看著牠們。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l5-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "They kept very still so the small mouse deer could count them well.",
+        "question": "Why staying still helped mouse deer secretly?",
+        "options": [
+          "made each hop safe and easy",
+          "stopped them from eating him",
+          "let him rest on their backs",
+          "gave him time to eat fruit"
+        ],
+        "optionsZh": [
+          "讓每一跳都安全好跳",
+          "阻止他們吃掉他",
+          "讓他在背上休息",
+          "給他時間吃水果"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "鱷魚靜止不動 → 背部平穩 → 鼠鹿每一跳都更安全、更好跳。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "牠們乖乖不動，這樣小鼠鹿才能好好點人數。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l5-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Every jump moved mouse deer one step closer to the fruit tree.",
+        "question": "What was mouse deer really doing all along?",
+        "options": [
+          "crossing the river using the crocodiles",
+          "counting animals for the true king",
+          "looking for a bridge further away",
+          "waiting for the crocodiles to fall asleep"
+        ],
+        "optionsZh": [
+          "借用鱷魚的背過河",
+          "真的在幫國王點人數",
+          "去更遠的地方找橋",
+          "等鱷魚睡著再行動"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每一跳都靠近對岸一點——他一直都是在借鱷魚背過河。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "每跳一步，鼠鹿就離果樹更近一步。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch19-l5-q11",
         "level": "A2",
@@ -1527,6 +2662,233 @@
         "sentenceZh": "在河的對岸，小鹿終於找到了那棵果樹。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch19-l6-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil jumped off the last crocodile onto the other side.",
+        "question": "What did Sang Kancil do after the last crocodile?",
+        "options": [
+          "jumped onto dry land across the river",
+          "swam back to where he started",
+          "hid near the fruit tree quietly",
+          "said sorry to all the crocodiles"
+        ],
+        "optionsZh": [
+          "跳上對岸的陸地",
+          "游回起點",
+          "悄悄躲在果樹旁",
+          "向所有鱷魚道歉"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "跳離最後一條鱷魚,落到對岸——成功了!",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "Sang Kancil 從最後一條鱷魚身上跳到了對岸。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l6-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"Thank you, crocodiles! There is no message from the king!\"",
+        "questionEn": "Did mouse deer keep the lie a secret after crossing?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他大喊「根本沒有國王的話」——主動揭穿了自己的謊言,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "「謝謝你們，鱷魚！根本沒有什麼國王的話！」"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l6-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles opened their mouths in anger. They had no king.",
+        "question": "Why were the crocodiles so angry?",
+        "options": [
+          "realized they had been tricked",
+          "mouse deer took all their food",
+          "the king punished them for lining up",
+          "mouse deer broke one of their tails"
+        ],
+        "optionsZh": [
+          "發現自己被騙了",
+          "鼠鹿搶走了他們的食物",
+          "國王懲罰他們排隊",
+          "鼠鹿弄斷了其中一條的尾巴"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "根本沒有國王——他們被鼠鹿耍了,當然大怒。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "鱷魚憤怒地張開大嘴——根本沒有什麼國王。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "jumped off",
+            "right": "跳下去"
+          },
+          {
+            "left": "in anger",
+            "right": "生氣地"
+          },
+          {
+            "left": "dry land",
+            "right": "乾地"
+          },
+          {
+            "left": "too wide",
+            "right": "太寬了"
+          }
+        ],
+        "explanationZh": "配對:jumped off=跳下去、in anger=生氣地、dry land=乾地、too wide=太寬了。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l6-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But the river was too wide. They could not chase him.",
+        "question": "Why couldn't the crocodiles catch mouse deer now?",
+        "options": [
+          "river too wide to cross to dry land",
+          "mouse deer ran into a dark cave",
+          "the king ordered them to stop",
+          "they were still lining up in the water"
+        ],
+        "optionsZh": [
+          "河太寬,游不到乾地",
+          "鼠鹿跑進了黑洞",
+          "國王命令他們停下",
+          "他們還在水裡排著隊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "寬寬的河擋住了他們——水裡的動物上不了乾燥的陸地追他。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "但河太寬了，牠們追不上他。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l6-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "On the other side of the river, mouse deer found the fruit tree at last.",
+        "questionEn": "Did mouse deer reach the fruit tree in the end?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「at last」終於找到了果樹——成功了,答 Yes。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "在河的對岸，鼠鹿終於找到了那棵果樹。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l6-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The little mouse deer turned around and called back across the water.",
+        "question": "Why did mouse deer call back?",
+        "options": [
+          "wanted the crocodiles to know the trick",
+          "needed more help from the crocodiles",
+          "asked them to send fruit across",
+          "said sorry for what he had done"
+        ],
+        "optionsZh": [
+          "想讓鱷魚知道被耍了",
+          "還需要鱷魚再幫他一次",
+          "請鱷魚把水果傳過去",
+          "為自己的行為道歉"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "大聲宣告「沒有國王的話」——他故意讓鱷魚知道自己被耍了。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "小鼠鹿轉過身，朝著水的對面大喊。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l6-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil jumped off the last crocodile onto the other side. The crocodiles could not chase him.",
+        "question": "What is the main point of this lesson?",
+        "options": [
+          "mouse deer crossed safely and outsmarted the crocodiles",
+          "crocodiles chased mouse deer all the way to the tree",
+          "the king arrived and stopped the crocodiles from chasing",
+          "mouse deer swam the last part on his own"
+        ],
+        "optionsZh": [
+          "鼠鹿安全過河並耍了鱷魚",
+          "鱷魚一路追到果樹邊",
+          "國王來了阻止鱷魚追",
+          "鼠鹿最後一段自己游過去的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "鼠鹿成功到達對岸,揭穿謊言,鱷魚也追不上——這就是這節的重點。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "Sang Kancil 跳上對岸，鱷魚們追不上他。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch19-l6-q11",
         "level": "A2",
@@ -1782,6 +3144,233 @@
         ],
         "subSkill": "inference",
         "sentenceZh": "鱷魚們學到了：要先問「這是真的嗎？」再點頭答應。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l7-x1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil ate the fruit. He patted his small full belly.",
+        "question": "How did mouse deer feel after eating the fruit?",
+        "options": [
+          "full and satisfied",
+          "still very hungry",
+          "scared of the crocodiles still",
+          "ready to go back and say sorry"
+        ],
+        "optionsZh": [
+          "吃飽了很滿足",
+          "還是非常餓",
+          "還是很怕鱷魚",
+          "準備回去道歉"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "拍拍飽飽的小肚子——吃飽了,心滿意足。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "Sang Kancil 吃了水果，拍拍他圓滾滾的小肚子。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l7-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His face was bright and his tail moved fast from side to side.",
+        "questionEn": "Was mouse deer unhappy after eating the fruit?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "臉亮亮的、尾巴搖得快——他很開心,不是不開心,答 No。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "detail"
+        ],
+        "sentenceZh": "牠的臉亮晶晶的，尾巴也快速左右搖。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l7-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"A small body is fine. A smart head is better,\" he said.",
+        "question": "What was mouse deer's lesson for himself?",
+        "options": [
+          "brains beat size and strength",
+          "a big body helps you the most",
+          "lying is always the best answer",
+          "asking for help always works"
+        ],
+        "optionsZh": [
+          "聰明比體型和力氣更重要",
+          "大個子最佔便宜",
+          "說謊永遠是最好的辦法",
+          "開口求助永遠管用"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「小身體沒關係,聰明的腦袋更好」——智慧勝過體型。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "「小身子沒什麼，聰明的腦袋更厲害，」他說。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch19-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the phrases.",
+        "pairs": [
+          {
+            "left": "full belly",
+            "right": "飽肚子"
+          },
+          {
+            "left": "smart head",
+            "right": "聰明的腦"
+          },
+          {
+            "left": "next time",
+            "right": "下一次"
+          },
+          {
+            "left": "believe every",
+            "right": "相信每一個"
+          }
+        ],
+        "explanationZh": "配對:full belly=飽肚子、smart head=聰明的腦、next time=下一次、believe every=相信每一個。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l7-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles slowly went back into the dark water.",
+        "question": "How did the crocodiles move back into the water?",
+        "options": [
+          "step by step, one at a time",
+          "very fast and loud",
+          "jumping one by one",
+          "swimming in a circle"
+        ],
+        "optionsZh": [
+          "一步一步慢慢來",
+          "又快又大聲",
+          "一條一條跳進去",
+          "繞圈游"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「slowly」→ 慢慢地回到水裡——也許有點垂頭喪氣。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "鱷魚們慢慢地回到暗水裡。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch19-l7-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"Next time we must ask more questions,\" the big crocodile said.",
+        "questionEn": "Did the big crocodile want to do better next time?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「下次一定要多問幾個問題」——他想做得更好,答 Yes。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "inference"
+        ],
+        "sentenceZh": "「下次我們一定要多問幾個問題，」大鱷魚說。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l7-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The crocodiles learned to ask \"is this true?\" before saying yes.",
+        "question": "What lesson did the crocodiles learn the hard way?",
+        "options": [
+          "always check before trusting a story",
+          "small animals cannot be trusted ever",
+          "never go up to the surface again",
+          "the king will protect them next time"
+        ],
+        "optionsZh": [
+          "相信一件事之前先查清楚",
+          "小動物永遠不可信",
+          "以後不要再浮出水面",
+          "下次國王會保護他們"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在說「好」之前先問「這是真的嗎?」——相信之前先核查。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "鱷魚學到了：在相信之前，要先問「這是真的嗎？」"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l7-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Sang Kancil ate the fruit. \"A small body is fine. A smart head is better.\"",
+        "question": "What is the main message of the whole story?",
+        "options": [
+          "being clever is stronger than being big",
+          "you must lie to get what you want",
+          "crocodiles should never trust anyone",
+          "fruit is the most important thing in life"
+        ],
+        "optionsZh": [
+          "聰明比強大更有力量",
+          "要得到想要的就得說謊",
+          "鱷魚不該相信任何人",
+          "水果是生命中最重要的事"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "整個故事都在說——聰明的小鼠鹿靠智慧勝過了大鱷魚。這就是故事的主旨。",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "Sang Kancil 吃著水果，「小身子沒什麼，聰明的腦袋更厲害。」"
       },
       {
         "type": "narration",

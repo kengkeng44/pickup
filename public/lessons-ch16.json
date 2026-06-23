@@ -225,6 +225,204 @@
         "sentenceZh": "那個寶寶有多大？"
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "老人",
+            "right": "old man"
+          },
+          {
+            "left": "老婦",
+            "right": "old woman"
+          },
+          {
+            "left": "田",
+            "right": "rice field"
+          },
+          {
+            "left": "祈求",
+            "right": "pray"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字，配對試試。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old couple had lived in the same quiet place for many years.",
+        "sentenceZh": "這對老夫婦在同一個安靜的地方住了好多年。",
+        "question": "Where did the old couple live?",
+        "options": [
+          "near a great city",
+          "beside their rice field",
+          "deep inside a forest",
+          "at the top of a hill"
+        ],
+        "optionsZh": [
+          "大城市旁邊",
+          "田邊",
+          "森林深處",
+          "山頂上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "by a rice field = 住在田邊——這對老夫婦的家就在田旁邊。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l1-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "They had no children. Their house was quiet.",
+        "sentenceZh": "他們沒有小孩。他們的家很安靜。",
+        "questionEn": "Did the old couple have a noisy, busy home?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "no children + quiet = 沒有小孩、安安靜靜——不熱鬧，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The couple had one simple wish about any child they might receive.",
+        "sentenceZh": "這對夫婦對他們可能得到的孩子只有一個小小的願望。",
+        "question": "What size of child did the old couple ask for?",
+        "options": [
+          "a very strong one",
+          "just a tiny one",
+          "only a tall one",
+          "one who could farm"
+        ],
+        "optionsZh": [
+          "非常強壯的",
+          "就一個小小的也好",
+          "只要高大的",
+          "能耕田的"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "even a tiny one will do = 就算很小的也好——他們不挑，只要有個孩子就夠了。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the old woman feel when she found the tiny baby?",
+        "sentenceZh": "老婆婆發現小小的寶寶時，心情怎麼樣？",
+        "question": "How did she feel?",
+        "options": [
+          "😊 surprised and overjoyed",
+          "😠 angry and upset",
+          "😢 sad and worried",
+          "😴 too tired to care"
+        ],
+        "optionsZh": [
+          "驚喜又非常開心",
+          "生氣又難受",
+          "難過又擔心",
+          "太累不在乎"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "smile and cry with joy = 又笑又哭開心——驚喜又非常開心。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "There, in her hand, sat a tiny baby.",
+        "sentenceZh": "在她的手心裡，坐著一個小小的寶寶。",
+        "question": "How big was the baby?",
+        "options": [
+          "big enough to walk around",
+          "tiny enough to fit a palm",
+          "as tall as a door frame",
+          "the size of a normal newborn"
+        ],
+        "optionsZh": [
+          "夠大能走路",
+          "小到能放在手掌裡",
+          "像門框一樣高",
+          "普通新生兒大小"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "in her hand = 在她手裡——寶寶小到可以坐在手心裡。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l1-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Every night they prayed for a child.",
+        "sentenceZh": "每個晚上,他們祈求一個小孩。",
+        "questionEn": "Did the old couple pray only once?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "every night = 每個晚上——他們每天晚上都祈求，不只一次，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch16-l1-q11",
         "level": "A2",
@@ -466,6 +664,205 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "名字",
+            "right": "name"
+          },
+          {
+            "left": "意思",
+            "right": "mean"
+          },
+          {
+            "left": "聰明",
+            "right": "clever"
+          },
+          {
+            "left": "勇敢",
+            "right": "brave"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字，配對看看。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They named him Issun-bōshi.",
+        "sentenceZh": "他們給他取名叫一寸法師。",
+        "question": "What was the tiny boy's name?",
+        "options": [
+          "Momotaro",
+          "Urashima Taro",
+          "Issun-boshi",
+          "Kintaro"
+        ],
+        "optionsZh": [
+          "桃太郎",
+          "浦島太郎",
+          "一寸法師",
+          "金太郎"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "They named him Issun-bōshi = 他叫一寸法師。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l2-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Years went by. He stayed thumb-sized.",
+        "sentenceZh": "很多年過去了。他還是拇指那麼大。",
+        "questionEn": "Did Issun grow to normal size over the years?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "stayed thumb-sized = 還是拇指大——多年過去也沒長高，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch16-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Issun _____ clever and brave, with a big heart.",
+        "sentenceZh": "一寸聰明又勇敢，有一顆大大的心。",
+        "question": "Choose the correct word to fill the blank.",
+        "options": [
+          "am",
+          "is",
+          "was",
+          "were"
+        ],
+        "optionsZh": [
+          "第一人稱現在",
+          "第三人稱現在",
+          "第三人稱過去",
+          "複數過去"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "Issun 是「他」，說的是故事裡的往事，所以用 was（過去式）。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He was clever and brave, with a big heart.",
+        "sentenceZh": "他很聰明,也很勇敢,有一顆大大的心。",
+        "question": "What three things describe Issun?",
+        "options": [
+          "big, strong and very fast",
+          "clever, brave, big-hearted",
+          "quiet, shy and very kind",
+          "small, scared and quite weak"
+        ],
+        "optionsZh": [
+          "大、強壯、很快",
+          "聰明、勇敢、大心胸",
+          "安靜、害羞、很善良",
+          "小、膽小、相當弱"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "clever + brave + big heart = 聰明、勇敢、有大大的心——就是這三個。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Where did Issun want to go?",
+        "sentenceZh": "一寸法師想去哪裡？",
+        "question": "Where did he want to go?",
+        "options": [
+          "🏯 to the great city of Kyoto",
+          "🏔️ to the top of a tall mountain",
+          "🌊 to the deep sea",
+          "🌾 to a quiet rice field"
+        ],
+        "optionsZh": [
+          "到京都大城市",
+          "到高山頂上",
+          "到深海",
+          "到安靜的稻田"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "I want to see Kyoto = 我想去看京都——他的夢想是去大城市。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l2-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But they nodded slowly. They believed in him.",
+        "sentenceZh": "但他們慢慢點頭。他們相信他。",
+        "questionEn": "Did Issun's parents have faith in him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "nodded + believed in him = 點頭、相信他——爸媽相信他能做到，答 Yes。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch16-l2-q11",
         "level": "A2",
@@ -704,6 +1101,204 @@
           "story",
           "ch16",
           "issun-boshi"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "縫衣針",
+            "right": "needle"
+          },
+          {
+            "left": "劍",
+            "right": "sword"
+          },
+          {
+            "left": "碗",
+            "right": "bowl"
+          },
+          {
+            "left": "筷子",
+            "right": "chopstick"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字，配對試試。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His mother gave him a sewing needle for a sword.",
+        "sentenceZh": "媽媽給他一根縫衣針當作劍。",
+        "question": "What did his mother give him to use as a sword?",
+        "options": [
+          "her sharp kitchen knife",
+          "the sewing needle itself",
+          "some garden stick pieces",
+          "the long pin from her hair"
+        ],
+        "optionsZh": [
+          "她鋒利的廚刀",
+          "那根縫衣針",
+          "一些花園小樹枝",
+          "她頭髮上的長針"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "a sewing needle for a sword = 縫衣針當劍——媽媽的縫衣針，對他來說剛好是劍。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l3-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His father gave him a rice bowl for a boat.",
+        "sentenceZh": "爸爸給他一個飯碗當作船。",
+        "questionEn": "Did Issun have a real boat for his journey?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "rice bowl for a boat = 飯碗當船——不是真的船，是一個碗，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He used a chopstick as an oar. He pushed off.",
+        "sentenceZh": "他用筷子當槳往前一撐,出發了。",
+        "question": "What did Issun use as an oar?",
+        "options": [
+          "some short tree branches",
+          "the chopstick he carried",
+          "one long flat leaf",
+          "some bamboo pieces"
+        ],
+        "optionsZh": [
+          "短樹枝",
+          "他帶的筷子",
+          "長扁葉子",
+          "竹片"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "chopstick as an oar = 筷子當槳——他把家裡的筷子當划船的槳。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Issun feel as he floated down the river?",
+        "sentenceZh": "一寸法師漂在河上時，是什麼感覺？",
+        "question": "How did he feel?",
+        "options": [
+          "🦁 brave and full of hope",
+          "😢 sad and missing home already",
+          "😴 sleepy and bored",
+          "😨 scared of the big water"
+        ],
+        "optionsZh": [
+          "勇敢又充滿希望",
+          "難過已經想家",
+          "想睡又無聊",
+          "怕大水"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "sat up tall and brave = 挺直、勇敢——他充滿希望向前去。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The water carried him far from home.",
+        "sentenceZh": "水把他帶得離家很遠。",
+        "question": "How did Issun travel down the river?",
+        "options": [
+          "he swam the whole way",
+          "the river carried his bowl",
+          "he walked along the riverbank",
+          "he rode on a big fish"
+        ],
+        "optionsZh": [
+          "他自己游過來",
+          "河水帶著他的碗",
+          "他沿著河岸走",
+          "騎在大魚背上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "the water carried him = 水把他帶走——他坐在碗裡，讓水流帶著走。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l3-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Day after day, the bowl floated on.",
+        "sentenceZh": "一天又一天,小碗一直漂著。",
+        "questionEn": "Did Issun arrive at the city on his very first day?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "day after day = 一天又一天——走了很多天才到，不是第一天就到，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
         ]
       },
       {
@@ -949,6 +1544,204 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "城市",
+            "right": "city"
+          },
+          {
+            "left": "鞠躬",
+            "right": "bow"
+          },
+          {
+            "left": "公主",
+            "right": "princess"
+          },
+          {
+            "left": "寺廟",
+            "right": "temple"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字,配對看看。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The journey was long, but Issun finally arrived at the city gates.",
+        "sentenceZh": "旅途很遠，但一寸終於抵達了城門。",
+        "question": "How long did it take Issun to reach the city?",
+        "options": [
+          "just one afternoon",
+          "several long days",
+          "one full week",
+          "only two days"
+        ],
+        "optionsZh": [
+          "只有一個下午",
+          "好幾天",
+          "整整一週",
+          "只有兩天"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "after many days = 許多天之後——路很長，走了好幾天。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l4-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He walked to a lord's house and bowed low.",
+        "sentenceZh": "他走到一位大人的家,深深鞠躬。",
+        "questionEn": "Was Issun rude when he met the lord?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "bowed low = 深深鞠躬——他很有禮貌，一點都不無禮，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Issun had a special place where he kept watch for danger.",
+        "sentenceZh": "一寸有一個特別的位置，讓他能注意危險。",
+        "question": "Where did Issun stand while guarding the princess?",
+        "options": [
+          "right in front of her",
+          "up on her shoulder by her ear",
+          "right behind her back",
+          "on the top of her hat"
+        ],
+        "optionsZh": [
+          "她前面",
+          "肩膀上靠近耳邊",
+          "她背後",
+          "帽子頂上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "on her shoulder near her ear = 肩上靠近耳朵——他是那樣小，才站得上去。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What job did Issun ask to do?",
+        "sentenceZh": "一寸法師要求做什麼工作？",
+        "question": "What job did he want?",
+        "options": [
+          "guard the lord's daughter",
+          "cook meals for the lord",
+          "work in the rice field",
+          "write letters for the lord"
+        ],
+        "optionsZh": [
+          "服侍保護大人的女兒",
+          "幫大人煮飯",
+          "在稻田工作",
+          "幫大人寫信"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "please let me serve you = 我要服侍您——他去大人家求職，成了公主的侍衛。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "That bright morning, the princess had a special destination in mind.",
+        "sentenceZh": "那個晴朗的早晨，公主心裡有個特別的目的地。",
+        "question": "Where was the princess going?",
+        "options": [
+          "a nearby river for water",
+          "the local temple to pray",
+          "a market for fresh food",
+          "the palace garden path"
+        ],
+        "optionsZh": [
+          "去附近河邊取水",
+          "去附近寺廟祈禱",
+          "去市場買新鮮食物",
+          "去宮廷花園走走"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "walked out to the temple = 走去寺廟——那天公主要去寺廟。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l4-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The path led through a quiet wood.",
+        "sentenceZh": "路穿過一片安靜的樹林。",
+        "questionEn": "Was the road to the temple open and clear?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "quiet wood = 安靜的樹林——路穿過樹林，不是開闊無礙，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch16-l4-q11",
         "level": "A2",
@@ -1187,6 +1980,205 @@
           "story",
           "ch16",
           "issun-boshi"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "鬼",
+            "right": "demon"
+          },
+          {
+            "left": "角",
+            "right": "horn"
+          },
+          {
+            "left": "尖",
+            "right": "sharp"
+          },
+          {
+            "left": "害怕",
+            "right": "scared"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字，配對看看。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Without any warning, something terrible appeared in the road ahead.",
+        "sentenceZh": "毫無預警，路前方出現了可怕的東西。",
+        "question": "What jumped out from the trees?",
+        "options": [
+          "one large brown bear",
+          "the big red demon itself",
+          "one fast white wolf",
+          "some bandits from the road"
+        ],
+        "optionsZh": [
+          "大棕熊",
+          "大紅鬼",
+          "快白狼",
+          "路上的一群土匪"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "a big red demon = 大紅鬼——牠突然從樹林裡跳出來。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l5-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He had two horns and sharp teeth.",
+        "sentenceZh": "牠有兩隻角，還有尖銳的牙齒。",
+        "questionEn": "Did the demon look friendly?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "two horns + sharp teeth = 兩根角、尖牙——看起來很可怕，不友善，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch16-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Stop!\" he _____ in his small but brave voice.",
+        "sentenceZh": "「住手！」他用小小但勇敢的聲音喊。",
+        "question": "Choose the correct word to fill the blank.",
+        "options": [
+          "shout",
+          "shouts",
+          "shouted",
+          "shouting"
+        ],
+        "optionsZh": [
+          "原形",
+          "第三人稱現在式",
+          "過去式",
+          "進行式"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "說的是故事裡以前的事，動詞要用過去式。shout 的過去式是 shouted。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demon did not feel afraid of the tiny warrior at all.",
+        "sentenceZh": "鬼怪完全不害怕這個小小的武士。",
+        "question": "How did the demon react to Issun?",
+        "options": [
+          "ran quickly away",
+          "laughed even louder",
+          "threw a stone hard",
+          "sat right down crying"
+        ],
+        "optionsZh": [
+          "馬上跑掉",
+          "笑得更大聲",
+          "用力丟石頭",
+          "坐下哭泣"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "laughed even louder = 笑得更大聲——鬼根本不把他當一回事。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What did Issun do when the demon appeared?",
+        "sentenceZh": "鬼出現時，一寸法師做了什麼？",
+        "question": "What did Issun do?",
+        "options": [
+          "jumped down, drew his needle",
+          "hid right behind the princess",
+          "ran off into the nearby woods",
+          "pretended to fall asleep"
+        ],
+        "optionsZh": [
+          "跳到地上拔出縫衣針",
+          "躲在公主後面",
+          "跑進旁邊的樹林",
+          "假裝睡覺"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "jumped down + shouted Stop = 跳到地上、大喊住手——他勇敢站出來面對鬼。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l5-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The princess held still and could not move.",
+        "sentenceZh": "公主僵在那裡，動都不能動。",
+        "questionEn": "Was the princess able to run from the demon?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "could not move = 動不了——她嚇到動彈不得，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
         ]
       },
       {
@@ -1431,6 +2423,204 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "吞",
+            "right": "swallow"
+          },
+          {
+            "left": "黑暗",
+            "right": "dark"
+          },
+          {
+            "left": "刺",
+            "right": "poke"
+          },
+          {
+            "left": "吼叫",
+            "right": "roar"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字，配對看看。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The demon reached down and did something very shocking to Issun.",
+        "sentenceZh": "鬼伸下手，對一寸做了非常驚人的事。",
+        "question": "What did the demon do to Issun?",
+        "options": [
+          "threw him far away",
+          "swallowed him up whole",
+          "locked him in a cave",
+          "stepped on him hard"
+        ],
+        "optionsZh": [
+          "把他丟很遠",
+          "把他整個吞掉",
+          "把他關在洞裡",
+          "用力踩他"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "swallowed him whole = 把他整個吞了——鬼把一寸吞進肚子裡。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l6-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But Issun was not scared. He held up his needle.",
+        "sentenceZh": "可是一寸不害怕。他舉起他的針。",
+        "questionEn": "Did Issun give up when he was swallowed?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "not scared + held up his needle = 不怕、舉起針——他沒有放棄，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He poked and poked the demon's tummy.",
+        "sentenceZh": "他一戳再戳，直戳鬼怪的肚皮。",
+        "question": "What did Issun do inside the demon?",
+        "options": [
+          "cried aloud for rescue",
+          "used his needle on the tummy",
+          "looked hard for a way out",
+          "waited very quietly inside"
+        ],
+        "optionsZh": [
+          "大聲呼救",
+          "用縫衣針戳鬼的肚子",
+          "努力找出路",
+          "靜靜在裡面等"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "poked and poked the tummy = 一直戳肚子——他用針刺從裡面反攻。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the demon finally end the fight?",
+        "sentenceZh": "鬼怪最後是怎麼結束這場戰鬥的？",
+        "question": "What did the demon do?",
+        "options": [
+          "🤢 spit Issun back out",
+          "😴 fell asleep inside",
+          "🏃 ran away with Issun",
+          "🧊 turned to ice"
+        ],
+        "optionsZh": [
+          "把一寸吐出來",
+          "在裡面睡著",
+          "帶著一寸跑掉",
+          "變成冰"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "spit Issun out = 把一寸噴出來——肚子太痛，只好把他噴出去。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "After being poked so many times, the demon made a surprising choice.",
+        "sentenceZh": "被戳了那麼多次之後，鬼做了一個讓人意外的決定。",
+        "question": "What did the demon do after spitting Issun out?",
+        "options": [
+          "tried to fight once more",
+          "turned and ran away fast",
+          "begged Issun to stop",
+          "sat down and cried hard"
+        ],
+        "optionsZh": [
+          "再試一次打",
+          "轉身快跑走",
+          "求一寸停手",
+          "坐下哭"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "gave up + ran away = 放棄、跑走——鬼承認打不過，逃跑了。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l6-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The demon roared and hopped from foot to foot.",
+        "sentenceZh": "鬼大吼,一隻腳跳到另一隻腳。",
+        "questionEn": "Did the needle pokes have no effect on the demon?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "roared + hopped = 大吼、跳腳——針的效果非常大，鬼痛得亂跳，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch16-l6-q11",
         "level": "A2",
@@ -1669,6 +2859,204 @@
           "story",
           "ch16",
           "issun-boshi"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch16-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "幸運",
+            "right": "lucky"
+          },
+          {
+            "left": "木槌",
+            "right": "mallet"
+          },
+          {
+            "left": "敲",
+            "right": "tap"
+          },
+          {
+            "left": "長大",
+            "right": "grow"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字，配對試試。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"This is a lucky mallet. It can grant a wish.\"",
+        "sentenceZh": "「這是一支幸運小槌，可以實現願望。」",
+        "question": "What was special about the mallet?",
+        "options": [
+          "very heavy to carry",
+          "able to grant a wish",
+          "crafted from pure gold",
+          "could fly through the air"
+        ],
+        "optionsZh": [
+          "很重",
+          "能實現願望",
+          "金子做的",
+          "可以在空中飛"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "grant a wish = 實現願望——那把小木槌有魔力，能實現願望。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l7-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "With each soft tap, Issun grew taller.",
+        "sentenceZh": "每輕輕敲一下，一寸法師就長高一點。",
+        "questionEn": "Did Issun grow all at once with one tap?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "with each tap = 每敲一下長一點——他是一點一點長高，不是一下子，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Soon he stood as tall as any young man.",
+        "sentenceZh": "很快,他就跟一般年輕人一樣高。",
+        "question": "How tall did Issun become?",
+        "options": [
+          "only a bit taller than before",
+          "as tall as a normal young man",
+          "as tall as a tree",
+          "still thumb-sized but stronger"
+        ],
+        "optionsZh": [
+          "只比以前高一點點",
+          "跟一般年輕人一樣高",
+          "跟樹一樣高",
+          "還是拇指大但更強"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "as tall as any young man = 跟一般年輕人一樣高——他長成正常大小了！",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the main lesson of Issun-boshi's story?",
+        "sentenceZh": "一寸法師故事的最重要啟示是什麼？",
+        "question": "What is the lesson?",
+        "options": [
+          "a brave heart matters most",
+          "being tall matters most",
+          "never leave your village",
+          "always follow the turtle"
+        ],
+        "optionsZh": [
+          "勇敢的心才是最重要的",
+          "高大最重要",
+          "永遠不要離開村子",
+          "永遠跟著烏龜"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小小身體、大大的心——他靠勇氣打敗了鬼，勇敢的心才是最重要的。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He looked at his own hands and smiled wide.",
+        "sentenceZh": "他看著自己的雙手，露出了大大的笑容。",
+        "question": "How did Issun feel after he grew to full size?",
+        "options": [
+          "sad about what he lost",
+          "happy and amazed at his size",
+          "still wishing he were smaller",
+          "angry at the princess still"
+        ],
+        "optionsZh": [
+          "為失去的事難過",
+          "對自己的新身材開心又驚喜",
+          "還是希望自己更小",
+          "還在對公主生氣"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "smiled wide = 大大的笑容——他開心又驚喜，長大了！",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch16-l7-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "They walked back to the city, side by side.",
+        "sentenceZh": "他們一起走回城市,肩並肩。",
+        "questionEn": "Did Issun walk back alone?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "side by side = 肩並肩——他跟公主一起走，不是一個人，答 No。",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference"
         ]
       },
       {

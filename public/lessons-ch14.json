@@ -225,6 +225,204 @@
         "sentenceZh": "浦島是怎麼把烏龜放下的？"
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "漁夫",
+            "right": "fisherman"
+          },
+          {
+            "left": "沙灘",
+            "right": "beach"
+          },
+          {
+            "left": "烏龜",
+            "right": "turtle"
+          },
+          {
+            "left": "好心",
+            "right": "kind"
+          }
+        ],
+        "explanationZh": "今晚的關鍵字,配對試試看！",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago, a kind young fisherman lived by the sea.",
+        "sentenceZh": "很久以前,一個好心的年輕漁夫住在海邊。",
+        "question": "Where did the fisherman live?",
+        "options": [
+          "by a tall mountain",
+          "near the sea",
+          "deep in a forest",
+          "far from water"
+        ],
+        "optionsZh": [
+          "高山旁",
+          "海邊",
+          "深林裡",
+          "遠離水的地方"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "by the sea = 住在海邊——答「海邊」就對了！",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l1-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He saw three boys near the rocks.",
+        "sentenceZh": "他看見三個男孩在石頭邊。",
+        "questionEn": "Were the boys being kind to the turtle?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "男孩們拿棍子戳烏龜——那可不是好心對待牠,答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Urashima paid to keep the turtle safe.",
+        "sentenceZh": "浦島付錢讓烏龜平安。",
+        "question": "What did Urashima use to free the turtle?",
+        "options": [
+          "his fishing rod",
+          "his own money",
+          "a big strong net",
+          "a sharp knife"
+        ],
+        "optionsZh": [
+          "他的釣竿",
+          "他自己的錢",
+          "大漁網",
+          "利刃"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "his own money = 他自己的錢——他把錢給男孩換烏龜的自由。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What kind of person was Urashima?",
+        "sentenceZh": "浦島是個怎樣的人？",
+        "question": "What kind of person was he?",
+        "options": [
+          "💛 kind and caring",
+          "😡 mean and cold",
+          "😴 lazy and bored",
+          "😨 scared of everything"
+        ],
+        "optionsZh": [
+          "善良又有愛心",
+          "壞又冷漠",
+          "懶又無聊",
+          "對什麼都害怕"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "給錢救烏龜——善良又有愛心。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One of these names belongs to the kind fisherman.",
+        "sentenceZh": "其中一個名字屬於那個好心的漁夫。",
+        "question": "What was the young fisherman's name?",
+        "options": [
+          "Momotaro Taro",
+          "Kintaro Taro",
+          "Urashima Taro",
+          "Issun-boshi Taro"
+        ],
+        "optionsZh": [
+          "桃太郎",
+          "金太郎",
+          "浦島太郎",
+          "一寸法師"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "His name was Urashima Taro——他叫浦島太郎。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l1-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He took the turtle to the sea, slow and careful.",
+        "sentenceZh": "他帶著烏龜走向海,慢慢的、小心的。",
+        "questionEn": "Did Urashima rush when carrying the turtle?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "slow and careful = 慢慢的、小心的——他沒有急,答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch14-l1-q11",
         "level": "A2",
@@ -463,6 +661,204 @@
           "story",
           "ch14",
           "urashima"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "船",
+            "right": "boat"
+          },
+          {
+            "left": "爬上",
+            "right": "climb"
+          },
+          {
+            "left": "潛",
+            "right": "dive"
+          },
+          {
+            "left": "深",
+            "right": "deep"
+          }
+        ],
+        "explanationZh": "今晚的單字，配對一次。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The grateful turtle returned before much time had passed.",
+        "sentenceZh": "感恩的烏龜在不久之後就回來了。",
+        "question": "How much time passed before the turtle came back?",
+        "options": [
+          "just one hour",
+          "a few days",
+          "one whole year",
+          "many long months"
+        ],
+        "optionsZh": [
+          "才一小時",
+          "幾天",
+          "整整一年",
+          "許多個月"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "a few days = 幾天——沒有過很久。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l2-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The sea was very still, with no waves at all.",
+        "sentenceZh": "海面靜靜的，一絲浪也沒有。",
+        "questionEn": "Was the sea rough and stormy that day?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "still = 靜止，no waves = 沒有浪——風平浪靜，完全不粗野，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It said, \"Thank you. I am the one you saved.\"",
+        "sentenceZh": "牠說：「謝謝你，我就是你救的那隻烏龜。」",
+        "question": "Who came back to thank Urashima?",
+        "options": [
+          "a big whale he saw",
+          "the turtle he had saved",
+          "an old fisherman nearby",
+          "a sea bird from above"
+        ],
+        "optionsZh": [
+          "他看見的大鯨",
+          "他救的那隻烏龜",
+          "旁邊的老漁夫",
+          "上方的海鳥"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "I am the one you saved = 我就是你救的那隻——烏龜回來道謝了。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Urashima feel when the turtle spoke?",
+        "sentenceZh": "烏龜開口說話時，浦島是什麼感覺？",
+        "question": "How did he feel?",
+        "options": [
+          "surprised and amazed",
+          "very bored and calm",
+          "a little bit angry",
+          "not surprised at all"
+        ],
+        "optionsZh": [
+          "驚訝又不敢相信",
+          "非常無聊、平靜",
+          "有一點生氣",
+          "一點都不驚訝"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "could not believe his ears = 不敢相信耳朵——當然嚇到了，驚訝又不敢相信。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They went down past bright fish and soft coral.",
+        "sentenceZh": "他們一路往下游，身旁是閃亮的魚群和柔軟的珊瑚。",
+        "question": "What did they pass on the way down?",
+        "options": [
+          "dark mud and old rocks",
+          "colorful fish and coral",
+          "big whales and long seaweed",
+          "empty black water"
+        ],
+        "optionsZh": [
+          "暗泥和老石頭",
+          "彩色魚群和珊瑚",
+          "大鯨和長海藻",
+          "黑黑的水"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "bright fish + soft coral = 閃亮的魚和珊瑚——水下的美麗世界。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l2-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Urashima could not believe his ears. But he climbed on.",
+        "sentenceZh": "浦島不敢相信自己的耳朵。但他爬上去了。",
+        "questionEn": "Did Urashima decide to go with the turtle?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "he climbed on = 他爬上去了——他決定去，答 Yes。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
         ]
       },
       {
@@ -707,6 +1103,205 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "宮殿",
+            "right": "palace"
+          },
+          {
+            "left": "公主",
+            "right": "princess"
+          },
+          {
+            "left": "歡迎",
+            "right": "welcome"
+          },
+          {
+            "left": "寶座",
+            "right": "throne"
+          }
+        ],
+        "explanationZh": "宮殿裡的 4 個關鍵字，配對看看！",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The walls shone like pearl and the gates were made of shell.",
+        "sentenceZh": "牆壁像珍珠一樣發光，大門是用貝殼砌成的。",
+        "question": "What were the walls made of?",
+        "options": [
+          "grey stone and brick",
+          "walls that shone like pearl",
+          "rough dark wooden boards",
+          "silver-coated stone walls"
+        ],
+        "optionsZh": [
+          "灰石和磚塊",
+          "像珍珠一樣發光的牆",
+          "粗糙的深色木板",
+          "銀漆石牆"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "shone like pearl = 像珍珠一樣發光——牆壁閃著珍珠光，選那個。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l3-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "At the bottom of the sea stood a great sea palace.",
+        "sentenceZh": "海底有一座大大的海底宮殿。",
+        "questionEn": "Was the sea palace tiny?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "great sea palace = 大大的宮殿——不是小的，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch14-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She _____ him into a long dining hall full of light.",
+        "sentenceZh": "她帶他走進一間長長的大廳。",
+        "question": "Choose the correct word to fill the blank.",
+        "options": [
+          "lead",
+          "led",
+          "leaded",
+          "leading"
+        ],
+        "optionsZh": [
+          "原形",
+          "過去式",
+          "錯誤形",
+          "進行式"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "lead 的過去式是 led（不規則）。句子說的是以前發生的事，用 led。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A beautiful princess sat on a throne inside.",
+        "sentenceZh": "裡面有一位美麗的公主坐在寶座上。",
+        "question": "Where was the princess sitting?",
+        "options": [
+          "by the palace gate",
+          "on a golden throne",
+          "near a window",
+          "inside a small boat"
+        ],
+        "optionsZh": [
+          "宮殿門口",
+          "金色寶座上",
+          "窗戶旁邊",
+          "小船裡面"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "sat on a throne = 坐在寶座上——公主在裡面的寶座上。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What did the princess say she used to be?",
+        "sentenceZh": "公主說她以前是什麼？",
+        "question": "What did she say?",
+        "options": [
+          "🐢 the little turtle on the beach",
+          "🐟 a small fish in the sea",
+          "🦀 a crab on the shore",
+          "🐚 a shell near the gate"
+        ],
+        "optionsZh": [
+          "沙灘上那隻小烏龜",
+          "海裡一條小魚",
+          "岸上一隻螃蟹",
+          "門邊的一個貝殼"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "I was that little turtle on the beach = 我就是沙灘上那隻小烏龜。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l3-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Music played softly. The doors closed behind them.",
+        "sentenceZh": "音樂輕輕響起。門在他們身後關上。",
+        "questionEn": "Did the doors stay open behind them?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "the doors closed behind them = 門在他們身後關上——門沒有開著，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch14-l3-q11",
         "level": "A2",
@@ -945,6 +1540,204 @@
           "story",
           "ch14",
           "urashima"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "夢",
+            "right": "dream"
+          },
+          {
+            "left": "跳舞",
+            "right": "dance"
+          },
+          {
+            "left": "媽媽",
+            "right": "mother"
+          },
+          {
+            "left": "想念",
+            "right": "miss"
+          }
+        ],
+        "explanationZh": "今晚故事的單字，配對試試。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The palace kitchen prepared many wonderful foods for Urashima.",
+        "sentenceZh": "宮殿廚房為浦島準備了許多美好的食物。",
+        "question": "What did Urashima eat in the palace?",
+        "options": [
+          "plain rice and water",
+          "fancy fish and grain",
+          "just fresh fruit",
+          "dry bread and soup"
+        ],
+        "optionsZh": [
+          "白飯和水",
+          "豐盛的魚飯",
+          "只有新鮮水果",
+          "乾麵包和湯"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "sweet fish and rice from a gold cup = 甜魚和飯，用金杯——宮殿的食物真豐盛。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l4-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Days passed like a dream. He laughed and sang.",
+        "sentenceZh": "日子像夢一樣過去。他又笑又唱。",
+        "questionEn": "Did Urashima feel sad in the palace?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "laughed and sang = 又笑又唱——他是開心的，不是難過，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He walked in the coral garden with the princess.",
+        "sentenceZh": "他跟公主一起在珊瑚花園散步。",
+        "question": "What did Urashima do with the princess?",
+        "options": [
+          "swam far from the palace",
+          "walked in the garden together",
+          "cooked food for the sea king",
+          "played music all day long"
+        ],
+        "optionsZh": [
+          "游離宮殿",
+          "一起在花園散步",
+          "幫海王煮飯",
+          "整天奏音樂"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "walked in the coral garden with the princess = 跟公主一起在珊瑚花園散步。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What did Urashima miss the most in the quiet hours?",
+        "sentenceZh": "安靜的時刻，浦島最想念什麼？",
+        "question": "What did he miss?",
+        "options": [
+          "🏠 his home and old mother",
+          "🍽️ the food from the palace",
+          "🎵 the dancing fish",
+          "🌊 the deep blue sea"
+        ],
+        "optionsZh": [
+          "老家和老媽媽",
+          "宮殿的食物",
+          "跳舞的魚",
+          "深藍色的海"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "thought of his old mother + his little house = 他想念老媽媽和老家。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But in the quiet hours, he thought of his old mother.",
+        "sentenceZh": "但在安靜的時刻,他想起年老的媽媽。",
+        "question": "When did Urashima think of his mother?",
+        "options": [
+          "when he was dancing",
+          "in the quiet moments",
+          "while eating dinner",
+          "every morning at sunrise"
+        ],
+        "optionsZh": [
+          "在跳舞的時候",
+          "在安靜的時刻",
+          "吃晚餐的時候",
+          "每天早晨日出時"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "in the quiet hours = 在安靜的時刻——安靜下來才想起媽媽。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l4-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Every night, his heart felt warm and a little heavy.",
+        "sentenceZh": "每個晚上,他的心又暖又有一點沉。",
+        "questionEn": "Did Urashima feel only happy in the palace?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "warm and a little heavy = 暖又有點沉——有一點憂，不是只有開心，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
         ]
       },
       {
@@ -1189,6 +1982,204 @@
         ]
       },
       {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "回家",
+            "right": "go home"
+          },
+          {
+            "left": "禮物",
+            "right": "gift"
+          },
+          {
+            "left": "紅",
+            "right": "red"
+          },
+          {
+            "left": "答應",
+            "right": "promise"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字，配對看看。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One morning, Urashima told the princess he must go home.",
+        "sentenceZh": "一個早上,浦島告訴公主他必須回家。",
+        "question": "When did Urashima tell the princess he wanted to leave?",
+        "options": [
+          "late one night",
+          "early in the day",
+          "during a meal",
+          "while dancing"
+        ],
+        "optionsZh": [
+          "深夜",
+          "一大早",
+          "吃飯的時候",
+          "跳舞的時候"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "one morning = 一個早上——他在早晨告訴公主要走。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l5-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The princess looked very sad but did not say no.",
+        "sentenceZh": "公主看起來很難過,但她沒有說不。",
+        "questionEn": "Did the princess stop Urashima from going home?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "did not say no = 她沒有說不——她沒有阻止他，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "She gave him a small red box tied with a gold rope.",
+        "sentenceZh": "她給他一個小小的紅盒子,綁著金色的繩子。",
+        "question": "What was tied around the box?",
+        "options": [
+          "silver chains",
+          "the gold rope",
+          "green silk ribbon",
+          "white thread loops"
+        ],
+        "optionsZh": [
+          "銀鍊",
+          "金色的繩子",
+          "綠色絲帶",
+          "白色線圈"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "tied with a gold rope = 綁著金色繩子——就是那條金繩子。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What was the princess's warning about the box?",
+        "sentenceZh": "公主對這個盒子的警告是什麼？",
+        "question": "What did she warn him?",
+        "options": [
+          "🚫 never open it",
+          "💧 keep it in water",
+          "🔥 warm it each day",
+          "🌙 only open at night"
+        ],
+        "optionsZh": [
+          "永遠不要打開它",
+          "放在水裡",
+          "每天加熱",
+          "只在晚上打開"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "never open it = 永遠不要打開——她最重要的叮嚀就是這句。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Please, never open it. Promise me. Never.\"",
+        "sentenceZh": "「千萬不要打開它。答應我，永遠不要。」",
+        "question": "What did the princess ask Urashima to promise?",
+        "options": [
+          "come back soon",
+          "share the box with all",
+          "never open the box",
+          "keep it in the sea"
+        ],
+        "optionsZh": [
+          "快點回來",
+          "把盒子分享給大家",
+          "永遠不打開盒子",
+          "把它放在海裡"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "never open it = 永遠不要打開——她要他保證不開盒子。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l5-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The big turtle was waiting at the palace gate.",
+        "sentenceZh": "大烏龜在宮殿門口等。",
+        "questionEn": "Did Urashima have to find his own way home?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "the turtle was waiting = 烏龜在等他——牠來接他回去，他不用自己找路，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
         "type": "narration",
         "id": "kt-ch14-l5-q11",
         "level": "A2",
@@ -1427,6 +2418,204 @@
           "story",
           "ch14",
           "urashima"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "岸",
+            "right": "shore"
+          },
+          {
+            "left": "村莊",
+            "right": "village"
+          },
+          {
+            "left": "陌生",
+            "right": "strange"
+          },
+          {
+            "left": "一百",
+            "right": "hundred"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字，配對看看。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He walked up to his village and stopped.",
+        "sentenceZh": "他走到村莊,然後停下來。",
+        "question": "Why did Urashima stop in the village?",
+        "options": [
+          "he was very tired",
+          "the streets felt strange",
+          "he saw an old friend",
+          "he dropped the box"
+        ],
+        "optionsZh": [
+          "他很累",
+          "街道感覺陌生",
+          "看到老朋友",
+          "他的盒子掉了"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "後來知道村子變了——他停下來是因為感覺一切都不對勁、很陌生。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l6-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The houses were new. The trees were tall and strange.",
+        "sentenceZh": "房子是新的，樹長得又高又陌生。",
+        "questionEn": "Did the village look exactly the same as before?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "new houses + tall strange trees = 村子都變了，不一樣了，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"That name is in old stories. A long, long time ago.\"",
+        "sentenceZh": "「那個名字在很久很久以前的故事裡才有。」",
+        "question": "What did the old man say about Urashima's name?",
+        "options": [
+          "he heard it yesterday",
+          "it's from old tales",
+          "the name means sailor",
+          "no one knows it"
+        ],
+        "optionsZh": [
+          "昨天才聽到",
+          "那是古老故事裡的名字",
+          "那個名字是水手的意思",
+          "沒人知道"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "in old stories = 在老故事裡——那個名字是很久以前的事了。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How long had Urashima really been away?",
+        "sentenceZh": "浦島其實離開了多久？",
+        "question": "How long was he away?",
+        "options": [
+          "just one single day",
+          "only a few short weeks",
+          "around one hundred years",
+          "only three months long"
+        ],
+        "optionsZh": [
+          "只有一天",
+          "只有幾個短星期",
+          "大約一百年",
+          "只有三個月"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "a hundred years ago = 一百年前——他在海底一百年！",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"He went out to sea and never came back.\"",
+        "sentenceZh": "「他出海以後就再也沒回來。」",
+        "question": "What did the village people believe about Urashima?",
+        "options": [
+          "still living far away",
+          "stayed away for good",
+          "fishing every single day",
+          "moved away to Kyoto"
+        ],
+        "optionsZh": [
+          "還在很遠的地方",
+          "從此沒再回家",
+          "每天還在釣魚",
+          "搬去京都了"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "went out to sea and never came back = 出海就再也沒回來——村民以為他消失在海上了。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l6-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The sun was bright. The sand looked just the same.",
+        "sentenceZh": "陽光很亮，沙灘看起來和以前一模一樣。",
+        "questionEn": "Did everything in the village feel familiar to Urashima?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "houses new, trees strange = 村子已經不一樣了，不是熟悉的樣子，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
         ]
       },
       {
@@ -1669,6 +2858,205 @@
           "story",
           "ch14",
           "urashima"
+        ]
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch14-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "解開",
+            "right": "untie"
+          },
+          {
+            "left": "打開",
+            "right": "open"
+          },
+          {
+            "left": "雲",
+            "right": "cloud"
+          },
+          {
+            "left": "鬍子",
+            "right": "beard"
+          }
+        ],
+        "explanationZh": "今晚的 4 個關鍵字,配對一次。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His mother was gone. His friends were gone too.",
+        "sentenceZh": "他媽媽走了，朋友們也都不在了。",
+        "question": "What had happened to the people Urashima loved?",
+        "options": [
+          "waiting to greet him",
+          "all gone now",
+          "moved to the city",
+          "still at the palace"
+        ],
+        "optionsZh": [
+          "等著迎接他",
+          "全都走了",
+          "搬去城市了",
+          "還在宮殿裡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "mother was gone + friends were gone = 媽媽和朋友都走了——都不在了。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l7-x3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He looked at the small red box in his hands.",
+        "sentenceZh": "他看著手裡的小紅盒。",
+        "questionEn": "Did Urashima throw the box away?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "he looked at the box = 他看著它——他還握著盒子，沒有丟掉，答 No。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch14-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Slowly, he _____ the gold rope and opened the lid.",
+        "sentenceZh": "他慢慢地解開金繩子，打開蓋子。",
+        "question": "Choose the correct word to fill the blank.",
+        "options": [
+          "untie",
+          "unties",
+          "untied",
+          "untying"
+        ],
+        "optionsZh": [
+          "原形",
+          "第三人稱現在式",
+          "過去式",
+          "進行式"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這句說的是以前發生的事，動詞要用過去式。untie 的過去式是 untied。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "When the wind cleared, he was a very old man with a long beard.",
+        "sentenceZh": "風散去後，他已成了一個蓄著長鬚的老老人。",
+        "question": "What happened after Urashima opened the box?",
+        "options": [
+          "fell into the sea",
+          "turned very old fast",
+          "became very young",
+          "found his old mother"
+        ],
+        "optionsZh": [
+          "掉進海裡",
+          "很快變得很老",
+          "變得很年輕",
+          "找到了老媽媽"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "he was a very old man = 他變成很老的人——打開盒子，時間全回來了。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch14-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What was the lesson of Urashima's story?",
+        "sentenceZh": "浦島太郎故事的啟示是什麼？",
+        "question": "What can we learn?",
+        "options": [
+          "⏰ time away can cost more than we know",
+          "🎁 always open gifts right away",
+          "🐢 turtles are always safe to follow",
+          "🏠 never leave home at all"
+        ],
+        "optionsZh": [
+          "離開的時間代價比我們知道的更大",
+          "禮物要馬上打開",
+          "烏龜永遠安全可以跟",
+          "永遠不要離開家"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "一百年過去了，一切都沒了——時間的代價很大，那是這個故事的啟示。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "hook"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch14-l7-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His hair was white as snow. The hundred years came back.",
+        "sentenceZh": "他的頭髮白得像雪。一百年回到他身上。",
+        "questionEn": "Did the box keep the hundred years inside it?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "the hundred years came back = 一百年回到他身上——盒子封住了時間，打開後時間全回來了，答 Yes。",
+        "tags": [
+          "story",
+          "ch14",
+          "urashima",
+          "inference"
         ]
       },
       {
