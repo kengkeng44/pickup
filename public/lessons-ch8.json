@@ -32,7 +32,7 @@
             "right": "road"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 pig = 豬\n🔑 mother = 媽媽\n🔑 leave = 離開\n🔑 road = 路\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的小幫手來了！\n🔑 pig = 豬\n🔑 mother = 媽媽\n🔑 leave = 離開\n🔑 road = 路\n記住這 4 個字，等一下聽故事就順多了。",
         "tags": [
           "story",
           "ch8",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Three little pigs grew up in their mother's house.",
-        "explanationZh": "三隻小豬在媽媽家長大。",
+        "explanationZh": "三隻小豬從小就住在媽媽溫暖的家裡。一天一天長大，長大，再長大……",
         "tags": [
           "story",
           "ch8",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One spring day, their mother said it was time to leave.",
-        "explanationZh": "一個春天,媽媽說該離家了。",
+        "explanationZh": "春天到了，媽媽拍拍他們說：「你們長大了，該去走自己的路囉。」",
         "tags": [
           "story",
           "ch8",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 抱很緊不放 → 不捨 → 答 Yes",
+        "explanationZh": "你看，他們抱得多緊、多捨不得放！那當然是捨不得離開、心裡難過嘛。答案是 Yes。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "兄弟三個緊緊抱住媽媽，捨不得放手。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They walked down the road together, side by side.",
-        "explanationZh": "他們一起走在路上,肩並肩。",
+        "explanationZh": "三兄弟肩並肩走在路上，一起踏上新的旅程，多溫馨啊。",
         "tags": [
           "story",
           "ch8",
@@ -119,19 +120,20 @@
           "sleep in trees"
         ],
         "optionsZh": [
-          "跟媽媽住",
-          "蓋自己的房子",
-          "一直旅行",
-          "睡樹上"
+          "跟媽媽繼續住",
+          "蓋自己的家",
+          "一直走不回頭",
+          "睡在樹上"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: own home → separate house (paraphrase)。",
+        "explanationZh": "own home，自己的家——所以每隻小豬的計畫是「蓋自己的房子」。",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "每隻小豬都要沿著這條路，蓋自己的家。"
       },
       {
         "type": "narration",
@@ -140,7 +142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The big bad wolf lived in the woods nearby.",
-        "explanationZh": "大野狼住在附近的森林。",
+        "explanationZh": "大野狼就住在附近的樹林裡。黑漆漆的森林，藏著一隻肚子很餓的壞蛋……",
         "tags": [
           "story",
           "ch8",
@@ -162,19 +164,20 @@
           "count the stars at night"
         ],
         "optionsZh": [
-          "在安靜的湖邊休息",
-          "追小動物",
-          "種一個菜園",
+          "在安靜的湖邊發呆",
+          "去追小動物",
+          "種一塊菜園",
           "晚上數星星"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: chase → go after, animals → creatures (paraphrase)。",
+        "explanationZh": "chase 就是「追」，small animals 就是「小動物」——大野狼最愛做的事，就是去追小動物！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "大野狼肚子好餓，最喜歡追路邊的小動物。"
       },
       {
         "type": "narration",
@@ -183,7 +186,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Mother said, \"Be careful. Build a strong house.\"",
-        "explanationZh": "媽媽說:「小心。蓋一間堅固的家。」",
+        "explanationZh": "媽媽說了最重要的一句話：「小心！要蓋一間堅固的家。」這句話，小豬們記住了嗎？",
         "tags": [
           "story",
           "ch8",
@@ -205,20 +208,21 @@
           "🍰 a sweet one"
         ],
         "optionsZh": [
-          "堅固的",
-          "薄薄的",
-          "快的",
-          "甜的"
+          "🏰 堅固的",
+          "🍃 薄薄的",
+          "🚗 跑得快的",
+          "🍰 甜甜的"
         ],
         "correctIndex": 0,
-        "explanationZh": "堅固的家 = strong one。",
+        "explanationZh": "媽媽說的是 strong house——堅固的家！不是快、不是甜，是「堅固的」。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "媽媽要的是什麼樣的家？"
       },
       {
         "type": "narration",
@@ -227,7 +231,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Mother's words hang in the air: build a strong house...",
-        "explanationZh": "媽媽的話留在空氣中:蓋一間堅固的家……",
+        "explanationZh": "媽媽的話還飄在空氣裡：「蓋一間堅固的家……」三兄弟，你們聽進去了嗎？",
         "tags": [
           "story",
           "ch8",
@@ -269,7 +273,7 @@
             "right": "wall"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 straw = 草\n🔑 fast = 快\n🔑 wind = 風\n🔑 wall = 牆\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字，來認識一下！\n🔑 straw = 草（稻草）\n🔑 fast = 快\n🔑 wind = 風\n🔑 wall = 牆\n記住這 4 個，故事更好懂！",
         "tags": [
           "story",
           "ch8",
@@ -285,7 +289,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The first pig met a man with a cart full of straw.",
-        "explanationZh": "第一隻小豬遇到一個人,推著滿滿一車的稻草。",
+        "explanationZh": "第一隻小豬走著走著，遇到一個人，推著一大車黃橙橙的稻草。「就它了！」他心想。",
         "tags": [
           "story",
           "ch8",
@@ -305,13 +309,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 選輕的好搬 → 不想做難工 → 答 No",
+        "explanationZh": "稻草輕又好搬，第一隻小豬就是要省力氣——他可不想做累死人的苦工，答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他選了稻草，因為又輕又好搬。"
       },
       {
         "type": "narration",
@@ -320,7 +325,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He took the straw and built a house in one hour.",
-        "explanationZh": "他拿了稻草,一小時就蓋好房子。",
+        "explanationZh": "拿了稻草，「嘿嘿嘿」搭一搭，一個小時，家就蓋好了！真的超快的。",
         "tags": [
           "story",
           "ch8",
@@ -342,19 +347,20 @@
           "all week"
         ],
         "optionsZh": [
-          "很慢",
-          "很快",
-          "一整天",
-          "一整週"
+          "慢得要命",
+          "非常快",
+          "蓋了一整天",
+          "蓋了整整一週"
         ],
         "correctIndex": 1,
-        "explanationZh": "午餐前就蓋好 → 很快。",
+        "explanationZh": "午餐前就蓋好——那可真是快呢！答案是「很快」。",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "吃午飯前，他就蓋好了。"
       },
       {
         "type": "narration",
@@ -363,7 +369,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He sat down to rest and ate his lunch.",
-        "explanationZh": "他坐下休息,吃午餐。",
+        "explanationZh": "蓋好了就坐下來，吃午飯、曬太陽，美滋滋的。",
         "tags": [
           "story",
           "ch8",
@@ -385,20 +391,21 @@
           "😴 far too tired now"
         ],
         "optionsZh": [
-          "輕鬆又開心",
-          "覺得有點難過",
-          "開始覺得生氣",
-          "現在太累了"
+          "😌 輕鬆又開心",
+          "😢 有點難過",
+          "😡 越來越生氣",
+          "😴 累到不行"
         ],
         "correctIndex": 0,
-        "explanationZh": "坐下吃飯 → 輕鬆又開心。",
+        "explanationZh": "蓋完就坐下吃飯——肯定是輕輕鬆鬆、開開心心囉！",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "蓋完房子，第一隻小豬心情怎麼樣？"
       },
       {
         "type": "narration",
@@ -407,7 +414,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wind began to blow across the field.",
-        "explanationZh": "風開始吹過田野。",
+        "explanationZh": "這時候，風開始吹過田野。「呼——」輕輕的風，卻帶來了一點不安……",
         "tags": [
           "story",
           "ch8",
@@ -429,19 +436,20 @@
           "hard like rock"
         ],
         "optionsZh": [
-          "很堅固",
-          "弱又會搖",
-          "濕又暖",
-          "硬如石"
+          "非常堅固",
+          "弱又一直搖",
+          "濕濕又暖暖",
+          "硬得像石頭"
         ],
         "correctIndex": 1,
-        "explanationZh": "輕風就搖 → 弱又會搖。",
+        "explanationZh": "小風才一吹，牆就左搖右擺——這稻草屋，真的太「弱又會搖」了！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "每一陣輕風，牆就搖晃歪斜。"
       },
       {
         "type": "narration",
@@ -450,7 +458,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But the first pig only smiled and ate.",
-        "explanationZh": "但第一隻小豬只是笑笑,繼續吃。",
+        "explanationZh": "牆在搖，第一隻小豬呢？他只是笑笑，繼續吃，完全不在乎！唉……",
         "tags": [
           "story",
           "ch8",
@@ -464,7 +472,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The straw walls sway again. And again. And again...",
-        "explanationZh": "稻草牆又搖了。又搖了。又搖了……",
+        "explanationZh": "稻草牆又搖了。又搖了。又搖了……風還在吹，小豬還在吃，危險正悄悄靠近。",
         "tags": [
           "story",
           "ch8",
@@ -506,7 +514,7 @@
             "right": "steps"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 sticks = 木枝\n🔑 second = 第二\n🔑 proud = 驕傲\n🔑 steps = 腳步\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "繼續認識新生字！\n🔑 sticks = 木枝\n🔑 second = 第二\n🔑 proud = 驕傲\n🔑 steps = 腳步\n記住這 4 個，後面更好懂！",
         "tags": [
           "story",
           "ch8",
@@ -522,7 +530,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The second pig met a man with a cart of sticks.",
-        "explanationZh": "第二隻小豬遇到一個人,推著一車的木枝。",
+        "explanationZh": "第二隻小豬走著走著，遇到一個人推著一車木枝。「這個看起來比稻草硬！」他心想。",
         "tags": [
           "story",
           "ch8",
@@ -545,18 +553,19 @@
         ],
         "optionsZh": [
           "買起來比較便宜",
-          "比稻草硬",
-          "哥哥叫他",
+          "比稻草更硬更紮實",
+          "哥哥叫他選的",
           "他沒有別的選擇"
         ],
         "correctIndex": 1,
-        "explanationZh": "比稻草硬 → firmer than straw。",
+        "explanationZh": "他覺得木枝比稻草硬——firmer than straw，所以選它！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他選了木枝，因為木枝比稻草硬。"
       },
       {
         "type": "narration",
@@ -565,7 +574,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He built his house in one afternoon.",
-        "explanationZh": "他一個下午就蓋好他的家。",
+        "explanationZh": "第二隻小豬一整個下午「咚咚咚」地搭，太陽還沒下山就蓋好了，比哥哥慢一點，但他更認真。",
         "tags": [
           "story",
           "ch8",
@@ -585,13 +594,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 沒停 → 沒長休息 → 答 No",
+        "explanationZh": "一直做、沒有停——這樣當然就沒有「長時間休息」嘍，答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他做了一整天，完全沒有停下來。"
       },
       {
         "type": "narration",
@@ -600,7 +610,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He looked at his new home and felt proud.",
-        "explanationZh": "他看著新家,覺得驕傲。",
+        "explanationZh": "看著剛蓋好的家，第二隻小豬挺起胸膛，心裡暖呼呼地驕傲著。",
         "tags": [
           "story",
           "ch8",
@@ -622,20 +632,21 @@
           "😨 afraid"
         ],
         "optionsZh": [
-          "驕傲",
-          "抱歉",
-          "生氣",
-          "害怕"
+          "😌 好驕傲",
+          "😢 很抱歉",
+          "😡 好生氣",
+          "😨 好害怕"
         ],
         "correctIndex": 0,
-        "explanationZh": "看著新家 → 驕傲。",
+        "explanationZh": "看著自己蓋的家，他滿心都是驕傲——proud！",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "第二隻小豬的心情是？"
       },
       {
         "type": "narration",
@@ -644,7 +655,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The sun went down behind the trees.",
-        "explanationZh": "太陽落到樹後面。",
+        "explanationZh": "太陽慢慢沉到樹後面，天空染成了橘紅色。夜晚，要來了……",
         "tags": [
           "story",
           "ch8",
@@ -666,19 +677,20 @@
           "his brother's laugh"
         ],
         "optionsZh": [
-          "鳥叫",
-          "輕輕重重的腳步",
-          "下雨",
-          "哥哥笑聲"
+          "鳥兒在唱歌",
+          "輕輕沉沉的腳步聲",
+          "雨滴打下來",
+          "哥哥的笑聲"
         ],
         "correctIndex": 1,
-        "explanationZh": "輕輕重重 → 腳步。",
+        "explanationZh": "從黑暗的路上傳來「咚——咚——」的聲音，又輕又重——那是什麼的腳步聲呢？",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "黑暗的小路上，傳來又輕又沉的聲音，越來越近。"
       },
       {
         "type": "narration",
@@ -687,7 +699,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The second pig stood still. He listened.",
-        "explanationZh": "第二隻小豬站著不動。他聽。",
+        "explanationZh": "第二隻小豬站著不動，豎起耳朵，屏住呼吸，靜靜地聽……",
         "tags": [
           "story",
           "ch8",
@@ -701,7 +713,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Heavy steps. Heavy steps. Coming closer down the path...",
-        "explanationZh": "重重的腳步。重重的腳步。沿著路越走越近……",
+        "explanationZh": "「咚——咚——咚——」腳步聲越來越近，越來越近……是誰來了？",
         "tags": [
           "story",
           "ch8",
@@ -743,7 +755,7 @@
             "right": "breath"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 brick = 磚\n🔑 mud = 泥\n🔑 knock = 敲門\n🔑 breath = 呼吸\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的重要生字，快看！\n🔑 brick = 磚\n🔑 mud = 泥\n🔑 knock = 敲門\n🔑 breath = 呼吸\n記住這 4 個字，故事裡用得到！",
         "tags": [
           "story",
           "ch8",
@@ -759,7 +771,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The third pig was still working hard on his house.",
-        "explanationZh": "第三隻小豬還在認真蓋他的家。",
+        "explanationZh": "第三隻小豬呢？他還在工地，認認真真地搬磚、砌牆。一塊、一塊、再一塊……",
         "tags": [
           "story",
           "ch8",
@@ -781,19 +793,20 @@
           "cold snow and ice"
         ],
         "optionsZh": [
-          "草",
-          "燒過的石頭和黏土",
-          "紙和膠帶",
-          "冷雪和冰"
+          "稻草和雜草",
+          "磚頭和黏土",
+          "紙張和膠帶",
+          "雪和冰塊"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: red blocks = 磚 (baked stone), wet earth = 黏土 (clay)。",
+        "explanationZh": "紅色的磚塊就是 brick（燒過的石塊），濕冷的泥土就是 mud（黏土）——所以他用的是磚頭和黏土！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他整天搬著沉沉的紅磚，和著濕冷的泥土。"
       },
       {
         "type": "narration",
@@ -802,7 +815,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The other two pigs laughed at him for working so slow.",
-        "explanationZh": "另外兩隻小豬笑他做得太慢。",
+        "explanationZh": "兩個哥哥在旁邊笑：「你做這麼慢，真是太磨蹭了！哈哈哈！」第三隻小豬沒有理他們，繼續搬磚。",
         "tags": [
           "story",
           "ch8",
@@ -822,13 +835,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 高又厚 → 紮實 → 答 No",
+        "explanationZh": "又高又厚的牆，那肯定是很紮實——怎麼可能「薄弱」？答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他的牆砌得又高又厚。"
       },
       {
         "type": "narration",
@@ -837,7 +851,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "That same night, the wolf came to the straw house.",
-        "explanationZh": "同一個晚上,大野狼來到草屋。",
+        "explanationZh": "就在那天晚上，大野狼出現了——他先走向草屋，嘴角帶著壞笑。",
         "tags": [
           "story",
           "ch8",
@@ -859,20 +873,21 @@
           "🌳 a tall tree"
         ],
         "optionsZh": [
-          "草屋",
-          "木屋",
-          "磚屋",
-          "高樹"
+          "🌾 草屋",
+          "🪵 木枝屋",
+          "🧱 磚屋",
+          "🌳 一棵高樹"
         ],
         "correctIndex": 0,
-        "explanationZh": "先去草屋。",
+        "explanationZh": "大野狼第一站——草屋！它最軟，最好對付嘛。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "大野狼第一個去了哪裡？"
       },
       {
         "type": "narration",
@@ -881,7 +896,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He knocked on the wooden door three times.",
-        "explanationZh": "他敲了木門三下。",
+        "explanationZh": "「咚！咚！咚！」大野狼用爪子敲了木門三下，聲音好大。",
         "tags": [
           "story",
           "ch8",
@@ -903,19 +918,20 @@
           "hard knock, a mean voice"
         ],
         "optionsZh": [
-          "輕輕敲,聲音生氣",
-          "大聲敲,聲音甜",
-          "小聲敲,聲音害羞",
-          "用力敲,聲音很壞"
+          "輕輕敲，聲音生氣",
+          "大聲敲，聲音超甜",
+          "小聲敲，聲音害羞",
+          "用力敲，聲音很壞"
         ],
         "correctIndex": 1,
-        "explanationZh": "敲很大,話卻甜。",
+        "explanationZh": "敲得「咚！咚！」很大聲，但說話卻甜得像蜂蜜——「大聲敲，聲音甜」就是大野狼的把戲！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他敲得很大聲，說話的聲音卻甜得像蜂蜜。"
       },
       {
         "type": "narration",
@@ -924,7 +940,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Little pig, little pig, let me come in!\" he called.",
-        "explanationZh": "「小豬小豬,讓我進來!」他叫著。",
+        "explanationZh": "「小豬小豬，讓我進來！」大野狼假裝甜甜地叫。聽起來友善，但別被騙了！",
         "tags": [
           "story",
           "ch8",
@@ -938,7 +954,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The first pig held his breath. He did not know what to say...",
-        "explanationZh": "第一隻小豬屏住呼吸。他不知道該說什麼……",
+        "explanationZh": "第一隻小豬嚇得「撲通」一跳——屏住呼吸，不知道該怎麼辦……你猜他會怎麼回答？",
         "tags": [
           "story",
           "ch8",
@@ -980,7 +996,7 @@
             "right": "run"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 chin = 下巴\n🔑 blow = 吹\n🔑 fall = 倒\n🔑 run = 跑\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字登場！\n🔑 chin = 下巴\n🔑 blow = 吹\n🔑 fall = 倒\n🔑 run = 跑\n記牢這 4 個，等一下場面會很刺激！",
         "tags": [
           "story",
           "ch8",
@@ -996,7 +1012,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Not by the hair on my chin!\" the first pig cried.",
-        "explanationZh": "「我下巴上的毛都不!」第一隻小豬大叫。",
+        "explanationZh": "「我下巴上的毛都不讓你進來！」第一隻小豬壯著膽子喊出去，聲音有點抖……這是英文故事裡一句很有名的拒絕台詞！",
         "tags": [
           "story",
           "ch8",
@@ -1018,19 +1034,20 @@
           "goodbye, friend"
         ],
         "optionsZh": [
-          "請進",
-          "堅決說不",
-          "來喝茶",
-          "再見朋友"
+          "請你進來坐",
+          "堅決說不開",
+          "來喝杯茶吧",
+          "再見了朋友"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: never open → 堅決說不 (strong refusal)。",
+        "explanationZh": "never open the door——就是「堅決說不、絕對不開」！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他告訴大野狼，他永遠不會開門。"
       },
       {
         "type": "narration",
@@ -1039,7 +1056,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf smiled and his eyes grew bright.",
-        "explanationZh": "大野狼笑了,眼睛變亮。",
+        "explanationZh": "大野狼嘴角上揚，眼睛突然亮起來——哦！這表情可不是好事……",
         "tags": [
           "story",
           "ch8",
@@ -1059,13 +1076,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 伸爪深呼吸 → 要動手了 → 答 No",
+        "explanationZh": "伸出爪子、深吸一口氣——這明明是準備要吹！哪有要離開的樣子？答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "大野狼伸出爪子，深深地吸了一口氣。"
       },
       {
         "type": "narration",
@@ -1074,7 +1092,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He huffed. He puffed. He blew with all his might.",
-        "explanationZh": "他用力吹氣。他大力吹氣。他用盡全力吹。",
+        "explanationZh": "「呼——！哈——！呼——！」大野狼吸足了氣，用盡全身力氣，拼命吹！",
         "tags": [
           "story",
           "ch8",
@@ -1096,20 +1114,21 @@
           "🎵 sang a song"
         ],
         "optionsZh": [
-          "用力吹氣",
-          "烤麵包",
-          "小睡",
-          "唱歌"
+          "💨 用力猛吹",
+          "🍞 在烤麵包",
+          "💤 去小睡一下",
+          "🎵 開心唱歌"
         ],
         "correctIndex": 0,
-        "explanationZh": "用力吹氣 = blew very hard。",
+        "explanationZh": "「呼——！」大野狼用力吹氣——blew very hard！",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "大野狼做了什麼？"
       },
       {
         "type": "narration",
@@ -1118,7 +1137,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The straw house flew apart in just a few seconds.",
-        "explanationZh": "草屋在幾秒內就被吹散。",
+        "explanationZh": "「嘩啦啦——！」草屋在幾秒鐘內就四散崩塌。稻草飛上天，小豬嚇得抱頭！",
         "tags": [
           "story",
           "ch8",
@@ -1140,19 +1159,20 @@
           "asked the wolf"
         ],
         "optionsZh": [
-          "跳過牆",
-          "快腳跑",
-          "躲草下",
-          "問狼"
+          "跳過一道牆",
+          "拔腿飛快逃",
+          "躲在稻草底下",
+          "向大野狼求饒"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: dashed away → ran on quick feet (paraphrase)。",
+        "explanationZh": "dashed away 就是「拔腿狂奔」——他用最快的速度逃走，是「快腳跑」！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "第一隻小豬拔腿就跑，短短的腳跑得飛快。"
       },
       {
         "type": "narration",
@@ -1161,7 +1181,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He ran to the wood house and banged on the door.",
-        "explanationZh": "他跑到木屋,猛敲門。",
+        "explanationZh": "第一隻小豬一路跑，「砰砰砰！」猛敲哥哥的木屋門。",
         "tags": [
           "story",
           "ch8",
@@ -1175,7 +1195,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Let me in! Let me in!\" he cried. \"The wolf is coming!\"",
-        "explanationZh": "「讓我進!讓我進!」他大叫。「大野狼來了!」",
+        "explanationZh": "「讓我進！讓我進！大野狼來了！」他喘著氣大喊。木屋裡的哥哥……你聽到了嗎？",
         "tags": [
           "story",
           "ch8",
@@ -1217,7 +1237,7 @@
             "right": "hope"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 lock = 鎖\n🔑 roof = 屋頂\n🔑 back = 後面\n🔑 hope = 希望\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節重要生字登場！\n🔑 lock = 鎖\n🔑 roof = 屋頂\n🔑 back = 後面\n🔑 hope = 希望\n記住了嗎？往下繼續看故事！",
         "tags": [
           "story",
           "ch8",
@@ -1233,7 +1253,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The two pigs locked the wood door tight.",
-        "explanationZh": "兩隻小豬把木門牢牢鎖好。",
+        "explanationZh": "兩隻小豬把木門「喀嗒」一聲牢牢鎖好——但鎖得住大野狼嗎？",
         "tags": [
           "story",
           "ch8",
@@ -1255,19 +1275,20 @@
           "happy and singing"
         ],
         "optionsZh": [
-          "害羞安靜",
-          "又餓又準備好",
-          "累又想睡",
-          "開心唱歌"
+          "害羞又安靜",
+          "又餓又準備好了",
+          "累了想打瞌睡",
+          "開心到在唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "眼神餓 → hungry and ready。",
+        "explanationZh": "眼神飢餓——hungry eyes，大野狼是「又餓又準備好了」要行動！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他們看見大野狼一步一步走上來，眼神飢餓。"
       },
       {
         "type": "narration",
@@ -1276,7 +1297,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf knocked even harder this time.",
-        "explanationZh": "大野狼這次敲得更用力。",
+        "explanationZh": "這次大野狼敲得更用力了——「咚！咚！咚！」木屋都在抖。",
         "tags": [
           "story",
           "ch8",
@@ -1296,13 +1317,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 敲一下牆就震 → 不夠安全 → 答 No",
+        "explanationZh": "敲一下牆就抖、窗戶就響——這木屋哪裡「完全安全」了？答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他的拳頭一敲，木牆就震動，窗戶咯咯響。"
       },
       {
         "type": "narration",
@@ -1311,7 +1333,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Not by the hair on our chins!\" they both cried.",
-        "explanationZh": "「我們下巴上的毛都不!」他們一起大叫。",
+        "explanationZh": "「我們下巴上的毛都不！」兩兄弟齊聲大喊。聲音更大了，但心裡……是不是有點怕呢？",
         "tags": [
           "story",
           "ch8",
@@ -1325,7 +1347,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf huffed and puffed and blew the wood house in.",
-        "explanationZh": "大野狼用力吹,木屋就倒了。",
+        "explanationZh": "「呼——！哈——！呼——！」大野狼拼命吹，木屋「嘩——」一聲就倒了！木枝四散飛開！",
         "tags": [
           "story",
           "ch8",
@@ -1347,20 +1369,21 @@
           "🎈 it floated up"
         ],
         "optionsZh": [
-          "牆倒了",
-          "變色",
-          "自己鎖上",
-          "飄起來"
+          "🪵 牆全倒了",
+          "🌈 房子變了顏色",
+          "🔒 自己把門鎖上",
+          "🎈 整間飄上天"
         ],
         "correctIndex": 0,
-        "explanationZh": "牆倒了。",
+        "explanationZh": "大野狼一吹，木牆就「轟！」地倒下來了！",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "木屋發生了什麼事？"
       },
       {
         "type": "listen-mc",
@@ -1377,19 +1400,20 @@
           "they did not leave"
         ],
         "optionsZh": [
-          "前門出",
-          "從後面快跑",
-          "躲在地板下",
-          "沒離開"
+          "從前門慢慢走出去",
+          "從後面飛奔逃走",
+          "躲在地板底下",
+          "哪裡也沒去"
         ],
         "correctIndex": 1,
-        "explanationZh": "從後面快跑 = out the back, very fast。",
+        "explanationZh": "out the back——從後面跑出去，而且跑得超快！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "兩兄弟從後門衝出去，能跑多快就多快。"
       },
       {
         "type": "narration",
@@ -1398,7 +1422,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They raced to the brick house with their hearts pounding.",
-        "explanationZh": "他們跑向磚屋,心臟撲通跳。",
+        "explanationZh": "兩兄弟「撲通撲通」心跳個不停，拼命往第三隻小豬的磚屋跑去——只剩最後一個希望了！",
         "tags": [
           "story",
           "ch8",
@@ -1412,7 +1436,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The third pig opened the door just in time. Just in time...",
-        "explanationZh": "第三隻小豬剛好打開門。剛好趕上……",
+        "explanationZh": "「砰砰砰！」第三隻小豬及時把門打開——兄弟倆衝了進去。好險，好險……",
         "tags": [
           "story",
           "ch8",
@@ -1454,7 +1478,7 @@
             "right": "safe"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 climb = 爬\n🔑 fire = 火\n🔑 smoke = 煙\n🔑 safe = 安全\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "最後一節的生字！\n🔑 climb = 爬\n🔑 fire = 火\n🔑 smoke = 煙\n🔑 safe = 安全\n記住這 4 個，故事要到最精彩的地方了！",
         "tags": [
           "story",
           "ch8",
@@ -1470,7 +1494,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf came to the brick house and knocked.",
-        "explanationZh": "大野狼來到磚屋,敲門。",
+        "explanationZh": "大野狼走到磚屋前，舉起爪子——「咚！咚！咚！」這次，磚屋一動也不動。",
         "tags": [
           "story",
           "ch8",
@@ -1493,18 +1517,19 @@
         ],
         "optionsZh": [
           "什麼也沒說",
-          "下巴毛都不",
-          "請進",
-          "我們都放棄"
+          "下巴毛都不讓你進",
+          "請進請進",
+          "我們都放棄了"
         ],
         "correctIndex": 1,
-        "explanationZh": "三隻一起喊「下巴毛都不」。",
+        "explanationZh": "三兄弟齊聲大喊：「我們下巴上的毛都不讓你進來！」——not by our chin hair！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "三兄弟一起對他大喊同一個答案。"
       },
       {
         "type": "narration",
@@ -1513,7 +1538,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf huffed. He puffed. He blew, and blew, and blew.",
-        "explanationZh": "大野狼用力吹。再吹。又吹。",
+        "explanationZh": "「呼——！哈——！呼——！」大野狼吹了又吹，吹了再吹，嘴巴都快噴火了……磚屋，動了嗎？",
         "tags": [
           "story",
           "ch8",
@@ -1533,13 +1558,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 不動 → 沒倒 → 答 No",
+        "explanationZh": "stood still，紋絲不動！磚牆根本沒倒，答案是 No。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "inference"
-        ]
+        ],
+        "sentenceZh": "可是磚牆紋絲不動，一點都沒有搖。"
       },
       {
         "type": "narration",
@@ -1548,7 +1574,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The wolf tried to climb the roof to get in.",
-        "explanationZh": "大野狼想爬上屋頂進去。",
+        "explanationZh": "大野狼吹不倒，就換個辦法——他開始往屋頂爬，想從上面鑽進去！",
         "tags": [
           "story",
           "ch8",
@@ -1570,19 +1596,20 @@
           "opened the door"
         ],
         "optionsZh": [
-          "跑出去",
-          "生了一把熱火",
-          "去睡覺",
-          "開門"
+          "跑到屋外去",
+          "在大鍋裡生火",
+          "趕快去睡覺",
+          "把門打開"
         ],
         "correctIndex": 1,
-        "explanationZh": "第三隻生火。",
+        "explanationZh": "他在大鍋裡生火——made a hot fire，這是他的聰明計謀！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "第三隻小豬在屋裡一口大鍋裡，生起了熊熊的火。"
       },
       {
         "type": "emoji-pick",
@@ -1599,20 +1626,21 @@
           "🌟 a star"
         ],
         "optionsZh": [
-          "煙",
-          "花",
-          "蝴蝶",
-          "星星"
+          "💨 煙",
+          "🌸 花朵",
+          "🦋 一隻蝴蝶",
+          "🌟 一顆星星"
         ],
         "correctIndex": 0,
-        "explanationZh": "看到煙。",
+        "explanationZh": "從屋頂往下一看——「咦！煙！好燙！」大野狼嚇到了！",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "大野狼從屋頂上看到了什麼？"
       },
       {
         "type": "listen-mc",
@@ -1629,19 +1657,20 @@
           "lay down and slept"
         ],
         "optionsZh": [
-          "留下吃飯",
-          "放棄逃走",
-          "打破磚牆",
-          "躺下睡著了"
+          "留下來一起吃飯",
+          "放棄，落荒而逃",
+          "把磚牆打破",
+          "躺下來睡著了"
         ],
         "correctIndex": 1,
-        "explanationZh": "跳下屋頂跑走 = 放棄逃走。",
+        "explanationZh": "跳下屋頂、拼命逃跑——大野狼放棄，落荒而逃！",
         "tags": [
           "story",
           "ch8",
           "three-pigs"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "大野狼從屋頂跳下來，拼命跑回樹林裡。"
       },
       {
         "type": "narration",
@@ -1650,7 +1679,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The three brothers sat warm and safe inside the brick house.",
-        "explanationZh": "三兄弟坐在磚屋裡,暖又安全。",
+        "explanationZh": "三兄弟坐在暖呼呼的磚屋裡，擠在一起，終於安全了。以後要聽媽媽的話了吧！",
         "tags": [
           "story",
           "ch8",
@@ -1664,7 +1693,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But the wolf is still out there, watching from the deep dark woods...",
-        "explanationZh": "但大野狼還在外面,從深深的黑森林裡看著……",
+        "explanationZh": "不過……大野狼還在外面的深深黑森林裡，靜靜地盯著這裡看……故事，真的結束了嗎？",
         "tags": [
           "story",
           "ch8",

@@ -32,7 +32,7 @@
             "right": "hard"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 village = 村\n🔑 wife = 妻\n🔑 own = 自己的\n🔑 hard = 辛苦\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事要認識 4 個字：\n🔑 village = 村\n🔑 wife = 妻\n🔑 own = 自己的\n🔑 hard = 辛苦\n記住這 4 個字，葉限的故事就好聽懂了！",
         "tags": [
           "story",
           "ch7",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Long ago in southern China, a girl named 葉限 (Yexian) lived in a cave village.",
-        "explanationZh": "很久以前在中國南方,一個叫葉限的女孩住在洞穴村莊。",
+        "explanationZh": "好久好久以前，在中國南方，有個叫葉限的女孩，住在一個洞穴村莊裡。",
         "tags": [
           "story",
           "ch7",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her mother died when she was small. Her father died too.",
-        "explanationZh": "她小時候媽媽就過世了,爸爸後來也走了。",
+        "explanationZh": "她很小的時候，媽媽就不在了；後來，爸爸也走了。",
         "tags": [
           "story",
           "ch7",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:好的東西都給自己女兒 → 對葉限不同 → 答 No",
+        "explanationZh": "好東西都給自己的孩子——葉限呢？當然不一樣。答 No，後母對她不一樣。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "後母把軟的食物、暖的衣服，都留給自己的女兒。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Each day, Yexian carried water up the hill and washed dishes by the well.",
-        "explanationZh": "葉限每天扛水上山,在井邊洗碗。",
+        "explanationZh": "每天，葉限扛著水桶爬上山坡，再蹲在井邊把碗盤一個個洗乾淨。",
         "tags": [
           "story",
           "ch7",
@@ -120,18 +121,19 @@
         ],
         "optionsZh": [
           "只有一下子",
-          "從早到晚",
+          "從早做到晚",
           "每天只在中午",
-          "只在深夜"
+          "只有深夜"
         ],
         "correctIndex": 1,
-        "explanationZh": "太陽起到月亮出 → 一整天。",
+        "explanationZh": "太陽升起開始，月亮出來才停——這就是「從早做到晚」，一整天沒停過。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她從太陽升起就開始做事，一直到月亮出來才能停。"
       },
       {
         "type": "emoji-pick",
@@ -150,18 +152,19 @@
         "optionsZh": [
           "孤單又累",
           "開心又自由",
-          "懶又無聊",
+          "懶洋洋又無聊",
           "驕傲又大聲"
         ],
         "correctIndex": 0,
-        "explanationZh": "一個人扛水洗碗 → 孤單又累。",
+        "explanationZh": "一個人扛水、一個人洗碗——當然是「孤單又累」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "她覺得每一天怎麼樣？"
       },
       {
         "type": "narration",
@@ -170,7 +173,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Year after year, no one in the cave village spoke a kind word to her.",
-        "explanationZh": "一年又一年,洞穴村莊裡沒人對她說一句好話。",
+        "explanationZh": "一年又一年，洞穴村莊裡沒有一個人對她說過一句溫柔的話。",
         "tags": [
           "story",
           "ch7",
@@ -198,13 +201,14 @@
           "完全沒有人"
         ],
         "correctIndex": 1,
-        "explanationZh": "只對自己的孩子笑 → 自己的女兒。",
+        "explanationZh": "笑只留給自己孩子——後母的笑，給的是「她自己的女兒」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "後母只對自己的孩子笑。"
       },
       {
         "type": "comprehension",
@@ -227,14 +231,15 @@
           "吵鬧的節慶夜"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 葉限辛苦的日常。",
+        "explanationZh": "扛水、洗碗、睡草蓆——這就是她每一天的「辛苦日常」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "葉限扛桶子、洗鍋碗，晚上睡在角落一張薄薄的草蓆上。"
       },
       {
         "type": "narration",
@@ -243,7 +248,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And every night, she gave Yexian all the hard work, again and again...",
-        "explanationZh": "每個晚上,她都把所有辛苦的活推給葉限,一次又一次……",
+        "explanationZh": "每個晚上，所有辛苦的活，一樣都不少地壓在葉限身上，一次又一次……",
         "tags": [
           "story",
           "ch7",
@@ -285,7 +290,7 @@
             "right": "tame"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 friend = 朋友\n🔑 pond = 池塘\n🔑 fin = 鰭\n🔑 tame = 溫馴\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 friend = 朋友\n🔑 pond = 池塘\n🔑 fin = 鰭\n🔑 tame = 溫馴\n記住這 4 個字，今晚的故事就好跟了！",
         "tags": [
           "story",
           "ch7",
@@ -301,7 +306,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Behind the cave village was a small quiet pond.",
-        "explanationZh": "洞穴村莊後面有一個安靜的小池塘。",
+        "explanationZh": "洞穴村莊後面，藏著一個安靜的小池塘。",
         "tags": [
           "story",
           "ch7",
@@ -321,13 +326,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:沒人去 → 她可以藏祕密 → 答 Yes",
+        "explanationZh": "沒有人來這裡——那葉限當然可以把自己的小祕密藏在這裡！答 Yes。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "村裡沒有人會走到池塘來。"
       },
       {
         "type": "narration",
@@ -336,7 +342,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "In the water lived a fish with bright 紅鰭 (red fins) and golden eyes.",
-        "explanationZh": "水裡住著一條有紅鰭和金色眼睛的魚。",
+        "explanationZh": "水裡住著一條魚，長著火紅的鰭，還有一雙金色的眼睛。",
         "tags": [
           "story",
           "ch7",
@@ -364,13 +370,14 @@
           "花"
         ],
         "correctIndex": 1,
-        "explanationZh": "撒米屑 = 食物。",
+        "explanationZh": "米屑就是食物——她每天帶「食物」來餵魚。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "每天早晨，葉限把米飯的碎屑撒在平靜的水面上。"
       },
       {
         "type": "narration",
@@ -379,7 +386,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The fish swam up to her hand and let her touch its smooth side.",
-        "explanationZh": "魚游到她手邊,讓她摸牠光滑的身體。",
+        "explanationZh": "那條魚游過來，靠近她的手，讓她摸摸牠光滑滑的身體。",
         "tags": [
           "story",
           "ch7",
@@ -402,19 +409,20 @@
         ],
         "optionsZh": [
           "小又害羞",
-          "亮又溫馴",
-          "尖又野",
-          "圓又生氣"
+          "亮麗又溫馴",
+          "尖利又野蠻",
+          "圓滾滾又兇"
         ],
         "correctIndex": 1,
-        "explanationZh": "紅鰭金眼,讓她摸 → 亮又溫馴。",
+        "explanationZh": "紅鰭、金眼，還讓人摸——這條魚「亮麗又溫馴」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那是一條怎樣的魚？"
       },
       {
         "type": "listen-mc",
@@ -431,19 +439,20 @@
           "died one night"
         ],
         "optionsZh": [
-          "變小",
-          "變大",
-          "變白",
-          "死了"
+          "越來越小",
+          "越來越大",
+          "全身變白",
+          "有一天死掉了"
         ],
         "correctIndex": 1,
-        "explanationZh": "比她兩手張開還長 → 變大。",
+        "explanationZh": "比兩手張開還長——牠「越來越大」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "一天天過去，魚長得比她兩隻手臂張開還要長。"
       },
       {
         "type": "comprehension",
@@ -460,20 +469,21 @@
           "a stormy night of heavy rain"
         ],
         "optionsZh": [
-          "池邊的祕密友誼",
+          "水邊的祕密友誼",
           "中午的釣魚課",
           "鎮上熱鬧的市集日",
           "下大雨的暴風夜"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 池邊的祕密友誼。",
+        "explanationZh": "只有她知道這個池塘，只有魚願意靠近她——這就是「水邊的祕密友誼」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "村莊吵鬧又冷漠，但葉限坐在池邊，魚就游到她手邊來。"
       },
       {
         "type": "narration",
@@ -482,7 +492,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But the new wife was watching from behind the rocks.",
-        "explanationZh": "但是後母從石頭後面看著。",
+        "explanationZh": "但是，後母就躲在石頭後面，偷偷地看著這一切。",
         "tags": [
           "story",
           "ch7",
@@ -496,7 +506,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her eyes did not blink. Something cold and slow turned inside her chest...",
-        "explanationZh": "她的眼睛沒眨。她胸口裡有什麼又冷又慢的東西在轉……",
+        "explanationZh": "她眼睛一眨也不眨。胸口裡，有什麼又冷又慢的東西，正在慢慢地轉……",
         "tags": [
           "story",
           "ch7",
@@ -538,7 +548,7 @@
             "right": "empty"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 torn = 破舊\n🔑 dress = 衣服\n🔑 knife = 刀\n🔑 empty = 空的\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 torn = 破舊\n🔑 dress = 衣服\n🔑 knife = 刀\n🔑 empty = 空的\n記住這 4 個字，今晚的故事就好聽懂了！",
         "tags": [
           "story",
           "ch7",
@@ -554,7 +564,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One morning, 後母 (the new wife) put on Yexian's torn dress.",
-        "explanationZh": "一個早上,後母穿上葉限那件破舊的衣服。",
+        "explanationZh": "一個早晨，後母穿上葉限那件破破舊舊的衣服。",
         "tags": [
           "story",
           "ch7",
@@ -574,13 +584,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:藏刀去池邊 → 不是要餵魚 → 答 No",
+        "explanationZh": "去池塘還帶著刀——這哪裡是去餵魚的？答 No，她沒安好心。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她把一把小亮刀藏進寬袖子裡。"
       },
       {
         "type": "narration",
@@ -589,7 +600,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She walked down to the pond and called softly, like Yexian always did.",
-        "explanationZh": "她走到池邊,像葉限那樣輕輕呼喚。",
+        "explanationZh": "她走到池邊，像葉限平時那樣，輕輕地呼喚。",
         "tags": [
           "story",
           "ch7",
@@ -614,16 +625,17 @@
           "對聲音生氣",
           "以為葉限來了",
           "那天肚子很餓",
-          "想在太陽下休息"
+          "想曬太陽"
         ],
         "correctIndex": 1,
-        "explanationZh": "聞到熟悉的味道 → 以為葉限來了。",
+        "explanationZh": "聞到熟悉的葉限味道——魚以為「葉限來了」，才游上來的。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "魚游了上來，因為那件衣服聞起來味道一樣。"
       },
       {
         "type": "narration",
@@ -632,7 +644,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "That night, the family ate fish soup. Yexian had no idea.",
-        "explanationZh": "那天晚上,家裡吃魚湯。葉限完全不知道。",
+        "explanationZh": "那天晚上，家裡喝魚湯。葉限坐在旁邊，一點都不知道發生了什麼。",
         "tags": [
           "story",
           "ch7",
@@ -655,18 +667,19 @@
         ],
         "optionsZh": [
           "魚怎麼長大的",
-          "魚的來源",
-          "後母什麼時候來的",
+          "魚從哪裡來的",
+          "後母什麼時候到的",
           "葉限去過哪裡"
         ],
         "correctIndex": 1,
-        "explanationZh": "沒人在餐桌上提魚的來源 → family 對葉限隱瞞魚從哪來;其他選項都不是這段話講的內容。",
+        "explanationZh": "沒人說魚從哪來——家裡瞞著葉限的，就是「魚從哪裡來的」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "桌上沒有人說那條魚從哪裡來的。"
       },
       {
         "type": "emoji-pick",
@@ -685,18 +698,19 @@
         "optionsZh": [
           "她的魚",
           "空空的水",
-          "新的花",
+          "新開的花",
           "一艘小船"
         ],
         "correctIndex": 1,
-        "explanationZh": "魚被吃了 → 池水空空的。",
+        "explanationZh": "魚被吃掉了——池裡只剩「空空的水」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "隔天，葉限走到池塘去。她看到了什麼？"
       },
       {
         "type": "narration",
@@ -705,7 +719,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She sat at the edge and called the fish. No bright red moved in the water.",
-        "explanationZh": "她坐在池邊呼喚那條魚。水裡沒有任何紅色在動。",
+        "explanationZh": "她坐在池邊，一聲一聲呼喚那條魚。水裡，沒有任何紅色在動了。",
         "tags": [
           "story",
           "ch7",
@@ -730,17 +744,18 @@
           "葉限失去唯一的朋友",
           "葉限贏了比賽",
           "村莊辦市集",
-          "後母生病"
+          "後母生病了"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 葉限失去唯一的朋友。",
+        "explanationZh": "那條魚，是她在這世界上唯一的朋友——這段說的就是「葉限失去唯一的朋友」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "葉限坐在空空的池邊。她唯一的朋友不見了，她不知道為什麼。"
       },
       {
         "type": "narration",
@@ -749,7 +764,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her tears fell into the still water. Then — a sky-colored shadow moved on the other side...",
-        "explanationZh": "她的淚水落進靜靜的水裡。然後 ——對岸有個天藍色的影子在動……",
+        "explanationZh": "她的眼淚落進靜靜的水裡。然後——對岸，出現了一個天藍色的影子，在動……",
         "tags": [
           "story",
           "ch7",
@@ -791,7 +806,7 @@
             "right": "dig"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 robe = 長袍\n🔑 cry = 哭\n🔑 bone = 骨頭\n🔑 dig = 挖\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 robe = 長袍\n🔑 cry = 哭\n🔑 bone = 骨頭\n🔑 dig = 挖\n這幾個字很重要，記住了！",
         "tags": [
           "story",
           "ch7",
@@ -807,7 +822,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "An 老人 (old man) in a sky-colored robe stepped down beside her.",
-        "explanationZh": "一個穿著天藍色長袍的老人走到她旁邊。",
+        "explanationZh": "一個穿著天藍色長袍的老人，走到她身邊，輕輕站定。",
         "tags": [
           "story",
           "ch7",
@@ -827,13 +842,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:腳不沾草 → 不是普通人 → 答 No",
+        "explanationZh": "腳不沾草地——這樣的人，怎麼可能是普通的村民？答 No，他不是普通人。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他的腳沒有碰到池邊濕濕的草地。"
       },
       {
         "type": "narration",
@@ -842,7 +858,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Do not cry, child,\" he said in a very soft voice.",
-        "explanationZh": "「孩子,別哭。」他用很輕的聲音說。",
+        "explanationZh": "「孩子，別哭。」他的聲音輕得像一陣風。",
         "tags": [
           "story",
           "ch7",
@@ -864,19 +880,20 @@
           "down inside the old well"
         ],
         "optionsZh": [
-          "在房子旁的池塘裡",
-          "在門邊的一堆下面",
-          "在門上方的屋頂上",
-          "在那口老井裡面"
+          "房子旁的池塘裡",
+          "門邊那一堆下面",
+          "門上方的屋頂上",
+          "那口老井底"
         ],
         "correctIndex": 1,
-        "explanationZh": "門邊的一堆下面 = 門邊那一堆下。",
+        "explanationZh": "老人說埋在「門邊那一堆下面」——就是「門邊那一堆下面」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "「妳的魚骨頭，埋在門邊那一堆東西下面。」"
       },
       {
         "type": "narration",
@@ -885,7 +902,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Hide the 魚骨 (fish-bone). Speak to them. They will give you anything.\"",
-        "explanationZh": "「把魚骨藏起來。對它們說話。它們會給你任何東西。」",
+        "explanationZh": "「把魚骨頭藏好，跟它們說話——它們會給妳任何想要的東西。」",
         "tags": [
           "story",
           "ch7",
@@ -913,13 +930,14 @@
           "煮熱騰騰的飯"
         ],
         "correctIndex": 1,
-        "explanationZh": "會給她任何東西 = 實現願望。",
+        "explanationZh": "任何想要的都會給——就是「實現她的願望」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "老人說，對骨頭說出來的願望，都會實現。"
       },
       {
         "type": "emoji-pick",
@@ -942,14 +960,15 @@
           "煮飯"
         ],
         "correctIndex": 1,
-        "explanationZh": "她照老人的話 → 挖骨頭。",
+        "explanationZh": "老人說去挖，她就去了——她「把骨頭挖出來」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那天晚上葉限做了什麼？"
       },
       {
         "type": "narration",
@@ -958,7 +977,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She wrapped the bones in clean cloth and slid them under her thin mat.",
-        "explanationZh": "她用乾淨的布把骨頭包起來,塞到薄薄的草蓆下。",
+        "explanationZh": "她用乾淨的布把骨頭包好，小心地塞進薄薄的草蓆下面。",
         "tags": [
           "story",
           "ch7",
@@ -986,14 +1005,15 @@
           "清晨市集開張"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 葉限得到一個有魔法的禮物。",
+        "explanationZh": "老人指路、骨頭有魔力——葉限「得到了一個有魔法的禮物」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一個天上來的老人告訴她骨頭在哪，她把骨頭緊緊貼身收好。"
       },
       {
         "type": "narration",
@@ -1002,7 +1022,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She lay on her mat and felt the bones warm under her back. What would she ask first?",
-        "explanationZh": "她躺在草蓆上,感覺背下的骨頭暖暖的。她要先問什麼?",
+        "explanationZh": "她躺在草蓆上，感覺背下的骨頭暖暖的。她在心裡想：要先許什麼願呢？",
         "tags": [
           "story",
           "ch7",
@@ -1044,7 +1064,7 @@
             "right": "shoe"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 festival = 節\n🔑 lantern = 燈籠\n🔑 cloak = 披風\n🔑 shoe = 鞋\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事要認識 4 個字：\n🔑 festival = 節\n🔑 lantern = 燈籠\n🔑 cloak = 披風\n🔑 shoe = 鞋\n這 4 個字記住，今晚的節慶就好玩了！",
         "tags": [
           "story",
           "ch7",
@@ -1060,7 +1080,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The 洞節 (cave festival) night came. Lanterns lit up every doorway.",
-        "explanationZh": "洞節之夜到了。每個門口都掛起燈籠。",
+        "explanationZh": "洞節之夜到了！每個門口都掛起燈籠，整個村子亮了起來。",
         "tags": [
           "story",
           "ch7",
@@ -1080,13 +1100,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:她們兩個一起出門,沒帶她 → 答 No",
+        "explanationZh": "兩個人一起出門——葉限呢？當然沒帶她。答 No，她不准去。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "後母和她女兒穿上鮮亮的衣服，一起走出去了。"
       },
       {
         "type": "narration",
@@ -1095,7 +1116,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Alone in the cave, Yexian whispered to the bones, \"I want to go too.\"",
-        "explanationZh": "葉限一個人在洞裡,輕聲對骨頭說:「我也想去。」",
+        "explanationZh": "葉限一個人待在洞裡，輕輕對骨頭說：「我也想去。」",
         "tags": [
           "story",
           "ch7",
@@ -1118,18 +1139,19 @@
         ],
         "optionsZh": [
           "熱食和乾淨的水",
-          "漂亮衣物跟亮亮的鞋",
+          "美麗的衣服和亮亮的鞋",
           "一袋沉甸甸的金幣",
           "一把利劍和一面盾牌"
         ],
         "correctIndex": 1,
-        "explanationZh": "骨頭給了 → 漂亮衣物跟亮亮的鞋 (青衣 + 金鞋)。",
+        "explanationZh": "藍披風加金鞋——骨頭給了「美麗的衣服和亮亮的鞋」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "輕輕一閃，一件藍色披風和兩隻小小的金鞋，落在地板上。"
       },
       {
         "type": "narration",
@@ -1138,7 +1160,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She put them on. The cloak fit her. The shoes felt light as a leaf.",
-        "explanationZh": "她穿上。披風很合身。鞋輕得像一片葉子。",
+        "explanationZh": "她穿上披風，合合身身的。金鞋穿上腳，輕得像一片葉子。",
         "tags": [
           "story",
           "ch7",
@@ -1163,16 +1185,17 @@
           "大聲笑她",
           "所有眼睛都跟著她",
           "走得遠遠的",
-          "睡著了"
+          "紛紛睡著了"
         ],
         "correctIndex": 1,
-        "explanationZh": "每張臉都轉向她 → 所有眼睛都跟著她。",
+        "explanationZh": "每張臉都轉過來——「所有眼睛都跟著她」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她走進燈籠光裡，村子裡每個人的臉都轉向她。"
       },
       {
         "type": "emoji-pick",
@@ -1190,19 +1213,20 @@
         ],
         "optionsZh": [
           "小又害羞",
-          "驕傲又自由",
-          "生氣又大聲",
-          "想睡又慢"
+          "驕傲又自在",
+          "生氣又吵鬧",
+          "想睡又慢吞吞"
         ],
         "correctIndex": 1,
-        "explanationZh": "披風合身鞋很輕村人都看她 → 驕傲又自由。",
+        "explanationZh": "披風合身、鞋輕得像飛，村人都看她——這一刻，她是「驕傲又自在」的。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "走在節慶裡，葉限心裡是什麼感覺？"
       },
       {
         "type": "narration",
@@ -1211,7 +1235,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She passed shops, music, and stalls of warm sweet food.",
-        "explanationZh": "她走過店舖、音樂,還有賣熱甜點的攤子。",
+        "explanationZh": "她走過店鋪、走過音樂聲，走過賣著熱騰騰甜食的攤子。",
         "tags": [
           "story",
           "ch7",
@@ -1234,19 +1258,20 @@
         ],
         "optionsZh": [
           "葉限在節慶上的蛻變",
-          "池邊的安靜早晨",
-          "和家人一起喝魚湯的晚餐",
+          "池邊安靜的早晨",
+          "和家人喝魚湯",
           "老人到家裡來訪"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 葉限在節慶上的蛻變。",
+        "explanationZh": "從刷鍋的女孩變成燈籠下最耀眼的人——這就是「葉限在節慶上的蛻變」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "早上還在刷鍋碗的葉限，這一刻穿著天藍披風，走在明亮的燈籠裡。"
       },
       {
         "type": "narration",
@@ -1255,7 +1280,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But from across the square, the new wife's daughter slowly lowered her cup of wine...",
-        "explanationZh": "但廣場對面,後母的女兒慢慢放下手裡的酒杯……",
+        "explanationZh": "但廣場對面，後母的女兒慢慢放下手裡那杯酒……她瞇起眼睛，看著那個背影。",
         "tags": [
           "story",
           "ch7",
@@ -1297,7 +1322,7 @@
             "right": "reach"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 point = 指\n🔑 fall off = 掉下來\n🔑 road = 路\n🔑 reach = 到達\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 point = 指\n🔑 fall off = 掉下來\n🔑 road = 路\n🔑 reach = 到達\n這幾個字很實用，一起記起來！",
         "tags": [
           "story",
           "ch7",
@@ -1313,7 +1338,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The new wife's daughter pointed across the square. \"Mother — she looks like Yexian.\"",
-        "explanationZh": "後母的女兒指著廣場那邊。「媽——她看起來像葉限。」",
+        "explanationZh": "後母的女兒指著廣場對面，低聲說：「媽——她看起來像葉限。」",
         "tags": [
           "story",
           "ch7",
@@ -1333,13 +1358,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:轉身快鑽進暗街 → 不想被看 → 答 No",
+        "explanationZh": "聽到後，她轉頭就跑——當然不想被看見！答 No。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "葉限聽到了那句話，轉身快步鑽進黑暗的小巷裡。"
       },
       {
         "type": "narration",
@@ -1348,7 +1374,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "As she ran, one 金鞋 (gold shoe) fell off her foot onto the road.",
-        "explanationZh": "她跑的時候,一隻金鞋從腳上掉到路上。",
+        "explanationZh": "她跑的時候，一隻金鞋「啪」地從腳上掉到路上。",
         "tags": [
           "story",
           "ch7",
@@ -1373,16 +1399,17 @@
           "太重了",
           "有人在追她",
           "她不想要了",
-          "路很濕"
+          "路太濕了"
         ],
         "correctIndex": 1,
-        "explanationZh": "後面聲音太近 → 被追,沒空撿。",
+        "explanationZh": "後面的聲音越來越近——是「有人在追她」，沒時間回頭撿。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她沒停下來撿——後面的聲音已經太近了。"
       },
       {
         "type": "narration",
@@ -1391,7 +1418,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She came home with one bare foot and one tired heart.",
-        "explanationZh": "她回到家,一隻腳沒鞋,心也累了。",
+        "explanationZh": "她回到家，一隻腳沒有鞋，心裡也空了一塊。",
         "tags": [
           "story",
           "ch7",
@@ -1419,13 +1446,14 @@
           "街上的餓狗"
         ],
         "correctIndex": 1,
-        "explanationZh": "路過的男人撿了 → 路上的陌生人。",
+        "explanationZh": "路過的男人撿走了——他就是那個「路上的陌生人」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "那隻鞋躺在路上，一個路過的男人把它撿起來了。"
       },
       {
         "type": "emoji-pick",
@@ -1442,20 +1470,21 @@
           "🌊 the sea"
         ],
         "optionsZh": [
-          "一個海島的國王",
-          "一個山上的和尚",
+          "一個海島的國王那裡",
+          "山上的和尚那裡",
           "同一個洞穴村",
-          "大海"
+          "大海裡"
         ],
         "correctIndex": 0,
-        "explanationZh": "一路傳到陀汗國王手上 = 海島國王。",
+        "explanationZh": "鞋一路輾轉，最後傳到了陀汗國王手上——那就是「一個海島的國王那裡」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那隻金鞋最後到了哪裡？"
       },
       {
         "type": "narration",
@@ -1464,7 +1493,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The shoe travelled far across hills and water, hand to hand, until it reached a king.",
-        "explanationZh": "鞋一手一手,翻山越海,最後到了一個國王手上。",
+        "explanationZh": "鞋子越過山、越過水，一手傳一手，最後落到了一個國王的手心裡。",
         "tags": [
           "story",
           "ch7",
@@ -1486,20 +1515,21 @@
           "a quiet day by the pond"
         ],
         "optionsZh": [
-          "鞋找到一個有權力的擁有者",
-          "葉限贏了賽跑比賽",
-          "後母買新衣服",
+          "鞋找到了一個有力量的主人",
+          "葉限贏了賽跑",
+          "後母買了新衣",
           "池邊安靜的一天"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 鞋落到有權力的人手上。",
+        "explanationZh": "鞋落到了國王手上——這段說的是「鞋找到了一個有力量的主人」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "葉限少了一隻鞋回到家。遠遠的地方，那隻鞋已經放在一個國王的桌上。"
       },
       {
         "type": "narration",
@@ -1508,7 +1538,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The king lifted the shoe to the light. \"I will find the foot that fits this,\" he said quietly...",
-        "explanationZh": "國王把鞋舉到光下。「我要找到能穿上這隻鞋的腳。」他輕輕地說……",
+        "explanationZh": "國王把那隻鞋舉到燈光下，輕輕地說：「我要找到能穿上這隻鞋的人。」",
         "tags": [
           "story",
           "ch7",
@@ -1550,7 +1580,7 @@
             "right": "stone"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 try = 試\n🔑 fit = 合身\n🔑 foot = 腳\n🔑 stone = 石頭\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事有 4 個字要認識：\n🔑 try = 試\n🔑 fit = 合身\n🔑 foot = 腳\n🔑 stone = 石頭\n記住這 4 個字，今晚的結局就好期待了！",
         "tags": [
           "story",
           "ch7",
@@ -1566,7 +1596,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The king tried the gold shoe on every woman he could find.",
-        "explanationZh": "國王把那隻金鞋拿給所有找得到的女子試。",
+        "explanationZh": "國王把那隻金鞋，拿給所有能找到的女子試穿。",
         "tags": [
           "story",
           "ch7",
@@ -1586,13 +1616,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:不是太寬就是太短 → 沒人合 → 答 No",
+        "explanationZh": "不是太寬就是太短——沒有一個人合腳。答 No，沒有人穿得進去。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "inference"
-        ]
+        ],
+        "sentenceZh": "每個人的腳，不是大了一點，就是短了一點。"
       },
       {
         "type": "narration",
@@ -1601,7 +1632,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "At last, the king sailed to the cave village in the south.",
-        "explanationZh": "最後,國王坐船到南方的洞穴村莊。",
+        "explanationZh": "最後，國王坐船南下，來到了南方的洞穴村莊。",
         "tags": [
           "story",
           "ch7",
@@ -1624,18 +1655,19 @@
         ],
         "optionsZh": [
           "她大聲喊自己的名字",
-          "她無聲走出",
+          "她無聲地走出來",
           "她哭著喊救命",
           "她躲在籃子裡"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:Quiet + bare foot → 無聲走出。",
+        "explanationZh": "輕輕的，沒有聲音——她「無聲地走了出來」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "葉限安安靜靜地，光著一隻腳，從後母身後走了出來。"
       },
       {
         "type": "narration",
@@ -1644,7 +1676,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "鞋 (the shoe) slipped onto her foot like clear water.",
-        "explanationZh": "鞋滑上她的腳,像水一樣自然。",
+        "explanationZh": "那隻金鞋滑上她的腳，就像清水流過，自然又完美。",
         "tags": [
           "story",
           "ch7",
@@ -1666,19 +1698,20 @@
           "shy and quiet"
         ],
         "optionsZh": [
-          "驚訝又確定",
-          "無聊又累",
+          "又驚又確定",
+          "無聊又疲倦",
           "生氣又大聲",
           "害羞又安靜"
         ],
         "correctIndex": 0,
-        "explanationZh": "一眼就認出 → 驚訝又確定。",
+        "explanationZh": "一眼就認出來了——國王心裡「又驚又確定」。",
         "tags": [
           "story",
           "ch7",
           "yexian"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "國王一眼就認出，她就是節慶那晚的女子。"
       },
       {
         "type": "emoji-pick",
@@ -1698,17 +1731,18 @@
           "帶她一起回家",
           "給她麵包",
           "寫信給她",
-          "從皇宮逃走"
+          "從皇宮逃跑"
         ],
         "correctIndex": 0,
-        "explanationZh": "帶她回島上 → 帶她一起回家。",
+        "explanationZh": "他帶著她回到自己的島——就是「帶她一起回家」。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "國王為葉限做了什麼？"
       },
       {
         "type": "narration",
@@ -1717,7 +1751,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "That night, 飛石 (flying stones) fell from the sky and buried the new wife and her daughter.",
-        "explanationZh": "那天晚上,天上掉下飛石,把後母和她女兒埋了。",
+        "explanationZh": "那天晚上，天上掉下飛石，把後母和她的女兒埋了進去。",
         "tags": [
           "story",
           "ch7",
@@ -1740,19 +1774,20 @@
         ],
         "optionsZh": [
           "葉限找到一個安全的新家",
-          "長長熱鬧的市集日",
+          "忙碌的市集長日",
           "池邊安靜的早晨",
-          "吵鬧的燈籠節"
+          "喧鬧的燈籠節"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 葉限找到一個安全的新家。",
+        "explanationZh": "辛苦了那麼久的葉限，終於「找到一個安全的新家」了。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "那個失去了魚、失去了媽媽、也失去了一隻鞋的女孩，如今跟著善良的國王一起出航了。"
       },
       {
         "type": "narration",
@@ -1761,7 +1796,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "On the boat, Yexian touched the small cloth in her pocket. The bones were warm again...",
-        "explanationZh": "在船上,葉限摸了摸口袋裡那塊小布。骨頭又暖了起來……",
+        "explanationZh": "在船上，葉限摸了摸口袋裡那塊小布。骨頭，又暖了起來……",
         "tags": [
           "story",
           "ch7",

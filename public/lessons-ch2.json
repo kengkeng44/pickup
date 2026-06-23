@@ -32,7 +32,7 @@
             "right": "inside"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 egg = 蛋\n🔑 wait = 等\n🔑 nest = 窩\n🔑 inside = 裡面\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的開場單字，左邊中文、右邊英文：\n🔑 egg = 蛋\n🔑 wait = 等\n🔑 nest = 窩\n🔑 inside = 裡面\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -50,7 +50,7 @@
         "sentence": "In the warm reeds by the pond, mother duck sat on her nest.",
         "sentenceEasy": "Mother duck sat on her nest by the pond.",
         "sentenceHard": "Nestled among the warm reeds beside the pond, the mother duck kept faithful watch over her nest.",
-        "explanationZh": "在池邊溫暖的蘆葦叢裡,鴨媽媽坐在她的窩上。",
+        "explanationZh": "池塘邊，蘆葦輕輕搖著，曬得暖呼呼的。鴨媽媽就窩在那裡，守著她的窩，一動也不動。",
         "tags": [
           "story",
           "ch2",
@@ -66,7 +66,7 @@
         "sentence": "She had six round eggs to keep safe and warm.",
         "sentenceEasy": "She had six eggs in her nest.",
         "sentenceHard": "Beneath her soft feathers, she cradled six round eggs, keeping each one safe and warm.",
-        "explanationZh": "她有六顆圓圓的蛋要保護和保溫。",
+        "explanationZh": "窩裡有六顆圓滾滾的蛋！鴨媽媽把翅膀輕輕蓋上去，像棉被一樣，不讓任何一顆著涼。",
         "tags": [
           "story",
           "ch2",
@@ -86,13 +86,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:蘆葦靜靜地站著 → 安靜的地方 → 答 No",
+        "explanationZh": "你聽，蘆葦一動也不動地立著，陽光輕輕灑下來，多安靜的地方呀！所以不是「嘈雜熱鬧」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她周圍的蘆葦，在柔柔的陽光下靜靜地立著。"
       },
       {
         "type": "narration",
@@ -103,7 +104,7 @@
         "sentence": "One sunny morning, five small eggs began to crack open.",
         "sentenceEasy": "Five eggs cracked open one morning.",
         "sentenceHard": "On a bright sunny morning, five of the small eggs began to tremble and crack open one by one.",
-        "explanationZh": "一個晴朗的早上,五顆小蛋開始裂開。",
+        "explanationZh": "有個晴朗的早晨，五顆小蛋開始發出輕輕的「咔」聲——裂開啦！小鴨寶寶要出來了！",
         "tags": [
           "story",
           "ch2",
@@ -126,18 +127,19 @@
         ],
         "optionsZh": [
           "小小的灰色雛雞",
-          "小小黃色鴨寶寶",
+          "小小的黃色鴨寶寶",
           "綠色的小青蛙寶寶",
           "軟軟的白色小貓"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:破殼 + 鴨媽媽的窩 → 鴨寶寶;故事體裁 + 暖色童話 → 黃色 → 小小黃色鴨寶寶。",
+        "explanationZh": "你看！殼一片一片掉開，小小的黃色鴨寶寶搖搖晃晃鑽出來了！鴨媽媽的窩嘛，當然是黃色鴨寶寶囉。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "五個小小的身影，撥開碎殼，搖搖晃晃爬到草地上。"
       },
       {
         "type": "narration",
@@ -148,7 +150,7 @@
         "sentence": "But one large egg was bigger than all the others.",
         "sentenceEasy": "One egg was very big.",
         "sentenceHard": "Yet among them lay one egg that was noticeably larger than all the rest, smooth and still.",
-        "explanationZh": "但有一顆大蛋比其他所有都大。",
+        "explanationZh": "等一下……五顆都裂了，還有一顆大大的，就靜靜躺在那裡，圓滾滾的，一點動靜都沒有。",
         "tags": [
           "story",
           "ch2",
@@ -176,13 +178,14 @@
           "塗了顏色"
         ],
         "correctIndex": 2,
-        "explanationZh": "推理:沒聲音 + 圓圓的 → 還沒裂開 → 還沒打開。",
+        "explanationZh": "大顆的蛋靜悄悄的，一點聲音都沒有，圓滾滾地躺著——還沒裂開呢，所以是「還沒打開」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "最大的那顆蛋，靜靜地、圓圓地躺在窩裡，沒有任何聲音。"
       },
       {
         "type": "narration",
@@ -193,7 +196,7 @@
         "sentence": "Mother duck sat down again and waited day after day.",
         "sentenceEasy": "Mother duck waited and waited.",
         "sentenceHard": "Patiently, mother duck settled back onto her nest and waited, day after day, for the great egg to stir.",
-        "explanationZh": "鴨媽媽再次坐下,日復一日地等。",
+        "explanationZh": "鴨媽媽嘆了口氣，再次輕輕坐下去。就這樣，一天又一天，她繼續等著、守著那顆大蛋。",
         "tags": [
           "story",
           "ch2",
@@ -215,20 +218,21 @@
           "😡 starting to feel mad"
         ],
         "optionsZh": [
-          "擔心",
-          "興奮",
-          "快要睡著了",
-          "開始覺得生氣"
+          "😟 擔心",
+          "😄 興奮",
+          "😴 快要睡著了",
+          "😡 開始覺得生氣"
         ],
         "correctIndex": 0,
-        "explanationZh": "一直等 → 擔心。",
+        "explanationZh": "一天又一天地等，大蛋還是沒動靜……換作是你，是不是也會開始擔心了？所以鴨媽媽是「擔心」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "鴨媽媽的心情怎麼樣？"
       },
       {
         "type": "narration",
@@ -239,7 +243,7 @@
         "sentence": "Then she felt a small thump from inside the big egg...",
         "sentenceEasy": "She felt a bump inside the big egg.",
         "sentenceHard": "Then, at last, she felt a faint but unmistakable thump stir from deep within the great egg...",
-        "explanationZh": "然後她感覺到大蛋裡傳來一個小小的撞擊聲……",
+        "explanationZh": "就在這時候——「咚」！鴨媽媽感覺到大蛋裡頭有什麼東西輕輕撞了一下……要出來了嗎？",
         "tags": [
           "story",
           "ch2",
@@ -281,7 +285,7 @@
             "right": "hatch"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 grey = 灰\n🔑 large = 大\n🔑 different = 不同\n🔑 hatch = 孵出\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 grey = 灰\n🔑 large = 大\n🔑 different = 不同\n🔑 hatch = 孵出\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -299,7 +303,7 @@
         "sentence": "At last the great egg began to crack open slowly.",
         "sentenceEasy": "The big egg began to crack.",
         "sentenceHard": "After so many long days of waiting, the great egg at last began to split and crack open, slowly and surely.",
-        "explanationZh": "最後那顆大蛋開始慢慢裂開。",
+        "explanationZh": "等了好多好多天，終於，大蛋開始慢慢地裂開——「喀、喀、喀」，一條細縫，越來越大……",
         "tags": [
           "story",
           "ch2",
@@ -315,7 +319,7 @@
         "sentence": "Out came a baby duck — but he was large and grey.",
         "sentenceEasy": "A baby duck came out. He was big and grey.",
         "sentenceHard": "From within the broken shell emerged a baby duck — yet unlike his golden siblings, he was large and grey.",
-        "explanationZh": "一隻鴨寶寶出來了 — 但他又大又灰。",
+        "explanationZh": "結果呀，出來的鴨寶寶，不是黃黃的，是又大又灰的！大家都愣住了。",
         "tags": [
           "story",
           "ch2",
@@ -335,13 +339,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:停下來轉頭 → 注意到他 → 答 Yes",
+        "explanationZh": "小鴨們本來在玩，突然全部停下來，把頭轉過去看——就是「注意到他」，所以答 Yes。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "黃色的鴨寶寶們停下來玩耍，把頭都轉了過去。"
       },
       {
         "type": "narration",
@@ -352,7 +357,7 @@
         "sentence": "They looked at the new baby for a long, quiet moment.",
         "sentenceEasy": "They all looked at the new baby.",
         "sentenceHard": "For a long and perfectly quiet moment, every duckling stood still and fixed their gaze upon the strange new baby.",
-        "explanationZh": "他們看著新的寶寶,看了很久,很安靜。",
+        "explanationZh": "大家就這樣靜靜地看著這個灰色的新寶寶，沒人動、沒人說話，那份沉默好奇妙，好長、好長……",
         "tags": [
           "story",
           "ch2",
@@ -380,13 +385,14 @@
           "他不會游泳"
         ],
         "correctIndex": 2,
-        "explanationZh": "不像兄弟姐妹 → 顏色不同。",
+        "explanationZh": "哥哥姐姐們是黃的，他是灰的，就是顏色不同嘛！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "新來的小鴨，長得跟哥哥姐姐們不一樣。"
       },
       {
         "type": "narration",
@@ -397,7 +403,7 @@
         "sentence": "Mother duck looked at her new son and gave him a name.",
         "sentenceEasy": "Mother duck gave him a name.",
         "sentenceHard": "Mother duck gazed softly at her new son, and with great tenderness, she gave him a name of his own.",
-        "explanationZh": "鴨媽媽看著她的新兒子,給他取了名字。",
+        "explanationZh": "鴨媽媽低頭輕輕看著這個新來的孩子，眼神很溫柔，她伸出脖子，給他取了一個名字。",
         "tags": [
           "story",
           "ch2",
@@ -425,13 +431,14 @@
           "不說話"
         ],
         "correctIndex": 1,
-        "explanationZh": "想讓他感到被歡迎 → 善意。",
+        "explanationZh": "鴨媽媽希望他感覺到溫暖、被接受，這就是「善意」——媽媽的心，都是這樣的。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她想讓他在溫暖的綠色窩裡覺得被歡迎。"
       },
       {
         "type": "narration",
@@ -442,7 +449,7 @@
         "sentence": "But the other ducklings whispered words behind his back.",
         "sentenceEasy": "The other ducklings whispered about him.",
         "sentenceHard": "Behind his back, however, the other ducklings huddled close and whispered unkind words to one another.",
-        "explanationZh": "但其他鴨寶寶在他背後悄悄說話。",
+        "explanationZh": "但是，鴨媽媽背對的時候，其他小鴨悄悄湊在一起，用小小的聲音說著那些不好聽的話……",
         "tags": [
           "story",
           "ch2",
@@ -464,20 +471,21 @@
           "🎉 excited and cheerful"
         ],
         "optionsZh": [
-          "移開視線",
-          "盯著看",
-          "友善",
-          "又興奮又開心"
+          "🙄 移開視線",
+          "👀 盯著看",
+          "🤝 友善",
+          "🎉 又興奮又開心"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:站成一排 + 眼睛黏在他身上 + 不說話 → 盯著看。",
+        "explanationZh": "站成一排、眼睛黏在他身上、一個字都不說——這就是「盯著看」，讓人渾身不自在呀。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "他們排成一排，眼睛黏在他身上，沒有一個人出聲。"
       },
       {
         "type": "narration",
@@ -488,7 +496,7 @@
         "sentence": "Nobody made a sound. They just stared at the large grey baby...",
         "sentenceEasy": "No one spoke. They all stared at him.",
         "sentenceHard": "Not a single voice broke the silence — they simply stood and stared, wide-eyed, at the large grey baby before them...",
-        "explanationZh": "沒有人出聲。他們只是盯著那個又大又灰的寶寶……",
+        "explanationZh": "沒有人動，沒有人說話。大家就這樣靜靜地盯著那個又大又灰的寶寶……那種安靜，比什麼都沉重。",
         "tags": [
           "story",
           "ch2",
@@ -530,7 +538,7 @@
             "right": "chase"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 farmyard = 農場\n🔑 hen = 母雞\n🔑 peck = 啄\n🔑 chase = 追\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 farmyard = 農場\n🔑 hen = 母雞\n🔑 peck = 啄\n🔑 chase = 追\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -548,7 +556,7 @@
         "sentence": "Soon the family walked to the farmyard for the first time.",
         "sentenceEasy": "The family went to the farmyard.",
         "sentenceHard": "Before long, mother duck led her little family on their very first walk to the noisy farmyard.",
-        "explanationZh": "不久,這家人第一次走到農場。",
+        "explanationZh": "鴨媽媽帶著全家，第一次走向農場。嘰嘰嘎嘎的聲音越來越響，這一大家子，要開始新生活了。",
         "tags": [
           "story",
           "ch2",
@@ -564,7 +572,7 @@
         "sentence": "There were big hens, loud ducks, and an angry old goose.",
         "sentenceEasy": "The farmyard had hens, ducks, and a goose.",
         "sentenceHard": "The farmyard was full of life — big hens strutting proudly, ducks quacking loudly, and one bad-tempered old goose who glared at every newcomer.",
-        "explanationZh": "那裡有大母雞、吵鬧的鴨子、還有一隻生氣的老鵝。",
+        "explanationZh": "農場好熱鬧！大母雞昂首闊步，鴨子嘎嘎亂叫，還有一隻老鵝，瞇著眼睛，對所有新來的傢伙都很兇。",
         "tags": [
           "story",
           "ch2",
@@ -584,13 +592,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:所有人都盯著看 → 不是歡迎 → 答 No",
+        "explanationZh": "所有動物都齊刷刷地盯過來看，那不是歡迎，是「審視」。被這樣看著，哪裡舒服得了？所以答 No。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "所有的動物都把眼睛轉向那個又大又灰的寶寶。"
       },
       {
         "type": "narration",
@@ -601,7 +610,7 @@
         "sentence": "A red hen ran toward him with her wings spread wide.",
         "sentenceEasy": "A red hen ran at him.",
         "sentenceHard": "Without warning, a large red hen came charging toward him with her wings flung wide open and her beak aimed straight at him.",
-        "explanationZh": "一隻紅母雞張開翅膀朝他衝過來。",
+        "explanationZh": "突然！一隻紅母雞張開翅膀，「呼」地一下衝過來，尖嘴對準他！嚇得灰鴨寶寶退了好幾步。",
         "tags": [
           "story",
           "ch2",
@@ -629,13 +638,14 @@
           "對他唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:四面八方 + 尖嘴衝過來 → 不是玩,是攻擊。",
+        "explanationZh": "四面八方的尖嘴一起衝過來——這不是玩，這是「攻擊」！可憐的灰寶寶。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "農場四面八方，一張張尖嘴飛快地往他衝過來。"
       },
       {
         "type": "narration",
@@ -646,7 +656,7 @@
         "sentence": "At first, mother duck stood between him and the hens.",
         "sentenceEasy": "Mother duck stood in front of him.",
         "sentenceHard": "At first, mother duck bravely placed herself between her grey son and the attacking hens, shielding him with her own body.",
-        "explanationZh": "一開始,鴨媽媽站在他和母雞之間。",
+        "explanationZh": "一開始，鴨媽媽勇敢地擋在他前面，用自己的身體把那些兇巴巴的母雞擋下來，不讓她們靠近她的灰兒子。",
         "tags": [
           "story",
           "ch2",
@@ -674,13 +684,14 @@
           "睡著了"
         ],
         "correctIndex": 2,
-        "explanationZh": "推理:站靠近 + 母雞碰不到她兒子 → 把母雞擋下 → 保護他。",
+        "explanationZh": "鴨媽媽把自己擋在前面，母雞碰不到兒子——這就是「保護他」。媽媽的愛，就是這樣啊。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她靠近他，讓母雞們無法觸碰到她的灰色兒子。"
       },
       {
         "type": "narration",
@@ -691,7 +702,7 @@
         "sentence": "But then she heard the other animals laugh out loud.",
         "sentenceEasy": "Then the animals laughed at him.",
         "sentenceHard": "But then the laughter of the other animals rang out across the yard, and something in mother duck seemed to change.",
-        "explanationZh": "但接著她聽到其他動物大聲嘲笑。",
+        "explanationZh": "但是那一陣笑聲傳過來，嘰嘰嘎嘎的，大聲又刺耳——鴨媽媽的眼神，慢慢地變了……",
         "tags": [
           "story",
           "ch2",
@@ -713,20 +724,21 @@
           "🎉 proud"
         ],
         "optionsZh": [
-          "孤單",
-          "開心",
-          "快要睡著了",
-          "驕傲"
+          "😭 孤單",
+          "😄 開心",
+          "😴 快要睡著了",
+          "🎉 驕傲"
         ],
         "correctIndex": 0,
-        "explanationZh": "被啄 + 被笑 → 孤單。",
+        "explanationZh": "被啄、被追、被嘲笑，還沒有人站在他這邊——這麼多人欺負他，只剩下「孤單」了。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "灰色小鴨現在的心情是什麼？"
       },
       {
         "type": "narration",
@@ -737,7 +749,7 @@
         "sentence": "Then she turned her head, and did not say a word...",
         "sentenceEasy": "She turned away and said nothing.",
         "sentenceHard": "Then, slowly, mother duck turned her head away from him and did not speak a single word...",
-        "explanationZh": "然後她轉過頭,一個字也不說……",
+        "explanationZh": "然後，鴨媽媽慢慢把頭轉開了，一個字也沒說……那個背影，讓灰寶寶的心涼了一半。",
         "tags": [
           "story",
           "ch2",
@@ -779,7 +791,7 @@
             "right": "grass"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 run = 跑\n🔑 wild = 野生\n🔑 rest = 休息\n🔑 grass = 草\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 run = 跑\n🔑 wild = 野生\n🔑 rest = 休息\n🔑 grass = 草\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -797,7 +809,7 @@
         "sentence": "That night, he climbed over the fence and left the farmyard.",
         "sentenceEasy": "He ran away from the farmyard that night.",
         "sentenceHard": "Under the cover of night, he quietly climbed over the fence and slipped away from the farmyard forever.",
-        "explanationZh": "那晚,他爬過籬笆,離開了農場。",
+        "explanationZh": "夜深了，他悄悄爬過籬笆，一個人走進黑暗裡。農場的燈光越來越遠，越來越小……他走了。",
         "tags": [
           "story",
           "ch2",
@@ -813,7 +825,7 @@
         "sentence": "He walked across cold fields all the way to a quiet marsh.",
         "sentenceEasy": "He walked to a quiet marsh.",
         "sentenceHard": "He trudged alone across cold, dark fields, walking on and on until he reached a still and quiet marsh at last.",
-        "explanationZh": "他走過冰冷的田野,一路到一片安靜的沼澤。",
+        "explanationZh": "他一個人穿過又冷又黑的田野，腳踩在硬硬的土地上，走啊走啊，走到一片安靜的沼澤才停下來。",
         "tags": [
           "story",
           "ch2",
@@ -833,13 +845,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:腳痛 + 很多小時 → 不短也不簡單 → 答 No",
+        "explanationZh": "腳都走到痠了，還走了好幾個小時——這段路又長又辛苦，哪裡短又容易？所以答 No。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "走了好幾個小時，他小小的腳已經又痠又痛。"
       },
       {
         "type": "narration",
@@ -850,7 +863,7 @@
         "sentence": "Two wild ducks let him rest beside them in the tall grass.",
         "sentenceEasy": "Two wild ducks let him rest with them.",
         "sentenceHard": "Two wild ducks, resting among the tall reeds, allowed him to settle beside them without chasing him away.",
-        "explanationZh": "兩隻野鴨讓他在高高的草叢旁邊休息。",
+        "explanationZh": "兩隻野鴨窩在高高的草叢裡，看了看他，沒有追他走，讓他在旁邊安靜地休息。這是他第一次，有人不趕他。",
         "tags": [
           "story",
           "ch2",
@@ -878,13 +891,14 @@
           "哥哥"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:分一半午餐 + 不肯離開 → 已經當他是同伴 → 朋友。",
+        "explanationZh": "分了一半的飯、一步也不離開——這不是老師，不是哥哥，就是「朋友」啊！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "其中一隻把自己的午餐分了一半給他，還一路陪在他身邊。"
       },
       {
         "type": "narration",
@@ -895,7 +909,7 @@
         "sentence": "For one bright day, he did not feel so alone anymore.",
         "sentenceEasy": "That day, he felt less alone.",
         "sentenceHard": "For one warm and golden day, beside a friend who did not mock him, he no longer felt the heavy weight of loneliness.",
-        "explanationZh": "有那麼晴朗的一天,他不再覺得那麼孤單。",
+        "explanationZh": "有朋友陪在身邊的那一天，陽光曬在身上暖暖的，他覺得那股一直壓著心頭的孤單，輕了一點點。",
         "tags": [
           "story",
           "ch2",
@@ -923,13 +937,14 @@
           "有點生氣"
         ],
         "correctIndex": 2,
-        "explanationZh": "不再孤單 + 暖陽 → 好一點。",
+        "explanationZh": "有朋友、有暖陽——心情當然「好一點」了。雖然還不到開心，但至少不那麼沉重了。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "暖暖的太陽，讓他的灰羽毛感覺幾乎柔軟了起來。"
       },
       {
         "type": "narration",
@@ -940,7 +955,7 @@
         "sentence": "But then loud cracks came from the trees by the water.",
         "sentenceEasy": "Loud sounds came from the trees.",
         "sentenceHard": "But then a series of sharp, thunderous cracks shattered the peace, echoing out from the trees along the water's edge.",
-        "explanationZh": "但接著水邊的樹叢裡傳來響亮的爆裂聲。",
+        "explanationZh": "就在這時候，「砰！砰！砰！」——水邊的樹叢裡傳來響亮的爆裂聲，像是晴天霹靂，把一切都打碎了。",
         "tags": [
           "story",
           "ch2",
@@ -962,20 +977,21 @@
           "🎵 music"
         ],
         "optionsZh": [
-          "槍聲",
-          "雨",
-          "鳥唱歌",
-          "音樂"
+          "🔫 槍聲",
+          "🌧️ 雨聲",
+          "🐦 鳥叫聲",
+          "🎵 音樂聲"
         ],
         "correctIndex": 0,
-        "explanationZh": "響亮爆裂聲 + 樹叢 → 槍聲。",
+        "explanationZh": "響亮的爆裂聲從樹叢裡傳出來，又突然又嚇人——這就是「槍聲」！獵人來了。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那個響亮的聲音是什麼？"
       },
       {
         "type": "narration",
@@ -986,7 +1002,7 @@
         "sentence": "His friend dropped to the ground. He ran with his heart pounding...",
         "sentenceEasy": "His friend fell down. He ran away fast.",
         "sentenceHard": "His friend crumpled to the ground without a sound, and he fled into the reeds with his heart hammering wildly in his chest...",
-        "explanationZh": "他的朋友倒在地上。他跑啊跑,心臟砰砰跳……",
+        "explanationZh": "他的朋友「咚」地倒在地上，一動也不動。他嚇得拔腿就跑，心臟砰砰砰地跳個不停，跑進蘆葦叢裡……",
         "tags": [
           "story",
           "ch2",
@@ -1028,7 +1044,7 @@
             "right": "claw"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 cottage = 小屋\n🔑 cat = 貓\n🔑 fire = 火\n🔑 claw = 爪子\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 cottage = 小屋\n🔑 cat = 貓\n🔑 fire = 火\n🔑 claw = 爪子\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -1046,7 +1062,7 @@
         "sentence": "After many days, he found a small cottage in the woods.",
         "sentenceEasy": "He found a small cottage in the woods.",
         "sentenceHard": "After many weary days of wandering alone, he stumbled upon a small, smoke-warmed cottage tucked deep in the woods.",
-        "explanationZh": "過了很多天,他在樹林裡找到一間小屋。",
+        "explanationZh": "走了好多好多天，他又累又餓，突然在樹林深處，看見一間小小的屋子，煙囪還冒著煙，暖呼呼的。",
         "tags": [
           "story",
           "ch2",
@@ -1062,7 +1078,7 @@
         "sentence": "An old woman lived there with her cat and her hen.",
         "sentenceEasy": "An old woman had a cat and a hen.",
         "sentenceHard": "Inside the cottage lived an old woman, along with her sleek cat who purred by the fire and her proud hen who ruled the kitchen.",
-        "explanationZh": "一個老婆婆住在那裡,還有她的貓和母雞。",
+        "explanationZh": "屋子裡住著一個老婆婆，還有一隻在爐火邊咕嚕咕嚕叫的貓，和一隻抬頭挺胸、很有架子的母雞。",
         "tags": [
           "story",
           "ch2",
@@ -1082,13 +1098,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:輕推就開 → 沒有鎖緊 → 答 No",
+        "explanationZh": "輕輕一推就開——門根本沒鎖緊，所以答 No。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他輕輕推了一下小屋的門，門「嘎吱」一聲就開了。"
       },
       {
         "type": "narration",
@@ -1099,7 +1116,7 @@
         "sentence": "The old woman kept him in her warm kitchen for many weeks.",
         "sentenceEasy": "He stayed in the warm kitchen.",
         "sentenceHard": "The old woman, taking pity on the cold and tired creature, kept him sheltered in her warm kitchen for many weeks.",
-        "explanationZh": "老婆婆把他留在溫暖的廚房好幾個禮拜。",
+        "explanationZh": "老婆婆見他又冷又可憐，就把他留在溫暖的廚房裡，一住就是好幾個禮拜。那是他好久以來最暖的時光。",
         "tags": [
           "story",
           "ch2",
@@ -1121,19 +1138,20 @@
           "sang a song for him"
         ],
         "optionsZh": [
-          "幫他清理羽毛",
+          "幫他整理羽毛",
           "跟他玩遊戲",
           "用爪子壓他",
-          "唱一首歌給他聽"
+          "唱歌給他聽"
         ],
         "correctIndex": 2,
-        "explanationZh": "推理:重重坐 + 抓進羽毛裡 → 不是玩,是用爪子壓 → 用爪子壓他。",
+        "explanationZh": "貓重重坐上去、爪子往羽毛裡抓——這哪是玩，是「用爪子壓他」呀，又痛又委屈。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "那隻貓重重地坐在他背上，爪子陷進他柔軟的羽毛裡。"
       },
       {
         "type": "narration",
@@ -1144,7 +1162,7 @@
         "sentence": "The hen counted her own warm eggs each morning and looked away.",
         "sentenceEasy": "The hen counted her eggs and looked away.",
         "sentenceHard": "Each morning, the hen carefully counted her own warm eggs, then turned her head away without a single glance in his direction.",
-        "explanationZh": "母雞每天早上數著自己暖暖的蛋,然後別過頭去。",
+        "explanationZh": "每天早上，母雞數完自己的蛋，就把頭轉開，眼睛都不看他一眼——那種冷淡，比爪子更刺人。",
         "tags": [
           "story",
           "ch2",
@@ -1168,17 +1186,18 @@
         "optionsZh": [
           "太吵鬧了",
           "他不會生蛋",
-          "他一直跑",
-          "他一直睡"
+          "他一直逃跑",
+          "他一直睡覺"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:母雞數蛋 + 罵他沒用、不值得吃的 → 因為他不像母雞會生蛋 → 不會生蛋。",
+        "explanationZh": "母雞覺得自己會生蛋，很有用；他不會生蛋，所以嫌他「沒用、不值得吃飯」，答案是「他不會生蛋」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她告訴他說，他沒有用，不值得吃那麼多飯。"
       },
       {
         "type": "narration",
@@ -1189,7 +1208,7 @@
         "sentence": "The cat asked him if he could purr by the warm fire.",
         "sentenceEasy": "The cat asked if he could purr.",
         "sentenceHard": "The cat stretched lazily by the warm fire and asked him, with a slow blink, whether he was capable of purring as she did.",
-        "explanationZh": "貓問他能不能在暖暖的火邊發出咕嚕聲。",
+        "explanationZh": "貓懶洋洋地靠在火邊，慢吞吞地問他：「你會咕嚕咕嚕叫嗎？」他搖搖頭——他根本做不到這個。",
         "tags": [
           "story",
           "ch2",
@@ -1211,20 +1230,21 @@
           "🏖️ beach"
         ],
         "optionsZh": [
-          "冷夜",
-          "暖陽",
-          "春天花園",
-          "海灘"
+          "❄️ 冷夜",
+          "☀️ 暖陽",
+          "🌸 春天花園",
+          "🏖️ 海灘"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:門縫的風比貓爪還刺 → 外面又黑又寒 → 冷夜。",
+        "explanationZh": "門縫的風比貓爪還刺——外面一定又黑又冷，所以等著他的是「冷夜」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "從門縫鑽進來的風，比貓爪子刮在背上還刺。"
       },
       {
         "type": "narration",
@@ -1235,7 +1255,7 @@
         "sentence": "\"What good are you?\" they asked. He pushed open the door and walked into the cold...",
         "sentenceEasy": "\"What good are you?\" He left and went into the cold.",
         "sentenceHard": "\"What good are you to anyone?\" they demanded. With a quiet sadness, he pushed open the cottage door and stepped alone into the bitter cold...",
-        "explanationZh": "「你有什麼用?」他們問。他推開門,走進冷夜裡……",
+        "explanationZh": "「你有什麼用？」他們說。他沒有回答，只是輕輕推開門，一步走進了冰冷的黑夜裡……又是一個人了。",
         "tags": [
           "story",
           "ch2",
@@ -1277,7 +1297,7 @@
             "right": "farmer"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 winter = 冬天\n🔑 ice = 冰\n🔑 white = 白色\n🔑 farmer = 農夫\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 winter = 冬天\n🔑 ice = 冰\n🔑 white = 白色\n🔑 farmer = 農夫\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -1295,7 +1315,7 @@
         "sentence": "In the autumn sky, he saw great white birds flying high.",
         "sentenceEasy": "He saw big white birds in the sky.",
         "sentenceHard": "One crisp autumn evening, he looked up and saw a flock of great white birds soaring high across the fading sky.",
-        "explanationZh": "在秋天的天空中,他看見大大的白鳥飛得很高。",
+        "explanationZh": "秋天的黃昏，他抬起頭，看見一群大白鳥劃過天空，那麼高、那麼美，像夢一樣飛過去了。",
         "tags": [
           "story",
           "ch2",
@@ -1311,7 +1331,7 @@
         "sentence": "Their long necks stretched south as they crossed the clouds.",
         "sentenceEasy": "They flew south with long necks.",
         "sentenceHard": "With their long graceful necks extended and their powerful wings beating steadily, the great birds swept southward through the clouds.",
-        "explanationZh": "他們長長的脖子伸向南方,越過雲朵。",
+        "explanationZh": "白鳥們長長的脖子向南伸著，翅膀穩穩地一下一下拍著雲，越飛越遠……他的眼睛一路跟著看，捨不得移開。",
         "tags": [
           "story",
           "ch2",
@@ -1331,13 +1351,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:脖子看到痠 → 看很久 → 答 Yes",
+        "explanationZh": "脖子看到痠了，才捨得停下來——這麼久才放棄，當然是「看很久」，答 Yes。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他一直仰著頭看，看到脖子都痠了。"
       },
       {
         "type": "narration",
@@ -1348,7 +1369,7 @@
         "sentence": "Soon snow fell, and the pond turned into hard, shining glass.",
         "sentenceEasy": "Snow came. The pond turned to ice.",
         "sentenceHard": "Soon the first snowflakes drifted down, and within days the pond had frozen into a hard, gleaming sheet of ice.",
-        "explanationZh": "不久雪下了,池塘變成又硬又亮的玻璃。",
+        "explanationZh": "雪花輕輕飄下來，池塘慢慢結冰，最後變成了一片亮晶晶、硬梆梆的大鏡子。冬天來了。",
         "tags": [
           "story",
           "ch2",
@@ -1370,19 +1391,20 @@
           "met a friend"
         ],
         "optionsZh": [
-          "他飛走",
+          "他飛走了",
           "他被困在冰裡",
           "他找到食物",
-          "他遇到朋友"
+          "他遇到新朋友"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:腳不能動 + 水變硬 → 結冰把他卡住 → 被困在冰裡。",
+        "explanationZh": "腳動不了、水變硬——冰把他整個卡住了，這就是「被困在冰裡」。太危險了！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他的腳完全動不了，周圍的水已經凍得硬梆梆了。"
       },
       {
         "type": "narration",
@@ -1393,7 +1415,7 @@
         "sentence": "A farmer came across the field and broke the ice apart.",
         "sentenceEasy": "A farmer came and broke the ice.",
         "sentenceHard": "A farmer crossing the frozen field noticed the trapped bird and came over to break the ice apart with his heavy boots.",
-        "explanationZh": "一個農夫走過田野,把冰打破。",
+        "explanationZh": "一個農夫走過結冰的田野，發現他被卡住，就彎下身，用力把冰打開，把他救出來。",
         "tags": [
           "story",
           "ch2",
@@ -1415,19 +1437,20 @@
           "left him there"
         ],
         "optionsZh": [
-          "煮了他",
-          "賣了他",
+          "把他煮來吃",
+          "把他賣掉",
           "帶他回家",
-          "丟下他"
+          "把他丟在那裡"
         ],
         "correctIndex": 2,
-        "explanationZh": "推理:抱起 + 走回小屋 → 把鴨帶回他家 → 帶他回家。",
+        "explanationZh": "抱起他、走回家——農夫把他帶回去照顧，就是「帶他回家」。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "農夫把那隻抖個不停的鳥抱起來，往自己的小屋走去。"
       },
       {
         "type": "narration",
@@ -1438,7 +1461,7 @@
         "sentence": "The farmer's small children came running to see the new bird.",
         "sentenceEasy": "The children ran to see him.",
         "sentenceHard": "The farmer's young children, curious and excited, came running from inside the house to crowd around the strange new bird.",
-        "explanationZh": "農夫的小孩跑過來看這隻新的鳥。",
+        "explanationZh": "農夫的小孩聽到有新奇的鳥，立刻從屋裡衝出來，又喊又跑地圍過去——那些小小的手，讓他嚇壞了。",
         "tags": [
           "story",
           "ch2",
@@ -1460,20 +1483,21 @@
           "😋 hungry"
         ],
         "optionsZh": [
-          "害怕",
-          "開心",
-          "快要睡著了",
-          "餓"
+          "😨 害怕",
+          "😄 開心",
+          "😴 快要睡著了",
+          "😋 肚子餓"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:從沒靠近過人 + 突然小手伸過來 → 害怕。",
+        "explanationZh": "從來沒跟人靠近過，突然一群小手伸過來——他當然「害怕」！就算人家是好意，也嚇死了。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "他從來沒有靠近過人，小小的手向他伸過來。"
       },
       {
         "type": "narration",
@@ -1484,7 +1508,7 @@
         "sentence": "He flapped his wings and ran out into the deep, white snow again...",
         "sentenceEasy": "He ran back out into the snow.",
         "sentenceHard": "Overwhelmed with fear, he beat his wings against the air and burst out through the door, disappearing once more into the deep, silent snow...",
-        "explanationZh": "他拍動翅膀,再次跑進又深又白的雪裡……",
+        "explanationZh": "他用力拍動翅膀，「嘩」地一下衝出門，再次消失進又深又白的雪裡……不知道要去哪裡，只知道要跑。",
         "tags": [
           "story",
           "ch2",
@@ -1526,7 +1550,7 @@
             "right": "beautiful"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 spring = 春天\n🔑 reflection = 倒影\n🔑 swan = 天鵝\n🔑 beautiful = 美麗\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 spring = 春天\n🔑 reflection = 倒影\n🔑 swan = 天鵝\n🔑 beautiful = 美麗\n這 4 個字記住了，故事一開口就聽得懂！",
         "tags": [
           "story",
           "ch2",
@@ -1544,7 +1568,7 @@
         "sentence": "Spring came at last, and the cold ice melted away.",
         "sentenceEasy": "Spring came. The ice melted.",
         "sentenceHard": "After the long and bitter winter, spring arrived at last and the cold ice slowly melted away into the warming water.",
-        "explanationZh": "春天終於來了,冰冷的冰融化了。",
+        "explanationZh": "漫長的冬天終於過去了！冰慢慢融化，水流輕輕流動，春天回來了，帶著暖暖的氣息。",
         "tags": [
           "story",
           "ch2",
@@ -1560,7 +1584,7 @@
         "sentence": "Green leaves opened, and warm sun shone over the pond.",
         "sentenceEasy": "Green leaves grew. The sun was warm.",
         "sentenceHard": "Fresh green leaves unfurled on every branch, and warm golden sunlight spread gently across the still surface of the pond.",
-        "explanationZh": "綠葉打開,溫暖的陽光照在池塘上。",
+        "explanationZh": "葉子一片一片從枝頭展開，金色的陽光灑在池塘上，波光粼粼，像撒了一把碎金子。",
         "tags": [
           "story",
           "ch2",
@@ -1580,13 +1604,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:新花長出 + 暖陽 → 不是冬天了 → 答 No",
+        "explanationZh": "新花開了、暖陽曬著——這明明是春天的樣子，哪裡是「冬天」？所以答 No。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "inference"
-        ]
+        ],
+        "sentenceZh": "水邊長出了嬌嫩的新花，靜靜地開著。"
       },
       {
         "type": "narration",
@@ -1597,7 +1622,7 @@
         "sentence": "He saw the same white birds gliding across the pond.",
         "sentenceEasy": "He saw the white birds on the pond.",
         "sentenceHard": "There on the shimmering pond, he caught sight of the very same great white birds he had seen in the autumn sky, now gliding serenely across the water.",
-        "explanationZh": "他看見同樣的白鳥在池塘上滑行。",
+        "explanationZh": "就是那群白鳥！他在秋天看過牠們飛走，現在牠們回來了，輕輕滑過亮晶晶的池塘。",
         "tags": [
           "story",
           "ch2",
@@ -1622,16 +1647,17 @@
           "只有害怕",
           "被他們吸引",
           "對他們生氣",
-          "對他們厭倦"
+          "對他們感到厭倦"
         ],
         "correctIndex": 1,
-        "explanationZh": "非常想接近 → 被他們吸引。",
+        "explanationZh": "就算知道可能被追走，還是非常想靠近——這就是「被吸引」，心裡有股說不清的牽引。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他非常想靠近他們，就算他們會追他走，他也想試試看。"
       },
       {
         "type": "narration",
@@ -1642,7 +1668,7 @@
         "sentence": "He lowered his head to the water, ready to give up.",
         "sentenceEasy": "He looked down at the water and gave up.",
         "sentenceHard": "With a heavy heart, he bowed his head down toward the still water, convinced at last that there was nothing left to hope for.",
-        "explanationZh": "他低下頭往水裡,準備放棄。",
+        "explanationZh": "他低下頭，望著水面，心想：反正那麼醜，什麼都沒有了。他準備好了——就這樣放棄吧……",
         "tags": [
           "story",
           "ch2",
@@ -1670,13 +1696,14 @@
           "一個黑影"
         ],
         "correctIndex": 1,
-        "explanationZh": "不認得的臉 → 長脖子的新鳥 (天鵝)。",
+        "explanationZh": "水面倒影出一張陌生的臉，長長的脖子、大大的翅膀——那是天鵝的臉，不是醜小鴨了！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "但平靜的池水照出了一張他不認識的臉。"
       },
       {
         "type": "narration",
@@ -1687,7 +1714,7 @@
         "sentence": "A long white neck and bright wings looked back at him.",
         "sentenceEasy": "He saw a white neck and big wings in the water.",
         "sentenceHard": "Gazing back at him from the mirror of the pond was a creature with a long, elegant white neck and broad, shining wings.",
-        "explanationZh": "一個長長的白脖子和亮亮的翅膀回望著他。",
+        "explanationZh": "水面像一面鏡子，映出了長長的白脖子和閃亮的翅膀。那……是他自己嗎？他不敢相信。",
         "tags": [
           "story",
           "ch2",
@@ -1701,7 +1728,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Match the phrases from the Ugly Duckling's story.",
-        "explanationZh": "片語配對複習 — 醜小鴨故事裡的重要片語。",
+        "explanationZh": "把醜小鴨故事裡的重要片語配配看！左邊中文、右邊英文，你認識這些了嗎？",
         "tags": [
           "story",
           "ch2",
@@ -1709,10 +1736,22 @@
           "phrase-pairs"
         ],
         "pairs": [
-          { "left": "日復一日", "right": "day after day" },
-          { "left": "轉過頭", "right": "turn away" },
-          { "left": "所有人都", "right": "all along" },
-          { "left": "給他一個名字", "right": "give him a name" }
+          {
+            "left": "日復一日",
+            "right": "day after day"
+          },
+          {
+            "left": "轉過頭",
+            "right": "turn away"
+          },
+          {
+            "left": "所有人都",
+            "right": "all along"
+          },
+          {
+            "left": "給他一個名字",
+            "right": "give him a name"
+          }
         ]
       },
       {
@@ -1724,7 +1763,7 @@
         "sentence": "Children by the pond called him the most beautiful of all. He had been a swan all along...",
         "sentenceEasy": "The children said he was beautiful. He was a swan.",
         "sentenceHard": "The children gathered by the water's edge and declared him the most beautiful bird they had ever seen — for he had always been a swan, all along...",
-        "explanationZh": "池邊的小孩說他是最美的一隻。他一直都是天鵝……",
+        "explanationZh": "池邊的孩子齊聲說：「你是最美的！」他終於明白了——原來他一直都是天鵝，從來就不是醜小鴨……",
         "tags": [
           "story",
           "ch2",

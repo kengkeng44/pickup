@@ -32,7 +32,7 @@
             "right": "daughter"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 father = 父親\n🔑 new = 新的\n🔑 wife = 妻子\n🔑 daughter = 女兒\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事是灰姑娘！先認識 4 個字：\n🔑 father = 父親\n🔑 new = 新的\n🔑 wife = 妻子\n🔑 daughter = 女兒\n記住了，等一下更好懂！",
         "tags": [
           "story",
           "ch9",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Long ago in France, a kind girl lived with her father.",
-        "explanationZh": "很久以前在法國,有個善良的女孩跟父親住在一起。",
+        "explanationZh": "很久很久以前，在法國有個心地善良的女孩，和爸爸相依為命，過著安靜的日子。",
         "tags": [
           "story",
           "ch9",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her own mother had died. Her father took a new wife.",
-        "explanationZh": "她的親生媽媽已經過世。父親娶了新妻子。",
+        "explanationZh": "可是，她的親生媽媽不在了。爸爸後來娶了新妻子，家裡就變了……",
         "tags": [
           "story",
           "ch9",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 把媽媽的東西抱在懷裡 → 想念 → 答 Yes",
+        "explanationZh": "把媽媽的東西緊緊抱著——那不就是「好想念她」嗎？答案是 Yes。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "夜裡，女孩把媽媽留下來的軟披巾緊緊抱在懷裡。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The new wife had two grown daughters of her own.",
-        "explanationZh": "新妻子有自己的兩個大女兒。",
+        "explanationZh": "新妻子帶來了她自己的兩個女兒，兩個都已經長大了。",
         "tags": [
           "story",
           "ch9",
@@ -120,18 +121,19 @@
         ],
         "optionsZh": [
           "工作很辛苦",
-          "輕鬆又富有的生活",
-          "種田",
-          "一個人住"
+          "輕鬆又有錢的生活",
+          "靠種田過日子",
+          "一個人獨自住"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 漂亮衣服 + 手很軟 → 輕鬆又富有的生活 (paraphrase)。",
+        "explanationZh": "漂亮衣服、柔嫩的手——這表示她們過的是輕鬆又富有的日子！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她們穿著漂亮衣服，手柔柔嫩嫩的。"
       },
       {
         "type": "narration",
@@ -140,7 +142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They sat in the sun. They did no work at all.",
-        "explanationZh": "她們坐在陽光下。完全不做事。",
+        "explanationZh": "她們就坐在陽光下，什麼事都不做——真是好命呀！",
         "tags": [
           "story",
           "ch9",
@@ -162,19 +164,20 @@
           "pushed them down"
         ],
         "optionsZh": [
-          "大聲笑",
-          "閉口不說",
-          "快跑走",
-          "推她們"
+          "哈哈大笑出來",
+          "閉著嘴不說話",
+          "轉頭就跑走",
+          "把她們推開"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: stayed quiet → 閉口不說 (paraphrase)。",
+        "explanationZh": "stayed quiet——她看著，卻靜靜地「閉口不說」，一句話都沒有。",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "善良的女孩看著她們，靜靜的，什麼也沒說。"
       },
       {
         "type": "narration",
@@ -183,7 +186,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The new wife looked at the girl with cold eyes.",
-        "explanationZh": "新妻子用冷冷的眼神看著女孩。",
+        "explanationZh": "新妻子用冷冷的眼神打量著這個女孩，那目光，像冬天的霜……",
         "tags": [
           "story",
           "ch9",
@@ -205,20 +208,21 @@
           "🎉 excited and cheerful"
         ],
         "optionsZh": [
-          "溫暖又善良",
-          "又冷又硬",
-          "快要睡著了",
-          "又興奮又開心"
+          "💖 溫暖又善良",
+          "🧊 又冷又硬",
+          "😴 快睡著了",
+          "🎉 開心又興奮"
         ],
         "correctIndex": 1,
-        "explanationZh": "冷冷的眼神 = cold and hard。",
+        "explanationZh": "冷冷的眼神——那就是「又冷又硬」，完全不溫柔。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "新妻子對女孩的態度是？"
       },
       {
         "type": "narration",
@@ -227,7 +231,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The new wife's cold look stayed in the girl's mind...",
-        "explanationZh": "新妻子那冷冷的眼神留在女孩心裡……",
+        "explanationZh": "那道冷冷的眼神，深深刻在女孩心裡，揮之不去……故事，才剛開始。",
         "tags": [
           "story",
           "ch9",
@@ -269,7 +273,7 @@
             "right": "ash"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 sweep = 掃\n🔑 cook = 煮\n🔑 fire = 火\n🔑 ash = 灰\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字要認識一下：\n🔑 sweep = 掃\n🔑 cook = 煮\n🔑 fire = 火\n🔑 ash = 灰\n記住這 4 個，後面故事更清楚！",
         "tags": [
           "story",
           "ch9",
@@ -285,7 +289,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The new wife was not kind to the girl.",
-        "explanationZh": "新妻子對女孩不好。",
+        "explanationZh": "新妻子對女孩可不好——她的眼神、她說話的語氣，冷得很。",
         "tags": [
           "story",
           "ch9",
@@ -307,19 +311,20 @@
           "play with friends"
         ],
         "optionsZh": [
-          "在軟軟的床上休息",
-          "一堆家事",
-          "整天看書",
-          "跟朋友玩"
+          "躺在軟軟的床上休息",
+          "做一大堆家事",
+          "整天待著看書",
+          "跟朋友出去玩"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: sweep + cook + carry water → 一堆家事 (paraphrase)。",
+        "explanationZh": "掃地、煮飯、提水——一堆家事都是她在做，真的好辛苦！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "新妻子叫女孩整天掃地、煮飯、提水，什麼都要做。"
       },
       {
         "type": "narration",
@@ -328,7 +333,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "At night, the girl slept by the fire to stay warm.",
-        "explanationZh": "夜裡,女孩睡在火爐邊保暖。",
+        "explanationZh": "夜裡，她連床都沒有，只能縮在火爐旁邊取暖，這才能睡著。",
         "tags": [
           "story",
           "ch9",
@@ -348,13 +353,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 沒床沒房 → 沒被善待 → 答 No",
+        "explanationZh": "沒床、沒暖房——這樣的生活，哪算是被善待了？答案是 No。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她沒有柔軟的床，也沒有溫暖的房間。"
       },
       {
         "type": "narration",
@@ -363,7 +369,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her clothes got grey with ash from the fire.",
-        "explanationZh": "她的衣服被火灰染成灰色。",
+        "explanationZh": "整天靠在火爐邊，衣服也被灰煙燻得灰灰的，像蒙了一層塵。",
         "tags": [
           "story",
           "ch9",
@@ -385,20 +391,21 @@
           "🌊 blue"
         ],
         "optionsZh": [
-          "粉紅",
-          "灰",
-          "金",
-          "藍"
+          "🌸 粉粉的",
+          "⚫ 灰灰的",
+          "🌟 金色的",
+          "🌊 藍色的"
         ],
         "correctIndex": 1,
-        "explanationZh": "被火灰染色 → 灰色。",
+        "explanationZh": "被火灰燻染，衣服變成了灰色——grey！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "女孩的衣服是什麼顏色？"
       },
       {
         "type": "narration",
@@ -407,7 +414,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The two sisters laughed and called her Cinderella.",
-        "explanationZh": "兩個姊姊大笑,叫她灰姑娘 (Cinderella)。",
+        "explanationZh": "兩個姊姊嘻嘻哈哈地笑，給她取了一個名字——「灰姑娘！」Cinderella，就是這樣來的。",
         "tags": [
           "story",
           "ch9",
@@ -429,19 +436,20 @@
           "she sang songs about fire"
         ],
         "optionsZh": [
-          "她喜歡",
-          "因為她身上有灰",
-          "父親取的",
-          "她唱關於火的歌"
+          "她自己喜歡這名字",
+          "因為她身上老是有灰",
+          "父親幫她取的",
+          "她喜歡唱火焰的歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 名字來自身上的灰 → 因為她身上有灰 (paraphrase)。",
+        "explanationZh": "名字是從 cinders（灰燼）來的——因為她身上總是有灰！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "這個名字，來自沾在她衣服上的灰燼。"
       },
       {
         "type": "narration",
@@ -450,7 +458,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "When the others slept, she sat by the fire and cried.",
-        "explanationZh": "別人睡著時,她坐在火爐邊哭。",
+        "explanationZh": "等大家都睡了，她獨自坐在火爐旁，輕輕地哭……",
         "tags": [
           "story",
           "ch9",
@@ -464,7 +472,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Only the fire heard her. Only the wind heard her. Only the night...",
-        "explanationZh": "只有火聽見她。只有風聽見她。只有夜……",
+        "explanationZh": "只有火聽見她哭。只有風聽見她哭。只有夜……在這世界上，有誰在意她？",
         "tags": [
           "story",
           "ch9",
@@ -506,7 +514,7 @@
             "right": "help"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 king = 國王\n🔑 ball = 舞會\n🔑 town = 城鎮\n🔑 help = 幫忙\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "快認識這節的生字！\n🔑 king = 國王\n🔑 ball = 舞會\n🔑 town = 城鎮\n🔑 help = 幫忙\n記住了，繼續聽故事！",
         "tags": [
           "story",
           "ch9",
@@ -522,7 +530,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The king's son was going to have a big ball.",
-        "explanationZh": "國王的兒子要辦一場大舞會。",
+        "explanationZh": "消息傳來了——國王的兒子，也就是王子，要辦一場盛大的舞會！",
         "tags": [
           "story",
           "ch9",
@@ -544,19 +552,20 @@
           "gold needed counting"
         ],
         "optionsZh": [
-          "為了賣食物給鎮上",
-          "為了選出新娘",
-          "他的馬累了",
-          "要數金幣"
+          "為了把食物賣給鎮上的人",
+          "為了挑選心儀的新娘",
+          "因為他的馬太累了",
+          "想把金幣全部數一遍"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: find a wife → choose a bride (paraphrase)。",
+        "explanationZh": "王子辦舞會是為了 find a wife——找一個新娘，就是「為了選出新娘」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他想找一個妻子。鎮上每個女孩都收到了邀請。"
       },
       {
         "type": "narration",
@@ -565,7 +574,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The two sisters bought new gowns. They laughed and danced.",
-        "explanationZh": "兩個姊姊買了新禮服。她們又笑又跳。",
+        "explanationZh": "兩個姊姊高興壞了！買新禮服、又跳又笑，家裡鬧哄哄的。",
         "tags": [
           "story",
           "ch9",
@@ -585,13 +594,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 試衣轉圈 → 興奮 → 答 Yes",
+        "explanationZh": "轉圈試緞帶——那不就是「興奮得不得了」？答案是 Yes。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她們在鏡子前轉圈圈，每條緞帶都要試試看。"
       },
       {
         "type": "narration",
@@ -600,7 +610,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Cinderella helped them dress for the big night.",
-        "explanationZh": "灰姑娘幫她們穿衣服準備大日子。",
+        "explanationZh": "灰姑娘呢？她幫姊姊們梳頭、換衣服，默默地忙進忙出。",
         "tags": [
           "story",
           "ch9",
@@ -622,19 +632,20 @@
           "singing very loudly"
         ],
         "optionsZh": [
-          "對她們大叫",
-          "做很多小事",
-          "給她們錢",
-          "大聲唱歌"
+          "對姊姊們大聲叫嚷",
+          "默默做了很多小事",
+          "把自己的錢給她們",
+          "在旁邊大聲唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 綁頭髮 + 洗鞋 → 做很多小事 (paraphrase)。",
+        "explanationZh": "綁頭髮、洗鞋子——各種雜事全是她做，是「做了很多小事」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她幫她們綁頭髮、洗鞋子，忙了好幾個小時。"
       },
       {
         "type": "narration",
@@ -643,7 +654,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She looked at the new gowns with quiet eyes.",
-        "explanationZh": "她用安靜的眼神看著新禮服。",
+        "explanationZh": "她靜靜地看著那些漂亮的新禮服……那雙眼睛裡，藏著多少話呢？",
         "tags": [
           "story",
           "ch9",
@@ -665,19 +676,20 @@
           "it was raining too hard"
         ],
         "optionsZh": [
-          "她太想睡了不能去",
-          "沒有好衣服穿",
-          "父親叫她留在家",
-          "雨下得太大了"
+          "她困得站不住了",
+          "沒有漂亮的衣服穿",
+          "父親叫她待在家裡",
+          "外面雨下得太大"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: had no gown → 沒有好衣服穿 (paraphrase)。",
+        "explanationZh": "had no gown——沒有禮服可穿，所以去不了！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "可是她不能去，因為她沒有禮服。"
       },
       {
         "type": "emoji-pick",
@@ -694,20 +706,21 @@
           "🎉 happy and free"
         ],
         "optionsZh": [
-          "難過又孤單",
-          "生氣又大聲",
-          "想睡",
-          "開心又自由"
+          "😢 難過又孤單",
+          "😡 生氣又大喊",
+          "😴 好想去睡覺",
+          "🎉 開心又自由"
         ],
         "correctIndex": 0,
-        "explanationZh": "別人去舞會她不能去 → 難過又孤單。",
+        "explanationZh": "大家都去舞會了，只有她一個人留在家——難過又孤單，這心情真讓人疼。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "姊姊們走後，灰姑娘的心情是？"
       },
       {
         "type": "narration",
@@ -716,7 +729,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The door shut. The house went quiet. She sat down and cried...",
-        "explanationZh": "門關上了。房子安靜下來。她坐下來哭……",
+        "explanationZh": "門「砰」地關上，屋子靜了下來。灰姑娘坐在地上，眼淚一滴一滴往下掉……",
         "tags": [
           "story",
           "ch9",
@@ -758,7 +771,7 @@
             "right": "pumpkin"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 old = 老\n🔑 cloak = 披肩\n🔑 bring = 帶\n🔑 pumpkin = 南瓜\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字快記！\n🔑 old = 老\n🔑 cloak = 披肩\n🔑 bring = 帶來\n🔑 pumpkin = 南瓜\n記住這 4 個，奇蹟快要來了！",
         "tags": [
           "story",
           "ch9",
@@ -774,7 +787,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "After the sisters left, Cinderella cried by the fire.",
-        "explanationZh": "姊姊們走後,灰姑娘在火爐邊哭。",
+        "explanationZh": "姊姊們走了，灰姑娘獨自坐在火爐旁邊，眼淚一直流……",
         "tags": [
           "story",
           "ch9",
@@ -796,19 +809,20 @@
           "while singing songs"
         ],
         "optionsZh": [
-          "大聲喊",
-          "安靜又溫柔",
-          "一陣快哭",
-          "一邊唱歌"
+          "大聲嚎啕大哭",
+          "安靜又輕柔地哭",
+          "突然大哭一陣",
+          "一邊哭一邊唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: soft and slow → quiet and gentle (paraphrase, 不直接 verbatim)。",
+        "explanationZh": "soft and slow——輕輕地、慢慢地哭，就是「安靜又溫柔地哭」。",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她的眼淚輕輕地、慢慢地，滴在灰色的地板上。"
       },
       {
         "type": "narration",
@@ -817,7 +831,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A kind old woman in a soft blue cloak stepped from the dark.",
-        "explanationZh": "一個穿著軟藍披肩的善良老婦人從黑暗中走出來。",
+        "explanationZh": "就在這時候，一個穿著淡藍色披肩的老婦人從黑暗中悄悄走出來，臉上帶著溫柔的笑。",
         "tags": [
           "story",
           "ch9",
@@ -837,13 +851,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 沒門沒窗動 → 不是正常進來 → 答 No",
+        "explanationZh": "門沒開、窗沒動——這老婦人出現的方式，根本就不是「正常」的嘛！答案是 No。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "沒有門打開，也沒有窗移動。"
       },
       {
         "type": "narration",
@@ -852,7 +867,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"I am your fairy godmother. Do not cry, child.\"",
-        "explanationZh": "「我是你的仙女教母。別哭了,孩子。」",
+        "explanationZh": "「我是你的仙女教母，別哭了孩子。」那聲音溫柔極了，像一陣暖風。",
         "tags": [
           "story",
           "ch9",
@@ -874,20 +889,21 @@
           "🦊 a clever old fox"
         ],
         "optionsZh": [
-          "新妻子",
-          "仙女教母",
-          "魔法貓",
-          "一隻聰明的老狐狸"
+          "👵 那個新妻子",
+          "🧚 仙女教母",
+          "🐱 一隻魔法貓",
+          "🦊 一隻聰明老狐狸"
         ],
         "correctIndex": 1,
-        "explanationZh": "她自己說「我是仙女教母」。",
+        "explanationZh": "她自己說：「我是你的仙女教母。」——就是仙女教母！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "這個善良的老婦人是誰？"
       },
       {
         "type": "narration",
@@ -896,7 +912,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Bring me a pumpkin, six mice, and one big rat from the yard.\"",
-        "explanationZh": "「從院子裡帶給我一顆南瓜、六隻老鼠和一隻大鼠。」",
+        "explanationZh": "「去院子裡，幫我拿一顆南瓜、六隻老鼠，還有一隻大鼠回來。」仙女教母說，眼神閃閃發亮。",
         "tags": [
           "story",
           "ch9",
@@ -918,19 +934,20 @@
           "angry and quick"
         ],
         "optionsZh": [
-          "大聲粗魯",
-          "溫柔但堅定",
-          "想睡又慢",
-          "生氣又快"
+          "大聲又粗魯",
+          "溫柔卻充滿力量",
+          "打瞌睡講話慢",
+          "生氣又急性子"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: voice soft + eyes bright → 溫柔但堅定 (paraphrase)。",
+        "explanationZh": "聲音輕柔、眼睛明亮——這就是「溫柔但堅定有力」的感覺！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她聲音輕柔，但眼睛裡閃著光芒。"
       },
       {
         "type": "narration",
@@ -939,7 +956,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Cinderella ran to the yard to find them all.",
-        "explanationZh": "灰姑娘跑到院子去找這些東西。",
+        "explanationZh": "灰姑娘趕快跑進院子，把南瓜、老鼠、大鼠全都找來了。",
         "tags": [
           "story",
           "ch9",
@@ -953,7 +970,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The fairy held her hand over the pumpkin. The air felt warm...",
-        "explanationZh": "仙女把手放在南瓜上。空氣變暖了……",
+        "explanationZh": "仙女教母把手輕輕放在南瓜上，空氣突然變暖了……有什麼奇妙的事，要發生了！",
         "tags": [
           "story",
           "ch9",
@@ -995,7 +1012,7 @@
             "right": "end"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 tap = 碰\n🔑 gold = 金色\n🔑 horse = 馬\n🔑 end = 結束\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字快學！\n🔑 tap = 輕碰一下\n🔑 gold = 金色\n🔑 horse = 馬\n🔑 end = 結束\n記住這 4 個，魔法要開始了！",
         "tags": [
           "story",
           "ch9",
@@ -1011,7 +1028,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The fairy godmother tapped the pumpkin one time.",
-        "explanationZh": "仙女教母碰了南瓜一下。",
+        "explanationZh": "仙女教母用魔法棒輕輕碰了南瓜一下——「叮！」",
         "tags": [
           "story",
           "ch9",
@@ -1033,19 +1050,20 @@
           "just a soft warm bed"
         ],
         "optionsZh": [
-          "幾個小湯碗",
-          "她去舞會的好坐騎",
-          "一條熱麵包",
-          "一張軟暖床"
+          "幾個小小的湯碗",
+          "帶她去舞會的好坐騎",
+          "熱騰騰的一條麵包",
+          "一張又軟又暖的床"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: gold coach with wheels → 好坐騎 (paraphrase)。",
+        "explanationZh": "南瓜變成了金色的大馬車——那就是帶她去舞會的「好坐騎」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "它變成了一輛閃閃亮亮的大金馬車。"
       },
       {
         "type": "narration",
@@ -1054,7 +1072,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The six mice became six white horses.",
-        "explanationZh": "六隻老鼠變成六匹白馬。",
+        "explanationZh": "六隻老鼠「咻——」地變成六匹雪白的駿馬，在夜色裡好美！",
         "tags": [
           "story",
           "ch9",
@@ -1074,13 +1092,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 站立 + 拿鞭 → 馬車駕駛 → 答 Yes",
+        "explanationZh": "站起來、手握長鞭——那不就是在駕馬車嗎？大鼠變成馬車夫了！答案是 Yes。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "那隻大鼠站了起來，兩隻爪子握著一條長鞭。"
       },
       {
         "type": "narration",
@@ -1089,7 +1108,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Cinderella's grey rags turned into a long silver gown.",
-        "explanationZh": "灰姑娘的灰破衣變成一件長銀禮服。",
+        "explanationZh": "灰姑娘身上的破舊灰衣「唰——」一聲，變成了一件長長的銀色禮服，好漂亮！",
         "tags": [
           "story",
           "ch9",
@@ -1111,20 +1130,21 @@
           "💚 green"
         ],
         "optionsZh": [
-          "還是灰",
-          "銀色",
-          "粉紅",
-          "綠"
+          "⚫ 還是灰色",
+          "⚪ 銀色亮亮的",
+          "🌸 粉嫩的粉紅",
+          "💚 清新的綠色"
         ],
         "correctIndex": 1,
-        "explanationZh": "長銀禮服 → 銀色。",
+        "explanationZh": "長長的銀色禮服——silver，就是「銀色」！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "灰姑娘的新禮服是什麼顏色？"
       },
       {
         "type": "narration",
@@ -1133,7 +1153,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Come home by twelve,\" the fairy said.",
-        "explanationZh": "「12 點前要回家,」仙女說。",
+        "explanationZh": "「記住，12 點一定要回家。」仙女教母叮嚀她。12 點，12 點——一定要記住！",
         "tags": [
           "story",
           "ch9",
@@ -1155,19 +1175,20 @@
           "the moon will fall"
         ],
         "optionsZh": [
-          "她會丟掉禮服",
-          "魔法會停",
-          "王子會離開",
-          "月亮會掉"
+          "她的禮服會消失",
+          "魔法會停、全部變回去",
+          "王子就要離開了",
+          "月亮會從天上掉下來"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: magic ends → 魔法會停 (paraphrase)。",
+        "explanationZh": "magic ends——魔法結束，所有東西都會變回去，就是「魔法會停」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "「到那個時候，魔法就結束了，一切都會變回原來的樣子。」"
       },
       {
         "type": "narration",
@@ -1176,7 +1197,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Cinderella climbed into the gold coach with bright eyes.",
-        "explanationZh": "灰姑娘眼睛亮晶晶地爬上金馬車。",
+        "explanationZh": "灰姑娘眼睛閃閃發亮，輕輕爬上那輛金色的大馬車！",
         "tags": [
           "story",
           "ch9",
@@ -1190,7 +1211,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Twelve. Twelve. Twelve. The number sat in her ear like a small bell...",
-        "explanationZh": "12。12。12。這個數字像小鈴鐺在她耳邊響著……",
+        "explanationZh": "12……12……12……這個數字像小鈴鐺一樣，在她耳邊輕輕響著。她，會記得嗎？",
         "tags": [
           "story",
           "ch9",
@@ -1232,7 +1253,7 @@
             "right": "fall"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 dance = 跳舞\n🔑 clock = 鐘\n🔑 run = 跑\n🔑 fall = 掉\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "這節的生字快記！\n🔑 dance = 跳舞\n🔑 clock = 時鐘\n🔑 run = 跑\n🔑 fall = 掉落\n記住了嗎？繼續聽故事！",
         "tags": [
           "story",
           "ch9",
@@ -1248,7 +1269,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "At the ball, the prince could not look away from her.",
-        "explanationZh": "在舞會上,王子無法移開目光。",
+        "explanationZh": "舞會上，王子的眼睛一直跟著她轉——他根本挪不開目光！",
         "tags": [
           "story",
           "ch9",
@@ -1270,19 +1291,20 @@
           "down at the floor"
         ],
         "optionsZh": [
-          "沒注意她",
-          "一直盯著她",
-          "閉眼",
-          "看地板"
+          "完全沒有注意她",
+          "眼睛一直盯著她看",
+          "整場閉著眼睛",
+          "只看著地板"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: eyes followed every step → 一直盯著她 (paraphrase)。",
+        "explanationZh": "eyes followed every step——眼睛一直跟著她，就是「一直盯著她」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "王子的眼睛跟著她的每一步，在大廳裡轉啊轉。"
       },
       {
         "type": "narration",
@@ -1291,7 +1313,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They danced every dance. She forgot the time.",
-        "explanationZh": "他們每一支舞都跳。她忘了時間。",
+        "explanationZh": "她和王子跳了一支又一支的舞，旋轉、旋轉，快樂到忘了時間……",
         "tags": [
           "story",
           "ch9",
@@ -1311,13 +1333,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 警告從腦中溜走 → 沒記得 → 答 No",
+        "explanationZh": "警告從腦中溜走——她完全忘記了 12 點的事，答案是 No。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "仙女教母的叮嚀，從她腦子裡悄悄溜走了。"
       },
       {
         "type": "narration",
@@ -1326,7 +1349,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The clock began to strike twelve.",
-        "explanationZh": "時鐘開始敲 12 點。",
+        "explanationZh": "「噹——噹——噹——」時鐘開始敲響——12 點！",
         "tags": [
           "story",
           "ch9",
@@ -1348,20 +1371,21 @@
           "🌙 nine at night"
         ],
         "optionsZh": [
-          "早上 6 點",
-          "半夜 12 點",
-          "下午 3 點",
-          "晚上 9 點"
+          "🌅 早上 6 點",
+          "🕛 半夜 12 點",
+          "☀️ 下午 3 點",
+          "🌙 晚上 9 點"
         ],
         "correctIndex": 1,
-        "explanationZh": "半夜 12 點。",
+        "explanationZh": "strike twelve——就是「半夜 12 點」！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "時鐘敲響的時候，是幾點？"
       },
       {
         "type": "narration",
@@ -1370,7 +1394,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She ran for the door as fast as she could.",
-        "explanationZh": "她盡全力往門口跑。",
+        "explanationZh": "「噹！」她突然清醒——拔腿就跑，往大門衝過去！",
         "tags": [
           "story",
           "ch9",
@@ -1392,19 +1416,20 @@
           "rode in a coach calmly"
         ],
         "optionsZh": [
-          "慢慢走出去",
-          "匆匆衝走",
-          "跟大家道別",
-          "坐車慢慢離開"
+          "慢慢地走出去",
+          "慌慌張張衝出去",
+          "跟所有人一一道別",
+          "坐馬車慢慢離開"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: heart beat hard + gown flew behind → 匆匆衝走 (paraphrase)。",
+        "explanationZh": "心跳猛、禮服往後飛——這就是「匆匆忙忙衝出去」的樣子！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她的心臟砰砰跳，銀色禮服在身後飄飛。"
       },
       {
         "type": "narration",
@@ -1413,7 +1438,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One small fur slipper fell off on the stair.",
-        "explanationZh": "一隻小毛皮鞋掉在樓梯上。",
+        "explanationZh": "跑下樓梯的時候，「啪嗒！」一隻小小的毛皮鞋掉在台階上。",
         "tags": [
           "story",
           "ch9",
@@ -1427,7 +1452,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The slipper stayed there alone. The night went still...",
-        "explanationZh": "那隻鞋孤伶伶留在那裡。夜變得很安靜……",
+        "explanationZh": "那隻鞋孤伶伶地留在台階上，夜，安靜了下來……王子看著那隻鞋，心裡在想什麼？",
         "tags": [
           "story",
           "ch9",
@@ -1469,7 +1494,7 @@
             "right": "hand"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 hold = 拿\n🔑 look = 看\n🔑 foot = 腳\n🔑 hand = 手\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "最後一節的生字！\n🔑 hold = 拿住\n🔑 look = 尋找\n🔑 foot = 腳\n🔑 hand = 手\n記住這 4 個，故事要到最後了！",
         "tags": [
           "story",
           "ch9",
@@ -1485,7 +1510,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The prince held the slipper. He looked all over the country.",
-        "explanationZh": "王子拿著那隻鞋。他找遍整個國家。",
+        "explanationZh": "王子捧著那隻小鞋，走遍了整個國家——他要找到那個失去鞋子的人！",
         "tags": [
           "story",
           "ch9",
@@ -1507,19 +1532,20 @@
           "gave up very fast"
         ],
         "optionsZh": [
-          "只問一個朋友",
-          "拜訪很多家",
-          "寫長信",
-          "很快放棄"
+          "只問了一個朋友",
+          "一家一家去拜訪",
+          "寫了一封長信",
+          "沒多久就放棄了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: stopped at every door → 拜訪很多家 (paraphrase)。",
+        "explanationZh": "stopped at every door——每一扇門都去敲，就是「拜訪了很多家」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他走到每一戶人家門口，大門小門都敲。"
       },
       {
         "type": "narration",
@@ -1528,7 +1554,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He came to her house. The two sisters tried the slipper.",
-        "explanationZh": "他來到她家。兩個姊姊試了那隻鞋。",
+        "explanationZh": "王子來到她家了——兩個姊姊搶著試那隻鞋，用力擠，拼命塞……",
         "tags": [
           "story",
           "ch9",
@@ -1548,13 +1574,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 腳趾擠不進 → 不是她們的 → 答 No",
+        "explanationZh": "擠不進腳趾——這雙鞋根本不是姊姊的！答案是 No。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她們用力推、用力拉，腳趾頭就是擠不進去。"
       },
       {
         "type": "narration",
@@ -1563,7 +1590,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Cinderella came in quietly. She set her foot in the slipper.",
-        "explanationZh": "灰姑娘安靜地走進來。她把腳放進鞋裡。",
+        "explanationZh": "灰姑娘輕輕走進來，安安靜靜地坐下，把腳放進那隻小鞋裡……",
         "tags": [
           "story",
           "ch9",
@@ -1585,19 +1612,20 @@
           "would not move"
         ],
         "optionsZh": [
-          "太緊",
-          "完美合腳",
-          "又掉下來",
-          "動不了"
+          "太緊了穿不進",
+          "剛剛好，完美合腳",
+          "一下又掉了下來",
+          "完全動不了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: slid on like water → 完美合腳 (paraphrase)。",
+        "explanationZh": "像水流過石頭一樣順——那就是「完美合腳、剛剛好」！",
         "tags": [
           "story",
           "ch9",
           "cinderella"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "鞋子滑上她的腳，像水流過光滑的石頭一樣順。"
       },
       {
         "type": "narration",
@@ -1606,7 +1634,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The prince knew her at once. He took her hand.",
-        "explanationZh": "王子立刻認出她。他握住她的手。",
+        "explanationZh": "王子一眼就認出了她，走過來，輕輕握住她的手。",
         "tags": [
           "story",
           "ch9",
@@ -1628,20 +1656,21 @@
           "🚪 by locking them out"
         ],
         "optionsZh": [
-          "溫柔對待",
-          "生氣對待",
-          "跑走",
-          "把她們鎖在外面"
+          "💖 溫柔善待她們",
+          "⚔️ 用憤怒回應",
+          "🏃 轉身跑走了",
+          "🚪 把她們鎖在外面"
         ],
         "correctIndex": 0,
-        "explanationZh": "Perrault 結局: 她善良到原諒姊姊 → with kindness。",
+        "explanationZh": "Perrault 的故事裡，灰姑娘原諒了姊姊們——她是用「溫柔善待」她們！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "最後，灰姑娘怎麼對待兩個姊姊？"
       },
       {
         "type": "narration",
@@ -1650,7 +1679,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She was kind, even to her two sisters.",
-        "explanationZh": "她善良,連對兩個姊姊都是。",
+        "explanationZh": "她連對那兩個姊姊，都以善意相待。善良，才是她真正的力量。",
         "tags": [
           "story",
           "ch9",
@@ -1664,7 +1693,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And the fairy godmother? Gone with the wind. The real magic was inside her all along...",
-        "explanationZh": "那仙女教母呢? 隨風而去了。真正的魔法一直都在她心裡……",
+        "explanationZh": "那仙女教母呢？她早就隨風消散了。真正的魔法，從來都藏在灰姑娘善良的心裡——一直都在。",
         "tags": [
           "story",
           "ch9",

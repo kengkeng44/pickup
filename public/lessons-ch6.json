@@ -32,7 +32,7 @@
             "right": "wood"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 king = 國王\n🔑 children = 孩子\n🔑 castle = 城堡\n🔑 wood = 森林\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事要認識 4 個關鍵字喔：\n🔑 king = 國王\n🔑 children = 孩子\n🔑 castle = 城堡\n🔑 wood = 森林\n這 4 個字記住，故事就聽得懂一大半了！",
         "tags": [
           "story",
           "ch6",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A king had seven children. Six were boys, and one was a girl.",
-        "explanationZh": "一個國王有七個孩子。六個男孩,一個女孩。",
+        "explanationZh": "從前有一個國王，膝下有七個孩子——六個男孩，還有一個小女孩。",
         "tags": [
           "story",
           "ch6",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They lived in a quiet castle near a wide green wood.",
-        "explanationZh": "他們住在綠林邊一座安靜的城堡。",
+        "explanationZh": "他們住在一片寬寬綠林旁的城堡裡，四周安靜得很。",
         "tags": [
           "story",
           "ch6",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:廳堂冷靜 → 沒有笑聲 → 答 No",
+        "explanationZh": "廳堂裡冷得像沒人在似的——那樣的地方，怎麼可能有歡笑聲呢？答 No，裡面沒有笑聲。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "城堡的大廳，一天又一天，冷冷的，靜靜的。"
       },
       {
         "type": "listen-mc",
@@ -105,19 +106,20 @@
           "on the road"
         ],
         "optionsZh": [
-          "在花園",
-          "河邊",
-          "在塔上",
+          "在花園裡",
+          "在河邊",
+          "在塔樓上",
           "在路上"
         ],
         "correctIndex": 1,
-        "explanationZh": "河岸邊扔石頭 → 河邊。",
+        "explanationZh": "你看，男孩們在河岸邊玩——河岸嘛，就是「在河邊」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "男孩們沿著河岸跑，撿起小石頭，「啪」一聲丟進水裡濺起水花。"
       },
       {
         "type": "listen-mc",
@@ -140,13 +142,14 @@
           "讀書"
         ],
         "correctIndex": 1,
-        "explanationZh": "採黃色小花 → 採花。",
+        "explanationZh": "她走在樹林裡，採起軟軟的黃花——這就是「採花」啦。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "小女孩獨自穿梭樹林間，採摘軟軟的黃色小花。"
       },
       {
         "type": "emoji-pick",
@@ -169,14 +172,15 @@
           "八個"
         ],
         "correctIndex": 2,
-        "explanationZh": "六個男孩 + 一個女孩 = 七個。",
+        "explanationZh": "六個男孩加上一個女孩，六加一等於七，所以是七個孩子。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "國王有幾個孩子呢？"
       },
       {
         "type": "narration",
@@ -185,7 +189,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The mother of the children was gone. Her chair stood empty by the window.",
-        "explanationZh": "孩子們的母親不在了。她的椅子空空地立在窗邊。",
+        "explanationZh": "孩子們的媽媽，已經不在了。她坐過的那把椅子，就空空地立在窗邊……",
         "tags": [
           "story",
           "ch6",
@@ -208,18 +212,19 @@
         ],
         "optionsZh": [
           "開心又輕鬆",
-          "睡不著又難過",
+          "睡不著、心裡難過",
           "生氣又大聲",
           "忙碌又興奮"
         ],
         "correctIndex": 1,
-        "explanationZh": "走廊裡睡不著 → 睡不著又難過。",
+        "explanationZh": "深夜裡一個人踱步睡不著——心裡有多苦，只有他自己知道。選「睡不著、心裡難過」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "夜裡，國王在長長的走廊裡來回踱步，怎麼也睡不著。"
       },
       {
         "type": "comprehension",
@@ -238,18 +243,19 @@
         "optionsZh": [
           "沒有母親的家庭",
           "學騎馬",
-          "辦皇室婚禮",
+          "籌備皇室婚禮",
           "去森林打獵"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 沒有母親的家庭。",
+        "explanationZh": "這一段說的，就是一個少了媽媽的家庭——空椅子、沉默的父親，都是這個意思。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "安靜的城堡，六個哥哥，一個妹妹，還有一個夜夜獨自走廊的父親。"
       },
       {
         "type": "narration",
@@ -258,7 +264,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The king missed her with all his heart. Beside his chair, one seat stood empty...",
-        "explanationZh": "國王全心思念她。他椅子旁,有一個位子空著……",
+        "explanationZh": "國王用全部的心思想念著她。他的椅子旁邊，有一個位子，永遠空著……",
         "tags": [
           "story",
           "ch6",
@@ -300,7 +306,7 @@
             "right": "throw"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 marry = 結婚\n🔑 far = 遠方\n🔑 shirt = 衣服\n🔑 throw = 丟\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 marry = 結婚\n🔑 far = 遠方\n🔑 shirt = 衣服\n🔑 throw = 丟\n這 4 個字跟著故事一起記，最好背了！",
         "tags": [
           "story",
           "ch6",
@@ -316,7 +322,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The king married a new woman who came from a far cold land.",
-        "explanationZh": "國王娶了一個來自遙遠寒冷國度的女人。",
+        "explanationZh": "國王娶了一個新王后，她從遙遠又寒冷的地方來。",
         "tags": [
           "story",
           "ch6",
@@ -336,13 +342,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:眼神冷淡 → 不愛 → 答 No",
+        "explanationZh": "那種看都不想多看一眼的眼神——答 No，她不愛這七個孩子。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她從孩子們身邊走過，眼神平板、冷冰冰的。"
       },
       {
         "type": "narration",
@@ -351,7 +358,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One night, she sat alone by a small lamp and sewed six little shirts.",
-        "explanationZh": "一個夜裡,她獨自坐在小油燈邊,縫了六件小衣。",
+        "explanationZh": "一個夜裡，她獨自坐在小油燈旁，一針一針縫起六件小衣服。",
         "tags": [
           "story",
           "ch6",
@@ -374,18 +381,19 @@
         ],
         "optionsZh": [
           "每天中午",
-          "早上",
-          "其他人睡覺時",
+          "早晨",
+          "大家睡著的時候",
           "日落之後"
         ],
         "correctIndex": 2,
-        "explanationZh": "城堡其他人都在睡 → 其他人睡覺時。",
+        "explanationZh": "城堡裡的人都睡了，她才開始縫——是「大家睡著的時候」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "針頭穿進穿出，飛快地動著，城堡裡所有人都已熟睡。"
       },
       {
         "type": "listen-mc",
@@ -402,19 +410,20 @@
           "gold like coins"
         ],
         "optionsZh": [
-          "像夜晚一樣黑",
-          "像火一樣紅",
-          "像牛奶一樣淡",
-          "像錢幣一樣金"
+          "像夜晚那樣黑",
+          "像火那樣紅",
+          "像牛奶那樣白",
+          "像金幣那樣金"
         ],
         "correctIndex": 2,
-        "explanationZh": "像新雪 → 像牛奶淡白。",
+        "explanationZh": "新雪的顏色——白白的、淡淡的，就是「像牛奶那樣白」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "每一件衣服，都是冬天早晨剛落的新雪那種顏色。"
       },
       {
         "type": "emoji-pick",
@@ -437,14 +446,15 @@
           "六件"
         ],
         "correctIndex": 3,
-        "explanationZh": "六件小衣。",
+        "explanationZh": "故事說了六件——六個哥哥，一人一件，剛剛好。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "王后縫了幾件小衣服呢？"
       },
       {
         "type": "narration",
@@ -453,7 +463,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She slipped into the boys' room while the moon was high and pale.",
-        "explanationZh": "月亮高高蒼白時,她悄悄走進男孩們的房間。",
+        "explanationZh": "月亮高高掛在天上，白白的。她悄悄溜進男孩們的房間……",
         "tags": [
           "story",
           "ch6",
@@ -475,19 +485,20 @@
           "tied them down"
         ],
         "optionsZh": [
-          "親他們的頭",
+          "親了他們的頭",
           "把衣服丟到他們身上",
           "把他們搖醒",
-          "綁住他們"
+          "把他們綁起來"
         ],
         "correctIndex": 1,
-        "explanationZh": "白衣落在肩上 → 把衣服丟到他們身上。",
+        "explanationZh": "白衣「輕輕落在肩上」——就是把衣服蓋、丟到他們身上的意思。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她讓那些小白東西，輕輕落在熟睡的男孩們肩上。"
       },
       {
         "type": "comprehension",
@@ -507,16 +518,17 @@
           "給六個哥哥",
           "為了保暖",
           "給國王",
-          "在市場賣"
+          "拿去市場賣"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:六兄弟 + 六件衣 → 給六個哥哥。",
+        "explanationZh": "六個哥哥加上六件衣服，不用猜——就是「給六個哥哥」的。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "六個哥哥，六件衣服，她偷偷做好了。"
       },
       {
         "type": "narration",
@@ -525,7 +537,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But these were not warm shirts. These were not soft. Something would change at dawn...",
-        "explanationZh": "但這些不是保暖的衣服,也不柔軟。天亮時會有事改變……",
+        "explanationZh": "但這些衣服不是拿來保暖的，也不是柔軟舒適的。天亮之後，會有什麼改變……",
         "tags": [
           "story",
           "ch6",
@@ -567,7 +579,7 @@
             "right": "empty"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 wing = 翅膀\n🔑 window = 窗戶\n🔑 moon = 月亮\n🔑 empty = 空的\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事有 4 個字要認識：\n🔑 wing = 翅膀\n🔑 window = 窗戶\n🔑 moon = 月亮\n🔑 empty = 空的\n把這 4 個字記住，今晚的故事就很好懂了！",
         "tags": [
           "story",
           "ch6",
@@ -583,7 +595,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Where the boys had stood, six swans now rose into the air.",
-        "explanationZh": "原本男孩們站著的地方,六隻天鵝飛了起來。",
+        "explanationZh": "就在男孩們剛才站著的地方，六隻白天鵝「嗖」地騰空飛起來！",
         "tags": [
           "story",
           "ch6",
@@ -603,13 +615,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:剩下羽毛 → 男孩變天鵝飛走了 → 答 No",
+        "explanationZh": "地板上剩下羽毛——男孩們呢？他們早就變成天鵝飛走了！所以答 No，房間裡沒有男孩了。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "白色羽毛輕輕飄落，散在臥室的地板上。"
       },
       {
         "type": "narration",
@@ -618,7 +631,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "White wings beat the air. The window blew wide open.",
-        "explanationZh": "白翅膀拍打空氣。窗戶大大地打開。",
+        "explanationZh": "白翅膀「撲撲撲」地拍打空氣，窗戶被一股力量撞得大大敞開。",
         "tags": [
           "story",
           "ch6",
@@ -640,19 +653,20 @@
           "into the deep well"
         ],
         "optionsZh": [
-          "從門",
-          "從窗戶玻璃",
-          "從樓梯",
-          "進到深井裡"
+          "穿過門",
+          "穿過窗戶玻璃",
+          "走下樓梯",
+          "鑽進深井"
         ],
         "correctIndex": 1,
-        "explanationZh": "飛出打開的玻璃 → 從窗戶玻璃。",
+        "explanationZh": "他們飛出「打開的玻璃窗」——就是「穿過窗戶玻璃」飛走的。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "六隻天鵝衝出打開的玻璃窗，飛離了城堡。"
       },
       {
         "type": "listen-mc",
@@ -670,18 +684,19 @@
         ],
         "optionsZh": [
           "晴朗的天空",
-          "月光的天空",
-          "黑暗洞穴",
-          "深海"
+          "月光下的夜空",
+          "黑暗的洞穴",
+          "深深的大海"
         ],
         "correctIndex": 1,
-        "explanationZh": "夜裡淡淡的光 → 月光的天空。",
+        "explanationZh": "夜裡淡淡的光，那就是月光——他們飛入「月光下的夜空」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他們升入夜裡淡淡的光中，很快就不見蹤影。"
       },
       {
         "type": "emoji-pick",
@@ -704,14 +719,15 @@
           "老鼠"
         ],
         "correctIndex": 1,
-        "explanationZh": "男孩變成 → 天鵝。",
+        "explanationZh": "六隻白色的鳥從房間飛走——男孩們變成了「天鵝」！",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "男孩們變成了什麼？"
       },
       {
         "type": "narration",
@@ -720,7 +736,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "In the morning, the little girl pushed open the heavy door.",
-        "explanationZh": "早晨,小女孩推開沉重的門。",
+        "explanationZh": "早晨來了，小女孩推開那扇沉重的木門，走進哥哥們的房間。",
         "tags": [
           "story",
           "ch6",
@@ -743,18 +759,19 @@
         ],
         "optionsZh": [
           "哥哥們在睡覺",
-          "六張空空的床",
+          "六張空床",
           "一堆玩具",
           "媽媽的椅子"
         ],
         "correctIndex": 1,
-        "explanationZh": "床平整無人 → 六張空空的床。",
+        "explanationZh": "床鋪平整，沒人睡過——她看到的是「六張空床」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "六張小床整整齊齊，平平靜靜。沒有人在裡面睡過。"
       },
       {
         "type": "comprehension",
@@ -771,19 +788,20 @@
           "sleepy and warm"
         ],
         "optionsZh": [
-          "震驚又害怕",
-          "累又無聊",
-          "生氣又驕傲",
-          "想睡又溫暖"
+          "又驚又怕",
+          "累了又無聊",
+          "生氣又得意",
+          "想睡又暖和"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:手變冷 → 震驚又害怕。",
+        "explanationZh": "手都冷掉了——心裡的害怕就是這樣跑出來的。是「又驚又怕」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "她的手漸漸涼了。空蕩蕩的床，告訴她一件事——哥哥們不見了。"
       },
       {
         "type": "narration",
@@ -792,7 +810,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A single white feather lay on the windowsill. She picked it up slowly...",
-        "explanationZh": "窗台上躺著一根白色羽毛。她慢慢拾起……",
+        "explanationZh": "窗台上，靜靜躺著一根白羽毛。她慢慢地把它拾起來，握在手心……",
         "tags": [
           "story",
           "ch6",
@@ -834,7 +852,7 @@
             "right": "year"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 find = 找到\n🔑 hut = 小屋\n🔑 sew = 縫\n🔑 year = 年\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 find = 找到\n🔑 hut = 小屋\n🔑 sew = 縫\n🔑 year = 年\n記住這 4 個字，故事就好跟了！",
         "tags": [
           "story",
           "ch6",
@@ -850,7 +868,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The sister walked for many days into the deep dark wood.",
-        "explanationZh": "妹妹走了好多天,進入又深又黑的森林。",
+        "explanationZh": "妹妹走啊走，一天又一天，走進那片又深又黑的大森林裡。",
         "tags": [
           "story",
           "ch6",
@@ -870,13 +888,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:鞋磨薄 + 只剩一塊麵包 → 不短也不輕鬆 → 答 No",
+        "explanationZh": "鞋底都磨薄了，麵包也快沒了——這趟路，哪裡短？哪裡容易？答 No。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她的鞋底磨薄了，小袋子裡只剩最後一塊麵包。"
       },
       {
         "type": "narration",
@@ -885,7 +904,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She found a small wooden hut, half hidden by tall green leaves.",
-        "explanationZh": "她找到一間小木屋,半藏在高高綠葉後面。",
+        "explanationZh": "她找到一間小木屋，半藏在高高的綠葉後面，若隱若現的。",
         "tags": [
           "story",
           "ch6",
@@ -907,19 +926,20 @@
           "never ever again"
         ],
         "optionsZh": [
-          "整天整夜都是",
-          "只有日出",
-          "天黑後短暫一段",
-          "再也不能了"
+          "整天整夜都可以",
+          "只有日出的時候",
+          "天黑後短短一段時間",
+          "再也變不回來了"
         ],
         "correctIndex": 2,
-        "explanationZh": "夜裡短短一小時 → 天黑後短暫一段。",
+        "explanationZh": "夜裡只有短短一小時是男孩——就是「天黑後短短一段時間」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "白天他們穿著羽毛飛翔。每天夜裡只有短短一個鐘頭，他們才能變回男孩。"
       },
       {
         "type": "listen-mc",
@@ -938,17 +958,18 @@
         "optionsZh": [
           "打敗老王后",
           "說六個魔法字",
-          "用花瓣做衣服",
+          "用花做成衣服",
           "用河水織布"
         ],
         "correctIndex": 2,
-        "explanationZh": "用花縫衣 → 用花瓣做衣服。",
+        "explanationZh": "用花縫衣服——就是「用花做成衣服」，這樣才能解開魔咒。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "要解救他們，她得用一種尖刺的白色花朵，縫六件衣服。"
       },
       {
         "type": "emoji-pick",
@@ -971,14 +992,15 @@
           "草"
         ],
         "correctIndex": 0,
-        "explanationZh": "尖白花 → 花。",
+        "explanationZh": "用那種尖尖的白色花朵——材料就是「花」。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "她縫衣服的材料是什麼？"
       },
       {
         "type": "narration",
@@ -987,7 +1009,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She could not speak. She could not laugh. Not for six long years.",
-        "explanationZh": "她不可以說話,不可以笑。六年都不行。",
+        "explanationZh": "她不可以說話，不可以笑——整整六年都不行。這條規矩，她必須遵守。",
         "tags": [
           "story",
           "ch6",
@@ -1011,17 +1033,18 @@
         "optionsZh": [
           "不能吃東西",
           "一個人睡",
-          "保持安靜",
+          "保持沉默",
           "光腳走路"
         ],
         "correctIndex": 2,
-        "explanationZh": "一個字也不出口 → 保持安靜。",
+        "explanationZh": "痛了不能說、開心了不能笑、需要幫忙也不能喊——這就是「保持沉默」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "不管多痛、多高興、多需要人幫忙，嘴裡一個字都不能出口。"
       },
       {
         "type": "comprehension",
@@ -1038,20 +1061,21 @@
           "fighting the angry queen"
         ],
         "optionsZh": [
-          "安靜辛苦地救哥哥",
-          "森林裡快樂的日子",
+          "安靜地辛苦救哥哥",
+          "在森林裡快樂生活",
           "跟朋友學跳舞",
           "跟王后打架"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 安靜辛苦地救哥哥。",
+        "explanationZh": "沉默、縫衣、一個人堅持——這整段就是在說她「安靜地辛苦救哥哥」。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一朵小小的花，一個沉默的女孩，還有六年漫長得像一個寒冬的等待。"
       },
       {
         "type": "narration",
@@ -1060,7 +1084,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She sewed and sewed. The nights grew long. She did not speak. She did not cry out loud...",
-        "explanationZh": "她縫了又縫。夜變得好長。她不出聲,也不哭出來……",
+        "explanationZh": "她縫了又縫，夜越來越長。她不說話，也不出聲哭泣，只是一針一針往前……",
         "tags": [
           "story",
           "ch6",
@@ -1102,7 +1126,7 @@
             "right": "mother"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 young = 年輕\n🔑 tree = 樹\n🔑 bride = 新娘\n🔑 mother = 母親\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事有 4 個字要學：\n🔑 young = 年輕\n🔑 tree = 樹\n🔑 bride = 新娘\n🔑 mother = 母親\n這幾個字很常見，記熟了！",
         "tags": [
           "story",
           "ch6",
@@ -1118,7 +1142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A young king rode through the wood on a cool grey morning.",
-        "explanationZh": "一個年輕的國王在涼涼灰色的早晨騎馬穿過森林。",
+        "explanationZh": "一個年輕的國王，在涼涼的灰色早晨，騎著馬穿越森林。",
         "tags": [
           "story",
           "ch6",
@@ -1138,13 +1162,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:坐在樹上很高 + 安靜 → 不容易找 → 答 No",
+        "explanationZh": "她在樹上高高的地方，又一聲不吭——這樣的女孩，很不容易找到，答 No。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "一棵老樹高高的枝椏上，坐著一個拿著針的沉默女孩。"
       },
       {
         "type": "narration",
@@ -1153,7 +1178,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He took her down from the tree and brought her back to his castle.",
-        "explanationZh": "他把她從樹上接下來,帶回他的城堡。",
+        "explanationZh": "他把她從樹上接了下來，帶著她回到自己的城堡。",
         "tags": [
           "story",
           "ch6",
@@ -1175,19 +1200,20 @@
           "made her cook food"
         ],
         "optionsZh": [
-          "送走她",
+          "把她送走",
           "娶她為妻",
           "把她關起來",
           "叫她煮飯"
         ],
         "correctIndex": 1,
-        "explanationZh": "給戒指 + 成為大廳的女主人 → 娶她為妻。",
+        "explanationZh": "給戒指、成為大廳女主人——這就是「娶她為妻」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他把戒指套上她的手指，讓她成為大廳的女主人。"
       },
       {
         "type": "listen-mc",
@@ -1210,13 +1236,14 @@
           "讀書"
         ],
         "correctIndex": 2,
-        "explanationZh": "針還在她手上 → 縫衣。",
+        "explanationZh": "手上的針從沒停過——她每晚還是在「縫衣」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "就算躺在新的柔軟床上，她的雙手還是把針一直縫到深夜。"
       },
       {
         "type": "emoji-pick",
@@ -1239,14 +1266,15 @@
           "書"
         ],
         "correctIndex": 0,
-        "explanationZh": "針在手中縫衣。",
+        "explanationZh": "無論白天黑夜，手裡都握著那根「針」，縫啊縫。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "她手裡一直拿著什麼？"
       },
       {
         "type": "narration",
@@ -1255,7 +1283,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The mother of the young king watched the silent bride with hard eyes.",
-        "explanationZh": "年輕國王的母親用嚴厲的眼神看著沉默的新娘。",
+        "explanationZh": "年輕國王的母親，用那種冷冷的、硬硬的眼神，盯著沉默的新娘。",
         "tags": [
           "story",
           "ch6",
@@ -1279,17 +1307,18 @@
         "optionsZh": [
           "熱情有愛",
           "冷淡又不友善",
-          "想睡又無聊",
-          "驚奇又驕傲"
+          "哈欠連連又無聊",
+          "驚奇又得意"
         ],
         "correctIndex": 1,
-        "explanationZh": "低聲說冷冷的話 → 冷淡又不友善。",
+        "explanationZh": "天天說人壞話——這就是「冷淡又不友善」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "那個年長的女人，每天都在國王面前低聲說些新娘的壞話。"
       },
       {
         "type": "comprehension",
@@ -1312,13 +1341,14 @@
           "為了拿獎"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:衣服必須完成 → 為了救六個哥哥。",
+        "explanationZh": "衣服還沒縫完——六個哥哥還在等她。她不停，是「為了救六個哥哥」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "新娘聽見了每一句話。但她沒停下來，沒抬頭。衣服必須縫完。"
       },
       {
         "type": "narration",
@@ -1327,7 +1357,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The young king loved her. But his mother stood behind every door, watching, waiting...",
-        "explanationZh": "年輕國王愛她。但他母親站在每扇門後,看著,等著……",
+        "explanationZh": "年輕國王愛她。但他母親，卻躲在每扇門後面，默默地看著、等著……",
         "tags": [
           "story",
           "ch6",
@@ -1369,7 +1399,7 @@
             "right": "fire"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 steal = 偷\n🔑 baby = 嬰兒\n🔑 lie = 謊言\n🔑 fire = 火\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要認識 4 個字：\n🔑 steal = 偷\n🔑 baby = 嬰兒\n🔑 lie = 謊言\n🔑 fire = 火\n這 4 個字很重要，記起來吧！",
         "tags": [
           "story",
           "ch6",
@@ -1385,7 +1415,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The bride had a small baby with soft pink cheeks.",
-        "explanationZh": "新娘生下一個粉嫩臉頰的小嬰兒。",
+        "explanationZh": "新娘生下了一個小嬰兒，臉頰粉嫩嫩的，軟得像棉花糖。",
         "tags": [
           "story",
           "ch6",
@@ -1405,13 +1435,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:深夜 + 腳步輕 → 偷偷做事 → 不是好事 → 答 No",
+        "explanationZh": "深夜偷偷進來，腳步那麼輕——這哪裡是來做好事的？答 No，她來者不善。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "深夜裡，國王的母親踩著輕輕的腳步，走進了房間。"
       },
       {
         "type": "narration",
@@ -1420,7 +1451,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She lifted the baby from the warm bed and carried it far away.",
-        "explanationZh": "她從溫暖的床抱走嬰兒,帶到很遠的地方。",
+        "explanationZh": "她從溫暖的床上抱走嬰兒，帶到了很遠的地方。",
         "tags": [
           "story",
           "ch6",
@@ -1442,19 +1473,20 @@
           "ran far from home"
         ],
         "optionsZh": [
-          "生病了",
-          "愛每個嬰兒",
-          "傷害自己孩子",
-          "逃離家"
+          "說新娘病了",
+          "說新娘愛每個嬰兒",
+          "說新娘傷害自己孩子",
+          "說新娘逃跑了"
         ],
         "correctIndex": 2,
-        "explanationZh": "她告訴國王的話 → 傷害自己孩子 (謊言 — 嬰兒其實被奶奶藏起來)。",
+        "explanationZh": "她說的是「新娘傷害了自己的孩子」——這是謊言，嬰兒其實是被她藏起來的。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "「她讓自己的孩子消失了。」第二天早上，那個年長的女人這樣告訴國王。"
       },
       {
         "type": "listen-mc",
@@ -1472,18 +1504,19 @@
         ],
         "optionsZh": [
           "耳朵聽不到",
-          "她的承諾讓她安靜",
-          "同意王后",
-          "在床上熟睡"
+          "因為承諾，她必須沉默",
+          "她同意王后說的",
+          "她睡著了"
         ],
         "correctIndex": 1,
-        "explanationZh": "針還沒做完 + 不能說 → 承諾讓她安靜。",
+        "explanationZh": "衣服還沒縫完，她不能開口——是「因為承諾，她必須沉默」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "新娘聽見了那個謊言，卻一個字也說不出口。"
       },
       {
         "type": "emoji-pick",
@@ -1506,14 +1539,15 @@
           "用寫字"
         ],
         "correctIndex": 1,
-        "explanationZh": "不能說 → 用沉默。",
+        "explanationZh": "她不能說話——只能用「沉默」來面對那一切。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "新娘用什麼來回應那個謊言？"
       },
       {
         "type": "narration",
@@ -1522,7 +1556,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A second baby came. The same thing happened. Then a third.",
-        "explanationZh": "第二個嬰兒來了,同樣的事發生了,然後第三個。",
+        "explanationZh": "第二個嬰兒來了，同樣的事又發生了。接著，第三個……",
         "tags": [
           "story",
           "ch6",
@@ -1545,18 +1579,19 @@
         ],
         "optionsZh": [
           "一個寶寶",
-          "一對",
-          "一組三個",
+          "兩個",
+          "三個",
           "四個"
         ],
         "correctIndex": 2,
-        "explanationZh": "Once + twice + final time → 一組三個。",
+        "explanationZh": "一次、兩次、第三次——總共「三個」孩子就這樣不見了。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "一次、兩次，再一次，小小的孩子一個個降生，又一個個在早晨前消失。"
       },
       {
         "type": "comprehension",
@@ -1573,20 +1608,21 @@
           "royal feast in the hall"
         ],
         "optionsZh": [
-          "快樂的婚禮日",
-          "面對火焰的沉默女人",
+          "快樂的婚禮",
+          "沉默女人面對火焰",
           "抓小偷",
           "大廳裡的宴會"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 面對火焰的沉默女人。",
+        "explanationZh": "三個孩子不見了，謊言堆疊，火堆已經搭好——這段在說「沉默女人面對火焰」的故事。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "三個失去的孩子，一個沉默的新娘，六件還沒縫完的衣服，庭院裡已搭好了火堆。"
       },
       {
         "type": "narration",
@@ -1595,7 +1631,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Wood was piled high in the castle yard. The fire was built for her. Six shirts lay in her lap, but one had only one sleeve...",
-        "explanationZh": "城堡庭院裡柴堆得高高。火堆是為她搭的。六件衣放在她膝上,但有一件只縫好一隻袖子……",
+        "explanationZh": "城堡庭院裡，柴火堆得高高的——那火堆，是為她搭的。六件衣服就放在她膝上，但最後一件，只縫好了一隻袖子……",
         "tags": [
           "story",
           "ch6",
@@ -1637,7 +1673,7 @@
             "right": "truth"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 noon = 正午\n🔑 down = 下來\n🔑 sky = 天空\n🔑 truth = 真相\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚最後幾個字：\n🔑 noon = 正午\n🔑 down = 下來\n🔑 sky = 天空\n🔑 truth = 真相\n記住這 4 個字，今晚的結局就準備好迎接了！",
         "tags": [
           "story",
           "ch6",
@@ -1653,7 +1689,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The day of the fire came. The sun climbed slowly to the top of the sky.",
-        "explanationZh": "火刑那一天到了。太陽慢慢爬到天空最高處。",
+        "explanationZh": "那一天，是火刑的日子。太陽一點一點爬到天空最高的地方。",
         "tags": [
           "story",
           "ch6",
@@ -1673,13 +1709,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:六年到正午 → 結束了 → 答 Yes",
+        "explanationZh": "六年過去，走到了正午——她的沉默，終於要結束了。答 Yes，六年到了。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她沉默了整整六年，一個字也沒說過。"
       },
       {
         "type": "narration",
@@ -1688,7 +1725,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Just then, six white swans came down from the sky.",
-        "explanationZh": "就在那時,六隻白天鵝從天上飛下來。",
+        "explanationZh": "就在那一刻，六隻白天鵝從天上「嗖」地飛了下來！",
         "tags": [
           "story",
           "ch6",
@@ -1710,19 +1747,20 @@
           "burned them in the fire"
         ],
         "optionsZh": [
-          "放進盒子",
-          "丟在每隻天鵝上",
-          "給國王",
+          "放進盒子裡",
+          "每隻天鵝丟一件",
+          "交給國王",
           "燒掉"
         ],
         "correctIndex": 1,
-        "explanationZh": "一件丟一隻天鵝 → 丟在每隻天鵝上。",
+        "explanationZh": "一隻天鵝一件衣——就是「每隻天鵝丟一件」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她抱起那些白色小衣服，一件一件丟到每隻鳥身上。"
       },
       {
         "type": "listen-mc",
@@ -1741,17 +1779,18 @@
         "optionsZh": [
           "飛進雲裡",
           "變回男孩",
-          "唱了首甜美的歌",
-          "陷入沉睡"
+          "唱了首甜甜的歌",
+          "沉沉睡去"
         ],
         "correctIndex": 1,
-        "explanationZh": "羽毛落 → 變回兄弟 → 變回男孩。",
+        "explanationZh": "羽毛落下，哥哥們回來了——天鵝「變回男孩」了！",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "白羽毛一片片落下，六個哥哥又站在庭院裡了。"
       },
       {
         "type": "emoji-pick",
@@ -1774,14 +1813,15 @@
           "午夜"
         ],
         "correctIndex": 1,
-        "explanationZh": "正午結束。",
+        "explanationZh": "太陽爬到最高的時候——那就是「正午」，六年的沉默，在正午劃下句點。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "六年什麼時候結束的？"
       },
       {
         "type": "narration",
@@ -1790,7 +1830,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "But the last shirt was not done. The youngest brother still had one white wing.",
-        "explanationZh": "但最後一件衣沒縫完。最小的弟弟還剩一隻白翅膀。",
+        "explanationZh": "但最後一件衣服沒縫完。最小的弟弟，手臂的地方，還留著一隻白色的翅膀。",
         "tags": [
           "story",
           "ch6",
@@ -1814,17 +1854,18 @@
         "optionsZh": [
           "一隻鳥翅膀",
           "一條狐狸尾巴",
-          "尖鴨喙",
-          "柔和新歌"
+          "尖尖的鴨嘴",
+          "新學會的歌"
         ],
         "correctIndex": 0,
-        "explanationZh": "羽毛仍在手臂位置 → 一隻鳥翅膀。",
+        "explanationZh": "手臂的位置長著羽毛——那就是「一隻鳥翅膀」還留在他身上。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他左手臂本來應該有手臂的地方，還長著軟軟的羽毛。"
       },
       {
         "type": "comprehension",
@@ -1841,19 +1882,20 @@
           "flames stopped burning"
         ],
         "optionsZh": [
-          "國王終於允許",
+          "國王終於允許她說",
           "她漫長的沉默結束了",
           "王后逃出城堡",
-          "火不再燒"
+          "火熄滅了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:六年結束 + 衣已丟 → 她漫長的沉默結束了。",
+        "explanationZh": "六年到了，衣服縫完了——她的沉默到頭了。可以說話，是因為「她漫長的沉默結束了」。",
         "tags": [
           "story",
           "ch6",
           "six-swans"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "六年結束了。衣服丟出去了。她張開嘴，真相終於說了出來。"
       },
       {
         "type": "narration",
@@ -1862,7 +1904,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The fire went cold. The truth was told. But the youngest brother turned to her with one wing still on his back...",
-        "explanationZh": "火堆冷了。真相說出口了。但最小的弟弟轉頭看她,背上還留著一隻翅膀……",
+        "explanationZh": "火堆冷了。真相說出來了。但最小的弟弟轉過身來看她，背上還掛著一隻翅膀……",
         "tags": [
           "story",
           "ch6",
