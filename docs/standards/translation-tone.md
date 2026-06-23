@@ -38,3 +38,16 @@
 
 - 簡短、口語、4 個語氣一致。
 - 不需要完整句,抓住意思就好。
+
+---
+
+## 題目合理性 (logic) — 不只翻譯,看到不合理就改 (2026-06-23 per user)
+
+用 Sonnet **判斷每一題**:問題與選項合不合理?能不能更好?
+
+- **不合理就改**(可以改英文 `question` / `options` / `optionsZh`),但**要確保正解仍然正確**——`correctIndex` 指到的那個選項,改寫後還是對的答案。
+- **反例**:`How does the cat feel?` → 選項 `Cold and small / Warm and big / Happy and dry / Full and tall`。`small / big / tall` **不是「感受」**,牛頭不對馬嘴。
+  改成真正的感受:`Cold and scared / Warm and happy / Dry and calm / Full and sleepy`。
+- 選項原則:**同類、互斥、只有一個明顯正解**;干擾項要合理但錯。
+- **能更好的也改**:更貼故事、更自然、更像給孩子的題目。
+- 改完跑 `node tools/check-answer-index.cjs`;若你「故意」改了正解位置,要在回報裡標出來給人審。
