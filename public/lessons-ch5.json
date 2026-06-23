@@ -32,7 +32,7 @@
             "right": "fire"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 girl = 女孩\n🔑 forest = 森林\n🔑 father = 爸爸\n🔑 fire = 火\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事要認識 4 個字！\n🔑 girl = 女孩\n🔑 forest = 森林\n🔑 father = 爸爸\n🔑 fire = 火\n記住這 4 個字，Vasilisa 的故事就要開始了。",
         "tags": [
           "story",
           "ch5",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A girl named Vasilisa lived at the edge of a dark forest.",
-        "explanationZh": "一個叫 Vasilisa 的女孩住在黑黑的森林邊。",
+        "explanationZh": "有個叫 Vasilisa 的女孩，住在一片黑黑的森林旁邊。奶奶說，光是住在那裡，就已經很需要勇氣了。",
         "tags": [
           "story",
           "ch5",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her mother was gone. Her father had a new wife.",
-        "explanationZh": "她的媽媽走了。她爸爸娶了新太太。",
+        "explanationZh": "她的媽媽不在了。爸爸娶了新太太。奶奶說這話的時候，輕輕嘆了一口氣。",
         "tags": [
           "story",
           "ch5",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:從早做到晚 + 一個人 → 新太太對她不好 → 答 No",
+        "explanationZh": "從天亮做到天黑，還是「一個人」——新太太這樣對她，哪裡稱得上善良？答案當然是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "Vasilisa 每天從天亮做到天黑，一個人。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa did not cry. She did the work and kept quiet.",
-        "explanationZh": "Vasilisa 沒有哭。她做完事,安靜不說話。",
+        "explanationZh": "Vasilisa 沒有哭。她把事情做完，安安靜靜地，一個字也沒多說。奶奶說，這樣的小孩，心裡很強。",
         "tags": [
           "story",
           "ch5",
@@ -120,18 +121,19 @@
         ],
         "optionsZh": [
           "大聲哭出來",
-          "把自己撐住",
+          "咬牙把自己撐住",
           "從家裡逃走",
-          "對自己唱歌"
+          "對自己輕輕唱歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:壓住眼淚、臉不動 → 心裡撐著 → 把自己撐住。",
+        "explanationZh": "眼淚憋著不掉、臉也不動——她是在咬牙撐著自己，把心裡所有委屈都吞下去。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她把眼淚憋在心裡，臉上一動也不動。"
       },
       {
         "type": "narration",
@@ -140,7 +142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One cold night, the fire in the small house went out.",
-        "explanationZh": "一個冷冷的夜裡,小屋裡的火滅了。",
+        "explanationZh": "有一個冷冷的夜，小屋裡的火滅了。火一滅，屋子馬上就冷了起來。",
         "tags": [
           "story",
           "ch5",
@@ -162,19 +164,20 @@
           "clothes were lost"
         ],
         "optionsZh": [
-          "只是燈關了",
+          "只是燈關掉了",
           "又冷又餓",
           "音樂停了",
-          "衣服丟了"
+          "衣服找不到了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:沒火 → 冷 + 沒熱飯 → 又冷又餓。",
+        "explanationZh": "沒火就沒暖氣、沒熱飯——一個冬天的晚上沒有火，那就是又冷又餓啊！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "沒有火。屋子變冷了。沒有熱食。"
       },
       {
         "type": "emoji-pick",
@@ -197,14 +200,15 @@
           "秋天"
         ],
         "correctIndex": 2,
-        "explanationZh": "冷冷的夜 → 冬天。",
+        "explanationZh": "故事裡說「冷冷的夜」——一到冬天才會這麼冷，答案就是冬天！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "這件事發生在哪個季節？"
       },
       {
         "type": "comprehension",
@@ -221,19 +225,20 @@
           "busy with cooking"
         ],
         "optionsZh": [
-          "善良溫暖",
-          "笑裡藏刀",
-          "累又難過",
-          "忙著煮飯"
+          "善良又溫暖",
+          "笑裡藏著刀",
+          "又累又難過",
+          "忙著煮東西"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:冷眼 + 笑容 → 笑裡藏刀, 不善良。",
+        "explanationZh": "她笑著，但眼睛是冷的——奶奶說，這樣的笑，不是真的善意，是笑裡藏刀。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "新太太看著 Vasilisa，帶著冷冷的眼神笑了。"
       },
       {
         "type": "narration",
@@ -242,7 +247,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Go,\" she said. \"Go into the deep woods. Get fire from Baba Yaga.\"",
-        "explanationZh": "「去,」她說。「到深林去。跟 Baba Yaga 拿火。」",
+        "explanationZh": "「去，」她說，「到深深的樹林裡去。去跟 Baba Yaga 拿火。」奶奶說完這句，停了一下——因為這個名字，沒有人能輕輕鬆鬆說出口。",
         "tags": [
           "story",
           "ch5",
@@ -284,7 +289,7 @@
             "right": "pocket"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 name = 名字\n🔑 deep = 深\n🔑 doll = 娃娃\n🔑 pocket = 口袋\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚 4 個字，記住它們！\n🔑 name = 名字\n🔑 deep = 深\n🔑 doll = 娃娃\n🔑 pocket = 口袋\n其中「娃娃」是今晚最重要的角色——等你聽到就知道了。",
         "tags": [
           "story",
           "ch5",
@@ -300,7 +305,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa stood at the door. The night wind was loud.",
-        "explanationZh": "Vasilisa 站在門邊。夜風很大聲。",
+        "explanationZh": "Vasilisa 站在門口，夜風嗚嗚地吹。奶奶說，她就站在那裡，很小的一個人。",
         "tags": [
           "story",
           "ch5",
@@ -320,13 +325,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:不回頭 + 不問 → 她知道很危險但只能走 → 答 No",
+        "explanationZh": "她沒有回頭、也沒有問為什麼——奶奶說，她知道這條路很危險，但她只能走。這不是覺得安全，而是沒有別的辦法，所以答案是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她沒有回頭。她沒有問為什麼。"
       },
       {
         "type": "narration",
@@ -335,7 +341,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She knew the name Baba Yaga. Every child knew it.",
-        "explanationZh": "她知道 Baba Yaga 這個名字。每個小孩都知道。",
+        "explanationZh": "她知道 Baba Yaga 這個名字。每個小孩都知道——奶奶說，但「知道」這件事，不會讓人覺得比較安心。",
         "tags": [
           "story",
           "ch5",
@@ -357,19 +363,20 @@
           "in a happy way"
         ],
         "optionsZh": [
-          "大聲驕傲",
-          "輕聲又害怕",
-          "用大聲的歌",
-          "快樂地"
+          "大聲又自豪",
+          "輕聲又帶著害怕",
+          "唱出一首大聲的歌",
+          "開開心心地說"
         ],
         "correctIndex": 1,
-        "explanationZh": "只敢輕聲說 → 怕被聽到。",
+        "explanationZh": "媽媽們只敢「輕輕說」——那是怕被聽到、怕說出口會有事的那種害怕。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "村子裡的媽媽們說起那個名字，都只敢壓低聲音、輕輕說。"
       },
       {
         "type": "narration",
@@ -378,7 +385,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Before she left, her mother had given her a small wooden doll.",
-        "explanationZh": "她離開之前,媽媽給過她一個小木娃娃。",
+        "explanationZh": "在她離開之前，她的媽媽——親生媽媽——留給她一個小小的木娃娃。奶奶說，媽媽知道有一天女兒會需要它。",
         "tags": [
           "story",
           "ch5",
@@ -406,14 +413,15 @@
           "一把鑰匙"
         ],
         "correctIndex": 0,
-        "explanationZh": "媽媽留下的小木娃娃。",
+        "explanationZh": "媽媽留給她的那個小木娃娃——那是她唯一帶走的東西。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "Vasilisa 帶了什麼一起走？"
       },
       {
         "type": "narration",
@@ -422,7 +430,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She put the doll deep in her pocket and stepped into the trees.",
-        "explanationZh": "她把娃娃放進口袋深處,走進樹林。",
+        "explanationZh": "她把娃娃藏進口袋最深的地方，然後走進了樹林。奶奶說，那個小小的重量，給了她一點點勇氣。",
         "tags": [
           "story",
           "ch5",
@@ -444,19 +452,20 @@
           "searching for money"
         ],
         "optionsZh": [
-          "取暖",
-          "摸著娃娃",
-          "找食物",
-          "找錢"
+          "取暖用的",
+          "一直在摸那個娃娃",
+          "在裡面找吃的",
+          "在裡面找錢"
         ],
         "correctIndex": 1,
-        "explanationZh": "手放口袋 → 摸娃娃,娃娃是她的依靠。",
+        "explanationZh": "媽媽留的那個小木娃娃就在口袋裡——她一路用手護著，那是她唯一的陪伴。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她一路把手放在口袋上。"
       },
       {
         "type": "comprehension",
@@ -473,20 +482,21 @@
           "a big family walking together"
         ],
         "optionsZh": [
-          "白天和朋友快樂散步",
-          "一個孤單女孩走進危險",
-          "小孩在樹林玩",
-          "一大家人一起走"
+          "白天和朋友快樂地散步",
+          "一個孤單的小女孩走向危險",
+          "小孩子在樹林裡玩耍",
+          "一大家人一起走進去"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 孤單女孩 + 黑森林 + 只有娃娃。",
+        "explanationZh": "一個小女孩，只帶著一個娃娃，走進黑漆漆的森林——奶奶說，光是想這個畫面，心裡就揪起來了。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一個小女孩走進黑漆漆的森林，只有一個人，只帶著一個娃娃。"
       },
       {
         "type": "narration",
@@ -495,7 +505,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Everyone knew the name Baba Yaga. Nobody who left to find her had come back...",
-        "explanationZh": "每個人都知道 Baba Yaga 這個名字。沒有人去找她之後回來過……",
+        "explanationZh": "每個人都知道 Baba Yaga 這個名字。但是，沒有人去找過她之後，回來過……奶奶說完，停了好一會兒。",
         "tags": [
           "story",
           "ch5",
@@ -537,7 +547,7 @@
             "right": "black"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 rider = 騎士\n🔑 white = 白\n🔑 red = 紅\n🔑 black = 黑\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要學的 4 個字，剛剛好！\n🔑 rider = 騎士\n🔑 white = 白\n🔑 red = 紅\n🔑 black = 黑\n這三個顏色，今晚都會出現一次喔。",
         "tags": [
           "story",
           "ch5",
@@ -553,7 +563,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The path was thin. The trees were tall and black.",
-        "explanationZh": "小路很細。樹又高又黑。",
+        "explanationZh": "小路很細，只有一個人走的寬。樹又高又黑，把天空都遮住了。奶奶說，那路走起來，一定黑得看不清楚。",
         "tags": [
           "story",
           "ch5",
@@ -573,13 +583,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:很久都沒東西在動 → 沒人 → 答 No",
+        "explanationZh": "「很久」、「什麼都沒動」——那片林子靜悄悄的，就她一個人，哪裡有什麼人？答案是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "很長一段時間，她旁邊什麼都沒動。"
       },
       {
         "type": "narration",
@@ -588,7 +599,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A white rider on a white horse passed her. Then the day came.",
-        "explanationZh": "一個白色騎士騎著白馬經過。然後白天來了。",
+        "explanationZh": "一個穿著白衣的騎士，騎著白馬從她身邊經過。然後，天亮了。奶奶說，你看，白騎士帶著白天來了。",
         "tags": [
           "story",
           "ch5",
@@ -616,13 +627,14 @@
           "深深的黑暗"
         ],
         "correctIndex": 1,
-        "explanationZh": "白騎士過去之後天亮 → 帶來早晨。",
+        "explanationZh": "白騎士一過，天就亮了——他帶來的就是早晨的光。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "白騎士過去之後，天空亮了起來。"
       },
       {
         "type": "narration",
@@ -631,7 +643,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A red rider on a red horse passed her. The sun stood high.",
-        "explanationZh": "一個紅色騎士騎著紅馬經過。太陽高高的。",
+        "explanationZh": "紅騎士騎著紅馬過去，太陽高高掛在天上。奶奶說，這一段，是一天最熱的時候了。",
         "tags": [
           "story",
           "ch5",
@@ -659,14 +671,15 @@
           "半夜"
         ],
         "correctIndex": 1,
-        "explanationZh": "太陽高高 → 中午。",
+        "explanationZh": "太陽高高的——白=早晨、紅=中午！就是正中午啦。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "紅騎士帶來了什麼時間？"
       },
       {
         "type": "narration",
@@ -675,7 +688,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She walked on. She did not stop. She did not eat.",
-        "explanationZh": "她繼續走。她沒停。她沒吃東西。",
+        "explanationZh": "她繼續走。沒有停。沒有吃東西。奶奶說，她一直在走，因為她知道，停下來就更可怕。",
         "tags": [
           "story",
           "ch5",
@@ -697,19 +710,20 @@
           "asleep on her feet"
         ],
         "optionsZh": [
-          "有精神又快",
-          "累但還在走",
-          "快樂又唱歌",
-          "走著就睡了"
+          "有精神又走得快",
+          "很累但還在撐著走",
+          "開心地唱著歌",
+          "走著走著就睡著了"
         ],
         "correctIndex": 1,
-        "explanationZh": "腳重又痛 + 還在走 → 累但堅持。",
+        "explanationZh": "腿重、腳痛——但她還是走，一步一步撐下去。這就是很累但還在堅持的樣子。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她的腿越來越重，腳也好痛。但她還是走。"
       },
       {
         "type": "comprehension",
@@ -726,19 +740,20 @@
           "spring rain"
         ],
         "optionsZh": [
-          "宴會",
-          "夜晚",
-          "婚禮",
-          "春雨"
+          "宴會要開始了",
+          "夜晚要來了",
+          "有婚禮要舉行",
+          "春天的雨要來了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:白=日 / 紅=正午 → 黑=夜。",
+        "explanationZh": "白騎士=白天，紅騎士=中午——那黑騎士來了，當然就是夜晚要到了！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "在紅騎士之後，一個黑騎士騎著黑馬走上了小路。"
       },
       {
         "type": "narration",
@@ -747,7 +762,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The black rider passed her. Night fell on the forest. She was not safe...",
-        "explanationZh": "黑騎士經過她。夜降臨森林。她不安全了……",
+        "explanationZh": "黑騎士經過，夜降臨了。森林裡一片漆黑。奶奶輕聲說：她，不安全了……",
         "tags": [
           "story",
           "ch5",
@@ -789,7 +804,7 @@
             "right": "house"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 fence = 圍籬\n🔑 bone = 骨頭\n🔑 skull = 頭骨\n🔑 house = 屋子\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚要學的字很特別，把它記好！\n🔑 fence = 圍籬\n🔑 bone = 骨頭\n🔑 skull = 頭骨\n🔑 house = 屋子\n聽完故事，你會記得一輩子。",
         "tags": [
           "story",
           "ch5",
@@ -805,7 +820,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "At last she came to a wide open place in the trees.",
-        "explanationZh": "最後她到了樹林裡一塊大空地。",
+        "explanationZh": "走了好久好久，Vasilisa 終於來到樹林裡一塊空地。奶奶說，她一定是又累又害怕——但眼前的景象，更讓她說不出話。",
         "tags": [
           "story",
           "ch5",
@@ -834,13 +849,14 @@
         ],
         "correctIndex": 1,
         "culturalLoad": "high_unfamiliar",
-        "explanationZh": "不是木頭 → 骨頭!Baba Yaga 的院子用白骨圍著 — 聽故事時注意每根柱子上的東西。",
+        "explanationZh": "不是木頭——是骨頭！Baba Yaga 的院子，用白骨當圍籬，奶奶說，光是想到就起雞皮疙瘩了。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她前面有一道籬笆。不是木頭做的。是白骨做的。"
       },
       {
         "type": "narration",
@@ -849,7 +865,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "On each post sat a skull. The eyes glowed in the dark.",
-        "explanationZh": "每根柱子上有一個頭骨。眼睛在黑暗裡發亮。",
+        "explanationZh": "每一根柱子上，放著一個頭骨。那些眼睛，在黑暗裡發出光。奶奶說，那樣的光，不是讓人安心的光。",
         "tags": [
           "story",
           "ch5",
@@ -869,13 +885,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:會發光 → 不是普通死骨頭 → 答 No",
+        "explanationZh": "頭骨會發光——普通的骨頭不會發光的！這代表它們有魔法，不是一般死骨頭，所以答案是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "頭骨裡透出淡淡的黃光，軟軟的。"
       },
       {
         "type": "narration",
@@ -884,7 +901,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Inside the fence was a small house.",
-        "explanationZh": "圍籬裡面有一間小屋子。",
+        "explanationZh": "骨頭圍籬的裡面，有一間小小的屋子。奶奶說，看到這裡，Vasilisa 一定屏住了呼吸。",
         "tags": [
           "story",
           "ch5",
@@ -908,18 +925,19 @@
         "optionsZh": [
           "用雞腳站著",
           "長在樹上",
-          "坐在石頭上",
-          "飄在水上"
+          "坐在一塊大石頭上",
+          "飄在水面上"
         ],
         "correctIndex": 0,
-        "explanationZh": "雞腳上的屋子。",
+        "explanationZh": "那間屋子——是用雞腳站著的！奶奶說，天底下就只有 Baba Yaga 的屋子是這樣蓋的。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那間小屋子，哪裡奇怪？"
       },
       {
         "type": "narration",
@@ -928,7 +946,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The legs turned slowly. The whole house moved.",
-        "explanationZh": "雞腳慢慢轉。整間屋子在動。",
+        "explanationZh": "雞腳慢慢地轉動，整間屋子跟著動起來。奶奶說，你有沒有看過，一間屋子自己會走的？",
         "tags": [
           "story",
           "ch5",
@@ -950,19 +968,20 @@
           "running away into the forest"
         ],
         "optionsZh": [
-          "把門藏起來不讓 Vasilisa 看",
-          "把門對著 Vasilisa",
-          "準備睡覺",
-          "逃進森林裡"
+          "把門藏起來、不讓 Vasilisa 看",
+          "把門轉過來，朝著 Vasilisa",
+          "準備去睡覺了",
+          "要跑進森林裡"
         ],
         "correctIndex": 1,
-        "explanationZh": "門本來背對她 → 屋子轉 → 門面向她。",
+        "explanationZh": "門本來背對著她，屋子轉了一圈——轉完之後，門剛好面對著她了！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "屋子的門本來是背對著 Vasilisa 的。"
       },
       {
         "type": "comprehension",
@@ -979,20 +998,21 @@
           "workers building a new home"
         ],
         "optionsZh": [
-          "普通的鄉下老屋",
+          "普通的鄉下老屋子",
           "一間自己會動的屋子",
-          "大樹在風中倒下",
-          "工人在蓋新家"
+          "大樹在風中倒下來",
+          "工人在蓋一間新家"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 屋子自己動。",
+        "explanationZh": "屋子長著腳、會自己轉——這一段要告訴我們的，就是這間屋子不是普通的屋子，它自己會動！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一間有腳的屋子，自己轉過來，讓門對著那個女孩。"
       },
       {
         "type": "narration",
@@ -1001,7 +1021,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The door stopped right in front of her. Then it opened by itself...",
-        "explanationZh": "門剛好停在她面前。然後門自己打開……",
+        "explanationZh": "門剛好停在她正前方。然後，它自己打開了……奶奶說，故事到這裡，呼吸都要屏住了。",
         "tags": [
           "story",
           "ch5",
@@ -1043,7 +1063,7 @@
             "right": "smell"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 old = 老\n🔑 nose = 鼻子\n🔑 teeth = 牙齒\n🔑 smell = 聞\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的字很有畫面感！\n🔑 old = 老\n🔑 nose = 鼻子\n🔑 teeth = 牙齒\n🔑 smell = 聞\n準備好，Baba Yaga 要出現了。",
         "tags": [
           "story",
           "ch5",
@@ -1059,7 +1079,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa stepped inside. The house was warm. The fire was high.",
-        "explanationZh": "Vasilisa 走進去。屋子裡暖暖的。火很大。",
+        "explanationZh": "Vasilisa 走進去。屋子裡暖暖的，火燒得很大。但奶奶說，這樣的暖，讓人更不安心。",
         "tags": [
           "story",
           "ch5",
@@ -1079,13 +1099,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:不敢坐下 → 不自在 → 答 No",
+        "explanationZh": "她靠著牆站著、不敢坐——這哪裡是在自己家的感覺？她很緊張、很不自在，所以答案是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她靠著牆站著，沒有坐下來。"
       },
       {
         "type": "narration",
@@ -1094,7 +1115,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Outside, something big and round came through the trees.",
-        "explanationZh": "屋外,一個大大圓圓的東西從樹林過來。",
+        "explanationZh": "屋外，有一個大大的、圓圓的東西，從樹林裡穿過來。奶奶說，就是那個……",
         "tags": [
           "story",
           "ch5",
@@ -1117,18 +1138,19 @@
         ],
         "optionsZh": [
           "用兩隻腳走路",
-          "坐在碗裡",
+          "坐在石碗裡",
           "像鳥一樣飛",
-          "騎一匹黑馬"
+          "騎著一匹黑馬"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:Q4「big and round」+ Q5「stone bowl came closer」→ 坐在碗裡。",
+        "explanationZh": "「大又圓的東西」就是石碗——Baba Yaga 坐在石碗裡，從樹林裡飄過來的。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "屋外，一個石碗從樹林間越來越靠近。"
       },
       {
         "type": "narration",
@@ -1137,7 +1159,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her nose was long like a piece of iron. Her teeth were long too.",
-        "explanationZh": "她的鼻子長得像鐵。牙齒也很長。",
+        "explanationZh": "她的鼻子長長的，像一根鐵條。牙齒也很長。奶奶說，這樣的臉，你在夢裡見到一定醒過來。",
         "tags": [
           "story",
           "ch5",
@@ -1159,20 +1181,21 @@
           "🤴 a young king"
         ],
         "optionsZh": [
-          "很老的婦人",
-          "小女孩",
-          "善良仙女",
-          "年輕國王"
+          "一個很老的老婦人",
+          "一個小女孩",
+          "一個善良的仙女",
+          "一個年輕的國王"
         ],
         "correctIndex": 0,
-        "explanationZh": "老婦人(很老的巫婆)。",
+        "explanationZh": "長鼻子、長牙齒、坐石碗——這是一個非常非常老的巫婆！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "Baba Yaga 看起來是什麼樣子？"
       },
       {
         "type": "narration",
@@ -1181,7 +1204,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Baba Yaga stopped at the door. She lifted her nose.",
-        "explanationZh": "Baba Yaga 在門口停下。她抬起鼻子。",
+        "explanationZh": "Baba Yaga 在門口停下來。她把鼻子往空中一抬——奶奶說，她在找味道。",
         "tags": [
           "story",
           "ch5",
@@ -1203,20 +1226,21 @@
           "kicking the dirt"
         ],
         "optionsZh": [
-          "靜靜站著",
-          "在聞空氣",
-          "輕聲唱歌",
-          "踢泥土"
+          "靜靜站著不動",
+          "在聞空氣的氣味",
+          "輕輕唱著歌",
+          "用腳踢泥土"
         ],
         "correctIndex": 1,
         "culturalLoad": "high_unfamiliar",
-        "explanationZh": "抬鼻 + 用力呼吸 → 聞氣味。",
+        "explanationZh": "頭左右晃、用力吸氣——她在用鼻子找氣味，就是在「聞空氣」。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她把頭左右晃，大力吸著空氣。"
       },
       {
         "type": "comprehension",
@@ -1233,19 +1257,20 @@
           "the door called out"
         ],
         "optionsZh": [
-          "看到腳印",
-          "聞到人",
-          "小鳥告訴她",
-          "門喊她"
+          "她看到了腳印",
+          "她聞到了人的氣味",
+          "一隻鳥告訴了她",
+          "門喊了她一聲"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:她在門口聞 → 用鼻子知道有人。",
+        "explanationZh": "她在門口用力聞、到處嗅——就是靠著鼻子，才知道屋裡有人的。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "Baba Yaga 走進來，眼睛直直地看向 Vasilisa。"
       },
       {
         "type": "narration",
@@ -1254,7 +1279,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"I smell a Russian girl,\" she said. \"Why are you here?\"",
-        "explanationZh": "「我聞到一個俄羅斯女孩,」她說。「妳為什麼在這?」",
+        "explanationZh": "「我聞到一個俄羅斯女孩，」她說。「妳為什麼在這裡？」奶奶說，這一刻，Vasilisa 一定嚇壞了。",
         "tags": [
           "story",
           "ch5",
@@ -1296,7 +1321,7 @@
             "right": "sleep"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 work = 工作\n🔑 pile = 一堆\n🔑 sand = 沙\n🔑 sleep = 睡\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的字不難，來認識！\n🔑 work = 工作\n🔑 pile = 一堆\n🔑 sand = 沙\n🔑 sleep = 睡\n記好這幾個，今晚的任務你就能聽懂了。",
         "tags": [
           "story",
           "ch5",
@@ -1312,7 +1337,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa said quietly, \"Grandmother, I came for fire.\"",
-        "explanationZh": "Vasilisa 輕輕說:「奶奶,我來拿火。」",
+        "explanationZh": "Vasilisa 輕輕說：「奶奶，我來拿火。」她叫她「奶奶」——奶奶說，這是因為她很有禮貌，也因為她想讓 Baba Yaga 感覺親近一點。",
         "tags": [
           "story",
           "ch5",
@@ -1340,13 +1365,14 @@
           "一首歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "先做完工作才談火。",
+        "explanationZh": "先做完工作，再說火的事——Baba Yaga 說清楚了，要先把工作做好，才談別的。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "Baba Yaga 大聲笑了。「先把我的工作做完，再談火的事。」"
       },
       {
         "type": "narration",
@@ -1355,7 +1381,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She pointed to a great pile of rice mixed with black sand.",
-        "explanationZh": "她指著一堆白米跟黑沙混在一起的東西。",
+        "explanationZh": "她指著一堆東西——白米跟黑沙全混在一起，那麼大一堆。奶奶說，光是看一眼，手就發軟了。",
         "tags": [
           "story",
           "ch5",
@@ -1375,13 +1401,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:一堆混米 + 黑沙 + 一晚 → 不可能容易 → 答 No",
+        "explanationZh": "那麼大一堆米和沙混在一起，還要在一個晚上分完——奶奶說，這根本是不可能的任務，答案當然是 No。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "「天亮之前，把米跟沙分開，不然我就把妳留在這裡。」"
       },
       {
         "type": "narration",
@@ -1390,7 +1417,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Baba Yaga went to bed. The skulls glowed by the wall.",
-        "explanationZh": "Baba Yaga 去睡了。頭骨在牆邊發光。",
+        "explanationZh": "Baba Yaga 去睡了。頭骨在牆邊發出淡淡的光。整間屋子靜得讓人害怕。",
         "tags": [
           "story",
           "ch5",
@@ -1413,19 +1440,20 @@
         ],
         "optionsZh": [
           "一盞亮燈",
-          "壁爐",
+          "壁爐的火",
           "會發光的頭骨",
-          "小蠟燭"
+          "幾根小蠟燭"
         ],
         "correctIndex": 2,
-        "explanationZh": "頭骨發光。",
+        "explanationZh": "Baba Yaga 睡了，頭骨在牆邊發著光——那是整個房間唯一的光源。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "什麼東西在房間裡發光？"
       },
       {
         "type": "narration",
@@ -1434,7 +1462,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa sat by the pile. She did not know where to start.",
-        "explanationZh": "Vasilisa 坐在那堆東西旁邊。她不知道從哪開始。",
+        "explanationZh": "Vasilisa 坐在那堆米和沙旁邊，不知道要從哪裡開始。奶奶說，她一定覺得，這是不可能完成的事。",
         "tags": [
           "story",
           "ch5",
@@ -1456,19 +1484,20 @@
           "lay down and slept"
         ],
         "optionsZh": [
-          "跑進森林裡",
-          "伸手摸娃娃",
-          "大叫求救",
-          "躺下睡著了"
+          "跑進樹林裡",
+          "伸手去摸那個娃娃",
+          "大聲叫人來救她",
+          "躺下來睡著了"
         ],
         "correctIndex": 1,
-        "explanationZh": "手伸進口袋 → 摸娃娃。",
+        "explanationZh": "眼淚快掉下來，她把手伸進口袋——她在找娃娃，那個媽媽留給她的小木娃娃。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "眼淚差點就要流出來了，但她把手伸進了口袋。"
       },
       {
         "type": "comprehension",
@@ -1485,20 +1514,21 @@
           "happy night around the fire"
         ],
         "optionsZh": [
-          "一個女孩找到唯一依靠",
-          "哭到放棄",
-          "教巫婆一課",
-          "火邊快樂的夜"
+          "一個女孩找到了唯一的依靠",
+          "哭到最後放棄了",
+          "教了巫婆一個教訓",
+          "在火邊開心地過夜"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 在絕望中找到媽媽留的依靠。",
+        "explanationZh": "什麼都沒有了，只剩那個娃娃——奶奶說，在最絕望的時候，她伸手去拿媽媽留給她的那個依靠。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一個害怕的小女孩坐在一個不可能完成的任務旁，伸手去拿媽媽留下的小禮物。"
       },
       {
         "type": "narration",
@@ -1507,7 +1537,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She took the small doll out. \"Help me,\" she whispered. The doll opened its eyes...",
-        "explanationZh": "她拿出小娃娃。「幫我,」她輕聲說。娃娃睜開了眼睛……",
+        "explanationZh": "她把小娃娃拿出來。「幫我，」她輕聲說。娃娃，睜開了眼睛……奶奶說完，沒有立刻說下去，讓這句話在空中停了一下。",
         "tags": [
           "story",
           "ch5",
@@ -1549,7 +1579,7 @@
             "right": "ash"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 dawn = 天亮\n🔑 surprised = 驚訝\n🔑 carry = 帶\n🔑 ash = 灰\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "最後一課！4 個字，學起來！\n🔑 dawn = 天亮\n🔑 surprised = 驚訝\n🔑 carry = 帶\n🔑 ash = 灰\n最後那個字——灰——是這個故事最讓奶奶覺得厲害的地方。",
         "tags": [
           "story",
           "ch5",
@@ -1565,7 +1595,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The doll worked all night. The rice was sorted by dawn.",
-        "explanationZh": "娃娃做了一整夜。天亮的時候米都分好了。",
+        "explanationZh": "娃娃做了整整一夜的工。天亮的時候，米都分好了，沙也分好了。奶奶說，那是媽媽的愛在幫她。",
         "tags": [
           "story",
           "ch5",
@@ -1588,18 +1618,19 @@
         ],
         "optionsZh": [
           "好驕傲",
-          "驚訝",
+          "覺得驚訝",
           "氣壞了",
-          "好無聊"
+          "覺得好無聊"
         ],
         "correctIndex": 1,
-        "explanationZh": "不可能完成 → 完成了 → 驚訝。",
+        "explanationZh": "這明明是不可能完成的事，結果全做好了——Baba Yaga 一定嚇了一跳，是驚訝！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "Baba Yaga 醒來，看見米在一堆，沙在另一堆。"
       },
       {
         "type": "narration",
@@ -1608,7 +1639,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Baba Yaga did not ask how. She gave a long, careful look at the girl.",
-        "explanationZh": "Baba Yaga 沒問怎麼做到。她長長地、仔細地看著女孩。",
+        "explanationZh": "Baba Yaga 沒問怎麼做到的。她長長地、仔細地看著 Vasilisa——奶奶說，這眼神，像在看一個不一樣的人。",
         "tags": [
           "story",
           "ch5",
@@ -1628,13 +1659,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:叫她拿火走 → 放她走 → 答 Yes",
+        "explanationZh": "「拿著火，走吧」——這就是放她走了。答案是 Yes。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "inference"
-        ]
+        ],
+        "sentenceZh": "沉默了好久之後，她說：「拿著妳的火，走吧。」"
       },
       {
         "type": "narration",
@@ -1643,7 +1675,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She gave Vasilisa a skull with glowing eyes on a stick.",
-        "explanationZh": "她給 Vasilisa 一個頭骨,眼睛發光,插在棍子上。",
+        "explanationZh": "她給了 Vasilisa 一個頭骨，插在棍子上，眼睛還在發光。奶奶說，這是 Baba Yaga 給的火，不是一般的火。",
         "tags": [
           "story",
           "ch5",
@@ -1665,20 +1697,21 @@
           "🪨 a hot stone"
         ],
         "optionsZh": [
-          "發光的頭骨",
-          "小蠟燭",
-          "燒著的木頭",
-          "熱石頭"
+          "一個會發光的頭骨",
+          "一根小蠟燭",
+          "一根燒著的木柴",
+          "一塊熱石頭"
         ],
         "correctIndex": 0,
-        "explanationZh": "頭骨光 = 巫婆的火。",
+        "explanationZh": "Baba Yaga 給的是頭骨上的光——那是巫婆的火，Vasilisa 就這樣帶著它走回家。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "Vasilisa 帶什麼回家？"
       },
       {
         "type": "narration",
@@ -1687,7 +1720,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Vasilisa carried the light back through the dark woods.",
-        "explanationZh": "Vasilisa 帶著光,穿過黑黑的森林回家。",
+        "explanationZh": "Vasilisa 帶著那個光，穿過黑黑的樹林，一步一步走回家。奶奶說，她一路上，一定緊緊抱著那根棍子。",
         "tags": [
           "story",
           "ch5",
@@ -1709,19 +1742,20 @@
           "a neighbor"
         ],
         "optionsZh": [
-          "爸爸",
-          "新太太",
-          "村裡牧師",
-          "鄰居"
+          "爸爸出來了",
+          "新太太出來了",
+          "村裡的牧師",
+          "一個鄰居"
         ],
         "correctIndex": 1,
-        "explanationZh": "爸爸的太太 = 新太太(繼母)。",
+        "explanationZh": "「爸爸的太太」——就是繼母、新太太，是她出來開的門。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "回到家，爸爸的太太打開門，愣在那裡看。"
       },
       {
         "type": "narration",
@@ -1730,7 +1764,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The glowing eyes turned to her. She could not look away.",
-        "explanationZh": "發光的眼睛轉向她。她移不開目光。",
+        "explanationZh": "那發光的眼睛，慢慢轉向她。繼母想移開視線，卻移不開。奶奶說，那光，好像認識她。",
         "tags": [
           "story",
           "ch5",
@@ -1744,7 +1778,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "In a single breath, the new woman turned to ash. Vasilisa held the light close...",
-        "explanationZh": "一口氣的時間,新太太化成灰。Vasilisa 把光抱緊……",
+        "explanationZh": "一口氣的時間，新太太化成了灰。Vasilisa 把那個光緊緊抱在胸口……奶奶說，這就是故事的最後了，孩子。善良的人，有媽媽在保護。",
         "tags": [
           "story",
           "ch5",

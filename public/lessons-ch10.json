@@ -32,7 +32,7 @@
             "right": "hero"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 sun = 太陽\n🔑 sky = 天空\n🔑 bow = 弓\n🔑 hero = 英雄\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚故事的開場單字，左邊中文、右邊英文：\n🔑 sun = 太陽\n🔑 sky = 天空\n🔑 bow = 弓\n🔑 hero = 英雄\n把這 4 個字記進心裡，故事聽起來就輕鬆多了！",
         "tags": [
           "story",
           "ch10",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Long ago in old China, ten suns came up in the sky.",
-        "explanationZh": "很久以前,在古老的中國,天上有十個太陽。",
+        "explanationZh": "很久很久以前，在古老的中國，天上有十個太陽。奶奶說，光是想像那樣的天空，就覺得熱得喘不過氣。",
         "tags": [
           "story",
           "ch10",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The land was hot. The rivers dried up. The plants died.",
-        "explanationZh": "土地很熱。河水乾了。植物死了。",
+        "explanationZh": "土地被烤得滾燙，河水一點一點乾掉，植物枯黃掉落——十個太陽同時高掛，大地根本受不了。",
         "tags": [
           "story",
           "ch10",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 沒雨沒綠草 → 生活很苦 → 答 No",
+        "explanationZh": "沒有雨、沒有綠草——你想想，這樣的日子，人要怎麼活下去？當然不輕鬆，所以答案是 No。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "沒有雨。沒有綠草。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A strong young man named Hou Yi lifted his bow.",
-        "explanationZh": "一個強壯的年輕人,叫后羿,舉起了他的弓。",
+        "explanationZh": "就在這時候，一個叫后羿的強壯年輕人站出來了。他把弓舉起來，對著天空，奶奶說，那個姿勢，真的很帥。",
         "tags": [
           "story",
           "ch10",
@@ -125,13 +126,14 @@
           "送雨給它們"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: shot the suns → made them go away (paraphrase, anti-violence)。",
+        "explanationZh": "他一支一支把太陽射落，只留下最後一個。那些被射中的太陽，一個接著一個從天上消失——所以是「讓它們消失」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "后羿對后把太陽一個個射下。只剩最後一個。"
       },
       {
         "type": "narration",
@@ -140,7 +142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The land was saved. The people loved Hou Yi.",
-        "explanationZh": "土地得救了。人民愛戴后羿。",
+        "explanationZh": "大地得救了！河水開始流，植物慢慢回來，人民圍著后羿，感激得不知道說什麼才好。",
         "tags": [
           "story",
           "ch10",
@@ -168,13 +170,14 @@
           "繼續打仗"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: marry a sweet young woman → take a kind wife (paraphrase)。",
+        "explanationZh": "西王母說后羿可以娶一個溫柔的女子——用現在的話說，就是「娶善良的妻子」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "西王母說他可以娶一個溫柔的好女子。"
       },
       {
         "type": "narration",
@@ -183,7 +186,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He married Chang'e. They lived in a small house.",
-        "explanationZh": "他娶了嫦娥。他們住在一間小房子裡。",
+        "explanationZh": "后羿娶了嫦娥，兩人住在一間小屋子裡。奶奶說，那段日子，應該是他們最平靜、最幸福的時光。",
         "tags": [
           "story",
           "ch10",
@@ -205,20 +208,21 @@
           "😴 they were sleepy"
         ],
         "optionsZh": [
-          "他們愛他",
-          "生氣",
-          "逃走",
-          "想睡"
+          "大家好愛他",
+          "很生氣",
+          "都逃跑了",
+          "想睡覺"
         ],
         "correctIndex": 0,
-        "explanationZh": "人民愛戴他 → they loved him。",
+        "explanationZh": "后羿救了大地，人民對他感激又崇拜——當然是好愛他啦！",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "人民對后羿的感情是怎樣的？"
       },
       {
         "type": "narration",
@@ -227,7 +231,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The people loved them both. Would the gods watch them, too?",
-        "explanationZh": "人民都愛他們倆。神,會也盯著他們嗎?",
+        "explanationZh": "人民愛著他們倆。可是奶奶說，被人愛戴，有時候也會惹來神的注意……",
         "tags": [
           "story",
           "ch10",
@@ -269,7 +273,7 @@
             "right": "hide"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 hill = 山\n🔑 pill = 藥丸\n🔑 white = 白色\n🔑 hide = 藏\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚再認識 4 個字！\n🔑 hill = 山\n🔑 pill = 藥丸\n🔑 white = 白色\n🔑 hide = 藏\n其中「藥丸」是今晚最重要的東西——等你聽到就懂了。",
         "tags": [
           "story",
           "ch10",
@@ -285,7 +289,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One spring day, the Queen Mother came down from her hill.",
-        "explanationZh": "一個春天,西王母從她的山上下來。",
+        "explanationZh": "那個春天，西王母從高山上走下來。奶奶說，這樣的事情，不是每個人都能遇上的。",
         "tags": [
           "story",
           "ch10",
@@ -313,13 +317,14 @@
           "找他的貓"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: walked to his home + kind face → paid a visit (paraphrase)。",
+        "explanationZh": "她走到后羿家門口，臉上帶著慈和的笑——這樣的來訪，是要「拜訪他」，不是找麻煩。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "西王母走到后羿家，臉上帶著溫和的神情。"
       },
       {
         "type": "narration",
@@ -328,7 +333,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She gave Hou Yi a small white pill in her hand.",
-        "explanationZh": "她在手心裡,給了后羿一顆白色的小藥丸。",
+        "explanationZh": "西王母把一顆白色的小藥丸，輕輕放在手心，遞給后羿。奶奶說，那顆藥丸，不是普通的東西。",
         "tags": [
           "story",
           "ch10",
@@ -348,13 +353,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 發光 → 不是普通藥 → 答 No",
+        "explanationZh": "那顆藥丸會發出柔柔的暖光——普通的藥哪裡會發光？這當然不是普通藥，所以答案是 No。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "那顆藥丸散著柔和的溫暖光芒。"
       },
       {
         "type": "narration",
@@ -363,7 +369,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"This pill can let one live for ever,\" she said.",
-        "explanationZh": "「這顆藥丸可以讓一個人永遠活著,」她說。",
+        "explanationZh": "「這顆藥丸，可以讓一個人永遠活著，」西王母說。奶奶說這句話的時候，停了一下。",
         "tags": [
           "story",
           "ch10",
@@ -385,20 +391,21 @@
           "🔥 light a fire"
         ],
         "optionsZh": [
-          "讓人睡覺",
-          "給長生",
-          "降雨",
-          "點火"
+          "讓人睡著",
+          "給人長生",
+          "帶來雨水",
+          "點燃火焰"
         ],
         "correctIndex": 1,
-        "explanationZh": "永遠活著 → give long life。",
+        "explanationZh": "「永遠活著」——這就是「長生不老」，所以答案是「給人長生」。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "那顆白色藥丸能做什麼？"
       },
       {
         "type": "narration",
@@ -407,7 +414,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"But only one of you can take it,\" she said.",
-        "explanationZh": "「但是,你們只有一個人可以吃,」她說。",
+        "explanationZh": "「但你們只有一個人可以吃，」她說。后羿和嫦娥，兩個人，一顆藥……這問題，你想想，難不難？",
         "tags": [
           "story",
           "ch10",
@@ -435,13 +442,14 @@
           "太冷"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 一顆藥 + 兩個人 → could not share (paraphrase)。",
+        "explanationZh": "一顆藥，兩個人，不能分著吃——這就是問題所在，所以是「兩人不能分」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "只有一顆藥丸，卻有兩個人。"
       },
       {
         "type": "narration",
@@ -450,7 +458,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Hou Yi put the pill in a small box. He hid the box.",
-        "explanationZh": "后羿把藥丸放進一個小盒子。他把盒子藏起來。",
+        "explanationZh": "后羿把藥丸放進小盒子，再把盒子藏起來。奶奶說，他大概還不知道怎麼決定。",
         "tags": [
           "story",
           "ch10",
@@ -464,7 +472,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The little white pill sat alone in its box. What was it really?",
-        "explanationZh": "小小的白藥丸,獨自躺在盒子裡。它,究竟是什麼?",
+        "explanationZh": "小小的白藥丸，靜靜躺在盒子裡。它是長生的機會，也是一道難題。",
         "tags": [
           "story",
           "ch10",
@@ -506,7 +514,7 @@
             "right": "hunt"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 student = 學生\n🔑 heart = 心\n🔑 bad = 壞\n🔑 hunt = 打獵\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "再來 4 個字，記住它們！\n🔑 student = 學生\n🔑 heart = 心\n🔑 bad = 壞\n🔑 hunt = 打獵\n其中「心壞」是今晚這個人最可怕的地方。",
         "tags": [
           "story",
           "ch10",
@@ -522,7 +530,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Hou Yi had a student. The student was strong.",
-        "explanationZh": "后羿有一個學生。學生很強壯。",
+        "explanationZh": "后羿有一個學生，長得高壯，看起來很厲害。可是奶奶說，光看外表，不代表心也好。",
         "tags": [
           "story",
           "ch10",
@@ -550,13 +558,14 @@
           "年老想睡"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 心壞 + 只想自己 → mean and selfish (paraphrase)。",
+        "explanationZh": "他的心很壞，心裡只裝著自己——這樣的人，用奶奶的話說，就是「又壞又自私」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "但他的心很壞，只想著自己一個人。"
       },
       {
         "type": "narration",
@@ -565,7 +574,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One day, the student saw Hou Yi open the box.",
-        "explanationZh": "一天,學生看見后羿打開盒子。",
+        "explanationZh": "有一天，學生偷偷看見后羿打開那個小盒子——那顆白光閃閃的藥丸，就這樣被他看到了。",
         "tags": [
           "story",
           "ch10",
@@ -585,13 +594,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 眼睛緊盯 → 想要 → 答 Yes",
+        "explanationZh": "眼睛緊緊盯著白藥丸，一刻都沒移開——這樣的眼神，只有一個意思：他「很想要」，所以答案是 Yes。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "學生的眼睛緊緊盯著那顆白藥丸。"
       },
       {
         "type": "narration",
@@ -600,7 +610,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He wanted to live for ever, too. He waited.",
-        "explanationZh": "他也想要永遠活著。他等著。",
+        "explanationZh": "他也想永遠活著——壞人心裡，往往都藏著這個念頭。他開始等待機會。",
         "tags": [
           "story",
           "ch10",
@@ -628,13 +638,14 @@
           "漆紅"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 一直觀察 → 等對的時機 (paraphrase)。",
+        "explanationZh": "天天看著那扇門，不是要打掃、不是要修理——他在等一個機會。所以是「等對的時機」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他日復一日地盯著那扇門。"
       },
       {
         "type": "narration",
@@ -643,7 +654,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One morning, Hou Yi went out to hunt.",
-        "explanationZh": "一個早上,后羿出去打獵。",
+        "explanationZh": "那天早上，后羿帶著弓箭出去打獵了。屋子裡，只剩嫦娥……和那個盒子。",
         "tags": [
           "story",
           "ch10",
@@ -665,20 +676,21 @@
           "🌊 went to the sea"
         ],
         "optionsZh": [
-          "留家",
-          "打獵",
-          "爬山",
-          "到海邊"
+          "留在家裡",
+          "出去打獵",
+          "爬上山頭",
+          "跑去海邊"
         ],
         "correctIndex": 1,
-        "explanationZh": "打獵 → went hunting。",
+        "explanationZh": "后羿那天早上出去打獵了——就是「出去打獵」。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "后羿那天早上去哪裡了？"
       },
       {
         "type": "narration",
@@ -687,7 +699,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e was home alone. The box was inside.",
-        "explanationZh": "嫦娥獨自在家。盒子就在屋內。",
+        "explanationZh": "嫦娥獨自在家，盒子就放在屋子裡，靜靜地。奶奶說，她不知道有危險要來了。",
         "tags": [
           "story",
           "ch10",
@@ -701,7 +713,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One day Hou Yi went out to hunt. Chang'e was home alone with the pill...",
-        "explanationZh": "一天后羿出去打獵。嫦娥獨自在家,身邊就是仙藥……",
+        "explanationZh": "后羿去打獵了，嫦娥一個人在家，身邊就是那顆仙藥。奶奶說，就在這個時候……",
         "tags": [
           "story",
           "ch10",
@@ -743,7 +755,7 @@
             "right": "still"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 knife = 刀\n🔑 sharp = 尖\n🔑 room = 房間\n🔑 still = 不動\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的字很重要，要記好：\n🔑 knife = 刀\n🔑 sharp = 尖\n🔑 room = 房間\n🔑 still = 不動\n這幾個字，等一下你會用到。",
         "tags": [
           "story",
           "ch10",
@@ -759,7 +771,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The bad student walked into the house.",
-        "explanationZh": "壞學生走進屋子。",
+        "explanationZh": "壞學生趁后羿不在，直接走進屋子裡。奶奶說，他連敲門都沒有。",
         "tags": [
           "story",
           "ch10",
@@ -787,13 +799,14 @@
           "書和紙"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: long sharp knife → one thin long blade (paraphrase)。",
+        "explanationZh": "他從外套裡拔出一把細長的刀——那是「一把長薄刀」，不是別的東西。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他從外套裡抽出一把細長的尖刀。"
       },
       {
         "type": "narration",
@@ -802,7 +815,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Give me the pill!\" he said in a hard voice.",
-        "explanationZh": "「把藥丸給我!」他用嚴厲的聲音說。",
+        "explanationZh": "「把藥丸給我！」他的聲音又硬又冷。奶奶說，嫦娥聽到這句話，一定全身都僵住了。",
         "tags": [
           "story",
           "ch10",
@@ -822,13 +835,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 臉紅 + 手穩 → 認真威脅 → 答 No",
+        "explanationZh": "臉紅著、手卻穩穩的——這根本不是鬧著玩的樣子，他是認真威脅，所以答案是 No。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "他的臉漲得通紅，但手一點都不抖。"
       },
       {
         "type": "narration",
@@ -837,7 +851,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e stood very still. She thought fast.",
-        "explanationZh": "嫦娥站著不動。她快速地想。",
+        "explanationZh": "嫦娥站著不動，但她的腦子飛速地轉——她知道，她必須做一個決定。",
         "tags": [
           "story",
           "ch10",
@@ -865,13 +879,14 @@
           "盒子鎖了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 他會傷害很多人 → others would not be safe (paraphrase)。",
+        "explanationZh": "如果把藥給他，他長生不老，會傷害更多的人——所以她不能把藥交出去，因為「別人會不安全」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "如果把藥給他，他會傷害很多人。"
       },
       {
         "type": "narration",
@@ -880,7 +895,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She opened the box. She picked up the small white pill.",
-        "explanationZh": "她打開盒子。她拿起白色的小藥丸。",
+        "explanationZh": "嫦娥打開盒子，把那顆白色的小藥丸拿起來。她的手，有沒有抖？奶奶說，她不敢想。",
         "tags": [
           "story",
           "ch10",
@@ -908,14 +923,15 @@
           "小鑰匙"
         ],
         "correctIndex": 1,
-        "explanationZh": "白藥丸 → the white pill。",
+        "explanationZh": "她手上拿的，就是那顆白色的仙藥——「白藥丸」。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "嫦娥手裡握著什麼？"
       },
       {
         "type": "narration",
@@ -924,7 +940,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She held the pill close to her mouth.",
-        "explanationZh": "她把藥丸靠近嘴邊。",
+        "explanationZh": "她把藥丸移到嘴邊，輕輕靠著嘴唇……奶奶說，這個動作，比什麼都需要勇氣。",
         "tags": [
           "story",
           "ch10",
@@ -938,7 +954,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e looked at the pill. She picked it up. She held it close to her mouth...",
-        "explanationZh": "嫦娥看著藥丸。她拿了起來。她把藥丸靠到嘴邊……",
+        "explanationZh": "嫦娥看著藥丸，拿了起來，慢慢靠近嘴邊……奶奶說，她心裡已經決定了。",
         "tags": [
           "story",
           "ch10",
@@ -980,7 +996,7 @@
             "right": "float"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 swallow = 吞\n🔑 feet = 腳\n🔑 light = 輕\n🔑 float = 浮\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的單字，記住！\n🔑 swallow = 吞\n🔑 feet = 腳\n🔑 light = 輕\n🔑 float = 浮\n這幾個字，說的全都是嫦娥接下來會發生的事。",
         "tags": [
           "story",
           "ch10",
@@ -996,7 +1012,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e put the pill in her mouth.",
-        "explanationZh": "嫦娥把藥丸放進嘴裡。",
+        "explanationZh": "嫦娥深吸一口氣，把藥丸放進嘴裡。奶奶說這句話時，幾乎屏住呼吸。",
         "tags": [
           "story",
           "ch10",
@@ -1024,13 +1040,14 @@
           "給鳥"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: let it go down her throat → drank it down inside (paraphrase)。",
+        "explanationZh": "她閉上眼睛，讓藥丸滑進喉嚨——她「把它吞進身體」，沒有吐出來、也沒有給別人。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她閉上眼睛，讓藥丸順著喉嚨滑下去。"
       },
       {
         "type": "narration",
@@ -1039,7 +1056,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Her feet left the floor. Her hair flew up.",
-        "explanationZh": "她的腳離開地板。她的頭髮飛起。",
+        "explanationZh": "嫦娥的腳慢慢離開地板，頭髮飄了起來——奶奶說，那個畫面，又美又讓人心疼。",
         "tags": [
           "story",
           "ch10",
@@ -1059,13 +1076,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 腳離地 + 裙飄起 → 沒留在地上 → 答 No",
+        "explanationZh": "腳離了地，長裙也跟著飄起來——她沒有留在地上，答案是 No。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她的長裙在空中輕輕飄起，把她托了起來。"
       },
       {
         "type": "narration",
@@ -1074,7 +1092,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The bad student stopped. His mouth fell open.",
-        "explanationZh": "壞學生停住。嘴巴張開。",
+        "explanationZh": "壞學生站在那裡，嘴巴大大張開——他完全沒想到會看到這個，嚇呆了。",
         "tags": [
           "story",
           "ch10",
@@ -1097,18 +1115,19 @@
         ],
         "optionsZh": [
           "準備打架",
-          "驚呆不動",
-          "開心冷靜",
+          "驚呆了動不了",
+          "開心又平靜",
           "想睡又很累"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 不能動 + 說不出話 → frozen with shock (paraphrase)。",
+        "explanationZh": "他動不了、說不出話——這就是被嚇到僵住的樣子，「驚呆了動不了」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他動不了，一個字也說不出來。"
       },
       {
         "type": "narration",
@@ -1117,7 +1136,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e began to float to the door.",
-        "explanationZh": "嫦娥開始浮向門口。",
+        "explanationZh": "嫦娥的身體開始慢慢向門口飄過去，輕輕的，像夢一樣。",
         "tags": [
           "story",
           "ch10",
@@ -1139,20 +1158,21 @@
           "🧊 cold as ice"
         ],
         "optionsZh": [
-          "像石頭重",
-          "像空氣輕",
-          "像火燙",
-          "像冰冷"
+          "像石頭那麼重",
+          "像空氣那麼輕",
+          "像火那麼燙",
+          "像冰那麼冷"
         ],
         "correctIndex": 1,
-        "explanationZh": "腳離地 + 浮起 → 像空氣輕。",
+        "explanationZh": "腳都離地了，整個人飄起來——她的身體，當然是「像空氣那麼輕」。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "嫦娥的身體現在感覺怎樣？"
       },
       {
         "type": "narration",
@@ -1161,7 +1181,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Then to the window. Then to the open sky.",
-        "explanationZh": "然後到窗邊。然後到敞開的天空。",
+        "explanationZh": "她飄向門口，再飄向窗邊，然後——是敞開的天空。奶奶說，那道光，把她帶走了。",
         "tags": [
           "story",
           "ch10",
@@ -1175,7 +1195,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She began to float to the window. To the open sky. What now?",
-        "explanationZh": "她開始飄向窗邊。飄向敞開的天空。接下來呢?",
+        "explanationZh": "她飄向窗邊，飄向敞開的天空。接下來……奶奶也跟著靜靜望著天。",
         "tags": [
           "story",
           "ch10",
@@ -1217,7 +1237,7 @@
             "right": "too late"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 cloud = 雲\n🔑 moon = 月亮\n🔑 bright = 亮\n🔑 too late = 太晚\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚最後幾個字，記好！\n🔑 cloud = 雲\n🔑 moon = 月亮\n🔑 bright = 亮\n🔑 too late = 太晚\n特別記住「月亮」——因為嫦娥要去的地方，就在那裡。",
         "tags": [
           "story",
           "ch10",
@@ -1233,7 +1253,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Chang'e went up and up into the sky.",
-        "explanationZh": "嫦娥越飛越高,進入天空。",
+        "explanationZh": "嫦娥越飛越高，越來越靠近天空。奶奶說，她回頭看了嗎？沒有人知道。",
         "tags": [
           "story",
           "ch10",
@@ -1261,13 +1281,14 @@
           "騎著一匹快馬"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 飛過樹、山、雲 → climbed higher and higher (paraphrase)。",
+        "explanationZh": "她飛過樹梢，飛過山頭，飛過雲層——一路往上，「越升越高」，沒有停下來。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "她飛過樹，飛過山頭，飛過雲層。"
       },
       {
         "type": "narration",
@@ -1276,7 +1297,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The moon was big and bright that night.",
-        "explanationZh": "那晚的月亮又大又亮。",
+        "explanationZh": "那晚，月亮特別大、特別亮。奶奶說，好像在等著她。",
         "tags": [
           "story",
           "ch10",
@@ -1296,13 +1317,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 月最近 + 星最遠 → 朝月飛 → 答 Yes",
+        "explanationZh": "月亮感覺最近，星星感覺很遠——她是朝著月亮飛去，答案是 Yes。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她覺得月亮離她最近，星星都在很遠的地方。"
       },
       {
         "type": "narration",
@@ -1311,7 +1333,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "She landed on the cold grey ground of the moon.",
-        "explanationZh": "她降落在月亮冰冷灰白的地上。",
+        "explanationZh": "她降落在月亮上——那裡的地是冰冷的、灰灰的，和家裡完全不一樣。",
         "tags": [
           "story",
           "ch10",
@@ -1339,14 +1361,15 @@
           "濕又暖"
         ],
         "correctIndex": 1,
-        "explanationZh": "又冷又灰 → cold and grey。",
+        "explanationZh": "月亮的地是「冷又灰」的——故事裡說「cold grey ground」，就是這個感覺。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "月亮的地面摸起來是什麼感覺？"
       },
       {
         "type": "narration",
@@ -1355,7 +1378,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "From up there, she could still see her home far below.",
-        "explanationZh": "從那上面,她還能看見遠遠下面的家。",
+        "explanationZh": "從那麼高的地方，她還能看見遠遠下面的家。奶奶說，那個距離，讓人說不出話。",
         "tags": [
           "story",
           "ch10",
@@ -1383,13 +1406,14 @@
           "想睡 — 他想休息"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 跑回家 + 抬頭看天 + 嫦娥已在月 → missed his chance (paraphrase)。",
+        "explanationZh": "后羿跑著回家，一抬頭，嫦娥已經在月亮上了——他趕不上，只能眼睜睜地，所以是「難過——來不及了」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "后羿往家的方向跑去，抬頭一看，嫦娥已在月亮上。"
       },
       {
         "type": "narration",
@@ -1398,7 +1422,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He was too late. She was already on the moon.",
-        "explanationZh": "他太晚了。她已經在月亮上。",
+        "explanationZh": "他太晚了。她已經在月亮上。奶奶停了很久，沒有說話。",
         "tags": [
           "story",
           "ch10",
@@ -1412,7 +1436,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Hou Yi was running back home. He looked up at the sky. He was too late.",
-        "explanationZh": "后羿正跑回家。他抬頭望天。已經來不及了。",
+        "explanationZh": "后羿跑著回家，抬頭望天——嫦娥已經在月亮上，已經太晚了。",
         "tags": [
           "story",
           "ch10",
@@ -1454,7 +1478,7 @@
             "right": "miss"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 rabbit = 兔子\n🔑 friend = 朋友\n🔑 autumn = 秋天\n🔑 miss = 想念\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚最後的故事，再學 4 個字：\n🔑 rabbit = 兔子\n🔑 friend = 朋友\n🔑 autumn = 秋天\n🔑 miss = 想念\n其中「想念」是今晚最重要的感受——你試試用中文說說看，你想念誰？",
         "tags": [
           "story",
           "ch10",
@@ -1470,7 +1494,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "On the moon, Chang'e was not alone.",
-        "explanationZh": "在月亮上,嫦娥並不孤單。",
+        "explanationZh": "月亮上，嫦娥並不是一個人。奶奶說，故事到這裡，總算透了一口氣。",
         "tags": [
           "story",
           "ch10",
@@ -1492,20 +1516,21 @@
           "flying golden fish"
         ],
         "optionsZh": [
-          "熟睡的熊",
+          "熟睡的大熊",
           "小巧柔軟的小動物",
           "又高又壯的男人",
           "會飛的金魚"
         ],
         "correctIndex": 1,
         "culturalLoad": "high_familiar",
-        "explanationZh": "推理: small white rabbit → tiny soft creature (paraphrase)。",
+        "explanationZh": "一隻小白兔走過來靠近她——「small white rabbit」，就是「小巧柔軟的小動物」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "嫦娥在月亮上遇見了誰？"
       },
       {
         "type": "narration",
@@ -1514,7 +1539,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The rabbit was soft and warm. It sat next to her.",
-        "explanationZh": "兔子柔軟又溫暖。牠坐在她身邊。",
+        "explanationZh": "那隻白兔毛茸茸的、暖暖的，就這樣坐在她身邊。奶奶說，月亮上有個這樣的朋友，真的很好。",
         "tags": [
           "story",
           "ch10",
@@ -1534,13 +1559,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理: 鼻子靠手 → 親近 → 朋友 → 答 Yes",
+        "explanationZh": "小兔子把小鼻子輕輕靠在她手上——這個動作，就是在說「我是你的朋友」，所以答案是 Yes。",
         "tags": [
           "story",
           "ch10",
           "change",
           "inference"
-        ]
+        ],
+        "sentenceZh": "牠把小鼻子輕輕貼在她手上。"
       },
       {
         "type": "narration",
@@ -1549,7 +1575,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Down on earth, Hou Yi looked up every night.",
-        "explanationZh": "在地上,后羿每晚都抬頭看。",
+        "explanationZh": "地球上的后羿，每天晚上都抬頭看著月亮。奶奶說，那種思念，一直沒有消失。",
         "tags": [
           "story",
           "ch10",
@@ -1577,13 +1603,14 @@
           "向天空求雨"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理: 把她愛吃的擺出來 → 表示他還愛她 (paraphrase)。",
+        "explanationZh": "他把她最喜歡的食物擺在院子裡——這是他唯一能做的事，告訴她「我還愛你」。",
         "tags": [
           "story",
           "ch10",
           "change"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "后羿每晚把她最愛吃的食物，擺在院子裡。"
       },
       {
         "type": "narration",
@@ -1592,7 +1619,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Once each year, in autumn, the moon is full and round.",
-        "explanationZh": "每年一次,在秋天,月亮又圓又滿。",
+        "explanationZh": "每年一次，到了秋天，月亮又圓又滿，像一盞大燈掛在天上。",
         "tags": [
           "story",
           "ch10",
@@ -1620,14 +1647,15 @@
           "冬天"
         ],
         "correctIndex": 1,
-        "explanationZh": "秋天 → in autumn。",
+        "explanationZh": "故事說「in autumn」，就是秋天——月亮在秋天最圓最滿。",
         "tags": [
           "story",
           "ch10",
           "change",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "月亮什麼時候最圓最滿？"
       },
       {
         "type": "narration",
@@ -1636,7 +1664,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "People look up. They see the moon. They miss the ones they love.",
-        "explanationZh": "人們抬頭看。他們看見月亮。他們想念心愛的人。",
+        "explanationZh": "大家抬頭看月亮，心裡就會想到遠遠的人——這個感受，叫做「想念」。",
         "tags": [
           "story",
           "ch10",
@@ -1650,7 +1678,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Once each year, the moon is full and round. People look up. They miss the ones they love...",
-        "explanationZh": "每年一次,月亮又圓又滿。人們抬頭。他們想念心愛的人……",
+        "explanationZh": "每年秋天，月亮又圓又滿，人們仰頭看，心裡想起那些遠方的人……奶奶說，這個故事，就是中秋節的由來。",
         "tags": [
           "story",
           "ch10",

@@ -32,7 +32,7 @@
             "right": "world"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 desert = 沙漠\n🔑 work = 工作\n🔑 animal = 動物\n🔑 world = 世界\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚的故事要認識 4 個好字！\n🔑 desert = 沙漠\n🔑 work = 工作\n🔑 animal = 動物\n🔑 world = 世界\n把這 4 個字記進心裡，故事聽起來就輕鬆多了。",
         "tags": [
           "story",
           "ch4",
@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Long ago, my dear, the world was new and shining.",
-        "explanationZh": "很久以前,親愛的聽眾,世界是嶄新而閃亮的。",
+        "explanationZh": "很久很久以前，親愛的，世界剛誕生，還閃著新的光。奶奶最喜歡這樣開頭的故事了。",
         "tags": [
           "story",
           "ch4",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "All the animals began to learn to help Man.",
-        "explanationZh": "所有動物都開始學著幫人類做事。",
+        "explanationZh": "那時候啊，每一隻動物都開始學著幫人類做事——只有一個傢伙例外……",
         "tags": [
           "story",
           "ch4",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:獨自 + 沙漠中間 → 附近沒別人 → 答 No",
+        "explanationZh": "「獨自」、「沙漠正中央」——你想想，附近哪裡會有別的動物？當然沒有啦，所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "駱駝獨自住在廣闊沙漠的正中央。"
       },
       {
         "type": "narration",
@@ -97,7 +98,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "You see, my dear, the Camel did nothing all day long.",
-        "explanationZh": "你看,親愛的,駱駝整天什麼也不做。",
+        "explanationZh": "你看，駱駝整天就這樣——什麼都不做，太陽從東邊升起，到西邊落下，他連動都沒動過。",
         "tags": [
           "story",
           "ch4",
@@ -120,18 +121,19 @@
         ],
         "optionsZh": [
           "很想聊天",
-          "覺得被打擾",
-          "想睡又安靜",
-          "不知道怎麼回"
+          "覺得很煩",
+          "困了、想睡",
+          "不知道怎麼回答"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:粗魯短聲 + 別人問就打發 → 他覺得被打擾 → 答 bothered。",
+        "explanationZh": "人家好好問他，他就「Humph！」把人趕走——這明明是嫌人家煩，根本不想理嘛！所以答案是「覺得很煩」。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "別人一問，駱駝就發出一聲短短的粗魯聲音。"
       },
       {
         "type": "narration",
@@ -140,7 +142,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He only said one thing: \"Humph!\" and turned away.",
-        "explanationZh": "他只說一個字:「Humph!」然後就轉開。",
+        "explanationZh": "他就只會這一個字：「Humph！」說完就把臉轉開。奶奶覺得，他連說謝謝都懶得說呢。",
         "tags": [
           "story",
           "ch4",
@@ -162,19 +164,20 @@
           "thanking Man for food"
         ],
         "optionsZh": [
-          "打招呼問候朋友",
-          "想自己一個人安靜",
-          "分享老歌",
+          "向好朋友打招呼",
+          "想要一個人安靜",
+          "分享一首老歌",
           "感謝人類給食物"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:懶 + 推開別人 → 他想自己安靜不被打擾 → 答 keep peace alone。",
+        "explanationZh": "他說「Humph！」，就是為了把別人推走，好讓自己繼續一個人懶著——所以是「想要一個人安靜」。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "這是他懶懶地把別人推開的方式。"
       },
       {
         "type": "narration",
@@ -183,7 +186,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The other animals all worked hard from sun-up to sun-down.",
-        "explanationZh": "其他動物從日出工作到日落。",
+        "explanationZh": "其他動物啊，太陽剛升起就開始工作，一直忙到太陽落山——每天都這樣，累得要命呢。",
         "tags": [
           "story",
           "ch4",
@@ -205,20 +208,21 @@
           "😴 ready for a long sleep"
         ],
         "optionsZh": [
-          "安靜又疏離",
+          "安靜又孤單",
           "開心又忙碌",
-          "生朋友的氣",
-          "準備長眠"
+          "在生朋友的氣",
+          "準備睡一大覺"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:大家漸漸不來 + 他總說 humph → 他變孤單疏離 → 答 quiet and apart。",
+        "explanationZh": "大家都不來了，他每天就那樣一個人，說著「Humph！」——雖然是他自己不想理人，但每天傍晚，那樣的安靜，其實是孤單的。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "其他動物漸漸不再來找他了。"
       },
       {
         "type": "narration",
@@ -227,7 +231,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And all he ever said was that one short word: \"Humph!\"",
-        "explanationZh": "而他始終就只說這一個短短的字:「Humph!」……",
+        "explanationZh": "而他始終，就只說那一個短短的字：「Humph！」……奶奶說，接下來的故事，就從這個「Humph！」開始。",
         "tags": [
           "story",
           "ch4",
@@ -269,7 +273,7 @@
             "right": "answer"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 horse = 馬\n🔑 dog = 狗\n🔑 ox = 牛\n🔑 answer = 答話\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚再認識 4 個字，把牠們記下來！\n🔑 horse = 馬\n🔑 dog = 狗\n🔑 ox = 牛\n🔑 answer = 答話\n這幾隻動物今晚都要登場喔。",
         "tags": [
           "story",
           "ch4",
@@ -285,7 +289,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Now you see, my dear, the Horse came first to the Camel.",
-        "explanationZh": "現在你看,親愛的,馬第一個來找駱駝。",
+        "explanationZh": "你看，第一個去找駱駝的，是馬。馬挺著胸，踢踢踏踏地走過去。",
         "tags": [
           "story",
           "ch4",
@@ -299,7 +303,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He said, \"Come and trot with me like the rest of us.\"",
-        "explanationZh": "他說:「跟我一起小跑,像我們其他人一樣。」",
+        "explanationZh": "馬說：「來跟我一起小跑嘛，像大家一樣幫忙。」聽起來很誠懇吧？可是……",
         "tags": [
           "story",
           "ch4",
@@ -319,13 +323,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:同樣的短聲 + 把臉轉開 → 拒絕 → 答 No",
+        "explanationZh": "發出一樣的短聲，還把臉轉開——這根本就是拒絕嘛！連看都不想看人家，所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "駱駝發出一樣的短聲，把臉轉開。"
       },
       {
         "type": "narration",
@@ -334,7 +339,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Then the Dog ran up with a bone in his teeth.",
-        "explanationZh": "然後狗叼著一根骨頭跑過來。",
+        "explanationZh": "然後啊，狗叼著一根大骨頭，搖著尾巴跑過來了。",
         "tags": [
           "story",
           "ch4",
@@ -356,19 +361,20 @@
           "leave the desert"
         ],
         "optionsZh": [
-          "整天睡在他旁邊",
-          "幫忙搬東西",
-          "分享他的大骨頭",
-          "離開沙漠"
+          "整天陪他睡在旁邊",
+          "一起幫忙搬東西",
+          "把大骨頭分給他吃",
+          "離開沙漠走掉"
         ],
         "correctIndex": 1,
-        "explanationZh": "帶東西回來 + 撿起來 → 幫忙搬。",
+        "explanationZh": "狗說想要人幫忙撿東西、搬東西給人類——就是一起做搬運的工作嘛！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "狗想要人幫忙替人類搬東西、撿東西。"
       },
       {
         "type": "narration",
@@ -377,7 +383,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Last of all, my dear, the Ox came slowly with his big head.",
-        "explanationZh": "最後,親愛的,牛慢慢地用他的大頭走來。",
+        "explanationZh": "最後呀，牛慢吞吞地來了，低著他那顆大大的頭，一步一步踩過沙地。",
         "tags": [
           "story",
           "ch4",
@@ -399,19 +405,20 @@
           "with a long song"
         ],
         "optionsZh": [
-          "每次都親切",
+          "每次都很親切",
           "用三種不同方式",
-          "同樣粗魯的方式",
-          "用一首長歌"
+          "每次都一樣粗魯",
+          "唱了一首很長的歌"
         ],
         "correctIndex": 2,
-        "explanationZh": "每次都同樣粗魯 → 同樣粗魯的方式。",
+        "explanationZh": "馬來是「Humph！」，狗來還是「Humph！」，牛來依然「Humph！」——每一次都一樣，一個字都沒多說，所以是「每次都一樣粗魯」。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "每一次，駱駝都用同樣粗魯的方式回答他們。"
       },
       {
         "type": "narration",
@@ -420,7 +427,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The three friends looked at each other for a long moment.",
-        "explanationZh": "三個朋友互相看了很久。",
+        "explanationZh": "三個夥伴站在那裡，互相看了很久、很久……奶奶猜，他們大概都在想：這傢伙到底是怎樣！",
         "tags": [
           "story",
           "ch4",
@@ -442,20 +449,21 @@
           "Man already knows about everything"
         ],
         "optionsZh": [
-          "他們很快要找別人幫忙",
-          "駱駝是好的領隊",
-          "沙漠到早上會空了",
-          "人類早就知道一切"
+          "他們很快就要找別人幫忙",
+          "駱駝是最好的隊長",
+          "沙漠到早上就會空了",
+          "人類早就什麼都知道了"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:三人沒得到幫助 → 工作做不完 → 必須去找別人 → 答 need help from someone else。",
+        "explanationZh": "三個夥伴一個接一個去找駱駝，結果都碰壁回來——他們的工作做不完，當然只好去找別人想辦法。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "三隻動物一個接一個來，每一個都空手離開，沒得到任何幫助。"
       },
       {
         "type": "narration",
@@ -464,7 +472,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Then, without a word, the three turned and walked off to find Man...",
-        "explanationZh": "然後三人一句話也沒說,轉身去找人類……",
+        "explanationZh": "然後，三個夥伴一句話也沒說，轉過身，默默走去找人類……奶奶說，接下來的故事，要精彩了。",
         "tags": [
           "story",
           "ch4",
@@ -506,7 +514,7 @@
             "right": "cloud"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 rule = 規矩\n🔑 tired = 累\n🔑 angry = 生氣\n🔑 cloud = 雲\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "再來 4 個字，學起來！\n🔑 rule = 規矩\n🔑 tired = 累\n🔑 angry = 生氣\n🔑 cloud = 雲\n把這幾個字記住，待會的故事你會聽得很清楚。",
         "tags": [
           "story",
           "ch4",
@@ -522,7 +530,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "You can guess, my dear, where the three went to tell their story.",
-        "explanationZh": "你可以猜到,親愛的,三人去找誰說這件事。",
+        "explanationZh": "你猜得到嗎？三個夥伴氣沖沖地去找人類，把駱駝的事告訴他聽。",
         "tags": [
           "story",
           "ch4",
@@ -536,7 +544,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They told Man that the Camel would not lift a finger.",
-        "explanationZh": "他們告訴人,駱駝連一根手指都不肯動。",
+        "explanationZh": "他們說：駱駝連一根手指都不肯動！三個人說這話的時候，奶奶覺得一定都很委屈。",
         "tags": [
           "story",
           "ch4",
@@ -556,13 +564,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:馬上站起 + 雙手叉腰 → 嚴肅不高興 → 答 No",
+        "explanationZh": "一下子站起來、雙手叉腰——這個動作你在家有沒有見過？這表示人類很不高興，根本不是很開心的樣子，所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "人一下子就站起來，把雙手叉在腰上。"
       },
       {
         "type": "narration",
@@ -571,7 +580,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Man said, \"Then you three must work double every day.\"",
-        "explanationZh": "人說:「那麼你們三個每天要做雙倍的工作。」",
+        "explanationZh": "人說：「那你們三個，每天要做兩倍的工。」哇，本來就已經很累了，還要多做一倍！",
         "tags": [
           "story",
           "ch4",
@@ -595,17 +604,18 @@
         "optionsZh": [
           "比平常更短",
           "更長更累",
-          "更輕鬆",
+          "輕鬆多了",
           "充滿空閒時間"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:自己的工作 + 駱駝的工作 → 時間不夠 → 答 longer and harder。",
+        "explanationZh": "自己的事做完，還要做駱駝不肯做的那份——時間根本不夠，當然是更長更累啦！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他們得做自己的工作，還要做駱駝的那份。"
       },
       {
         "type": "narration",
@@ -614,7 +624,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And so the three grew very tired and very, very angry.",
-        "explanationZh": "於是三人變得非常累,而且非常非常生氣。",
+        "explanationZh": "就這樣，三個夥伴又累又生氣，越來越累、越來越生氣。奶奶說，這都是駱駝那一聲「Humph！」惹的禍。",
         "tags": [
           "story",
           "ch4",
@@ -637,18 +647,19 @@
         ],
         "optionsZh": [
           "有精神又開心",
-          "痠痛又難過",
-          "富有又幸運",
-          "想睡又無聊"
+          "又酸痛又難過",
+          "有錢又幸運",
+          "睡意濃又無聊"
         ],
         "correctIndex": 1,
-        "explanationZh": "背痛 + 踢沙 → 痠痛又難過。",
+        "explanationZh": "背痛到踢沙子出氣——這哪裡是開心的樣子？又酸又痛又委屈，所以是「又酸痛又難過」。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他們的背很痛，每天傍晚都在踢沙子出氣。"
       },
       {
         "type": "narration",
@@ -657,7 +668,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "One evening, a tall pillar of dust came rolling across the sand.",
-        "explanationZh": "一個晚上,一根高高的沙柱從沙地上滾過來。",
+        "explanationZh": "有一天傍晚，沙漠那頭出現了一根高高的沙柱，像一條龍，慢慢地滾過來……",
         "tags": [
           "story",
           "ch4",
@@ -680,19 +691,20 @@
         ],
         "optionsZh": [
           "沙塵雲",
-          "雨雲",
-          "大老鷹",
+          "下雨的雲",
+          "一隻大老鷹",
           "一列長長的火車"
         ],
         "correctIndex": 0,
-        "explanationZh": "滾來的沙柱 → 沙塵雲。",
+        "explanationZh": "故事裡說有一根高高的沙柱滾過來——沙柱翻捲，就是沙塵雲啦！",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "什麼東西朝他們穿越沙漠滾過來？"
       },
       {
         "type": "narration",
@@ -701,7 +713,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The dust rolled closer and closer, and inside it something moved...",
-        "explanationZh": "沙塵越滾越近,裡面有東西在動……",
+        "explanationZh": "沙塵越滾越近，越滾越近……裡面有什麼東西在動。奶奶說，是時候了。",
         "tags": [
           "story",
           "ch4",
@@ -743,7 +755,7 @@
             "right": "help"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 djinn = 精靈\n🔑 story = 故事\n🔑 ask = 問\n🔑 help = 幫忙\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚最重要的字來了！\n🔑 djinn = 精靈\n🔑 story = 故事\n🔑 ask = 問\n🔑 help = 幫忙\n其中「djinn」是沙漠裡的魔法精靈，記住它！",
         "tags": [
           "story",
           "ch4",
@@ -759,7 +771,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Now, O dear listener, the dust opened and a Djinn stepped out.",
-        "explanationZh": "親愛的聽眾,沙塵打開,一個精靈走了出來。",
+        "explanationZh": "你看！沙塵散開，走出來一個精靈——djinn！他穿越沙漠，來到三個疲累的動物面前。",
         "tags": [
           "story",
           "ch4",
@@ -773,7 +785,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He looked at the three tired animals with kind eyes.",
-        "explanationZh": "他用親切的眼睛看著三個疲累的動物。",
+        "explanationZh": "他的眼神很親切，看著三個累壞了的動物，那樣溫柔的眼神，像是早就知道他們的委屈。",
         "tags": [
           "story",
           "ch4",
@@ -793,13 +805,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:坐低平視狗 → 友善 → 答 Yes",
+        "explanationZh": "你看，他特地蹲低身子，跟狗眼睛一樣高——這樣做，就是想讓動物們覺得他是自己人，很友善，所以答案是 Yes。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "精靈低下身，跟狗一樣高，然後坐下來。"
       },
       {
         "type": "narration",
@@ -808,7 +821,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Horse and Dog and Ox shared every part of their story.",
-        "explanationZh": "馬、狗、牛把整件事都告訴他。",
+        "explanationZh": "馬、狗、牛三個把整件事從頭說到尾——駱駝怎麼不肯幫忙、他們怎麼做了雙倍的工，一點都沒有漏掉。",
         "tags": [
           "story",
           "ch4",
@@ -832,17 +845,18 @@
         "optionsZh": [
           "吃太多",
           "逃避工作",
-          "唱太大聲",
-          "偷人東西"
+          "唱歌太大聲",
+          "偷了人類的東西"
         ],
         "correctIndex": 1,
-        "explanationZh": "不幫忙 + 別人做他的工 → 他逃避工作。",
+        "explanationZh": "那個朋友不肯動，別人的工作全堆到自己身上——這就是逃避工作嘛！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他們說，有個朋友不肯幫忙，他們只好全部自己做。"
       },
       {
         "type": "narration",
@@ -851,7 +865,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn rubbed his chin and thought for a long while.",
-        "explanationZh": "精靈搓著下巴,想了很久。",
+        "explanationZh": "精靈搓著下巴，想了好久好久。奶奶覺得，他心裡已經在想辦法了。",
         "tags": [
           "story",
           "ch4",
@@ -873,19 +887,20 @@
           "singing him a new song"
         ],
         "optionsZh": [
-          "帶一頓熱飯給他吃",
-          "當面跟他談",
+          "帶一頓熱飯去給他",
+          "當面跟他談一談",
           "帶他回家喝茶",
-          "教他唱新歌"
+          "教他唱一首新歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:聽完三人不平 + 想找懶夥伴 → 要去當面處理 → 答 talk face to face。",
+        "explanationZh": "精靈聽完這些，站起來想要找到那隻懶駱駝——當然是要去當面跟他說清楚啦！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他想找出那個懶惰的朋友藏在哪裡。"
       },
       {
         "type": "narration",
@@ -894,7 +909,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"Where is this Camel?\" the Djinn asked in a deep, soft voice.",
-        "explanationZh": "「這隻駱駝在哪裡?」精靈用低沉柔軟的聲音問。",
+        "explanationZh": "「這隻駱駝在哪裡？」精靈用低沉又柔軟的聲音問，這樣的聲音讓奶奶覺得，有事情要發生了。",
         "tags": [
           "story",
           "ch4",
@@ -916,20 +931,21 @@
           "the Horse winning a big race in the desert"
         ],
         "optionsZh": [
-          "精靈見三人並準備行動",
-          "駱駝在沙地裡學跳舞",
-          "人煮晚餐給動物",
-          "馬在沙漠贏得大比賽"
+          "精靈見到三隻動物、準備出手",
+          "駱駝在沙地上學跳舞",
+          "人類煮晚餐給動物吃",
+          "馬在沙漠贏了一場大比賽"
         ],
         "correctIndex": 0,
-        "explanationZh": "主旨 = 精靈見三人後準備出手。",
+        "explanationZh": "精靈飛來、聽完委屈、開始動腦——這一段的重點，就是精靈見完三個夥伴之後，準備要去找駱駝算帳了。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一個新朋友來了，聽完三個難過的故事，準備好要行動。"
       },
       {
         "type": "narration",
@@ -938,7 +954,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "\"I will go to him myself,\" the Djinn said, and rose into the air...",
-        "explanationZh": "「我自己去找他,」精靈說著,飛上了天空……",
+        "explanationZh": "「我自己去找他，」精靈說著，輕輕一躍，飛上了天空……奶奶說，駱駝啊，你的麻煩來了。",
         "tags": [
           "story",
           "ch4",
@@ -980,7 +996,7 @@
             "right": "magic"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 friend = 朋友\n🔑 hear = 聽見\n🔑 sit down = 坐下\n🔑 magic = 魔法\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "又來 4 個好字！\n🔑 friend = 朋友\n🔑 hear = 聽見\n🔑 sit down = 坐下\n🔑 magic = 魔法\n最後那個字最重要——magic，魔法！等一下你就知道為什麼。",
         "tags": [
           "story",
           "ch4",
@@ -996,7 +1012,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "You see, my dear, the Djinn flew to the Howling Desert.",
-        "explanationZh": "你看,親愛的,精靈飛到了 Howling Desert。",
+        "explanationZh": "你看，精靈飛啊飛，飛到了一個叫做 Howling Desert 的地方——就是那個會嚎叫的大沙漠。",
         "tags": [
           "story",
           "ch4",
@@ -1010,7 +1026,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Camel sat under a thorn tree, doing nothing at all.",
-        "explanationZh": "駱駝坐在一棵帶刺的樹下,什麼也沒做。",
+        "explanationZh": "駱駝坐在一棵有刺的樹下，什麼都沒做。奶奶說，他大概還以為今天跟往常一樣，什麼事都不會發生。",
         "tags": [
           "story",
           "ch4",
@@ -1030,13 +1046,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:好幾分鐘 + 靜靜 → 不急 → 答 No",
+        "explanationZh": "「好幾分鐘」、「靜靜地」——精靈不急不躁，慢慢看，慢慢想，這根本不是著急的樣子，所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "精靈靜靜地看著他，看了好幾分鐘。"
       },
       {
         "type": "narration",
@@ -1045,7 +1062,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn said, \"My friend, I have heard a sad report.\"",
-        "explanationZh": "精靈說:「我的朋友,我聽到一個難過的報告。」",
+        "explanationZh": "精靈開口了：「我的朋友，我聽到了一個很難過的消息。」他說話很輕，但駱駝一定聽到了。",
         "tags": [
           "story",
           "ch4",
@@ -1068,18 +1085,19 @@
         ],
         "optionsZh": [
           "只有人類自己",
-          "其他動物",
+          "其他動物們",
           "精靈自己",
-          "完全沒人"
+          "完全沒有人"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:他不抬自己的份 → 別人要替他扛 → 答 the other animals。",
+        "explanationZh": "那個不肯做工的傢伙——他的那份工作，不就全堆到別人身上了嗎？所以是「其他動物們」替他扛。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他說到有個朋友不肯做自己那份工作。"
       },
       {
         "type": "narration",
@@ -1088,7 +1106,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Camel only said his one rude word once more: \"Humph!\"",
-        "explanationZh": "駱駝再次只說他那個粗魯的字:「Humph!」",
+        "explanationZh": "駱駝聽完，又再說了那個字：「Humph！」這一次，精靈沒有走掉。",
         "tags": [
           "story",
           "ch4",
@@ -1111,18 +1129,19 @@
         ],
         "optionsZh": [
           "馬上答應幫忙",
-          "同樣的粗魯回答",
-          "跑過沙地離開",
-          "先要了一些食物"
+          "用同樣粗魯的話回應",
+          "跑過沙地跑掉了",
+          "先要了一些食物才說"
         ],
         "correctIndex": 1,
-        "explanationZh": "又是那個粗魯字 → 同樣的粗魯回答。",
+        "explanationZh": "他又是那個字，還是「Humph！」——一個字都沒改，同樣粗魯，同樣把人家推走。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他選擇再一次用同樣懶懶的方式回答。"
       },
       {
         "type": "narration",
@@ -1131,7 +1150,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn sat down and placed his chin upon his hand.",
-        "explanationZh": "精靈坐下,把下巴擱在手上。",
+        "explanationZh": "精靈坐下來，把下巴擱在手上——你看，這個姿勢，奶奶一看就知道，有事要發生了。",
         "tags": [
           "story",
           "ch4",
@@ -1155,18 +1174,19 @@
         "optionsZh": [
           "施魔法",
           "煮麵包",
-          "睡午覺",
-          "讀書"
+          "睡個午覺",
+          "看一本書"
         ],
         "correctIndex": 0,
-        "explanationZh": "坐下 + 下巴在手 → 進入施法姿勢。",
+        "explanationZh": "坐下來、下巴擱在手上——這是在凝神準備施法的姿勢喔！所以是要施魔法。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "精靈準備要做什麼？"
       },
       {
         "type": "narration",
@@ -1175,7 +1195,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Then, very slowly, the Djinn began to make a great Magic...",
-        "explanationZh": "然後,很慢很慢地,精靈開始施一個大魔法……",
+        "explanationZh": "然後，慢慢地、慢慢地，精靈開始施起一個大大的魔法……奶奶說，駱駝的背，要開始有故事了。",
         "tags": [
           "story",
           "ch4",
@@ -1217,7 +1237,7 @@
             "right": "hump"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 flat = 平的\n🔑 back = 背\n🔑 behind = 後面\n🔑 hump = 駝峰\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "今晚 4 個字很重要，把它們記進去！\n🔑 flat = 平的\n🔑 back = 背\n🔑 behind = 後面\n🔑 hump = 駝峰\n最後那個——hump，駝峰——就是今天故事的主角！",
         "tags": [
           "story",
           "ch4",
@@ -1233,7 +1253,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Now watch, my dear, what happened next under that hot sun.",
-        "explanationZh": "現在仔細看,親愛的,在那烈日下發生了什麼。",
+        "explanationZh": "奶奶說，仔細瞧瞧，那烈日下，接下來發生的事，可是很神奇的哦。",
         "tags": [
           "story",
           "ch4",
@@ -1247,7 +1267,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Camel's back was flat and smooth, like a wide soft mat.",
-        "explanationZh": "駱駝的背平平滑滑,像一塊寬寬的軟墊。",
+        "explanationZh": "你看，駱駝的背本來平平的、滑滑的，像一塊軟軟的大墊子。沒有一點突起，連個小山丘都沒有。",
         "tags": [
           "story",
           "ch4",
@@ -1267,13 +1287,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:杯子不滑 → 背平的 → 還沒駝峰 → 答 No",
+        "explanationZh": "背這麼平，杯子放上去都不會滑——這就說明，駱駝那時候的背完全平平的，根本還沒有駝峰嘛！所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "你可以在他背上放一個小杯子，它也不會滑掉。"
       },
       {
         "type": "narration",
@@ -1282,7 +1303,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Camel said \"Humph!\" one more time, just to be rude.",
-        "explanationZh": "駱駝又說了一次「Humph!」,只是為了無禮。",
+        "explanationZh": "駱駝又說了一次「Humph！」——就這樣，只是因為他懶得說別的。奶奶說，這一次，這個字說出口，有點不一樣了……",
         "tags": [
           "story",
           "ch4",
@@ -1304,19 +1325,20 @@
           "a call to other animals"
         ],
         "optionsZh": [
-          "完全沒影響",
+          "完全沒有任何影響",
           "一股改變他身體的力量",
-          "讓太陽更熱的東西",
-          "對其他動物的呼叫"
+          "讓太陽變得更熱的東西",
+          "在呼喚其他動物的信號"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:一說 humph 背就變 → 那個字觸發了身體變化 → 答 changing his body。",
+        "explanationZh": "他一說「Humph！」，背就開始變形——那個字，就像一道咒語，讓他的身體開始改變了！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "就在他說出那個字的同時，他平平的背開始往上拱。"
       },
       {
         "type": "narration",
@@ -1325,7 +1347,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "It puffed up and puffed up and puffed up some more.",
-        "explanationZh": "它鼓起來、又鼓起來、又再鼓起來。",
+        "explanationZh": "它鼓起來、又鼓起來、再鼓起來……就像一個麵包在烤箱裡慢慢膨脹，停都停不下來。",
         "tags": [
           "story",
           "ch4",
@@ -1347,19 +1369,20 @@
           "two small birds"
         ],
         "optionsZh": [
-          "尾巴變長",
-          "背上一個新隆起",
+          "尾巴長長了",
+          "背上出現一個新的隆起",
           "一棵高高的綠棕櫚樹",
-          "兩隻小鳥"
+          "兩隻小鳥飛來停在上面"
         ],
         "correctIndex": 1,
-        "explanationZh": "又大又軟的形狀在背後 → 背上新隆起。",
+        "explanationZh": "他轉頭一看，背後一大塊軟軟的東西正在長起來——背上出現了一個新的隆起！",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "他回頭一看，背後一個又大又軟的形狀慢慢升起來。"
       },
       {
         "type": "narration",
@@ -1368,7 +1391,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "It was, my dear, his very own big hump — and it stayed.",
-        "explanationZh": "親愛的,那是他自己的大駝峰 — 而且不會消失。",
+        "explanationZh": "親愛的，那就是他自己的大駝峰——它長出來了，而且再也不會消失了。",
         "tags": [
           "story",
           "ch4",
@@ -1390,19 +1413,20 @@
           "Man will let him sleep all year"
         ],
         "optionsZh": [
-          "他能繼續說 humph 保持自由",
-          "他每天都要帶著一個東西",
-          "其他動物會送他禮物",
-          "人類會讓他睡一整年"
+          "他可以繼續說 humph，保持自由",
+          "他以後每天都要帶著這個東西",
+          "其他動物會來送他禮物",
+          "人類讓他睡整整一年"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:形狀留在身上不消失 → 他從此天天帶著它 → 答 carry something every day。",
+        "explanationZh": "駝峰長出來、不會消失——這意思就是，以後不管到哪裡，他的背上都要帶著這個了。奶奶說，這可是他自己說出來的呢。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "那個軟軟的形狀就這樣留在他身上，再也沒有縮回去。"
       },
       {
         "type": "narration",
@@ -1411,7 +1435,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And the great hump rose higher and higher above his back...",
-        "explanationZh": "巨大的駝峰在他背上越長越高、越長越高……",
+        "explanationZh": "那個大駝峰，越長越高、越長越高……奶奶說，下一晚，精靈要來說話了。",
         "tags": [
           "story",
           "ch4",
@@ -1453,7 +1477,7 @@
             "right": "forget"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 own = 自己\n🔑 bring = 帶來\n🔑 three days = 三天\n🔑 forget = 忘記\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "最後一課，再記 4 個字！\n🔑 own = 自己的\n🔑 bring = 帶來\n🔑 three days = 三天\n🔑 forget = 忘記\n學完這 4 個，駱駝的故事就圓滿了。",
         "tags": [
           "story",
           "ch4",
@@ -1469,7 +1493,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Then the Djinn turned, my dear, and spoke clear and slow.",
-        "explanationZh": "然後精靈轉過身,親愛的,慢慢清楚地說。",
+        "explanationZh": "然後，精靈轉過身，慢慢地、清清楚楚地說話了。奶奶屏著呼吸等——他要說什麼呢？",
         "tags": [
           "story",
           "ch4",
@@ -1483,7 +1507,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He said, \"That hump is what you brought upon yourself.\"",
-        "explanationZh": "他說:「那個駝峰是你自己帶到自己身上的。」",
+        "explanationZh": "他說：「那個駝峰，是你自己帶到自己身上的。」聽到這話，奶奶覺得，這就是最公平的答案了。",
         "tags": [
           "story",
           "ch4",
@@ -1503,13 +1527,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:低頭看沙看很久 → 不是驕傲,是難過 → 答 No",
+        "explanationZh": "低著頭，看著腳下的沙，看了好久——這哪裡是驕傲的樣子？他是難過的，覺得慚愧的，所以答案是 No。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "inference"
-        ]
+        ],
+        "sentenceZh": "駱駝低下頭，看著沙地，看了好久好久。"
       },
       {
         "type": "narration",
@@ -1518,7 +1543,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn said, \"Now you can work three days with no food.\"",
-        "explanationZh": "精靈說:「現在你可以三天不吃東西也能工作。」",
+        "explanationZh": "精靈繼續說：「現在好了，你可以三天不吃東西，也能工作了。」駝峰，原來是有用的。",
         "tags": [
           "story",
           "ch4",
@@ -1540,19 +1565,20 @@
           "speaking with the wind"
         ],
         "optionsZh": [
-          "在沙漠贏得每場賽跑",
-          "走很遠不用停",
-          "在樹蔭下休息",
-          "跟風說話"
+          "在沙漠贏得每一場賽跑",
+          "走很遠的路不用停下來",
+          "在樹蔭下好好休息",
+          "可以跟風說話"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:身上有存糧 → 路上不必常停下 → 答 travel long without stopping。",
+        "explanationZh": "駝峰把食物和水分存起來——這樣走長長的路，就不必一直停下來找吃的了。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "那個大形狀把他路上需要的東西都存起來了。"
       },
       {
         "type": "narration",
@@ -1561,7 +1587,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And so, my dear, the Camel went off to find the other three.",
-        "explanationZh": "於是,親愛的,駱駝去找另外三個夥伴。",
+        "explanationZh": "就這樣，親愛的，駱駝去找那三個等了他很久的夥伴。",
         "tags": [
           "story",
           "ch4",
@@ -1583,19 +1609,20 @@
           "giving small gifts"
         ],
         "optionsZh": [
-          "唱歌",
-          "搬東西",
-          "躲工作",
-          "送小禮物"
+          "一起唱歌",
+          "一起搬運東西",
+          "躲著不做工",
+          "送出小禮物"
         ],
         "correctIndex": 1,
-        "explanationZh": "搬袋子過沙 → 搬東西。",
+        "explanationZh": "他跟著大家，一起扛袋子穿沙漠——這就是「搬運東西」，終於加入了隊伍。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "從那天起，他跟他們一起扛著袋子穿越沙漠。"
       },
       {
         "type": "narration",
@@ -1604,7 +1631,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He still has that hump today, my dear, so he will never forget.",
-        "explanationZh": "他至今還有那個駝峰,親愛的,所以他永遠不會忘。",
+        "explanationZh": "他到今天還帶著那個駝峰，親愛的——奶奶說，那就是為了讓他永遠記得這件事。",
         "tags": [
           "story",
           "ch4",
@@ -1626,19 +1653,20 @@
           "magic is the best way to fix things"
         ],
         "optionsZh": [
-          "逃避工作會輕鬆",
-          "你逃的工作會變成包袱",
-          "所有駱駝天生有駝峰",
-          "魔法是最好辦法"
+          "逃避工作會讓生活更輕鬆",
+          "你逃掉的工作，最後會變成你的包袱",
+          "所有駱駝天生就有駝峰",
+          "魔法是解決問題最好的方法"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:他逃的工作 → 變成背上的駝峰 → 逃 = 包袱。",
+        "explanationZh": "他不肯做的那份工，最後變成了背上的駝峰，天天跟著他——奶奶說，這個故事告訴我們，逃掉的事情，不會真的消失的。",
         "tags": [
           "story",
           "ch4",
           "camel-hump"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "他本來想逃掉的那件事，變成了他每天都要帶著的東西。"
       },
       {
         "type": "narration",
@@ -1647,7 +1675,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And you, my dear — what hump might you be carrying tonight?",
-        "explanationZh": "而你,親愛的 — 今晚你背上又是什麼樣的駝峰呢?",
+        "explanationZh": "而你，親愛的——奶奶輕聲問，你背上，今晚有什麼還沒做完的事嗎？",
         "tags": [
           "story",
           "ch4",
