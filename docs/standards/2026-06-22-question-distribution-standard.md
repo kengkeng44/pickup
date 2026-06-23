@@ -111,3 +111,13 @@
 - [CoE — CEFR Reading comprehension](https://www.coe.int/en/web/common-european-framework-reference-languages/reading-comprehension)
 - [Willis TBLT lesson framework (Wikipedia)](https://en.wikipedia.org/wiki/Task-based_language_teaching)
 - [Application of TBT in reading class (ERIC)](https://files.eric.ed.gov/fulltext/ED502894.pdf)
+
+---
+
+## 6. 單節時長標準 — 一節 ≈ 5 分鐘 (2026-06-23 per user)
+
+- 目標:每個 lesson `estimateLessonSeconds()` ≈ **280–320 秒**(約 5 分,仍輕快)。
+- 估時權重(src/data/lessons.ts):旁白 7s / 配對·拼字·產出題 26s / 其他四選一 16s。
+- 現況每節 ~127s(~2 分)→ 需**每節約 +8 題**才到 5 分。
+- **加題用分佈標準的「補強型」**:優先 comprehension(補到 ≥15%)+ grammar-mc(每章 2–3)+ 視覺/配對變化;**不要再加 listen-mc**(它已 42% 過量)。
+- 加的題必須:貼該章故事原文、A1/A2、schema 合法、過 validate-lessons(無 option-bias / 無答案外洩)、附溫度中文(explanationZh/optionsZh/sentenceZh)。
