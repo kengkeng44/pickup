@@ -1,1766 +1,1801 @@
 [
- {
-  "id": "kt-ch26-l1",
-  "chapter": 26,
-  "lessonInChapter": 1,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "國王擔心王冠 — 派人去查真假",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l1-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "國王",
-      "right": "king"
-     },
-     {
-      "left": "王冠",
-      "right": "crown"
-     },
-     {
-      "left": "金子",
-      "right": "gold"
-     },
-     {
-      "left": "純的",
-      "right": "pure"
-     }
-    ],
-    "explanationZh": "今晚故事要認識的 4 個字，左邊中文、右邊英文：\n🔑 king = 國王\n🔑 crown = 王冠\n🔑 gold = 金子\n🔑 pure = 純的\n記住這 4 個字，故事聽起來就輕鬆多了！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
+  {
+    "id": "kt-ch26-l1",
+    "chapter": 26,
+    "lessonInChapter": 1,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "國王擔心王冠 — 派人去查真假",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l1-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "國王",
+            "right": "king"
+          },
+          {
+            "left": "王冠",
+            "right": "crown"
+          },
+          {
+            "left": "金子",
+            "right": "gold"
+          },
+          {
+            "left": "純的",
+            "right": "pure"
+          }
+        ],
+        "explanationZh": "今晚故事要認識的 4 個字，左邊中文、右邊英文：\n🔑 king = 國王\n🔑 crown = 王冠\n🔑 gold = 金子\n🔑 pure = 純的\n記住這 4 個字，故事聽起來就輕鬆多了！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in Syracuse, there lived a clever man named Archimedes.",
+        "explanationZh": "很久很久以前，在 Syracuse 城，住著一個聰明人，叫 Archimedes。奶奶說，光是念他的名字就覺得他一定很厲害。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The king had a new crown of bright, shiny gold.",
+        "question": "What did the king have?",
+        "options": [
+          "an old wooden box",
+          "a brand new gold crown",
+          "a small silver coin",
+          "a long iron sword"
+        ],
+        "optionsZh": [
+          "舊木盒",
+          "全新的金王冠",
+          "小銀幣",
+          "長鐵劍"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "國王有一頂閃閃發光的金王冠。他可得意啦——答案就是「全新的金王冠」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "國王有一頂閃閃發亮的純金新王冠。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l1-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But the king worried that some silver was mixed in with the gold.",
+        "questionEn": "Was the king sure the crown was all gold?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "國王怕王冠裡摻了銀子——他自己也不確定啊。所以他對真相沒把握，答 No。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "但國王擔心，王冠裡可能摻了銀。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l1-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He sent for Archimedes and asked for help.",
+        "explanationZh": "他一個人想不出辦法，就派人叫了 Archimedes 來。有聰明的朋友真好。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l1-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Find out the truth, but do not break my crown,\" the king said.",
+        "question": "What rule did the king give Archimedes?",
+        "options": [
+          "cut the crown in half",
+          "keep the crown whole",
+          "sell the crown fast",
+          "paint the crown red"
+        ],
+        "optionsZh": [
+          "切成兩半",
+          "保持王冠完整",
+          "快點賣掉",
+          "塗成紅色"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「找到真相，但不要弄壞我的王冠喔。」——「do not break」就是「保持完整」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "「查出真相，但不能把我的王冠弄壞。」國王說。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l1-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Archimedes bowed his head and took the crown in his hands.",
+        "explanationZh": "Archimedes 低頭行禮，兩手小心地把王冠捧起來。那表情，像是捧著一個珍寶。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l1-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He felt the weight of the puzzle as much as the weight of the gold.",
+        "question": "How did Archimedes feel about the task?",
+        "options": [
+          "easy and small",
+          "as a heavy puzzle",
+          "like a funny joke",
+          "a bit like a soft song"
+        ],
+        "optionsZh": [
+          "很簡單很小",
+          "是個沉重的謎題",
+          "像個好笑的玩笑",
+          "有點像輕柔的歌"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「這個謎題的重量，跟王冠一樣沉。」——他心裡已經把它當成一個沉重的謎了。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他感覺到這個謎題的重量，不亞於黃金的重量。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He walked home with the crown and a big question in his head.",
+        "explanationZh": "他把王冠帶回家，腦子裡塞著一個大大的問號。走路的步伐也重了呢。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l1-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Archimedes feel as he walked home?",
+        "question": "How did he feel?",
+        "options": [
+          "😴 getting very sleepy",
+          "🤔 deep in thought",
+          "😡 starting to feel mad",
+          "🎵 ready to sing"
+        ],
+        "optionsZh": [
+          "快要睡著了",
+          "深深在思考",
+          "開始覺得生氣",
+          "想唱歌"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "帶著大問題走路 → 當然是「深深在思考」。那個 🤔 臉就是他了！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "走回家的路上，阿基米德心裡在想什麼？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l1-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At home, he set the crown on the table and stared at it for a long time...",
+        "explanationZh": "回到家，他把王冠擺在桌上，就這樣盯著它看……奶奶說，這叫「把眼睛盯出窟窿」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l1-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Long ago in Syracuse, there lived a clever man named Archimedes.",
-    "explanationZh": "很久很久以前，在 Syracuse 城，住著一個聰明人，叫 Archimedes。奶奶說，光是念他的名字就覺得他一定很厲害。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
+  },
+  {
+    "id": "kt-ch26-l2",
+    "chapter": 26,
+    "lessonInChapter": 2,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "面對謎題 — 不能切, 不能熔, 該怎麼測?",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l2-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "謎題",
+            "right": "puzzle"
+          },
+          {
+            "left": "切",
+            "right": "cut"
+          },
+          {
+            "left": "熔",
+            "right": "melt"
+          },
+          {
+            "left": "裡面",
+            "right": "inside"
+          }
+        ],
+        "explanationZh": "今晚故事的 4 個字：\n🔑 puzzle = 謎題\n🔑 cut = 切\n🔑 melt = 熔\n🔑 inside = 裡面\n每個字都好用，記起來吧！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Archimedes held the crown in his hands and looked at it for a long time.",
+        "explanationZh": "Archimedes 把王冠捧在手裡，翻來翻去，看了又看，就是不說話。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l2-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He could not cut it open. He could not melt it down.",
+        "question": "What two things could Archimedes not do to the crown?",
+        "options": [
+          "hide and lose the gold",
+          "damage the crown in any way",
+          "wash and dry the metal",
+          "paint and sell it cheap"
+        ],
+        "optionsZh": [
+          "藏它和弄丟金子",
+          "用任何方式破壞王冠",
+          "洗金屬擦乾",
+          "塗顏色便宜賣"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "不能切、不能熔——兩種方法都被封死了。這樣當然只剩一個答案：「不能破壞王冠」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他不能切開它，也不能把它熔掉。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l2-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He turned the crown over and over in the soft lamp light.",
+        "questionEn": "Was Archimedes studying the crown with great care?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在柔和的燈光下，他把王冠翻來翻去——這樣的人，當然是在「仔細研究」，答 Yes。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "他在柔和的燈光下，把王冠翻來翻去地看。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l2-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"How can I tell what is inside, without breaking it?\" he thought.",
+        "explanationZh": "「不破壞它，我要怎麼知道裡面是什麼？」這個問題連奶奶聽了都皺眉頭。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l2-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "No tool he knew could read what hid inside the gold.",
+        "question": "Why was the puzzle so hard?",
+        "options": [
+          "his tools were too big",
+          "no tool he had could see inside",
+          "he had lost his books",
+          "the king had taken his desk"
+        ],
+        "optionsZh": [
+          "工具太大",
+          "沒有工具能看進去",
+          "他弄丟了書",
+          "國王拿走他的桌子"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他翻遍腦袋裡所有工具，沒有一個能看穿金屬——「沒有工具能看進去」就是答案。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他知道的方法，沒有一個能讀出黃金裡頭藏著什麼。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l2-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He sat down on a low stool and thought and thought.",
+        "explanationZh": "他坐在矮凳上，想了又想。奶奶說，這叫「把屁股和板凳黏在一起地想」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l2-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hour after hour went by, but no answer came to his mind.",
+        "question": "Did Archimedes find an answer quickly?",
+        "options": [
+          "yes, a short rest gave him the idea",
+          "no, time passed with no answer",
+          "yes, on his first try",
+          "no, but a friend told him"
+        ],
+        "optionsZh": [
+          "是,休息一下靈感就來了",
+          "不,時間過去都沒答案",
+          "是,第一次就對",
+          "不,但朋友告訴他"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "一個小時過去、再一個小時——沒答案。所以是「時間過去都沒答案」，不是靈感忽然來。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "一個小時又一個小時過去了，腦子裡就是想不出答案。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l2-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The puzzle felt as heavy as the crown itself.",
+        "explanationZh": "這個謎題，跟王冠一樣重——壓在胸口的感覺。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l2-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Archimedes feel about the puzzle?",
+        "question": "How did he feel?",
+        "options": [
+          "😴 ready for bed",
+          "🌀 stuck and confused",
+          "😊 happy and easy",
+          "🍎 getting quite hungry"
+        ],
+        "optionsZh": [
+          "想睡覺",
+          "卡住又困惑",
+          "開心又輕鬆",
+          "開始覺得很餓"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "想了好久還是沒解 → 「卡住又困惑」，那個 🌀 最像他當時的狀態。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "阿基米德對這個謎題有什麼感覺？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l2-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He went home with the puzzle still big and dark inside his head...",
+        "explanationZh": "腦子裡裝著一個又大又黑的謎，就這樣回家去了……奶奶說，這才是故事真正要開始的地方。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l1-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The king had a new crown of bright, shiny gold.",
-    "question": "What did the king have?",
-    "options": [
-     "an old wooden box",
-     "a brand new gold crown",
-     "a small silver coin",
-     "a long iron sword"
-    ],
-    "optionsZh": [
-     "舊木盒",
-     "全新的金王冠",
-     "小銀幣",
-     "長鐵劍"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "國王有一頂閃閃發光的金王冠。他可得意啦——答案就是「全新的金王冠」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l1-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "But the king worried that some silver was mixed in with the gold.",
-    "questionEn": "Was the king sure the crown was all gold?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "國王怕王冠裡摻了銀子——他自己也不確定啊。所以他對真相沒把握，答 No。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
+  },
+  {
+    "id": "kt-ch26-l3",
+    "chapter": 26,
+    "lessonInChapter": 3,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "想了好幾天 — 朋友擔心, 他決定去洗澡",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "天",
+            "right": "day"
+          },
+          {
+            "left": "桌子",
+            "right": "desk"
+          },
+          {
+            "left": "累",
+            "right": "tired"
+          },
+          {
+            "left": "洗澡",
+            "right": "bath"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 day = 天\n🔑 desk = 桌子\n🔑 tired = 累\n🔑 bath = 洗澡\n記好了，等一下就用到！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l3-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "For days Archimedes sat at his desk and drew shapes on the floor.",
+        "explanationZh": "好幾天，他就坐在桌前，拿手指在地上畫來畫去。那些圓圈和線條，是他腦袋裡的想法。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l3-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He did not eat much. He slept very little.",
+        "question": "What was Archimedes like during these days?",
+        "options": [
+          "eating big meals all day long",
+          "eating little and sleeping little",
+          "going to parties every evening",
+          "playing games out in the garden"
+        ],
+        "optionsZh": [
+          "整天吃很多大餐",
+          "吃得少又睡得少",
+          "每天晚上去派對",
+          "在花園裡玩遊戲"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "吃得少、睡得少——整個人都投進去了。「吃得少又睡得少」就是答案。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他吃得很少，睡得很少。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l3-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His friends knocked on his door, but he barely heard them.",
+        "questionEn": "Was Archimedes paying attention to people around him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "朋友來敲門，他幾乎沒聽見——眼睛和耳朵都在謎題那邊。他沒注意身邊，答 No。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "朋友敲他的門，他幾乎沒聽見。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l3-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His friends grew worried about him.",
+        "explanationZh": "朋友看他這樣，擔心壞了。吃這麼少、睡這麼少，換誰都擔心呀。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l3-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They saw his face go thin and his eyes grow dark.",
+        "question": "What did his friends notice about Archimedes?",
+        "options": [
+          "that he looked taller",
+          "his face was thin and tired",
+          "loud singing every night",
+          "a new red coat on him"
+        ],
+        "optionsZh": [
+          "他變高了",
+          "他臉瘦又疲倦",
+          "每晚大聲唱歌",
+          "他穿了新紅外套"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "臉瘦了、眼神暗了——「臉瘦又疲倦」就是朋友看到的樣子。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "朋友們看見他的臉越來越瘦，眼神越來越暗。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l3-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At last, Archimedes put down his pen with a tired smile.",
+        "explanationZh": "最後，他帶著一個疲憊的微笑放下筆。好像在說：「好啦，讓腦袋休息一下。」",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l3-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"My mind needs a rest. I will take a warm bath,\" he said.",
+        "question": "What did Archimedes decide to do?",
+        "options": [
+          "go back to the king with no answer",
+          "soak in hot water to clear his head",
+          "run a long race around the city",
+          "sell the gold crown at the market"
+        ],
+        "optionsZh": [
+          "沒有答案就回去找國王",
+          "泡熱水讓腦袋清醒",
+          "繞著城市跑一場長跑",
+          "把金王冠拿去市場賣掉"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「腦袋要休息一下，我去洗個熱水澡。」——「泡熱水讓腦袋清醒」就是他的決定。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "「腦子需要休息了，去泡個熱水澡吧。」他說。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l3-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He left the crown on the table and walked to the bath house.",
+        "explanationZh": "王冠留在桌上，他走向澡堂。謎題暫時先放著——他不知道接下來會發生什麼事。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l3-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What kind of break was Archimedes giving himself?",
+        "question": "What kind of break?",
+        "options": [
+          "👟 a long run",
+          "🛁 a warm bath",
+          "🍔 a big meal",
+          "🎮 a fun game"
+        ],
+        "optionsZh": [
+          "長跑",
+          "熱水澡",
+          "一頓大餐",
+          "玩遊戲"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "說要洗熱水澡 → 答案是「熱水澡」！那個 🛁 就是他要去的地方。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "阿基米德給自己的是哪一種休息？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l3-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He thought the puzzle would have to wait. But the bath had a surprise for him...",
+        "explanationZh": "他以為謎題要等一等——沒想到，浴缸裡藏著一個大驚喜在等他……",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l1-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He sent for Archimedes and asked for help.",
-    "explanationZh": "他一個人想不出辦法，就派人叫了 Archimedes 來。有聰明的朋友真好。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
+  },
+  {
+    "id": "kt-ch26-l4",
+    "chapter": 26,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "進浴缸 — 水溢出來, 他看見了",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l4-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "浴缸",
+            "right": "tub"
+          },
+          {
+            "left": "水",
+            "right": "water"
+          },
+          {
+            "left": "踏進",
+            "right": "step in"
+          },
+          {
+            "left": "溢出",
+            "right": "spill"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 tub = 浴缸\n🔑 water = 水\n🔑 step in = 踏進\n🔑 spill = 溢出\n準備好了嗎？",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The bath was full to the top with warm water.",
+        "explanationZh": "浴缸裝滿溫水，水面就在缸口邊緣——滿到再多一點就會溢出來的那種。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l4-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Archimedes stepped in slowly, one foot at a time.",
+        "question": "How did Archimedes get into the tub?",
+        "options": [
+          "with a fast jump",
+          "with slow careful steps",
+          "while still asleep",
+          "with his shoes on"
+        ],
+        "optionsZh": [
+          "快速跳進",
+          "慢慢小心地走進",
+          "睡著走進",
+          "穿著鞋進"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他慢慢地踏進去，一腳、一腳——「慢慢小心地走進」就是答案。不急，不急。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "阿基米德慢慢踏進去，先踩一隻腳，再踩另一隻腳。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l4-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "As he sat down, water spilled over the edge onto the floor.",
+        "questionEn": "Did the water level inside the tub stay the same?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他一坐下，水嘩啦一下就溢到地板上——水位當然變了，答 No。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "他一坐下去，水就從邊緣溢出來，灑到地上。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l4-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He looked at the water on the floor with wide, bright eyes.",
+        "explanationZh": "他瞪大那雙疲倦的眼睛，看著地板上的水。那表情，像是某個東西正要從心裡跳出來。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l4-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Most people would have called for a cloth to wipe it up.",
+        "question": "What did most people do when bath water spilled?",
+        "options": [
+          "ignore the water completely",
+          "ask for a cloth to wipe it",
+          "pour more water in the tub",
+          "leave the bath fast"
+        ],
+        "optionsZh": [
+          "完全不理那些水",
+          "找布擦掉",
+          "倒更多水進浴缸",
+          "快速離開浴缸"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "別人看到地板濕了，當然是叫人來拿布擦——「找布擦掉」就是普通人的反應。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "大多數人會拿條布把水擦掉就算了。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l4-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But Archimedes stopped, and his heart started to beat fast.",
+        "explanationZh": "但 Archimedes 停下來了，心跳「咚咚咚」加快。他看到別人看不到的東西了。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l4-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The water on the floor looked just the size of his body in the tub.",
+        "question": "What did the spilled water match in size?",
+        "options": [
+          "only the size of his hand",
+          "as much room as he took up",
+          "just the size of his head",
+          "the entire bath house"
+        ],
+        "optionsZh": [
+          "只有他的手那麼大",
+          "跟他佔的空間一樣多",
+          "只有他的頭那麼大",
+          "整個澡堂"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "溢出的水，大小剛好等於他身體在水裡佔的空間。「跟他佔的空間一樣多」——就是這個！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "地上那灘水，剛好和他泡在浴缸裡的身體一樣大。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l4-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His tired eyes lit up. The puzzle in his head began to move.",
+        "explanationZh": "疲倦的眼睛突然亮了——腦袋裡有什麼東西開始動了。快了，快了！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l4-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Archimedes' face look in that moment?",
+        "question": "How did his face look?",
+        "options": [
+          "😴 getting very sleepy",
+          "💡 lit up with an idea",
+          "😡 starting to feel mad",
+          "😢 feeling a little sad"
+        ],
+        "optionsZh": [
+          "快要睡著了",
+          "靈感亮了起來",
+          "開始覺得生氣",
+          "覺得有點難過"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "眼睛亮起來 + 謎題有動靜 → 「靈感亮了起來」！那個 💡 就是他的眼神。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "在那個瞬間，阿基米德的表情是什麼樣子？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l4-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He sat very still in the water. Then, in one quick breath, the idea came...",
+        "explanationZh": "他靜靜坐在水裡，然後——吸一口氣——點子來了……奶奶說，那一秒鐘，改變了整個科學史。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l1-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "\"Find out the truth, but do not break my crown,\" the king said.",
-    "question": "What rule did the king give Archimedes?",
-    "options": [
-     "cut the crown in half",
-     "keep the crown whole",
-     "sell the crown fast",
-     "paint the crown red"
-    ],
-    "optionsZh": [
-     "切成兩半",
-     "保持王冠完整",
-     "快點賣掉",
-     "塗成紅色"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "「找到真相，但不要弄壞我的王冠喔。」——「do not break」就是「保持完整」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l1-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Archimedes bowed his head and took the crown in his hands.",
-    "explanationZh": "Archimedes 低頭行禮，兩手小心地把王冠捧起來。那表情，像是捧著一個珍寶。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
+  },
+  {
+    "id": "kt-ch26-l5",
+    "chapter": 26,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "想通了! 跳出浴缸大喊 Eureka!",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "點子",
+            "right": "idea"
+          },
+          {
+            "left": "大小",
+            "right": "size"
+          },
+          {
+            "left": "重量",
+            "right": "weight"
+          },
+          {
+            "left": "大喊",
+            "right": "shout"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 idea = 點子\n🔑 size = 大小\n🔑 weight = 重量\n🔑 shout = 大喊\n這一節很精彩，記好字！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l5-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"The water that came out is the same size as my body in the tub!\"",
+        "explanationZh": "「溢出的水，大小剛好和我的身體一樣！」——他在浴缸裡就想通了！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l5-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Now he knew. Gold and silver have different sizes for the same weight.",
+        "question": "What was the secret Archimedes found?",
+        "options": [
+          "gold and silver have the same size",
+          "same weight can have different size",
+          "gold floats but silver sinks",
+          "silver always weighs more than gold"
+        ],
+        "optionsZh": [
+          "金和銀大小一樣",
+          "相同重量可以有不同大小",
+          "金浮銀沉",
+          "銀總是比金重"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "金和銀，重量相同，但大小不一樣——「相同重量可以有不同大小」就是他發現的秘密。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他明白了：同樣的重量，金和銀佔的空間不一樣大。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l5-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He saw in his mind the crown going into a bowl of water.",
+        "questionEn": "Was Archimedes already planning a test?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他腦袋裡已經在演練：把王冠放進水裡，看水位……他已經開始計畫了，答 Yes。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "他腦子裡出現了畫面：把王冠放進一盆水裡。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l5-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He could put the crown in water and watch the water rise.",
+        "explanationZh": "把王冠放進水，水位會升高——升高多少，就能知道王冠有多大。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l5-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "If pure gold of the same weight pushed up less water, the crown was not pure.",
+        "question": "How could Archimedes tell if the crown was pure?",
+        "options": [
+          "smell the metal of the crown",
+          "watch how the water level moved",
+          "check its color in the sun",
+          "listen to its sound when tapped"
+        ],
+        "optionsZh": [
+          "聞一聞王冠金屬的味道",
+          "看水位變化",
+          "看陽光下的顏色",
+          "聽敲的聲音"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "如果純金和王冠重量相同，水位卻升得不一樣——王冠就不是純金！答案是「看水位變化」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "如果同重的純金排出的水比較少，王冠就不純。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l5-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A huge smile broke across his face.",
+        "explanationZh": "一個大大的笑容開在他臉上——那種壓了好幾天的石頭終於滾走的感覺。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l5-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He felt the kind of happy you feel when a long question finally opens.",
+        "question": "How did Archimedes feel at this moment?",
+        "options": [
+          "as quiet and sad as a rainy day",
+          "as happy as solving a long puzzle",
+          "as sleepy and slow as a snail",
+          "as cold and tired as the night"
+        ],
+        "optionsZh": [
+          "像下雨天一樣安靜難過",
+          "像解開長久謎題一樣開心",
+          "像蝸牛一樣想睡又慢",
+          "像夜晚一樣又冷又累"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「解開了一個好久的謎題」那種開心——「像解開長久謎題一樣開心」就是他的感受。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他感覺到那種快樂——一個很久的問題終於被打開了。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l5-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He jumped out of the bath and called out, \"Eureka! Eureka!\"",
+        "explanationZh": "他從浴缸跳出來，大喊「Eureka！Eureka！」——誰說洗澡不能有大發現？",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l5-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "In old Greek, \"Eureka\" means what?",
+        "question": "\"Eureka\" 的意思是什麼?",
+        "options": [
+          "💤 I am sleepy",
+          "💡 I have found it",
+          "😡 I am angry",
+          "🍎 I want food"
+        ],
+        "optionsZh": [
+          "我想睡",
+          "我找到了!",
+          "我生氣",
+          "我要吃的"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「Eureka！」是古希臘文——意思是「我找到了！」這是世界上最有名的一聲大喊。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "「Eureka」用古希臘文是什麼意思？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l5-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He ran to find the king, with his big idea ready to share...",
+        "explanationZh": "他跑去找國王，心裡裝著大發現，腳步輕快得像在飛……奶奶說，這叫「帶著答案跑」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l1-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He felt the weight of the puzzle as much as the weight of the gold.",
-    "question": "How did Archimedes feel about the task?",
-    "options": [
-     "easy and small",
-     "as a heavy puzzle",
-     "like a funny joke",
-     "a bit like a soft song"
-    ],
-    "optionsZh": [
-     "很簡單很小",
-     "是個沉重的謎題",
-     "像個好笑的玩笑",
-     "有點像輕柔的歌"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "「這個謎題的重量，跟王冠一樣沉。」——他心裡已經把它當成一個沉重的謎了。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l1-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He walked home with the crown and a big question in his head.",
-    "explanationZh": "他把王冠帶回家，腦子裡塞著一個大大的問號。走路的步伐也重了呢。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
+  },
+  {
+    "id": "kt-ch26-l6",
+    "chapter": 26,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "把發現告訴國王 — 試驗王冠真假",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "跑",
+            "right": "run"
+          },
+          {
+            "left": "皇宮",
+            "right": "palace"
+          },
+          {
+            "left": "計畫",
+            "right": "plan"
+          },
+          {
+            "left": "碗",
+            "right": "bowl"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 run = 跑\n🔑 palace = 皇宮\n🔑 plan = 計畫\n🔑 bowl = 碗\n快記，故事要到高潮了！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l6-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Archimedes ran to the palace with a big smile on his face.",
+        "explanationZh": "他帶著滿臉大笑，一路跑到皇宮——奶奶說，這是她最喜歡的那種跑法：「帶著答案跑」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l6-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He told the king his plan in clear, simple words.",
+        "question": "How did Archimedes explain his plan?",
+        "options": [
+          "in songs and rhymes",
+          "in plain easy words",
+          "in a long letter",
+          "with no words at all"
+        ],
+        "optionsZh": [
+          "用歌曲和押韻",
+          "用簡單清楚的話",
+          "用一封長信",
+          "完全不用話"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他用清楚又簡單的話，把計畫說給國王聽——「簡單清楚」就是答案，不拐彎抹角。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他用清楚簡單的話，把計畫告訴了國王。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l6-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The king leaned forward in his big chair to hear every word.",
+        "questionEn": "Was the king very interested in the plan?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "國王身體往前傾，一個字也不想漏掉——這樣的人，當然是「很感興趣」，答 Yes。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "國王身體向前傾，想聽清楚每一個字。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l6-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The king brought a wide bowl of water to the room.",
+        "explanationZh": "國王拿了一個大寬碗裝水，準備來做實驗了。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l6-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Beside the crown they placed a piece of pure gold of the same weight.",
+        "question": "What did they put next to the crown?",
+        "options": [
+          "a big shiny copper coin",
+          "pure gold of equal weight",
+          "a heavy wooden block",
+          "a tall glass of warm milk"
+        ],
+        "optionsZh": [
+          "一個亮亮的大銅幣",
+          "一塊重量相同的純金",
+          "一塊重重的木頭",
+          "一大杯溫牛奶"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們在王冠旁邊，放了一塊「重量一樣的純金」——這樣才能比出差別。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他們在王冠旁邊放了一塊同樣重量的純金。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l6-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They put the crown in the bowl first. They marked the water line.",
+        "explanationZh": "先放王冠進水，記下水面的位置——這是實驗的第一步。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l6-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then they put in the pure gold. The water rose to a lower mark.",
+        "question": "What did the water do for the pure gold?",
+        "options": [
+          "ended at the same line",
+          "stopped lower than before",
+          "dropped down to zero",
+          "stayed totally still"
+        ],
+        "optionsZh": [
+          "升到一樣高",
+          "停在比較低的位置",
+          "降到零",
+          "完全不動"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "放入純金，水位升得比較低——「停在比較低的位置」就是答案。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "再放進純金，水位升得比較低。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l6-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The two amounts of water were not the same. The crown was not pure gold.",
+        "explanationZh": "兩次水位不一樣，代表……王冠不是純金！謎底揭曉了。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l6-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the king feel about knowing the truth?",
+        "question": "How did the king feel?",
+        "options": [
+          "😴 getting very sleepy",
+          "🤝 thankful for the answer",
+          "🎵 in the mood to sing",
+          "😢 feeling a little sad"
+        ],
+        "optionsZh": [
+          "快要睡著了",
+          "感謝得到答案",
+          "很想唱起歌",
+          "覺得有點難過"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "國王終於知道真相了。那種「謝謝你把我心裡的石頭拿走」的感謝 → 「感謝得到答案」。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "國王知道真相後是什麼感覺？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l6-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The king turned to Archimedes and held out his hand with a soft smile...",
+        "explanationZh": "國王轉向 Archimedes，溫和地伸出手……奶奶說，這個動作比任何話都有份量。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l1-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did Archimedes feel as he walked home?",
-    "question": "How did he feel?",
-    "options": [
-     "😴 getting very sleepy",
-     "🤔 deep in thought",
-     "😡 starting to feel mad",
-     "🎵 ready to sing"
-    ],
-    "optionsZh": [
-     "快要睡著了",
-     "深深在思考",
-     "開始覺得生氣",
-     "想唱歌"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "帶著大問題走路 → 當然是「深深在思考」。那個 🤔 臉就是他了！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l1-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "At home, he set the crown on the table and stared at it for a long time...",
-    "explanationZh": "回到家，他把王冠擺在桌上，就這樣盯著它看……奶奶說，這叫「把眼睛盯出窟窿」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
+  },
+  {
+    "id": "kt-ch26-l7",
+    "chapter": 26,
+    "lessonInChapter": 7,
+    "segmentType": "main-story",
+    "storyId": "archimedes-eureka",
+    "storyBeat": "法則傳到今天 — 每個玩水的小孩都像他",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch26-l7-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "謝謝",
+            "right": "thank"
+          },
+          {
+            "left": "科學",
+            "right": "science"
+          },
+          {
+            "left": "法則",
+            "right": "law"
+          },
+          {
+            "left": "今天",
+            "right": "today"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 thank = 謝謝\n🔑 science = 科學\n🔑 law = 法則\n🔑 today = 今天\n最後一課，好好記！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The king thanked Archimedes for finding the truth.",
+        "explanationZh": "國王謝謝 Archimedes 找到真相——那聲謝謝，值了好幾天沒睡的苦。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The rule from that bath became part of science forever.",
+        "question": "What happened to the rule from the bath?",
+        "options": [
+          "it was forgotten the next day",
+          "it is still used by people today",
+          "only the king kept it safe",
+          "it was hidden away in secret"
+        ],
+        "optionsZh": [
+          "第二天就忘了",
+          "人們今天還在用",
+          "只有國王安全收著",
+          "被當秘密藏起來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "那次洗澡得到的發現，變成了永遠的科學法則——「今天還在用」就是答案，不是只有那個時代用。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "那次洗澡得出的定律，從此成為科學的一部分，永遠流傳。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch26-l7-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Boats, ships, and even small toys still use this rule today.",
+        "questionEn": "Is Archimedes' rule still used in the world?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "船、玩具水鴨、游泳池……到今天這個規則還在用——當然「今天還在用」，答 Yes。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference"
+        ],
+        "sentenceZh": "船、大輪船，甚至小玩具，今天都還用著這個原理。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l7-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "We still call it Archimedes' law today.",
+        "explanationZh": "我們今天還叫它「Archimedes 法則」——也叫浮力原理。洗澡洗出來的科學！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l7-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The big idea came from a small thing he saw with care.",
+        "question": "Where did the big idea come from?",
+        "options": [
+          "a magic spell from an old wizard",
+          "careful watching of a small thing",
+          "an old thick book full of numbers",
+          "a long dream during his noon rest"
+        ],
+        "optionsZh": [
+          "老巫師的一個魔法",
+          "仔細觀察一件小事",
+          "一本寫滿數字的厚舊書",
+          "午休時做的一個長夢"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "大點子來自仔細觀察一件小事——「仔細觀察一件小事」就是答案。水溢出來這件事，別人都忽略了。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "偉大的想法，來自他用心看見的一件小事。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l7-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "And every kid who tries an idea in the bath is a little like him.",
+        "explanationZh": "每個在浴缸裡試點子的小孩，都有一點像 Archimedes。說不定你也是呢！",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch26-l7-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A bath, a bowl, a puddle — anywhere can be a tiny science lab.",
+        "question": "Where can a small science lesson happen?",
+        "options": [
+          "only in big school rooms",
+          "only in a king's palace",
+          "in small everyday places",
+          "only at night-time"
+        ],
+        "optionsZh": [
+          "只有在大學校",
+          "只有在國王皇宮",
+          "在日常的小地方",
+          "只有晚上"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "浴缸、碗、水坑——到處都可以當小小的科學實驗室。「在日常的小地方」就是答案。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "浴缸、水盆、水窪——任何地方都可以是一個小小的科學實驗室。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l7-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "All you need are open eyes and a head full of why.",
+        "explanationZh": "「張開眼睛，帶著一顆充滿「為什麼」的腦袋。」——這就是奶奶最喜歡說的話。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch26-l7-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the main lesson from Archimedes?",
+        "question": "What does the story teach?",
+        "options": [
+          "👀 watch small things closely",
+          "💰 buy more gold every day",
+          "🏃 run as fast as you can",
+          "🍔 eat a big meal every night"
+        ],
+        "optionsZh": [
+          "仔細觀察小事",
+          "每天買更多金子",
+          "盡全力跑很快",
+          "每晚吃一頓大餐"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "仔細觀察小事 → 發現大道理。這就是故事教我們的事！「仔細觀察小事」是答案。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "從阿基米德的故事，我們學到什麼？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch26-l7-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What small thing did you notice today? It might be the start of a big idea...",
+        "explanationZh": "你今天有沒有注意到什麼小事？搞不好，那就是一個大發現的種子……",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      }
     ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l2",
-  "chapter": 26,
-  "lessonInChapter": 2,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "面對謎題 — 不能切, 不能熔, 該怎麼測?",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l2-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "謎題",
-      "right": "puzzle"
-     },
-     {
-      "left": "切",
-      "right": "cut"
-     },
-     {
-      "left": "熔",
-      "right": "melt"
-     },
-     {
-      "left": "裡面",
-      "right": "inside"
-     }
-    ],
-    "explanationZh": "今晚故事的 4 個字：\n🔑 puzzle = 謎題\n🔑 cut = 切\n🔑 melt = 熔\n🔑 inside = 裡面\n每個字都好用，記起來吧！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l2-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Archimedes held the crown in his hands and looked at it for a long time.",
-    "explanationZh": "Archimedes 把王冠捧在手裡，翻來翻去，看了又看，就是不說話。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l2-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He could not cut it open. He could not melt it down.",
-    "question": "What two things could Archimedes not do to the crown?",
-    "options": [
-     "hide and lose the gold",
-     "damage the crown in any way",
-     "wash and dry the metal",
-     "paint and sell it cheap"
-    ],
-    "optionsZh": [
-     "藏它和弄丟金子",
-     "用任何方式破壞王冠",
-     "洗金屬擦乾",
-     "塗顏色便宜賣"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "不能切、不能熔——兩種方法都被封死了。這樣當然只剩一個答案：「不能破壞王冠」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l2-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "He turned the crown over and over in the soft lamp light.",
-    "questionEn": "Was Archimedes studying the crown with great care?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "在柔和的燈光下，他把王冠翻來翻去——這樣的人，當然是在「仔細研究」，答 Yes。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l2-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "\"How can I tell what is inside, without breaking it?\" he thought.",
-    "explanationZh": "「不破壞它，我要怎麼知道裡面是什麼？」這個問題連奶奶聽了都皺眉頭。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l2-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "No tool he knew could read what hid inside the gold.",
-    "question": "Why was the puzzle so hard?",
-    "options": [
-     "his tools were too big",
-     "no tool he had could see inside",
-     "he had lost his books",
-     "the king had taken his desk"
-    ],
-    "optionsZh": [
-     "工具太大",
-     "沒有工具能看進去",
-     "他弄丟了書",
-     "國王拿走他的桌子"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他翻遍腦袋裡所有工具，沒有一個能看穿金屬——「沒有工具能看進去」就是答案。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l2-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He sat down on a low stool and thought and thought.",
-    "explanationZh": "他坐在矮凳上，想了又想。奶奶說，這叫「把屁股和板凳黏在一起地想」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l2-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Hour after hour went by, but no answer came to his mind.",
-    "question": "Did Archimedes find an answer quickly?",
-    "options": [
-     "yes, a short rest gave him the idea",
-     "no, time passed with no answer",
-     "yes, on his first try",
-     "no, but a friend told him"
-    ],
-    "optionsZh": [
-     "是,休息一下靈感就來了",
-     "不,時間過去都沒答案",
-     "是,第一次就對",
-     "不,但朋友告訴他"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "一個小時過去、再一個小時——沒答案。所以是「時間過去都沒答案」，不是靈感忽然來。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l2-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The puzzle felt as heavy as the crown itself.",
-    "explanationZh": "這個謎題，跟王冠一樣重——壓在胸口的感覺。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l2-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did Archimedes feel about the puzzle?",
-    "question": "How did he feel?",
-    "options": [
-     "😴 ready for bed",
-     "🌀 stuck and confused",
-     "😊 happy and easy",
-     "🍎 getting quite hungry"
-    ],
-    "optionsZh": [
-     "想睡覺",
-     "卡住又困惑",
-     "開心又輕鬆",
-     "開始覺得很餓"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "想了好久還是沒解 → 「卡住又困惑」，那個 🌀 最像他當時的狀態。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l2-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He went home with the puzzle still big and dark inside his head...",
-    "explanationZh": "腦子裡裝著一個又大又黑的謎，就這樣回家去了……奶奶說，這才是故事真正要開始的地方。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l3",
-  "chapter": 26,
-  "lessonInChapter": 3,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "想了好幾天 — 朋友擔心, 他決定去洗澡",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l3-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "天",
-      "right": "day"
-     },
-     {
-      "left": "桌子",
-      "right": "desk"
-     },
-     {
-      "left": "累",
-      "right": "tired"
-     },
-     {
-      "left": "洗澡",
-      "right": "bath"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 day = 天\n🔑 desk = 桌子\n🔑 tired = 累\n🔑 bath = 洗澡\n記好了，等一下就用到！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l3-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "For days Archimedes sat at his desk and drew shapes on the floor.",
-    "explanationZh": "好幾天，他就坐在桌前，拿手指在地上畫來畫去。那些圓圈和線條，是他腦袋裡的想法。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l3-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He did not eat much. He slept very little.",
-    "question": "What was Archimedes like during these days?",
-    "options": [
-     "eating big meals all day long",
-     "eating little and sleeping little",
-     "going to parties every evening",
-     "playing games out in the garden"
-    ],
-    "optionsZh": [
-     "整天吃很多大餐",
-     "吃得少又睡得少",
-     "每天晚上去派對",
-     "在花園裡玩遊戲"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "吃得少、睡得少——整個人都投進去了。「吃得少又睡得少」就是答案。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l3-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "His friends knocked on his door, but he barely heard them.",
-    "questionEn": "Was Archimedes paying attention to people around him?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "朋友來敲門，他幾乎沒聽見——眼睛和耳朵都在謎題那邊。他沒注意身邊，答 No。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l3-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "His friends grew worried about him.",
-    "explanationZh": "朋友看他這樣，擔心壞了。吃這麼少、睡這麼少，換誰都擔心呀。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l3-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "They saw his face go thin and his eyes grow dark.",
-    "question": "What did his friends notice about Archimedes?",
-    "options": [
-     "that he looked taller",
-     "his face was thin and tired",
-     "loud singing every night",
-     "a new red coat on him"
-    ],
-    "optionsZh": [
-     "他變高了",
-     "他臉瘦又疲倦",
-     "每晚大聲唱歌",
-     "他穿了新紅外套"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "臉瘦了、眼神暗了——「臉瘦又疲倦」就是朋友看到的樣子。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l3-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "At last, Archimedes put down his pen with a tired smile.",
-    "explanationZh": "最後，他帶著一個疲憊的微笑放下筆。好像在說：「好啦，讓腦袋休息一下。」",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l3-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "\"My mind needs a rest. I will take a warm bath,\" he said.",
-    "question": "What did Archimedes decide to do?",
-    "options": [
-     "go back to the king with no answer",
-     "soak in hot water to clear his head",
-     "run a long race around the city",
-     "sell the gold crown at the market"
-    ],
-    "optionsZh": [
-     "沒有答案就回去找國王",
-     "泡熱水讓腦袋清醒",
-     "繞著城市跑一場長跑",
-     "把金王冠拿去市場賣掉"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "「腦袋要休息一下，我去洗個熱水澡。」——「泡熱水讓腦袋清醒」就是他的決定。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l3-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He left the crown on the table and walked to the bath house.",
-    "explanationZh": "王冠留在桌上，他走向澡堂。謎題暫時先放著——他不知道接下來會發生什麼事。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l3-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What kind of break was Archimedes giving himself?",
-    "question": "What kind of break?",
-    "options": [
-     "👟 a long run",
-     "🛁 a warm bath",
-     "🍔 a big meal",
-     "🎮 a fun game"
-    ],
-    "optionsZh": [
-     "長跑",
-     "熱水澡",
-     "一頓大餐",
-     "玩遊戲"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "說要洗熱水澡 → 答案是「熱水澡」！那個 🛁 就是他要去的地方。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l3-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He thought the puzzle would have to wait. But the bath had a surprise for him...",
-    "explanationZh": "他以為謎題要等一等——沒想到，浴缸裡藏著一個大驚喜在等他……",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l4",
-  "chapter": 26,
-  "lessonInChapter": 4,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "進浴缸 — 水溢出來, 他看見了",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l4-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "浴缸",
-      "right": "tub"
-     },
-     {
-      "left": "水",
-      "right": "water"
-     },
-     {
-      "left": "踏進",
-      "right": "step in"
-     },
-     {
-      "left": "溢出",
-      "right": "spill"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 tub = 浴缸\n🔑 water = 水\n🔑 step in = 踏進\n🔑 spill = 溢出\n準備好了嗎？",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l4-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The bath was full to the top with warm water.",
-    "explanationZh": "浴缸裝滿溫水，水面就在缸口邊緣——滿到再多一點就會溢出來的那種。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l4-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Archimedes stepped in slowly, one foot at a time.",
-    "question": "How did Archimedes get into the tub?",
-    "options": [
-     "with a fast jump",
-     "with slow careful steps",
-     "while still asleep",
-     "with his shoes on"
-    ],
-    "optionsZh": [
-     "快速跳進",
-     "慢慢小心地走進",
-     "睡著走進",
-     "穿著鞋進"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他慢慢地踏進去，一腳、一腳——「慢慢小心地走進」就是答案。不急，不急。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l4-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "As he sat down, water spilled over the edge onto the floor.",
-    "questionEn": "Did the water level inside the tub stay the same?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他一坐下，水嘩啦一下就溢到地板上——水位當然變了，答 No。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l4-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He looked at the water on the floor with wide, bright eyes.",
-    "explanationZh": "他瞪大那雙疲倦的眼睛，看著地板上的水。那表情，像是某個東西正要從心裡跳出來。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l4-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Most people would have called for a cloth to wipe it up.",
-    "question": "What did most people do when bath water spilled?",
-    "options": [
-     "ignore the water completely",
-     "ask for a cloth to wipe it",
-     "pour more water in the tub",
-     "leave the bath fast"
-    ],
-    "optionsZh": [
-     "完全不理那些水",
-     "找布擦掉",
-     "倒更多水進浴缸",
-     "快速離開浴缸"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "別人看到地板濕了，當然是叫人來拿布擦——「找布擦掉」就是普通人的反應。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l4-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "But Archimedes stopped, and his heart started to beat fast.",
-    "explanationZh": "但 Archimedes 停下來了，心跳「咚咚咚」加快。他看到別人看不到的東西了。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l4-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The water on the floor looked just the size of his body in the tub.",
-    "question": "What did the spilled water match in size?",
-    "options": [
-     "only the size of his hand",
-     "as much room as he took up",
-     "just the size of his head",
-     "the entire bath house"
-    ],
-    "optionsZh": [
-     "只有他的手那麼大",
-     "跟他佔的空間一樣多",
-     "只有他的頭那麼大",
-     "整個澡堂"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "溢出的水，大小剛好等於他身體在水裡佔的空間。「跟他佔的空間一樣多」——就是這個！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l4-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "His tired eyes lit up. The puzzle in his head began to move.",
-    "explanationZh": "疲倦的眼睛突然亮了——腦袋裡有什麼東西開始動了。快了，快了！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l4-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did Archimedes' face look in that moment?",
-    "question": "How did his face look?",
-    "options": [
-     "😴 getting very sleepy",
-     "💡 lit up with an idea",
-     "😡 starting to feel mad",
-     "😢 feeling a little sad"
-    ],
-    "optionsZh": [
-     "快要睡著了",
-     "靈感亮了起來",
-     "開始覺得生氣",
-     "覺得有點難過"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "眼睛亮起來 + 謎題有動靜 → 「靈感亮了起來」！那個 💡 就是他的眼神。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l4-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He sat very still in the water. Then, in one quick breath, the idea came...",
-    "explanationZh": "他靜靜坐在水裡，然後——吸一口氣——點子來了……奶奶說，那一秒鐘，改變了整個科學史。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l5",
-  "chapter": 26,
-  "lessonInChapter": 5,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "想通了! 跳出浴缸大喊 Eureka!",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l5-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "點子",
-      "right": "idea"
-     },
-     {
-      "left": "大小",
-      "right": "size"
-     },
-     {
-      "left": "重量",
-      "right": "weight"
-     },
-     {
-      "left": "大喊",
-      "right": "shout"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 idea = 點子\n🔑 size = 大小\n🔑 weight = 重量\n🔑 shout = 大喊\n這一節很精彩，記好字！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l5-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "\"The water that came out is the same size as my body in the tub!\"",
-    "explanationZh": "「溢出的水，大小剛好和我的身體一樣！」——他在浴缸裡就想通了！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l5-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Now he knew. Gold and silver have different sizes for the same weight.",
-    "question": "What was the secret Archimedes found?",
-    "options": [
-     "gold and silver have the same size",
-     "same weight can have different size",
-     "gold floats but silver sinks",
-     "silver always weighs more than gold"
-    ],
-    "optionsZh": [
-     "金和銀大小一樣",
-     "相同重量可以有不同大小",
-     "金浮銀沉",
-     "銀總是比金重"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "金和銀，重量相同，但大小不一樣——「相同重量可以有不同大小」就是他發現的秘密。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l5-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "He saw in his mind the crown going into a bowl of water.",
-    "questionEn": "Was Archimedes already planning a test?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "他腦袋裡已經在演練：把王冠放進水裡，看水位……他已經開始計畫了，答 Yes。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l5-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He could put the crown in water and watch the water rise.",
-    "explanationZh": "把王冠放進水，水位會升高——升高多少，就能知道王冠有多大。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l5-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "If pure gold of the same weight pushed up less water, the crown was not pure.",
-    "question": "How could Archimedes tell if the crown was pure?",
-    "options": [
-     "smell the metal of the crown",
-     "watch how the water level moved",
-     "check its color in the sun",
-     "listen to its sound when tapped"
-    ],
-    "optionsZh": [
-     "聞一聞王冠金屬的味道",
-     "看水位變化",
-     "看陽光下的顏色",
-     "聽敲的聲音"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "如果純金和王冠重量相同，水位卻升得不一樣——王冠就不是純金！答案是「看水位變化」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l5-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "A huge smile broke across his face.",
-    "explanationZh": "一個大大的笑容開在他臉上——那種壓了好幾天的石頭終於滾走的感覺。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l5-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He felt the kind of happy you feel when a long question finally opens.",
-    "question": "How did Archimedes feel at this moment?",
-    "options": [
-     "as quiet and sad as a rainy day",
-     "as happy as solving a long puzzle",
-     "as sleepy and slow as a snail",
-     "as cold and tired as the night"
-    ],
-    "optionsZh": [
-     "像下雨天一樣安靜難過",
-     "像解開長久謎題一樣開心",
-     "像蝸牛一樣想睡又慢",
-     "像夜晚一樣又冷又累"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "「解開了一個好久的謎題」那種開心——「像解開長久謎題一樣開心」就是他的感受。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l5-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He jumped out of the bath and called out, \"Eureka! Eureka!\"",
-    "explanationZh": "他從浴缸跳出來，大喊「Eureka！Eureka！」——誰說洗澡不能有大發現？",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l5-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "In old Greek, \"Eureka\" means what?",
-    "question": "\"Eureka\" 的意思是什麼?",
-    "options": [
-     "💤 I am sleepy",
-     "💡 I have found it",
-     "😡 I am angry",
-     "🍎 I want food"
-    ],
-    "optionsZh": [
-     "我想睡",
-     "我找到了!",
-     "我生氣",
-     "我要吃的"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "「Eureka！」是古希臘文——意思是「我找到了！」這是世界上最有名的一聲大喊。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l5-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He ran to find the king, with his big idea ready to share...",
-    "explanationZh": "他跑去找國王，心裡裝著大發現，腳步輕快得像在飛……奶奶說，這叫「帶著答案跑」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l6",
-  "chapter": 26,
-  "lessonInChapter": 6,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "把發現告訴國王 — 試驗王冠真假",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l6-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "跑",
-      "right": "run"
-     },
-     {
-      "left": "皇宮",
-      "right": "palace"
-     },
-     {
-      "left": "計畫",
-      "right": "plan"
-     },
-     {
-      "left": "碗",
-      "right": "bowl"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 run = 跑\n🔑 palace = 皇宮\n🔑 plan = 計畫\n🔑 bowl = 碗\n快記，故事要到高潮了！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l6-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Archimedes ran to the palace with a big smile on his face.",
-    "explanationZh": "他帶著滿臉大笑，一路跑到皇宮——奶奶說，這是她最喜歡的那種跑法：「帶著答案跑」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l6-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He told the king his plan in clear, simple words.",
-    "question": "How did Archimedes explain his plan?",
-    "options": [
-     "in songs and rhymes",
-     "in plain easy words",
-     "in a long letter",
-     "with no words at all"
-    ],
-    "optionsZh": [
-     "用歌曲和押韻",
-     "用簡單清楚的話",
-     "用一封長信",
-     "完全不用話"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他用清楚又簡單的話，把計畫說給國王聽——「簡單清楚」就是答案，不拐彎抹角。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l6-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "The king leaned forward in his big chair to hear every word.",
-    "questionEn": "Was the king very interested in the plan?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "國王身體往前傾，一個字也不想漏掉——這樣的人，當然是「很感興趣」，答 Yes。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l6-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The king brought a wide bowl of water to the room.",
-    "explanationZh": "國王拿了一個大寬碗裝水，準備來做實驗了。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l6-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Beside the crown they placed a piece of pure gold of the same weight.",
-    "question": "What did they put next to the crown?",
-    "options": [
-     "a big shiny copper coin",
-     "pure gold of equal weight",
-     "a heavy wooden block",
-     "a tall glass of warm milk"
-    ],
-    "optionsZh": [
-     "一個亮亮的大銅幣",
-     "一塊重量相同的純金",
-     "一塊重重的木頭",
-     "一大杯溫牛奶"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他們在王冠旁邊，放了一塊「重量一樣的純金」——這樣才能比出差別。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l6-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "They put the crown in the bowl first. They marked the water line.",
-    "explanationZh": "先放王冠進水，記下水面的位置——這是實驗的第一步。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l6-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Then they put in the pure gold. The water rose to a lower mark.",
-    "question": "What did the water do for the pure gold?",
-    "options": [
-     "ended at the same line",
-     "stopped lower than before",
-     "dropped down to zero",
-     "stayed totally still"
-    ],
-    "optionsZh": [
-     "升到一樣高",
-     "停在比較低的位置",
-     "降到零",
-     "完全不動"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "放入純金，水位升得比較低——「停在比較低的位置」就是答案。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l6-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The two amounts of water were not the same. The crown was not pure gold.",
-    "explanationZh": "兩次水位不一樣，代表……王冠不是純金！謎底揭曉了。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l6-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did the king feel about knowing the truth?",
-    "question": "How did the king feel?",
-    "options": [
-     "😴 getting very sleepy",
-     "🤝 thankful for the answer",
-     "🎵 in the mood to sing",
-     "😢 feeling a little sad"
-    ],
-    "optionsZh": [
-     "快要睡著了",
-     "感謝得到答案",
-     "很想唱起歌",
-     "覺得有點難過"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "國王終於知道真相了。那種「謝謝你把我心裡的石頭拿走」的感謝 → 「感謝得到答案」。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l6-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The king turned to Archimedes and held out his hand with a soft smile...",
-    "explanationZh": "國王轉向 Archimedes，溫和地伸出手……奶奶說，這個動作比任何話都有份量。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch26-l7",
-  "chapter": 26,
-  "lessonInChapter": 7,
-  "segmentType": "main-story",
-  "storyId": "archimedes-eureka",
-  "storyBeat": "法則傳到今天 — 每個玩水的小孩都像他",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch26-l7-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "謝謝",
-      "right": "thank"
-     },
-     {
-      "left": "科學",
-      "right": "science"
-     },
-     {
-      "left": "法則",
-      "right": "law"
-     },
-     {
-      "left": "今天",
-      "right": "today"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 thank = 謝謝\n🔑 science = 科學\n🔑 law = 法則\n🔑 today = 今天\n最後一課，好好記！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l7-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The king thanked Archimedes for finding the truth.",
-    "explanationZh": "國王謝謝 Archimedes 找到真相——那聲謝謝，值了好幾天沒睡的苦。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l7-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The rule from that bath became part of science forever.",
-    "question": "What happened to the rule from the bath?",
-    "options": [
-     "it was forgotten the next day",
-     "it is still used by people today",
-     "only the king kept it safe",
-     "it was hidden away in secret"
-    ],
-    "optionsZh": [
-     "第二天就忘了",
-     "人們今天還在用",
-     "只有國王安全收著",
-     "被當秘密藏起來"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "那次洗澡得到的發現，變成了永遠的科學法則——「今天還在用」就是答案，不是只有那個時代用。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch26-l7-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "Boats, ships, and even small toys still use this rule today.",
-    "questionEn": "Is Archimedes' rule still used in the world?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "船、玩具水鴨、游泳池……到今天這個規則還在用——當然「今天還在用」，答 Yes。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l7-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "We still call it Archimedes' law today.",
-    "explanationZh": "我們今天還叫它「Archimedes 法則」——也叫浮力原理。洗澡洗出來的科學！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l7-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The big idea came from a small thing he saw with care.",
-    "question": "Where did the big idea come from?",
-    "options": [
-     "a magic spell from an old wizard",
-     "careful watching of a small thing",
-     "an old thick book full of numbers",
-     "a long dream during his noon rest"
-    ],
-    "optionsZh": [
-     "老巫師的一個魔法",
-     "仔細觀察一件小事",
-     "一本寫滿數字的厚舊書",
-     "午休時做的一個長夢"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "大點子來自仔細觀察一件小事——「仔細觀察一件小事」就是答案。水溢出來這件事，別人都忽略了。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l7-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "And every kid who tries an idea in the bath is a little like him.",
-    "explanationZh": "每個在浴缸裡試點子的小孩，都有一點像 Archimedes。說不定你也是呢！",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch26-l7-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "A bath, a bowl, a puddle — anywhere can be a tiny science lab.",
-    "question": "Where can a small science lesson happen?",
-    "options": [
-     "only in big school rooms",
-     "only in a king's palace",
-     "in small everyday places",
-     "only at night-time"
-    ],
-    "optionsZh": [
-     "只有在大學校",
-     "只有在國王皇宮",
-     "在日常的小地方",
-     "只有晚上"
-    ],
-    "correctIndex": 2,
-    "explanationZh": "浴缸、碗、水坑——到處都可以當小小的科學實驗室。「在日常的小地方」就是答案。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l7-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "All you need are open eyes and a head full of why.",
-    "explanationZh": "「張開眼睛，帶著一顆充滿「為什麼」的腦袋。」——這就是奶奶最喜歡說的話。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch26-l7-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What is the main lesson from Archimedes?",
-    "question": "What does the story teach?",
-    "options": [
-     "👀 watch small things closely",
-     "💰 buy more gold every day",
-     "🏃 run as fast as you can",
-     "🍔 eat a big meal every night"
-    ],
-    "optionsZh": [
-     "仔細觀察小事",
-     "每天買更多金子",
-     "盡全力跑很快",
-     "每晚吃一頓大餐"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "仔細觀察小事 → 發現大道理。這就是故事教我們的事！「仔細觀察小事」是答案。",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch26-l7-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What small thing did you notice today? It might be the start of a big idea...",
-    "explanationZh": "你今天有沒有注意到什麼小事？搞不好，那就是一個大發現的種子……",
-    "tags": [
-     "story",
-     "ch26",
-     "archimedes-eureka"
-    ]
-   }
-  ]
- }
+  }
 ]

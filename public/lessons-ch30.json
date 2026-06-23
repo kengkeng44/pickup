@@ -1,1766 +1,1801 @@
 [
- {
-  "id": "kt-ch30-l1",
-  "chapter": 30,
-  "lessonInChapter": 1,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "Heracles 是強壯的英雄 — 他必須做 12 件難事",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l1-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "強壯",
-      "right": "strong"
-     },
-     {
-      "left": "英雄",
-      "right": "hero"
-     },
-     {
-      "left": "任務",
-      "right": "task"
-     },
-     {
-      "left": "十二",
-      "right": "twelve"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 strong = 強壯\n🔑 hero = 英雄\n🔑 task = 任務\n🔑 twelve = 十二\n十二件難事，一件一件來！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
+  {
+    "id": "kt-ch30-l1",
+    "chapter": 30,
+    "lessonInChapter": 1,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "Heracles 是強壯的英雄 — 他必須做 12 件難事",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l1-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "強壯",
+            "right": "strong"
+          },
+          {
+            "left": "英雄",
+            "right": "hero"
+          },
+          {
+            "left": "任務",
+            "right": "task"
+          },
+          {
+            "left": "十二",
+            "right": "twelve"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 strong = 強壯\n🔑 hero = 英雄\n🔑 task = 任務\n🔑 twelve = 十二\n十二件難事，一件一件來！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in old Greece, there lived a strong man named Heracles.",
+        "explanationZh": "很久以前在古希臘，有一個超強壯的人，叫 Heracles——奶奶說，他一個人就能當一支軍隊。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His arms were like tree trunks, and he could lift a full-grown bull.",
+        "question": "How strong was Heracles?",
+        "options": [
+          "weaker than a small child",
+          "strong enough to lift a big bull",
+          "about the same as other men",
+          "only good at running fast"
+        ],
+        "optionsZh": [
+          "比小孩還弱",
+          "強到能舉起大公牛",
+          "跟其他男人差不多",
+          "只會跑得快"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "手臂像樹幹，能舉起一頭大公牛——「強到能舉起大公牛」就是答案。這不是普通的力氣。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他的手臂像樹幹一樣粗，能舉起一頭成年的牛。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l1-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But the gods were angry with him, and he had to pay for an old mistake.",
+        "questionEn": "Were the gods happy with Heracles?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "眾神對他很不高興，他必須為一個舊的錯誤付出代價——不高興，答 No。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "但諸神對他動了怒，他必須為一個舊日的錯誤付出代價。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l1-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "So a king sent him a list. On the list were twelve hard tasks.",
+        "explanationZh": "一個國王給他一張清單，上面有十二件困難的任務。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l1-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each task was meant to test his courage, his body, and his mind.",
+        "question": "What were the tasks made to test?",
+        "options": [
+          "his cooking, his songs, and his dancing",
+          "his bravery, his strength, and his thinking",
+          "his money, his clothes, and his house",
+          "only how fast he could run a long race"
+        ],
+        "optionsZh": [
+          "煮菜、唱歌和跳舞",
+          "勇氣、力氣和頭腦",
+          "錢、衣服和房子",
+          "只看他長跑能跑多快"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "每件任務都要考驗他的勇氣、力氣和頭腦——「勇氣、力氣和頭腦」就是三個考驗。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "每一個任務都是為了考驗他的勇氣、體力和智慧。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l1-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles read the list slowly. His face stayed calm and brave.",
+        "explanationZh": "他慢慢讀著清單，臉色平靜而勇敢——沒有退縮，沒有抱怨，只有「好，我做。」",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l1-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He folded the paper and put it deep inside his pocket.",
+        "question": "What did Heracles do with the list?",
+        "options": [
+          "burned it in the fire",
+          "kept it safe in his pocket",
+          "gave it back to the king",
+          "tore it into many pieces"
+        ],
+        "optionsZh": [
+          "丟進火裡燒掉",
+          "好好放進口袋",
+          "還給國王",
+          "撕成很多片"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他折好清單，深深放進口袋——「好好放進口袋」就是答案。他把它當成承諾收起來。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他把那張紙折好，深深地塞進口袋裡。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l1-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Twelve tasks. One man. He would do them, one by one.",
+        "explanationZh": "十二件任務、一個男人——他會一件一件完成。奶奶說，這就是「說到做到」。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l1-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did Heracles feel about the twelve tasks?",
+        "question": "How did he feel?",
+        "options": [
+          "💪 ready and brave",
+          "😴 sleepy and bored",
+          "😢 ready to give up",
+          "🤣 like it was a joke"
+        ],
+        "optionsZh": [
+          "準備好,很勇敢",
+          "想睡又無聊",
+          "想要放棄",
+          "覺得是笑話"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "臉色平靜 + 把清單收好 → 「準備好，很勇敢」。那個 💪 就是他的表情。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "赫拉克勒斯對這十二件任務有什麼感覺？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l1-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The very first task was waiting for him in a place called Nemea...",
+        "explanationZh": "第一件任務，在一個叫 Nemea 的地方等著他……奶奶說，那裡有一隻讓整個村子都不敢出門的獅子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l1-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Long ago in old Greece, there lived a strong man named Heracles.",
-    "explanationZh": "很久以前在古希臘，有一個超強壯的人，叫 Heracles——奶奶說，他一個人就能當一支軍隊。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
+  },
+  {
+    "id": "kt-ch30-l2",
+    "chapter": 30,
+    "lessonInChapter": 2,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "第一任務 — 尼米亞地區有一隻可怕的大獅子",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l2-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "獅子",
+            "right": "lion"
+          },
+          {
+            "left": "可怕",
+            "right": "scary"
+          },
+          {
+            "left": "村莊",
+            "right": "village"
+          },
+          {
+            "left": "害怕",
+            "right": "afraid"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 lion = 獅子\n🔑 scary = 可怕\n🔑 village = 村莊\n🔑 afraid = 害怕\n大獅子出場了！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Near the village of Nemea, there was a huge and scary lion.",
+        "explanationZh": "Nemea 村莊附近，有一隻巨大又可怕的獅子——奶奶說，光是說這句話，她自己都起雞皮疙瘩。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l2-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It was twice the size of any lion the people had ever seen.",
+        "question": "How big was the Nemean lion?",
+        "options": [
+          "about the same size as a big horse",
+          "two times bigger than a normal lion",
+          "about the same size as a baby goat",
+          "a little smaller than a grey wolf"
+        ],
+        "optionsZh": [
+          "跟一匹大馬差不多大",
+          "比一般獅子大兩倍",
+          "跟小山羊差不多大",
+          "比灰狼還小一點"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "比任何人見過的獅子大兩倍——「比一般獅子大兩倍」就是答案。那真的很大。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "牠比人們見過的任何一隻獅子都大上兩倍。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l2-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Its skin was so thick that no arrow and no sword could go through.",
+        "questionEn": "Could a sharp sword cut the lion's skin?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "毛皮厚到箭射不進、劍砍不斷——切不開，答 No。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "牠的皮厚得連箭和劍都穿不透。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l2-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The lion lived in a dark cave on a hill above the village.",
+        "explanationZh": "獅子住在村莊上方的山洞裡——黑暗的山洞，就是它的家。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l2-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every night it came down and took sheep and cows from the farms.",
+        "question": "What did the lion do at night?",
+        "options": [
+          "slept quietly in its cave",
+          "stole farm animals from the people",
+          "played with village children",
+          "swam in the cold river all night"
+        ],
+        "optionsZh": [
+          "在洞裡安靜睡覺",
+          "從人們那裡叼走家畜",
+          "和村裡小孩玩",
+          "整晚在冰冷的河裡游泳"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "每天晚上，它下山叼走農場的羊和牛——「從人們那裡叼走家畜」就是答案。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "每到夜晚，牠就下山，把農場的羊和牛都叼走。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l2-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The people of Nemea were afraid to leave their homes after dark.",
+        "explanationZh": "天黑後，Nemea 的人沒有一個敢出門——這種恐懼，每天都有。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l2-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Many brave men had gone up the hill, but none of them came back.",
+        "question": "What happened to the men who went up the hill?",
+        "options": [
+          "they came back rich",
+          "none of them ever returned",
+          "they made friends with the lion",
+          "they all became kings"
+        ],
+        "optionsZh": [
+          "他們發財回來",
+          "沒有一個回來",
+          "他們跟獅子變朋友",
+          "他們全都當國王"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "去過山上的勇士，沒有一個回來——「沒有一個回來」就是答案。這隻獅子，不好惹。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "許多勇敢的人上了山，但沒有一個人回來。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l2-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "This was the first task for Heracles: stop the lion.",
+        "explanationZh": "Heracles 的第一個任務：阻止這隻獅子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l2-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the village of Nemea feel about the lion?",
+        "question": "How did the people feel?",
+        "options": [
+          "😱 very afraid",
+          "😊 happy and safe",
+          "🥱 bored of it",
+          "🤝 friends with it"
+        ],
+        "optionsZh": [
+          "非常害怕",
+          "開心又安全",
+          "覺得很無聊",
+          "和獅子是朋友"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "天黑不敢出門 + 家畜被叼走 → 「非常害怕」。那個 😱 就是村人的臉。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "尼米亞村子的人們對那頭獅子有什麼感覺？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l2-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles tied his cloak tight and looked up at the dark hill...",
+        "explanationZh": "Heracles 把披風綁緊，抬頭望著那座黑色的山丘……奶奶說，這個眼神，是「我決定了」的眼神。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l1-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "His arms were like tree trunks, and he could lift a full-grown bull.",
-    "question": "How strong was Heracles?",
-    "options": [
-     "weaker than a small child",
-     "strong enough to lift a big bull",
-     "about the same as other men",
-     "only good at running fast"
-    ],
-    "optionsZh": [
-     "比小孩還弱",
-     "強到能舉起大公牛",
-     "跟其他男人差不多",
-     "只會跑得快"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "手臂像樹幹，能舉起一頭大公牛——「強到能舉起大公牛」就是答案。這不是普通的力氣。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l1-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "But the gods were angry with him, and he had to pay for an old mistake.",
-    "questionEn": "Were the gods happy with Heracles?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "眾神對他很不高興，他必須為一個舊的錯誤付出代價——不高興，答 No。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
+  },
+  {
+    "id": "kt-ch30-l3",
+    "chapter": 30,
+    "lessonInChapter": 3,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "他帶著弓和劍 — 走進黑森林",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "弓",
+            "right": "bow"
+          },
+          {
+            "left": "劍",
+            "right": "sword"
+          },
+          {
+            "left": "森林",
+            "right": "forest"
+          },
+          {
+            "left": "黑暗",
+            "right": "dark"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 bow = 弓\n🔑 sword = 劍\n🔑 forest = 森林\n🔑 dark = 黑暗\n走進黑森林了！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l3-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles took his bow and put a bag of long arrows on his back.",
+        "explanationZh": "Heracles 拿起弓，把一袋長箭背在背上——準備好了，出發。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l3-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He also tied a sharp sword to his side with a thick leather belt.",
+        "question": "What did Heracles bring with him?",
+        "options": [
+          "a soft pillow and a hat",
+          "a bow and a sharp sword",
+          "a big pot of hot soup",
+          "a small wooden flute"
+        ],
+        "optionsZh": [
+          "軟枕頭和帽子",
+          "弓和鋒利的劍",
+          "一大鍋熱湯",
+          "小木笛"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "還用皮帶把一把利劍綁在腰上——「弓和鋒利的劍」就是他帶的武器。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他還用厚皮帶把一把鋒利的劍繫在腰間。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l3-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He started up the hill alone, with no friend at his side.",
+        "questionEn": "Did anyone go with Heracles?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他一個人走上山，沒有朋友陪——「沒人陪」，答 No。他獨自面對那隻獅子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "他一個人開始爬山，身邊沒有任何朋友。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l3-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Soon he walked into a dark forest where the tall trees blocked the sun.",
+        "explanationZh": "他走進一片黑森林，高高的樹擋住了陽光——連白天都像黑夜一樣暗。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l3-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The forest was very quiet. No bird sang and no small animal moved.",
+        "question": "How did the forest sound?",
+        "options": [
+          "loud with songs",
+          "silent with no sound",
+          "full of laughing children",
+          "noisy from a market"
+        ],
+        "optionsZh": [
+          "充滿歌聲",
+          "安靜沒有聲音",
+          "小孩笑聲",
+          "市場吵鬧"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "沒有鳥叫、沒有動物動——「安靜沒有聲音」就是答案。這種安靜，有點可怕。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "森林裡靜得出奇，沒有鳥叫，也沒有小動物的聲音。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l3-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles stepped softly on the dry leaves and listened with care.",
+        "explanationZh": "Heracles 輕輕踩在乾葉子上，豎起耳朵聽——他像一個有經驗的獵人。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l3-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He saw big paw prints in the soft mud near a cold stream.",
+        "question": "What did Heracles find on the ground?",
+        "options": [
+          "fish bones from a meal",
+          "huge animal footprints",
+          "gold coins from a king",
+          "some old broken arrows"
+        ],
+        "optionsZh": [
+          "吃剩的魚骨",
+          "巨大的動物腳印",
+          "國王的金幣",
+          "一些斷掉的舊箭"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "溪邊的軟泥上，有巨大的腳印——「巨大的動物腳印」就是答案。獅子走過的痕跡。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他在一條冰冷小溪旁的軟泥上，看見了大大的爪印。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l3-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The prints led up the hill, deeper into the trees.",
+        "explanationZh": "腳印一路往山上去，越走越深——Heracles 跟著走。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l3-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What kind of place was the forest?",
+        "question": "What was the forest like?",
+        "options": [
+          "🌑 dark and quiet",
+          "🌞 bright and sunny",
+          "🎵 full of music",
+          "🏖️ like a sandy beach"
+        ],
+        "optionsZh": [
+          "又黑又安靜",
+          "明亮又陽光",
+          "充滿音樂",
+          "像沙灘"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "高樹擋光 + 沒聲音 → 「又黑又安靜」。那個 🌑 就是森林的樣子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "那片森林是個什麼樣的地方？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l3-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles followed the prints with a steady hand on his bow...",
+        "explanationZh": "Heracles 一手穩穩握著弓，跟著腳印走……奶奶說，這種走法，叫做「步步為營」。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l1-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "So a king sent him a list. On the list were twelve hard tasks.",
-    "explanationZh": "一個國王給他一張清單，上面有十二件困難的任務。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
+  },
+  {
+    "id": "kt-ch30-l4",
+    "chapter": 30,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "他看見獅子 — 射箭, 箭彈開",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l4-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "看見",
+            "right": "see"
+          },
+          {
+            "left": "箭",
+            "right": "arrow"
+          },
+          {
+            "left": "射",
+            "right": "shoot"
+          },
+          {
+            "left": "彈開",
+            "right": "bounce"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 see = 看見\n🔑 arrow = 箭\n🔑 shoot = 射\n🔑 bounce = 彈開\n箭要射出去了！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At the top of the hill, the trees opened up into a wide stone space.",
+        "explanationZh": "山頂，樹林散開，出現一片寬闊的石頭空地——獅子就在那裡。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l4-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "There, in front of a deep cave, the giant lion lay on warm rocks.",
+        "question": "Where was the lion?",
+        "options": [
+          "swimming in a small pond",
+          "resting on rocks near a cave",
+          "hiding inside a tree",
+          "running down to the village"
+        ],
+        "optionsZh": [
+          "在小池塘游泳",
+          "在山洞旁的石頭上休息",
+          "躲在樹裡",
+          "跑下山到村莊"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "獅子趴在洞口旁的石頭上——「在山洞旁的石頭上休息」就是答案。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "就在一個深深的山洞前，那頭巨獅趴在溫暖的岩石上。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l4-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Its yellow eyes opened, and it stared right back at Heracles.",
+        "questionEn": "Did the lion see Heracles?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "獅子的黃眼睛張開，直盯著 Heracles 看——它看見他了，答 Yes。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "牠的黃眼睛睜開了，直直地盯著赫拉克勒斯。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l4-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles pulled an arrow from his bag and lifted his strong bow.",
+        "explanationZh": "Heracles 抽出箭，舉起弓——瞄準，準備射。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l4-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He let the arrow fly. It hit the lion right in the chest.",
+        "question": "Where did the arrow hit the lion?",
+        "options": [
+          "on its long tail",
+          "right in the chest",
+          "on a back paw",
+          "above its ear"
+        ],
+        "optionsZh": [
+          "長長的尾巴上",
+          "正中胸口",
+          "後腳掌",
+          "耳朵上方"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "箭射出去，正中獅子胸口——「正中胸口」就是答案。一點都沒偏。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他放箭，正中獅子胸口。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l4-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But the arrow did not go in. It bounced off and fell on the rocks.",
+        "explanationZh": "可是箭沒射進去，彈開，掉在石頭上——毛皮太厚了！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l4-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles shot two more arrows. Both of them bounced off too.",
+        "question": "What happened to all the arrows?",
+        "options": [
+          "they hurt the lion badly",
+          "all of them bounced away",
+          "they turned into birds",
+          "they got lost in the trees"
+        ],
+        "optionsZh": [
+          "把獅子傷得很重",
+          "全部都彈開了",
+          "變成鳥",
+          "掉進樹林裡不見"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他又射兩支，全部彈開——「全部都彈開了」就是答案。一支都沒用。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "赫拉克勒斯又射了兩箭，兩支都彈開了。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l4-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The lion's skin was too thick. Arrows could not hurt it at all.",
+        "explanationZh": "獅子的毛皮太厚，箭根本無法傷牠——這隻獅子真的不是普通的獅子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l4-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How did the lion react to the arrows?",
+        "question": "What was the lion like?",
+        "options": [
+          "🛡️ not hurt at all",
+          "😭 crying loudly",
+          "🩹 badly hurt",
+          "💤 fell asleep"
+        ],
+        "optionsZh": [
+          "完全沒受傷",
+          "大聲哭",
+          "受重傷",
+          "睡著了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "箭都彈開 + 毛皮太厚 → 「完全沒受傷」。那個 🛡️ 就是獅子的樣子。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "獅子對那些箭的反應是什麼？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l4-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles dropped his bow and reached for the sword at his side...",
+        "explanationZh": "Heracles 放下弓，伸手去拿身邊的劍……奶奶說，他還沒放棄，只是換一個辦法。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l1-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Each task was meant to test his courage, his body, and his mind.",
-    "question": "What were the tasks made to test?",
-    "options": [
-     "his cooking, his songs, and his dancing",
-     "his bravery, his strength, and his thinking",
-     "his money, his clothes, and his house",
-     "only how fast he could run a long race"
-    ],
-    "optionsZh": [
-     "煮菜、唱歌和跳舞",
-     "勇氣、力氣和頭腦",
-     "錢、衣服和房子",
-     "只看他長跑能跑多快"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "每件任務都要考驗他的勇氣、力氣和頭腦——「勇氣、力氣和頭腦」就是三個考驗。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l1-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles read the list slowly. His face stayed calm and brave.",
-    "explanationZh": "他慢慢讀著清單，臉色平靜而勇敢——沒有退縮，沒有抱怨，只有「好，我做。」",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
+  },
+  {
+    "id": "kt-ch30-l5",
+    "chapter": 30,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "他用劍砍 — 劍斷了",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "砍",
+            "right": "swing"
+          },
+          {
+            "left": "斷",
+            "right": "break"
+          },
+          {
+            "left": "吼叫",
+            "right": "roar"
+          },
+          {
+            "left": "跳",
+            "right": "jump"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 swing = 砍\n🔑 break = 斷\n🔑 roar = 吼叫\n🔑 jump = 跳\n激烈的戰鬥！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l5-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles ran at the lion with his sword held up high.",
+        "explanationZh": "Heracles 高舉著劍，衝向獅子——全力衝上去！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l5-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He swung the blade down with all his power, hitting the lion's back.",
+        "question": "How hard did Heracles hit the lion?",
+        "options": [
+          "very gently, like a tap",
+          "with all his strength",
+          "not at all, just a wave",
+          "as soft as a leaf"
+        ],
+        "optionsZh": [
+          "很輕,像拍一下",
+          "用盡全力",
+          "完全沒打,只是揮手",
+          "像葉子一樣輕"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "用盡全力往下砍——「用盡全力」就是答案。沒有留力氣。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他用盡全力把劍往獅子背上劈下去。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l5-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The sharp blade hit the thick skin and snapped into two pieces.",
+        "questionEn": "Did the sword stay whole?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "利刃砍上厚毛皮，「啪！」一聲斷成兩半——劍斷了，答 No。毛皮比劍還硬！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "鋒利的劍碰到厚厚的皮，「咔」地斷成兩截。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l5-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles looked at the broken sword in his hand with wide eyes.",
+        "explanationZh": "Heracles 瞪大眼睛，看著手裡斷掉的劍——他不敢相信。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l5-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The lion was not hurt at all. It only let out a loud, deep roar.",
+        "question": "What did the lion do after the sword broke?",
+        "options": [
+          "ran away in fear",
+          "made a big roar",
+          "lay down to sleep",
+          "asked for food"
+        ],
+        "optionsZh": [
+          "害怕逃跑",
+          "發出巨大吼聲",
+          "躺下睡覺",
+          "討東西吃"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "獅子完全沒受傷，只發出一聲巨大的吼——「發出巨大吼聲」就是答案。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "獅子一點傷都沒有，只是發出了一聲震耳的低吼。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l5-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The roar shook the trees and sent small stones rolling down the hill.",
+        "explanationZh": "那一聲吼，震動樹木，小石頭滾下山——這隻獅子的吼聲，整個山都聽得到。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l5-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then it jumped at Heracles with its big mouth wide open.",
+        "question": "What did the lion do next?",
+        "options": [
+          "leaped at Heracles with open jaws",
+          "rolled over to play in the grass",
+          "ate some grass under a shady tree",
+          "called another lion to come help"
+        ],
+        "optionsZh": [
+          "張口撲向 Heracles",
+          "在草地上翻身玩耍",
+          "在樹蔭下吃了一些草",
+          "叫另一隻獅子來幫忙"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "獅子張開大嘴撲向 Heracles——「張口撲向 Heracles」就是答案。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "然後牠跳向赫拉克勒斯，嘴巴張得大大的。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l5-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles jumped to the side. The lion's teeth missed him by a hair.",
+        "explanationZh": "Heracles 往旁邊一跳，獅子的牙齒差一點點咬到——驚險！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l5-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "How was the fight going so far for Heracles?",
+        "question": "How was the fight going?",
+        "options": [
+          "⚠️ very badly, weapons broken",
+          "🏆 he was clearly winning",
+          "😴 slow, quiet, and boring",
+          "🎉 the lion was friendly"
+        ],
+        "optionsZh": [
+          "非常糟,武器都壞了",
+          "他明顯佔上風",
+          "又慢又安靜又無聊",
+          "獅子很友善"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "箭彈開 + 劍斷 + 獅子撲咬 → 「非常糟，武器都壞了」。那個 ⚠️ 就是現在的狀況。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "到目前為止，這場打鬥對赫拉克勒斯來說進行得怎麼樣？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l5-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He threw the broken sword on the ground and clenched both his fists...",
+        "explanationZh": "他把斷劍扔在地上，雙手握成拳頭……奶奶說，沒有武器的人才是真的勇敢。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l1-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He folded the paper and put it deep inside his pocket.",
-    "question": "What did Heracles do with the list?",
-    "options": [
-     "burned it in the fire",
-     "kept it safe in his pocket",
-     "gave it back to the king",
-     "tore it into many pieces"
-    ],
-    "optionsZh": [
-     "丟進火裡燒掉",
-     "好好放進口袋",
-     "還給國王",
-     "撕成很多片"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他折好清單，深深放進口袋——「好好放進口袋」就是答案。他把它當成承諾收起來。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l1-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Twelve tasks. One man. He would do them, one by one.",
-    "explanationZh": "十二件任務、一個男人——他會一件一件完成。奶奶說，這就是「說到做到」。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
+  },
+  {
+    "id": "kt-ch30-l6",
+    "chapter": 30,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "Heracles 決定 — 我要用我的雙手",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "手",
+            "right": "hand"
+          },
+          {
+            "left": "拳頭",
+            "right": "fist"
+          },
+          {
+            "left": "想",
+            "right": "think"
+          },
+          {
+            "left": "決定",
+            "right": "decide"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 hand = 手\n🔑 fist = 拳頭\n🔑 think = 想\n🔑 decide = 決定\n最後的決心！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l6-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles stood still and looked down at his two big hands.",
+        "explanationZh": "Heracles 站著不動，低頭看著自己的兩隻大手——那雙手，現在是他唯一的武器。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l6-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He thought, \"My bow is on the ground. My sword is broken.\"",
+        "question": "What was Heracles thinking about?",
+        "options": [
+          "his lost weapons",
+          "what to eat for lunch",
+          "a song from home",
+          "a soft warm bed"
+        ],
+        "optionsZh": [
+          "失去的武器",
+          "午餐吃什麼",
+          "家鄉的歌",
+          "柔軟溫暖的床"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他想著：「弓在地上，劍斷了。」——「失去的武器」就是他想的事。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他想：「弓掉在地上了，劍也斷了。」"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l6-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But his arms were still strong, and his courage was still big.",
+        "questionEn": "Did Heracles give up?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "可是手臂還是很強壯，勇氣也沒跑掉——沒有放棄，答 No。他還站著呢。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "但他的手臂還是很有力，他的勇氣也還是很大。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l6-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He said to himself, \"I will use my hands. That is all I need.\"",
+        "explanationZh": "「我用我的手。我只需要這個。」——就這樣，他做了決定。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l6-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He took a deep breath in and made both of his hands into fists.",
+        "question": "What did Heracles do with his hands?",
+        "options": [
+          "wiped them on his shirt",
+          "closed them tight into fists",
+          "put them in his pockets",
+          "let them hang at his sides"
+        ],
+        "optionsZh": [
+          "在衣服上擦",
+          "緊緊握成拳頭",
+          "放進口袋",
+          "垂在身體兩邊"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "深吸一口氣，雙手緊握成拳頭——「緊緊握成拳頭」就是答案。準備好了。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他深吸一口氣，把兩隻手握成拳頭。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l6-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The lion stepped closer, its tail moving slowly behind it.",
+        "explanationZh": "獅子慢慢走近，尾巴緩緩擺動——牠也在等，等著撲過來。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l6-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles did not move back. He did not look away from the lion.",
+        "question": "How did Heracles act facing the lion?",
+        "options": [
+          "ran for the trees behind him",
+          "stood firm and kept eye contact",
+          "closed his eyes and waited",
+          "shouted out loud for help"
+        ],
+        "optionsZh": [
+          "往身後的樹林跑",
+          "站穩,直視獅子",
+          "閉眼等",
+          "大聲呼救"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他沒後退，眼睛也沒離開獅子——「站穩，直視獅子」就是答案。這就是真正的勇敢。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "赫拉克勒斯沒有退後，沒有把目光從獅子身上移開。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l6-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His eyes were calm. His feet were steady. His mind was set.",
+        "explanationZh": "眼神平靜、腳步穩定、心意已決——奶奶說，這三句話，就是「準備好了」的意思。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l6-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What did Heracles choose to do?",
+        "question": "What was his choice?",
+        "options": [
+          "✊ fight with bare hands",
+          "🏃 run back home to rest",
+          "🛌 take a nap first",
+          "📜 read the list again"
+        ],
+        "optionsZh": [
+          "赤手空拳對打",
+          "跑回家休息",
+          "先睡一覺",
+          "再讀一次清單"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "握拳 + 站穩 + 「我用我的手」 → 「赤手空拳對打」。那個 ✊ 就是他的選擇。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "赫拉克勒斯選擇做什麼？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l6-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The lion leaped one more time. This time Heracles was ready...",
+        "explanationZh": "獅子再次撲來，這次 Heracles 已經準備好了……奶奶說，這一刻，是整個故事最緊張的地方。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l1-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did Heracles feel about the twelve tasks?",
-    "question": "How did he feel?",
-    "options": [
-     "💪 ready and brave",
-     "😴 sleepy and bored",
-     "😢 ready to give up",
-     "🤣 like it was a joke"
-    ],
-    "optionsZh": [
-     "準備好,很勇敢",
-     "想睡又無聊",
-     "想要放棄",
-     "覺得是笑話"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "臉色平靜 + 把清單收好 → 「準備好，很勇敢」。那個 💪 就是他的表情。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l1-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The very first task was waiting for him in a place called Nemea...",
-    "explanationZh": "第一件任務，在一個叫 Nemea 的地方等著他……奶奶說，那裡有一隻讓整個村子都不敢出門的獅子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
+  },
+  {
+    "id": "kt-ch30-l7",
+    "chapter": 30,
+    "lessonInChapter": 7,
+    "segmentType": "main-story",
+    "storyId": "heracles-twelve-labors",
+    "storyBeat": "赤手勒住獅子 — 他贏了 + 穿上獅子毛皮",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch30-l7-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "pairs": [
+          {
+            "left": "抱住",
+            "right": "hold"
+          },
+          {
+            "left": "贏",
+            "right": "win"
+          },
+          {
+            "left": "皮",
+            "right": "skin"
+          },
+          {
+            "left": "披風",
+            "right": "coat"
+          }
+        ],
+        "explanationZh": "今晚 4 個字：\n🔑 hold = 抱住\n🔑 win = 贏\n🔑 skin = 皮\n🔑 coat = 披風\n最後的勝利！",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "As the lion jumped, Heracles met it with his strong arms wide open.",
+        "explanationZh": "獅子撲過來，Heracles 張開雙臂迎上去——不是逃，是迎上去。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He wrapped his arms around the lion's thick, warm neck and held tight.",
+        "question": "What part of the lion did Heracles grab?",
+        "options": [
+          "the tail at the back",
+          "around the neck",
+          "one of the back legs",
+          "the tip of an ear"
+        ],
+        "optionsZh": [
+          "後面的尾巴",
+          "脖子周圍",
+          "一隻後腳",
+          "耳朵尖端"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他把手臂繞住獅子厚厚的脖子，緊緊抱住——「脖子周圍」就是答案。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他把雙臂繞上獅子粗厚溫熱的脖子，緊緊抱住。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch30-l7-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The lion shook and pulled, but Heracles did not let go.",
+        "questionEn": "Did Heracles release the lion?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "獅子甩啊甩，Heracles 就是不放手——「沒放手」，答 No。一直抱著，不放。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "inference"
+        ],
+        "sentenceZh": "獅子拼命掙扎，但赫拉克勒斯就是不鬆手。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l7-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They rolled over the rocks. Dust and dry leaves flew into the air.",
+        "explanationZh": "他們在石頭上翻滾，塵土和乾葉子飛揚——這場搏鬥，沒有音效也讓人想到那些聲音。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l7-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Slowly, the lion grew weak in his arms. At last it stopped moving.",
+        "question": "What happened to the lion in the end?",
+        "options": [
+          "it ran away free into the hills",
+          "it lost its strength and stopped",
+          "it called for its mother",
+          "it turned into a grey stone"
+        ],
+        "optionsZh": [
+          "牠自由地跑進山裡",
+          "牠力氣用盡,停下來",
+          "牠叫媽媽",
+          "牠變成一塊灰色石頭"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "獅子慢慢沒力氣了，最後停下來——「力氣用盡，停下來」就是答案。Heracles 贏了。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "漸漸地，獅子在他懷裡越來越虛弱，最後停止了動作。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l7-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heracles stood up slowly. His chest moved up and down with deep breaths.",
+        "explanationZh": "Heracles 慢慢站起來，胸口隨著深呼吸起伏——他累了，但他贏了。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch30-l7-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He took the lion's thick skin and made it into a warm coat for himself.",
+        "question": "What did Heracles do with the lion's skin?",
+        "options": [
+          "buried it in the ground",
+          "wore it as a thick coat",
+          "gave it to the king",
+          "sold it at the market"
+        ],
+        "optionsZh": [
+          "埋在土裡",
+          "穿上當厚披風",
+          "送給國王",
+          "在市場賣掉"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他把獅子的厚毛皮做成披風穿上——「穿上當厚披風」就是答案。以後再也沒有箭能傷他。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他把獅子厚厚的皮剝下來，做成一件厚外套披在身上。"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l7-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The skin was so thick that no sword or arrow could ever cut it.",
+        "explanationZh": "這張毛皮，比任何劍和箭都還硬——他把它變成了自己的盔甲。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch30-l7-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the main lesson from tonight's story?",
+        "question": "What does the story teach?",
+        "options": [
+          "💪 think and use what you have",
+          "💰 always carry more gold",
+          "🏃 run away from hard things",
+          "😴 sleep until trouble ends"
+        ],
+        "optionsZh": [
+          "動腦,用你有的東西",
+          "永遠多帶金子",
+          "遇到難事就逃",
+          "睡到麻煩結束"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "弓和劍都不行 → 改用雙手 → 「動腦，用你有的東西」。那個 💪 就是他的精神。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "hook"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "今晚的故事，主要想告訴我們什麼？"
+      },
+      {
+        "type": "narration",
+        "id": "kt-ch30-l7-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One task was done. Eleven more were waiting. Heracles walked on...",
+        "explanationZh": "一個任務完成了，還有十一個在等他——Heracles 繼續往前走……奶奶說，一步一步，這就是英雄的路。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors"
+        ]
+      }
     ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l2",
-  "chapter": 30,
-  "lessonInChapter": 2,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "第一任務 — 尼米亞地區有一隻可怕的大獅子",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l2-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "獅子",
-      "right": "lion"
-     },
-     {
-      "left": "可怕",
-      "right": "scary"
-     },
-     {
-      "left": "村莊",
-      "right": "village"
-     },
-     {
-      "left": "害怕",
-      "right": "afraid"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 lion = 獅子\n🔑 scary = 可怕\n🔑 village = 村莊\n🔑 afraid = 害怕\n大獅子出場了！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l2-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Near the village of Nemea, there was a huge and scary lion.",
-    "explanationZh": "Nemea 村莊附近，有一隻巨大又可怕的獅子——奶奶說，光是說這句話，她自己都起雞皮疙瘩。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l2-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "It was twice the size of any lion the people had ever seen.",
-    "question": "How big was the Nemean lion?",
-    "options": [
-     "about the same size as a big horse",
-     "two times bigger than a normal lion",
-     "about the same size as a baby goat",
-     "a little smaller than a grey wolf"
-    ],
-    "optionsZh": [
-     "跟一匹大馬差不多大",
-     "比一般獅子大兩倍",
-     "跟小山羊差不多大",
-     "比灰狼還小一點"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "比任何人見過的獅子大兩倍——「比一般獅子大兩倍」就是答案。那真的很大。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l2-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "Its skin was so thick that no arrow and no sword could go through.",
-    "questionEn": "Could a sharp sword cut the lion's skin?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "毛皮厚到箭射不進、劍砍不斷——切不開，答 No。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l2-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The lion lived in a dark cave on a hill above the village.",
-    "explanationZh": "獅子住在村莊上方的山洞裡——黑暗的山洞，就是它的家。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l2-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Every night it came down and took sheep and cows from the farms.",
-    "question": "What did the lion do at night?",
-    "options": [
-     "slept quietly in its cave",
-     "stole farm animals from the people",
-     "played with village children",
-     "swam in the cold river all night"
-    ],
-    "optionsZh": [
-     "在洞裡安靜睡覺",
-     "從人們那裡叼走家畜",
-     "和村裡小孩玩",
-     "整晚在冰冷的河裡游泳"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "每天晚上，它下山叼走農場的羊和牛——「從人們那裡叼走家畜」就是答案。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l2-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The people of Nemea were afraid to leave their homes after dark.",
-    "explanationZh": "天黑後，Nemea 的人沒有一個敢出門——這種恐懼，每天都有。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l2-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Many brave men had gone up the hill, but none of them came back.",
-    "question": "What happened to the men who went up the hill?",
-    "options": [
-     "they came back rich",
-     "none of them ever returned",
-     "they made friends with the lion",
-     "they all became kings"
-    ],
-    "optionsZh": [
-     "他們發財回來",
-     "沒有一個回來",
-     "他們跟獅子變朋友",
-     "他們全都當國王"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "去過山上的勇士，沒有一個回來——「沒有一個回來」就是答案。這隻獅子，不好惹。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l2-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "This was the first task for Heracles: stop the lion.",
-    "explanationZh": "Heracles 的第一個任務：阻止這隻獅子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l2-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did the village of Nemea feel about the lion?",
-    "question": "How did the people feel?",
-    "options": [
-     "😱 very afraid",
-     "😊 happy and safe",
-     "🥱 bored of it",
-     "🤝 friends with it"
-    ],
-    "optionsZh": [
-     "非常害怕",
-     "開心又安全",
-     "覺得很無聊",
-     "和獅子是朋友"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "天黑不敢出門 + 家畜被叼走 → 「非常害怕」。那個 😱 就是村人的臉。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l2-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles tied his cloak tight and looked up at the dark hill...",
-    "explanationZh": "Heracles 把披風綁緊，抬頭望著那座黑色的山丘……奶奶說，這個眼神，是「我決定了」的眼神。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l3",
-  "chapter": 30,
-  "lessonInChapter": 3,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "他帶著弓和劍 — 走進黑森林",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l3-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "弓",
-      "right": "bow"
-     },
-     {
-      "left": "劍",
-      "right": "sword"
-     },
-     {
-      "left": "森林",
-      "right": "forest"
-     },
-     {
-      "left": "黑暗",
-      "right": "dark"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 bow = 弓\n🔑 sword = 劍\n🔑 forest = 森林\n🔑 dark = 黑暗\n走進黑森林了！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l3-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles took his bow and put a bag of long arrows on his back.",
-    "explanationZh": "Heracles 拿起弓，把一袋長箭背在背上——準備好了，出發。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l3-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He also tied a sharp sword to his side with a thick leather belt.",
-    "question": "What did Heracles bring with him?",
-    "options": [
-     "a soft pillow and a hat",
-     "a bow and a sharp sword",
-     "a big pot of hot soup",
-     "a small wooden flute"
-    ],
-    "optionsZh": [
-     "軟枕頭和帽子",
-     "弓和鋒利的劍",
-     "一大鍋熱湯",
-     "小木笛"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "還用皮帶把一把利劍綁在腰上——「弓和鋒利的劍」就是他帶的武器。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l3-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "He started up the hill alone, with no friend at his side.",
-    "questionEn": "Did anyone go with Heracles?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他一個人走上山，沒有朋友陪——「沒人陪」，答 No。他獨自面對那隻獅子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l3-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Soon he walked into a dark forest where the tall trees blocked the sun.",
-    "explanationZh": "他走進一片黑森林，高高的樹擋住了陽光——連白天都像黑夜一樣暗。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l3-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The forest was very quiet. No bird sang and no small animal moved.",
-    "question": "How did the forest sound?",
-    "options": [
-     "loud with songs",
-     "silent with no sound",
-     "full of laughing children",
-     "noisy from a market"
-    ],
-    "optionsZh": [
-     "充滿歌聲",
-     "安靜沒有聲音",
-     "小孩笑聲",
-     "市場吵鬧"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "沒有鳥叫、沒有動物動——「安靜沒有聲音」就是答案。這種安靜，有點可怕。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l3-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles stepped softly on the dry leaves and listened with care.",
-    "explanationZh": "Heracles 輕輕踩在乾葉子上，豎起耳朵聽——他像一個有經驗的獵人。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l3-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He saw big paw prints in the soft mud near a cold stream.",
-    "question": "What did Heracles find on the ground?",
-    "options": [
-     "fish bones from a meal",
-     "huge animal footprints",
-     "gold coins from a king",
-     "some old broken arrows"
-    ],
-    "optionsZh": [
-     "吃剩的魚骨",
-     "巨大的動物腳印",
-     "國王的金幣",
-     "一些斷掉的舊箭"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "溪邊的軟泥上，有巨大的腳印——「巨大的動物腳印」就是答案。獅子走過的痕跡。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l3-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The prints led up the hill, deeper into the trees.",
-    "explanationZh": "腳印一路往山上去，越走越深——Heracles 跟著走。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l3-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What kind of place was the forest?",
-    "question": "What was the forest like?",
-    "options": [
-     "🌑 dark and quiet",
-     "🌞 bright and sunny",
-     "🎵 full of music",
-     "🏖️ like a sandy beach"
-    ],
-    "optionsZh": [
-     "又黑又安靜",
-     "明亮又陽光",
-     "充滿音樂",
-     "像沙灘"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "高樹擋光 + 沒聲音 → 「又黑又安靜」。那個 🌑 就是森林的樣子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l3-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles followed the prints with a steady hand on his bow...",
-    "explanationZh": "Heracles 一手穩穩握著弓，跟著腳印走……奶奶說，這種走法，叫做「步步為營」。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l4",
-  "chapter": 30,
-  "lessonInChapter": 4,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "他看見獅子 — 射箭, 箭彈開",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l4-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "看見",
-      "right": "see"
-     },
-     {
-      "left": "箭",
-      "right": "arrow"
-     },
-     {
-      "left": "射",
-      "right": "shoot"
-     },
-     {
-      "left": "彈開",
-      "right": "bounce"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 see = 看見\n🔑 arrow = 箭\n🔑 shoot = 射\n🔑 bounce = 彈開\n箭要射出去了！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l4-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "At the top of the hill, the trees opened up into a wide stone space.",
-    "explanationZh": "山頂，樹林散開，出現一片寬闊的石頭空地——獅子就在那裡。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l4-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "There, in front of a deep cave, the giant lion lay on warm rocks.",
-    "question": "Where was the lion?",
-    "options": [
-     "swimming in a small pond",
-     "resting on rocks near a cave",
-     "hiding inside a tree",
-     "running down to the village"
-    ],
-    "optionsZh": [
-     "在小池塘游泳",
-     "在山洞旁的石頭上休息",
-     "躲在樹裡",
-     "跑下山到村莊"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "獅子趴在洞口旁的石頭上——「在山洞旁的石頭上休息」就是答案。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l4-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "Its yellow eyes opened, and it stared right back at Heracles.",
-    "questionEn": "Did the lion see Heracles?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "獅子的黃眼睛張開，直盯著 Heracles 看——它看見他了，答 Yes。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l4-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles pulled an arrow from his bag and lifted his strong bow.",
-    "explanationZh": "Heracles 抽出箭，舉起弓——瞄準，準備射。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l4-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He let the arrow fly. It hit the lion right in the chest.",
-    "question": "Where did the arrow hit the lion?",
-    "options": [
-     "on its long tail",
-     "right in the chest",
-     "on a back paw",
-     "above its ear"
-    ],
-    "optionsZh": [
-     "長長的尾巴上",
-     "正中胸口",
-     "後腳掌",
-     "耳朵上方"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "箭射出去，正中獅子胸口——「正中胸口」就是答案。一點都沒偏。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l4-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "But the arrow did not go in. It bounced off and fell on the rocks.",
-    "explanationZh": "可是箭沒射進去，彈開，掉在石頭上——毛皮太厚了！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l4-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles shot two more arrows. Both of them bounced off too.",
-    "question": "What happened to all the arrows?",
-    "options": [
-     "they hurt the lion badly",
-     "all of them bounced away",
-     "they turned into birds",
-     "they got lost in the trees"
-    ],
-    "optionsZh": [
-     "把獅子傷得很重",
-     "全部都彈開了",
-     "變成鳥",
-     "掉進樹林裡不見"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他又射兩支，全部彈開——「全部都彈開了」就是答案。一支都沒用。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l4-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The lion's skin was too thick. Arrows could not hurt it at all.",
-    "explanationZh": "獅子的毛皮太厚，箭根本無法傷牠——這隻獅子真的不是普通的獅子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l4-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How did the lion react to the arrows?",
-    "question": "What was the lion like?",
-    "options": [
-     "🛡️ not hurt at all",
-     "😭 crying loudly",
-     "🩹 badly hurt",
-     "💤 fell asleep"
-    ],
-    "optionsZh": [
-     "完全沒受傷",
-     "大聲哭",
-     "受重傷",
-     "睡著了"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "箭都彈開 + 毛皮太厚 → 「完全沒受傷」。那個 🛡️ 就是獅子的樣子。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l4-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles dropped his bow and reached for the sword at his side...",
-    "explanationZh": "Heracles 放下弓，伸手去拿身邊的劍……奶奶說，他還沒放棄，只是換一個辦法。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l5",
-  "chapter": 30,
-  "lessonInChapter": 5,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "他用劍砍 — 劍斷了",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l5-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "砍",
-      "right": "swing"
-     },
-     {
-      "left": "斷",
-      "right": "break"
-     },
-     {
-      "left": "吼叫",
-      "right": "roar"
-     },
-     {
-      "left": "跳",
-      "right": "jump"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 swing = 砍\n🔑 break = 斷\n🔑 roar = 吼叫\n🔑 jump = 跳\n激烈的戰鬥！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l5-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles ran at the lion with his sword held up high.",
-    "explanationZh": "Heracles 高舉著劍，衝向獅子——全力衝上去！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l5-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He swung the blade down with all his power, hitting the lion's back.",
-    "question": "How hard did Heracles hit the lion?",
-    "options": [
-     "very gently, like a tap",
-     "with all his strength",
-     "not at all, just a wave",
-     "as soft as a leaf"
-    ],
-    "optionsZh": [
-     "很輕,像拍一下",
-     "用盡全力",
-     "完全沒打,只是揮手",
-     "像葉子一樣輕"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "用盡全力往下砍——「用盡全力」就是答案。沒有留力氣。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l5-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "The sharp blade hit the thick skin and snapped into two pieces.",
-    "questionEn": "Did the sword stay whole?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "利刃砍上厚毛皮，「啪！」一聲斷成兩半——劍斷了，答 No。毛皮比劍還硬！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l5-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles looked at the broken sword in his hand with wide eyes.",
-    "explanationZh": "Heracles 瞪大眼睛，看著手裡斷掉的劍——他不敢相信。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l5-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The lion was not hurt at all. It only let out a loud, deep roar.",
-    "question": "What did the lion do after the sword broke?",
-    "options": [
-     "ran away in fear",
-     "made a big roar",
-     "lay down to sleep",
-     "asked for food"
-    ],
-    "optionsZh": [
-     "害怕逃跑",
-     "發出巨大吼聲",
-     "躺下睡覺",
-     "討東西吃"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "獅子完全沒受傷，只發出一聲巨大的吼——「發出巨大吼聲」就是答案。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l5-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The roar shook the trees and sent small stones rolling down the hill.",
-    "explanationZh": "那一聲吼，震動樹木，小石頭滾下山——這隻獅子的吼聲，整個山都聽得到。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l5-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Then it jumped at Heracles with its big mouth wide open.",
-    "question": "What did the lion do next?",
-    "options": [
-     "leaped at Heracles with open jaws",
-     "rolled over to play in the grass",
-     "ate some grass under a shady tree",
-     "called another lion to come help"
-    ],
-    "optionsZh": [
-     "張口撲向 Heracles",
-     "在草地上翻身玩耍",
-     "在樹蔭下吃了一些草",
-     "叫另一隻獅子來幫忙"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "獅子張開大嘴撲向 Heracles——「張口撲向 Heracles」就是答案。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l5-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles jumped to the side. The lion's teeth missed him by a hair.",
-    "explanationZh": "Heracles 往旁邊一跳，獅子的牙齒差一點點咬到——驚險！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l5-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "How was the fight going so far for Heracles?",
-    "question": "How was the fight going?",
-    "options": [
-     "⚠️ very badly, weapons broken",
-     "🏆 he was clearly winning",
-     "😴 slow, quiet, and boring",
-     "🎉 the lion was friendly"
-    ],
-    "optionsZh": [
-     "非常糟,武器都壞了",
-     "他明顯佔上風",
-     "又慢又安靜又無聊",
-     "獅子很友善"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "箭彈開 + 劍斷 + 獅子撲咬 → 「非常糟，武器都壞了」。那個 ⚠️ 就是現在的狀況。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l5-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He threw the broken sword on the ground and clenched both his fists...",
-    "explanationZh": "他把斷劍扔在地上，雙手握成拳頭……奶奶說，沒有武器的人才是真的勇敢。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l6",
-  "chapter": 30,
-  "lessonInChapter": 6,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "Heracles 決定 — 我要用我的雙手",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l6-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "手",
-      "right": "hand"
-     },
-     {
-      "left": "拳頭",
-      "right": "fist"
-     },
-     {
-      "left": "想",
-      "right": "think"
-     },
-     {
-      "left": "決定",
-      "right": "decide"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 hand = 手\n🔑 fist = 拳頭\n🔑 think = 想\n🔑 decide = 決定\n最後的決心！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l6-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles stood still and looked down at his two big hands.",
-    "explanationZh": "Heracles 站著不動，低頭看著自己的兩隻大手——那雙手，現在是他唯一的武器。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l6-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He thought, \"My bow is on the ground. My sword is broken.\"",
-    "question": "What was Heracles thinking about?",
-    "options": [
-     "his lost weapons",
-     "what to eat for lunch",
-     "a song from home",
-     "a soft warm bed"
-    ],
-    "optionsZh": [
-     "失去的武器",
-     "午餐吃什麼",
-     "家鄉的歌",
-     "柔軟溫暖的床"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "他想著：「弓在地上，劍斷了。」——「失去的武器」就是他想的事。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l6-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "But his arms were still strong, and his courage was still big.",
-    "questionEn": "Did Heracles give up?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "可是手臂還是很強壯，勇氣也沒跑掉——沒有放棄，答 No。他還站著呢。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l6-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He said to himself, \"I will use my hands. That is all I need.\"",
-    "explanationZh": "「我用我的手。我只需要這個。」——就這樣，他做了決定。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l6-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He took a deep breath in and made both of his hands into fists.",
-    "question": "What did Heracles do with his hands?",
-    "options": [
-     "wiped them on his shirt",
-     "closed them tight into fists",
-     "put them in his pockets",
-     "let them hang at his sides"
-    ],
-    "optionsZh": [
-     "在衣服上擦",
-     "緊緊握成拳頭",
-     "放進口袋",
-     "垂在身體兩邊"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "深吸一口氣，雙手緊握成拳頭——「緊緊握成拳頭」就是答案。準備好了。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l6-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The lion stepped closer, its tail moving slowly behind it.",
-    "explanationZh": "獅子慢慢走近，尾巴緩緩擺動——牠也在等，等著撲過來。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l6-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles did not move back. He did not look away from the lion.",
-    "question": "How did Heracles act facing the lion?",
-    "options": [
-     "ran for the trees behind him",
-     "stood firm and kept eye contact",
-     "closed his eyes and waited",
-     "shouted out loud for help"
-    ],
-    "optionsZh": [
-     "往身後的樹林跑",
-     "站穩,直視獅子",
-     "閉眼等",
-     "大聲呼救"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他沒後退，眼睛也沒離開獅子——「站穩，直視獅子」就是答案。這就是真正的勇敢。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l6-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "His eyes were calm. His feet were steady. His mind was set.",
-    "explanationZh": "眼神平靜、腳步穩定、心意已決——奶奶說，這三句話，就是「準備好了」的意思。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l6-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What did Heracles choose to do?",
-    "question": "What was his choice?",
-    "options": [
-     "✊ fight with bare hands",
-     "🏃 run back home to rest",
-     "🛌 take a nap first",
-     "📜 read the list again"
-    ],
-    "optionsZh": [
-     "赤手空拳對打",
-     "跑回家休息",
-     "先睡一覺",
-     "再讀一次清單"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "握拳 + 站穩 + 「我用我的手」 → 「赤手空拳對打」。那個 ✊ 就是他的選擇。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l6-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The lion leaped one more time. This time Heracles was ready...",
-    "explanationZh": "獅子再次撲來，這次 Heracles 已經準備好了……奶奶說，這一刻，是整個故事最緊張的地方。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- },
- {
-  "id": "kt-ch30-l7",
-  "chapter": 30,
-  "lessonInChapter": 7,
-  "segmentType": "main-story",
-  "storyId": "heracles-twelve-labors",
-  "storyBeat": "赤手勒住獅子 — 他贏了 + 穿上獅子毛皮",
-  "questions": [
-   {
-    "type": "tap-pairs",
-    "id": "kt-ch30-l7-q1",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Here are 4 words you will meet in tonight's story.",
-    "pairs": [
-     {
-      "left": "抱住",
-      "right": "hold"
-     },
-     {
-      "left": "贏",
-      "right": "win"
-     },
-     {
-      "left": "皮",
-      "right": "skin"
-     },
-     {
-      "left": "披風",
-      "right": "coat"
-     }
-    ],
-    "explanationZh": "今晚 4 個字：\n🔑 hold = 抱住\n🔑 win = 贏\n🔑 skin = 皮\n🔑 coat = 披風\n最後的勝利！",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "vocab",
-     "intro"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l7-q2",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "As the lion jumped, Heracles met it with his strong arms wide open.",
-    "explanationZh": "獅子撲過來，Heracles 張開雙臂迎上去——不是逃，是迎上去。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l7-q3",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He wrapped his arms around the lion's thick, warm neck and held tight.",
-    "question": "What part of the lion did Heracles grab?",
-    "options": [
-     "the tail at the back",
-     "around the neck",
-     "one of the back legs",
-     "the tip of an ear"
-    ],
-    "optionsZh": [
-     "後面的尾巴",
-     "脖子周圍",
-     "一隻後腳",
-     "耳朵尖端"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他把手臂繞住獅子厚厚的脖子，緊緊抱住——「脖子周圍」就是答案。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "listen-tf",
-    "id": "kt-ch30-l7-q4",
-    "level": "A2",
-    "difficulty": "medium",
-    "speaker": "narrator",
-    "sentence": "The lion shook and pulled, but Heracles did not let go.",
-    "questionEn": "Did Heracles release the lion?",
-    "options": [
-     "Yes",
-     "No"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "獅子甩啊甩，Heracles 就是不放手——「沒放手」，答 No。一直抱著，不放。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "inference"
-    ]
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l7-q5",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "They rolled over the rocks. Dust and dry leaves flew into the air.",
-    "explanationZh": "他們在石頭上翻滾，塵土和乾葉子飛揚——這場搏鬥，沒有音效也讓人想到那些聲音。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l7-q6",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Slowly, the lion grew weak in his arms. At last it stopped moving.",
-    "question": "What happened to the lion in the end?",
-    "options": [
-     "it ran away free into the hills",
-     "it lost its strength and stopped",
-     "it called for its mother",
-     "it turned into a grey stone"
-    ],
-    "optionsZh": [
-     "牠自由地跑進山裡",
-     "牠力氣用盡,停下來",
-     "牠叫媽媽",
-     "牠變成一塊灰色石頭"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "獅子慢慢沒力氣了，最後停下來——「力氣用盡，停下來」就是答案。Heracles 贏了。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l7-q7",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "Heracles stood up slowly. His chest moved up and down with deep breaths.",
-    "explanationZh": "Heracles 慢慢站起來，胸口隨著深呼吸起伏——他累了，但他贏了。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "listen-mc",
-    "id": "kt-ch30-l7-q8",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "He took the lion's thick skin and made it into a warm coat for himself.",
-    "question": "What did Heracles do with the lion's skin?",
-    "options": [
-     "buried it in the ground",
-     "wore it as a thick coat",
-     "gave it to the king",
-     "sold it at the market"
-    ],
-    "optionsZh": [
-     "埋在土裡",
-     "穿上當厚披風",
-     "送給國王",
-     "在市場賣掉"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "他把獅子的厚毛皮做成披風穿上——「穿上當厚披風」就是答案。以後再也沒有箭能傷他。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ],
-    "subSkill": "detail"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l7-q9",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "The skin was so thick that no sword or arrow could ever cut it.",
-    "explanationZh": "這張毛皮，比任何劍和箭都還硬——他把它變成了自己的盔甲。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   },
-   {
-    "type": "emoji-pick",
-    "id": "kt-ch30-l7-q10",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "What is the main lesson from tonight's story?",
-    "question": "What does the story teach?",
-    "options": [
-     "💪 think and use what you have",
-     "💰 always carry more gold",
-     "🏃 run away from hard things",
-     "😴 sleep until trouble ends"
-    ],
-    "optionsZh": [
-     "動腦,用你有的東西",
-     "永遠多帶金子",
-     "遇到難事就逃",
-     "睡到麻煩結束"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "弓和劍都不行 → 改用雙手 → 「動腦，用你有的東西」。那個 💪 就是他的精神。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors",
-     "hook"
-    ],
-    "subSkill": "vocab"
-   },
-   {
-    "type": "narration",
-    "id": "kt-ch30-l7-q11",
-    "level": "A2",
-    "difficulty": "easy",
-    "speaker": "narrator",
-    "sentence": "One task was done. Eleven more were waiting. Heracles walked on...",
-    "explanationZh": "一個任務完成了，還有十一個在等他——Heracles 繼續往前走……奶奶說，一步一步，這就是英雄的路。",
-    "tags": [
-     "story",
-     "ch30",
-     "heracles-twelve-labors"
-    ]
-   }
-  ]
- }
+  }
 ]
