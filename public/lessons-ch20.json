@@ -48,7 +48,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa plants a small turnip seed in his garden.",
-        "explanationZh": "爺爺在他的園子裡種下一顆小蘿蔔種子。",
+        "explanationZh": "爺爺在園子裡蹲下身子,把一顆小小的蘿蔔種子輕輕埋進土裡。",
         "tags": [
           "story",
           "ch20",
@@ -62,7 +62,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Every morning, he gives the seed water.",
-        "explanationZh": "每天早上,他給種子澆水。",
+        "explanationZh": "每天清晨,爺爺都會來澆水。一天都沒有少過。",
         "tags": [
           "story",
           "ch20",
@@ -82,13 +82,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:每天唱歌 + 從沒忘記 → 很在意 → 答 Yes",
+        "explanationZh": "每天唱歌、從來不忘——這樣的爺爺,怎麼可能不在乎呢?答案是 Yes 囉!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "爺爺每天對著種子唱歌,從來不忘記。"
       },
       {
         "type": "narration",
@@ -125,13 +126,14 @@
           "倒向一邊"
         ],
         "correctIndex": 1,
-        "explanationZh": "一週又一週,比其他的大 → 越來越大。",
+        "explanationZh": "「一週又一週」、「比其他的大」,兩個線索疊起來,答案就是:越來越大。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "一週又一週,蘿蔔長得比其他的都大。"
       },
       {
         "type": "narration",
@@ -168,14 +170,15 @@
           "剛冒芽"
         ],
         "correctIndex": 2,
-        "explanationZh": "比別的都大 → 非常大。",
+        "explanationZh": "前幾句說它比別的都大——那當然是「非常大」囉!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "現在的蘿蔔有多大?"
       },
       {
         "type": "listen-mc",
@@ -198,13 +201,14 @@
           "太軟"
         ],
         "correctIndex": 1,
-        "explanationZh": "手抱不過去 → 太大了。",
+        "explanationZh": "手抱不過去,代表它大得不得了——所以問題在於「太大抱不住」。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "爺爺的雙手抱不住蘿蔔頂端。"
       },
       {
         "type": "comprehension",
@@ -227,14 +231,15 @@
           "雪落在村子上"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 小種子長成全村最大蘿蔔。",
+        "explanationZh": "這一幕在說什麼?就是一顆小種子竟然長到超出一般大小,比全村的蘿蔔都大!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一顆小種子,長成了全村最大的蘿蔔。"
       },
       {
         "type": "narration",
@@ -243,7 +248,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "It is the biggest turnip in the village. Grandpa looks at it. \"Time to pull it out...\"",
-        "explanationZh": "這是全村最大的蘿蔔。爺爺看著它。「該把它拔出來了……」",
+        "explanationZh": "這是全村最大的蘿蔔。爺爺看著它,輕聲說:「該把它拔出來了……」",
         "tags": [
           "story",
           "ch20",
@@ -301,7 +306,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa walks into the garden. He puts down his hat.",
-        "explanationZh": "爺爺走進園子。他把帽子放下。",
+        "explanationZh": "爺爺走進園子,把帽子輕輕放在一邊——要認真工作了。",
         "tags": [
           "story",
           "ch20",
@@ -315,7 +320,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He holds the green leaves with both hands.",
-        "explanationZh": "他用兩隻手抓住綠葉子。",
+        "explanationZh": "爺爺用兩隻手緊緊抓住葉子,準備用力拉。",
         "tags": [
           "story",
           "ch20",
@@ -335,13 +340,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:用力拉 + 臉變紅 → 在出全力 → 答 Yes",
+        "explanationZh": "一拉再拉,臉都紅了——這不是費盡全力是什麼呀?答案是 Yes!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "爺爺用力拉,又拉了一次。他的臉變得紅紅的。"
       },
       {
         "type": "listen-mc",
@@ -364,13 +370,14 @@
           "彎下去"
         ],
         "correctIndex": 1,
-        "explanationZh": "一點都沒從土裡出來 → 完全沒動。",
+        "explanationZh": "「一點都沒從土裡出來」——也就是完全沒動嘛!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "蘿蔔就待在原地,一點都沒從土裡出來。"
       },
       {
         "type": "narration",
@@ -379,7 +386,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa sits down on the dirt. He looks at his hands.",
-        "explanationZh": "爺爺坐在土上。他看著自己的手。",
+        "explanationZh": "爺爺累了,坐到土上。他看著自己的手,心裡大概很不是滋味。",
         "tags": [
           "story",
           "ch20",
@@ -407,14 +414,15 @@
           "開心又愉快"
         ],
         "correctIndex": 1,
-        "explanationZh": "拉不動 + 坐下來 → 又累又卡住。",
+        "explanationZh": "拉不動坐下來,那當然是「又累又卡住」啦!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "爺爺現在覺得怎麼樣?"
       },
       {
         "type": "narration",
@@ -423,7 +431,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "He pulls one more time. His hands slip off the leaves.",
-        "explanationZh": "他再拉一次。他的手從葉子上滑開。",
+        "explanationZh": "他再試了一次——結果手從葉子上滑開了,更挫折了。",
         "tags": [
           "story",
           "ch20",
@@ -451,13 +459,14 @@
           "葉子沒了"
         ],
         "correctIndex": 1,
-        "explanationZh": "一個人手太少 + 蘿蔔太大 → 一個人不夠。",
+        "explanationZh": "「一個人手太少」加上「蘿蔔太大」,加在一起的意思就是:一個人不夠啦!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "一個人的手太少了。蘿蔔實在太大。"
       },
       {
         "type": "comprehension",
@@ -480,13 +489,14 @@
           "種新種子"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:回頭看屋子 + 屋裡還有別人 → 叫人來幫忙。",
+        "explanationZh": "回頭看屋子,屋裡還有別人——這是在想什麼?當然是想叫人來幫忙囉!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "爺爺回頭看了一眼屋子。屋裡還有別人住著呢。"
       },
       {
         "type": "narration",
@@ -495,7 +505,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa stands up. \"I cannot do this alone,\" he says. \"I need help...\"",
-        "explanationZh": "爺爺站起來。「我一個人做不到,」他說。「我需要幫忙……」",
+        "explanationZh": "爺爺站起身,說:「我一個人做不到,我需要幫忙……」",
         "tags": [
           "story",
           "ch20",
@@ -553,7 +563,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa calls toward the kitchen. \"Grandma, come help me!\"",
-        "explanationZh": "爺爺對著廚房叫:「奶奶,來幫我!」",
+        "explanationZh": "爺爺轉向廚房大叫:「奶奶,快來幫我!」",
         "tags": [
           "story",
           "ch20",
@@ -567,7 +577,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandma comes out, drying her hands on her apron.",
-        "explanationZh": "奶奶走出來,用圍裙擦著手。",
+        "explanationZh": "奶奶從廚房走出來,一邊用圍裙擦手——她剛才還在忙呢。",
         "tags": [
           "story",
           "ch20",
@@ -587,13 +597,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:走得快 + 不問就來 → 馬上想幫 → 答 Yes",
+        "explanationZh": "走得快、連問都不問就衝出來——這樣的奶奶,當然是馬上想幫忙啦!答案是 Yes。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她走得很快,一個問題都沒問就來了。"
       },
       {
         "type": "listen-mc",
@@ -616,13 +627,14 @@
           "她自己圍裙口袋"
         ],
         "correctIndex": 1,
-        "explanationZh": "兩隻手抓爺爺外套後面 → 抓前面那個人。",
+        "explanationZh": "抓爺爺外套後面,也就是抓住前面那個人,然後一起拉!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "奶奶用兩隻手抓住爺爺外套的後面。"
       },
       {
         "type": "narration",
@@ -631,7 +643,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa pulls the turnip. Grandma pulls Grandpa.",
-        "explanationZh": "爺爺拉蘿蔔。奶奶拉爺爺。",
+        "explanationZh": "爺爺拉蘿蔔。奶奶拉爺爺。一前一後,串成一條線!",
         "tags": [
           "story",
           "ch20",
@@ -659,14 +671,15 @@
           "四個"
         ],
         "correctIndex": 1,
-        "explanationZh": "爺爺 + 奶奶 = 兩個。",
+        "explanationZh": "爺爺加奶奶——一加一等於兩個人!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "現在有幾個人在拉?"
       },
       {
         "type": "narration",
@@ -675,7 +688,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They both pull. They count out loud. One, two, pull!",
-        "explanationZh": "兩個都拉。一起出聲數。一、二,拉!",
+        "explanationZh": "兩個人一起拉,還一邊數:一、二——拉!",
         "tags": [
           "story",
           "ch20",
@@ -703,13 +716,14 @@
           "歪一邊"
         ],
         "correctIndex": 1,
-        "explanationZh": "兩個人一起拉 + 還在土裡 → 還是卡著。",
+        "explanationZh": "兩個人一起拉了,蘿蔔還是沒出來——也就是說,還是卡著。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "就算兩個人一起拉,蘿蔔還是待在土裡不動。"
       },
       {
         "type": "comprehension",
@@ -732,14 +746,15 @@
           "爺爺生氣不拉了"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 兩個還不夠,需要更多人。",
+        "explanationZh": "一個不行、兩個還是不行——這一幕在說:需要更多幫手,兩個人不夠!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "一個人試過沒辦法。兩個人一起試還是沒辦法。"
       },
       {
         "type": "narration",
@@ -748,7 +763,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Two is not enough. Grandma looks at Grandpa. \"Who else can we ask?\"",
-        "explanationZh": "兩個不夠。奶奶看著爺爺。「我們還能叫誰?」",
+        "explanationZh": "兩個還不夠。奶奶看著爺爺:「我們還能叫誰?」",
         "tags": [
           "story",
           "ch20",
@@ -806,7 +821,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandma calls toward the house. \"Granddaughter, come help us!\"",
-        "explanationZh": "奶奶對著屋子叫:「孫女,來幫我們!」",
+        "explanationZh": "奶奶對著屋子大叫:「孫女,快來幫我們!」",
         "tags": [
           "story",
           "ch20",
@@ -820,7 +835,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A little girl runs out of the door. She is fast.",
-        "explanationZh": "一個小女孩從門裡跑出來。她很快。",
+        "explanationZh": "一個小女孩從門裡衝出來,跑得飛快。",
         "tags": [
           "story",
           "ch20",
@@ -840,13 +855,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:鞋都沒穿 → 急著來幫 → 答 Yes",
+        "explanationZh": "連鞋都沒穿就衝出去——這不是急著想幫忙是什麼?答案是 Yes!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "她連鞋子都沒穿就跑去園子了。"
       },
       {
         "type": "listen-mc",
@@ -869,13 +885,14 @@
           "她自己的小鞋子"
         ],
         "correctIndex": 1,
-        "explanationZh": "抓著奶奶圍裙 → 前面那位女士。",
+        "explanationZh": "抓的是奶奶的圍裙,也就是前面那位女士的衣服囉!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "小女孩用兩隻手抓住奶奶圍裙的後面。"
       },
       {
         "type": "narration",
@@ -884,7 +901,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa pulls. Grandma pulls. Granddaughter pulls.",
-        "explanationZh": "爺爺拉。奶奶拉。孫女拉。",
+        "explanationZh": "爺爺拉。奶奶拉。孫女拉。一個接著一個!",
         "tags": [
           "story",
           "ch20",
@@ -912,14 +929,15 @@
           "四個"
         ],
         "correctIndex": 2,
-        "explanationZh": "爺爺 + 奶奶 + 孫女 = 三個。",
+        "explanationZh": "爺爺加奶奶加孫女——一加一加一等於三個人!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "現在有幾個人在拉?"
       },
       {
         "type": "narration",
@@ -928,7 +946,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Three of them pull at the same time. They count again.",
-        "explanationZh": "三個人一起拉。他們又數一次。",
+        "explanationZh": "三個人同時用力,嘴裡還一起數著。",
         "tags": [
           "story",
           "ch20",
@@ -956,13 +974,14 @@
           "看天空"
         ],
         "correctIndex": 1,
-        "explanationZh": "三雙手 + 三雙腳一起 → 當一隊一起拉。",
+        "explanationZh": "三雙手三雙腳全部一起使力——當然是當一隊一起拉啦!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "三雙手。三雙腳踩在土上用力。"
       },
       {
         "type": "comprehension",
@@ -985,13 +1004,14 @@
           "爺爺停了"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:三個都用力 + 還沒動 → 三個還是不夠。",
+        "explanationZh": "三個人全力拉了,蘿蔔還是沒動——代表三個還是不夠!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "他們一直拉,蘿蔔就是不動。"
       },
       {
         "type": "narration",
@@ -1000,7 +1020,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Three is not enough either. Granddaughter looks around. \"We need more help!\"",
-        "explanationZh": "三個還是不夠。孫女四處看。「我們需要更多人!」",
+        "explanationZh": "三個還是不夠。孫女四處望:「我們還需要更多人!」",
         "tags": [
           "story",
           "ch20",
@@ -1058,7 +1078,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Granddaughter calls toward the yard. \"Little dog, come help us!\"",
-        "explanationZh": "孫女對著院子叫:「小狗,來幫我們!」",
+        "explanationZh": "孫女對著院子叫:「小狗,快來幫我們!」",
         "tags": [
           "story",
           "ch20",
@@ -1072,7 +1092,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The little dog runs over. His tail moves fast.",
-        "explanationZh": "小狗跑過來。他的尾巴搖得很快。",
+        "explanationZh": "小狗聽到叫聲,立刻跑了過來,尾巴搖個不停。",
         "tags": [
           "story",
           "ch20",
@@ -1092,13 +1112,14 @@
           "No"
         ],
         "correctIndex": 0,
-        "explanationZh": "推理:搖尾巴 + 抬頭看 → 開心想參加 → 答 Yes",
+        "explanationZh": "搖尾巴、抬頭看——這就是小狗說「我準備好了!」的方式。答案是 Yes!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "小狗搖著尾巴,抬頭看著小女孩。"
       },
       {
         "type": "listen-mc",
@@ -1121,13 +1142,14 @@
           "尾巴繞她的腳"
         ],
         "correctIndex": 1,
-        "explanationZh": "用牙齒咬住孫女衣服 → 嘴巴咬住。",
+        "explanationZh": "用牙齒咬住——也就是嘴巴咬住衣服,加入拉的隊伍!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "小狗用牙齒咬住孫女衣服的後面。"
       },
       {
         "type": "narration",
@@ -1136,7 +1158,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Grandpa pulls. Grandma pulls. Granddaughter pulls. Dog pulls.",
-        "explanationZh": "爺爺拉。奶奶拉。孫女拉。狗拉。",
+        "explanationZh": "爺爺拉。奶奶拉。孫女拉。狗也拉。隊伍越來越長了!",
         "tags": [
           "story",
           "ch20",
@@ -1164,14 +1186,15 @@
           "五個"
         ],
         "correctIndex": 2,
-        "explanationZh": "爺爺 + 奶奶 + 孫女 + 狗 = 四個。",
+        "explanationZh": "爺爺加奶奶加孫女加狗——數一數,四個!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "現在有幾個在拉?"
       },
       {
         "type": "narration",
@@ -1180,7 +1203,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Four of them pull. They count together. One, two, three, pull!",
-        "explanationZh": "四個一起拉。他們一起數。一、二、三,拉!",
+        "explanationZh": "四個一起數:一、二、三——拉!",
         "tags": [
           "story",
           "ch20",
@@ -1208,13 +1231,14 @@
           "狗大聲叫"
         ],
         "correctIndex": 1,
-        "explanationZh": "狗也加入 + 蘿蔔不動 → 還是沒動。",
+        "explanationZh": "狗加進來了,蘿蔔卻還是沒動——也就是,還是沒動。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "就算小狗的牙齒也一起拉,蘿蔔還是沒動。"
       },
       {
         "type": "comprehension",
@@ -1237,14 +1261,15 @@
           "聰明的狗學會一個全新的把戲"
         ],
         "correctIndex": 1,
-        "explanationZh": "主旨 = 越來越多人,但還是不夠。",
+        "explanationZh": "四個幫手齊力拉,蘿蔔依舊紋絲不動——這一幕的重點是:幫手越來越多,但還是不夠!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "gist"
         ],
-        "subSkill": "gist"
+        "subSkill": "gist",
+        "sentenceZh": "家裡的狗加入了。就算四個一起拉,蘿蔔還是沒動。"
       },
       {
         "type": "narration",
@@ -1253,7 +1278,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Four is not enough. The dog barks once. \"Maybe my friend the cat can come...\"",
-        "explanationZh": "四個還是不夠。狗叫了一聲。「也許我的朋友貓咪可以來……」",
+        "explanationZh": "四個還是不夠。小狗叫了一聲:「也許我的好朋友貓咪可以來……」",
         "tags": [
           "story",
           "ch20",
@@ -1311,7 +1336,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The dog calls toward the wall. \"Cat, come help us!\"",
-        "explanationZh": "狗對著牆叫:「貓咪,來幫我們!」",
+        "explanationZh": "小狗對著牆那邊叫:「貓咪,快來幫我們!」",
         "tags": [
           "story",
           "ch20",
@@ -1325,7 +1350,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The cat walks over slowly. She takes her time.",
-        "explanationZh": "貓咪慢慢走過來。她不急。",
+        "explanationZh": "貓咪慢慢地踱過來。她不急——貓咪本來就這樣嘛。",
         "tags": [
           "story",
           "ch20",
@@ -1345,13 +1370,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:慢慢走 + 先看 → 不在意快 → 答 No",
+        "explanationZh": "慢慢走、還先看一看——貓咪根本不在乎快不快。答案是 No。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "貓咪沒有跑。她先停下來看了看蘿蔔。"
       },
       {
         "type": "listen-mc",
@@ -1374,13 +1400,14 @@
           "抱爺爺的腳"
         ],
         "correctIndex": 1,
-        "explanationZh": "前腳抱住狗的尾巴。",
+        "explanationZh": "用前腳抱住狗的尾巴——加入隊伍的方式真有貓咪風格!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "貓咪用前腳輕輕地抱住狗的尾巴。"
       },
       {
         "type": "narration",
@@ -1389,7 +1416,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Five of them pull now. Everyone pulls as hard as they can.",
-        "explanationZh": "五個一起拉。每個都用盡力氣。",
+        "explanationZh": "現在五個人一起拉了。每個都使出全力。",
         "tags": [
           "story",
           "ch20",
@@ -1417,14 +1444,15 @@
           "六個"
         ],
         "correctIndex": 2,
-        "explanationZh": "爺爺 + 奶奶 + 孫女 + 狗 + 貓 = 五個。",
+        "explanationZh": "爺爺加奶奶加孫女加狗加貓——五個!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "現在有幾個在拉?"
       },
       {
         "type": "narration",
@@ -1433,7 +1461,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They count again. One, two, three, pull!",
-        "explanationZh": "他們又數一次。一、二、三,拉!",
+        "explanationZh": "大家又數一次:一、二、三——拉!",
         "tags": [
           "story",
           "ch20",
@@ -1461,13 +1489,14 @@
           "長出新的綠葉"
         ],
         "correctIndex": 1,
-        "explanationZh": "蘿蔔動了一點點 + 頂搖一下。",
+        "explanationZh": "這次不一樣了——蘿蔔動了一點點!雖然還沒出來,但有進展喔。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "蘿蔔動了一點點。頂端在土裡搖了一下。"
       },
       {
         "type": "comprehension",
@@ -1490,13 +1519,14 @@
           "拉錯方向"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:動了 + 又停 → 快夠了 + 還差一個。",
+        "explanationZh": "動了一下又停——就差那麼一點,還需要再多一個幫手!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "但動了那麼一點之後,蘿蔔又停了。還是卡著。"
       },
       {
         "type": "narration",
@@ -1505,7 +1535,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "It moved! But not enough. The cat looks at her little friend by the wall...",
-        "explanationZh": "它動了!但還不夠。貓咪看著牆邊的小朋友……",
+        "explanationZh": "動了!但還不夠。貓咪看向牆邊的那位小朋友……",
         "tags": [
           "story",
           "ch20",
@@ -1563,7 +1593,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The cat calls toward the small hole. \"Little mouse, come help us!\"",
-        "explanationZh": "貓咪對著小洞叫:「小老鼠,來幫我們!」",
+        "explanationZh": "貓咪對著小洞叫:「小老鼠,快來幫我們!」",
         "tags": [
           "story",
           "ch20",
@@ -1577,7 +1607,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "A little mouse runs out. She is the smallest of all.",
-        "explanationZh": "一隻小老鼠跑出來。她是所有人裡最小的。",
+        "explanationZh": "一隻小小的老鼠跑出來了。她是所有人裡面最小的一個。",
         "tags": [
           "story",
           "ch20",
@@ -1597,13 +1627,14 @@
           "No"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:小 + 不說自己太小 → 不在意大小 → 答 No",
+        "explanationZh": "小小的她,一句「我太小了」都沒說——她完全不把身材當回事嘛!答案是 No。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "inference"
-        ]
+        ],
+        "sentenceZh": "老鼠很小。但她沒有說自己太小幫不上忙。"
       },
       {
         "type": "listen-mc",
@@ -1626,13 +1657,14 @@
           "坐在爺爺靴子上"
         ],
         "correctIndex": 1,
-        "explanationZh": "貓的尾巴 → 毛毛那隻的尾巴。",
+        "explanationZh": "抱住貓咪的尾巴——貓咪是毛毛的那隻,所以是抓住毛毛那隻的尾巴!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "小老鼠用兩隻小爪子抱住貓咪的尾巴。"
       },
       {
         "type": "narration",
@@ -1641,7 +1673,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Six of them pull now. The smallest one is at the end.",
-        "explanationZh": "六個一起拉。最小的在最後面。",
+        "explanationZh": "六個一起拉了!最小的老鼠排在最後面。",
         "tags": [
           "story",
           "ch20",
@@ -1669,14 +1701,15 @@
           "七個"
         ],
         "correctIndex": 2,
-        "explanationZh": "爺爺 + 奶奶 + 孫女 + 狗 + 貓 + 老鼠 = 六個。",
+        "explanationZh": "爺爺加奶奶加孫女加狗加貓加老鼠——一起數,六個!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "hook"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "sentenceZh": "最後有幾個在拉?"
       },
       {
         "type": "narration",
@@ -1685,7 +1718,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "They count one more time. One, two, three, pull!",
-        "explanationZh": "他們再數一次。一、二、三,拉!",
+        "explanationZh": "大家最後再數一次:一、二、三——拉!",
         "tags": [
           "story",
           "ch20",
@@ -1713,13 +1746,14 @@
           "暴風雨來了"
         ],
         "correctIndex": 1,
-        "explanationZh": "蘿蔔出來了 + 大家開心倒下。",
+        "explanationZh": "這次蘿蔔出來了!大家開心到一起往後倒。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "sentenceZh": "蘿蔔出來了!大家開心地一起倒在地上。"
       },
       {
         "type": "comprehension",
@@ -1742,13 +1776,14 @@
           "蘿蔔只夏天長"
         ],
         "correctIndex": 1,
-        "explanationZh": "推理:最小的老鼠 = 最後那一推 → 再小的幫忙都重要。",
+        "explanationZh": "最小的老鼠是最後那一推——故事想告訴我們:再小的幫忙都重要,少了誰都不行!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip"
         ],
-        "subSkill": "inference"
+        "subSkill": "inference",
+        "sentenceZh": "最小的老鼠是最後加入的那個。就差她那一點點力氣。"
       },
       {
         "type": "narration",
@@ -1757,7 +1792,7 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The whole family shares a big turnip dinner. Even the mouse gets a seat at the table...",
-        "explanationZh": "全家一起吃大蘿蔔晚餐。連小老鼠都有位子坐……",
+        "explanationZh": "全家一起吃大蘿蔔晚餐,連小老鼠都有一個位子坐……",
         "tags": [
           "story",
           "ch20",
