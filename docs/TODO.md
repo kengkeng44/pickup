@@ -114,3 +114,9 @@
 - [x] grammar-mc 題型 + ch0/ch1 範例 / 句子 3 段揭示 (空白→英→中) + 旁白去框自動推進
 - [x] 單字卡功能 + vocabStore 資料層 (100 張免費上限 + paywall stub)
 - [x] 答對彈兩下 + 喇叭按壓動畫 (pop + 聲波環)
+
+### 版面 no-fold 標準 (2026-06-23 per user)
+- 標準:問題頁所有內容一頁裝得下、選項絕不被折疊;只有旁白能往上滑;沒位置就縮圖片。
+- [x] picture-mc 圖片框 flex-shrink + 選項不折 (B.370)
+- [x] listen-emoji / emoji-pick 圖示縮小 + 去 minHeight (B.370)
+- [ ] 全 renderer 逐一驗 no-fold(listen-mc / comprehension / tap-pairs / tap-tiles / type-what-you-hear / drag-blank / listen-build 等)在 iPhone SE 等小螢幕都不折

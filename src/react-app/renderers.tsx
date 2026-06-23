@@ -1150,10 +1150,10 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   }
 
   return (
-    <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '20px 8px' }}>
+    <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '10px 8px' }}>
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
-      <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" style={{ borderRadius: '50%', marginBottom: 16 }} />
-      <h2 style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.5, margin: '0 0 20px' }}>{prompt}</h2>
+      <img src="/mascots/calico-anchor.webp" width={84} height={84} alt="Mochi" style={{ borderRadius: '50%', marginBottom: 10 }} />
+      <h2 style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.5, margin: '0 0 14px' }}>{prompt}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, maxWidth: 360, margin: '0 auto' }}>
         {opts.map((o, i) => {
           const [emoji, ...labelParts] = o.split(' ');
@@ -1271,10 +1271,9 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 fontFamily: 'inherit',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
                 WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-                minHeight: 120,
               }}
             >
-              <span style={{ fontSize: 52, lineHeight: 1 }}>{emoji}</span>
+              <span style={{ fontSize: 'clamp(34px, 9vh, 52px)', lineHeight: 1 }}>{emoji}</span>
               {revealed && <span style={{ fontSize: 13, fontWeight: 800, color: 'var(--t-text)' }}>{label}{optsZh[i] ? <> · <SpeakZh text={optsZh[i]} /></> : ''}</span>}
             </button>
           );
@@ -1321,19 +1320,19 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   };
 
   return (
-    <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
+    <div className="pickup-lesson-words" style={{ padding: '4px 0', height: '100%', display: 'flex', flexDirection: 'column', minHeight: 0 }}>
       <SpeakerBadge speaker={q.speaker} />
-      {/* picture block */}
+      {/* v2.0.B.370 (per user 標準): 圖片框 flex-shrink — 沒位置就縮小, 選項永不被折疊 */}
       <div style={{
+        flex: '1 1 auto', minHeight: 0, overflow: 'hidden',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '24px 16px', background: 'var(--t-surface-alt)',
-        border: '2px solid var(--t-border-soft)', borderRadius: 16, marginBottom: 14,
-        minHeight: 140,
+        padding: '12px', background: 'var(--t-surface-alt)',
+        border: '2px solid var(--t-border-soft)', borderRadius: 16, marginBottom: 12,
       }}>
         {q.imageUrl ? (
-          <img src={q.imageUrl} alt="" style={{ maxWidth: 200, maxHeight: 160, objectFit: 'contain' }} />
+          <img src={q.imageUrl} alt="" style={{ maxWidth: '72%', maxHeight: '100%', objectFit: 'contain' }} />
         ) : (
-          <span style={{ fontSize: 96, lineHeight: 1 }}>{q.imageEmoji ?? '🖼️'}</span>
+          <span style={{ fontSize: 'clamp(48px, 16vh, 96px)', lineHeight: 1 }}>{q.imageEmoji ?? '🖼️'}</span>
         )}
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
