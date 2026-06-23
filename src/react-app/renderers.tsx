@@ -219,29 +219,30 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
 // ─── 1. narration ───────────────────────────────────────────────────────────
 const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
   const text = pickSentence(q); // v2.0.B.323 三難度文本
-  // v2.0.B.363 (per user AB): 旁白「預設顯示英文 + 自動推進」(只題目才空白).
-  // 保留去框 (RevealSentence) + 點看中文 (startStage=1 → 直接英文, 點一下出中文).
+  // v2.0.B.369 (per user): 旁白也「預設空格 → 點英文 → 點中文」(統一). 無提示字.
+  // 因為空格要手動揭示才讀得到, 改手動「繼續」(不自動推進). 旁白 explanationZh 即中文.
   const zh = q.sentenceZh ?? q.explanationZh ?? '';
-  const advancedRef = useRef(false);
   useEffect(() => {
-    advancedRef.current = false;
-    const advanceOnce = () => {
-      if (advancedRef.current) return;
-      advancedRef.current = true;
-      onAdvance(text);
-    };
-    const dwellAdvance = () => window.setTimeout(advanceOnce, 2000);
-    try { speak(text, 'en-US', { onEnd: dwellAdvance }); } catch { dwellAdvance(); }
-    const fallbackMs = Math.max(7000, text.split(/\s+/).length * 600 + 4000);
-    const timer = window.setTimeout(advanceOnce, fallbackMs);
-    return () => { window.clearTimeout(timer); stopSpeaking(); };
+    try { speak(text, 'en-US'); } catch {}
+    return () => stopSpeaking();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
   return (
     <div>
       <SpeakerBadge speaker={q.speaker} />
-      <RevealSentence en={text} zh={zh || undefined} big startStage={1} />
+      <RevealSentence en={text} zh={zh || undefined} big />
+      <button
+        type="button"
+        onClick={() => onAdvance(text)}
+        className="pickup-answer-sticky"
+        style={{
+          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+          background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+          fontFamily: 'inherit', cursor: 'pointer',
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}
+      >繼續 →</button>
     </div>
   );
 };
@@ -330,7 +331,6 @@ const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; bi
   useEffect(() => { if (answered) setStage((s) => Math.max(s, 1)); }, [answered]);
   const maxStage = zh ? 2 : 1;
   const advance = () => setStage((s) => Math.min(maxStage, s + 1));
-  const hint = stage === 0 ? '👆 點一下看英文' : (stage === 1 && zh ? '👆 再點一下看中文' : '');
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '8px 4px', marginBottom: 14 }}>
       <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={40} />
@@ -344,7 +344,6 @@ const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; bi
         {stage >= 2 && zh && (
           <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 6, lineHeight: 1.6 }}>{zh}</div>
         )}
-        {hint && <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--t-brand-dark)', marginTop: 6 }}>{hint}</div>}
       </div>
     </div>
   );
@@ -525,9 +524,6 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
         </>
       ) : (
         <>
-          <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, textAlign: 'center', margin: '8px 0 14px' }}>
-            👆 點上面句子可看英文 → 再點看中文
-          </div>
           <button
             type="button"
             onClick={() => onAdvance(passage)}
