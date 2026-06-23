@@ -225,6 +225,295 @@
         "sentenceZh": "其他動物漸漸不再來找他了。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch4-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago, the world was new and all the animals began to help Man — all except one.",
+        "question": "What is this story mainly about at the start?",
+        "options": [
+          "one animal that refused to help",
+          "a race between all the animals",
+          "how Man built the first desert",
+          "why animals learned to talk"
+        ],
+        "optionsZh": [
+          "一隻不肯幫忙的動物",
+          "所有動物之間的一場賽跑",
+          "人類如何建造了第一個沙漠",
+          "動物為什麼學會說話"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事一開始就說了——所有動物都開始幫人類，就只有一個傢伙例外。這一段的重點，就是那個不肯幫忙的動物。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "gist"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "很久以前，世界還很新，所有動物都開始幫人類——除了一個。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "all day long",
+            "right": "整天"
+          },
+          {
+            "left": "turn away",
+            "right": "把臉轉開"
+          },
+          {
+            "left": "in the middle of",
+            "right": "在⋯⋯正中央"
+          },
+          {
+            "left": "lived alone",
+            "right": "獨自住著"
+          }
+        ],
+        "explanationZh": "這 4 個片語今天的故事都用到了喔！\n🔑 all day long = 整天\n🔑 turn away = 把臉轉開\n🔑 in the middle of = 在……正中央\n🔑 lived alone = 獨自住著\n記起來，讀故事時會更順。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "You see, my dear, the Camel did nothing all day long.",
+        "questionEn": "Did the Camel work hard every day?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他整天什麼都沒做——這就是說，他根本沒有努力工作，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "你看，駱駝整天什麼都不做。"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch4-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel lived alone in the middle of the ___ sand.",
+        "sentenceHard": "The Camel lived alone in the middle of the wide sand.",
+        "question": "Which word is correct?",
+        "options": [
+          "wide",
+          "widely",
+          "wider",
+          "widest"
+        ],
+        "optionsZh": [
+          "寬廣的",
+          "寬廣地",
+          "更寬廣的",
+          "最寬廣的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "這裡要修飾名詞「sand（沙）」，所以要用形容詞 wide（寬廣的），不是副詞 widely 喔！講「他/她/牠一個人」的事，動詞後面也要加 -s，不過這句我們重點是形容詞用法。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "grammar"
+        ],
+        "subSkill": "function",
+        "sentenceZh": "駱駝獨自住在廣闊沙漠的正中央。"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel lived alone in the middle of the wide sand.",
+        "question": "Which picture best shows where the Camel lived?",
+        "imageEmoji": "🐪",
+        "options": [
+          "a camel in an empty desert alone",
+          "swimming in a big blue lake",
+          "asleep in a shady forest",
+          "eating on a green hillside"
+        ],
+        "optionsZh": [
+          "一隻駱駝獨自在空曠的沙漠",
+          "在大藍湖裡游泳",
+          "在陰涼的森林裡睡覺",
+          "在綠色山坡上吃草"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說駱駝一個人住在廣闊的沙地正中央——那就是空曠的沙漠！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "駱駝獨自住在廣闊沙漠的正中央。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The other animals slowly stopped coming to see him.",
+        "question": "Why did the animals stop visiting?",
+        "options": [
+          "the Camel was always away from home",
+          "he never gave a kind reply",
+          "the desert was too cold to visit",
+          "Man told them to stay away"
+        ],
+        "optionsZh": [
+          "駱駝總是不在家",
+          "他從來不給一個親切的回應",
+          "沙漠太冷了，不好去",
+          "人類叫他們不要去"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "駱駝每次都只說「Humph！」把人推走——這樣的回應，讓大家漸漸不想再去了。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "其他動物漸漸不再去找他了。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "a short rude noise",
+            "right": "一聲短短的粗魯聲"
+          },
+          {
+            "left": "did nothing",
+            "right": "什麼都沒做"
+          },
+          {
+            "left": "wide sand",
+            "right": "廣闊的沙漠"
+          },
+          {
+            "left": "began to learn",
+            "right": "開始學習"
+          }
+        ],
+        "explanationZh": "再來 4 個片語配一配！\n🔑 a short rude noise = 一聲短短的粗魯聲\n🔑 did nothing = 什麼都沒做\n🔑 wide sand = 廣闊的沙漠\n🔑 began to learn = 開始學習",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l1-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "All the animals began to learn to help Man.",
+        "questionEn": "Did the Camel follow this rule too?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說「所有動物」開始學著幫忙——可是接下來馬上說駱駝什麼都不做，所以他不算在那個「所有」裡頭。答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "所有動物都開始學著幫人類做事。"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l1-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He only said one thing: \"Humph!\" and turned away.",
+        "question": "Which emoji best shows how the Camel acted?",
+        "options": [
+          "😒 bored and uninterested",
+          "🤩 very excited and happy",
+          "😢 sad and about to cry",
+          "😨 scared and shaking"
+        ],
+        "optionsZh": [
+          "無聊又冷漠",
+          "超級興奮又開心",
+          "傷心快要哭了",
+          "嚇到發抖"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "就說了一個字、轉頭走掉——這就是不在乎、沒興趣的態度，所以是「無聊又冷漠」。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "他就說了一件事：「Humph！」然後把臉轉開。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l1-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It was his lazy way to push the others off.",
+        "questionEn": "Was \"Humph!\" a polite word?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說這是他「粗魯地」把別人推走的方式——既然粗魯，當然不是禮貌的話，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "這是他懶懶地把別人推開的方式。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch4-l1-q11",
         "level": "A2",
@@ -464,6 +753,294 @@
         ],
         "subSkill": "gist",
         "sentenceZh": "三隻動物一個接一個來，每一個都空手離開，沒得到任何幫助。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Now you see, my dear, the Horse came first to the Camel.",
+        "question": "Who was the first animal to ask the Camel for help?",
+        "options": [
+          "the Horse, not the Dog or Ox",
+          "the Dog arrived before the others",
+          "the Ox led the way to find the Camel",
+          "Man himself walked over first"
+        ],
+        "optionsZh": [
+          "是馬，不是狗也不是牛",
+          "狗比其他人先到",
+          "牛帶頭去找駱駝",
+          "人類自己先走過來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說「馬最先來到駱駝那裡」——第一個去找他的，就是馬！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "你看，親愛的，第一個去找駱駝的是馬。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "trot with me",
+            "right": "跟我一起小跑"
+          },
+          {
+            "left": "a bone in his teeth",
+            "right": "嘴裡叼著骨頭"
+          },
+          {
+            "left": "the same short sound",
+            "right": "同樣的短聲"
+          },
+          {
+            "left": "looked at each other",
+            "right": "互相看著對方"
+          }
+        ],
+        "explanationZh": "配一配！\n🔑 trot with me = 跟我一起小跑\n🔑 a bone in his teeth = 嘴裡叼著骨頭\n🔑 the same short sound = 同樣的短聲\n🔑 looked at each other = 互相看著對方",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He said, \"Come and trot with me like the rest of us.\"",
+        "questionEn": "Was the Horse asking for something dangerous?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "馬只是說「來跟我一起小跑吧，像大家一樣」——這是很正常的邀請，一點都不危險，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "他說：「來跟我一起小跑嘛，像大家一樣。」"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The three friends looked at each other for a long moment.",
+        "question": "How might the three friends feel after the Camel refused?",
+        "options": [
+          "😤 frustrated and unhappy",
+          "😂 laughing and playful",
+          "😴 sleepy and bored",
+          "🥳 excited and ready to party"
+        ],
+        "optionsZh": [
+          "沮喪又不高興",
+          "笑嘻嘻的、很愛玩",
+          "很想睡、很無聊",
+          "超興奮、準備好要派對了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "三個夥伴每個都被「Humph！」打發走——碰這樣的壁，當然沮喪又不高興嘛！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "三個朋友互相對望了好久。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each time, the Camel gave them the same short rude reply.",
+        "question": "What do the three animals have in common?",
+        "options": [
+          "they all got turned away with a rude word",
+          "each one brought the Camel a gift",
+          "all three became the Camel's friends",
+          "everyone laughed along with the Camel"
+        ],
+        "optionsZh": [
+          "他們都被一個粗魯的字打發走了",
+          "每一個都帶了禮物給駱駝",
+          "三個都成了駱駝的朋友",
+          "大家都跟著駱駝一起笑"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "馬、狗、牛輪流去找駱駝——結果每一個都只聽到那個短短的「Humph！」。他們的共同點，就是都被這個字打發走了。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "gist"
+        ],
+        "subSkill": "gist",
+        "sentenceZh": "每一次，駱駝都給他們一樣短短的粗魯回答。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "ran up with a bone",
+            "right": "叼著骨頭跑過來"
+          },
+          {
+            "left": "without a word",
+            "right": "一句話都沒說"
+          },
+          {
+            "left": "turned and walked off",
+            "right": "轉身走掉了"
+          },
+          {
+            "left": "bring and pick up",
+            "right": "搬東西、撿東西"
+          }
+        ],
+        "explanationZh": "再配對！\n🔑 ran up with a bone = 叼著骨頭跑過來\n🔑 without a word = 一句話都沒說\n🔑 turned and walked off = 轉身走掉了\n🔑 bring and pick up = 搬東西、撿東西",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Last of all, my dear, the Ox came slowly with his big head.",
+        "questionEn": "Did the Ox arrive before the Horse?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說牛是「最後」來的——先是馬，然後是狗，最後才是牛。所以牛在馬之前到達，這說法是錯的。答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "最後啊，親愛的，牛慢吞吞地低著大頭走來了。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l2-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then, without a word, the three turned and walked off to find Man.",
+        "questionEn": "Did the three animals decide to give up and do nothing?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們轉身去找人類——這說明他們沒有放棄，而是去想其他辦法了。所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "然後，一句話也沒說，三個轉身走去找人類……"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l2-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Dog ran up with a bone in his teeth.",
+        "question": "Which picture shows what the Dog brought?",
+        "imageEmoji": "🐕",
+        "options": [
+          "a dog holding a bone in its mouth",
+          "carrying a heavy bag on its back",
+          "drinking from a cool pond",
+          "chasing after a running cat"
+        ],
+        "optionsZh": [
+          "一隻狗嘴裡叼著骨頭",
+          "背著一個重袋子",
+          "在涼爽的水塘邊喝水",
+          "追著一隻跑跑的貓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說狗「嘴裡叼著骨頭跑過來」——所以畫面就是狗嘴裡咬著一根骨頭！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "狗嘴裡叼著一根骨頭跑過來。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l2-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Three animals came one by one, and each one walked away with no help.",
+        "question": "How does the Camel's \"Humph!\" affect the whole team?",
+        "options": [
+          "it leaves more work for others",
+          "doing nothing helps the team thrive",
+          "one less worker makes things easier",
+          "only weak animals help with work"
+        ],
+        "optionsZh": [
+          "讓其他人有更多工作要做",
+          "什麼都不做讓整個隊伍更好",
+          "少一個工人讓事情更容易",
+          "只有弱小的動物才幫忙做工"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "駱駝不工作，他那份工作就要落到別人身上——所以他的「Humph！」讓大家的負擔更重了。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "三隻動物一個接一個來，每一個都空手離開，沒有得到任何幫助。"
       },
       {
         "type": "narration",
@@ -707,6 +1284,294 @@
         "sentenceZh": "什麼東西朝他們穿越沙漠滾過來？"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch4-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They told Man that the Camel would not lift a finger.",
+        "question": "Why did the three go to find Man?",
+        "options": [
+          "to report the Camel's laziness",
+          "asking for extra food and water",
+          "showing Man their new trick",
+          "to ask for a shorter workday"
+        ],
+        "optionsZh": [
+          "去告訴人類駱駝有多懶",
+          "要求更多食物和水",
+          "給人類看他們的新把戲",
+          "要求縮短工作時間"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "三個夥伴說駱駝連一根手指都不肯動——他們去找人類，就是為了告狀、反映問題。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他們告訴人類，駱駝連一根手指都不肯動。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "put both hands on his hips",
+            "right": "雙手叉腰"
+          },
+          {
+            "left": "work double",
+            "right": "做兩倍的工"
+          },
+          {
+            "left": "from sun-up to sun-down",
+            "right": "從日出到日落"
+          },
+          {
+            "left": "would not lift a finger",
+            "right": "連一根手指都不肯動"
+          }
+        ],
+        "explanationZh": "把這 4 個片語配一配！\n🔑 put both hands on his hips = 雙手叉腰\n🔑 work double = 做兩倍的工\n🔑 from sun-up to sun-down = 從日出到日落\n🔑 would not lift a finger = 連一根手指都不肯動",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Man said, \"Then you three must work double every day.\"",
+        "questionEn": "Did Man excuse the three animals from their work?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "人類說他們要做「兩倍」的工——這是加重負擔，根本沒有讓他們少做，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "人說：「那你們三個每天必須做兩倍的工。」"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "And so the three grew very tired and very, very angry.",
+        "question": "Which pair of emojis best shows how the three felt?",
+        "options": [
+          "😫😡 tired and furious",
+          "😂🎉 laughing and celebrating",
+          "😴😌 sleepy and calm",
+          "🤔😊 thinking and happy"
+        ],
+        "optionsZh": [
+          "又累又生氣",
+          "笑個不停又在慶祝",
+          "很想睡覺又很平靜",
+          "在思考又很開心"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事直接說了：他們又累又生氣（very tired and very angry）——就是又累又怒的樣子！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "就這樣，三個夥伴變得又非常累、又非常、非常生氣。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Their backs hurt and they kicked the sand each evening.",
+        "questionEn": "Were the three animals enjoying their extra work?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "背痛、踢沙子出氣——這哪裡是享受的樣子？他們很痛苦，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "他們的背很痛，每天傍晚都踢沙子出氣。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Man stood up at once and put both hands on his hips.",
+        "question": "What does Man's body language tell us?",
+        "options": [
+          "he was angry and ready to act",
+          "his plan was to stay quiet",
+          "the news made him feel sorry",
+          "he was bored and half-asleep"
+        ],
+        "optionsZh": [
+          "他生氣了、準備採取行動",
+          "他的計畫是保持安靜",
+          "這個消息讓他感到難過",
+          "他無聊又半睡半醒"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "一下子站起來、雙手叉腰——這個姿勢表示人很不高興，準備要做點什麼了。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "人一下子就站起來，雙手叉在腰上。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "grew very angry",
+            "right": "變得非常生氣"
+          },
+          {
+            "left": "a tall pillar of dust",
+            "right": "一根高高的沙柱"
+          },
+          {
+            "left": "rolled closer",
+            "right": "越滾越近"
+          },
+          {
+            "left": "at once",
+            "right": "立刻、馬上"
+          }
+        ],
+        "explanationZh": "再來 4 個！\n🔑 grew very angry = 變得非常生氣\n🔑 a tall pillar of dust = 一根高高的沙柱\n🔑 rolled closer = 越滾越近\n🔑 at once = 立刻、馬上",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l3-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One evening, a tall pillar of dust came rolling across the sand.",
+        "questionEn": "Was the dust a natural weather event?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事後來告訴我們，那根沙柱裡面其實是精靈——這可不是普通的天氣現象喔！答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "有一天傍晚，一根高高的沙柱橫越沙漠滾過來。"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l3-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Man stood up at once and put both hands on his hips.",
+        "question": "Which picture best shows Man's reaction?",
+        "imageEmoji": "🧍",
+        "options": [
+          "hands on hips, looking upset",
+          "lying down and fast asleep",
+          "jumping high while cheering",
+          "sitting and reading quietly"
+        ],
+        "optionsZh": [
+          "雙手叉腰、看起來不高興",
+          "躺著熟睡",
+          "跳得高高的同時歡呼",
+          "坐著安靜看書"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "人一下子「站起來」「雙手叉腰」——這就是不高興又準備採取行動的樣子！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "人一下子就站起來，把雙手叉在腰上。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l3-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The dust rolled closer and closer, and inside it something moved.",
+        "question": "What does this clue tell us about what is coming?",
+        "options": [
+          "something or someone special is arriving",
+          "a big sandstorm will bury the animals",
+          "the Camel is running away fast",
+          "food is falling from the sky"
+        ],
+        "optionsZh": [
+          "有什麼特別的東西或人正在來",
+          "一場大沙暴要把動物埋起來",
+          "駱駝正在快速逃跑",
+          "食物從天上掉下來了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "沙塵裡面有東西在動——這是個暗示，說明有什麼特別的東西（或某人）正在到來，故事要有新發展了。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "沙塵越滾越近，裡面有什麼東西在動……"
+      },
+      {
         "type": "narration",
         "id": "kt-ch4-l3-q11",
         "level": "A2",
@@ -946,6 +1811,294 @@
         ],
         "subSkill": "gist",
         "sentenceZh": "一個新朋友來了，聽完三個難過的故事，準備好要行動。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Now, O dear listener, the dust opened and a Djinn stepped out.",
+        "question": "What is special about how the Djinn arrived?",
+        "options": [
+          "he came inside a cloud of dust",
+          "riding in on a white horse",
+          "walking from the water's edge",
+          "stepping out from behind a tree"
+        ],
+        "optionsZh": [
+          "他在沙塵裡走出來",
+          "騎著白馬飛過來",
+          "從水邊走來",
+          "從一棵樹後面走出來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "沙塵散開，精靈從裡面走出來——他的到來方式，就是從沙塵雲裡現身！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "你看，親愛的聽眾，沙塵散開，一個精靈走了出來。"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch4-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Djinn sat down low so he ___ the same height as the Dog.",
+        "sentenceHard": "The Djinn sat down low so he was the same height as the Dog.",
+        "question": "Which word is correct?",
+        "options": [
+          "was",
+          "is",
+          "were",
+          "be"
+        ],
+        "optionsZh": [
+          "是（過去式單數）",
+          "是（現在式）",
+          "是（過去式複數）",
+          "是（原形動詞）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "這是過去的故事，而且主語是「he（他，一個人）」——所以要用過去式的 was，不是 is、were 或 be 喔！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "grammar"
+        ],
+        "subSkill": "function",
+        "sentenceZh": "精靈低低地坐下，讓自己跟狗一樣高。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "with kind eyes",
+            "right": "帶著親切的眼神"
+          },
+          {
+            "left": "the same height as",
+            "right": "跟⋯⋯一樣高"
+          },
+          {
+            "left": "rubbed his chin",
+            "right": "搓著下巴"
+          },
+          {
+            "left": "face to face",
+            "right": "面對面"
+          }
+        ],
+        "explanationZh": "把這 4 個片語配一配！\n🔑 with kind eyes = 帶著親切的眼神\n🔑 the same height as = 跟⋯⋯一樣高\n🔑 rubbed his chin = 搓著下巴\n🔑 face to face = 面對面",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He looked at the three tired animals with kind eyes.",
+        "questionEn": "Was the Djinn cold and harsh toward the three animals?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他用「親切的眼神」看著他們——這完全不是冷漠或嚴厲的樣子，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "sentenceZh": "他帶著親切的眼神看著三隻疲累的動物。"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Djinn rubbed his chin and thought for a long while.",
+        "question": "Which emoji best shows what the Djinn was doing?",
+        "options": [
+          "🤔 thinking hard",
+          "😴 sleeping deeply",
+          "😂 laughing loudly",
+          "😰 feeling very scared"
+        ],
+        "optionsZh": [
+          "認真在想事情",
+          "睡得很沉",
+          "大聲地笑",
+          "非常害怕"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "搓著下巴、想了好久——這就是「認真在思考」的樣子！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "精靈搓著下巴，想了好久好久。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Horse and Dog and Ox shared every part of their story.",
+        "questionEn": "Did the three animals hide anything from the Djinn?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們把整件事「從頭說到尾」——every part 就是每一個部分，什麼都說了，所以沒有隱瞞，答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "馬、狗、牛把自己的故事每一個部分都說了出來。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Where is this Camel?\" the Djinn asked in a deep, soft voice.",
+        "question": "What does the Djinn plan to do next?",
+        "options": [
+          "go find the Camel himself",
+          "ask Man to punish the Camel",
+          "give the three animals a long rest",
+          "fly away and leave the desert"
+        ],
+        "optionsZh": [
+          "親自去找駱駝",
+          "請人類去懲罰駱駝",
+          "讓三隻動物好好休息",
+          "飛走、離開沙漠"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "精靈問「駱駝在哪裡？」——他問地點，就是準備自己去找他，要跟他說清楚。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "「這隻駱駝在哪裡？」精靈用低沉又柔軟的聲音問道。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l4-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "stepped out",
+            "right": "走了出來"
+          },
+          {
+            "left": "a deep soft voice",
+            "right": "低沉又柔軟的聲音"
+          },
+          {
+            "left": "rose into the air",
+            "right": "飛上了天空"
+          },
+          {
+            "left": "thought for a long while",
+            "right": "想了好久好久"
+          }
+        ],
+        "explanationZh": "配對！\n🔑 stepped out = 走了出來\n🔑 a deep soft voice = 低沉又柔軟的聲音\n🔑 rose into the air = 飛上了天空\n🔑 thought for a long while = 想了好久好久",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l4-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"I will go to him myself,\" the Djinn said, and rose into the air.",
+        "questionEn": "Did the Djinn send someone else to deal with the Camel?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他說「我自己去（I will go myself）」——這就是親自行動，沒有叫別人去，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "「我自己去找他，」精靈說，輕輕一躍，飛上了天空。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l4-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A new friend has come, has heard the three sad stories, and is ready to act.",
+        "question": "Why is the Djinn a good person to solve this problem?",
+        "options": [
+          "he listened carefully and has the power to help",
+          "his harsh words scared away the animals",
+          "he brought extra food for the team",
+          "he arrived too late to fix anything"
+        ],
+        "optionsZh": [
+          "他仔細聽了、而且有能力幫忙",
+          "他嚴厲的話嚇走了動物們",
+          "他帶來了更多食物給大家",
+          "他來得太晚了、什麼都改變不了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "精靈有親切的眼神、認真聽完了所有委屈、然後要親自去找駱駝——他仔細聽、又有能力，當然是解決問題的好人選！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "一個新的朋友來了，聽完三個難過的故事，準備好要行動了。"
       },
       {
         "type": "narration",
@@ -1189,6 +2342,294 @@
         "sentenceZh": "精靈準備要做什麼？"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch4-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "You see, my dear, the Djinn flew to the Howling Desert.",
+        "question": "Where did the Djinn go to find the Camel?",
+        "options": [
+          "that vast howling wasteland",
+          "up a tall snowy mountain",
+          "into a green forest far away",
+          "a busy riverside town"
+        ],
+        "optionsZh": [
+          "那片廣大的嚎叫荒漠",
+          "一座白雪皚皚的高山上",
+          "遠方一片綠色的森林裡",
+          "一個熱鬧的河邊小鎮"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說精靈飛到了「Howling Desert（嚎叫沙漠）」——那就是他去找駱駝的地方。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "你看，親愛的，精靈飛到了嚎叫的沙漠。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "doing nothing at all",
+            "right": "什麼都沒在做"
+          },
+          {
+            "left": "a sad report",
+            "right": "一個難過的消息"
+          },
+          {
+            "left": "lift his share",
+            "right": "做他自己的那份工"
+          },
+          {
+            "left": "sat under a thorn tree",
+            "right": "坐在一棵有刺的樹下"
+          }
+        ],
+        "explanationZh": "再來 4 個片語！\n🔑 doing nothing at all = 什麼都沒在做\n🔑 a sad report = 一個難過的消息\n🔑 lift his share = 做自己那份工\n🔑 sat under a thorn tree = 坐在一棵有刺的樹下",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel sat under a thorn tree, doing nothing at all.",
+        "questionEn": "Was the Camel busy working when the Djinn found him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說駱駝坐在那裡，「什麼都沒做（doing nothing at all）」——他根本沒在工作，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "駱駝坐在一棵有刺的樹下，什麼都沒在做。"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Djinn watched him for many slow, quiet minutes.",
+        "question": "Which emoji best shows how the Djinn watched the Camel?",
+        "options": [
+          "😌 calm and patient",
+          "😡 angry and ready to shout",
+          "😱 shocked and jumping back",
+          "🤣 laughing so hard it hurts"
+        ],
+        "optionsZh": [
+          "平靜又有耐心",
+          "生氣、準備大喊",
+          "嚇到往後跳",
+          "笑到停不下來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「好幾分鐘、靜靜地」——精靈不急不躁，就靜靜地看著他，這就是平靜有耐心的樣子。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "精靈靜靜地看著他，看了好幾分鐘。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel only said his one rude word once more: \"Humph!\"",
+        "questionEn": "Did the Camel change his behavior after hearing the Djinn's warning?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "精靈說完之後，駱駝還是說「Humph！」——他一點都沒有改變，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "駱駝又再說了他那個粗魯的字：「Humph！」"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He spoke about a friend who would not lift his share.",
+        "question": "Why did the Djinn come to tell the Camel this?",
+        "options": [
+          "to give the Camel a chance to change",
+          "teaching the Camel a new song",
+          "bringing the Camel a warm meal",
+          "helping the Camel sleep better"
+        ],
+        "optionsZh": [
+          "給駱駝一個改變的機會",
+          "教駱駝唱一首新歌",
+          "帶一頓熱飯給駱駝",
+          "幫駱駝睡得更好"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "精靈先好好跟他說了其他動物的困境——這是先給他一個機會，讓他自己想清楚、改變。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "他說了一個不肯做自己那份工的朋友的事。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "placed his chin upon his hand",
+            "right": "把下巴擱在手上"
+          },
+          {
+            "left": "a great Magic",
+            "right": "一個大魔法"
+          },
+          {
+            "left": "very slowly",
+            "right": "非常慢慢地"
+          },
+          {
+            "left": "once more",
+            "right": "又再一次"
+          }
+        ],
+        "explanationZh": "配對！\n🔑 placed his chin upon his hand = 把下巴擱在手上\n🔑 a great Magic = 一個大魔法\n🔑 very slowly = 非常慢慢地\n🔑 once more = 又再一次",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l5-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He chose to stick with the same lazy reply once again.",
+        "questionEn": "Did the Camel try to make things better?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他選擇「繼續用同樣懶懶的回答」——這就是什麼改變都沒有，完全沒有想讓事情變好的意思。答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "他選擇再一次堅持同樣懶懶的回答。"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l5-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Djinn sat down and placed his chin upon his hand.",
+        "question": "Which picture best shows what the Djinn did?",
+        "imageEmoji": "✨",
+        "options": [
+          "sitting, chin resting on hand",
+          "jumping high in the air",
+          "running away very quickly",
+          "lying flat on the ground"
+        ],
+        "optionsZh": [
+          "坐著、下巴擱在手上",
+          "跳得很高",
+          "快速逃跑",
+          "平躺在地上"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "精靈坐下來，把下巴擱在手上——這就是沉思、思考的姿勢！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "精靈坐下來，把下巴擱在手上。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l5-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Then, very slowly, the Djinn began to make a great Magic.",
+        "question": "What shows that something big is about to happen?",
+        "options": [
+          "the Djinn begins making magic slowly",
+          "the Camel starts working at once",
+          "the Horse arrives in time",
+          "Man walks into the desert"
+        ],
+        "optionsZh": [
+          "精靈開始慢慢地施起魔法",
+          "駱駝馬上開始工作了",
+          "馬及時趕到了",
+          "人類走進沙漠"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "精靈開始施起「一個大大的魔法（a great Magic）」——這就是在暗示，大事要來了！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "然後，非常非常慢地，精靈開始施起一個大魔法……"
+      },
+      {
         "type": "narration",
         "id": "kt-ch4-l5-q11",
         "level": "A2",
@@ -1429,6 +2870,294 @@
         "sentenceZh": "那個軟軟的形狀就這樣留在他身上，再也沒有縮回去。"
       },
       {
+        "type": "comprehension",
+        "id": "kt-ch4-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel's back was flat and smooth, like a wide soft mat.",
+        "question": "What does this description tell us about the Camel before the magic?",
+        "options": [
+          "he had no hump yet",
+          "he already had two humps",
+          "his back was covered in spikes",
+          "his back hurt all the time"
+        ],
+        "optionsZh": [
+          "他還沒有駝峰",
+          "他已經有兩個駝峰了",
+          "他的背上長滿了尖刺",
+          "他的背一直都在痛"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "平平的、滑滑的、像墊子——這就是說他的背完全沒有突起，還沒有駝峰！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "駱駝的背平平的、光滑的，像一塊寬大的軟墊。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "flat and smooth",
+            "right": "平平的、光滑的"
+          },
+          {
+            "left": "began to push up",
+            "right": "開始往上鼓"
+          },
+          {
+            "left": "puffed up",
+            "right": "膨脹起來"
+          },
+          {
+            "left": "rising up behind",
+            "right": "在後面升起來"
+          }
+        ],
+        "explanationZh": "把這 4 個片語配一配！\n🔑 flat and smooth = 平平的、光滑的\n🔑 began to push up = 開始往上鼓\n🔑 puffed up = 膨脹起來\n🔑 rising up behind = 在後面升起來",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "And as he said that word, his flat back began to push up.",
+        "questionEn": "Did the hump appear before the Camel said \"Humph!\"?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說「就在他說出那個字的同時（as he said that word）」，背才開始鼓起來——是說完之後才出現的，不是之前。所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "就在他說出那個字的同時，他平平的背開始往上鼓。"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It puffed up and puffed up and puffed up some more.",
+        "question": "Which emoji best shows what happened to the Camel's back?",
+        "options": [
+          "📈 growing bigger and bigger",
+          "📉 getting smaller and smaller",
+          "💧 melting slowly away",
+          "💨 disappearing into the wind"
+        ],
+        "optionsZh": [
+          "越來越大",
+          "越來越小",
+          "慢慢融化",
+          "消失在風中"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「鼓起來、又鼓起來、再鼓起來」——一直變大、一直長，所以是越來越大！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "它鼓起來、又鼓起來、再鼓起來。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It was, my dear, his very own big hump — and it stayed.",
+        "questionEn": "Did the hump go away after a while?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說「it stayed（它留下來了）」——駝峰長出來就不走了，永遠留在背上，所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "那就是，親愛的，他自己的大駝峰——而且它留下來了。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel said \"Humph!\" one more time, just to be rude.",
+        "question": "What does \"just to be rude\" tell us about the Camel?",
+        "options": [
+          "he was rude on purpose, not by accident",
+          "trying to be kind but failing",
+          "too scared to speak at all",
+          "wanting to sing but forgot the words"
+        ],
+        "optionsZh": [
+          "他是故意粗魯的，不是意外",
+          "嘗試表現親切但沒成功",
+          "太害怕說不出話來",
+          "想唱歌但忘了歌詞"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「just to be rude（只是為了粗魯）」——這說得很清楚，他完全是故意的，不是不小心。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "駱駝又說了一次「Humph！」，就只是為了粗魯。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "his very own big hump",
+            "right": "他自己的大駝峰"
+          },
+          {
+            "left": "a great soft shape",
+            "right": "一個大大的軟形狀"
+          },
+          {
+            "left": "turned his head",
+            "right": "轉過頭去"
+          },
+          {
+            "left": "it stayed",
+            "right": "它留下來了"
+          }
+        ],
+        "explanationZh": "再配對！\n🔑 his very own big hump = 他自己的大駝峰\n🔑 a great soft shape = 一個大大的軟形狀\n🔑 turned his head = 轉過頭去\n🔑 it stayed = 它留下來了",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l6-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "When he turned his head, a great soft shape was rising up behind.",
+        "questionEn": "Did the Camel notice his hump right away?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他「轉過頭去」才看到——這就是他發現了自己背後的變化。所以他確實注意到了，答案是 Yes。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "他回頭一看，背後一個大大的軟形狀正在升起來。"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l6-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel's back was flat and smooth, like a wide soft mat.",
+        "question": "Which shows the Camel BEFORE the magic?",
+        "imageEmoji": "🐪",
+        "options": [
+          "a camel with a flat smooth back and no hump",
+          "one with a huge tall hump already",
+          "one with two humps on its back",
+          "wearing a big bag on its back"
+        ],
+        "optionsZh": [
+          "一隻背部平整、沒有駝峰的駱駝",
+          "一隻已經有高大駝峰的駱駝",
+          "一隻背上有兩個駝峰的駱駝",
+          "背上背著一個大袋子的駱駝"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在魔法發生之前，駱駝的背是「平平的、光滑的，像墊子」——完全沒有任何駝峰！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "駱駝的背平平的、光滑的，像一塊寬大的軟墊。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l6-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The soft shape stayed on him, and it did not go down again.",
+        "question": "What does this tell us about the Djinn's magic?",
+        "options": [
+          "it was a permanent change",
+          "disappearing by the next morning",
+          "fixed with just a bit of food",
+          "only working once a year"
+        ],
+        "optionsZh": [
+          "這是永久的改變",
+          "到隔天早上就消失了",
+          "只需要一點食物就能修好",
+          "一年只有一次能用"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "軟形狀留下來了、再也沒有縮回去——這就說明精靈的魔法是永久的，不會消失的。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "那個軟形狀就這樣留在他身上，再也沒有縮回去。"
+      },
+      {
         "type": "narration",
         "id": "kt-ch4-l6-q11",
         "level": "A2",
@@ -1666,6 +3395,294 @@
           "camel-hump"
         ],
         "subSkill": "inference",
+        "sentenceZh": "他本來想逃掉的那件事，變成了他每天都要帶著的東西。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He said, \"That hump is what you brought upon yourself.\"",
+        "question": "What is the Djinn saying about the hump?",
+        "options": [
+          "the Camel caused it by his own laziness",
+          "the other animals put it there",
+          "Man asked the Djinn to add it",
+          "it fell from the sky by accident"
+        ],
+        "optionsZh": [
+          "駱駝因為自己的懶惰才長出來的",
+          "其他動物把它放上去的",
+          "人類要求精靈加上去的",
+          "從天上掉下來的，是意外"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「你自己帶到自己身上的（what you brought upon yourself）」——這就是說，是駱駝的懶惰和不禮貌造成的，完全是他自己的責任。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "subSkill": "detail",
+        "sentenceZh": "他說：「那個駝峰，是你自己帶到自己身上的。」"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "brought upon yourself",
+            "right": "自己帶給自己的"
+          },
+          {
+            "left": "hung his head",
+            "right": "低下頭"
+          },
+          {
+            "left": "speak clear and slow",
+            "right": "說得清楚又慢"
+          },
+          {
+            "left": "three days with no food",
+            "right": "三天不吃東西"
+          }
+        ],
+        "explanationZh": "把這 4 個片語配一配！\n🔑 brought upon yourself = 自己帶給自己的\n🔑 hung his head = 低下頭\n🔑 speak clear and slow = 說得清楚又慢\n🔑 three days with no food = 三天不吃東西",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Djinn said, \"Now you can work three days with no food.\"",
+        "questionEn": "Did the hump turn out to be completely useless?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "精靈說駼峰讓他可以三天不吃東西也能工作——這是有用的！並不是毫無用處。所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "精靈說：「現在你可以三天不吃東西，也能工作了。」"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch4-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The Camel hung his head and looked at the sand for a long time.",
+        "question": "Which emoji best shows how the Camel felt?",
+        "options": [
+          "😔 ashamed and sad",
+          "😤 angry and defiant",
+          "😂 laughing at himself",
+          "😴 bored and sleepy"
+        ],
+        "optionsZh": [
+          "羞愧又難過",
+          "生氣又不服氣",
+          "嘲笑自己",
+          "無聊又想睡"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "低著頭、看著沙地、看了好久——這就是羞愧、難過、沒話說的樣子。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "駱駝低下頭，看著沙地，看了好久好久。"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "From that day, he carried bags across the sand with them.",
+        "questionEn": "Did the Camel continue to do nothing after getting his hump?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "從那天起，他就跟大家一起扛袋子了——他終於開始工作了，不再什麼都不做。所以答案是 No。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "從那天起，他跟他們一起扛著袋子穿越沙漠。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He still has that hump today, my dear, so he will never forget.",
+        "question": "Why does the Camel still have his hump today?",
+        "options": [
+          "as a reminder of his lazy past",
+          "because it looks very beautiful",
+          "Man asked him to keep it",
+          "the Djinn could not remove it"
+        ],
+        "optionsZh": [
+          "作為提醒他懶惰過去的記號",
+          "因為它看起來非常漂亮",
+          "人類請他保留著",
+          "精靈沒有辦法把它拿走"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事說他帶著駝峰，「所以他永遠不會忘記」——駝峰是一個提醒，讓他記住不努力工作的後果。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "inference"
+        ],
+        "subSkill": "inference",
+        "sentenceZh": "他今天還帶著那個駝峰，親愛的，這樣他就永遠不會忘記了。"
+      },
+      {
+        "type": "phrase-pairs",
+        "id": "kt-ch4-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each phrase with its Chinese meaning.",
+        "pairs": [
+          {
+            "left": "carried bags across the sand",
+            "right": "扛著袋子穿越沙漠"
+          },
+          {
+            "left": "went off to find",
+            "right": "去找……"
+          },
+          {
+            "left": "never forget",
+            "right": "永遠不會忘記"
+          },
+          {
+            "left": "stored what he needed",
+            "right": "把他需要的東西存起來"
+          }
+        ],
+        "explanationZh": "再來 4 個片語！\n🔑 carried bags across the sand = 扛著袋子穿越沙漠\n🔑 went off to find = 去找……\n🔑 never forget = 永遠不會忘記\n🔑 stored what he needed = 把他需要的東西存起來",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch4-l7-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The big shape stored what he needed to live on the road.",
+        "questionEn": "Did the hump help the Camel survive long journeys?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "駝峰把路上需要的東西存起來——這讓他可以走長長的路而不用停下來找吃的，當然有幫到他！答案是 Yes。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "detail"
+        ],
+        "sentenceZh": "那個大形狀把他路上需要的東西都存起來了。"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch4-l7-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "From that day, he carried bags across the sand with them.",
+        "question": "Which picture shows the Camel at the END of the story?",
+        "imageEmoji": "🐪",
+        "options": [
+          "a camel carrying bags in the desert with friends",
+          "sitting alone under a tree doing nothing",
+          "running away from the other animals",
+          "eating happily with no hump at all"
+        ],
+        "optionsZh": [
+          "一隻駱駝和朋友們在沙漠裡扛袋子",
+          "獨自坐在樹下什麼都不做",
+          "逃離其他動物",
+          "開心地吃東西、完全沒有駝峰"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事結尾說，從那天起他跟大家一起扛袋子穿越沙漠——所以他最後是加入了團隊，一起工作的！",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "vocab"
+        ],
+        "subSkill": "vocab",
+        "sentenceZh": "從那天起，他跟他們一起扛著袋子穿越沙漠。"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch4-l7-x10",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The thing he tried to skip became the thing he carries every day.",
+        "question": "What is the main lesson of this whole story?",
+        "options": [
+          "avoiding your duty leads to a heavier burden",
+          "magic is the only way to fix laziness",
+          "animals are smarter than people",
+          "deserts are too hot to work in"
+        ],
+        "optionsZh": [
+          "逃避責任，最後反而要背更重的包袱",
+          "魔法是修正懶惰的唯一方法",
+          "動物比人類聰明",
+          "沙漠太熱了，根本沒法工作"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "駱駝逃掉的那份工，最後變成了他背上的駝峰，天天帶著走——這個故事告訴我們，逃避責任不會讓事情消失，反而讓你的負擔更重。",
+        "tags": [
+          "story",
+          "ch4",
+          "camel-hump",
+          "gist"
+        ],
+        "subSkill": "gist",
         "sentenceZh": "他本來想逃掉的那件事，變成了他每天都要帶著的東西。"
       },
       {
