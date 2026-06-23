@@ -457,6 +457,26 @@ export const LessonsSchema = z.array(LessonSchema);
 
 export type Lesson = z.infer<typeof LessonSchema>;
 
+// v2.0.B.379 (per user): 依題型加權的單節時間估算 — 取代舊「每 entry 22s」高估
+// (舊版連旁白也算 22s, 顯示 ~5m 但實玩 ~2m). 旁白 tap-through ~7s;
+// 配對/拼字/產出題 ~26s; 其餘 4 選 1 (含 3s 自動推進) ~16s.
+const SLOW_TYPES = new Set([
+  'tap-pairs', 'phrase-pairs', 'listen-pairs',
+  'tap-tiles', 'listen-build', 'drag-blank', 'type-what-you-hear', 'speak-back',
+]);
+export function estimateLessonSeconds(questions: { type: string }[]): number {
+  let s = 0;
+  for (const q of questions) {
+    if (q.type === 'narration') s += 7;
+    else if (SLOW_TYPES.has(q.type)) s += 26;
+    else s += 16;
+  }
+  return s;
+}
+export function estimateLessonMinutes(questions: { type: string }[]): number {
+  return Math.max(1, Math.round(estimateLessonSeconds(questions) / 60));
+}
+
 // ============================================================
 // Loader — fetch /lessons-ch{N}.json, parse, inject {catName}.
 // Pattern follows src/data/storyKitten.ts:loadStoryQuestions() (v1.9.52).

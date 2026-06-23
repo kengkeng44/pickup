@@ -6,6 +6,7 @@
 import { useEffect, useState, useMemo, useRef, useCallback, Fragment } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
+import { estimateLessonMinutes } from '../../data/lessons';
 import { getInProgressLessonIds } from '../../data/lessonProgress';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
@@ -772,8 +773,8 @@ export default function MapPage() {
             // 跟著捲動 (絕對定位在 scroll 容器內, 非 fixed) → 滑動中 0 mutation = 不會跳;
             // 取代 B.313 拿掉的「書封跟滑動換章」, 讓玩家滑到哪章看得出來.
             const showChapterLabel = isAggregate && l.lessonInChapter === 1 && i > 0;
-            // v2.0.B.301 (cron ui-ux D1): pre-session time signal — 22s/Q (3s auto-advance + ~19s read/answer, A2-conservative)
-            const estMin = Math.max(1, Math.ceil(l.questions.length * 22 / 60));
+            // v2.0.B.379 (per user): 依題型加權估時 (旁白7s/配對·產出26s/其他16s), 取代舊高估 22s×entry
+            const estMin = estimateLessonMinutes(l.questions as { type: string }[]);
             const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`} · ~${estMin}min${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
             return (
               <Fragment key={l.id}>

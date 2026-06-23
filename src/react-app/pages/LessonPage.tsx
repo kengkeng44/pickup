@@ -11,6 +11,7 @@ import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
+import { estimateLessonMinutes } from '../../data/lessons';
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
@@ -121,8 +122,8 @@ export default function LessonPage() {
     return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
   }
 
-  // v2.0.B.301 (cron ui-ux D1): pre-session time signal in header — 22s/Q (A2-conservative)
-  const estMin = Math.max(1, Math.ceil(lesson.questions.length * 22 / 60));
+  // v2.0.B.379 (per user): 依題型加權估時 (旁白7s/配對·產出26s/其他16s), 取代舊高估 22s×entry
+  const estMin = estimateLessonMinutes(lesson.questions);
   const done = idx >= lesson.questions.length;
   if (done) {
     return <CompletePanel
