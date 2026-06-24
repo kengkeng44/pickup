@@ -17,12 +17,14 @@
  * Stays pure-read — never writes to localStorage.
  */
 import { STORY_TAGS, type HookType, type TagId } from './storyTags';
+// v2.0.B.392 (arch-cron 0609 Cycle 1): 改從 types.ts 取 axis 型別,
+// 移除 userProfile → storyRegistry 的 back-edge, 斷開型別循環。
 import type {
   Culture,
   Style,
   Protagonist,
   Theme,
-} from './storyRegistry';
+} from './types';
 
 /**
  * v2.0.B.237 — CEFR-aligned ability tier used by chapter recommender.

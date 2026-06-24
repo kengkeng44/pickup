@@ -30,49 +30,11 @@
 import type { UserPreferences } from './userProfile';
 
 // ─── Axis types (15-dimension schema, +lengthClass v2.0.B.242) ────────────
-
-export type Culture =
-  | 'china'
-  | 'japan'
-  | 'korea'
-  | 'india'
-  | 'europe'
-  | 'russia'
-  | 'middle-east'
-  | 'africa'
-  | 'latin-america'
-  | 'southeast-asia'
-  | 'historical'
-  | 'global-folk';
-
-export type Style =
-  | 'fantasy'
-  | 'animal-fable'
-  | 'dark-fairy-tale'
-  | 'warm'
-  | 'adventure'
-  | 'mystery'
-  | 'historical-anecdote'
-  | 'epic';
-
-export type Protagonist =
-  | 'animal'
-  | 'child'
-  | 'elder'
-  | 'mythical'
-  | 'object'
-  | 'historical-figure';
-
-export type Theme =
-  | 'friendship'
-  | 'growth'
-  | 'wit'
-  | 'justice'
-  | 'courage'
-  | 'creativity'
-  | 'family'
-  | 'perseverance'
-  | 'honesty';
+// v2.0.B.392 (arch-cron 0609 Cycle 1): Culture/Style/Protagonist/Theme 定義
+// 移到 src/data/types.ts (圖底層) 以斷開 storyRegistry ↔ userProfile 型別循環。
+// 這裡 import 供本檔使用 + re-export 讓既有 importer (OnboardingPicker 等) 不受影響。
+import type { Culture, Style, Protagonist, Theme } from './types';
+export type { Culture, Style, Protagonist, Theme };
 
 export type ContentFlag =
   | 'mild-violence'

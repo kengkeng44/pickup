@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate && npm test && tsc && vite build && node tools/bump-sw-version.cjs",
+    "build": "npm run validate && npm run check:circular && npm test && tsc && vite build && node tools/bump-sw-version.cjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate": "node tools/validate-lessons.js"
+    "validate": "node tools/validate-lessons.js",
+    "check:circular": "npx --yes madge@8 --circular --extensions ts,tsx src/"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.4.0",

@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-09T1214-arch-cron.md",
+      "archRec": "P0-2 (CI circular-dep gate) + Cycle 1 (storyRegistry↔userProfile)",
+      "what": "抽 Culture/Style/Protagonist/Theme → src/data/types.ts 斷開 storyRegistry↔userProfile 型別循環 (madge 0); 加 npm run check:circular gate 進 build + CI step, 循環依賴自動守門. P0-1(B.298)/P0-3(tts unlockOnce 已手動 removeListener) 先前已解.",
+      "version": "v2.0.B.392",
+      "date": "2026-06-24"
+    },
+    {
       "audit": "docs/audits/2026-06-09T1510-ui-ux-cron.md",
       "archRec": "ARCH-REC #14 (D1-D3 session pacing)",
       "what": "全為 renderer/UI 程式碼 finding (MapPage/LessonPage/TasksPage 時長信號) — 0 條 lessons-only 可自動修, 不在 cron 全修範圍. 標記已處理防重複.",

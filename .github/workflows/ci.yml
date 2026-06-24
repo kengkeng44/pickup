@@ -30,6 +30,11 @@ jobs:
       - name: TypeScript check
         run: npx tsc --noEmit
 
+      # v2.0.B.392 (arch-cron 0609 P0-2): 循環依賴守門。type-only 循環今天安全,
+      # 但有人在 back-edge 加一個 value import → runtime TDZ 崩潰。此 gate 擋住。
+      - name: Circular dependency check (madge)
+        run: npm run check:circular
+
       - name: Vitest (basic, coverage 待 @vitest/coverage-v8 安裝後啟用)
         run: npx vitest run
 

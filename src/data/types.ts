@@ -14,3 +14,52 @@
 //   'A2'  = 完成 ≥ 2 主章 + 答對率 > 70%
 //   'A2+' = 完成 ≥ 5 主章 + 答對率 > 85% (詩意 / dark 章節 ok)
 export type AbilityLevel = 'A0' | 'A1' | 'A2' | 'A2+';
+
+// ─── Story axis types (15-dimension schema) ───────────────────────────────
+// arch-cron 2026-06-09T1214 Cycle 1: storyRegistry.ts ↔ userProfile.ts were
+// mutually type-coupled (storyRegistry imports UserPreferences; userProfile
+// imports these 4 axis types). Moved here (neutral bottom of graph) to break
+// the cycle. storyRegistry re-exports them so existing importers are unaffected.
+
+export type Culture =
+  | 'china'
+  | 'japan'
+  | 'korea'
+  | 'india'
+  | 'europe'
+  | 'russia'
+  | 'middle-east'
+  | 'africa'
+  | 'latin-america'
+  | 'southeast-asia'
+  | 'historical'
+  | 'global-folk';
+
+export type Style =
+  | 'fantasy'
+  | 'animal-fable'
+  | 'dark-fairy-tale'
+  | 'warm'
+  | 'adventure'
+  | 'mystery'
+  | 'historical-anecdote'
+  | 'epic';
+
+export type Protagonist =
+  | 'animal'
+  | 'child'
+  | 'elder'
+  | 'mythical'
+  | 'object'
+  | 'historical-figure';
+
+export type Theme =
+  | 'friendship'
+  | 'growth'
+  | 'wit'
+  | 'justice'
+  | 'courage'
+  | 'creativity'
+  | 'family'
+  | 'perseverance'
+  | 'honesty';

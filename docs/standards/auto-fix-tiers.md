@@ -17,9 +17,12 @@
 ## 安全 gate(每筆自動修都要全過,否則 revert 該筆 → 降成 C 報告)
 
 ```
-npm run build            # validate-lessons (lint) + 392 tests + tsc + vite 全綠
+npm run build            # validate-lessons (lint) + check:circular (循環依賴) + 392 tests + tsc + vite 全綠
 node tools/check-answer-index.cjs   # correctIndex 前後不變 (HARD_STOP)
 ```
+
+> v2.0.B.392 (arch-cron 0609 P0-2): `npm run build` 已含 `check:circular` (madge),
+> 任何 src/ 循環依賴 (含 cron / 人為改動引入的 value back-edge) 在 build gate 直接擋下。
 
 → 自動修動不到標準, 因為標準寫成 lint + build + answer-index 把關。
 
