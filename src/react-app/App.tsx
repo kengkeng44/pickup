@@ -6,7 +6,7 @@
  * into main was ~20-25KB raw. Now loaded on-demand when user taps lesson
  * node. Main bundle parse+exec cost on Snapdragon 430 ~120ms → ~80ms.
  */
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
@@ -17,15 +17,25 @@ import CardsPage from './pages/CardsPage';
 import ParentPage from './pages/ParentPage';
 import SettingsPage from './pages/SettingsPage';
 import BottomNav from './components/BottomNav';
+import Onboarding from './components/Onboarding';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
 import { preloadHints } from '../ui/WordHint';
+import { isOnboarded } from '../data/onboarding';
+import { translate } from './i18n';
+import { getLang } from '../data/lang';
 
 const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
 
+// v2.0.B.394 — 品牌化載入畫面 (取代純文字「載入中…」, prompt 跟著語言走).
 function LoadingShell() {
-  return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
+  return (
+    <div style={{ padding: 48, textAlign: 'center', color: 'var(--t-text-muted)' }}>
+      <div className="pickup-pulse" style={{ fontSize: 48, lineHeight: 1 }}>👵🐱</div>
+      <div style={{ marginTop: 14, fontSize: 14, fontWeight: 700 }}>{translate('ob.loading', getLang())}</div>
+    </div>
+  );
 }
 
 export default function App() {
@@ -63,6 +73,10 @@ export default function App() {
       document.removeEventListener('touchstart', unlockOnce);
     };
   }, []);
+  // v2.0.B.394 — 首次啟動 gate: 沒 onboard 過 → 全屏 onboarding 流程, 完成才進主畫面。
+  const [onboarded, setOnboardedState] = useState(() => isOnboarded());
+  if (!onboarded) return <Onboarding onDone={() => setOnboardedState(true)} />;
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: 'var(--t-bg)' }}>
       {/* v2.0.B.276 ARCHITECTURE FIX: 拿掉 `overflowY: 'auto'` + `WebkitOverflowScrolling: 'touch'`.

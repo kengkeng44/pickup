@@ -667,6 +667,26 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
       </div>
     </div>
 
+    <div class="todo-item" data-todo-id="i18n-multilang">
+      <div class="todo-title">🌐 多語版本 — 地基 ✅ ship,日/韓字典待翻 (隱藏客群 2nd/3rd)</div>
+      <div class="todo-meta">
+        <span>已 ship: B.393 統一語言 + B.394 onboarding/載入畫面</span>
+        <span>下一步: 日/韓 UI 字典 + 題目解說翻譯</span>
+        <span>分析: 2nd 日文 (童話+Ghibli+読み聞かせ 資產複用最高) · 3rd 韓文 (人均英語教育花費全球第一)</span>
+      </div>
+      <ul class="todo-checklist">
+        <li>✅ <strong>統一語言 (B.393):</strong> 題目畫面 prompt 全進 i18n (聽聲音·選對應的圖 / 背景 / 檢查 / 繼續 / 中英混寫全清),跟著語言走</li>
+        <li>✅ <strong>初始流程 (B.394):</strong> 初始畫面 → 登入/註冊 (本地 local-first) → 語言 → 程度 → 完成;品牌化載入畫面;首次啟動自動開</li>
+        <li>⬜ <strong>日文字典:</strong> i18n.ts 加 JA dict (~210 keys) + UiLang 擴 'ja' + lang.ts SUPPORTED + onboarding 語言卡開 ready</li>
+        <li>⬜ <strong>韓文字典:</strong> 同上加 KO</li>
+        <li>⬜ <strong>題目解說多語 (重):</strong> 3136 題 sentenceZh/explanationZh/optionsZh 翻日/韓 (分章 batch dispatch Fable/Sonnet)</li>
+        <li>⬜ <strong>真帳號接後端:</strong> onboarding 本地帳號 → 接 B.308 anon-account/sync (待 D1 provision 後)</li>
+      </ul>
+      <div class="todo-actions">
+        <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
+      </div>
+    </div>
+
     <div class="todo-item" data-todo-id="offsite-reminder">
       <div class="todo-title">🔔 站外提醒 (真實 push 通知) — 以後再做</div>
       <div class="todo-meta">
