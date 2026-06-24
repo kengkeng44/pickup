@@ -14,6 +14,19 @@ import { wireSentenceHints } from '../ui/WordHint';
 import { sfxCorrect, sfxWrong, sfxCardPress } from '../audio/sfx';
 import { resolveComprehension, subscribeComprehensionMode } from '../data/comprehensionMode';
 import SpeakZh from './components/SpeakZh';
+import { translate } from './i18n';
+import { getLang, subscribeLang } from '../data/lang';
+
+// v2.0.B.393 — 統一語言: 題目畫面 prompt 跟著選的語言走 (非 hook, 給 const map / 工具用).
+// 用 hook useTq() 讓元件切語言自動 re-render; 純函式 tq() 給非元件 (如 SPEAKER label).
+function tq(key: string): string {
+  return translate(key, getLang());
+}
+function useTq(): (key: string) => string {
+  const [lang, setLang] = useState(() => getLang());
+  useEffect(() => subscribeLang(() => setLang(getLang())), []);
+  return (key: string) => translate(key, lang);
+}
 
 export interface RawQuestion {
   type: string;
@@ -201,7 +214,10 @@ const SPEAKER_META: Record<string, { emoji: string; label: string; bg: string; f
   narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
 };
 const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
+  const t = useTq();
   const meta = SPEAKER_META[speaker || 'narrator'] ?? SPEAKER_META.narrator;
+  // narrator 「背景」跟著語言走; 角色名 (Mochi/Grandma/Hana) 是專名, 不翻。
+  const label = (speaker || 'narrator') === 'narrator' ? t('q.speaker.narrator') : meta.label;
   return (
     <div style={{
       display: 'inline-flex', alignItems: 'center', gap: 4,
@@ -211,7 +227,7 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
       marginBottom: 8,
     }}>
       <span style={{ fontSize: 13 }}>{meta.emoji}</span>
-      <span>{meta.label}</span>
+      <span>{label}</span>
     </div>
   );
 };
@@ -242,7 +258,7 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
           fontFamily: 'inherit', cursor: 'pointer',
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }}
-      >繼續 →</button>
+      >{tq('q.continue')}</button>
     </div>
   );
 };
@@ -302,7 +318,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text-muted)', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
-        <div style={{ fontSize: 14, color: 'var(--t-text-muted)', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 點喇叭聽完聲音再選答案</div>
+        <div style={{ fontSize: 14, color: 'var(--t-text-muted)', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 {tq('q.listenThenAnswer')}</div>
         <div className="pickup-answer-sticky">
           {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
         </div>
@@ -384,7 +400,7 @@ const GrammarMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <SpeakerBtn onClick={() => speak(sentence, 'en-US', { force: true })} size={40} />
         <span style={{ flex: 1, fontSize: 17, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}>{sentence}</span>
       </div>
-      <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-brand-dark)', margin: '0 4px 12px' }}>📘 文法 · {qPrompt}</div>
+      <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-brand-dark)', margin: '0 4px 12px' }}>📘 {tq('q.grammar')} · {qPrompt}</div>
       <div className="pickup-answer-sticky">
         {opts.map((o, i) => {
           const isCorrect = i === correctIdx;
@@ -473,7 +489,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           style={{ width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 14,
             background: sel == null ? 'var(--t-border-card)' : 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
             fontFamily: 'inherit', cursor: sel == null ? 'default' : 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
-          檢查
+          {tq('q.check')}
         </button>
       ) : <Explanation text={q.explanationZh ?? ''} />}
     </div>
@@ -615,7 +631,7 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
               fontFamily: 'inherit', cursor: 'pointer',
               WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
             }}
-          >繼續 →</button>
+          >{tq('q.continue')}</button>
         </>
       )}
     </div>
@@ -676,13 +692,13 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
-        <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>聽聲音, 打出你聽到的句子</div>
+        <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>{tq('q.typeWhatYouHear')}</div>
       </div>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         disabled={revealed}
-        placeholder="Type what you hear…"
+        placeholder={tq('q.typePlaceholder')}
         rows={3}
         style={{
           width: '100%', padding: 10, fontSize: 15, fontFamily: 'inherit',
@@ -693,7 +709,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         width: '100%', padding: '12px 0', background: revealed || !text.trim() ? 'var(--t-border-card)' : 'var(--t-success)',
         color: '#fff', border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 15, fontWeight: 900,
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
-      }}>送出 · Submit</button>
+      }}>{tq('q.submit')}</button>
       {revealed && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           正解: <strong>{en}</strong>
@@ -803,7 +819,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>
-          聽聲音, 點字排出句子 · Tap words to fill the blanks
+          {tq('q.tapToBuild')}
         </div>
       </div>
       {/* ordered slots (one per word) — tap to place */}
@@ -960,7 +976,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   };
 
   if (pairs.length === 0) {
-    return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>(本題沒有配對資料)</div>;
+    return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>{tq('q.noPairData')}</div>;
   }
 
   // Shared card style — green when matched, amber when selected, white default
@@ -1109,7 +1125,7 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   };
 
   if (pairs.length === 0) {
-    return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>(本題沒有配對資料)</div>;
+    return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>{tq('q.noPairData')}</div>;
   }
 
   // 聲音格 — 選中藍底藍框 (照 screenshot), 配對成功綠, 預設白
@@ -1142,7 +1158,7 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <img src="/mascots/calico-anchor.webp" width={104} height={104} alt="" style={{ borderRadius: '50%', display: 'block' }} />
       </div>
       {/* 題型標題 (照 screenshot「選擇配對」) */}
-      <div style={{ textAlign: 'center', fontSize: 17, fontWeight: 900, color: 'var(--t-text)', marginBottom: 14 }}>選擇配對</div>
+      <div style={{ textAlign: 'center', fontSize: 17, fontWeight: 900, color: 'var(--t-text)', marginBottom: 14 }}>{tq('q.matchPairs')}</div>
 
       <div style={{ display: 'flex', gap: 10, marginTop: 'auto', marginBottom: 'auto' }}>
         {/* LEFT — 聲音波形 (播英文) */}
@@ -1153,7 +1169,7 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
             const className = justMatched === i ? 'pickup-pair-success' : shakeIds.audio === i ? 'pickup-pair-wrong' : undefined;
             return (
-              <button key={`A${i}`} onClick={() => tap('audio', i)} disabled={isMatched} className={className} style={audioCell(state)} aria-label="播放聲音 · Play audio">
+              <button key={`A${i}`} onClick={() => tap('audio', i)} disabled={isMatched} className={className} style={audioCell(state)} aria-label={tq('q.playAudio')}>
                 <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ flex: '0 0 auto', opacity: isMatched ? 0.45 : 0.85 }} />
                 <Waveform active={isSelected} seed={i} />
               </button>
@@ -1318,7 +1334,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 18 }}>
         <SpeakerBtn onClick={() => speak(word, 'en-US', { force: true })} size={56} />
-        <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t-text-muted)' }}>聽聲音 · 選對應的圖</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t-text-muted)' }}>{tq('q.listenThenPick')}</div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, maxWidth: 360, margin: '0 auto' }}>
         {opts.map((o, i) => {
@@ -1809,10 +1825,10 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             WebkitTapHighlightColor: 'transparent',
           }}
         >
-          🐢 慢速 · Slow
+          🐢 {tq('q.slow')}
         </button>
         <div style={{ flex: 1, fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700, textAlign: 'right' }}>
-          聽聲音排句子
+          {tq('q.buildSentence')}
         </div>
       </div>
       {/* ordered slots — fully blind, no sentence template shown */}
@@ -2035,14 +2051,14 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           </button>
         )}
         <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 10, fontWeight: 700 }}>
-          {recording ? '錄音中… · Listening…' : supported && !revealed ? '點麥克風開始 · Tap mic to start' : ''}
+          {recording ? tq('q.recording') : supported && !revealed ? tq('q.tapMic') : ''}
         </div>
       </div>
       {revealed && transcript && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
-          <div>聽到 · Heard: <strong>{transcript}</strong></div>
+          <div>{tq('q.heard')}: <strong>{transcript}</strong></div>
           <div style={{ marginTop: 4, color: matched ? 'var(--t-success)' : '#a23829', fontWeight: 800 }}>
-            {matched ? '✓ 太棒了!' : '× 再練習一次'}
+            {matched ? `✓ ${tq('q.greatShort')}` : `× ${tq('q.tryAgainShort')}`}
           </div>
         </div>
       )}
@@ -2091,5 +2107,5 @@ export const FallbackRenderer: React.FC<RendererProps> = ({ q, onAdvance }) => {
     return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
-  return <div style={{ padding: 20, textAlign: 'center', color: 'var(--t-text-muted)' }}>未知題型: {q.type} (跳過中…)</div>;
+  return <div style={{ padding: 20, textAlign: 'center', color: 'var(--t-text-muted)' }}>{tq('q.unknownType')}: {q.type}</div>;
 };
