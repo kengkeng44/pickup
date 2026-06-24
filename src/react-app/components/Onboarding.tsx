@@ -21,11 +21,11 @@ type Step = 'welcome' | 'auth' | 'login' | 'lang' | 'level';
 
 interface LangOption { id: UiLang; native: string; ready: boolean; }
 const LANGS: LangOption[] = [
-  { id: 'zh', native: '中文', ready: true },
+  { id: 'zh', native: '中文（繁）', ready: true },
+  { id: 'zh-Hans', native: '简体中文', ready: true },
   { id: 'en', native: 'English', ready: true },
-  // 預留 — 字典翻齊後改 ready:true 並把 id 擴進 UiLang
-  { id: 'zh', native: '日本語', ready: false },
-  { id: 'zh', native: '한국어', ready: false },
+  { id: 'ja', native: '日本語', ready: true },
+  { id: 'ko', native: '한국어', ready: true },
 ];
 
 const LEVELS: Array<{ id: OnboardLevel; emoji: string; key: string; subKey: string }> = [

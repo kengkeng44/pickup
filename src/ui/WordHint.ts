@@ -30,6 +30,7 @@
 
 // v2.0.B.365: 單字卡 — tooltip 加「＋」收藏到個人單字庫.
 import { vocab } from '../store/vocabStore';
+import { toSimplified } from '../data/zhHans';
 
 type Dict = Record<string, string>;
 
@@ -216,7 +217,7 @@ function showTooltipFor(anchor: HTMLElement, word: string, gloss: string): void 
   w.textContent = word;
   const g = document.createElement('span');
   g.className = 'pickup-word-tooltip-zh';
-  g.textContent = gloss;
+  g.textContent = toSimplified(gloss); // v2.0.B.395 簡中模式轉簡
   t.el.appendChild(w);
   t.el.appendChild(g);
 

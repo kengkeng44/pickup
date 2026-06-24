@@ -56,11 +56,11 @@ function SegRow<T extends string>({ value, options, onPick }: {
   value: T; options: [T, string][]; onPick: (v: T) => void;
 }) {
   return (
-    <div style={{ display: 'flex', gap: 8 }}>
+    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
       {options.map(([v, label]) => (
         <button key={v} type="button" onClick={() => onPick(v)}
           style={{
-            flex: 1, padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
+            flex: '1 1 28%', padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
             cursor: 'pointer', minHeight: 44,
             border: value === v ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
             background: value === v ? 'var(--t-brand-dark)' : 'var(--t-bg)',
@@ -105,7 +105,7 @@ export default function SettingsPage() {
       <div style={cardStyle}>
         <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.lang')}</div>
         <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.lang.sub')}</div>
-        <SegRow<UiLang> value={lang} onPick={applyLang} options={[['zh', '中文'], ['en', 'English']]} />
+        <SegRow<UiLang> value={lang} onPick={applyLang} options={[['zh', '中文'], ['zh-Hans', '简体'], ['en', 'English'], ['ja', '日本語'], ['ko', '한국어']]} />
       </div>
 
       {/* 顯示 */}

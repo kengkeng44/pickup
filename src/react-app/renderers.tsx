@@ -16,6 +16,7 @@ import { resolveComprehension, subscribeComprehensionMode } from '../data/compre
 import SpeakZh from './components/SpeakZh';
 import { translate } from './i18n';
 import { getLang, subscribeLang } from '../data/lang';
+import { toSimplified } from '../data/zhHans';
 
 // v2.0.B.393 — 統一語言: 題目畫面 prompt 跟著選的語言走 (非 hook, 給 const map / 工具用).
 // 用 hook useTq() 讓元件切語言自動 re-render; 純函式 tq() 給非元件 (如 SPEAKER label).
@@ -358,7 +359,7 @@ const RevealSentence: React.FC<{ en: string; zh?: string; answered?: boolean; bi
           <span style={{ fontSize: big ? 17 : 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }}>{en}</span>
         )}
         {stage >= 2 && zh && (
-          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 6, lineHeight: 1.6 }}>{zh}</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 6, lineHeight: 1.6 }}>{toSimplified(zh)}</div>
         )}
       </div>
     </div>

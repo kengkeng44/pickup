@@ -15,6 +15,7 @@
  */
 import { t } from '../../ui/theme/index';
 import { speakZh } from '../../audio/tts';
+import { toSimplified } from '../../data/zhHans';
 
 interface SpeakZhProps {
   /** The Chinese text to display and speak. */
@@ -25,6 +26,7 @@ interface SpeakZhProps {
 
 const SpeakZh = ({ text, style }: SpeakZhProps) => {
   if (!text) return null;
+  const shown = toSimplified(text); // v2.0.B.395 簡中模式自動轉簡 (非簡中原樣)
 
   const handleActivate = (e: React.MouseEvent | React.KeyboardEvent) => {
     if ('key' in e && e.key !== 'Enter' && e.key !== ' ') return;
@@ -36,7 +38,7 @@ const SpeakZh = ({ text, style }: SpeakZhProps) => {
     <span
       role="button"
       tabIndex={0}
-      aria-label={`唸出 ${text}`}
+      aria-label={`唸出 ${shown}`}
       onClick={handleActivate as React.MouseEventHandler}
       onKeyDown={handleActivate as React.KeyboardEventHandler}
       style={{
@@ -65,7 +67,7 @@ const SpeakZh = ({ text, style }: SpeakZhProps) => {
         (e.currentTarget as HTMLSpanElement).style.opacity = '';
       }}
     >
-      {text}
+      {shown}
       {/* Tiny 🔊 cue — aria-hidden so screen-readers use aria-label instead */}
       <span aria-hidden="true" style={{ fontSize: '0.7em', marginLeft: 2, opacity: 0.5 }}>🔊</span>
     </span>

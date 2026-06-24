@@ -7,8 +7,10 @@
 const KEY = 'pickup.lang';
 const EVT = 'pickup-lang-changed';
 
-export type UiLang = 'zh' | 'en';
-const SUPPORTED: UiLang[] = ['zh', 'en'];
+// v2.0.B.395 — 5 語言: 繁中 / 英 / 日 / 韓 / 簡中.
+// 'zh-Hans' (簡中) 不需獨立字典 — 由 opencc 執行時把 zh(繁) 轉簡 (UI + 內容皆然).
+export type UiLang = 'zh' | 'en' | 'ja' | 'ko' | 'zh-Hans';
+const SUPPORTED: UiLang[] = ['zh', 'en', 'ja', 'ko', 'zh-Hans'];
 const DEFAULT: UiLang = 'zh';
 
 export function getLang(): UiLang {
