@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { getLang, type UiLang } from './lang';
 // v2.0.B.148: applyCatName/applyDogName imports retired — loader is passthrough now.
 
 // v2.0: ClozeLevelSchema + DifficultySchema previously lived in
@@ -505,10 +506,46 @@ export function estimateLessonMinutes(questions: { type: string }[]): number {
 // Cache key is chapter id (not URL) to keep memory bounded.
 // ============================================================
 
-const cache = new Map<ChapterId, Lesson[]>();
+const cache = new Map<string, Lesson[]>();
+
+// v2.0.B.396 — 日/韓「題目內容」翻譯 overlay.
+// 內容母檔 lessons-ch*.json 維持繁中 (sentenceZh/explanationZh/...);
+// ja/ko 把翻譯放在 public/lessons-i18n/ch{N}-{lang}.json (qid → 翻譯欄位),
+// 載入時覆寫對應 *Zh 欄位。沒翻到的章節 fetch 失敗 → 靜默 fallback 繁中 (漸進上線)。
+// 簡中(zh-Hans) 不走 overlay — 由 opencc 執行時轉 (見 zhHans.ts)。
+interface OverlayEntry { s?: string; e?: string; q?: string; o?: string[]; p?: string[]; }
+
+async function applyContentOverlay(lessons: Lesson[], ch: ChapterId, lang: UiLang): Promise<void> {
+  if (lang !== 'ja' && lang !== 'ko') return;
+  let map: Record<string, OverlayEntry>;
+  try {
+    const res = await fetch(`/lessons-i18n/ch${ch}-${lang}.json`);
+    if (!res.ok) return; // 該章還沒翻 → 留繁中
+    map = await res.json();
+  } catch {
+    return; // 網路/解析失敗 → 不擋畫面
+  }
+  for (const lesson of lessons) {
+    for (const q of lesson.questions as Array<Record<string, unknown>>) {
+      const ov = map[q.id as string];
+      if (!ov) continue;
+      if (ov.s != null) q.sentenceZh = ov.s;
+      if (ov.e != null) q.explanationZh = ov.e;
+      if (ov.q != null) q.questionZh = ov.q;
+      if (ov.o != null) q.optionsZh = ov.o;
+      if (ov.p != null && Array.isArray(q.pairs)) {
+        (q.pairs as Array<{ left: string }>).forEach((pr, i) => {
+          if (ov.p && ov.p[i] != null) pr.left = ov.p[i];
+        });
+      }
+    }
+  }
+}
 
 export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
-  const cached = cache.get(ch);
+  const lang = getLang();
+  const key = `${ch}:${lang}`;
+  const cached = cache.get(key);
   if (cached) return cached;
 
   const res = await fetch(`/lessons-ch${ch}.json`);
@@ -534,7 +571,10 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   // structurally — no more loader/schema sync drift.
   const injected = parsed as Lesson[];
 
-  cache.set(ch, injected);
+  // v2.0.B.396: 日/韓 覆寫題目內容翻譯 (繁中/英/簡中 不動)。
+  await applyContentOverlay(injected, ch, lang);
+
+  cache.set(key, injected);
   return injected;
 }
 
