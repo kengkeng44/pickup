@@ -108,6 +108,331 @@
         "subSkill": "inference"
       },
       {
+        "type": "picture-mc",
+        "id": "kt-ch0-l1-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🌙",
+        "sentence": "The night sky is dark.",
+        "question": "Which word matches?",
+        "options": [
+          "night",
+          "noon",
+          "dawn",
+          "dusk"
+        ],
+        "optionsZh": [
+          "夜晚",
+          "正午",
+          "黎明",
+          "黃昏"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "圖裡是夜晚的深藍天空，所以選 night！night 就是「夜晚」。",
+        "sentenceZh": "夜晚的天空很暗。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l1-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma heard a sound.",
+        "questionEn": "Did Grandma hear nothing?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "奶奶「聽到了」一個聲音，所以「沒聽到」是錯的，答 No。",
+        "sentenceZh": "奶奶聽到了一個聲音。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l1-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The sound was ___ and small.",
+        "options": [
+          "tiny",
+          "loud",
+          "fast"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "那個聲音又輕又小，所以選 tiny（小小的）。",
+        "sentenceZh": "那聲音又輕又小。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l1-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It was a dark rainy night. Grandma heard a tiny sound and listened hard.",
+        "question": "Where did the sound come from?",
+        "options": [
+          "Outside the house",
+          "Up on the roof",
+          "Inside a book",
+          "Near the lamp"
+        ],
+        "optionsZh": [
+          "在房子外面",
+          "在屋頂上",
+          "在書裡面",
+          "在燈旁邊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "那聲音從房子外面傳來，outside the house 就是在外面。",
+        "sentenceZh": "這是個暗暗的雨夜，奶奶聽到一個小聲音，豎耳細聽。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l1-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "It is raining. The sky is dark and wet.",
+        "question": "Pick the picture for rain",
+        "options": [
+          "🌧️ rain",
+          "🌈 bow",
+          "🌤️ sun",
+          "🌬️ wind"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "下雨天嘛！選 rain 🌧️。雨讓夜晚又濕又暗。",
+        "sentenceZh": "正在下雨，天空又暗又濕。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l1-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The tiny sound came from the yard.",
+        "questionEn": "Did the sound come from inside the house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "聲音是從院子裡傳來的，不是從屋內，所以答 No。",
+        "sentenceZh": "那小小的聲音從院子傳來。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l1-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma ___ the door.",
+        "options": [
+          "opened",
+          "closed",
+          "broke"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶把門打開了，opened 就是「打開了」。",
+        "sentenceZh": "奶奶打開了門。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l1-x8",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words.",
+        "pairs": [
+          {
+            "left": "夜晚",
+            "right": "night"
+          },
+          {
+            "left": "雨",
+            "right": "rain"
+          },
+          {
+            "left": "聲音",
+            "right": "sound"
+          },
+          {
+            "left": "院子",
+            "right": "yard"
+          }
+        ],
+        "explanationZh": "🔑 night = 夜晚\n🔑 rain = 雨\n🔑 sound = 聲音\n🔑 yard = 院子",
+        "sentenceZh": "配對看看這些單字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l1-x9",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🐱",
+        "sentence": "Mew mew! A small cat is calling.",
+        "question": "Which word matches?",
+        "options": [
+          "cat",
+          "cow",
+          "cub",
+          "cup"
+        ],
+        "optionsZh": [
+          "貓",
+          "牛",
+          "幼崽",
+          "杯子"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「喵喵」是貓咪的聲音，圖裡也是貓，選 cat！",
+        "sentenceZh": "喵喵！一隻小貓在叫。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l1-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The yard is outside the house.",
+        "questionEn": "Is the yard inside the house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "院子在屋子外面，不是裡面，所以答 No。",
+        "sentenceZh": "院子在房子外面。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l1-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The night is dark and quiet.",
+        "question": "Pick the picture for dark",
+        "options": [
+          "🌑 dark",
+          "🌞 bright",
+          "🌈 colour",
+          "⚡ flash"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "夜晚是暗暗的，dark 就是「暗」🌑。",
+        "sentenceZh": "夜晚又暗又安靜。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l1-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma heard mew mew from the yard. She put down her book and stood up.",
+        "question": "What did Grandma do after hearing the sound?",
+        "options": [
+          "Walked to the door",
+          "Went back to sleep",
+          "Called out loudly",
+          "Turned off the light"
+        ],
+        "optionsZh": [
+          "走向門口",
+          "回去睡覺",
+          "大聲呼喊",
+          "把燈關掉"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶聽到聲音後放下書，站起來走向門口。",
+        "sentenceZh": "奶奶聽到院子裡傳來喵喵聲，放下書站了起來。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
+      },
+      {
         "type": "narration",
         "id": "kt-ch0-l1-n4",
         "level": "A1",
@@ -218,6 +543,245 @@
         "subSkill": "vocab"
       },
       {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l2-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat sat in the yard. It was wet.",
+        "question": "Pick the picture for wet",
+        "options": [
+          "💧 wet",
+          "🔥 hot",
+          "🌞 dry",
+          "❄️ icy"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓全身都濕了，所以選 wet 💧。",
+        "sentenceZh": "貓坐在院子裡，全身濕透。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l2-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat sat in the ___.",
+        "options": [
+          "yard",
+          "tree",
+          "lake"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓坐在院子裡，yard 就是「院子」。",
+        "sentenceZh": "貓坐在院子裡。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l2-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Rain fell on the little cat.",
+        "questionEn": "Was the cat dry?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "雨一直下在小貓身上，牠當然不乾，所以答 No。",
+        "sentenceZh": "雨打在小貓身上。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l2-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🌧️",
+        "sentence": "Rain falls on the yard.",
+        "question": "Which word matches?",
+        "options": [
+          "rain",
+          "road",
+          "rope",
+          "rock"
+        ],
+        "optionsZh": [
+          "雨",
+          "路",
+          "繩子",
+          "石頭"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "圖裡是下雨，選 rain！rain 就是雨。",
+        "sentenceZh": "雨落在院子裡。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l2-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat looked ___ and afraid.",
+        "options": [
+          "tiny",
+          "tall",
+          "busy"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓又小又害怕，所以選 tiny（小小的）。",
+        "sentenceZh": "那隻貓看起來小小的、又很害怕。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l2-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma said, 'You are safe now.'",
+        "questionEn": "Was the cat in danger before?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶說「你現在安全了」，表示之前確實有危險，所以答 Yes。",
+        "sentenceZh": "奶奶說：「你現在安全了。」",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l2-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma found a tiny cat. She opened the door wide and picked her up gently.",
+        "question": "What did Grandma do for the cat?",
+        "options": [
+          "Opened the door for her",
+          "Drove her away fast",
+          "Closed the gate tight",
+          "Went back to sleep"
+        ],
+        "optionsZh": [
+          "為她開了門",
+          "把她趕走",
+          "把門關緊",
+          "回去睡覺"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶把門打開，把小貓迎進來，選「為她開了門」。",
+        "sentenceZh": "奶奶發現一隻小貓，把門打開，輕輕地把她抱起來。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l2-x8",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words.",
+        "pairs": [
+          {
+            "left": "濕",
+            "right": "wet"
+          },
+          {
+            "left": "小",
+            "right": "tiny"
+          },
+          {
+            "left": "安全",
+            "right": "safe"
+          },
+          {
+            "left": "院子",
+            "right": "yard"
+          }
+        ],
+        "explanationZh": "🔑 wet = 濕\n🔑 tiny = 小\n🔑 safe = 安全\n🔑 yard = 院子",
+        "sentenceZh": "配對這些單字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l2-x9",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat is safe inside. It is no longer cold.",
+        "question": "Pick the picture for safe",
+        "options": [
+          "🏠 home",
+          "🌊 wave",
+          "⚡ bolt",
+          "🌪️ wind"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在屋子裡才安全！home 🏠 代表安全溫暖的地方。",
+        "sentenceZh": "貓在裡面很安全，不再冷了。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "comprehension",
         "id": "kt-ch0-l2-q3",
         "level": "A1",
@@ -268,6 +832,77 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l2-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat shook in the cold rain.",
+        "questionEn": "Was the cat warm in the rain?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "小貓在冷雨中發抖，不暖，所以答 No。",
+        "sentenceZh": "貓在冰冷的雨中瑟瑟發抖。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l2-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The tiny cat was alone in the yard.",
+        "question": "Pick the picture for alone",
+        "options": [
+          "😿 alone",
+          "🎉 party",
+          "🤝 group",
+          "💃 dance"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓一個人在院子裡，alone 就是「單獨」😿。",
+        "sentenceZh": "小小的貓獨自在院子裡。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l2-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma picked up the tiny ___.",
+        "options": [
+          "cat",
+          "hat",
+          "bat"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶抱起了小貓，cat 就是「貓」。",
+        "sentenceZh": "奶奶把小貓抱了起來。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "narration",
@@ -349,6 +984,243 @@
         "subSkill": "vocab"
       },
       {
+        "type": "listen-emoji",
+        "id": "kt-ch0-l3-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma dried the cat with a towel.",
+        "question": "Pick the picture",
+        "options": [
+          "🧼 towel",
+          "🍞 bread",
+          "🎈 ball",
+          "📦 box"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶用毛巾把小貓擦乾，towel 就是「毛巾」🧼。",
+        "sentenceZh": "奶奶用毛巾把貓擦乾。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l3-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat felt ___ after the towel.",
+        "options": [
+          "warm",
+          "cold",
+          "lost"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "擦乾後，小貓暖呼呼的，所以選 warm（暖）。",
+        "sentenceZh": "用毛巾擦乾後，小貓覺得暖呼呼的。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l3-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma dried the cat with a warm towel.",
+        "questionEn": "Did Grandma use a cold towel?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "奶奶用的是「溫溫的」毛巾，不是冷的，所以答 No。",
+        "sentenceZh": "奶奶用溫暖的毛巾把貓擦乾。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l3-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🍡",
+        "sentence": "The cat is soft and round like a mochi.",
+        "question": "Which word matches?",
+        "options": [
+          "soft",
+          "hard",
+          "fast",
+          "tall"
+        ],
+        "optionsZh": [
+          "軟",
+          "硬",
+          "快",
+          "高"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓軟軟的就像糰子，soft 就是「軟的」。",
+        "sentenceZh": "小貓又軟又圓，就像糰子。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l3-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma held the fluffy kitten. She smiled and chose a name for her.",
+        "question": "Why did Grandma choose the name Mochi?",
+        "options": [
+          "Soft and round like a mochi",
+          "Loud noises all night",
+          "Ate all the food up",
+          "Ran very fast away"
+        ],
+        "optionsZh": [
+          "軟軟圓圓像糰子",
+          "整晚大聲吵鬧",
+          "把食物都吃光了",
+          "跑得非常快"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓軟軟圓圓的，就像抹茶糰子，所以奶奶叫她 Mochi。",
+        "sentenceZh": "奶奶抱著毛茸茸的小貓，微笑著給她取了名字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l3-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma smiled at the soft little cat.",
+        "question": "Pick the picture for smile",
+        "options": [
+          "😊 smile",
+          "😴 sleep",
+          "😢 cry",
+          "😠 angry"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶笑了，smile 就是微笑 😊。",
+        "sentenceZh": "奶奶對著軟軟的小貓微笑。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l3-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma gave the cat a name.",
+        "questionEn": "Does the cat have a name now?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶給小貓取了名字，所以現在有名字了，答 Yes。",
+        "sentenceZh": "奶奶給貓取了一個名字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l3-x8",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat's ___ is Mochi.",
+        "options": [
+          "name",
+          "home",
+          "book"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "小貓的「名字」是 Mochi，name 就是「名字」。",
+        "sentenceZh": "這隻貓的名字是 Mochi。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l3-x9",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🔥",
+        "sentence": "The towel is warm.",
+        "question": "Which word matches?",
+        "options": [
+          "warm",
+          "cold",
+          "dark",
+          "hard"
+        ],
+        "optionsZh": [
+          "暖",
+          "冷",
+          "暗",
+          "硬"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "毛巾是暖的，warm 就是「暖」，選它！",
+        "sentenceZh": "毛巾是暖暖的。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "tap-pairs",
         "id": "kt-ch0-l3-q2",
         "level": "A1",
@@ -411,6 +1283,108 @@
           "story"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l3-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The cat liked her new name.",
+        "questionEn": "Did the cat dislike her new name?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "小貓喜歡她的新名字，所以「不喜歡」是錯的，答 No。",
+        "sentenceZh": "小貓喜歡她的新名字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l3-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi is soft and cozy.",
+        "question": "Pick the picture for soft",
+        "options": [
+          "🐱 soft",
+          "🪨 hard",
+          "🌵 spiky",
+          "🔩 metal"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 軟軟的就像貓咪，soft 就是「軟」🐱。",
+        "sentenceZh": "Mochi 又軟又舒適。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l3-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma dried Mochi with a warm ___.",
+        "options": [
+          "towel",
+          "stone",
+          "spoon"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶用毛巾把 Mochi 擦乾，towel 就是「毛巾」。",
+        "sentenceZh": "奶奶用溫暖的毛巾把 Mochi 擦乾。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l3-xd",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma dried the cat with a warm towel and gave her a name. The little cat purred.",
+        "question": "How did the cat feel after Grandma dried her?",
+        "options": [
+          "Cosy and content",
+          "Wet and scared",
+          "Lost and cold",
+          "Loud and bold"
+        ],
+        "optionsZh": [
+          "舒適又滿足",
+          "濕濕的又害怕",
+          "迷路又冷",
+          "吵鬧又大膽"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "擦乾後小貓開心地呼嚕嚕，cosy and content 就是舒適又滿足。",
+        "sentenceZh": "奶奶用溫暖毛巾幫小貓擦乾，還給她取了名字。小小的貓咪咕嚕嚕叫起來。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "narration",
@@ -508,6 +1482,243 @@
         "subSkill": "vocab"
       },
       {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l4-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana is a ___.",
+        "options": [
+          "dog",
+          "cat",
+          "bird"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 是一隻狗，dog 就是「狗」。",
+        "sentenceZh": "Hana 是一隻狗。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l4-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma has a dog named Hana.",
+        "questionEn": "Is Hana a cat?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Hana 是狗，不是貓，所以答 No。",
+        "sentenceZh": "奶奶有一隻叫 Hana 的狗。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l4-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana wagged her tail. She was happy.",
+        "question": "Pick the picture for happy",
+        "options": [
+          "😊 glad",
+          "😢 sad",
+          "😴 sleepy",
+          "😠 cross"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 搖起尾巴，表示她很開心 😊，happy 就是「開心」。",
+        "sentenceZh": "Hana 搖了搖尾巴，她很高興。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l4-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana sniffed Mochi. Then Hana's ___ went swish.",
+        "options": [
+          "tail",
+          "nose",
+          "paw"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 的尾巴搖啊搖，tail 就是「尾巴」。",
+        "sentenceZh": "Hana 聞了聞 Mochi。然後 Hana 的尾巴搖啊搖。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l4-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana and Mochi are friends.",
+        "questionEn": "Do Hana and Mochi like each other?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 和 Mochi 是朋友，互相喜歡，所以答 Yes。",
+        "sentenceZh": "Hana 和 Mochi 是朋友。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l4-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana sniffed Mochi. Then she wagged her tail and licked Mochi's ear.",
+        "question": "How did Hana greet Mochi?",
+        "options": [
+          "Nose first, then happy",
+          "Barking very loudly",
+          "Biting then running off",
+          "Taking a long nap"
+        ],
+        "optionsZh": [
+          "先用鼻子聞，然後開心",
+          "大聲吠叫",
+          "咬一口然後跑掉",
+          "好好睡一覺"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 先用鼻子聞，然後搖起尾巴，高興地打招呼。",
+        "sentenceZh": "Hana 聞了聞 Mochi，然後搖起尾巴，還舔了舔 Mochi 的耳朵。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l4-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🐾",
+        "sentence": "Hana has four paws and a tail.",
+        "question": "Which word matches?",
+        "options": [
+          "tail",
+          "wing",
+          "horn",
+          "gill"
+        ],
+        "optionsZh": [
+          "尾巴",
+          "翅膀",
+          "角",
+          "魚鰓"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 有尾巴，tail 就是「尾巴」，選它！",
+        "sentenceZh": "Hana 有四隻腳掌和一條尾巴。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l4-x8",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words.",
+        "pairs": [
+          {
+            "left": "狗",
+            "right": "dog"
+          },
+          {
+            "left": "貓",
+            "right": "cat"
+          },
+          {
+            "left": "尾巴",
+            "right": "tail"
+          },
+          {
+            "left": "朋友",
+            "right": "friend"
+          }
+        ],
+        "explanationZh": "🔑 dog = 狗\n🔑 cat = 貓\n🔑 tail = 尾巴\n🔑 friend = 朋友",
+        "sentenceZh": "配對這些單字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ]
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l4-x9",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi and Hana are good ___.",
+        "options": [
+          "friends",
+          "rivals",
+          "strangers"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 和 Hana 是好朋友，friends 就是「朋友」。",
+        "sentenceZh": "Mochi 和 Hana 是好朋友。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "comprehension",
         "id": "kt-ch0-l4-q3",
         "level": "A1",
@@ -558,6 +1769,60 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l4-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana sniffed Mochi with her nose.",
+        "questionEn": "Did Hana sniff Mochi?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 用鼻子聞了聞 Mochi，所以答 Yes。",
+        "sentenceZh": "Hana 用鼻子聞了聞 Mochi。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l4-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma lives with her two pets. They are very good friends.",
+        "question": "Who lives in Grandma's home?",
+        "options": [
+          "Mochi and Hana",
+          "Two big rabbits",
+          "Three fluffy dogs",
+          "Many little fish"
+        ],
+        "optionsZh": [
+          "Mochi 和 Hana",
+          "兩隻大兔子",
+          "三隻毛茸狗",
+          "很多小魚"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶的兩隻寵物就是 Mochi（貓）和 Hana（狗）。",
+        "sentenceZh": "奶奶和她的兩隻寵物住在一起，牠們是非常好的朋友。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "narration",
@@ -685,6 +1950,197 @@
         "subSkill": "inference"
       },
       {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l5-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi lives on the ___.",
+        "options": [
+          "street",
+          "moon",
+          "lake"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 住在街上，street 就是「街道」。",
+        "sentenceZh": "Mochi 住在街上。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l5-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every night, Mochi jumps on the low wall.",
+        "questionEn": "Does Mochi jump on the wall only once?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Every night 是「每晚」，不是只有一次，所以答 No。",
+        "sentenceZh": "每天晚上，Mochi 都跳上矮牆。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l5-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "⬆️",
+        "sentence": "Mochi jumps up on the wall.",
+        "question": "Which word matches?",
+        "options": [
+          "jump",
+          "swim",
+          "rest",
+          "hide"
+        ],
+        "optionsZh": [
+          "跳",
+          "游",
+          "休息",
+          "躲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 往上跳，jump 就是「跳」，選它！",
+        "sentenceZh": "Mochi 跳上了牆。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l5-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi lives on the street. But every night she comes home to sit and wait.",
+        "question": "Where does Mochi go every night?",
+        "options": [
+          "Back to the garden",
+          "Far away downtown",
+          "High on the rooftop",
+          "Deep in the forest"
+        ],
+        "optionsZh": [
+          "回到花園",
+          "去遠遠的市區",
+          "爬上高高的屋頂",
+          "走進深深的樹林"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 每晚都回到花園，坐在矮牆上等著。",
+        "sentenceZh": "Mochi 住在街上，但每晚她都回家來坐著等候。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l5-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The moon is up. Mochi is on the wall.",
+        "question": "Pick the picture for moon",
+        "options": [
+          "🌙 moon",
+          "🌞 sun",
+          "⭐ star",
+          "🌈 bow"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "夜晚掛著月亮，moon 就是月亮 🌙。",
+        "sentenceZh": "月亮升起，Mochi 坐在牆上。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l5-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words.",
+        "pairs": [
+          {
+            "left": "跳",
+            "right": "jump"
+          },
+          {
+            "left": "牆",
+            "right": "wall"
+          },
+          {
+            "left": "街道",
+            "right": "street"
+          },
+          {
+            "left": "月亮",
+            "right": "moon"
+          }
+        ],
+        "explanationZh": "🔑 jump = 跳\n🔑 wall = 牆\n🔑 street = 街道\n🔑 moon = 月亮",
+        "sentenceZh": "配對這些單字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l5-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana waits below the wall for Mochi.",
+        "questionEn": "Does Hana wait for Mochi?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 在牆下等著 Mochi，所以答 Yes。",
+        "sentenceZh": "Hana 在牆下等著 Mochi。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
         "type": "comprehension",
         "id": "kt-ch0-l5-q4",
         "level": "A1",
@@ -745,6 +2201,108 @@
         "subSkill": "function",
         "sentenceEasy": "Mochi ___ up every night.",
         "sentenceHard": "Every night, Mochi ___ up onto the old garden wall."
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l5-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi comes back to the wall each night.",
+        "questionEn": "Does Mochi forget to come back?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Mochi 每晚都回來，從來沒有忘記，所以答 No。",
+        "sentenceZh": "Mochi 每晚都回到那道牆。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l5-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The low wall is in the garden.",
+        "question": "Pick the picture for wall",
+        "options": [
+          "🧱 wall",
+          "🌊 wave",
+          "🌲 tree",
+          "🪟 window"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "矮牆就是 wall 🧱，Mochi 每晚跳上那道牆。",
+        "sentenceZh": "那道矮牆就在花園裡。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l5-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi and Hana both ___ for the story.",
+        "options": [
+          "wait",
+          "swim",
+          "fight"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 和 Hana 都在等故事，wait 就是「等待」。",
+        "sentenceZh": "Mochi 和 Hana 都在等故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l5-xd",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every night, Mochi jumps on the wall. She looks at the warm light inside.",
+        "question": "What does Mochi do on the wall?",
+        "options": [
+          "Waits for story time",
+          "Eats a big dinner",
+          "Sings a loud song",
+          "Reads a thick book"
+        ],
+        "optionsZh": [
+          "等著故事時間",
+          "吃一頓大餐",
+          "大聲唱歌",
+          "讀一本厚書"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 跳上牆，看著裡面暖暖的燈光，等著故事時間。",
+        "sentenceZh": "每天晚上，Mochi 跳上牆，望著屋內溫暖的燈光。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "detail"
       },
       {
         "type": "narration",
@@ -857,6 +2415,197 @@
         "subSkill": "vocab"
       },
       {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l6-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma opened a ___.",
+        "options": [
+          "book",
+          "door",
+          "shop"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶翻開了一本書，book 就是「書」。",
+        "sentenceZh": "奶奶翻開了一本書。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l6-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The book has many stories inside.",
+        "questionEn": "Is the book empty?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "書裡有很多故事，不是空的，所以答 No。",
+        "sentenceZh": "書裡有很多故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l6-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi loves to listen. Her ears go up!",
+        "question": "Pick the picture for listen",
+        "options": [
+          "👂 ear",
+          "👁️ eye",
+          "👃 nose",
+          "👄 mouth"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "聽故事要用耳朵，ear 就是「耳朵」👂。",
+        "sentenceZh": "Mochi 愛聽故事，她的耳朵豎起來了！",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l6-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma opened a thick book. 'Listen,' she said. 'I will read this to you tonight.'",
+        "question": "What language is the book in?",
+        "options": [
+          "English",
+          "French",
+          "Chinese",
+          "Spanish"
+        ],
+        "optionsZh": [
+          "英文",
+          "法文",
+          "中文",
+          "西班牙文"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶說書裡的故事是用英文寫的，所以選 English。",
+        "sentenceZh": "奶奶翻開一本厚厚的書。「聽好囉，」她說，「今晚我讀這個給你們聽。」",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l6-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma began to ___.",
+        "options": [
+          "read",
+          "sleep",
+          "cook"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶開始讀書，read 就是「讀」。",
+        "sentenceZh": "奶奶開始讀書。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l6-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words.",
+        "pairs": [
+          {
+            "left": "書",
+            "right": "book"
+          },
+          {
+            "left": "故事",
+            "right": "story"
+          },
+          {
+            "left": "英文",
+            "right": "English"
+          },
+          {
+            "left": "讀",
+            "right": "read"
+          }
+        ],
+        "explanationZh": "🔑 book = 書\n🔑 story = 故事\n🔑 English = 英文\n🔑 read = 讀",
+        "sentenceZh": "配對這些單字。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l6-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "👂",
+        "sentence": "Mochi and Hana listen to Grandma.",
+        "question": "Which word matches?",
+        "options": [
+          "listen",
+          "shout",
+          "sleep",
+          "laugh"
+        ],
+        "optionsZh": [
+          "聽",
+          "大喊",
+          "睡覺",
+          "笑"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Mochi 和 Hana 在「聽」奶奶說故事，listen 就是「聽」。",
+        "sentenceZh": "Mochi 和 Hana 聽著奶奶說故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "comprehension",
         "id": "kt-ch0-l6-q3",
         "level": "A1",
@@ -939,6 +2688,77 @@
         "subSkill": "function",
         "sentenceEasy": "Grandma ___ a book.",
         "sentenceHard": "One quiet night, Grandma ___ a thick book of old stories."
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l6-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi loves to hear the stories.",
+        "questionEn": "Does Mochi hate listening to stories?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Mochi 愛聽故事，「討厭」聽是錯的，答 No。",
+        "sentenceZh": "Mochi 很愛聽故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l6-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma reads from a big old book.",
+        "question": "Pick the picture for read",
+        "options": [
+          "📖 read",
+          "🍽️ eat",
+          "🛌 sleep",
+          "🏃 run"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶在讀書，read 就是「閱讀」📖。",
+        "sentenceZh": "奶奶讀著一本大而老舊的書。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l6-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The stories in the book are in ___.",
+        "options": [
+          "English",
+          "numbers",
+          "colours"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "書裡的故事用英文寫，English 就是「英文」。",
+        "sentenceZh": "書裡的故事是用英文寫的。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "narration",
@@ -1048,6 +2868,209 @@
         "subSkill": "inference"
       },
       {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l7-x1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every ___, Grandma tells a story.",
+        "options": [
+          "night",
+          "week",
+          "year"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每「晚上」奶奶都說故事，night 就是「晚上」。",
+        "sentenceZh": "每天晚上，奶奶都說一個故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l7-x2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi sits on the wall and listens.",
+        "questionEn": "Does Mochi stand on the wall?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Mochi 是「坐」在牆上，不是站著，所以答 No。",
+        "sentenceZh": "Mochi 坐在牆上聽著。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch0-l7-x3",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma holds a warm cup of tea and a book.",
+        "question": "Pick the picture for book",
+        "options": [
+          "📖 book",
+          "🎵 song",
+          "🍵 tea",
+          "🪑 chair"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶拿著書，book 就是書 📖，選它！",
+        "sentenceZh": "奶奶拿著一杯熱茶和一本書。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch0-l7-x4",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "And so every night is the same. Mochi on the wall. Hana below. Grandma with her book. One warm story.",
+        "question": "What happens every night?",
+        "options": [
+          "Grandma tells a story",
+          "Mochi goes to sleep",
+          "Hana finds new food",
+          "The rain falls hard"
+        ],
+        "optionsZh": [
+          "奶奶說一個故事",
+          "Mochi 去睡覺",
+          "Hana 找到新食物",
+          "大雨一直下"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每晚都有故事，奶奶說、Mochi 和 Hana 聽。",
+        "sentenceZh": "就這樣，每個夜晚都是一樣的。Mochi 在牆上，Hana 在下面，奶奶拿著書，說一個暖呼呼的故事。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "story"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l7-x5",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Hana sits ___ Grandma's feet.",
+        "options": [
+          "below",
+          "above",
+          "inside"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Hana 趴在奶奶腳邊，below 就是「下面」。",
+        "sentenceZh": "Hana 坐在奶奶腳下。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l7-x6",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "This is a warm and happy place.",
+        "questionEn": "Is this a sad and cold place?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "這是個溫暖快樂的地方，不是悲傷冰冷的，所以答 No。",
+        "sentenceZh": "這是個溫暖快樂的地方。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l7-x7",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "👵",
+        "sentence": "Grandma is kind and warm.",
+        "question": "Which word matches?",
+        "options": [
+          "kind",
+          "mean",
+          "cold",
+          "loud"
+        ],
+        "optionsZh": [
+          "善良的",
+          "壞心的",
+          "冷漠的",
+          "吵鬧的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶很善良很溫暖，kind 就是「善良的」，選它！",
+        "sentenceZh": "奶奶善良又溫暖。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l7-x8",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Now you are ___ too.",
+        "options": [
+          "ready",
+          "sleepy",
+          "hungry"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "你準備好聽故事了嗎？ready 就是「準備好了」。",
+        "sentenceZh": "現在你也準備好了。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
         "type": "tap-pairs",
         "id": "kt-ch0-l7-q3",
         "level": "A1",
@@ -1080,6 +3103,84 @@
           "vocab",
           "intro"
         ]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch0-l7-xa",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Mochi is on the wall. Hana is below.",
+        "questionEn": "Are both Mochi and Hana inside the house?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Mochi 在牆上、Hana 在牆下，都不在屋裡，所以答 No。",
+        "sentenceZh": "Mochi 在牆上，Hana 在牆下。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "inference"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l7-xb",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "imageEmoji": "🌙",
+        "sentence": "Every night is story time.",
+        "question": "Which word matches?",
+        "options": [
+          "night",
+          "noon",
+          "dusk",
+          "dawn"
+        ],
+        "optionsZh": [
+          "夜晚",
+          "正午",
+          "黃昏",
+          "黎明"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每晚都是故事時間，night 就是「夜晚」！",
+        "sentenceZh": "每天夜晚都是故事時間。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch0-l7-xc",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma's stories are ___ and kind.",
+        "options": [
+          "warm",
+          "loud",
+          "dark"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "奶奶的故事溫暖又親切，warm 就是「溫暖」。",
+        "sentenceZh": "奶奶的故事溫暖又親切。",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "narration",
