@@ -284,6 +284,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in China, there lived a kind leader named Liu Bei.",
+        "question": "What does this opening tell us about Liu Bei?",
+        "options": [
+          "a leader known for kindness and care",
+          "a soldier who owned the biggest army",
+          "a farmer who became a famous cook",
+          "an emperor who lived in a large palace"
+        ],
+        "optionsZh": [
+          "一個以善良和關懷著稱的領袖",
+          "一個擁有最大軍隊的士兵",
+          "一個成為著名廚師的農夫",
+          "一個住在大宮殿裡的皇帝"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「kind leader」——善良的領袖，「以善良和關懷著稱的領袖」就是答案。",
+        "sentenceZh": "很久以前，在中國，住著一個善良的領袖，叫劉備。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l1-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "But fighting and trouble filled the land in those years.",
+        "questionEn": "Was the land peaceful during Liu Bei's time?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「fighting and trouble filled the land」——戰亂充滿土地，根本不太平，答 No。",
+        "sentenceZh": "但那些年，戰亂和麻煩充滿了這片土地。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "領袖",
+            "right": "leader"
+          },
+          {
+            "left": "士兵",
+            "right": "soldier"
+          },
+          {
+            "left": "聰明的",
+            "right": "wise"
+          },
+          {
+            "left": "計畫",
+            "right": "plan"
+          }
+        ],
+        "explanationZh": "🔑 leader = 領袖\n🔑 soldier = 士兵\n🔑 wise = 聰明的\n🔑 plan = 計畫\n劉備介紹節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Brave hearts could fight, but a smart head was needed to plan.",
+        "question": "What was Liu Bei still missing?",
+        "options": [
+          "someone clever enough to make good plans",
+          "more swords and weapons for battle",
+          "a bigger house to live and sleep in",
+          "stronger boots for riding in winter"
+        ],
+        "optionsZh": [
+          "一個聰明到能做好計畫的人",
+          "更多刀劍和武器",
+          "一個更大的房子住",
+          "更強的冬季騎馬靴"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "勇敢的心能打仗，但「smart head to plan」還不夠——他缺的是「聰明到能做好計畫的人」。",
+        "sentenceZh": "勇敢的心能打仗，但需要一個聰明的頭腦來計畫。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"I must find a wise friend, or our work will ___,\" he thought.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "fail",
+          "fails",
+          "failed",
+          "failing"
+        ],
+        "optionsZh": [
+          "失敗（原形，配 will）",
+          "失敗（第三人稱單數）",
+          "失敗（過去式）",
+          "失敗（現在分詞）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「will + 動詞原形」——「will fail」才是正確的未來式用法。",
+        "sentenceZh": "「我必須找到一個有智慧的朋友，否則我們的事業將會___。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l1-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He sat by his window at night, thinking about the years ahead.",
+        "questionEn": "Was Liu Bei worried about what the future might bring?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "坐在窗邊、想著未來的歲月——他在擔心前路，答 Yes。",
+        "sentenceZh": "他夜裡坐在窗邊，思考著未來的歲月。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l1-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He shared his worry with the two brothers by the warm fire.",
+        "question": "What does this action show about Liu Bei?",
+        "options": [
+          "trusting his brothers and not hiding his feelings",
+          "asking his brothers to go find the wise man alone",
+          "keeping his plan secret from everyone around him",
+          "pretending to be brave when he felt no fear at all"
+        ],
+        "optionsZh": [
+          "信任兄弟、不隱藏自己的感受",
+          "叫兄弟們單獨去找有智慧的人",
+          "對身邊的人保守計畫",
+          "假裝勇敢，其實完全不害怕"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在火邊和兄弟分享擔憂——他不隱藏心裡的事，「信任兄弟、不隱藏感受」就是答案。",
+        "sentenceZh": "他在溫暖的火邊與兩位兄弟分享了他的擔憂。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l1-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Liu Bei had brave fighters, but he knew he needed a wise mind to lead well.",
+        "question": "Which best shows what Liu Bei needed most?",
+        "options": [
+          "🧠 a sharp and clever thinker",
+          "⚔️ more strong and brave warriors",
+          "🏰 a bigger and stronger castle",
+          "🍔 plenty of food for his army"
+        ],
+        "optionsZh": [
+          "一個精明有智慧的思考者",
+          "更多強壯勇敢的戰士",
+          "更大更堅固的城堡",
+          "為軍隊準備充足的食物"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他有勇士，但缺「smart head to plan」——「精明有智慧的思考者」，那個 🧠 最像他缺的東西。",
+        "sentenceZh": "劉備有勇敢的戰士，但他知道要領導好，需要一個有智慧的頭腦。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -572,6 +800,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Liu Bei asked the villagers about smart people in the land.",
+        "question": "What was Liu Bei doing in this scene?",
+        "options": [
+          "searching for a wise person who could help him",
+          "buying food from the village market that day",
+          "asking for soldiers to join his army soon",
+          "looking for a road that led to a new city"
+        ],
+        "optionsZh": [
+          "尋找能幫助他的有智慧的人",
+          "在村子市場買食物",
+          "招募加入軍隊的士兵",
+          "尋找通往新城市的道路"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "向村民打聽聰明人——他在「尋找能幫助他的有智慧的人」。",
+        "sentenceZh": "劉備向村民打聽這片土地上聰明的人。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l2-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The old man's eyes shone when he heard the name Zhuge Liang.",
+        "questionEn": "Did the old man seem to admire Zhuge Liang?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "聽到諸葛亮的名字，眼睛閃亮——這說明他很欣賞諸葛亮，答 Yes。",
+        "sentenceZh": "老人一聽到諸葛亮的名字，眼睛就亮了。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "村民",
+            "right": "villager"
+          },
+          {
+            "left": "老人",
+            "right": "old man"
+          },
+          {
+            "left": "山丘",
+            "right": "hill"
+          },
+          {
+            "left": "讀書",
+            "right": "read books"
+          }
+        ],
+        "explanationZh": "🔑 villager = 村民\n🔑 old man = 老人\n🔑 hill = 山丘\n🔑 read books = 讀書\n指路節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"He reads many books and grows his own food there.\"",
+        "question": "What kind of life did Zhuge Liang lead?",
+        "options": [
+          "quiet reading and farming on the hill",
+          "busy battles leading many armies",
+          "constant travel from one town to the next",
+          "rich living with many servants at home"
+        ],
+        "optionsZh": [
+          "在山丘上安靜讀書和務農",
+          "帶領許多軍隊打仗的忙碌生活",
+          "從一個城鎮不斷旅行到下一個",
+          "在家有許多僕人的富裕生活"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "讀很多書、自己種食物——「安靜的讀書和務農生活」就是答案。",
+        "sentenceZh": "「他在那裡讀很多書，自己種食物。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He thanked the old man with a deep bow and ___ soft voice.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "a",
+          "an",
+          "the",
+          "his"
+        ],
+        "optionsZh": [
+          "一個（冠詞 a，用在輔音前）",
+          "一個（冠詞 an，用在母音前）",
+          "這個（定冠詞）",
+          "他的（所有格）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「soft voice」以輔音 /s/ 開頭——用不定冠詞 a，「a soft voice」才正確。",
+        "sentenceZh": "他向老人深深鞠了一躬，用___柔和的聲音道謝。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l2-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Liu Bei's eyes lit up at every word the old man said.",
+        "questionEn": "Was Liu Bei excited by what the old man told him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "聽到每個字眼睛都亮起來——劉備對老人說的話非常興奮，答 Yes。",
+        "sentenceZh": "劉備在老人說的每一個字裡，眼睛都亮了。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l2-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He called his brothers, and the three set off the next morning.",
+        "question": "What does this action show about Liu Bei?",
+        "options": [
+          "wasting no time once he had a clear lead",
+          "waiting many weeks before deciding to go",
+          "asking the old man to come along with them",
+          "sending his brothers alone to visit Zhuge Liang"
+        ],
+        "optionsZh": [
+          "一有線索就立刻行動",
+          "等了好幾個星期才決定去",
+          "請老人一起同行",
+          "獨自派兄弟去拜訪諸葛亮"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "叫兄弟來、隔天就出發——「一有線索就立刻行動」就是他的行事風格。",
+        "sentenceZh": "他叫來兄弟，三人隔天早上就出發了。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l2-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The old man pointed to the green hill where the wisest man lived alone.",
+        "question": "Which best shows Liu Bei's feeling after hearing this?",
+        "options": [
+          "💡 sparked with hope and purpose",
+          "😴 too tired to care at all",
+          "😡 angry and ready to argue",
+          "😔 sad and ready to go home"
+        ],
+        "optionsZh": [
+          "燃起了希望和目標",
+          "太累了，完全不在乎",
+          "生氣，準備爭論",
+          "難過，準備回家"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "眼睛亮了、第二天就出發——「燃起了希望和目標」，那個 💡 最像劉備此時的狀態。",
+        "sentenceZh": "老人指著那座綠色山丘，說最有智慧的人就獨自住在那裡。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -860,6 +1316,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They saw a small wooden house with bamboo around it.",
+        "question": "What does the house tell us about the person inside?",
+        "options": [
+          "someone who lived a simple, natural life",
+          "someone who enjoyed luxury and fine things",
+          "a very old person who needed a lot of care",
+          "a soldier hiding his weapons from enemies"
+        ],
+        "optionsZh": [
+          "一個過著簡單自然生活的人",
+          "一個享受奢華和精緻東西的人",
+          "一個需要很多照顧的老人",
+          "一個藏武器躲避敵人的士兵"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "竹子圍繞、小木屋——這樣的環境說明住的人「過著簡單自然生活」。",
+        "sentenceZh": "他們看見一間小木屋，周圍種著竹子。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l3-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "A young boy opened the door and looked up at Liu Bei.",
+        "questionEn": "Was Zhuge Liang the one who opened the door?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "開門的是一個小男孩——不是諸葛亮本人，答 No。",
+        "sentenceZh": "一個小男孩打開門，抬頭看著劉備。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "木屋",
+            "right": "wooden house"
+          },
+          {
+            "left": "竹子",
+            "right": "bamboo"
+          },
+          {
+            "left": "敲門",
+            "right": "knock"
+          },
+          {
+            "left": "老師",
+            "right": "teacher"
+          }
+        ],
+        "explanationZh": "🔑 wooden house = 木屋\n🔑 bamboo = 竹子\n🔑 knock = 敲門\n🔑 teacher = 老師\n第一次拜訪節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"My teacher is away today. He has gone to see a friend.\"",
+        "question": "What happened on Liu Bei's first visit?",
+        "options": [
+          "Zhuge Liang was out and could not be met",
+          "Zhuge Liang came out but refused to talk",
+          "a big crowd blocked the path to the door",
+          "the boy told Liu Bei to never come back"
+        ],
+        "optionsZh": [
+          "諸葛亮不在，見不到人",
+          "諸葛亮出來但拒絕說話",
+          "一大群人擋住了通往門的路",
+          "男孩叫劉備永遠不要再來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "老師去看朋友了——「諸葛亮不在，見不到人」就是第一次拜訪的結果。",
+        "sentenceZh": "「我的老師今天出去了，去看朋友了。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Please ___ him Liu Bei came today,\" he said with a bow.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "tell",
+          "told",
+          "telling",
+          "tells"
+        ],
+        "optionsZh": [
+          "告訴（原形，用於請求）",
+          "告訴（過去式）",
+          "告訴（現在分詞）",
+          "告訴（第三人稱單數）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「Please + 動詞原形」——「Please tell him」才是正確的請求句型。",
+        "sentenceZh": "「請___他，劉備今天來過了。」他鞠躬說。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l3-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Liu Bei kept his soft smile, even though his heart felt heavy.",
+        "questionEn": "Was Liu Bei completely happy about not meeting Zhuge Liang?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他保持微笑，但心裡是沉的——他並不完全開心，答 No。",
+        "sentenceZh": "劉備保持著溫和的微笑，儘管心裡覺得沉重。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l3-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "He looked back at the small house and said, \"I will come again...\"",
+        "question": "What does Liu Bei's promise show?",
+        "options": [
+          "determination to never give up easily",
+          "anger directed at the boy at the door",
+          "wishing to buy the small house one day",
+          "planning to bring a larger group next time"
+        ],
+        "optionsZh": [
+          "永遠不輕易放棄的決心",
+          "對門口男孩的憤怒",
+          "希望有一天買下那間小屋",
+          "計畫下次帶更大的隊伍"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "回頭看著小屋、說「我還會再來」——「不輕易放棄的決心」就是這個動作的意義。",
+        "sentenceZh": "他回頭看著小屋說：「我還會再來……」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l3-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Liu Bei knocked, but Zhuge Liang was away. He left a message and promised to return.",
+        "question": "Which best shows Liu Bei's response to this outcome?",
+        "options": [
+          "🤝 graceful and ready to try again",
+          "😡 furious and storming away",
+          "😴 giving up and going to sleep",
+          "🏃 running away and never looking back"
+        ],
+        "optionsZh": [
+          "從容，準備再試一次",
+          "憤怒地摔門而去",
+          "放棄，去睡覺",
+          "跑走，再也不回頭"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "留下話、說會再來——「從容，準備再試一次」，那個 🤝 最像劉備面對挫折的方式。",
+        "sentenceZh": "劉備敲了門，諸葛亮不在，他留下話，承諾會再來。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -1148,6 +1832,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Liu Bei said, \"Today we will visit the small house again.\"",
+        "question": "What shows Liu Bei's character here?",
+        "options": [
+          "keeping his word and going back again",
+          "bringing a gift to leave at the door",
+          "ordering his brothers to go without him",
+          "planning to visit a different wise man"
+        ],
+        "optionsZh": [
+          "說到做到，再次前往",
+          "帶禮物留在門口",
+          "命令兄弟們自己去",
+          "計畫去拜訪另一個智者"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "說了「我們再去一次」——「說到做到，再次前往」就是劉備的表現。",
+        "sentenceZh": "劉備說：「今天我們再去拜訪那間小屋。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l4-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The brothers told him it was too cold and too far to ride that day.",
+        "questionEn": "Were Liu Bei's brothers enthusiastic about the second trip?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "兄弟說太冷、太遠了——他們不想去，答 No。",
+        "sentenceZh": "兄弟們告訴他那天太冷、太遠，不適合騎馬去。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "冬天",
+            "right": "winter"
+          },
+          {
+            "left": "雪",
+            "right": "snow"
+          },
+          {
+            "left": "外套",
+            "right": "coat"
+          },
+          {
+            "left": "肩膀",
+            "right": "shoulder"
+          }
+        ],
+        "explanationZh": "🔑 winter = 冬天\n🔑 snow = 雪\n🔑 coat = 外套\n🔑 shoulder = 肩膀\n雪天拜訪節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But Liu Bei put on his thick coat and got on his horse anyway.",
+        "question": "What does this action tell us about Liu Bei?",
+        "options": [
+          "not letting the cold weather stop his plan",
+          "deciding to stay behind and rest at home",
+          "choosing a different horse for the cold day",
+          "asking his brothers to lead the way for him"
+        ],
+        "optionsZh": [
+          "不讓寒冷天氣阻止他的計畫",
+          "決定留在家裡休息",
+          "為這個冷天換了另一匹馬",
+          "叫兄弟為他帶路"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "穿上大衣、還是上馬了——「不讓寒冷天氣阻止他的計畫」就是答案。",
+        "sentenceZh": "但劉備還是穿上厚外套，騎上了馬。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He knocked on the small door, with snow still ___ his shoulders.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "on",
+          "in",
+          "at",
+          "by"
+        ],
+        "optionsZh": [
+          "在（on shoulders = 在肩膀上，固定用法）",
+          "在（in — 錯誤，肩膀不用 in）",
+          "在（at — 錯誤，不搭配 shoulder）",
+          "在（by — 不同意思）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「snow on his shoulders」——雪落在肩膀上，用介系詞 on 才正確。",
+        "sentenceZh": "他敲了小門，肩膀上還___著雪。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l4-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"My teacher is still away. He went out before the snow began.\"",
+        "questionEn": "Did Liu Bei get to meet Zhuge Liang on the second trip?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「still away」——老師還是不在，劉備第二次又沒見到他，答 No。",
+        "sentenceZh": "「我的老師還是不在，他在雪下之前就出去了。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l4-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "On the cold ride home, he made a quiet promise to try once more.",
+        "question": "What does Liu Bei's quiet promise show?",
+        "options": [
+          "unwilling to give up before a third try",
+          "planning to send someone else instead",
+          "wishing to build a house near the hill",
+          "starting to worry the brothers were right"
+        ],
+        "optionsZh": [
+          "不願在第三次嘗試前放棄",
+          "計畫派別人代替他去",
+          "希望在山丘附近建一座房子",
+          "開始擔心兄弟說的是對的"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "冷冷的回家路上，悄悄承諾再試一次——「要再試第三次不放棄」就是答案。",
+        "sentenceZh": "在冷冷的回家路上，他悄悄承諾再試一次。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l4-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Snow fell on Liu Bei. The wise man was still away. He promised to return once more.",
+        "question": "Which best shows Liu Bei's spirit here?",
+        "options": [
+          "🌨️ facing the cold and pressing on",
+          "🛌 giving up and resting at home",
+          "😡 angry and done with the whole thing",
+          "🎉 celebrating with his brothers instead"
+        ],
+        "optionsZh": [
+          "面對嚴寒，繼續前進",
+          "放棄，在家休息",
+          "生氣，不想再管了",
+          "改和兄弟一起慶祝"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "雪裡來、又沒見到人——但他還是要再試，「面對嚴寒，繼續前進」，那個 🌨️ 最像劉備。",
+        "sentenceZh": "雪落在劉備身上，智者還是不在，他承諾再回來一次。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -1436,6 +2348,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"I will go up the hill one more time,\" he said to his brothers.",
+        "question": "What does this show about Liu Bei's attitude?",
+        "options": [
+          "unwilling to stop after two failed trips",
+          "expecting his brothers to agree right away",
+          "planning to give up if this trip also failed",
+          "already sure that Zhuge Liang would be home"
+        ],
+        "optionsZh": [
+          "兩次失敗後仍不願停止",
+          "期望兄弟立刻同意",
+          "打算這次失敗就放棄",
+          "已確定諸葛亮這次會在家"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "去了兩次都沒見到、還說要再去一次——「兩次失敗後仍不願停止」就是他的態度。",
+        "sentenceZh": "「我要再去一次山丘，」他對兄弟們說。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l5-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"Why try again? He is just a farmer who reads books.\"",
+        "questionEn": "Did the brother value Zhuge Liang highly?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「just a farmer who reads books」——輕視諸葛亮，並不看重他，答 No。",
+        "sentenceZh": "「為什麼再試？他不過是個讀書的農夫。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "春天",
+            "right": "spring"
+          },
+          {
+            "left": "靴子",
+            "right": "boots"
+          },
+          {
+            "left": "農夫",
+            "right": "farmer"
+          },
+          {
+            "left": "尊重",
+            "right": "honor"
+          }
+        ],
+        "explanationZh": "🔑 spring = 春天\n🔑 boots = 靴子\n🔑 farmer = 農夫\n🔑 honor = 尊重\n兄弟爭執節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"A good leader shows that he honors the wise, not the other way.\"",
+        "question": "What did Liu Bei mean by these words?",
+        "options": [
+          "leaders must go to the wise, not wait to be called",
+          "wise people should always visit leaders first",
+          "only farmers and soldiers truly understand wisdom",
+          "visiting someone three times is always too many"
+        ],
+        "optionsZh": [
+          "領袖必須主動去見智者，而不是等人來",
+          "智者應該永遠先來拜訪領袖",
+          "只有農夫和士兵才真正理解智慧",
+          "拜訪某人三次永遠都太多了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「leaders go to the wise」——是領袖主動去尊敬智者，不是讓智者來找你。",
+        "sentenceZh": "「好的領袖要主動去尊重智者，而不是反過來。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The brothers looked at each other and slowly ___ their heads.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "nodded",
+          "nod",
+          "nodding",
+          "nods"
+        ],
+        "optionsZh": [
+          "點頭（過去式，配 looked and nodded）",
+          "點頭（原形）",
+          "點頭（現在分詞）",
+          "點頭（第三人稱單數）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「looked」是過去式——後面同樣用過去式「nodded」才對。",
+        "sentenceZh": "兄弟們互看了一眼，慢慢___了點頭。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l5-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Liu Bei put a soft hand on his brother's shoulder.",
+        "questionEn": "Did Liu Bei respond to his brother with anger?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他溫柔地把手放在兄弟肩上——不是憤怒，是溫和，答 No。",
+        "sentenceZh": "劉備輕輕把手放在兄弟的肩膀上。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l5-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "His brothers wanted to stop, but Liu Bei would not give up on the wise man.",
+        "question": "What does the contrast here show about Liu Bei?",
+        "options": [
+          "stronger belief in the mission than the others",
+          "a wish to prove his brothers were wrong",
+          "a plan to go alone and leave the brothers behind",
+          "growing doubt about whether the trip was worth it"
+        ],
+        "optionsZh": [
+          "對使命的信念比兄弟更堅定",
+          "想要證明兄弟是錯的",
+          "打算獨自去，把兄弟留在後面",
+          "越來越懷疑這趟旅程是否值得"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "兄弟要停——他不放棄，「對使命的信念比兄弟更堅定」就是這個對比告訴我們的事。",
+        "sentenceZh": "兄弟們想要停了，但劉備不肯放棄那個智者。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l5-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His brothers said to stop, but Liu Bei gently put his hand on the brother's shoulder and said they would go once more.",
+        "question": "Which best shows Liu Bei's leadership?",
+        "options": [
+          "🤝 kind yet firm in what he believed",
+          "😡 yelling to force the brothers to go",
+          "🏃 running ahead alone without the others",
+          "😴 too tired to explain his reasons"
+        ],
+        "optionsZh": [
+          "溫柔又堅定，相信自己",
+          "大喊強迫兄弟去",
+          "自己一個人跑在前面",
+          "太累了，懶得解釋"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "輕輕放手、溫柔解釋——「溫柔又堅定，相信自己」，那個 🤝 最像劉備的領導風格。",
+        "sentenceZh": "兄弟說停，劉備輕輕把手放在兄弟肩上，說他們還要再去一次。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -1724,6 +2864,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The same young boy opened the door, and his eyes went wide.",
+        "question": "Why did the boy's eyes go wide?",
+        "options": [
+          "surprised to see Liu Bei return a third time",
+          "scared of the cold wind blowing through",
+          "pleased to receive a gift at the door",
+          "excited because his teacher had just arrived"
+        ],
+        "optionsZh": [
+          "驚訝劉備第三次回來",
+          "害怕門口吹進來的冷風",
+          "高興在門口收到禮物",
+          "因為老師剛到家而興奮"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "第三次又見到劉備來——男孩當然是「驚訝劉備第三次回來」，所以眼睛睜大了。",
+        "sentenceZh": "同一個小男孩開了門，眼睛睜得大大的。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l6-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Liu Bei told the boy not to wake his teacher up.",
+        "questionEn": "Did Liu Bei want to disturb Zhuge Liang's sleep?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他叫男孩不要叫醒老師——他不想打擾諸葛亮，答 No。",
+        "sentenceZh": "劉備叫男孩不要叫醒他的老師。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "等待",
+            "right": "wait"
+          },
+          {
+            "left": "休息",
+            "right": "rest"
+          },
+          {
+            "left": "在外面",
+            "right": "outside"
+          },
+          {
+            "left": "安靜的",
+            "right": "quiet"
+          }
+        ],
+        "explanationZh": "🔑 wait = 等待\n🔑 rest = 休息\n🔑 outside = 在外面\n🔑 quiet = 安靜的\n門外等待節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"We will wait outside in the wind. Let him rest.\"",
+        "question": "What does Liu Bei's choice show about his respect for Zhuge Liang?",
+        "options": [
+          "putting Zhuge Liang's comfort above his own",
+          "showing he did not want to enter the house",
+          "proving he was afraid to go inside the house",
+          "wanting the boy to report his arrival at once"
+        ],
+        "optionsZh": [
+          "把諸葛亮的舒適放在自己之前",
+          "表示他不想進屋子",
+          "證明他害怕進屋子",
+          "想讓男孩立刻報告他的到來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在風中等、讓他休息——「把諸葛亮的舒適放在自己之前」就是這個選擇的意義。",
+        "sentenceZh": "「我們在外面的風裡等著，讓他休息。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The brothers shook in the cold, but Liu Bei ___ still and quiet.",
+        "question": "Which word fits the blank?",
+        "options": [
+          "stood",
+          "stand",
+          "standing",
+          "stands"
+        ],
+        "optionsZh": [
+          "站（過去式，承接 shook）",
+          "站（原形）",
+          "站（現在分詞）",
+          "站（第三人稱單數）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「shook」是過去式——後面用「stood」保持時態一致。",
+        "sentenceZh": "兄弟們在寒冷中發抖，但劉備___著不動，很安靜。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l6-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "The brothers shook in the cold, but Liu Bei stood still and quiet.",
+        "questionEn": "Were Liu Bei and his brothers both equally bothered by the cold?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "兄弟在抖、劉備靜靜站著——他們對寒冷的反應不同，答 No（不是一樣的）。",
+        "sentenceZh": "兄弟們在寒冷中發抖，但劉備靜靜站著不動。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l6-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Time passed slowly, and the sun moved across the cold sky.",
+        "question": "What does this image show about Liu Bei's wait?",
+        "options": [
+          "he waited a very long time without leaving",
+          "the sun warmed them up quickly outside",
+          "time passed so fast that it felt like nothing",
+          "the sky told them the wise man would not wake"
+        ],
+        "optionsZh": [
+          "他等了很長時間，沒有離開",
+          "太陽很快讓他們在外面暖了起來",
+          "時間過得很快，感覺什麼都沒發生",
+          "天空告訴他們智者不會醒來"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「time passed slowly」「sun moved across the cold sky」——他在外面站了很長時間，「等了很長時間沒有離開」就是答案。",
+        "sentenceZh": "時間慢慢過去，太陽在寒冷的天空中移動。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l6-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Liu Bei stood quiet in the cold wind, waiting for Zhuge Liang to wake up on his own.",
+        "question": "Which best shows Liu Bei at this moment?",
+        "options": [
+          "🧘 calm, patient, and deeply respectful",
+          "😡 too angry to speak any longer",
+          "🎉 celebrating that the man was finally home",
+          "😴 falling asleep while waiting in the cold"
+        ],
+        "optionsZh": [
+          "平靜、有耐心、深深尊重",
+          "太生氣，不再說話",
+          "慶祝智者終於在家了",
+          "在寒冷中等待時睡著"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在冷風中靜靜站著等——「平靜、有耐心、深深尊重」，那個 🧘 最像劉備這一刻。",
+        "sentenceZh": "劉備在冷風中靜靜站著，等諸葛亮自己醒來。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -2012,6 +3380,234 @@
           "ch28",
           "zhuge"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The door opened, and a tall man in a grey robe stepped out.",
+        "question": "What does this opening moment show?",
+        "options": [
+          "Zhuge Liang finally meeting Liu Bei face to face",
+          "Liu Bei opening the door himself and stepping in",
+          "the boy telling them the teacher had gone again",
+          "the brothers walking away before the door opened"
+        ],
+        "optionsZh": [
+          "諸葛亮終於和劉備面對面",
+          "劉備自己打開門走進去",
+          "男孩告訴他們老師又出去了",
+          "兄弟們在門打開前走掉了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "門打開、高個子走出來——「諸葛亮終於和劉備面對面」就是這個時刻的意義。",
+        "sentenceZh": "門打開了，一個穿灰袍的高個子走了出來。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l7-x2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "\"You came to my door three times. You did not give up.\"",
+        "questionEn": "Did Zhuge Liang notice how many times Liu Bei had come?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「three times」——他說出了三次，說明他知道劉備來了多少次，答 Yes。",
+        "sentenceZh": "「你三次來我的門口，你沒有放棄。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch28-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from this lesson.",
+        "pairs": [
+          {
+            "left": "灰袍",
+            "right": "grey robe"
+          },
+          {
+            "left": "鞠躬",
+            "right": "bow"
+          },
+          {
+            "left": "真誠",
+            "right": "true"
+          },
+          {
+            "left": "喜悅",
+            "right": "joy"
+          }
+        ],
+        "explanationZh": "🔑 grey robe = 灰袍\n🔑 bow = 鞠躬\n🔑 true = 真誠\n🔑 joy = 喜悅\n諸葛亮開門節的字！",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Your heart is true, and you treat me as a friend, not a tool.\"",
+        "question": "What convinced Zhuge Liang to say yes?",
+        "options": [
+          "Liu Bei's genuine respect and honest heart",
+          "the large reward Liu Bei promised to pay",
+          "a letter from the Emperor ordering it",
+          "advice from the young boy at the door"
+        ],
+        "optionsZh": [
+          "劉備真摯的尊重和誠實的心",
+          "劉備承諾給的大量獎賞",
+          "皇帝的一封命令信",
+          "門口小男孩的建議"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「your heart is true」「treat me as a friend, not a tool」——是劉備的真誠和尊重打動了他。",
+        "sentenceZh": "「你的心是真誠的，你把我當朋友，不是工具。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch28-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"For these reasons, I will leave my house and ___ you.\"",
+        "question": "Which word fits the blank?",
+        "options": [
+          "help",
+          "helped",
+          "helping",
+          "helps"
+        ],
+        "optionsZh": [
+          "幫助（原形，配 will）",
+          "幫助（過去式）",
+          "幫助（現在分詞）",
+          "幫助（第三人稱單數）"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「will + 動詞原形」——「will help」才是正確的未來式用法。",
+        "sentenceZh": "「因為這些原因，我會離開家去___你。」",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch28-l7-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Tears of joy filled Liu Bei's eyes as he thanked him again and again.",
+        "questionEn": "Was Liu Bei happy when Zhuge Liang agreed to help?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "喜悅的眼淚盈眶——這是非常開心的反應，答 Yes。",
+        "sentenceZh": "喜悅的淚水盈滿劉備的眼睛，他一遍又一遍地道謝。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch28-l7-x7",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "And so two great hearts joined as one — the leader and his new wise friend.",
+        "question": "What does this ending show about the story's main lesson?",
+        "options": [
+          "true respect and patience can open any door",
+          "only powerful soldiers can win great leaders",
+          "wise people will always refuse a leader's call",
+          "going to see someone three times is usually too much"
+        ],
+        "optionsZh": [
+          "真誠的尊重和耐心能打開任何一扇門",
+          "只有強大的士兵才能贏得偉大的領袖",
+          "智者永遠會拒絕領袖的邀請",
+          "去見某人三次通常太多了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "三次拜訪、真誠等待——「真誠的尊重和耐心能打開任何一扇門」就是這個故事的核心。",
+        "sentenceZh": "就這樣，兩顆偉大的心合而為一——那個領袖和他的新智慧朋友。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch28-l7-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "After three visits and patient waiting, Zhuge Liang finally opened his door and agreed to help.",
+        "question": "Which best shows this moment?",
+        "options": [
+          "🌟 two great people joining forces at last",
+          "😴 everyone too tired to celebrate at all",
+          "😡 Liu Bei still angry after the long wait",
+          "❓ Zhuge Liang still unsure what to do"
+        ],
+        "optionsZh": [
+          "兩個偉大的人終於聯手",
+          "所有人都累到沒力氣慶祝",
+          "劉備等這麼久還是很生氣",
+          "諸葛亮還是不確定該怎麼做"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "三次、終於成功——「兩個偉大的人終於聯手」，那個 🌟 最像這個結局。",
+        "sentenceZh": "三次拜訪、耐心等待，諸葛亮終於打開門，同意幫忙。",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "hook"
+        ],
+        "subSkill": "vocab"
       }
     ]
   }

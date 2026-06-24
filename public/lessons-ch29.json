@@ -253,6 +253,265 @@
           "ch29",
           "odyssey"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in old Greece, there lived a brave king named Odysseus.",
+        "question": "Where did this story take place?",
+        "options": [
+          "ancient Greece, many years ago",
+          "near the sea in today's world",
+          "deep in a cold northern forest",
+          "far away in a sandy desert"
+        ],
+        "optionsZh": [
+          "很久以前的古希臘",
+          "今天的海邊世界",
+          "寒冷的北方森林深處",
+          "遙遠的沙漠"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「Long ago in old Greece」——很久以前的古希臘，那就是地點！",
+        "sentenceZh": "很久很久以前，在古希臘，有一個勇敢的國王叫 Odysseus。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He said quietly, \"It is time to go back to my own home.\"",
+        "questionEn": "Did Odysseus want to go home?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「It is time to go back to my home」——他說是時候回家了，當然答 Yes！",
+        "sentenceZh": "他輕輕說：「是時候回到我自己的家了。」",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "回家",
+            "right": "go home"
+          },
+          {
+            "left": "很久以前",
+            "right": "long ago"
+          },
+          {
+            "left": "勇敢的",
+            "right": "brave"
+          },
+          {
+            "left": "過去的",
+            "right": "gone"
+          }
+        ],
+        "explanationZh": "🔑 go home = 回家\n🔑 long ago = 很久以前\n🔑 brave = 勇敢的\n🔑 gone = 過去的\n回家路，從這裡開始！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l1-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He had been a brave king in every battle, but his heart felt tired.",
+        "question": "Why did Odysseus feel tired inside?",
+        "options": [
+          "so many years of war had worn him out",
+          "he had been running all night without rest",
+          "he ate too much and needed a nap",
+          "he had been reading too many books"
+        ],
+        "optionsZh": [
+          "多年的戰爭讓他精疲力竭",
+          "他整晚跑步沒休息",
+          "他吃太多需要小睡",
+          "他讀太多書了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他在每一場戰役中勇敢作戰——多年的戰爭讓他心裡累透了，這才是答案。",
+        "sentenceZh": "他在每一場戰役中都是勇敢的王，但心裡感到好累。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l1-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His men stood beside him with the same wish in their eyes.",
+        "question": "What did the men's eyes tell us about them?",
+        "options": [
+          "both crew and captain wanted home",
+          "the sailors were sleepy and full",
+          "everyone agreed to start right then",
+          "the crew just wanted to rest more"
+        ],
+        "optionsZh": [
+          "船員和隊長都想回家",
+          "水手們睡意濃厚吃得飽",
+          "大家同意立刻出發",
+          "船員只是想多休息"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他們的眼神裡有「一樣的渴望」——和國王一樣，想回家！",
+        "sentenceZh": "他的士兵們站在旁邊，眼神裡有著一樣的渴望。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch29-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "For ten long years he ___ fighting a big war.",
+        "sentenceZh": "整整十年，他___在一場大戰中打仗。",
+        "question": "Choose the correct verb form.",
+        "options": [
+          "is fighting",
+          "will fight",
+          "had fought",
+          "has fought"
+        ],
+        "optionsZh": [
+          "is fighting",
+          "will fight",
+          "had fought (過去完成)",
+          "has fought"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這句說的是過去某段時間，用「過去完成式」had been——表示在另一個過去時間點之前已持續的動作。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the main feeling of tonight's opening story?",
+        "question": "What is the main feeling?",
+        "options": [
+          "🏠 longing for home",
+          "🎉 a big celebration",
+          "😡 anger at friends",
+          "❄️ cold and lost"
+        ],
+        "optionsZh": [
+          "思念家鄉",
+          "盛大慶典",
+          "對朋友生氣",
+          "又冷又迷路"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "十年戰爭 + 心累 + 想回家 → 「思念家鄉」。那個 🏠 最能代表這個故事的感情。",
+        "sentenceZh": "今晚故事開頭的主要情緒是什麼？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l1-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He took one long breath. The trip back was about to begin.",
+        "questionEn": "Was the journey home just starting?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「The trip back was about to begin」——回家之路即將開始，答 Yes！",
+        "sentenceZh": "他深深吸一口氣，回家的旅程即將開始。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l1-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Around them the wind blew warm. The sea was wide and bright.",
+        "question": "What does the warm wind and bright sea suggest?",
+        "options": [
+          "it was a fine time to set out",
+          "a big storm was coming soon",
+          "the ship was too hot inside",
+          "the soldiers were cold"
+        ],
+        "optionsZh": [
+          "這是出發的好時機",
+          "大暴風雨即將來臨",
+          "船裡太熱了",
+          "士兵們很冷"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "風溫暖、海寬又明亮——大自然也在說「出發吧」，這是啟航的好時機！",
+        "sentenceZh": "他們身邊的風暖暖地吹，海又寬又亮。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -510,6 +769,265 @@
           "ch29",
           "odyssey"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "At home, Odysseus had a kind wife. Her name was Penelope.",
+        "question": "What kind of person was Penelope?",
+        "options": [
+          "loyal and kind wife",
+          "a fierce and angry queen",
+          "lazy old woman",
+          "wise and brave queen"
+        ],
+        "optionsZh": [
+          "忠誠又善良的妻子",
+          "凶猛又憤怒的女王",
+          "懶惰的老婦人",
+          "聰明勇敢的女王"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a kind wife」——「善良體貼的妻子」就是答案！",
+        "sentenceZh": "在家裡，奧德修斯有一位善良的妻子，叫 Penelope。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Every night Odysseus thought of their faces and missed them deeply.",
+        "questionEn": "Did Odysseus think about his family often?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「每一個晚上」他都想起他們——非常頻繁，答 Yes！",
+        "sentenceZh": "每天晚上，奧德修斯都想起他們的臉，深深地思念著。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "妻子",
+            "right": "wife"
+          },
+          {
+            "left": "嬰兒",
+            "right": "baby"
+          },
+          {
+            "left": "思念",
+            "right": "miss"
+          },
+          {
+            "left": "臉",
+            "right": "face"
+          }
+        ],
+        "explanationZh": "🔑 wife = 妻子\n🔑 baby = 嬰兒\n🔑 miss = 思念\n🔑 face = 臉\n這些是他最想念的人的相關字！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l2-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "When he left for the war, his son was just a baby in arms.",
+        "question": "How old was Telemachus when Odysseus went to war?",
+        "options": [
+          "a tiny newborn baby",
+          "a boy of ten years old",
+          "a young man who could fight",
+          "an old man in the village"
+        ],
+        "optionsZh": [
+          "剛出生的小嬰兒",
+          "十歲的男孩",
+          "能上戰場的年輕男人",
+          "村裡的老人"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a baby in arms」——在懷裡抱著的嬰兒，所以是「剛出生的小嬰兒」！",
+        "sentenceZh": "他出征的時候，兒子還只是個懷裡抱著的嬰兒。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l2-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He kept their picture safe inside his mind, like a small light.",
+        "question": "What does the \"small light\" tell us about how he felt?",
+        "options": [
+          "their memory gave him warmth and hope",
+          "he carried a real lamp on the ship",
+          "he forgot them after many weeks",
+          "the stars on the sea were very bright"
+        ],
+        "optionsZh": [
+          "他們的記憶給他溫暖和希望",
+          "他在船上帶著真正的燈",
+          "幾週後他忘記了他們",
+          "海上的星星非常亮"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "把家人放在心裡「像一盞小燈」——溫暖、不熄，給他希望和力量！",
+        "sentenceZh": "他把他們的樣子好好藏在心裡，像一盞小燈。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch29-l2-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His wife ___ waiting. His son ___ waiting.",
+        "sentenceZh": "他的妻子在等，他的兒子在等。",
+        "question": "Which word fits both blanks?",
+        "options": [
+          "are",
+          "were",
+          "is",
+          "was"
+        ],
+        "optionsZh": [
+          "are（現在複數）",
+          "were（過去複數）",
+          "is（現在單數）",
+          "was（過去單數）"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "這是過去的故事，主詞是「his wife / his son」（單數），所以用「was」！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the main theme of tonight's lesson about Odysseus and his family?",
+        "question": "What is the main theme?",
+        "options": [
+          "💕 love and longing for family",
+          "💰 the love of gold and treasure",
+          "⚔️ the love of fighting wars",
+          "🌊 the love of sailing the sea"
+        ],
+        "optionsZh": [
+          "對家人的愛與思念",
+          "對金子和寶藏的愛",
+          "對打仗的熱愛",
+          "對航海的熱愛"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每晚想念 + 輕念名字 → 主題是「對家人的愛與思念」。那個 💕 最合適。",
+        "sentenceZh": "今晚關於奧德修斯和家人的故事，主題是什麼？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l2-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Now ten years had gone by. The boy would be tall and growing fast.",
+        "questionEn": "Was Telemachus still a small baby when his father was ready to return?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "十年過去了，嬰兒長大了——他已經不是小嬰兒了，答 No！",
+        "sentenceZh": "現在十年過去了，那個男孩應該已經又高又壯，正在快速長大。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l2-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His wife was waiting. His son was waiting. He had been gone too long.",
+        "question": "What does \"too long\" suggest about Odysseus?",
+        "options": [
+          "he felt it was past time to go back",
+          "he wanted to stay away much longer",
+          "the sea was a very slow crossing",
+          "his men were still very happy waiting"
+        ],
+        "optionsZh": [
+          "他覺得早就該回家了",
+          "他想再離家更久",
+          "大海的距離很難跨越",
+          "他的人還很樂意等"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「gone too long」——離開太久了，表示他覺得早就該回家，超過應該的時間！",
+        "sentenceZh": "妻子在等，兒子也在等——他離開太久了。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -766,6 +1284,256 @@
           "story",
           "ch29",
           "odyssey"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus's home was a small island called Ithaca.",
+        "question": "What kind of place was Odysseus's home?",
+        "options": [
+          "small island in the sea",
+          "a large city on a river",
+          "cold mountain top",
+          "dark underground cave"
+        ],
+        "optionsZh": [
+          "海中小島",
+          "河邊大城市",
+          "寒冷山頂",
+          "黑暗地下洞穴"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a small island called Ithaca」——他的家是一座叫 Ithaca 的小島！",
+        "sentenceZh": "奧德修斯的家是一座叫做伊薩卡的小島。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "On the island, white houses sat between green hills and a quiet shore.",
+        "questionEn": "Did Ithaca sound like a noisy, busy place?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "白色房子、綠色山丘、安靜的海岸——完全不吵鬧，答 No！",
+        "sentenceZh": "島上，白色的房子坐落在青山和寧靜海岸之間。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "島",
+            "right": "island"
+          },
+          {
+            "left": "山丘",
+            "right": "hill"
+          },
+          {
+            "left": "石頭",
+            "right": "rock"
+          },
+          {
+            "left": "沙",
+            "right": "sand"
+          }
+        ],
+        "explanationZh": "🔑 island = 島\n🔑 hill = 山丘\n🔑 rock = 石頭\n🔑 sand = 沙\n伊薩卡的自然風景！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l3-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus could almost see Ithaca's rocks and trees inside his head.",
+        "question": "What does this tell us about Odysseus?",
+        "options": [
+          "he remembered every detail of home",
+          "most of the island was forgotten now",
+          "busy building new ships for himself",
+          "family did not cross his mind at all"
+        ],
+        "optionsZh": [
+          "他記得家的每個細節",
+          "大部分的島他都忘了",
+          "忙著為自己造新船",
+          "根本沒想到家人"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "能在腦中「幾乎看到」石頭和樹——說明他記得家鄉的每一個細節！",
+        "sentenceZh": "奧德修斯幾乎能在腦中看見伊薩卡的石頭和樹木。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l3-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"Ithaca,\" he said softly, \"I will return to you.\"",
+        "question": "Who did Odysseus speak these words to?",
+        "options": [
+          "his island home Ithaca",
+          "a soldier standing near him",
+          "his old friend from Greece",
+          "the captain of a ship"
+        ],
+        "optionsZh": [
+          "他的家鄉小島伊薩卡",
+          "站在旁邊的士兵",
+          "來自希臘的老朋友",
+          "一艘船的船長"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他輕輕對著「Ithaca」說話——他在跟一座島說話，這是對家鄉最深的愛！",
+        "sentenceZh": "「伊薩卡，」他輕輕說，「我會回去找你。」",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l3-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He stood up tall and looked toward the sea. The road home would start there.",
+        "questionEn": "Did Odysseus face the sea with hope?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他站得高高的望向大海——「回家的路從那裡開始」，充滿希望，答 Yes！",
+        "sentenceZh": "他站得高高的，望向大海。回家的路，從那裡開始。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What feeling did Ithaca bring to Odysseus?",
+        "question": "What feeling did home give him?",
+        "options": [
+          "💚 deep love and belonging",
+          "😡 anger at the place",
+          "😴 feeling bored of it",
+          "🤔 not sure if it was real"
+        ],
+        "optionsZh": [
+          "深深的愛和歸屬感",
+          "對這地方很生氣",
+          "覺得很無聊",
+          "不確定這地方是否真實"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "在腦中看見、說話給島聽、站起來望向海——這都是「深深的愛和歸屬感」。那個 💚 最合。",
+        "sentenceZh": "伊薩卡帶給奧德修斯什麼感受？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l3-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Even small things on the island felt big in his memory.",
+        "question": "What does this tell us about how he remembered home?",
+        "options": [
+          "every part of Ithaca was precious to him",
+          "he only remembered the biggest places",
+          "his memory of Ithaca was getting weak",
+          "the island was too small to think about"
+        ],
+        "optionsZh": [
+          "伊薩卡的每一部分對他都很珍貴",
+          "他只記得最大的地方",
+          "他對伊薩卡的記憶越來越模糊",
+          "這島太小，不值得想念"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "連小事都在記憶裡變大——表示伊薩卡的每一部分對他都很珍貴！",
+        "sentenceZh": "就連島上最小的事物，在他的記憶裡都變得好大好大。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l3-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "He pointed to the ships. \"It is time,\" he said. \"We sail today.\"",
+        "questionEn": "Was Odysseus finally ready to begin the journey home?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「It is time, we sail today」——是時候了，今天啟航，當然已經準備好了，答 Yes！",
+        "sentenceZh": "他指著船說：「是時候了，我們今天出發。」",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
         ]
       }
     ]
@@ -1024,6 +1792,256 @@
           "ch29",
           "odyssey"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus and his men walked down to their long wooden ships.",
+        "question": "What were the ships made of?",
+        "options": [
+          "logs and boards of timber",
+          "stones and large boulders",
+          "cloth and long ropes",
+          "metal and flat tiles"
+        ],
+        "optionsZh": [
+          "原木和木材",
+          "石頭和大岩石",
+          "布料和長繩",
+          "金屬和扁磚"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「long wooden ships」——木頭做的長船，答案是「木頭」！",
+        "sentenceZh": "奧德修斯和他的人走向那些長長的木船。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus stood at the front of the first ship and gave a steady nod.",
+        "questionEn": "Did Odysseus seem calm and in control?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「steady nod」——平穩地點頭，沒有慌亂，他很冷靜，答 Yes！",
+        "sentenceZh": "奧德修斯站在第一艘船的船頭，穩穩地點頭。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "船",
+            "right": "ship"
+          },
+          {
+            "left": "風帆",
+            "right": "sail"
+          },
+          {
+            "left": "繩子",
+            "right": "rope"
+          },
+          {
+            "left": "前面",
+            "right": "front"
+          }
+        ],
+        "explanationZh": "🔑 ship = 船\n🔑 sail = 風帆\n🔑 rope = 繩子\n🔑 front = 前面\n準備出發的詞彙！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l4-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The wind caught the sails. The ships moved faster, like big quiet birds.",
+        "question": "How did the ships move when the wind filled the sails?",
+        "options": [
+          "smoothly and with speed",
+          "slowly and with great noise",
+          "shakily from side to side",
+          "backwards against the wind"
+        ],
+        "optionsZh": [
+          "順暢又快速地",
+          "緩慢又很大聲地",
+          "搖搖晃晃地",
+          "逆著風往後退"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「像安靜的大鳥」——順暢而快速，沒有聲音。「順暢又快速地」就是答案！",
+        "sentenceZh": "風吹進帆，船跑得更快，像大而安靜的鳥一樣。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l4-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus looked forward, not back. His face was set toward home.",
+        "question": "What did Odysseus show us by not looking back?",
+        "options": [
+          "his mind was set only on going home",
+          "he was sad to leave his friends behind",
+          "home was almost forgotten by now",
+          "he was happy to stay on the island"
+        ],
+        "optionsZh": [
+          "他的心只想著回家",
+          "他難過地要離開朋友",
+          "家已經快被他忘了",
+          "他很樂意留在島上"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "望著前方不回頭——他全心全意朝著家的方向，沒有遲疑！",
+        "sentenceZh": "奧德修斯向前看，不回頭。他的臉朝向家的方向。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l4-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Behind them, the city of Troy grew small and then was gone.",
+        "questionEn": "Could the men still see Troy after sailing far away?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Troy 越來越小，最後「消失了」——看不見了，答 No！",
+        "sentenceZh": "他們身後，特洛伊城越來越小，最後消失不見。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the mood of the crew as they set sail?",
+        "question": "What is the mood?",
+        "options": [
+          "⚓ hopeful and ready",
+          "😴 bored and sleepy",
+          "😡 angry at the sea",
+          "😨 too afraid to go"
+        ],
+        "optionsZh": [
+          "充滿希望、準備好了",
+          "無聊又瞌睡",
+          "對大海很生氣",
+          "太害怕不敢走"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "各就各位 + 拉起風帆 + 「像安靜的大鳥」飛走 → 「充滿希望、準備好了」。那個 ⚓ 最合適。",
+        "sentenceZh": "船員們啟航時的心情是什麼？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l4-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Day one of the long trip home had begun. The sea was kind and bright.",
+        "question": "How did the sea seem on the first day?",
+        "options": [
+          "calm and welcoming",
+          "dark and full of danger",
+          "frozen and too cold to cross",
+          "shallow and full of mud"
+        ],
+        "optionsZh": [
+          "平靜又歡迎他們",
+          "黑暗充滿危險",
+          "結凍冷得過不去",
+          "水淺又滿是泥"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「kind and bright」——親切又明亮，感覺很歡迎，第一天的海很溫柔！",
+        "sentenceZh": "回家長路的第一天開始了，海溫和又明亮。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l4-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each man took his place at the side of the ship with strong hands ready.",
+        "questionEn": "Were all the men in position and ready to work?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每個人各就各位，雙手用力握住——全部準備好了，答 Yes！",
+        "sentenceZh": "每個人都各就各位，雙手有力地握住船舷準備。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
       }
     ]
   },
@@ -1280,6 +2298,256 @@
           "story",
           "ch29",
           "odyssey"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The ships sailed many days. The sky stayed wide and bright blue.",
+        "question": "How was the weather during the early days of sailing?",
+        "options": [
+          "clear and sunny with blue skies",
+          "gray and cloudy with cold rain",
+          "foggy and dark with no wind",
+          "hot and dry with no clouds"
+        ],
+        "optionsZh": [
+          "晴朗有陽光，天空湛藍",
+          "陰天下冷雨",
+          "霧濛濛又暗，沒有風",
+          "又熱又乾，沒有雲"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「wide and bright blue sky」——又寬又湛藍的天空，天氣晴朗！",
+        "sentenceZh": "船航行了好幾天，天空保持寬闊的亮藍色。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They saw silver fish jumping out of the green-blue water.",
+        "questionEn": "Did the men see fish in the sea during the voyage?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他們看見銀色的魚從海面跳出——確實看到了魚，答 Yes！",
+        "sentenceZh": "他們看見銀色的魚從藍綠色的水裡跳出來。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "detail"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "天空",
+            "right": "sky"
+          },
+          {
+            "left": "星星",
+            "right": "star"
+          },
+          {
+            "left": "魚",
+            "right": "fish"
+          },
+          {
+            "left": "太陽",
+            "right": "sun"
+          }
+        ],
+        "explanationZh": "🔑 sky = 天空\n🔑 star = 星星\n🔑 fish = 魚\n🔑 sun = 太陽\n美好航行的自然景色！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l5-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The men talked and laughed as they pulled the ropes each morning.",
+        "question": "What does the talking and laughing tell us about the crew?",
+        "options": [
+          "working together in good spirits",
+          "they were angry at their captain",
+          "too tired to even pull a rope",
+          "not listening to anyone at all"
+        ],
+        "optionsZh": [
+          "齊心合力，心情不錯",
+          "他們對隊長很生氣",
+          "累到連繩子都拉不動",
+          "根本沒在聽任何人說話"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "說說笑笑地拉繩子——心情好又合作愉快！「心情好，一起合作」就是答案。",
+        "sentenceZh": "每天早上拉繩子的時候，船員們說說笑笑。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l5-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus felt his heart get lighter with every wave.",
+        "question": "Why did Odysseus feel lighter with each wave?",
+        "options": [
+          "every wave was taking him closer to home",
+          "the waves were helping him sleep better",
+          "the ship was losing weight from the water",
+          "the waves were pushing food off the ship"
+        ],
+        "optionsZh": [
+          "每一道浪都讓他更靠近家",
+          "浪讓他睡得更好",
+          "船被水弄得越來越輕",
+          "浪把食物從船上推掉"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "每道浪帶著他往家的方向走——越來越靠近，心情也越來越輕！",
+        "sentenceZh": "每道海浪，奧德修斯都覺得心情更輕了。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l5-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "But far away on the line of the sea, a dark cloud began to grow.",
+        "questionEn": "Was trouble possibly coming for the ships?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "遠方出現一片越長越大的黑雲——黑雲通常代表麻煩要來了，答 Yes！",
+        "sentenceZh": "但是在遠方的海平線上，一片黑雲開始慢慢長大。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What changed at the end of tonight's lesson?",
+        "question": "What changed at the end?",
+        "options": [
+          "⛅ a dark cloud appeared far away",
+          "🏠 they arrived safely at home",
+          "🎉 everyone celebrated a big win",
+          "🐟 a giant fish jumped on board"
+        ],
+        "optionsZh": [
+          "遠方出現一片烏雲",
+          "他們安全抵達家",
+          "每個人都慶祝大勝利",
+          "一條大魚跳上船"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "美好的幾天之後，「遠方出現一片烏雲」——奶奶說，好事後面往往藏著考驗。那個 ⛅ 就是答案。",
+        "sentenceZh": "今晚故事的最後，發生了什麼變化？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l5-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Each evening they watched the sun fall slowly into the sea.",
+        "question": "What did the men do every evening?",
+        "options": [
+          "watched the sunset together",
+          "sang songs around a fire",
+          "checked the ropes and sails",
+          "counted all the food on board"
+        ],
+        "optionsZh": [
+          "一起看日落",
+          "圍著火唱歌",
+          "檢查繩子和帆",
+          "點數船上所有食物"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「each evening they watched the sun fall into the sea」——每個傍晚，他們一起看日落！",
+        "sentenceZh": "每個傍晚，他們都看著太陽慢慢沉入大海。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l5-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus shared bread and fresh water with every man on board.",
+        "questionEn": "Was Odysseus generous with his men?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他把麵包和清水分給每一個人——非常慷慨，答 Yes！好國王就是這樣的。",
+        "sentenceZh": "奧德修斯把麵包和淡水分給船上的每個人。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
         ]
       }
     ]
@@ -1538,6 +2806,256 @@
           "ch29",
           "odyssey"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The sky turned dark gray. A big wind came out of nowhere.",
+        "question": "What did the dark gray sky warn the sailors about?",
+        "options": [
+          "a big storm was on its way",
+          "the night was coming too early",
+          "the ship was very dirty",
+          "land was nearby on the right"
+        ],
+        "optionsZh": [
+          "大風暴來了",
+          "夜晚來得太早",
+          "船很髒",
+          "右邊快到陸地了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "天空變成深灰色 + 大風突然來——這就是暴風雨要來的警告！",
+        "sentenceZh": "天空變成深灰色，大風不知從哪裡衝來。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The men held the ropes hard and called to each other through the wind.",
+        "questionEn": "Were the men working hard to keep the ship safe?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "緊抓繩子 + 在風中互喊 → 他們努力在保護船，答 Yes！",
+        "sentenceZh": "船員們緊緊抓住繩子，在風中互相大喊著。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the storm words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "風",
+            "right": "wind"
+          },
+          {
+            "left": "海浪",
+            "right": "wave"
+          },
+          {
+            "left": "雨",
+            "right": "rain"
+          },
+          {
+            "left": "暴風雨",
+            "right": "storm"
+          }
+        ],
+        "explanationZh": "🔑 wind = 風\n🔑 wave = 海浪\n🔑 rain = 雨\n🔑 storm = 暴風雨\n大風暴的四個關鍵字！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l6-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The sail bent low. The ship tipped from side to side.",
+        "question": "What happened to the ship in the storm?",
+        "options": [
+          "the boat rocked hard and the sail bent",
+          "it stopped still in the middle of the sea",
+          "it moved so fast it made waves",
+          "it turned around and went back"
+        ],
+        "optionsZh": [
+          "船猛烈搖晃，帆往下彎",
+          "它在海中央完全停下來",
+          "跑得很快，掀起波浪",
+          "它轉過來往回走"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「帆被壓彎，船左右搖晃」——「船搖晃，帆被壓低」就是答案！",
+        "sentenceZh": "帆被壓低了，船一直左右傾斜。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l6-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus stayed on his feet and grabbed the wheel with both hands.",
+        "question": "What does Odysseus grabbing the wheel with both hands show?",
+        "options": [
+          "strong and refusing to give up",
+          "bored with nothing else to do",
+          "already finished and just resting now",
+          "could not remember what he was doing"
+        ],
+        "optionsZh": [
+          "強壯，拒絕放棄",
+          "無聊沒有其他事可做",
+          "已經完成只是在休息",
+          "不記得自己在做什麼了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "站穩 + 雙手緊抓——他在暴風中不放棄，展現出強大和勇氣！",
+        "sentenceZh": "奧德修斯站穩腳步，用雙手緊緊抓住船舵。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l6-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The sea was loud, but his eyes did not leave the front of the ship.",
+        "questionEn": "Did Odysseus lose focus during the storm?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "海很吵，但他的眼睛沒有離開船頭——他始終保持專注，答 No！",
+        "sentenceZh": "海浪聲很大，但他的眼睛一直沒有離開船頭。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What was Odysseus like during the storm?",
+        "question": "What was he like?",
+        "options": [
+          "🪨 steady like a rock",
+          "🍃 shaking like a leaf",
+          "🐣 hiding like a chick",
+          "💤 sleeping through it"
+        ],
+        "optionsZh": [
+          "像石頭一樣穩定",
+          "像葉子一樣抖",
+          "像小雞一樣躲起來",
+          "一直睡著"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "站穩 + 抓舵 + 眼睛不離船頭 → 「像石頭一樣穩定」。那個 🪨 最像他的樣子。",
+        "sentenceZh": "暴風雨中，奧德修斯是什麼樣的？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l6-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Cold rain hit their faces and the wood under their feet shook.",
+        "question": "What were two things that happened during the storm?",
+        "options": [
+          "cold rain hit them and the deck shook",
+          "warm sun came out and the wind stopped",
+          "the sail fell off and the rope broke",
+          "fish jumped on board and the men cheered"
+        ],
+        "optionsZh": [
+          "冷雨打在他們身上，甲板在抖",
+          "太陽出來，風停了",
+          "帆掉下來，繩子斷了",
+          "魚跳上船，船員歡呼"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「冷雨打臉 + 腳下木板在抖」——答案就是「冷雨打在他們身上，甲板在抖」！",
+        "sentenceZh": "冰冷的雨打在他們臉上，腳下的木板不停地顫抖。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l6-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Some of the men were scared and their hands shook on the wet wood.",
+        "questionEn": "Were all the men feeling brave during the storm?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "有些人嚇到手在發抖——不是每個人都很勇敢，答 No！有些人很害怕。",
+        "sentenceZh": "一些人嚇壞了，雙手在濕滑的木板上顫抖著。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
       }
     ]
   },
@@ -1794,6 +3312,256 @@
           "story",
           "ch29",
           "odyssey"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Odysseus looked at every man and spoke in a clear, steady voice.",
+        "question": "Why did Odysseus speak in a clear, steady voice?",
+        "options": [
+          "to help calm his men down",
+          "because he was far from the sea",
+          "because he was angry at the storm",
+          "to call for help from the shore"
+        ],
+        "optionsZh": [
+          "為了幫助讓船員冷靜",
+          "因為他離海很遠",
+          "因為他對暴風雨生氣",
+          "為了向岸上呼救"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "清楚平靜的聲音，讓嚇壞的人冷靜下來——他說話是為了幫助穩定船員的心！",
+        "sentenceZh": "奧德修斯看著每一個人，用清楚、平穩的聲音說話。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Together they pulled the sail back up. Together they held the ship.",
+        "questionEn": "Did the men work alone to save the ship?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「Together」出現了兩次——他們是一起合作的，不是各自為政，答 No！",
+        "sentenceZh": "他們一起把帆拉起來，一起穩住了船。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch29-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the key words from tonight's lesson.",
+        "pairs": [
+          {
+            "left": "一起",
+            "right": "together"
+          },
+          {
+            "left": "希望",
+            "right": "hope"
+          },
+          {
+            "left": "繼續",
+            "right": "go on"
+          },
+          {
+            "left": "勇敢",
+            "right": "brave"
+          }
+        ],
+        "explanationZh": "🔑 together = 一起\n🔑 hope = 希望\n🔑 go on = 繼續\n🔑 brave = 勇敢\n今晚最重要的四個字！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l7-x4",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "His words went into their ears, and their hands grew firm again on the ropes.",
+        "question": "What power did Odysseus's words have?",
+        "options": [
+          "boosted the men's strength and heart",
+          "they stopped the wind and rain",
+          "a warm meal for everyone was shared",
+          "telling the men to go to sleep"
+        ],
+        "optionsZh": [
+          "提振了大家的力氣和鬥志",
+          "它們停住了風和雨",
+          "大家分享了一頓熱食",
+          "叫大家去睡覺"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他的話進了耳朵，大家的手又變穩了——話語讓他們「感覺更有力量」！",
+        "sentenceZh": "他的話進入他們的耳朵，他們抓繩子的手又變得有力了。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l7-x5",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The storm passed, but home was still many long days away.",
+        "question": "Even though the storm ended, what was still true?",
+        "options": [
+          "the trip home was not yet over",
+          "all the men were safe at home",
+          "a new storm was starting right away",
+          "the ship had reached Ithaca already"
+        ],
+        "optionsZh": [
+          "回家的路還沒走完",
+          "所有人都安全到家了",
+          "新的暴風雨馬上又要來了",
+          "船已經到達伊薩卡了"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "暴風雨過了，「但家還很遠」——回家的旅程還沒結束！",
+        "sentenceZh": "暴風雨過去了，但家鄉仍然有好多天的路要走。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l7-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What made the men strong again was not just hope, but each other.",
+        "questionEn": "Did the men get their strength back only from hope alone?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "不只是希望——還有「彼此」，兩者都需要，答 No！",
+        "sentenceZh": "讓他們重新振作的，不只是希望，還有彼此的力量。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "What is the biggest lesson from the whole Odyssey story?",
+        "question": "What is the biggest lesson?",
+        "options": [
+          "🤝 face hard times with courage together",
+          "💰 always carry treasure for hard times",
+          "🏃 run away when things get difficult",
+          "😴 rest and sleep until trouble is over"
+        ],
+        "optionsZh": [
+          "一起勇敢面對困難",
+          "遇到困難時帶著寶藏",
+          "遇到困難時逃跑",
+          "睡到麻煩過去"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "整個旅程：互相支持 + 不放棄 + 往家走 → 「一起勇敢面對困難」。那個 🤝 是最重要的答案。",
+        "sentenceZh": "整個奧德賽故事，最重要的功課是什麼？",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "hook"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l7-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "They would face more big seas, but they would face them together.",
+        "question": "How were Odysseus and his men going to handle future troubles?",
+        "options": [
+          "facing each challenge as a team",
+          "by asking other ships to lead",
+          "waiting always for good weather",
+          "letting the captain make every choice"
+        ],
+        "optionsZh": [
+          "一起面對每個挑戰",
+          "請其他船隻帶路",
+          "每次都等好天氣",
+          "讓隊長做每一個決定"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「they would face them together」——一起面對！以團隊的方式！",
+        "sentenceZh": "他們會遇到更多大海，但他們會一起去面對。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch29-l7-x9",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Slowly, very slowly, the wind began to soften.",
+        "questionEn": "Did the storm end suddenly all at once?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「慢慢地，非常慢地」——不是突然結束，是慢慢變弱，答 No！",
+        "sentenceZh": "慢慢地，非常慢地，風開始柔和起來。",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference"
         ]
       }
     ]

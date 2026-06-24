@@ -237,6 +237,264 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l1-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Long ago in England, a young man named Robin Hood lived in a small village.",
+        "question": "Where did Robin Hood live?",
+        "options": [
+          "a small English village long ago",
+          "a big city near the sea",
+          "alone deep in a forest",
+          "the king's stone castle"
+        ],
+        "optionsZh": [
+          "很久以前英格蘭的小村莊",
+          "海邊的大城市",
+          "一個人住在森林深處",
+          "國王的石頭城堡"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「in England... in a small village」——在英格蘭一個小村莊。",
+        "sentenceZh": "很久以前在英國，有個年輕人叫 Robin Hood，住在一個小村莊。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l1-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "When he saw an old woman with no bread, he gave her half of his own loaf.",
+        "questionEn": "Did Robin share his food with others?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "看到老婆婆沒麵包，他把自己的一半分給她——他分享了，答 Yes！",
+        "sentenceZh": "當他看到一個沒有麵包的老婦人，他把自己的一半分給她。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l1-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "弓",
+            "right": "bow"
+          },
+          {
+            "left": "金幣",
+            "right": "coin"
+          },
+          {
+            "left": "城堡",
+            "right": "castle"
+          },
+          {
+            "left": "冷的",
+            "right": "cold"
+          }
+        ],
+        "explanationZh": "🔑 bow = 弓 / coin = 金幣 / castle = 城堡 / cold = 冷的\n今晚的關鍵詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l1-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Every market day, Robin shared his coins with anyone who looked hungry or sick.",
+        "question": "What did Robin do on market day?",
+        "options": [
+          "he kept his coins in a box",
+          "sharing money with those in need",
+          "selling things to earn more",
+          "he stayed home and rested all day"
+        ],
+        "optionsZh": [
+          "他把錢放在盒子裡",
+          "把錢分給有需要的人",
+          "賣東西賺更多",
+          "他在家休息整天"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "市集日，他把錢分給餓著、生病的人——「他把錢分給有需要的人」就是答案！",
+        "sentenceZh": "每個市集日，羅賓都把銅板分給看起來餓著或生病的人。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l1-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Far away, in a tall stone castle, a bad king sat on a heavy gold chair.",
+        "question": "What do we know about the bad king?",
+        "options": [
+          "living near Robin's village",
+          "sitting on a gold seat far away",
+          "being kind to the poor farmers",
+          "often walking through the markets"
+        ],
+        "optionsZh": [
+          "住在 Robin 村莊附近",
+          "遠遠地坐在金椅子上",
+          "對窮農夫很好",
+          "常常走過市集"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "遠遠的石頭城堡、金椅子——「他遠遠的坐在金椅子上」就是答案！",
+        "sentenceZh": "遠方，一座高聳的石頭城堡裡，一個壞國王坐在沉重的金椅上。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch31-l1-x6",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago in England, a young man named Robin Hood ___ in a small village.",
+        "sentenceZh": "很久以前在英國，一個叫 Robin Hood 的年輕人___在一個小村莊。",
+        "question": "Choose the correct verb form.",
+        "options": [
+          "live",
+          "living",
+          "lives",
+          "lived"
+        ],
+        "optionsZh": [
+          "live",
+          "living",
+          "lives",
+          "lived (過去式)"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "「Long ago」= 很久以前，過去的事要用過去式「lived」！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l1-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "The farmers in the village loved him. The children ran to him in the road.",
+        "question": "How did the village people feel about Robin?",
+        "options": [
+          "💖 they really liked him",
+          "😡 they were angry at him",
+          "😨 they were afraid of him",
+          "😒 they did not care about him"
+        ],
+        "optionsZh": [
+          "他們非常喜歡他",
+          "他們對他生氣",
+          "他們怕他",
+          "他們不在乎他"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "農夫愛他、小孩跑向他——「他們非常喜歡他」就是答案。那個 💖！",
+        "sentenceZh": "村裡的農夫都愛他，孩子們在路上看見他就跑過來。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l1-x8",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "But not everyone in the land was as kind as Robin.",
+        "questionEn": "Could everyone be trusted like Robin?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「not everyone... was as kind」——不是每個人都像 Robin 那麼好心，答 No！",
+        "sentenceZh": "但是，這片土地上，並不是每個人都像 Robin 那麼好。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l1-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "And soon, the king would send a man to Robin's village...",
+        "question": "What is coming next in the story?",
+        "options": [
+          "Robin will move away forever",
+          "the king sends someone to Robin's village",
+          "Robin becomes a new king soon",
+          "the village will get a new market"
+        ],
+        "optionsZh": [
+          "Robin 永遠搬走了",
+          "國王派人去 Robin 的村莊",
+          "Robin 快要當國王了",
+          "村莊要開新市集"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「the king would send a man to Robin's village」——「國王派的人要到 Robin 的村莊」！",
+        "sentenceZh": "很快，這個國王就會派人到 Robin 的村莊……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -494,6 +752,255 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l2-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "The bad king wanted more gold for his castle and his big dinners.",
+        "question": "Why did the bad king want more gold?",
+        "options": [
+          "to give it to the poor farmers",
+          "for his castle and fancy meals",
+          "to build a new road to the village",
+          "to buy gifts for his children"
+        ],
+        "optionsZh": [
+          "把它給窮農夫",
+          "為他的城堡和豪華餐點",
+          "蓋一條新路到村莊",
+          "買禮物給他的孩子"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「for his castle and his big dinners」——「為他的城堡和豪華餐點」就是原因！",
+        "sentenceZh": "壞國王想要更多金子，辦豪華大餐、蓋大城堡。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l2-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "So he said, \"Take more money from every farmer in the land.\"",
+        "questionEn": "Did the king ask to take more money from farmers?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「Take more money from every farmer」——是，他命令多收錢，答 Yes！",
+        "sentenceZh": "於是他說：「向全國每個農民收更多的錢。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l2-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "穀物",
+            "right": "grain"
+          },
+          {
+            "left": "銀幣",
+            "right": "silver"
+          },
+          {
+            "left": "士兵",
+            "right": "soldier"
+          },
+          {
+            "left": "空的",
+            "right": "empty"
+          }
+        ],
+        "explanationZh": "🔑 grain = 穀物 / silver = 銀幣 / soldier = 士兵 / empty = 空的\n今晚的故事詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l2-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Children went to bed with empty bowls. Mothers cried in the dark.",
+        "question": "What was life like for families after the soldiers came?",
+        "options": [
+          "plenty of food and good rest",
+          "they went hungry and felt sad",
+          "new homes given by the king",
+          "moving to a better town soon"
+        ],
+        "optionsZh": [
+          "有很多食物和休息",
+          "他們餓著肚子，感到難過",
+          "從國王那裡得到新房子",
+          "很快搬到更好的城鎮"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "孩子餓著睡覺、媽媽在黑暗裡哭——「餓著肚子，感到難過」就是答案！",
+        "sentenceZh": "孩子餓著肚子睡覺，媽媽在黑暗裡哭。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l2-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "A soldier just laughed and said, \"That is your problem, not the king's.\"",
+        "question": "What did the soldier's words show about the king's men?",
+        "options": [
+          "truly wanting to help the poor",
+          "no care at all for the poor",
+          "kind but a little scared of him",
+          "working hard for everyone there"
+        ],
+        "optionsZh": [
+          "真的想幫助窮人",
+          "一點不關心窮人",
+          "善良但有點怕他",
+          "為所有人努力工作"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「That is your problem, not the king's」——只顧自己，「一點不關心窮人」！",
+        "sentenceZh": "一個士兵只是笑著說：「那是你的問題，不是國王的事。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l2-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin saw this and felt a hot stone push up inside his chest.",
+        "questionEn": "Was Robin upset when he saw what the soldiers did?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a hot stone push up inside his chest」——胸口像燙石頭頂著，他很難受，答 Yes！",
+        "sentenceZh": "Robin 看見這些，胸口裡有塊燙石頭頂了上來。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l2-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "An old farmer held up his empty hands. \"I have nothing left for my children.\"",
+        "question": "How did the old farmer feel?",
+        "options": [
+          "😔 heartbroken, no hope",
+          "😊 happy and hopeful",
+          "😡 angry at Robin",
+          "😴 so very tired"
+        ],
+        "optionsZh": [
+          "心碎，沒有希望",
+          "開心充滿希望",
+          "對 Robin 生氣",
+          "非常疲倦"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "空手、「沒有東西給孩子了」——「心碎又無助」就是那個老農夫的感受！那個 😔。",
+        "sentenceZh": "老農夫舉起空空的手：「我沒有東西可以給孩子了。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l2-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "They took grain from rice sacks and silver from small wooden boxes.",
+        "questionEn": "Did the soldiers take food from the farmers?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「took grain from rice sacks」——他們拿走了糧食，答 Yes！還有銀子。",
+        "sentenceZh": "他們從米袋裡搶走糧食，從小木箱裡搜走銀子。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l2-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Soldiers walked from village to village and knocked hard on every door.",
+        "question": "What did the soldiers do in the villages?",
+        "options": [
+          "brought food to help the poor",
+          "went door to door to collect money",
+          "helped fix old broken roads",
+          "searched for Robin Hood everywhere"
+        ],
+        "optionsZh": [
+          "帶食物幫助窮人",
+          "挨家挨戶去收錢",
+          "幫忙修繕舊路",
+          "到處搜找 Robin Hood"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "士兵一個村一個村走，大力敲每家的門——「挨家挨戶去收錢」就是答案！",
+        "sentenceZh": "士兵一個村一個村走，大力敲每一家的門。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -735,6 +1242,255 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l3-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "The bad king had a Sheriff (police chief) in the town of Nottingham.",
+        "question": "Where was the Sheriff?",
+        "options": [
+          "Nottingham town, near the castle",
+          "a small camp deep in the forest",
+          "Robin's village far to the north",
+          "on a boat upon the cold sea"
+        ],
+        "optionsZh": [
+          "Nottingham 鎮，城堡附近",
+          "森林深處的小營地",
+          "遠北方 Robin 的村莊",
+          "冰冷大海上的船"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「in the town of Nottingham」——Sheriff 在 Nottingham 鎮。",
+        "sentenceZh": "壞國王在 Nottingham 鎮上有一個 Sheriff。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l3-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "If someone could not pay, the Sheriff threw them in a cold stone room.",
+        "questionEn": "Was the Sheriff fair to people who had no money?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "付不起就關進冷石房——這不公平，「不公平」，答 No！",
+        "sentenceZh": "如果有人繳不出來，郡長就把他們關進冰冷的石牢。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l3-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "騎馬",
+            "right": "rode"
+          },
+          {
+            "left": "名字",
+            "right": "name"
+          },
+          {
+            "left": "清單",
+            "right": "list"
+          },
+          {
+            "left": "角落",
+            "right": "corner"
+          }
+        ],
+        "explanationZh": "🔑 rode = 騎馬 / name = 名字 / list = 清單 / corner = 角落\n今晚 Sheriff 的詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l3-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "When the Sheriff rode by, even the dogs ran into dark corners.",
+        "question": "What does it mean when even the dogs hide from the Sheriff?",
+        "options": [
+          "dogs love running inside houses",
+          "he was very frightening to all",
+          "it was a game the dogs liked",
+          "dogs were looking for their food"
+        ],
+        "optionsZh": [
+          "狗喜歡跑進屋子",
+          "他對所有人都非常可怕",
+          "這是狗喜歡玩的遊戲",
+          "狗在找食物"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "連狗都怕他躲進角落——「他對所有人都非常可怕」就是這句話的意思！",
+        "sentenceZh": "每當郡長騎馬經過，連狗都跑進黑暗的角落躲起來。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l3-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "His finger stopped on one short word: Robin.",
+        "question": "What was the Sheriff doing with the list of names?",
+        "options": [
+          "writing new names on it",
+          "found Robin's name in the list",
+          "burning it in the fire soon",
+          "giving it to the bad king"
+        ],
+        "optionsZh": [
+          "在上面寫新名字",
+          "在清單裡找到 Robin 的名字",
+          "很快把它燒掉",
+          "把它給壞國王"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他手指停在 Robin 的名字上——「讀著它，找到了 Robin 的名字」就是答案！",
+        "sentenceZh": "他的手指停在一個短短的字上：羅賓。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l3-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "\"This boy helps the poor too much,\" the Sheriff said to the wall.",
+        "questionEn": "Did the Sheriff like that Robin helped the poor?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Sheriff 說 Robin 幫窮人「太多」——他不高興，答 No！",
+        "sentenceZh": "「這個男孩太常幫窮人。」他對著牆說。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l3-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "He rolled the list, stood up, and called for his fastest horse...",
+        "question": "What was the Sheriff about to do?",
+        "options": [
+          "🏇 ride fast to find Robin",
+          "💤 take a long afternoon nap",
+          "🎵 sing a song to his men",
+          "📖 keep reading more lists"
+        ],
+        "optionsZh": [
+          "快馬去找 Robin",
+          "睡一個長長的午覺",
+          "給手下唱歌",
+          "繼續讀更多清單"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "捲起名單、叫最快的馬——「快馬去找 Robin」就是他要做的事！那個 🏇。",
+        "sentenceZh": "他把名單捲起來，站起身，叫人牽最快的馬……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l3-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "He hit a boy who tried to keep one loaf of bread for his sister.",
+        "questionEn": "Was the Sheriff kind to children?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他打了一個只想留麵包給妹妹的男孩——他對孩子不好，答 No！",
+        "sentenceZh": "有個男孩想留一條麵包給妹妹，Sheriff 打了他。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l3-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "One quiet morning, the Sheriff sat in a wooden chair and read a list of names.",
+        "question": "Why did the Sheriff read the list?",
+        "options": [
+          "he was looking for people who owed money",
+          "enjoying name lists as a fun hobby",
+          "choosing people for a prize or reward",
+          "needing names for a big party soon"
+        ],
+        "optionsZh": [
+          "他在找欠錢的人",
+          "把讀名字清單當有趣愛好",
+          "在選要獎勵的人",
+          "需要名字來辦大派對"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Sheriff 讀名單，手指停在 Robin——他在找欠錢的人或製造麻煩的人！",
+        "sentenceZh": "一個安靜的早上，Sheriff 坐在椅子上讀一張名字清單。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -992,6 +1748,255 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l4-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "They nailed a yellow paper on Robin's front door for everyone to see.",
+        "question": "What was on Robin's front door?",
+        "options": [
+          "yellow paper nailed for all to see",
+          "a big red flag from the king",
+          "wooden sign from the local market",
+          "a long letter from a kind friend"
+        ],
+        "optionsZh": [
+          "讓所有人看見的釘上黃紙",
+          "國王的大紅旗",
+          "當地市場的木頭牌子",
+          "善良朋友的長信"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a yellow paper on Robin's front door for everyone to see」——黃紙釘在前門！",
+        "sentenceZh": "他們把一張黃色的紙釘在 Robin 家門口，讓所有人都看見。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l4-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "The paper said, \"Robin must leave. He helps poor people too much.\"",
+        "questionEn": "Was Robin in serious trouble because of his kindness?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "因為幫窮人就必須離開——這是很嚴重的麻煩，答 Yes！",
+        "sentenceZh": "紙上寫著：「羅賓必須離開，他幫助窮人太多了。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l4-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "前門",
+            "right": "front door"
+          },
+          {
+            "left": "打包",
+            "right": "pack"
+          },
+          {
+            "left": "離開",
+            "right": "leave"
+          },
+          {
+            "left": "袖子",
+            "right": "sleeve"
+          }
+        ],
+        "explanationZh": "🔑 front door = 前門 / pack = 打包 / leave = 離開 / sleeve = 袖子\n告別的詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l4-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin read the paper twice. His face did not change.",
+        "question": "How did Robin react when he read the order to leave?",
+        "options": [
+          "he cried and fell to the ground",
+          "staying calm without any panic",
+          "laughing and tearing the paper up",
+          "going to fight the Sheriff right away"
+        ],
+        "optionsZh": [
+          "他哭著倒在地上",
+          "保持冷靜沒有慌亂",
+          "笑著把紙撕掉",
+          "馬上去找 Sheriff 打架"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他讀了兩遍，臉色沒有變——「他保持冷靜沒有慌亂」就是答案！",
+        "sentenceZh": "Robin 把那張紙讀了兩遍，臉色沒有變。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l4-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin smiled softly. \"I will go to the forest. The trees will hide me.\"",
+        "question": "Why did Robin choose to go to the forest?",
+        "options": [
+          "to find food for himself there",
+          "so the trees would keep him hidden",
+          "to look for the Sheriff's men",
+          "he wanted to live alone forever"
+        ],
+        "optionsZh": [
+          "在那裡找食物",
+          "這樣樹木能藏住他",
+          "去找 Sheriff 的手下",
+          "他想永遠一個人住"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「The trees will hide me」——「這樣樹木能藏住他」就是他選森林的理由！",
+        "sentenceZh": "Robin 輕輕笑了笑。「我去森林，樹木會藏著我。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l4-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "He packed a small bag, his bow, and a brown coat for cold nights.",
+        "questionEn": "Did Robin bring many things with him?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "只帶了小袋子、弓和一件外套——東西不多，答 No！他帶的很少。",
+        "sentenceZh": "他打包了小袋子、弓，還有一件棕色外套。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l4-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "An old woman touched his sleeve. \"Where will you go, my child?\"",
+        "question": "What did the old woman's question show?",
+        "options": [
+          "💙 she cared about Robin",
+          "😡 she was angry at him",
+          "😴 she just woke up sleepy",
+          "🤔 she wanted his bag"
+        ],
+        "optionsZh": [
+          "她關心 Robin",
+          "她對他生氣",
+          "她剛醒來還很睏",
+          "她想要他的袋子"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她碰他袖子、問他去哪——「她關心 Robin」就是這個動作的意思！那個 💙。",
+        "sentenceZh": "一個老婆婆輕輕碰他的袖子：「孩子，你要去哪裡？」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l4-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "He looked around at the small houses and the children playing in the dust.",
+        "questionEn": "Did Robin take one last look at his village before leaving?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「He looked around at the small houses」——他環顧小房子，這是最後一眼，答 Yes！",
+        "sentenceZh": "他看了看小房子、看了看在路上玩耍的孩子們。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l4-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin turned at the village edge and walked toward the deep green trees...",
+        "question": "What did Robin do at the edge of the village?",
+        "options": [
+          "he stopped and turned back to stay",
+          "walked toward the deep green forest",
+          "sat down there to write a letter",
+          "called out loudly for any help"
+        ],
+        "optionsZh": [
+          "他停下來回頭留下",
+          "走向深深的綠色森林",
+          "坐在那裡寫信",
+          "大聲呼救"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「turned at the village edge and walked toward the deep green trees」——走進森林！",
+        "sentenceZh": "Robin 在村口轉身，走向綠綠的森林深處……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1249,6 +2254,255 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l5-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Robin walked alone into the great forest of Sherwood.",
+        "question": "Where did Robin go after leaving his village?",
+        "options": [
+          "Sherwood Forest, far and wide",
+          "a town by the wide blue sea",
+          "the king's big stone castle",
+          "a close friend's warm home"
+        ],
+        "optionsZh": [
+          "廣大的 Sherwood 森林",
+          "寬闊藍海邊的小鎮",
+          "國王的大石頭城堡",
+          "親近朋友的溫暖家"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「into the great forest of Sherwood」——走進 Sherwood 大森林！",
+        "sentenceZh": "Robin 一個人走進廣大的 Sherwood 森林。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l5-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "The trees were tall, much taller than any church in the town.",
+        "questionEn": "Were the Sherwood trees very tall?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "比鎮上任何教堂都高——是非常高的樹，答 Yes！",
+        "sentenceZh": "樹木高聳，比鎮上任何一座教堂都還要高。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l5-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "小溪",
+            "right": "stream"
+          },
+          {
+            "left": "鹿",
+            "right": "deer"
+          },
+          {
+            "left": "小徑",
+            "right": "path"
+          },
+          {
+            "left": "橡樹",
+            "right": "oak"
+          }
+        ],
+        "explanationZh": "🔑 stream = 小溪 / deer = 鹿 / path = 小徑 / oak = 橡樹\n森林裡的自然詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l5-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin took a slow breath. The forest air smelled sweet, like clean rain.",
+        "question": "What did Robin notice about the forest air?",
+        "options": [
+          "it smelled like old fire and smoke",
+          "sweet and clean like fresh rain",
+          "it had no smell at all inside",
+          "it smelled of salt from the sea"
+        ],
+        "optionsZh": [
+          "聞起來像舊火和煙",
+          "甜甜又乾淨像雨後清新",
+          "裡面完全沒有味道",
+          "聞起來有海的鹹味"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「smelled sweet, like clean rain」——甜甜的，像清新的雨，就是答案！",
+        "sentenceZh": "Robin 慢慢深吸一口氣，森林的空氣聞起來清甜，像洗過的雨。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l5-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "For the first time in many days, no soldier could see his face.",
+        "question": "Why was this moment important for Robin?",
+        "options": [
+          "he finally found a good meal",
+          "safe from soldiers for the moment",
+          "he met a long-lost old friend",
+          "he found a warm new house"
+        ],
+        "optionsZh": [
+          "他終於找到好餐點",
+          "暫時從士兵那裡安全了",
+          "他遇到久違的老朋友",
+          "他找到溫暖的新家"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「no soldier could see his face」——士兵看不見他，「他暫時從士兵那裡安全了」！",
+        "sentenceZh": "好多天以來，第一次，沒有士兵看得見他。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l5-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Only thin light came down through the leaves to the soft brown ground.",
+        "questionEn": "Was Sherwood Forest bright and sunny inside?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「only thin light」——只有細細的光，裡面很暗，不是明亮，答 No！",
+        "sentenceZh": "只有細細的光線穿過葉縫，灑在柔軟的棕色地面上。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l5-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Then, from behind a wide oak tree, he heard a quiet cough...",
+        "question": "What was about to happen next?",
+        "options": [
+          "👥 Robin would meet someone",
+          "🌧️ a big storm was coming",
+          "🦁 a lion appeared nearby",
+          "🏃 soldiers ran into the forest"
+        ],
+        "optionsZh": [
+          "Robin 要遇到某個人",
+          "大雷雨來了",
+          "附近出現一頭獅子",
+          "士兵跑進森林"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "橡樹後面傳來咳嗽聲——「Robin 要遇到某個人」，那個 👥！",
+        "sentenceZh": "從一棵大橡樹後面，傳來一聲輕輕的咳嗽……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l5-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "He found a small path made by deer feet, and he followed it.",
+        "questionEn": "Did Robin use a deer path to walk in the forest?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「found a small path made by deer feet, and he followed it」——他找到鹿踩出的小徑跟著走，答 Yes！",
+        "sentenceZh": "他找到一條鹿走出來的小徑，跟著走。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l5-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "By a clear stream, he sat down and drank from his two hands.",
+        "question": "What did Robin do at the clear stream?",
+        "options": [
+          "washed his brown coat there",
+          "scooped water to drink",
+          "hid his bow in the water",
+          "called to the deer for help"
+        ],
+        "optionsZh": [
+          "洗他的棕色外套",
+          "用手捧水喝",
+          "把弓藏在水裡",
+          "呼叫鹿來幫忙"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「sat down and drank from his two hands」——坐下來用手捧水喝，就是答案！",
+        "sentenceZh": "在一條清澈的小溪旁，他坐下來，用雙手捧著水喝。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
       }
     ]
   },
@@ -1506,6 +2760,255 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l6-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Behind the oak tree was a thin man with a torn brown coat.",
+        "question": "Who was hiding behind the oak tree?",
+        "options": [
+          "a thin man in worn-out clothes",
+          "a soldier in shining armor",
+          "the bad Sheriff himself",
+          "a young child from the village"
+        ],
+        "optionsZh": [
+          "一個穿破舊衣服的瘦男人",
+          "穿閃亮盔甲的士兵",
+          "壞 Sheriff 本人",
+          "一個村裡的小孩"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a thin man with a torn brown coat」——穿著破棕色外套的瘦男人！",
+        "sentenceZh": "橡樹後面，走出一個穿著破爛棕色外套的瘦男人。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l6-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Two more people came out from behind the bushes, then three, then six.",
+        "questionEn": "Were there many people hiding in the forest?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "兩個、三個、六個——「是，有很多人藏在森林裡」，答 Yes！",
+        "sentenceZh": "又從灌木叢後冒出兩個人，然後三個，然後六個。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l6-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "樹叢",
+            "right": "bushes"
+          },
+          {
+            "left": "農場",
+            "right": "farm"
+          },
+          {
+            "left": "聲音啞了",
+            "right": "voice broke"
+          },
+          {
+            "left": "倒下的木頭",
+            "right": "fallen log"
+          }
+        ],
+        "explanationZh": "🔑 bushes = 樹叢 / farm = 農場 / voice broke = 聲音啞了 / fallen log = 倒下的木頭\n森林裡的詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l6-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "\"The Sheriff took our farm,\" one old man said. His voice broke.",
+        "question": "What happened to the old man's voice, and what does that tell us?",
+        "options": [
+          "his voice was loud and angry",
+          "voice cracking showed deep sadness",
+          "his voice was happy and calm",
+          "his voice was weak from a bad cold"
+        ],
+        "optionsZh": [
+          "他的聲音又大又生氣",
+          "聲音哽咽，顯示他很傷心",
+          "他的聲音開心又平靜",
+          "他的聲音因感冒而虛弱"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「His voice broke」——聲音哽咽，「哽咽，顯示他很傷心」就是答案！",
+        "sentenceZh": "「郡長把我們的農場沒收了，」一個老人說，聲音哽咽了。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l6-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "They lived under low branches and slept on soft beds of dry leaves.",
+        "question": "How did the forest people make do without proper homes?",
+        "options": [
+          "building strong wooden houses for shelter",
+          "using branches and dry leaves instead",
+          "buying canvas tents at a market",
+          "sleeping in the cold stream water"
+        ],
+        "optionsZh": [
+          "建造堅固的木屋遮風避雨",
+          "改用樹枝和乾樹葉代替",
+          "在市場買帆布帳篷",
+          "睡在冰冷的溪水裡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "住在樹枝下、睡在乾葉子床上——「用樹枝和乾樹葉」就是他們的方式！",
+        "sentenceZh": "他們住在低矮的樹枝下，睡在鋪著乾樹葉的軟床上。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l6-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin sat down with them on a fallen log. His hand was warm on the old man's arm.",
+        "questionEn": "Did Robin show kindness to the forest people?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他坐下來、把手放在老人手臂上——這就是關心和溫柔，答 Yes！",
+        "sentenceZh": "Robin 坐下來，把手放在老人的手臂上——那雙溫暖的手。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch31-l6-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Robin stood up slowly. He did not pull his bow.",
+        "question": "What did Robin's actions show when he met the stranger?",
+        "options": [
+          "🤝 he was open and peaceful",
+          "⚔️ he was ready to fight",
+          "😴 he was barely awake",
+          "🏃 he was ready to run away"
+        ],
+        "optionsZh": [
+          "他是開放且和平的",
+          "他準備好要打架",
+          "他幾乎沒醒過來",
+          "他準備好要逃跑"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "慢慢站起來、沒有拉弓——「他是開放且和平的」就是這個動作的意思！那個 🤝。",
+        "sentenceZh": "Robin 慢慢站起來，沒有拉弓。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "gist"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l6-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Robin looked at every tired face and slowly stood up tall...",
+        "questionEn": "Did Robin decide to do something for the forest people?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他看著疲倦的臉、慢慢站起來——「慢慢站起來」表示他心裡已有決定，答 Yes！",
+        "sentenceZh": "Robin 看著每一張累累的臉，慢慢站起來……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l6-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "\"We had nowhere else to go, so we came here,\" a young mother added.",
+        "question": "Why did the young mother's family come to the forest?",
+        "options": [
+          "they loved camping in the trees",
+          "the forest was their only safe place",
+          "they were chasing a deer for food",
+          "they were meeting Robin on purpose"
+        ],
+        "optionsZh": [
+          "他們喜歡在樹裡露營",
+          "森林是他們唯一安全的地方",
+          "他們在追一頭鹿找食物",
+          "他們故意來找 Robin"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「nowhere else to go」——沒有別的地方去，「森林是他們唯一安全的地方」！",
+        "sentenceZh": "「我們沒有別的地方去，所以來了這裡。」一個年輕媽媽說。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
       }
     ]
   },
@@ -1763,6 +3266,256 @@
           "ch31",
           "robin-hood"
         ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l7-x1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "\"We will help each other,\" he said. \"No one is alone here anymore.\"",
+        "question": "What did Robin promise the forest people?",
+        "options": [
+          "they would fight the king that week",
+          "they would all help each other",
+          "he would go back to his village alone",
+          "he would find them new houses"
+        ],
+        "optionsZh": [
+          "他們那週要去跟國王打",
+          "他們會互相幫忙",
+          "他要一個人回村莊",
+          "他要幫他們找新房子"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「We will help each other」——「他們會互相幫忙」就是 Robin 的承諾！",
+        "sentenceZh": "「我們要互相幫忙，」他說，「從今以後，沒有人是孤單的。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l7-x2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Some of the people stood straighter, and a few even smiled.",
+        "questionEn": "Did Robin's words make the people feel better?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "站得更直了、有幾個甚至笑了——他的話讓人感覺更好了，答 Yes！",
+        "sentenceZh": "一些人站得更挺了，幾個人甚至露出了笑容。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch31-l7-x3",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match the words from tonight's story.",
+        "pairs": [
+          {
+            "left": "圓圈",
+            "right": "circle"
+          },
+          {
+            "left": "火堆",
+            "right": "fire"
+          },
+          {
+            "left": "跟",
+            "right": "follow"
+          },
+          {
+            "left": "夥伴",
+            "right": "friend"
+          }
+        ],
+        "explanationZh": "🔑 circle = 圓圈 / fire = 火堆 / follow = 跟 / friend = 夥伴\n新夥伴的詞！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "vocab"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l7-x4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "\"The rich bad men took from you. So we will take from them,\" Robin said.",
+        "question": "What was Robin's idea for justice?",
+        "options": [
+          "ask the king nicely for help",
+          "take from the rich, give to the poor",
+          "build a new village far away",
+          "leave England for a better land"
+        ],
+        "optionsZh": [
+          "好好去求國王幫忙",
+          "從有錢人那裡拿，給窮人",
+          "在遠處建一個新村莊",
+          "離開英格蘭去更好的地方"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「take from them」——「從貪心的有錢人那裡拿，幫助窮人」就是 Robin 的正義！",
+        "sentenceZh": "「有錢的壞人拿走你們的。所以我們也從他們那裡拿。」",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l7-x5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "One by one, every man and woman around the fire said the same thing.",
+        "question": "How many people agreed to join Robin?",
+        "options": [
+          "only the youngest ones",
+          "every single person there",
+          "just two old farmers",
+          "none at all in the end"
+        ],
+        "optionsZh": [
+          "只有最年輕的人",
+          "在場每一個人",
+          "只有兩個老農夫",
+          "最後沒有一個人"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「every man and woman... said the same thing」——「在場每一個人」都答應了！",
+        "sentenceZh": "圍在火堆旁的男男女女，一個接一個說出同樣的話。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "detail"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l7-x6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "That night, a small fire warmed a new circle of friends in Sherwood.",
+        "questionEn": "Did a new group of friends form in the forest that night?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "「a new circle of friends in Sherwood」——那晚，一個新的朋友圈誕生了，答 Yes！",
+        "sentenceZh": "那天晚上，一把小火，溫暖了 Sherwood 森林裡一群新朋友。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch31-l7-x7",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "\"We ___ help each other,\" Robin said. \"No one is alone here anymore.\"",
+        "sentenceZh": "「我們___互相幫忙，」Robin 說，「從今以後，沒有人是孤單的。」",
+        "question": "Choose the correct verb form.",
+        "options": [
+          "wills",
+          "will",
+          "willed",
+          "willing"
+        ],
+        "optionsZh": [
+          "wills",
+          "will (將會)",
+          "willed",
+          "willing"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「will + 動詞原形」是表示未來的說法——「will help」！",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch31-l7-x8",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Far away, in his cold castle, the Sheriff did not yet know what was coming...",
+        "questionEn": "Did the Sheriff know what Robin and his friends were planning?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「did not yet know」——他還不知道，答 No！壞事要降臨在 Sheriff 身上了。",
+        "sentenceZh": "遠遠的地方，在他冷冷的城堡裡，Sheriff 還不知道什麼正在朝他來……",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood",
+          "inference"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch31-l7-x9",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Robin spoke in a clear, quiet voice. The forest people leaned in.",
+        "question": "What does it mean when the forest people leaned in to listen?",
+        "options": [
+          "tired eyes nearly falling asleep",
+          "curious and paying full attention",
+          "wanting Robin to speak much louder",
+          "just looking at the fire pit"
+        ],
+        "optionsZh": [
+          "累了眼睛快睡著了",
+          "好奇且非常專心聽",
+          "想要 Robin 說大聲一點",
+          "只是在看火堆"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "靠過來聽——「他們好奇且專心聽」就是「leaned in」的意思！",
+        "sentenceZh": "Robin 說話，清楚又安靜，所有人都靠過來。",
+        "tags": [
+          "story",
+          "ch31",
+          "robin-hood"
+        ],
+        "subSkill": "inference"
       }
     ]
   }
