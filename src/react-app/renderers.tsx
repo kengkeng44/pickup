@@ -431,7 +431,13 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     try { (sel === correctIdx ? sfxCorrect : sfxWrong)(); } catch {}
   };
   const blankColor = revealed ? (sel === correctIdx ? 'var(--t-success)' : 'var(--t-danger)') : 'var(--t-brand-dark)';
-  const blankText = sel != null ? opts[sel] : '⬚⬚⬚';
+  // v2.0.B.390 (per user): 空格用「底線」, 一個單字一條 (答案有空格才多一條), 非方框.
+  // 未選時用底線字元 ＿ 當佔位 (本身就是底線, 不再加 borderBottom 避免雙線);
+  // 選了之後顯示真正單字, 並補一條 borderBottom 當底線。
+  const ansWords = Math.max(1, (opts[correctIdx] ?? '').trim().split(/\s+/).length);
+  const blankPlaceholder = Array(ansWords).fill('＿＿＿').join(' ');
+  const filled = sel != null;
+  const blankText = filled ? opts[sel as number] : blankPlaceholder;
   return (
     <div>
       <SpeakerBadge speaker={q.speaker} />
@@ -439,7 +445,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <SpeakerBtn onClick={() => speak(raw.replace('___', ' '), 'en-US', { force: true })} size={40} />
         <span style={{ flex: 1, fontSize: 17, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.8 }}>
           {before}
-          <span style={{ fontWeight: 900, color: blankColor, borderBottom: `2px solid ${blankColor}`, padding: '0 6px' }}>{blankText}</span>
+          <span style={{ fontWeight: 900, color: blankColor, borderBottom: filled ? `2px solid ${blankColor}` : 'none', padding: '0 6px' }}>{blankText}</span>
           {after}
         </span>
       </div>
@@ -463,8 +469,8 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         })}
       </div>
       {!revealed ? (
-        <button type="button" onClick={check} disabled={sel == null} className="pickup-answer-sticky"
-          style={{ width: '100%', minHeight: 52, marginTop: 12, border: 'none', borderRadius: 14,
+        <button type="button" onClick={check} disabled={sel == null}
+          style={{ width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 14,
             background: sel == null ? 'var(--t-border-card)' : 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
             fontFamily: 'inherit', cursor: sel == null ? 'default' : 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
           檢查
