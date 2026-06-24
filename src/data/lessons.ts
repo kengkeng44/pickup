@@ -106,6 +106,17 @@ export const GrammarMcSchema = FourOptionShape.extend({
   type: z.literal('grammar-mc'),
 });
 
+// v2.0.B.388 (per user, Duolingo 填空滑選): scroll-pick — 句子含 "___" 空格,
+// 下方一排候選字「上下滑/點選」,選到的字即時填入空格預覽 (像 Quiero __ sombrero
+// → 滑選 una/unos/unas)。2-5 個候選 (常 3 個)。correctIndex 指正解。
+export const ScrollPickSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('scroll-pick'),
+  options: z.array(z.string()).min(2).max(5),
+  optionsZh: z.array(z.string()).min(2).max(5).optional(),
+  correctIndex: z.number().int().nonnegative(),
+});
+
 // v2.0.B.232 (TODO content expansion 1/5): picture-mc — 顯示 1 張圖
 // (emoji big or img URL), 4 個英文句子選 1 描述。培養「圖 → 語言」翻譯。
 // imageEmoji 與 imageUrl 至少要有一個 (cross-field guard in QuestionSchema).
@@ -257,6 +268,7 @@ const QuestionUnion = z.discriminatedUnion('type', [
   ListenTfSchema,
   EmojiPickSchema,
   GrammarMcSchema,
+  ScrollPickSchema,
   // v2.0.B.232 new types
   PictureMcSchema,
   ReadAndTapSchema,
@@ -278,6 +290,15 @@ export const QuestionSchema = QuestionUnion.superRefine((data, ctx) => {
         message: 'correctOrder indices must be < tiles.length',
         path: ['correctOrder'],
       });
+    }
+  }
+  // v2.0.B.388 scroll-pick guards: correctIndex in range + sentence 要有 "___" 空格.
+  if (data.type === 'scroll-pick') {
+    if (data.correctIndex >= data.options.length) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'correctIndex must be < options.length', path: ['correctIndex'] });
+    }
+    if (!data.sentence.includes('___')) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: 'scroll-pick sentence must contain "___" blank', path: ['sentence'] });
     }
   }
   // v2.0.B.232 cross-field guards for new question types.
@@ -450,7 +471,8 @@ export const LessonSchema = z.object({
   intro: LessonIntroSchema.optional(),
   // v2.0.B.198: max bumped 15→20 to allow Ch1 opening Mochi self-intro
   // (n00 + n01 before Q0 + n1 existing arc). headroom for future hooks.
-  questions: z.array(QuestionSchema).min(3).max(20),
+  // v2.0.B.388: max 20→30 — 每節擴到 ~5 分鐘後 entry 數上看 20+, 留 headroom.
+  questions: z.array(QuestionSchema).min(3).max(30),
 });
 
 export const LessonsSchema = z.array(LessonSchema);

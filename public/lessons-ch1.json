@@ -488,6 +488,35 @@
         "subSkill": "inference"
       },
       {
+        "type": "scroll-pick",
+        "id": "kt-ch1-l1-sp1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Long ago, ___ old man and woman lived in a small village.",
+        "question": "滑一滑,選對的字填進空格",
+        "options": [
+          "an",
+          "a",
+          "the"
+        ],
+        "optionsZh": [
+          "an(母音前)",
+          "a",
+          "the"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "old 開頭是母音 o,前面冠詞要用 an,不是 a。所以是 an old man。",
+        "sentenceZh": "很久很久以前,有一位老公公和老婆婆,住在一個小村子裡。",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
         "type": "tap-pairs",
         "id": "kt-ch1-l1-x8",
         "level": "A2",
@@ -1535,6 +1564,35 @@
         ],
         "correctIndex": 0,
         "explanationZh": "這是說過去的事，grow 的過去式是不規則的，要改成 grew 喔。\n原句：Year by year, Momotaro grew tall and strong.",
+        "tags": [
+          "story",
+          "ch1",
+          "momotaro",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "type": "scroll-pick",
+        "id": "kt-ch1-l3-sp1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Year by year, the boy ___ very tall and strong.",
+        "question": "滑一滑,選對的字填進空格",
+        "options": [
+          "grew",
+          "grows",
+          "grow"
+        ],
+        "optionsZh": [
+          "長大(過去)",
+          "長大(現在)",
+          "長大(原形)"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "故事在講過去的事,grow 的過去式是不規則的 grew,所以選 grew。",
+        "sentenceZh": "一年一年過去,這個男孩長得又高又壯。",
         "tags": [
           "story",
           "ch1",

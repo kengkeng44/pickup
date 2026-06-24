@@ -399,6 +399,81 @@ const GrammarMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   );
 };
 
+// ─── scroll-pick (v2.0.B.388 per user) — 句子含空格,下方候選字滑/點選即時填入預覽 ──
+const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const raw = pickSentence(q);
+  const parts = raw.split('___');
+  const before = parts[0] ?? '';
+  const after = parts.slice(1).join('___');
+  const qPrompt = q.question ?? q.questionEn ?? '';
+  const opts = q.options ?? [];
+  const optsZh = q.optionsZh ?? [];
+  const correctIdx = q.correctIndex ?? 0;
+  const [sel, setSel] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  useEffect(() => {
+    setSel(null); setRevealed(false);
+    try { speak(raw.replace('___', ' '), 'en-US'); } catch {}
+    return () => stopSpeaking();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
+  useEffect(() => {
+    if (!revealed) return;
+    const correct = sel === correctIdx;
+    const t = window.setTimeout(() => onAdvance(raw), correct ? 2500 : 3500);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+  const check = () => {
+    if (sel == null || revealed) return;
+    sfxCardPress(); setRevealed(true);
+    onAnswer(sel, sel === correctIdx);
+    try { (sel === correctIdx ? sfxCorrect : sfxWrong)(); } catch {}
+  };
+  const blankColor = revealed ? (sel === correctIdx ? 'var(--t-success)' : 'var(--t-danger)') : 'var(--t-brand-dark)';
+  const blankText = sel != null ? opts[sel] : '⬚⬚⬚';
+  return (
+    <div>
+      <SpeakerBadge speaker={q.speaker} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '12px 6px', marginBottom: 8 }}>
+        <SpeakerBtn onClick={() => speak(raw.replace('___', ' '), 'en-US', { force: true })} size={40} />
+        <span style={{ flex: 1, fontSize: 17, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.8 }}>
+          {before}
+          <span style={{ fontWeight: 900, color: blankColor, borderBottom: `2px solid ${blankColor}`, padding: '0 6px' }}>{blankText}</span>
+          {after}
+        </span>
+      </div>
+      {qPrompt && <div style={{ fontSize: 13, fontWeight: 800, color: 'var(--t-brand-dark)', margin: '0 6px 10px' }}>↕ {qPrompt}</div>}
+      {/* 候選字直列 (可滑動) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxHeight: '46vh', overflowY: 'auto', padding: '2px' }}>
+        {opts.map((o, i) => {
+          const isSel = i === sel;
+          const isCorrect = i === correctIdx;
+          const bg = revealed ? (isCorrect ? 'var(--t-success-tint)' : isSel ? '#fde0d2' : '#fff') : isSel ? 'var(--t-tint-warn)' : '#fff';
+          const border = revealed ? (isCorrect ? 'var(--t-success)' : isSel ? 'var(--t-danger)' : 'var(--t-border-card)') : isSel ? 'var(--t-brand-dark)' : 'var(--t-border-card)';
+          return (
+            <button key={i} onClick={() => { if (!revealed) { sfxCardPress(); setSel(i); } }} disabled={revealed}
+              style={{ width: '100%', padding: '14px 16px', background: bg, color: 'var(--t-text)',
+                border: `2px solid ${border}`, borderBottom: `4px solid ${isSel || (revealed && isCorrect) ? border : 'var(--t-brand-dark)'}`,
+                borderRadius: 14, fontSize: 16, fontWeight: 800, cursor: revealed ? 'default' : 'pointer',
+                fontFamily: 'inherit', textAlign: 'left', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+              {o}{revealed && optsZh[i] ? <span style={{ color: 'var(--t-text-muted)', fontWeight: 600, marginLeft: 8 }}>· <SpeakZh text={optsZh[i]} /></span> : ''}
+            </button>
+          );
+        })}
+      </div>
+      {!revealed ? (
+        <button type="button" onClick={check} disabled={sel == null} className="pickup-answer-sticky"
+          style={{ width: '100%', minHeight: 52, marginTop: 12, border: 'none', borderRadius: 14,
+            background: sel == null ? 'var(--t-border-card)' : 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+            fontFamily: 'inherit', cursor: sel == null ? 'default' : 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+          檢查
+        </button>
+      ) : <Explanation text={q.explanationZh ?? ''} />}
+    </div>
+  );
+};
+
 // ─── 3. listen-mc / listen-comprehension / listen-emoji / read-mc-with-audio (blind 4-option) ──
 const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const en = q.sentence ?? '';
@@ -1992,6 +2067,8 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'emoji-pick': EmojiPickRenderer,
   // v2.0.B.360: grammar-mc 改用專屬 renderer (原文句子恆可見 + 📘文法 標籤).
   'grammar-mc': GrammarMcRenderer,
+  // v2.0.B.388: 填空滑選 — 候選字直列選入空格
+  'scroll-pick': ScrollPickRenderer,
   // v2.0.B.232 new types (TODO content expansion)
   'picture-mc': PictureMcRenderer,
   'read-and-tap': ReadAndTapRenderer,
