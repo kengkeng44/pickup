@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-25T1210-content-qa-cron.md",
+      "archRec": "V1 verdict-tail + V2 vocab-gloss + V3 (explanationZh story-voice)",
+      "what": "Ch9-14 listen-tf explanationZh 冷公式『所以答案是 Yes/No。』全改溫暖故事語氣 + 輕量『答 X。』結尾 (104條); Ch10 phrase-pairs bare vocab gloss 加故事鉤前句 (2條); Ch14 V3 定義式翻譯改情感 (3條). 純 explanationZh 編輯, correctIndex/options 不動, build+answer-index 綠.",
+      "version": "v2.0.B.421",
+      "date": "2026-06-25"
+    },
+    {
       "audit": "docs/audits/2026-06-09T1214-arch-cron.md",
       "archRec": "P0-2 (CI circular-dep gate) + Cycle 1 (storyRegistry↔userProfile)",
       "what": "抽 Culture/Style/Protagonist/Theme → src/data/types.ts 斷開 storyRegistry↔userProfile 型別循環 (madge 0); 加 npm run check:circular gate 進 build + CI step, 循環依賴自動守門. P0-1(B.298)/P0-3(tts unlockOnce 已手動 removeListener) 先前已解.",
