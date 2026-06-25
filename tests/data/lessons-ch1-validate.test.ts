@@ -8,9 +8,9 @@ describe('Intro (ch0) + Ch1 桃太郎 (v2.0.B.205 IDs aligned)', () => {
     const result = LessonsSchema.safeParse(ch0raw);
     if (!result.success) console.error(result.error.issues);
     expect(result.success).toBe(true);
-    // v2.0.B.237: Ch0 expanded from 3 outer-prologue → 7 ground-floor lessons
-    // (ABC / 1-10 / colors / animals / family / greetings / simple sentences).
-    expect(ch0raw).toHaveLength(7);
+    // v2.0.B.237: Ch0 expanded 3 → 7 ground-floor lessons.
+    // v2.0.B.415: Ch0「入門就好」中度精簡 → 5 課輕量 intro (砍進階題型/題數減半)。
+    expect(ch0raw).toHaveLength(5);
     expect(ch0raw[0].id).toBe('kt-ch0-l1');
     expect(ch0raw[0].chapter).toBe(0);
     expect(ch0raw[0].segmentType).toBe('outer-prologue');
