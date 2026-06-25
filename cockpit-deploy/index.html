@@ -888,6 +888,40 @@ function parseAuditMd(md) {
   return { angle, p0, p1, p2, total, topItem, hasP0: p0 > 0 || /⚠️\s*P0/.test(md) };
 }
 
+// v2.0.B.419 (per user「七十個小改善是什麼?」): 把 audit 的 Violation Table 解析成
+// 「一條一句」的清單 — 每筆: 嚴重度 + 題號 + 問題一句 + 修法一句。讓使用者點進去就懂
+// 哪幾條、要改什麼,不用啃英文原文表格。
+function parseFindings(md) {
+  const lines = md.split('\n');
+  const out = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line.startsWith('|')) continue;
+    const cols = line.split('|').map((s) => s.trim().toLowerCase());
+    const find = (re) => cols.findIndex((h) => re.test(h));
+    const idx = {
+      id: find(/q ?id|題號|\bid\b/),
+      sev: find(/sever|嚴重|tier|rank/),
+      viol: find(/violation|問題|issue|finding|why|說明/),
+      fix: find(/修法|fix|建議|action|改法|怎麼改/),
+    };
+    if (idx.viol < 0 && idx.fix < 0) continue;   // 不是 findings 表
+    let j = i + 1;
+    if (lines[j] && /^\s*\|[\s:|-]+\|\s*$/.test(lines[j])) j++;  // 跳過 |---|---| 分隔列
+    for (; j < lines.length; j++) {
+      const row = lines[j].trim();
+      if (!row.startsWith('|')) break;
+      const c = row.split('|').map((s) => s.trim());
+      const get = (k) => (k >= 0 && c[k] != null ? c[k] : '');
+      const viol = get(idx.viol), fix = get(idx.fix);
+      if (!viol && !fix) continue;
+      out.push({ id: get(idx.id), sev: get(idx.sev), viol, fix });
+    }
+    if (out.length) break;   // 取第一張 findings 表 (通常就是主表)
+  }
+  return out;
+}
+
 // v2.0.B.362 (per user): 白話判讀 — 取代卡片/modal 的英文 angle/topItem jargon.
 // 用「掃到數 + 急修數 + cron 類型」產生一句中文「要不要接」, 降決策成本.
 function plainVerdict(d, type, done) {
@@ -1210,6 +1244,33 @@ async function openAuditModal(file, type, sha, meta) {
         <div style="margin-bottom:8px;">${counts}</div>
         <div style="font-size:14px;font-weight:800;line-height:1.6;">📋 ${esc(plainVerdict(p, type, !!done))}</div>
       </div>
+      ${(() => {
+        // v2.0.B.419: 把 violation 表變「一條一句」清單 (中文重點優先)
+        const fs = parseFindings(md);
+        if (!fs.length) return '';
+        const md2 = (s) => esc(String(s || '').replace(/\*\*/g, '').replace(/~~/g, '').replace(/`/g, '').trim());
+        const oneLine = (s) => { const t = String(s || ''); const k = t.indexOf('—'); return md2(k >= 0 ? t.slice(k + 1) : t); };
+        const badge = (sev) => {
+          const t = (sev || '').toUpperCase();
+          const st = 'display:inline-block;font-size:10px;font-weight:900;padding:1px 6px;border-radius:6px;margin-right:6px;';
+          if (/FP|FALSE/.test(t)) return `<span style="${st}background:#e5e7eb;color:#6b7280;">誤報</span>`;
+          if (/P0/.test(t)) return `<span style="${st}background:#fde0d2;color:var(--danger);">急修</span>`;
+          if (/P1/.test(t)) return `<span style="${st}background:var(--soft);color:var(--accent-dark);">次要</span>`;
+          return `<span style="${st}background:#eaf6d5;color:var(--success);">小改</span>`;
+        };
+        const show = fs.slice(0, 60);
+        const rows = show.map((f) => `
+          <div style="padding:7px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.55;">
+            ${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}${oneLine(f.viol)}
+            ${f.fix ? `<span style="color:var(--accent-dark);font-weight:700;"> ${oneLine(f.fix).replace(/^→\s*/, '→ ')}</span>` : ''}
+          </div>`).join('');
+        return `<div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:10px;">
+          <div style="font-weight:900;font-size:13px;margin-bottom:2px;">📋 這輪 ${fs.length} 條改善 — 每條一句</div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">紅=急修 / 黃=次要 / 綠=小改 / 灰=誤報。→ 後面是怎麼改。</div>
+          ${rows}
+          ${fs.length > show.length ? `<div style="font-size:11px;color:var(--muted);padding-top:8px;">…還有 ${fs.length - show.length} 條,點下面原文看完整表格</div>` : ''}
+        </div>`;
+      })()}
       <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">這是 cron 自動產生的稽核報告,原文是英文 + 技術細節。上面是白話判讀;要看完整原文點下面展開。</div>`;
     const rawHtml = (typeof marked !== 'undefined')
       ? marked.parse(md)
