@@ -108,6 +108,8 @@ section.cron-grid {
 .cron-card.has-p0 { border: 2px solid var(--danger); background: #fef2f0; }
 /* v2.0.B.298: audit 已做過 → 綠框 + 淡化, 不再有「接」按鈕 (反重複) */
 .cron-card.cron-done { border: 2px solid var(--success); background: #f3f8ee; opacity: 0.72; }
+/* v2.0.B.418: 已處理卡片把「急修 N」pill 變灰刪除線 — 別跟 ✅ 已處理 互相矛盾 */
+.cron-card.cron-done .count-pill { opacity: 0.45; text-decoration: line-through; filter: grayscale(1); }
 .cron-card.blocked { border: 2px solid var(--accent); background: #fef3c7; }
 .cron-card.blocked::before {
   content: '⏸ 需要你回答'; position: absolute; top: -8px; right: 8px;
@@ -1033,7 +1035,7 @@ async function loadDashboard(forceFresh) {
     }
 
     fetchedEl.textContent = '✓ 已載入 · ' + new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
-    updateNextActionBanner(dataByType);
+    updateNextActionBanner(dataByType, shippedByFile);
   } catch (err) {
     grid.innerHTML = `<div class="empty">載入失敗: ${err.message}<br><br>(GitHub API 限額用完? 等一下 OR 直接看 <a href="https://github.com/${REPO}/tree/master/docs/audits">repo</a>)</div>`;
     fetchedEl.textContent = '✕ 載入失敗';
@@ -1131,33 +1133,42 @@ Markdown 表 + dense, < 500 字`;
 }
 
 // ─── Top "next action" banner ──────────────────────────────────────
-function updateNextActionBanner(dataByType) {
+function updateNextActionBanner(dataByType, shippedByFile = {}) {
   const banner = document.getElementById('next-action');
   const titleEl = document.getElementById('next-title');
   const descEl = document.getElementById('next-desc');
+  const btn = document.getElementById('next-btn');
   banner.classList.remove('urgent');
 
-  // highest-P0 cron (tie → most findings)
+  // v2.0.B.418 (per user「急修要清楚」): 只算「還沒接過」的 audit —
+  // shipped.json 已登記的跳過, 不再把做完的 cron 當急修餵出 copy 指令。
   let top = null;
   for (const [type, d] of Object.entries(dataByType)) {
-    if (!d) continue;
+    if (!d || shippedByFile[d.file]) continue;        // 已處理 → 不是待辦
     if (!top || d.p0 > top.d.p0 || (d.p0 === top.d.p0 && d.total > top.d.total)) top = { type, d };
   }
 
-  if (!top || (!top.d.p0 && !top.d.total)) { banner.style.display = 'none'; return; }
-
   banner.style.display = 'block';
+  // 全部都接過 / 沒掃到 → 明確綠燈, 不給 copy 按鈕 (避免複製到已完成的)
+  if (!top || (!top.d.p0 && !top.d.total)) {
+    titleEl.textContent = '✅ 目前沒有待接的急修';
+    descEl.innerHTML = '各類 cron 最新一輪都已處理 (或沒掃到問題) — 不用複製任何指令。';
+    btn.style.display = 'none';
+    return;
+  }
+
+  btn.style.display = '';
   const meta = CRON_TYPES[top.type];
   if (top.d.p0 > 0) {
     banner.classList.add('urgent');
-    titleEl.textContent = `⚠️ ${meta.cnDesc} 有 ${top.d.p0} 個急修`;
+    titleEl.textContent = `⚠️ ${meta.cnDesc} 有 ${top.d.p0} 個急修 (未接)`;
     descEl.innerHTML = plainVerdict(top.d, top.type, false);
   } else {
-    titleEl.textContent = `⭐ ${meta.cnDesc} 本輪掃到 ${top.d.total} 項可改善`;
+    titleEl.textContent = `⭐ ${meta.cnDesc} 本輪掃到 ${top.d.total} 項可改善 (未接)`;
     descEl.innerHTML = plainVerdict(top.d, top.type, false);
   }
 
-  document.getElementById('next-btn').onclick = () => copyForCron(top.type, top.d.file);
+  btn.onclick = () => copyForCron(top.type, top.d.file);
 }
 
 // ─── Audit modal (inline agent-md render) ──────────────────────────
