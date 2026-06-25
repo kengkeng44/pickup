@@ -64,18 +64,18 @@
         "sentence": "The king had a new crown of bright, shiny gold.",
         "question": "What did the king have?",
         "options": [
-          "an old wooden box",
           "a brand new gold crown",
+          "an old wooden box",
           "a small silver coin",
           "a long iron sword"
         ],
         "optionsZh": [
-          "舊木盒",
           "全新的金王冠",
+          "舊木盒",
           "小銀幣",
           "長鐵劍"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "國王有一頂閃閃發光的金王冠。他可得意啦——答案就是「全新的金王冠」。",
         "tags": [
           "story",
@@ -175,17 +175,17 @@
         "question": "How did Archimedes feel about the task?",
         "options": [
           "easy and small",
-          "as a heavy puzzle",
           "like a funny joke",
+          "as a heavy puzzle",
           "a bit like a soft song"
         ],
         "optionsZh": [
           "很簡單很小",
-          "是個沉重的謎題",
           "像個好笑的玩笑",
+          "是個沉重的謎題",
           "有點像輕柔的歌"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "「這個謎題的重量，跟王冠一樣沉。」——他心裡已經把它當成一個沉重的謎了。",
         "tags": [
           "story",
@@ -219,17 +219,17 @@
         "question": "How did he feel?",
         "options": [
           "😴 getting very sleepy",
-          "🤔 deep in thought",
+          "🎵 ready to sing",
           "😡 starting to feel mad",
-          "🎵 ready to sing"
+          "🤔 deep in thought"
         ],
         "optionsZh": [
           "快要睡著了",
-          "深深在思考",
+          "想唱歌",
           "開始覺得生氣",
-          "想唱歌"
+          "深深在思考"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "帶著大問題走路 → 當然是「深深在思考」。那個 🤔 臉就是他了！",
         "tags": [
           "story",
@@ -348,18 +348,18 @@
         "sentence": "But the king worried that some silver was mixed in with the gold.",
         "question": "Why was the king worried about his crown?",
         "options": [
-          "it might not be all pure gold",
           "it was much too heavy to wear",
+          "it might not be all pure gold",
           "someone had tried to take it",
           "it had lost its bright colour"
         ],
         "optionsZh": [
-          "可能不是純金",
           "太重了戴不住",
+          "可能不是純金",
           "有人試著偷走它",
           "失去了光澤"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "摻了銀的話就不是純金——「可能不是純金」就是他擔心的事。",
         "sentenceZh": "國王擔心王冠裡可能摻了銀。",
         "tags": [
@@ -378,18 +378,18 @@
         "sentence": "\"Find out the truth, but do not ___ my crown,\" the king said.",
         "question": "Which word fits the blank?",
         "options": [
-          "break",
-          "breaks",
           "broken",
+          "breaks",
+          "break",
           "breaking"
         ],
         "optionsZh": [
-          "打破（原形）",
-          "打破（第三人稱單數）",
           "打破（過去分詞）",
+          "打破（第三人稱單數）",
+          "打破（原形）",
           "打破（現在分詞）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "「do not」後面接動詞原形——「do not break」才是正確的否定命令句。",
         "sentenceZh": "「查出真相，但不能___ 我的王冠。」",
         "tags": [
@@ -430,18 +430,18 @@
         "sentence": "He sent for Archimedes and asked for help.",
         "question": "What does this sentence mainly show?",
         "options": [
-          "the king trusted Archimedes to help",
+          "Archimedes was far away in India",
           "Archimedes refused to come",
           "the king built a new palace",
-          "Archimedes was far away in India"
+          "the king trusted Archimedes to help"
         ],
         "optionsZh": [
-          "國王信任阿基米德能幫忙",
+          "阿基米德在遠方的印度",
           "阿基米德拒絕前來",
           "國王建了新宮殿",
-          "阿基米德在遠方的印度"
+          "國王信任阿基米德能幫忙"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "派人去叫他來、請他幫忙——說明國王信任他。「信任阿基米德能幫忙」就是答案。",
         "sentenceZh": "國王派人叫來阿基米德，請他幫忙。",
         "tags": [
@@ -616,17 +616,17 @@
         "question": "Why was the puzzle so hard?",
         "options": [
           "his tools were too big",
-          "no tool he had could see inside",
           "he had lost his books",
+          "no tool he had could see inside",
           "the king had taken his desk"
         ],
         "optionsZh": [
           "工具太大",
-          "沒有工具能看進去",
           "他弄丟了書",
+          "沒有工具能看進去",
           "國王拿走他的桌子"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他翻遍腦袋裡所有工具，沒有一個能看穿金屬——「沒有工具能看進去」就是答案。",
         "tags": [
           "story",
@@ -660,17 +660,17 @@
         "question": "Did Archimedes find an answer quickly?",
         "options": [
           "yes, a short rest gave him the idea",
-          "no, time passed with no answer",
+          "no, but a friend told him",
           "yes, on his first try",
-          "no, but a friend told him"
+          "no, time passed with no answer"
         ],
         "optionsZh": [
           "是,休息一下靈感就來了",
-          "不,時間過去都沒答案",
+          "不,但朋友告訴他",
           "是,第一次就對",
-          "不,但朋友告訴他"
+          "不,時間過去都沒答案"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "一個小時過去、再一個小時——沒答案。所以是「時間過去都沒答案」，不是靈感忽然來。",
         "tags": [
           "story",
@@ -703,18 +703,18 @@
         "sentence": "How did Archimedes feel about the puzzle?",
         "question": "How did he feel?",
         "options": [
-          "😴 ready for bed",
           "🌀 stuck and confused",
+          "😴 ready for bed",
           "😊 happy and easy",
           "🍎 getting quite hungry"
         ],
         "optionsZh": [
-          "想睡覺",
           "卡住又困惑",
+          "想睡覺",
           "開心又輕鬆",
           "開始覺得很餓"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "想了好久還是沒解 → 「卡住又困惑」，那個 🌀 最像他當時的狀態。",
         "tags": [
           "story",
@@ -748,18 +748,18 @@
         "sentence": "He could not cut it open. He could not melt it down.",
         "question": "What was Archimedes' main problem?",
         "options": [
-          "no method could check without damage",
           "he did not want to help the king",
+          "no method could check without damage",
           "the crown was far too heavy to lift",
           "the gold had a very bad smell"
         ],
         "optionsZh": [
-          "沒有方法能在不破壞的情況下查",
           "他不想幫國王",
+          "沒有方法能在不破壞的情況下查",
           "王冠太重搬不動",
           "金子味道很難聞"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "切不行、熔不行——沒有不破壞王冠的檢查方法，「沒有方法能在不破壞的情況下查」就是答案。",
         "sentenceZh": "他不能切開它，也不能把它熔掉。",
         "tags": [
@@ -833,18 +833,18 @@
         "sentence": "No tool he knew could read what hid inside the gold.",
         "question": "What does this tell us about the puzzle?",
         "options": [
-          "it went beyond what he could fix that day",
-          "Archimedes thought the crown was fine",
           "the king had given him the wrong tool",
+          "Archimedes thought the crown was fine",
+          "it went beyond what he could fix that day",
           "silver was easy to find inside gold"
         ],
         "optionsZh": [
-          "難題超出了他當時能解決的範圍",
-          "阿基米德覺得王冠沒問題",
           "國王給了他錯誤的工具",
+          "阿基米德覺得王冠沒問題",
+          "難題超出了他當時能解決的範圍",
           "銀在金子裡很容易找到"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "「no tool he knew」——他知道的工具都不夠，「難題超出了他當時能解決的範圍」就是答案。",
         "sentenceZh": "他所知道的方法，沒有一個能讀出黃金裡藏著什麼。",
         "tags": [
@@ -863,18 +863,18 @@
         "sentence": "He sat down on a low stool and thought and ___.",
         "question": "Which word fits the blank?",
         "options": [
-          "thought",
+          "thinking",
           "thinks",
           "think",
-          "thinking"
+          "thought"
         ],
         "optionsZh": [
-          "想（過去式重複）",
+          "想（現在分詞）",
           "想（現在第三人稱單數）",
           "想（原形）",
-          "想（現在分詞）"
+          "想（過去式重複）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "「thought and thought」是重複動詞強調——過去式才能和前一個 thought 對齊。",
         "sentenceZh": "他坐在矮凳上，想了又___。",
         "tags": [
@@ -945,18 +945,18 @@
         "sentence": "Archimedes tried hard but could not yet solve the crown puzzle.",
         "question": "Which best shows his state?",
         "options": [
-          "🌀 spinning with no answer",
           "🎯 ready to score a goal",
+          "🌀 spinning with no answer",
           "🛌 resting after a long trip",
           "🎉 celebrating his big win"
         ],
         "optionsZh": [
-          "轉來轉去找不到答案",
           "準備好射門得分",
+          "轉來轉去找不到答案",
           "長途旅行後休息",
           "慶祝大勝利"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "怎麼想都沒有答案——「轉來轉去找不到答案」那個 🌀 最像他當時的狀態。",
         "sentenceZh": "阿基米德很努力，但還是解不開王冠的謎題。",
         "tags": [
@@ -1035,17 +1035,17 @@
         "question": "What was Archimedes like during these days?",
         "options": [
           "eating big meals all day long",
-          "eating little and sleeping little",
           "going to parties every evening",
+          "eating little and sleeping little",
           "playing games out in the garden"
         ],
         "optionsZh": [
           "整天吃很多大餐",
-          "吃得少又睡得少",
           "每天晚上去派對",
+          "吃得少又睡得少",
           "在花園裡玩遊戲"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "吃得少、睡得少——整個人都投進去了。「吃得少又睡得少」就是答案。",
         "tags": [
           "story",
@@ -1101,17 +1101,17 @@
         "question": "What did his friends notice about Archimedes?",
         "options": [
           "that he looked taller",
-          "his face was thin and tired",
+          "a new red coat on him",
           "loud singing every night",
-          "a new red coat on him"
+          "his face was thin and tired"
         ],
         "optionsZh": [
           "他變高了",
-          "他臉瘦又疲倦",
+          "他穿了新紅外套",
           "每晚大聲唱歌",
-          "他穿了新紅外套"
+          "他臉瘦又疲倦"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "臉瘦了、眼神暗了——「臉瘦又疲倦」就是朋友看到的樣子。",
         "tags": [
           "story",
@@ -1144,18 +1144,18 @@
         "sentence": "\"My mind needs a rest. I will take a warm bath,\" he said.",
         "question": "What did Archimedes decide to do?",
         "options": [
-          "go back to the king with no answer",
           "soak in hot water to clear his head",
+          "go back to the king with no answer",
           "run a long race around the city",
           "sell the gold crown at the market"
         ],
         "optionsZh": [
-          "沒有答案就回去找國王",
           "泡熱水讓腦袋清醒",
+          "沒有答案就回去找國王",
           "繞著城市跑一場長跑",
           "把金王冠拿去市場賣掉"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「腦袋要休息一下，我去洗個熱水澡。」——「泡熱水讓腦袋清醒」就是他的決定。",
         "tags": [
           "story",
@@ -1233,18 +1233,18 @@
         "sentence": "For days Archimedes sat at his desk and drew shapes on the floor.",
         "question": "What was Archimedes doing at his desk?",
         "options": [
-          "trying to work out the problem",
-          "writing a long letter to the king",
           "drawing pictures for a new book",
+          "writing a long letter to the king",
+          "trying to work out the problem",
           "resting after a walk outside"
         ],
         "optionsZh": [
-          "嘗試想出解決辦法",
-          "寫長信給國王",
           "為新書畫插圖",
+          "寫長信給國王",
+          "嘗試想出解決辦法",
           "外出散步後休息"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "在地上畫圖案——那是他在腦袋裡思考謎題的方式，「嘗試想出解決辦法」就是答案。",
         "sentenceZh": "好幾天，阿基米德坐在桌前，在地上畫各種形狀。",
         "tags": [
@@ -1318,18 +1318,18 @@
         "sentence": "His friends grew worried about him.",
         "question": "Why were his friends worried?",
         "options": [
-          "eating very little and barely sleeping",
+          "refusing to talk to anyone at all",
           "wasting all his gold on things",
           "the crown had gone missing somewhere",
-          "refusing to talk to anyone at all"
+          "eating very little and barely sleeping"
         ],
         "optionsZh": [
-          "吃得很少幾乎不睡",
+          "拒絕跟任何人說話",
           "把金子都浪費掉了",
           "王冠不知道在哪",
-          "拒絕跟任何人說話"
+          "吃得很少幾乎不睡"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "吃少睡少、臉瘦眼暗——朋友擔心這些。「吃得少睡得少」就是根本原因。",
         "sentenceZh": "朋友們開始擔心他了。",
         "tags": [
@@ -1400,18 +1400,18 @@
         "sentence": "He left the crown on the table and walked to the bath house.",
         "question": "What does this action show about Archimedes?",
         "options": [
-          "taking a short break from the problem",
           "bringing the crown back to the king",
+          "taking a short break from the problem",
           "planning to melt the crown at the bath",
           "giving up on the puzzle for good"
         ],
         "optionsZh": [
-          "暫時離開問題休息一下",
           "把王冠帶回給國王",
+          "暫時離開問題休息一下",
           "計畫在澡堂熔掉王冠",
           "永遠放棄謎題了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "把王冠留在桌上，去洗澡——「暫時離開問題休息一下」就是這個動作的意義。",
         "sentenceZh": "他把王冠留在桌上，走向澡堂。",
         "tags": [
@@ -1430,18 +1430,18 @@
         "sentence": "Friends knocked at his door, but he barely heard them — deep in thought.",
         "question": "Which best shows Archimedes?",
         "options": [
-          "🤯 lost in a very hard problem",
-          "😴 taking a long afternoon nap",
           "🎉 dancing with his best friends",
+          "😴 taking a long afternoon nap",
+          "🤯 lost in a very hard problem",
           "🍎 picking fruit from a tall tree"
         ],
         "optionsZh": [
-          "陷在一個超難的問題裡",
-          "睡了一個長長的午覺",
           "和好朋友跳舞",
+          "睡了一個長長的午覺",
+          "陷在一個超難的問題裡",
           "從高樹上摘果子"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "朋友敲門都聽不到——「陷在一個超難的問題裡」那個 🤯 最像他。",
         "sentenceZh": "朋友來敲門，他幾乎沒聽見——全心全意在想事情。",
         "tags": [
@@ -1520,17 +1520,17 @@
         "question": "How did Archimedes get into the tub?",
         "options": [
           "with a fast jump",
-          "with slow careful steps",
+          "with his shoes on",
           "while still asleep",
-          "with his shoes on"
+          "with slow careful steps"
         ],
         "optionsZh": [
           "快速跳進",
-          "慢慢小心地走進",
+          "穿著鞋進",
           "睡著走進",
-          "穿著鞋進"
+          "慢慢小心地走進"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "他慢慢地踏進去，一腳、一腳——「慢慢小心地走進」就是答案。不急，不急。",
         "tags": [
           "story",
@@ -1585,18 +1585,18 @@
         "sentence": "Most people would have called for a cloth to wipe it up.",
         "question": "What did most people do when bath water spilled?",
         "options": [
-          "ignore the water completely",
           "ask for a cloth to wipe it",
+          "ignore the water completely",
           "pour more water in the tub",
           "leave the bath fast"
         ],
         "optionsZh": [
-          "完全不理那些水",
           "找布擦掉",
+          "完全不理那些水",
           "倒更多水進浴缸",
           "快速離開浴缸"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "別人看到地板濕了，當然是叫人來拿布擦——「找布擦掉」就是普通人的反應。",
         "tags": [
           "story",
@@ -1674,17 +1674,17 @@
         "question": "How did his face look?",
         "options": [
           "😴 getting very sleepy",
-          "💡 lit up with an idea",
           "😡 starting to feel mad",
+          "💡 lit up with an idea",
           "😢 feeling a little sad"
         ],
         "optionsZh": [
           "快要睡著了",
-          "靈感亮了起來",
           "開始覺得生氣",
+          "靈感亮了起來",
           "覺得有點難過"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "眼睛亮起來 + 謎題有動靜 → 「靈感亮了起來」！那個 💡 就是他的眼神。",
         "tags": [
           "story",
@@ -1718,18 +1718,18 @@
         "sentence": "Archimedes stepped in slowly, one foot at a time.",
         "question": "Why did he move so slowly?",
         "options": [
-          "the full tub would spill if rushed",
+          "he had hurt his foot outside",
           "he was very angry at the king",
           "the bath water was far too cold",
-          "he had hurt his foot outside"
+          "the full tub would spill if rushed"
         ],
         "optionsZh": [
-          "滿滿的浴缸太急會溢水",
+          "他的腳在外面受傷了",
           "他非常生國王的氣",
           "洗澡水太冷了",
-          "他的腳在外面受傷了"
+          "滿滿的浴缸太急會溢水"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "浴缸裝滿了水——踏進去動作太快水就會溢出。「浴缸滿了，太急水就會溢出來」最合理。",
         "sentenceZh": "阿基米德慢慢踏進去，先踩一隻腳，再踩另一隻腳。",
         "tags": [
@@ -1833,18 +1833,18 @@
         "sentence": "Most people would have ___ for a cloth to wipe it up.",
         "question": "Which word fits the blank?",
         "options": [
-          "called",
           "call",
+          "called",
           "calling",
           "calls"
         ],
         "optionsZh": [
-          "叫（過去分詞，配 would have）",
           "叫（原形）",
+          "叫（過去分詞，配 would have）",
           "叫（現在分詞）",
           "叫（第三人稱單數）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「would have + 過去分詞」是假設語氣完成式——「would have called」才對。",
         "sentenceZh": "大多數人會___人來拿布擦掉。",
         "tags": [
@@ -1885,18 +1885,18 @@
         "sentence": "The water on the floor looked just the size of his body in the tub.",
         "question": "What did Archimedes begin to understand?",
         "options": [
-          "objects push out water equal to their size",
-          "warm water always stays in the tub",
           "gold and silver weigh the same",
+          "warm water always stays in the tub",
+          "objects push out water equal to their size",
           "he simply needed a bigger bath"
         ],
         "optionsZh": [
-          "物體把和自身大小相等的水推出去",
-          "熱水總是留在浴缸裡",
           "金子和銀子一樣重",
+          "熱水總是留在浴缸裡",
+          "物體把和自身大小相等的水推出去",
           "他只需要更大的浴缸"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "溢出的水大小 = 他身體佔的大小——「物體把和自身大小一樣的水推出去」就是他悟到的事。",
         "sentenceZh": "地上那灘水，剛好和他在浴缸裡的身體一樣大。",
         "tags": [
@@ -1915,18 +1915,18 @@
         "sentence": "His tired eyes lit up. The puzzle in his head began to move.",
         "question": "What is about to happen?",
         "options": [
-          "💡 a big idea is coming",
+          "🍔 he is about to eat",
           "🛌 he is going to sleep",
           "😢 he is going to feel sad",
-          "🍔 he is about to eat"
+          "💡 a big idea is coming"
         ],
         "optionsZh": [
-          "一個大點子快來了",
+          "他快要吃東西了",
           "他快要睡著了",
           "他要難過了",
-          "他快要吃東西了"
+          "一個大點子快來了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "眼睛亮了、謎題開始動——「一個大點子快來了」那個 💡 最對！",
         "sentenceZh": "疲倦的眼睛突然亮了，腦袋裡的謎題開始移動了。",
         "tags": [
@@ -2004,18 +2004,18 @@
         "sentence": "Now he knew. Gold and silver have different sizes for the same weight.",
         "question": "What was the secret Archimedes found?",
         "options": [
-          "gold and silver have the same size",
           "same weight can have different size",
+          "gold and silver have the same size",
           "gold floats but silver sinks",
           "silver always weighs more than gold"
         ],
         "optionsZh": [
-          "金和銀大小一樣",
           "相同重量可以有不同大小",
+          "金和銀大小一樣",
           "金浮銀沉",
           "銀總是比金重"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "金和銀，重量相同，但大小不一樣——「相同重量可以有不同大小」就是他發現的秘密。",
         "tags": [
           "story",
@@ -2115,17 +2115,17 @@
         "question": "How did Archimedes feel at this moment?",
         "options": [
           "as quiet and sad as a rainy day",
-          "as happy as solving a long puzzle",
           "as sleepy and slow as a snail",
+          "as happy as solving a long puzzle",
           "as cold and tired as the night"
         ],
         "optionsZh": [
           "像下雨天一樣安靜難過",
-          "像解開長久謎題一樣開心",
           "像蝸牛一樣想睡又慢",
+          "像解開長久謎題一樣開心",
           "像夜晚一樣又冷又累"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "「解開了一個好久的謎題」那種開心——「像解開長久謎題一樣開心」就是他的感受。",
         "tags": [
           "story",
@@ -2159,17 +2159,17 @@
         "question": "\"Eureka\" 的意思是什麼?",
         "options": [
           "💤 I am sleepy",
-          "💡 I have found it",
+          "🍎 I want food",
           "😡 I am angry",
-          "🍎 I want food"
+          "💡 I have found it"
         ],
         "optionsZh": [
           "我想睡",
-          "我找到了!",
+          "我要吃的",
           "我生氣",
-          "我要吃的"
+          "我找到了!"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "「Eureka！」是古希臘文——意思是「我找到了！」這是世界上最有名的一聲大喊。",
         "tags": [
           "story",
@@ -2288,18 +2288,18 @@
         "sentence": "He could put the crown in water and watch the water rise.",
         "question": "What was Archimedes planning to test?",
         "options": [
-          "if the water level shifted with the crown in",
           "how long the crown could stay under water",
+          "if the water level shifted with the crown in",
           "whether hot water was heavier than cold",
           "how to make the crown look brighter"
         ],
         "optionsZh": [
-          "放進王冠後水位會不會移動",
           "王冠能在水下待多久",
+          "放進王冠後水位會不會移動",
           "熱水是不是比冷水重",
           "怎麼讓王冠更亮"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "把王冠放進水，看水位升高多少——「放進王冠後水位會不會改變」就是他的測試計畫。",
         "sentenceZh": "他可以把王冠放進水裡，觀察水位升高。",
         "tags": [
@@ -2318,18 +2318,18 @@
         "sentence": "He felt the kind of happy you feel when a long question finally ___.",
         "question": "Which word fits the blank?",
         "options": [
-          "opens",
-          "opened",
           "opening",
+          "opened",
+          "opens",
           "open"
         ],
         "optionsZh": [
-          "打開（現在式，與整句時態一致）",
-          "打開（過去式）",
           "打開（現在分詞）",
+          "打開（過去式）",
+          "打開（現在式，與整句時態一致）",
           "打開（原形）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "這是描述一種「習慣性感覺」的子句——用現在式「opens」表達一般規律。",
         "sentenceZh": "他感受到那種快樂——一個很久的問題終於___的那種快樂。",
         "tags": [
@@ -2370,18 +2370,18 @@
         "sentence": "He ran to find the king, with his big idea ready to share.",
         "question": "What does this sentence show about Archimedes?",
         "options": [
-          "he was eager to tell the king right away",
+          "he first wanted to write the idea down",
           "he was afraid to face the king",
           "the idea was still not clear enough",
-          "he first wanted to write the idea down"
+          "he was eager to tell the king right away"
         ],
         "optionsZh": [
-          "他迫不及待要馬上告訴國王",
+          "他想先把點子寫下來",
           "他害怕面對國王",
           "點子還不夠清楚",
-          "他想先把點子寫下來"
+          "他迫不及待要馬上告訴國王"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "「ran to find the king」——他跑去找國王，「迫不及待要馬上告訴國王」就是答案。",
         "sentenceZh": "他跑去找國王，心裡裝著大發現，準備分享。",
         "tags": [
@@ -2556,17 +2556,17 @@
         "question": "What did they put next to the crown?",
         "options": [
           "a big shiny copper coin",
-          "pure gold of equal weight",
           "a heavy wooden block",
+          "pure gold of equal weight",
           "a tall glass of warm milk"
         ],
         "optionsZh": [
           "一個亮亮的大銅幣",
-          "一塊重量相同的純金",
           "一塊重重的木頭",
+          "一塊重量相同的純金",
           "一大杯溫牛奶"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他們在王冠旁邊，放了一塊「重量一樣的純金」——這樣才能比出差別。",
         "tags": [
           "story",
@@ -2600,17 +2600,17 @@
         "question": "What did the water do for the pure gold?",
         "options": [
           "ended at the same line",
-          "stopped lower than before",
+          "stayed totally still",
           "dropped down to zero",
-          "stayed totally still"
+          "stopped lower than before"
         ],
         "optionsZh": [
           "升到一樣高",
-          "停在比較低的位置",
+          "完全不動",
           "降到零",
-          "完全不動"
+          "停在比較低的位置"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "放入純金，水位升得比較低——「停在比較低的位置」就是答案。",
         "tags": [
           "story",
@@ -2643,18 +2643,18 @@
         "sentence": "How did the king feel about knowing the truth?",
         "question": "How did the king feel?",
         "options": [
-          "😴 getting very sleepy",
           "🤝 thankful for the answer",
+          "😴 getting very sleepy",
           "🎵 in the mood to sing",
           "😢 feeling a little sad"
         ],
         "optionsZh": [
-          "快要睡著了",
           "感謝得到答案",
+          "快要睡著了",
           "很想唱起歌",
           "覺得有點難過"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "國王終於知道真相了。那種「謝謝你把我心裡的石頭拿走」的感謝 → 「感謝得到答案」。",
         "tags": [
           "story",
@@ -2688,18 +2688,18 @@
         "sentence": "He told the king his plan in clear, simple words.",
         "question": "How did Archimedes communicate his plan?",
         "options": [
-          "in short words everyone could follow",
           "only by drawing shapes on paper",
+          "in short words everyone could follow",
           "by pointing but not speaking",
           "in very long sentences with big words"
         ],
         "optionsZh": [
-          "用大家都能懂的短話",
           "只用在紙上畫圖",
+          "用大家都能懂的短話",
           "比手勢但不說話",
           "用很長又大詞的句子"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「clear, simple words」——清楚簡單，「用大家都能懂的短話」就是答案。",
         "sentenceZh": "他用清楚簡單的話，把計畫告訴了國王。",
         "tags": [
@@ -2773,18 +2773,18 @@
         "sentence": "The two amounts of water were not the same. The crown was not pure gold.",
         "question": "What did the water test prove?",
         "options": [
-          "the crown had other metal mixed in",
-          "the crown was made of pure gold",
           "water and silver weigh the same",
+          "the crown was made of pure gold",
+          "the crown had other metal mixed in",
           "the bowl was the wrong size"
         ],
         "optionsZh": [
-          "王冠裡摻了其他金屬",
-          "王冠是純金做的",
           "水和銀一樣重",
+          "王冠是純金做的",
+          "王冠裡摻了其他金屬",
           "碗的大小不對"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "水位不一樣高，代表王冠不是純金——「王冠裡摻了其他金屬」就是測試結果。",
         "sentenceZh": "兩次水量不一樣，代表王冠不是純金。",
         "tags": [
@@ -2803,18 +2803,18 @@
         "sentence": "They ___ the crown in the bowl first, then they put in the pure gold.",
         "question": "Which word fits the blank?",
         "options": [
-          "put",
+          "to put",
           "puts",
           "putting",
-          "to put"
+          "put"
         ],
         "optionsZh": [
-          "放（過去式）",
+          "放（不定詞）",
           "放（第三人稱單數現在式）",
           "放（現在分詞）",
-          "放（不定詞）"
+          "放（過去式）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "整段在描述過去的實驗步驟——用過去式「put」（put 的過去式同型）。",
         "sentenceZh": "他們___先把王冠放進碗裡，然後再放進純金。",
         "tags": [
@@ -2885,18 +2885,18 @@
         "sentence": "The water levels were different. The truth was now clear.",
         "question": "Which best shows the outcome?",
         "options": [
-          "🔍 the mystery is solved",
           "❓ still nobody knows",
+          "🔍 the mystery is solved",
           "🛌 everyone goes to sleep",
           "🎵 time to sing a song"
         ],
         "optionsZh": [
-          "謎底揭開了",
           "還是沒人知道",
+          "謎底揭開了",
           "大家去睡覺",
           "是時候唱歌了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "水位不同，真相大白——「謎底揭開了」，那個 🔍 最像這個時刻。",
         "sentenceZh": "水位不同，真相現在清楚了。",
         "tags": [
@@ -2975,17 +2975,17 @@
         "question": "What happened to the rule from the bath?",
         "options": [
           "it was forgotten the next day",
-          "it is still used by people today",
           "only the king kept it safe",
+          "it is still used by people today",
           "it was hidden away in secret"
         ],
         "optionsZh": [
           "第二天就忘了",
-          "人們今天還在用",
           "只有國王安全收著",
+          "人們今天還在用",
           "被當秘密藏起來"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "那次洗澡得到的發現，變成了永遠的科學法則——「今天還在用」就是答案，不是只有那個時代用。",
         "tags": [
           "story",
@@ -3041,17 +3041,17 @@
         "question": "Where did the big idea come from?",
         "options": [
           "a magic spell from an old wizard",
-          "careful watching of a small thing",
+          "a long dream during his noon rest",
           "an old thick book full of numbers",
-          "a long dream during his noon rest"
+          "careful watching of a small thing"
         ],
         "optionsZh": [
           "老巫師的一個魔法",
-          "仔細觀察一件小事",
+          "午休時做的一個長夢",
           "一本寫滿數字的厚舊書",
-          "午休時做的一個長夢"
+          "仔細觀察一件小事"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "大點子來自仔細觀察一件小事——「仔細觀察一件小事」就是答案。水溢出來這件事，別人都忽略了。",
         "tags": [
           "story",
@@ -3084,18 +3084,18 @@
         "sentence": "A bath, a bowl, a puddle — anywhere can be a tiny science lab.",
         "question": "Where can a small science lesson happen?",
         "options": [
-          "only in big school rooms",
-          "only in a king's palace",
           "in small everyday places",
+          "only in a king's palace",
+          "only in big school rooms",
           "only at night-time"
         ],
         "optionsZh": [
-          "只有在大學校",
-          "只有在國王皇宮",
           "在日常的小地方",
+          "只有在國王皇宮",
+          "只有在大學校",
           "只有晚上"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanationZh": "浴缸、碗、水坑——到處都可以當小小的科學實驗室。「在日常的小地方」就是答案。",
         "tags": [
           "story",
@@ -3128,18 +3128,18 @@
         "sentence": "What is the main lesson from Archimedes?",
         "question": "What does the story teach?",
         "options": [
-          "👀 watch small things closely",
           "💰 buy more gold every day",
+          "👀 watch small things closely",
           "🏃 run as fast as you can",
           "🍔 eat a big meal every night"
         ],
         "optionsZh": [
-          "仔細觀察小事",
           "每天買更多金子",
+          "仔細觀察小事",
           "盡全力跑很快",
           "每晚吃一頓大餐"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "仔細觀察小事 → 發現大道理。這就是故事教我們的事！「仔細觀察小事」是答案。",
         "tags": [
           "story",
@@ -3173,18 +3173,18 @@
         "sentence": "The rule from that bath became part of science forever.",
         "question": "What happened to the discovery from the bath?",
         "options": [
-          "it became a lasting scientific rule",
-          "only Archimedes kept it to himself",
           "it was lost after he left the palace",
+          "only Archimedes kept it to himself",
+          "it became a lasting scientific rule",
           "the king stored it away in secret"
         ],
         "optionsZh": [
-          "它變成了永久的科學法則",
-          "只有阿基米德自己知道",
           "他離開宮殿後就失傳了",
+          "只有阿基米德自己知道",
+          "它變成了永久的科學法則",
           "國王把它藏起來當秘密"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "「became part of science forever」——「變成了永久的科學法則」就是答案。",
         "sentenceZh": "那次洗澡得出的定律，永遠成為科學的一部分。",
         "tags": [
@@ -3258,18 +3258,18 @@
         "sentence": "And every kid who tries an idea in the bath is a little like him.",
         "question": "What point does the narrator make here?",
         "options": [
-          "curious children share a spirit with Archimedes",
+          "children should study harder than adults",
           "only scientists can follow his example",
           "baths always lead to great ideas",
-          "children should study harder than adults"
+          "curious children share a spirit with Archimedes"
         ],
         "optionsZh": [
-          "好奇的孩子和阿基米德有相同的精神",
+          "孩子應該比大人更努力讀書",
           "只有科學家才能效法他",
           "洗澡總是帶來好點子",
-          "孩子應該比大人更努力讀書"
+          "好奇的孩子和阿基米德有相同的精神"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "每個在浴缸裡試點子的小孩——「好奇的孩子和阿基米德有相同的精神」就是這句話的意思。",
         "sentenceZh": "每個在浴缸裡試點子的小孩，都有一點像阿基米德。",
         "tags": [
@@ -3340,18 +3340,18 @@
         "sentence": "A bath, a bowl, a puddle — anywhere can be a tiny science lab.",
         "question": "What lesson does this sentence teach?",
         "options": [
-          "science happens in ordinary everyday places",
           "only big schools have real labs",
+          "science happens in ordinary everyday places",
           "water is the only tool for science",
           "labs must have expensive equipment"
         ],
         "optionsZh": [
-          "科學就發生在日常的普通地方",
           "只有大學才有真正的實驗室",
+          "科學就發生在日常的普通地方",
           "水是唯一的科學工具",
           "實驗室必須有昂貴的設備"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "浴缸、水盆、水坑——「科學就發生在日常的普通地方」就是這句話要教的道理。",
         "sentenceZh": "浴缸、水盆、水坑——任何地方都可以是小小的科學實驗室。",
         "tags": [
@@ -3370,18 +3370,18 @@
         "sentence": "What small thing did you notice today? It might be the start of a big idea.",
         "question": "What quality did Archimedes have?",
         "options": [
-          "🔭 a sharp eye for small details",
-          "💰 a love of gold and money",
           "🏃 speed and great strength",
+          "💰 a love of gold and money",
+          "🔭 a sharp eye for small details",
           "🎵 a talent for singing songs"
         ],
         "optionsZh": [
-          "對小細節敏銳的眼力",
-          "對金子和錢的熱愛",
           "速度和強大力量",
+          "對金子和錢的熱愛",
+          "對小細節敏銳的眼力",
           "唱歌的才能"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "注意到水溢出這件小事——「對小細節敏銳的眼力」就是他最大的本事！那個 🔭 最像他。",
         "sentenceZh": "你今天注意到什麼小事了嗎？也許那是一個大點子的起點。",
         "tags": [

@@ -136,16 +136,16 @@
         "options": [
           "four",
           "five",
-          "six",
-          "seven"
+          "seven",
+          "six"
         ],
         "optionsZh": [
           "四個",
           "五個",
-          "六個",
-          "七個"
+          "七個",
+          "六個"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanationZh": "七個孩子裡，六個是男孩——所以國王有「六個」男孩。",
         "tags": [
           "story",
@@ -164,18 +164,18 @@
         "sentence": "The boys ran along the river bank and threw small stones to splash.",
         "question": "Where did the boys play?",
         "options": [
-          "in the garden",
           "by the water",
+          "in the garden",
           "in the tower",
           "on the road"
         ],
         "optionsZh": [
-          "在花園裡",
           "在河邊",
+          "在花園裡",
           "在塔樓上",
           "在路上"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "你看，男孩們在河岸邊玩——河岸嘛，就是「在河邊」。",
         "tags": [
           "story",
@@ -293,17 +293,17 @@
         "question": "What did the boys do by the river?",
         "options": [
           "catching fish",
-          "throwing stones",
+          "washing clothes",
           "building a boat",
-          "washing clothes"
+          "throwing stones"
         ],
         "optionsZh": [
           "捉魚",
-          "丟石頭",
+          "洗衣服",
           "建船",
-          "洗衣服"
+          "丟石頭"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "故事說孩子們沿河邊丟石頭——是「丟石頭」。",
         "tags": [
           "story",
@@ -322,18 +322,18 @@
         "sentence": "The king walked the long halls at night and could not find sleep.",
         "question": "How did the king feel at night?",
         "options": [
-          "joyful and light",
           "sleepless and sad",
+          "joyful and light",
           "angry and loud",
           "busy and excited"
         ],
         "optionsZh": [
-          "開心又輕鬆",
           "睡不著、心裡難過",
+          "開心又輕鬆",
           "生氣又大聲",
           "忙碌又興奮"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "深夜裡一個人踱步睡不著——心裡有多苦，只有他自己知道。選「睡不著、心裡難過」。",
         "tags": [
           "story",
@@ -352,18 +352,18 @@
         "sentence": "A quiet castle, six brothers, one sister, and a father who walked alone at night.",
         "question": "What is this scene mainly about?",
         "options": [
-          "family without a mother",
           "learning to ride a horse",
+          "family without a mother",
           "planning a royal wedding",
           "going on a forest hunt"
         ],
         "optionsZh": [
-          "沒有母親的家庭",
           "學騎馬",
+          "沒有母親的家庭",
           "籌備皇室婚禮",
           "去森林打獵"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "這一段說的，就是一個少了媽媽的家庭——空椅子、沉默的父親，都是這個意思。",
         "tags": [
           "story",
@@ -422,17 +422,17 @@
         "imageEmoji": "🌙",
         "options": [
           "hungry and could not sleep",
-          "missing his wife deeply",
           "hearing a strange sound",
+          "missing his wife deeply",
           "looking for the children"
         ],
         "optionsZh": [
           "餓到睡不著",
-          "非常想念妻子",
           "聽到奇怪的聲音",
+          "非常想念妻子",
           "在找孩子們"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "長廊裡走來走去，睡不著——因為「非常想念妻子」。",
         "tags": [
           "story",
@@ -453,17 +453,17 @@
         "question": "What does the empty seat show?",
         "options": [
           "a broken old chair",
-          "where his wife used to sit",
+          "where the children played",
           "a seat for a guest",
-          "where the children played"
+          "where his wife used to sit"
         ],
         "optionsZh": [
           "一把壞掉的舊椅子",
-          "妻子以前坐的位置",
+          "孩子們玩耍的地方",
           "給客人的座位",
-          "孩子們玩耍的地方"
+          "妻子以前坐的位置"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "妻子的椅子空著——那就是「妻子以前坐的位置」。",
         "tags": [
           "story",
@@ -632,18 +632,18 @@
         "sentenceZh": "國王娶了一個新王后，她從遙遠又寒冷的地方來。",
         "question": "Where did the new queen come from?",
         "options": [
-          "a warm nearby town",
           "a distant cold land",
+          "a warm nearby town",
           "the same castle",
           "a village close by"
         ],
         "optionsZh": [
-          "附近溫暖的城鎮",
           "遙遠寒冷的地方",
+          "附近溫暖的城鎮",
           "同一座城堡",
           "附近的村莊"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "她從遠方寒冷的地方來——就是「遙遠寒冷的地方」。",
         "tags": [
           "story",
@@ -663,17 +663,17 @@
         "question": "When did the queen do the sewing?",
         "options": [
           "at noon each day",
-          "in the morning",
           "while others slept",
+          "in the morning",
           "just after sunset"
         ],
         "optionsZh": [
           "每天中午",
-          "早晨",
           "大家睡著的時候",
+          "早晨",
           "日落之後"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanationZh": "城堡裡的人都睡了，她才開始縫——是「大家睡著的時候」。",
         "tags": [
           "story",
@@ -790,18 +790,18 @@
         "sentenceZh": "她的針快速地穿進穿出，城堡裡其他人都睡著了。",
         "question": "Why did she sew while others slept?",
         "options": [
-          "too cold to sleep",
           "hiding what she was doing",
+          "too cold to sleep",
           "fond of sewing at night",
           "asked by the king"
         ],
         "optionsZh": [
-          "太冷睡不著",
           "在隱瞞她在做的事",
+          "太冷睡不著",
           "喜歡夜裡縫衣",
           "國王要求她縫"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "深夜偷偷縫——她「在隱瞞她在做的事」。",
         "tags": [
           "story",
@@ -850,18 +850,18 @@
         "sentence": "There were six brothers. There were six shirts. She had made them in secret.",
         "question": "Why did she make only six shirts?",
         "options": [
-          "for the six brothers",
-          "to keep them warm",
           "for the king",
+          "to keep them warm",
+          "for the six brothers",
           "to sell at the market"
         ],
         "optionsZh": [
-          "給六個哥哥",
-          "為了保暖",
           "給國王",
+          "為了保暖",
+          "給六個哥哥",
           "拿去市場賣"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "六個哥哥加上六件衣服，不用猜——就是「給六個哥哥」的。",
         "tags": [
           "story",
@@ -919,17 +919,17 @@
         "imageEmoji": "👀",
         "options": [
           "too tired from work",
-          "cold toward the children",
+          "afraid of the children",
           "looking for something lost",
-          "afraid of the children"
+          "cold toward the children"
         ],
         "optionsZh": [
           "太累了",
-          "對孩子們冷漠",
+          "怕孩子們",
           "在找遺失的東西",
-          "怕孩子們"
+          "對孩子們冷漠"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "眼神平淡——她「對孩子們冷漠」。",
         "tags": [
           "story",
@@ -949,18 +949,18 @@
         "sentenceZh": "她趁著黑夜，把六件衣服帶進男孩們的房間。",
         "question": "What was the new queen planning to do?",
         "options": [
-          "bring them an unexpected gift",
           "curse them with magic",
+          "bring them an unexpected gift",
           "put them to sleep",
           "show the king her finished work"
         ],
         "optionsZh": [
-          "給他們一份意外的禮物",
           "用魔法詛咒他們",
+          "給他們一份意外的禮物",
           "讓他們去睡覺",
           "給國王看她的成品"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "拿著妖術衣服去男孩房——是為了「用魔法詛咒他們」。",
         "tags": [
           "story",
@@ -1160,17 +1160,17 @@
         "question": "How did the swans leave?",
         "options": [
           "through the door",
-          "past the window pane",
           "down the stairs",
+          "past the window pane",
           "into the deep well"
         ],
         "optionsZh": [
           "穿過門",
-          "穿過窗戶玻璃",
           "走下樓梯",
+          "穿過窗戶玻璃",
           "鑽進深井"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他們飛出「打開的玻璃窗」——就是「穿過窗戶玻璃」飛走的。",
         "tags": [
           "story",
@@ -1190,17 +1190,17 @@
         "question": "Where did the swans fly into?",
         "options": [
           "the sunny sky",
-          "the moonlit sky",
+          "the deep sea",
           "a dark cave",
-          "the deep sea"
+          "the moonlit sky"
         ],
         "optionsZh": [
           "晴朗的天空",
-          "月光下的夜空",
+          "深深的大海",
           "黑暗的洞穴",
-          "深深的大海"
+          "月光下的夜空"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "夜裡淡淡的光，那就是月光——他們飛入「月光下的夜空」。",
         "tags": [
           "story",
@@ -1241,18 +1241,18 @@
         "sentence": "What did the boys turn into?",
         "question": "What did the boys turn into?",
         "options": [
-          "🐺 wolves",
           "🐦 swans",
+          "🐺 wolves",
           "🦅 eagles",
           "🐭 mice"
         ],
         "optionsZh": [
-          "狼",
           "天鵝",
+          "狼",
           "老鷹",
           "老鼠"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "六隻白色的鳥從房間飛走——男孩們變成了「天鵝」！",
         "tags": [
           "story",
@@ -1318,17 +1318,17 @@
         "question": "What did the girl see in the room?",
         "options": [
           "her brothers asleep",
-          "six empty beds",
           "a pile of toys",
+          "six empty beds",
           "her mother's chair"
         ],
         "optionsZh": [
           "哥哥們在睡覺",
-          "六張空床",
           "一堆玩具",
+          "六張空床",
           "媽媽的椅子"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "床鋪平整，沒人睡過——她看到的是「六張空床」。",
         "tags": [
           "story",
@@ -1347,18 +1347,18 @@
         "sentence": "Her hands grew cold. The empty beds said one thing — her brothers were gone.",
         "question": "How did the girl feel?",
         "options": [
-          "surprised and afraid",
+          "sleepy and warm",
           "tired and bored",
           "angry and proud",
-          "sleepy and warm"
+          "surprised and afraid"
         ],
         "optionsZh": [
-          "又驚又怕",
+          "想睡又暖和",
           "累了又無聊",
           "生氣又得意",
-          "想睡又暖和"
+          "又驚又怕"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "手都冷掉了——心裡的害怕就是這樣跑出來的。是「又驚又怕」。",
         "tags": [
           "story",
@@ -1378,18 +1378,18 @@
         "sentenceZh": "六張小床整整齊齊，平平靜靜，沒有人在裡面睡過。",
         "question": "What does the sight of the empty beds tell the girl?",
         "options": [
-          "gone for a walk outside",
           "the brothers disappeared",
+          "gone for a walk outside",
           "downstairs in the hall",
           "moved to new rooms"
         ],
         "optionsZh": [
-          "出去散步了",
           "哥哥們不見了",
+          "出去散步了",
           "在樓下大廳",
           "搬去新房間了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "六張床空著、沒人睡過——「哥哥們不見了」。",
         "tags": [
           "story",
@@ -1478,17 +1478,17 @@
         "question": "What is this scene mainly showing?",
         "options": [
           "a peaceful night in the castle",
-          "the new queen's evil magic working",
           "the king going on a journey",
+          "the new queen's evil magic working",
           "the sister learning to fly"
         ],
         "optionsZh": [
           "城堡裡平靜的夜晚",
-          "新王后的邪惡魔法奏效了",
           "國王出發去旅行",
+          "新王后的邪惡魔法奏效了",
           "妹妹在學飛"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "魔法衣服讓男孩們變成天鵝飛走——「新王后的邪惡魔法奏效了」。",
         "tags": [
           "story",
@@ -1636,17 +1636,17 @@
         "question": "Why did the sister walk into the forest?",
         "options": [
           "lost in the dark wood",
-          "searching for her brothers",
+          "running from the king",
           "wanting to pick flowers",
-          "running from the king"
+          "searching for her brothers"
         ],
         "optionsZh": [
           "在黑暗森林裡迷路了",
-          "在尋找她的哥哥們",
+          "在逃離國王",
           "想去摘花",
-          "在逃離國王"
+          "在尋找她的哥哥們"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "走進深黑森林——她是為了「尋找她的哥哥們」。",
         "tags": [
           "story",
@@ -1665,18 +1665,18 @@
         "sentence": "By day they wore feathers and flew. For one short hour each night, they were boys again.",
         "question": "When could the brothers be boys?",
         "options": [
-          "all day and night",
-          "only at sunrise",
           "briefly after dark",
+          "only at sunrise",
+          "all day and night",
           "never ever again"
         ],
         "optionsZh": [
-          "整天整夜都可以",
-          "只有日出的時候",
           "天黑後短短一段時間",
+          "只有日出的時候",
+          "整天整夜都可以",
           "再也變不回來了"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanationZh": "夜裡只有短短一小時是男孩——就是「天黑後短短一段時間」。",
         "tags": [
           "story",
@@ -1696,17 +1696,17 @@
         "question": "What did she need to do to save them?",
         "options": [
           "fight the old queen",
-          "say six magic words",
           "make clothes from petals",
+          "say six magic words",
           "weave cloth from river water"
         ],
         "optionsZh": [
           "打敗老王后",
-          "說六個魔法字",
           "用花做成衣服",
+          "說六個魔法字",
           "用河水織布"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanationZh": "用花縫衣服——就是「用花做成衣服」，這樣才能解開魔咒。",
         "tags": [
           "story",
@@ -1747,18 +1747,18 @@
         "sentence": "What did she sew the shirts from?",
         "question": "What was the shirt material?",
         "options": [
-          "🌸 a flower",
-          "🪨 a stone",
           "🐑 old wool",
+          "🪨 a stone",
+          "🌸 a flower",
           "🌿 grass"
         ],
         "optionsZh": [
-          "花",
-          "石頭",
           "舊羊毛",
+          "石頭",
+          "花",
           "草"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "用那種尖尖的白色花朵——材料就是「花」。",
         "tags": [
           "story",
@@ -1794,17 +1794,17 @@
         "question": "What was the condition to break the spell?",
         "options": [
           "sing a special song each night",
-          "sew six shirts from white flowers",
+          "fight the old evil queen",
           "find a magic golden key",
-          "fight the old evil queen"
+          "sew six shirts from white flowers"
         ],
         "optionsZh": [
           "每晚唱特別的歌",
-          "用白花縫六件衣服",
+          "和邪惡老王后對戰",
           "找到一把魔法金鑰匙",
-          "和邪惡老王后對戰"
+          "用白花縫六件衣服"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "用尖白花縫六件衣服——就是「用白花縫六件衣服」。",
         "tags": [
           "story",
@@ -1823,18 +1823,18 @@
         "sentence": "No word would leave her lips, not in pain, not in joy, not for help.",
         "question": "What rule did she have to follow?",
         "options": [
-          "eat no food",
-          "sleep alone",
           "stay silent",
+          "sleep alone",
+          "eat no food",
           "walk barefoot"
         ],
         "optionsZh": [
-          "不能吃東西",
-          "一個人睡",
           "保持沉默",
+          "一個人睡",
+          "不能吃東西",
           "光腳走路"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "explanationZh": "痛了不能說、開心了不能笑、需要幫忙也不能喊——這就是「保持沉默」。",
         "tags": [
           "story",
@@ -1853,18 +1853,18 @@
         "sentence": "A small flower, a silent girl, and six years that would feel like a long cold winter.",
         "question": "What is this scene mainly showing?",
         "options": [
-          "quiet hard work to save her brothers",
           "happy days in the forest",
+          "quiet hard work to save her brothers",
           "learning to dance with friends",
           "fighting the angry queen"
         ],
         "optionsZh": [
-          "安靜地辛苦救哥哥",
           "在森林裡快樂生活",
+          "安靜地辛苦救哥哥",
           "跟朋友學跳舞",
           "跟王后打架"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "沉默、縫衣、一個人堅持——這整段就是在說她「安靜地辛苦救哥哥」。",
         "tags": [
           "story",
@@ -1954,17 +1954,17 @@
         "question": "What do her silence and hard work show about her?",
         "options": [
           "bored and restless",
-          "driven by love for them",
+          "angry at her brothers",
           "forgetting why she sewed",
-          "angry at her brothers"
+          "driven by love for them"
         ],
         "optionsZh": [
           "無聊又坐不住",
-          "出於對他們的愛",
+          "對哥哥們生氣",
           "忘了為什麼要縫",
-          "對哥哥們生氣"
+          "出於對他們的愛"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "縫了又縫、夜越來越長，她還是沒放棄——出於「對他們的愛」。",
         "tags": [
           "story",
@@ -2133,18 +2133,18 @@
         "sentenceZh": "一個年輕的國王，在涼涼的灰色早晨，騎著馬穿越森林。",
         "question": "What was the young king doing when he found the girl?",
         "options": [
-          "hunting wild animals",
           "riding through the forest",
+          "hunting wild animals",
           "building a new castle",
           "searching for treasure"
         ],
         "optionsZh": [
-          "打野獸",
           "騎馬穿越森林",
+          "打野獸",
           "建新城堡",
           "在找寶藏"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "年輕國王騎馬穿越森林——就是「騎馬穿越森林」。",
         "tags": [
           "story",
@@ -2245,18 +2245,18 @@
         "sentence": "What was always in her hands?",
         "question": "What was in her hands?",
         "options": [
-          "🪡 a needle",
+          "📖 a book",
           "🗡️ a knife",
           "🪞 a mirror",
-          "📖 a book"
+          "🪡 a needle"
         ],
         "optionsZh": [
-          "針",
+          "書",
           "刀",
           "鏡子",
-          "書"
+          "針"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "無論白天黑夜，手裡都握著那根「針」，縫啊縫。",
         "tags": [
           "story",
@@ -2291,18 +2291,18 @@
         "sentenceZh": "一個年輕的國王在涼涼的灰色早晨騎馬穿越森林。",
         "question": "Which word is correct?",
         "options": [
-          "ride",
           "rode",
+          "ride",
           "riding",
           "rided"
         ],
         "optionsZh": [
-          "ride（原形）",
           "rode（過去式）",
+          "ride（原形）",
           "riding（進行式）",
           "rided（不是字）"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "這是過去的事，ride 的過去式是 rode（不規則動詞），記住了！",
         "tags": [
           "story",
@@ -2352,17 +2352,17 @@
         "question": "Why did she keep sewing in silence?",
         "options": [
           "she liked to make clothes",
-          "to save her six brothers",
           "because the king ordered it",
+          "to save her six brothers",
           "to win a prize"
         ],
         "optionsZh": [
           "她喜歡做衣服",
-          "為了救六個哥哥",
           "因為國王命令",
+          "為了救六個哥哥",
           "為了拿獎"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "衣服還沒縫完——六個哥哥還在等她。她不停，是「為了救六個哥哥」。",
         "tags": [
           "story",
@@ -2383,17 +2383,17 @@
         "question": "What did the young king do for the silent girl?",
         "options": [
           "locked her in a tower",
-          "married her and made her queen",
+          "gave her a horse to ride away",
           "sent her to another castle",
-          "gave her a horse to ride away"
+          "married her and made her queen"
         ],
         "optionsZh": [
           "把她關在塔樓裡",
-          "娶她、讓她成為女王",
+          "給她一匹馬讓她騎走",
           "送她去另一個城堡",
-          "給她一匹馬讓她騎走"
+          "娶她、讓她成為女王"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "給戒指、讓她當大廳女主人——他「娶她、讓她成為女王」。",
         "tags": [
           "story",
@@ -2450,18 +2450,18 @@
         "question": "What was the king's mother doing to the bride?",
         "imageEmoji": "😤",
         "options": [
-          "helping her to sew",
           "spreading lies about her",
+          "helping her to sew",
           "bringing food to her",
           "teaching her new songs"
         ],
         "optionsZh": [
-          "幫她縫衣服",
           "散播關於她的謊言",
+          "幫她縫衣服",
           "給她帶食物",
           "教她新歌"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "每天低聲說壞話——是「散播關於她的謊言」。",
         "tags": [
           "story",
@@ -2640,17 +2640,17 @@
         "question": "What happened in the castle?",
         "options": [
           "a big feast was held",
-          "the bride had a new baby",
           "six swans came back",
+          "the bride had a new baby",
           "the king left for war"
         ],
         "optionsZh": [
           "準備了盛大的宴席",
-          "新娘生了一個寶寶",
           "六隻天鵝回來了",
+          "新娘生了一個寶寶",
           "國王出征打仗"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "新娘生了軟嫩嫩的小寶寶——就是「新娘生了一個寶寶」。",
         "tags": [
           "story",
@@ -2671,16 +2671,16 @@
         "options": [
           "fell into sickness",
           "loved every baby",
-          "harmed her own child",
-          "ran far from home"
+          "ran far from home",
+          "harmed her own child"
         ],
         "optionsZh": [
           "說新娘病了",
           "說新娘愛每個嬰兒",
-          "說新娘傷害自己孩子",
-          "說新娘逃跑了"
+          "說新娘逃跑了",
+          "說新娘傷害自己孩子"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanationZh": "她說的是「新娘傷害了自己的孩子」——這是謊言，嬰兒其實是被她藏起來的。",
         "tags": [
           "story",
@@ -2699,18 +2699,18 @@
         "sentence": "The bride heard the lie, but no word came from her lips.",
         "question": "Why did the bride not speak back?",
         "options": [
-          "her ears could not hear",
           "her promise kept her quiet",
+          "her ears could not hear",
           "agreeing with the queen",
           "fast asleep in bed"
         ],
         "optionsZh": [
-          "耳朵聽不到",
           "因為承諾，她必須沉默",
+          "耳朵聽不到",
           "她同意王后說的",
           "她睡著了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "衣服還沒縫完，她不能開口——是「因為承諾，她必須沉默」。",
         "tags": [
           "story",
@@ -2798,17 +2798,17 @@
         "question": "Was this statement true?",
         "options": [
           "yes, the bride did it",
-          "no, it was a lie",
           "no one knows",
+          "no, it was a lie",
           "the king decided"
         ],
         "optionsZh": [
           "是真的，是新娘做的",
-          "不，這是謊言",
           "沒有人知道",
+          "不，這是謊言",
           "由國王決定"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "是老王后自己偷走了嬰兒——她說的話「是謊言」，責任在她自己。",
         "tags": [
           "story",
@@ -2829,16 +2829,16 @@
         "options": [
           "a baby",
           "a pair",
-          "a trio",
-          "four"
+          "four",
+          "a trio"
         ],
         "optionsZh": [
           "一個寶寶",
           "兩個",
-          "三個",
-          "四個"
+          "四個",
+          "三個"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "explanationZh": "一次、兩次、第三次——總共「三個」孩子就這樣不見了。",
         "tags": [
           "story",
@@ -2857,18 +2857,18 @@
         "sentence": "Three lost children, one quiet bride, six unfinished shirts, and a fire in the yard.",
         "question": "What is this scene mainly about?",
         "options": [
-          "one happy wedding day",
           "silent woman facing flames",
+          "one happy wedding day",
           "hunting down a thief",
           "royal feast in the hall"
         ],
         "optionsZh": [
-          "快樂的婚禮",
           "沉默女人面對火焰",
+          "快樂的婚禮",
           "抓小偷",
           "大廳裡的宴會"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "三個孩子不見了，謊言堆疊，火堆已經搭好——這段在說「沉默女人面對火焰」的故事。",
         "tags": [
           "story",
@@ -2958,17 +2958,17 @@
         "question": "What was the fire in the yard built for?",
         "options": [
           "warming the cold castle",
-          "punishing the innocent bride",
           "cooking a big feast",
+          "punishing the innocent bride",
           "scaring away the wolves"
         ],
         "optionsZh": [
           "讓城堡暖和",
-          "懲罰清白的新娘",
           "煮一頓大餐",
+          "懲罰清白的新娘",
           "嚇走狼群"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "火刑柱就是「懲罰清白的新娘」——老王后設下的陷阱。",
         "tags": [
           "story",
@@ -3138,17 +3138,17 @@
         "question": "When did the swans arrive?",
         "options": [
           "at midnight sharp",
-          "at noon in time",
+          "at sunset that day",
           "next morning early",
-          "at sunset that day"
+          "at noon in time"
         ],
         "optionsZh": [
           "午夜整點",
-          "正午及時",
+          "那天日落",
           "隔天清早",
-          "那天日落"
+          "正午及時"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "六隻天鵝剛好及時飛下來——在「正午及時」趕到。",
         "tags": [
           "story",
@@ -3167,18 +3167,18 @@
         "sentence": "She lifted the small white shirts and threw one over each bird.",
         "question": "What did she do with the shirts?",
         "options": [
-          "put them in a box",
           "threw one on each swan",
+          "put them in a box",
           "gave them to the king",
           "burned them in the fire"
         ],
         "optionsZh": [
-          "放進盒子裡",
           "每隻天鵝丟一件",
+          "放進盒子裡",
           "交給國王",
           "燒掉"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "一隻天鵝一件衣——就是「每隻天鵝丟一件」。",
         "tags": [
           "story",
@@ -3250,17 +3250,17 @@
         "question": "When did they end?",
         "options": [
           "🌅 dawn",
-          "🌞 noon",
           "🌇 sunset",
+          "🌞 noon",
           "🌙 midnight"
         ],
         "optionsZh": [
           "黎明",
-          "正午",
           "日落",
+          "正午",
           "午夜"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "太陽爬到最高的時候——那就是「正午」，六年的沉默，在正午劃下句點。",
         "tags": [
           "story",
@@ -3296,17 +3296,17 @@
         "question": "What does this scene show?",
         "options": [
           "all brothers escaped the castle",
-          "the spell was finally broken",
+          "every shirt was too small",
           "all the swans flew off again",
-          "every shirt was too small"
+          "the spell was finally broken"
         ],
         "optionsZh": [
           "哥哥們全都逃出城堡",
-          "魔咒終於解除了",
+          "每件衣服都太小了",
           "天鵝們又飛走了",
-          "每件衣服都太小了"
+          "魔咒終於解除了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "白羽毛掉落、哥哥們站在院子裡——「魔咒終於解除了」。",
         "tags": [
           "story",
@@ -3424,17 +3424,17 @@
         "imageEmoji": "🗣️",
         "options": [
           "ran far away into the woods",
-          "told the truth at last",
           "wept in silence",
+          "told the truth at last",
           "left alone"
         ],
         "optionsZh": [
           "跑進森林深處",
-          "終於說出真相",
           "默默地哭",
+          "終於說出真相",
           "獨自離開"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "沉默六年，最後說出真相——「終於說出真相」。",
         "tags": [
           "story",
@@ -3455,17 +3455,17 @@
         "question": "What does 'the fire went cold' suggest?",
         "options": [
           "winter arrived",
-          "the danger was over",
+          "the wood was wet",
           "someone put it out",
-          "the wood was wet"
+          "the danger was over"
         ],
         "optionsZh": [
           "冬天來了",
-          "危險結束了",
+          "柴火是濕的",
           "有人把它澆熄",
-          "柴火是濕的"
+          "危險結束了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "真相說出來了、火冷了——這是說「危險結束了」，故事走向了結局。",
         "tags": [
           "story",

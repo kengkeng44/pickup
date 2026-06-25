@@ -114,18 +114,18 @@
         "sentence": "Every market day, Robin shared his coins with anyone who looked hungry or sick.",
         "question": "How did Robin treat the poor on market day?",
         "options": [
-          "he kept all coins for himself",
           "he gave money to those in need",
+          "he kept all coins for himself",
           "he sold them old shoes",
           "he scared them away from town"
         ],
         "optionsZh": [
-          "他自己留下所有錢",
           "他把錢給有需要的人",
+          "他自己留下所有錢",
           "他賣他們舊鞋",
           "他把他們從鎮上嚇走"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "市集的日子，他把錢分給肚子餓、生病的人——「他把錢給有需要的人」就是答案。",
         "tags": [
           "story",
@@ -203,17 +203,17 @@
         "question": "How did the people feel?",
         "options": [
           "😀 safe and happy",
-          "😨 afraid of him",
           "😴 just very sleepy now",
+          "😨 afraid of him",
           "🤩 proud of him"
         ],
         "optionsZh": [
           "安全又開心",
-          "怕他",
           "現在只是想睡",
+          "怕他",
           "以他為榮"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "壞國王臉冷眼冷 → 人民當然「怕他」。那個 😨 就是大家的感受。",
         "tags": [
           "story",
@@ -247,18 +247,18 @@
         "sentence": "Long ago in England, a young man named Robin Hood lived in a small village.",
         "question": "Where did Robin Hood live?",
         "options": [
-          "a small English village long ago",
+          "the king's stone castle",
           "a big city near the sea",
           "alone deep in a forest",
-          "the king's stone castle"
+          "a small English village long ago"
         ],
         "optionsZh": [
-          "很久以前英格蘭的小村莊",
+          "國王的石頭城堡",
           "海邊的大城市",
           "一個人住在森林深處",
-          "國王的石頭城堡"
+          "很久以前英格蘭的小村莊"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "「in England... in a small village」——在英格蘭一個小村莊。",
         "sentenceZh": "很久以前在英國，有個年輕人叫 Robin Hood，住在一個小村莊。",
         "tags": [
@@ -332,18 +332,18 @@
         "sentence": "Every market day, Robin shared his coins with anyone who looked hungry or sick.",
         "question": "What did Robin do on market day?",
         "options": [
-          "he kept his coins in a box",
           "sharing money with those in need",
+          "he kept his coins in a box",
           "selling things to earn more",
           "he stayed home and rested all day"
         ],
         "optionsZh": [
-          "他把錢放在盒子裡",
           "把錢分給有需要的人",
+          "他把錢放在盒子裡",
           "賣東西賺更多",
           "他在家休息整天"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "市集日，他把錢分給餓著、生病的人——「他把錢分給有需要的人」就是答案！",
         "sentenceZh": "每個市集日，羅賓都把銅板分給看起來餓著或生病的人。",
         "tags": [
@@ -395,16 +395,16 @@
         "options": [
           "live",
           "living",
-          "lives",
-          "lived"
+          "lived",
+          "lives"
         ],
         "optionsZh": [
           "live",
           "living",
-          "lives",
-          "lived (過去式)"
+          "lived (過去式)",
+          "lives"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "explanationZh": "「Long ago」= 很久以前，過去的事要用過去式「lived」！",
         "tags": [
           "story",
@@ -423,18 +423,18 @@
         "sentence": "The farmers in the village loved him. The children ran to him in the road.",
         "question": "How did the village people feel about Robin?",
         "options": [
-          "💖 they really liked him",
+          "😒 they did not care about him",
           "😡 they were angry at him",
           "😨 they were afraid of him",
-          "😒 they did not care about him"
+          "💖 they really liked him"
         ],
         "optionsZh": [
-          "他們非常喜歡他",
+          "他們不在乎他",
           "他們對他生氣",
           "他們怕他",
-          "他們不在乎他"
+          "他們非常喜歡他"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "農夫愛他、小孩跑向他——「他們非常喜歡他」就是答案。那個 💖！",
         "sentenceZh": "村裡的農夫都愛他，孩子們在路上看見他就跑過來。",
         "tags": [
@@ -475,18 +475,18 @@
         "sentence": "And soon, the king would send a man to Robin's village...",
         "question": "What is coming next in the story?",
         "options": [
-          "Robin will move away forever",
           "the king sends someone to Robin's village",
+          "Robin will move away forever",
           "Robin becomes a new king soon",
           "the village will get a new market"
         ],
         "optionsZh": [
-          "Robin 永遠搬走了",
           "國王派人去 Robin 的村莊",
+          "Robin 永遠搬走了",
           "Robin 快要當國王了",
           "村莊要開新市集"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「the king would send a man to Robin's village」——「國王派的人要到 Robin 的村莊」！",
         "sentenceZh": "很快，這個國王就會派人到 Robin 的村莊……",
         "tags": [
@@ -644,17 +644,17 @@
         "question": "How did the soldier answer the old farmer?",
         "options": [
           "with care and a gift",
-          "with cold, hard words",
           "with a small smile",
+          "with cold, hard words",
           "with a soft song"
         ],
         "optionsZh": [
           "用關心跟一份禮物",
-          "用冷冷又硬的話",
           "用一個淡淡的微笑",
+          "用冷冷又硬的話",
           "用一首溫柔的歌"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "士兵笑說：「那是你的問題，不是國王的。」——「用冷冷又硬的話」就是答案。這句話太冷了。",
         "tags": [
           "story",
@@ -688,17 +688,17 @@
         "question": "How did Robin feel about the new tax?",
         "options": [
           "happy and proud",
-          "very angry inside",
+          "ready to sleep",
           "shy and quiet",
-          "ready to sleep"
+          "very angry inside"
         ],
         "optionsZh": [
           "開心又驕傲",
-          "心裡很生氣",
+          "想睡覺",
           "害羞又安靜",
-          "想睡覺"
+          "心裡很生氣"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "Robin 看見這些，感覺胸口像被一塊燙石頭頂住——「心裡很生氣」就是他的感受。",
         "tags": [
           "story",
@@ -848,17 +848,17 @@
         "question": "What was life like for families after the soldiers came?",
         "options": [
           "plenty of food and good rest",
-          "they went hungry and felt sad",
           "new homes given by the king",
+          "they went hungry and felt sad",
           "moving to a better town soon"
         ],
         "optionsZh": [
           "有很多食物和休息",
-          "他們餓著肚子，感到難過",
           "從國王那裡得到新房子",
+          "他們餓著肚子，感到難過",
           "很快搬到更好的城鎮"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "孩子餓著睡覺、媽媽在黑暗裡哭——「餓著肚子，感到難過」就是答案！",
         "sentenceZh": "孩子餓著肚子睡覺，媽媽在黑暗裡哭。",
         "tags": [
@@ -878,17 +878,17 @@
         "question": "What did the soldier's words show about the king's men?",
         "options": [
           "truly wanting to help the poor",
-          "no care at all for the poor",
+          "working hard for everyone there",
           "kind but a little scared of him",
-          "working hard for everyone there"
+          "no care at all for the poor"
         ],
         "optionsZh": [
           "真的想幫助窮人",
-          "一點不關心窮人",
+          "為所有人努力工作",
           "善良但有點怕他",
-          "為所有人努力工作"
+          "一點不關心窮人"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "「That is your problem, not the king's」——只顧自己，「一點不關心窮人」！",
         "sentenceZh": "一個士兵只是笑著說：「那是你的問題，不是國王的事。」",
         "tags": [
@@ -1120,17 +1120,17 @@
         "question": "What did the town look like when the Sheriff came?",
         "options": [
           "everyone ran to greet him",
-          "even the dogs were afraid",
           "the market got busier",
+          "even the dogs were afraid",
           "music played in the square"
         ],
         "optionsZh": [
           "所有人跑去歡迎他",
-          "連狗都怕他",
           "市集變得更熱鬧",
+          "連狗都怕他",
           "廣場上有音樂"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他一騎過來，連狗都躲進角落——「連狗都怕他」就是答案。這已經說明一切了。",
         "tags": [
           "story",
@@ -1164,17 +1164,17 @@
         "question": "Whose name caught the Sheriff's eye?",
         "options": [
           "his own brother",
-          "the young man Robin",
+          "a baby in the village",
           "the old king",
-          "a baby in the village"
+          "the young man Robin"
         ],
         "optionsZh": [
           "他的親兄弟",
-          "年輕的 Robin",
+          "村裡的嬰兒",
           "老國王",
-          "村裡的嬰兒"
+          "年輕的 Robin"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "他的手指停在一個短短的名字上：Robin——「年輕的 Robin」就是答案。",
         "tags": [
           "story",
@@ -1207,18 +1207,18 @@
         "sentence": "How did the Sheriff feel about Robin's kindness?",
         "question": "How did he feel?",
         "options": [
-          "🙂 glad and warm",
           "😠 angry and jealous",
+          "🙂 glad and warm",
           "😴 just very sleepy now",
           "🥰 proud of Robin"
         ],
         "optionsZh": [
-          "開心又溫暖",
           "生氣又嫉妒",
+          "開心又溫暖",
           "現在只是想睡",
           "為 Robin 驕傲"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "Sheriff 怕 Robin 影響他收錢 → 「生氣又嫉妒」。那個 😠 就是他的臉。",
         "tags": [
           "story",
@@ -1252,18 +1252,18 @@
         "sentence": "The bad king had a Sheriff (police chief) in the town of Nottingham.",
         "question": "Where was the Sheriff?",
         "options": [
-          "Nottingham town, near the castle",
           "a small camp deep in the forest",
+          "Nottingham town, near the castle",
           "Robin's village far to the north",
           "on a boat upon the cold sea"
         ],
         "optionsZh": [
-          "Nottingham 鎮，城堡附近",
           "森林深處的小營地",
+          "Nottingham 鎮，城堡附近",
           "遠北方 Robin 的村莊",
           "冰冷大海上的船"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「in the town of Nottingham」——Sheriff 在 Nottingham 鎮。",
         "sentenceZh": "壞國王在 Nottingham 鎮上有一個 Sheriff。",
         "tags": [
@@ -1338,17 +1338,17 @@
         "question": "What does it mean when even the dogs hide from the Sheriff?",
         "options": [
           "dogs love running inside houses",
-          "he was very frightening to all",
           "it was a game the dogs liked",
+          "he was very frightening to all",
           "dogs were looking for their food"
         ],
         "optionsZh": [
           "狗喜歡跑進屋子",
-          "他對所有人都非常可怕",
           "這是狗喜歡玩的遊戲",
+          "他對所有人都非常可怕",
           "狗在找食物"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "連狗都怕他躲進角落——「他對所有人都非常可怕」就是這句話的意思！",
         "sentenceZh": "每當郡長騎馬經過，連狗都跑進黑暗的角落躲起來。",
         "tags": [
@@ -1368,17 +1368,17 @@
         "question": "What was the Sheriff doing with the list of names?",
         "options": [
           "writing new names on it",
-          "found Robin's name in the list",
+          "giving it to the bad king",
           "burning it in the fire soon",
-          "giving it to the bad king"
+          "found Robin's name in the list"
         ],
         "optionsZh": [
           "在上面寫新名字",
-          "在清單裡找到 Robin 的名字",
+          "把它給壞國王",
           "很快把它燒掉",
-          "把它給壞國王"
+          "在清單裡找到 Robin 的名字"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "他手指停在 Robin 的名字上——「讀著它，找到了 Robin 的名字」就是答案！",
         "sentenceZh": "他的手指停在一個短短的字上：羅賓。",
         "tags": [
@@ -1471,18 +1471,18 @@
         "sentence": "One quiet morning, the Sheriff sat in a wooden chair and read a list of names.",
         "question": "Why did the Sheriff read the list?",
         "options": [
-          "he was looking for people who owed money",
           "enjoying name lists as a fun hobby",
+          "he was looking for people who owed money",
           "choosing people for a prize or reward",
           "needing names for a big party soon"
         ],
         "optionsZh": [
-          "他在找欠錢的人",
           "把讀名字清單當有趣愛好",
+          "他在找欠錢的人",
           "在選要獎勵的人",
           "需要名字來辦大派對"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "Sheriff 讀名單，手指停在 Robin——他在找欠錢的人或製造麻煩的人！",
         "sentenceZh": "一個安靜的早上，Sheriff 坐在椅子上讀一張名字清單。",
         "tags": [
@@ -1560,17 +1560,17 @@
         "question": "Where did they put the paper?",
         "options": [
           "in a hidden box",
-          "on Robin's front door",
           "high in a tree",
+          "on Robin's front door",
           "under the river bridge"
         ],
         "optionsZh": [
           "藏在一個盒子裡",
-          "釘在 Robin 家的前門",
           "釘在高高的樹上",
+          "釘在 Robin 家的前門",
           "藏在河橋底下"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他們把一張黃紙釘在 Robin 家的前門——「釘在 Robin 家的前門」就是答案。讓所有人都看見。",
         "tags": [
           "story",
@@ -1626,17 +1626,17 @@
         "question": "What did Robin look at one last time?",
         "options": [
           "the king's gold castle",
-          "his home and his neighbors",
+          "a busy city market",
           "the wide blue sea far away",
-          "a busy city market"
+          "his home and his neighbors"
         ],
         "optionsZh": [
           "國王的金色城堡",
-          "他的家跟他的鄰居",
+          "熱鬧的城市市集",
           "遠方寬廣的藍色大海",
-          "熱鬧的城市市集"
+          "他的家跟他的鄰居"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "他看了看小房子、看了看在路上玩耍的孩子們——「他的家跟他的鄰居」就是他最後看的東西。",
         "tags": [
           "story",
@@ -1669,18 +1669,18 @@
         "sentence": "Robin smiled softly. \"I will go to the forest. The trees will hide me.\"",
         "question": "Where did Robin plan to go?",
         "options": [
-          "to a town near the sea",
           "into the deep forest",
+          "to a town near the sea",
           "to a far away country",
           "back to the king's castle"
         ],
         "optionsZh": [
-          "去海邊的鎮上",
           "進到森林深處",
+          "去海邊的鎮上",
           "去很遠的國家",
           "回到國王的城堡"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「我去森林，樹木會藏住我。」——「進到森林深處」就是答案。",
         "tags": [
           "story",
@@ -1758,18 +1758,18 @@
         "sentence": "They nailed a yellow paper on Robin's front door for everyone to see.",
         "question": "What was on Robin's front door?",
         "options": [
-          "yellow paper nailed for all to see",
-          "a big red flag from the king",
           "wooden sign from the local market",
+          "a big red flag from the king",
+          "yellow paper nailed for all to see",
           "a long letter from a kind friend"
         ],
         "optionsZh": [
-          "讓所有人看見的釘上黃紙",
-          "國王的大紅旗",
           "當地市場的木頭牌子",
+          "國王的大紅旗",
+          "讓所有人看見的釘上黃紙",
           "善良朋友的長信"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "「a yellow paper on Robin's front door for everyone to see」——黃紙釘在前門！",
         "sentenceZh": "他們把一張黃色的紙釘在 Robin 家門口，讓所有人都看見。",
         "tags": [
@@ -1844,17 +1844,17 @@
         "question": "How did Robin react when he read the order to leave?",
         "options": [
           "he cried and fell to the ground",
-          "staying calm without any panic",
+          "going to fight the Sheriff right away",
           "laughing and tearing the paper up",
-          "going to fight the Sheriff right away"
+          "staying calm without any panic"
         ],
         "optionsZh": [
           "他哭著倒在地上",
-          "保持冷靜沒有慌亂",
+          "馬上去找 Sheriff 打架",
           "笑著把紙撕掉",
-          "馬上去找 Sheriff 打架"
+          "保持冷靜沒有慌亂"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "他讀了兩遍，臉色沒有變——「他保持冷靜沒有慌亂」就是答案！",
         "sentenceZh": "Robin 把那張紙讀了兩遍，臉色沒有變。",
         "tags": [
@@ -1873,18 +1873,18 @@
         "sentence": "Robin smiled softly. \"I will go to the forest. The trees will hide me.\"",
         "question": "Why did Robin choose to go to the forest?",
         "options": [
-          "to find food for himself there",
           "so the trees would keep him hidden",
+          "to find food for himself there",
           "to look for the Sheriff's men",
           "he wanted to live alone forever"
         ],
         "optionsZh": [
-          "在那裡找食物",
           "這樣樹木能藏住他",
+          "在那裡找食物",
           "去找 Sheriff 的手下",
           "他想永遠一個人住"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「The trees will hide me」——「這樣樹木能藏住他」就是他選森林的理由！",
         "sentenceZh": "Robin 輕輕笑了笑。「我去森林，樹木會藏著我。」",
         "tags": [
@@ -1925,18 +1925,18 @@
         "sentence": "An old woman touched his sleeve. \"Where will you go, my child?\"",
         "question": "What did the old woman's question show?",
         "options": [
-          "💙 she cared about Robin",
           "😡 she was angry at him",
+          "💙 she cared about Robin",
           "😴 she just woke up sleepy",
           "🤔 she wanted his bag"
         ],
         "optionsZh": [
-          "她關心 Robin",
           "她對他生氣",
+          "她關心 Robin",
           "她剛醒來還很睏",
           "她想要他的袋子"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "她碰他袖子、問他去哪——「她關心 Robin」就是這個動作的意思！那個 💙。",
         "sentenceZh": "一個老婆婆輕輕碰他的袖子：「孩子，你要去哪裡？」",
         "tags": [
@@ -1978,17 +1978,17 @@
         "question": "What did Robin do at the edge of the village?",
         "options": [
           "he stopped and turned back to stay",
-          "walked toward the deep green forest",
           "sat down there to write a letter",
+          "walked toward the deep green forest",
           "called out loudly for any help"
         ],
         "optionsZh": [
           "他停下來回頭留下",
-          "走向深深的綠色森林",
           "坐在那裡寫信",
+          "走向深深的綠色森林",
           "大聲呼救"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "「turned at the village edge and walked toward the deep green trees」——走進森林！",
         "sentenceZh": "Robin 在村口轉身，走向綠綠的森林深處……",
         "tags": [
@@ -2066,17 +2066,17 @@
         "question": "How tall were the trees?",
         "options": [
           "shorter than the town houses",
-          "taller than any town building",
+          "no taller than a man",
           "about the size of small bushes",
-          "no taller than a man"
+          "taller than any town building"
         ],
         "optionsZh": [
           "比鎮上的房子矮",
-          "比鎮上任何建築都高",
+          "只比一個人高一點",
           "差不多像矮樹叢那麼大",
-          "只比一個人高一點"
+          "比鎮上任何建築都高"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "樹比鎮上任何建築都高，比教堂還高——「比鎮上任何建築都高」就是答案。",
         "tags": [
           "story",
@@ -2131,18 +2131,18 @@
         "sentence": "Robin took a slow breath. The forest air smelled sweet, like clean rain.",
         "question": "What did the forest smell like?",
         "options": [
-          "thick old smoke",
           "sweet and clean",
+          "thick old smoke",
           "salty sea fish",
           "burning wood"
         ],
         "optionsZh": [
-          "濃濃的舊煙味",
           "甜甜又乾淨",
+          "濃濃的舊煙味",
           "鹹鹹的海魚味",
           "燒木頭的味道"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "森林的空氣聞起來甜甜的，像剛下過雨——「甜甜又乾淨」就是答案。",
         "tags": [
           "story",
@@ -2220,17 +2220,17 @@
         "question": "How did he feel?",
         "options": [
           "😡 just feeling angry",
-          "😌 quiet and safer",
           "😢 still scared",
+          "😌 quiet and safer",
           "😴 ready to give up"
         ],
         "optionsZh": [
           "只是覺得生氣",
-          "安靜又比較安全",
           "還是很怕",
+          "安靜又比較安全",
           "想放棄了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "森林藏住他 → 「安靜又比較安全」。那個 😌 就是他走進樹林後的感受。",
         "tags": [
           "story",
@@ -2264,18 +2264,18 @@
         "sentence": "Robin walked alone into the great forest of Sherwood.",
         "question": "Where did Robin go after leaving his village?",
         "options": [
-          "Sherwood Forest, far and wide",
+          "a close friend's warm home",
           "a town by the wide blue sea",
           "the king's big stone castle",
-          "a close friend's warm home"
+          "Sherwood Forest, far and wide"
         ],
         "optionsZh": [
-          "廣大的 Sherwood 森林",
+          "親近朋友的溫暖家",
           "寬闊藍海邊的小鎮",
           "國王的大石頭城堡",
-          "親近朋友的溫暖家"
+          "廣大的 Sherwood 森林"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "「into the great forest of Sherwood」——走進 Sherwood 大森林！",
         "sentenceZh": "Robin 一個人走進廣大的 Sherwood 森林。",
         "tags": [
@@ -2349,18 +2349,18 @@
         "sentence": "Robin took a slow breath. The forest air smelled sweet, like clean rain.",
         "question": "What did Robin notice about the forest air?",
         "options": [
-          "it smelled like old fire and smoke",
           "sweet and clean like fresh rain",
+          "it smelled like old fire and smoke",
           "it had no smell at all inside",
           "it smelled of salt from the sea"
         ],
         "optionsZh": [
-          "聞起來像舊火和煙",
           "甜甜又乾淨像雨後清新",
+          "聞起來像舊火和煙",
           "裡面完全沒有味道",
           "聞起來有海的鹹味"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「smelled sweet, like clean rain」——甜甜的，像清新的雨，就是答案！",
         "sentenceZh": "Robin 慢慢深吸一口氣，森林的空氣聞起來清甜，像洗過的雨。",
         "tags": [
@@ -2431,18 +2431,18 @@
         "sentence": "Then, from behind a wide oak tree, he heard a quiet cough...",
         "question": "What was about to happen next?",
         "options": [
-          "👥 Robin would meet someone",
-          "🌧️ a big storm was coming",
           "🦁 a lion appeared nearby",
+          "🌧️ a big storm was coming",
+          "👥 Robin would meet someone",
           "🏃 soldiers ran into the forest"
         ],
         "optionsZh": [
-          "Robin 要遇到某個人",
-          "大雷雨來了",
           "附近出現一頭獅子",
+          "大雷雨來了",
+          "Robin 要遇到某個人",
           "士兵跑進森林"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "橡樹後面傳來咳嗽聲——「Robin 要遇到某個人」，那個 👥！",
         "sentenceZh": "從一棵大橡樹後面，傳來一聲輕輕的咳嗽……",
         "tags": [
@@ -2484,17 +2484,17 @@
         "question": "What did Robin do at the clear stream?",
         "options": [
           "washed his brown coat there",
-          "scooped water to drink",
+          "called to the deer for help",
           "hid his bow in the water",
-          "called to the deer for help"
+          "scooped water to drink"
         ],
         "optionsZh": [
           "洗他的棕色外套",
-          "用手捧水喝",
+          "呼叫鹿來幫忙",
           "把弓藏在水裡",
-          "呼叫鹿來幫忙"
+          "用手捧水喝"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "「sat down and drank from his two hands」——坐下來用手捧水喝，就是答案！",
         "sentenceZh": "在一條清澈的小溪旁，他坐下來，用雙手捧著水喝。",
         "tags": [
@@ -2571,18 +2571,18 @@
         "sentence": "Behind the oak tree was a thin man with a torn brown coat.",
         "question": "Who was hiding behind the tree?",
         "options": [
-          "a fat lord in rich clothes",
           "a thin man in torn clothes",
+          "a fat lord in rich clothes",
           "the king's young son",
           "a strong young soldier"
         ],
         "optionsZh": [
-          "一個穿華服的胖貴族",
           "一個穿破衣服的瘦男人",
+          "一個穿華服的胖貴族",
           "國王年輕的兒子",
           "一個強壯的年輕士兵"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "橡樹後面，一個穿著破褐色外套的瘦男人——「穿破衣服的瘦男人」就是答案。",
         "tags": [
           "story",
@@ -2682,17 +2682,17 @@
         "question": "How did the forest people live?",
         "options": [
           "in fine warm houses",
-          "in very simple, hard ways",
           "in tents made of silk",
+          "in very simple, hard ways",
           "in the king's old camp"
         ],
         "optionsZh": [
           "住在又好又暖的房子",
-          "用很簡單、很辛苦的方式",
           "住在絲做的帳篷裡",
+          "用很簡單、很辛苦的方式",
           "住在國王的舊營地"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "住在樹枝下、睡在乾葉子上——「很簡單、很辛苦的方式」就是答案。",
         "tags": [
           "story",
@@ -2726,17 +2726,17 @@
         "question": "How did he feel?",
         "options": [
           "😡 angry and mean to them",
-          "💗 sorry and warm to them",
+          "😨 scared of them",
           "😴 just very sleepy now",
-          "😨 scared of them"
+          "💗 sorry and warm to them"
         ],
         "optionsZh": [
           "對他們又生氣又凶",
-          "替他們難過,對他們溫柔",
+          "怕他們",
           "現在只是想睡",
-          "怕他們"
+          "替他們難過,對他們溫柔"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "看到他們失去家 → Robin「替他們難過，對他們溫柔」。那個 💗 就是他的心。",
         "tags": [
           "story",
@@ -2886,17 +2886,17 @@
         "question": "How did the forest people make do without proper homes?",
         "options": [
           "building strong wooden houses for shelter",
-          "using branches and dry leaves instead",
           "buying canvas tents at a market",
+          "using branches and dry leaves instead",
           "sleeping in the cold stream water"
         ],
         "optionsZh": [
           "建造堅固的木屋遮風避雨",
-          "改用樹枝和乾樹葉代替",
           "在市場買帆布帳篷",
+          "改用樹枝和乾樹葉代替",
           "睡在冰冷的溪水裡"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "住在樹枝下、睡在乾葉子床上——「用樹枝和乾樹葉」就是他們的方式！",
         "sentenceZh": "他們住在低矮的樹枝下，睡在鋪著乾樹葉的軟床上。",
         "tags": [
@@ -2937,18 +2937,18 @@
         "sentence": "Robin stood up slowly. He did not pull his bow.",
         "question": "What did Robin's actions show when he met the stranger?",
         "options": [
-          "🤝 he was open and peaceful",
+          "🏃 he was ready to run away",
           "⚔️ he was ready to fight",
           "😴 he was barely awake",
-          "🏃 he was ready to run away"
+          "🤝 he was open and peaceful"
         ],
         "optionsZh": [
-          "他是開放且和平的",
+          "他準備好要逃跑",
           "他準備好要打架",
           "他幾乎沒醒過來",
-          "他準備好要逃跑"
+          "他是開放且和平的"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "慢慢站起來、沒有拉弓——「他是開放且和平的」就是這個動作的意思！那個 🤝。",
         "sentenceZh": "Robin 慢慢站起來，沒有拉弓。",
         "tags": [
@@ -2989,18 +2989,18 @@
         "sentence": "\"We had nowhere else to go, so we came here,\" a young mother added.",
         "question": "Why did the young mother's family come to the forest?",
         "options": [
-          "they loved camping in the trees",
           "the forest was their only safe place",
+          "they loved camping in the trees",
           "they were chasing a deer for food",
           "they were meeting Robin on purpose"
         ],
         "optionsZh": [
-          "他們喜歡在樹裡露營",
           "森林是他們唯一安全的地方",
+          "他們喜歡在樹裡露營",
           "他們在追一頭鹿找食物",
           "他們故意來找 Robin"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「nowhere else to go」——沒有別的地方去，「森林是他們唯一安全的地方」！",
         "sentenceZh": "「我們沒有別的地方去，所以來了這裡。」一個年輕媽媽說。",
         "tags": [
@@ -3144,17 +3144,17 @@
         "question": "What was Robin's new plan?",
         "options": [
           "keep all the gold safe for himself",
-          "take from rich bad men, give to the poor",
           "buy a new castle with high walls",
+          "take from rich bad men, give to the poor",
           "fight everyone he meets on the road"
         ],
         "optionsZh": [
           "把所有金子都留給自己",
-          "從有錢壞人那裡拿,給窮人",
           "買一座有高牆的新城堡",
+          "從有錢壞人那裡拿,給窮人",
           "跟路上遇到的每個人打架"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "「每一個拿到的銅板，都給窮苦的家庭。」——「從有錢壞人那裡拿，給窮人」就是答案。這就是 Robin Hood 的精神。",
         "tags": [
           "story",
@@ -3188,17 +3188,17 @@
         "question": "How many people joined Robin?",
         "options": [
           "only one man",
-          "every person there",
+          "no one at all",
           "just the two boys",
-          "no one at all"
+          "every person there"
         ],
         "optionsZh": [
           "只有一個男人",
-          "在場每一個人",
+          "沒人加入",
           "只有兩個男孩",
-          "沒人加入"
+          "在場每一個人"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "一個一個，火堆旁所有人都說同樣的話——「在場每一個人」就是答案。沒有人缺席。",
         "tags": [
           "story",
@@ -3231,18 +3231,18 @@
         "sentence": "How did Robin and his new friends feel by the fire?",
         "question": "How did they feel?",
         "options": [
-          "😢 still all alone in the cold forest",
           "🤝 strong because they had each other",
+          "😢 still all alone in the cold forest",
           "😡 just feeling angry about the rich men",
           "😴 just sleepy and ready for bed soon"
         ],
         "optionsZh": [
-          "在寒冷森林裡仍然孤單",
           "因為有彼此而堅強",
+          "在寒冷森林裡仍然孤單",
           "只是對有錢人感到生氣",
           "只是想睡, 準備上床了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "他們從孤單變成有夥伴 → 「因為有彼此而堅強」。那個 🤝 就是他們的感受。",
         "tags": [
           "story",
@@ -3362,17 +3362,17 @@
         "question": "What was Robin's idea for justice?",
         "options": [
           "ask the king nicely for help",
-          "take from the rich, give to the poor",
           "build a new village far away",
+          "take from the rich, give to the poor",
           "leave England for a better land"
         ],
         "optionsZh": [
           "好好去求國王幫忙",
-          "從有錢人那裡拿，給窮人",
           "在遠處建一個新村莊",
+          "從有錢人那裡拿，給窮人",
           "離開英格蘭去更好的地方"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "「take from them」——「從貪心的有錢人那裡拿，幫助窮人」就是 Robin 的正義！",
         "sentenceZh": "「有錢的壞人拿走你們的。所以我們也從他們那裡拿。」",
         "tags": [
@@ -3392,17 +3392,17 @@
         "question": "How many people agreed to join Robin?",
         "options": [
           "only the youngest ones",
-          "every single person there",
+          "none at all in the end",
           "just two old farmers",
-          "none at all in the end"
+          "every single person there"
         ],
         "optionsZh": [
           "只有最年輕的人",
-          "在場每一個人",
+          "最後沒有一個人",
           "只有兩個老農夫",
-          "最後沒有一個人"
+          "在場每一個人"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "「every man and woman... said the same thing」——「在場每一個人」都答應了！",
         "sentenceZh": "圍在火堆旁的男男女女，一個接一個說出同樣的話。",
         "tags": [
@@ -3444,18 +3444,18 @@
         "sentenceZh": "「我們___互相幫忙，」Robin 說，「從今以後，沒有人是孤單的。」",
         "question": "Choose the correct verb form.",
         "options": [
-          "wills",
           "will",
+          "wills",
           "willed",
           "willing"
         ],
         "optionsZh": [
-          "wills",
           "will (將會)",
+          "wills",
           "willed",
           "willing"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "「will + 動詞原形」是表示未來的說法——「will help」！",
         "tags": [
           "story",

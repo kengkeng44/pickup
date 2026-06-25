@@ -64,18 +64,18 @@
         "sentence": "He had a clean coat for every hour of the day.",
         "question": "How many coats did the emperor have?",
         "options": [
-          "just one warm coat",
           "a huge number of coats",
+          "just one warm coat",
           "no coats in his home",
           "two old winter coats"
         ],
         "optionsZh": [
-          "只有一件暖外套",
           "非常多件外套",
+          "只有一件暖外套",
           "家裡完全沒外套",
           "兩件舊的冬天外套"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "一天每個小時都有一件新外套——這樣算下來,外套可多了。選「非常多件外套」。",
         "tags": [
           "story",
@@ -175,17 +175,17 @@
         "question": "How did the emperor feel about the strangers?",
         "options": [
           "very angry at them",
-          "ready to listen to them",
           "fast asleep again",
+          "ready to listen to them",
           "too tired to care"
         ],
         "optionsZh": [
           "很生氣",
-          "準備聽他們講",
           "又睡著",
+          "準備聽他們講",
           "太累不在乎"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "sat up tall = 挺直身子坐好——這表示他聽進去了,選「準備聽他們講」。",
         "tags": [
           "story",
@@ -219,17 +219,17 @@
         "question": "How did the emperor feel?",
         "options": [
           "😴 getting very sleepy",
-          "🤔 curious",
+          "😱 feeling a bit afraid",
           "😡 starting to feel mad",
-          "😱 feeling a bit afraid"
+          "🤔 curious"
         ],
         "optionsZh": [
           "快要睡著了",
-          "好奇",
+          "覺得有點害怕",
           "開始覺得生氣",
-          "覺得有點害怕"
+          "好奇"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "叫人立刻帶進來 → 好奇想知道。",
         "tags": [
           "story",
@@ -283,18 +283,18 @@
         "sentenceZh": "很久以前,有一位國王,他非常喜愛新衣服。",
         "question": "What did the emperor love most?",
         "options": [
-          "his country and people",
           "new and fresh clothes",
+          "his country and people",
           "good food and drink",
           "long horse rides"
         ],
         "optionsZh": [
-          "他的國家和人民",
           "新衣服",
+          "他的國家和人民",
           "好吃好喝",
           "騎馬"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "loved new clothes = 非常喜愛新衣服——這就是他最愛的事。",
         "tags": [
           "story",
@@ -365,18 +365,18 @@
         "sentenceZh": "兩個陌生人希望從國王那裡得到什麼？",
         "question": "What did they hope to get?",
         "options": [
-          "💰 gold and a big room",
-          "👑 the emperor's crown",
           "🏰 the palace for themselves",
+          "👑 the emperor's crown",
+          "💰 gold and a big room",
           "🛡️ a job as a guard"
         ],
         "optionsZh": [
-          "金子和大房間",
-          "國王的王冠",
           "整個皇宮",
+          "國王的王冠",
+          "金子和大房間",
           "一份守衛的工作"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "the emperor gave them gold + a big room = 金子和大房間——那是他們的目標。",
         "tags": [
           "story",
@@ -397,17 +397,17 @@
         "question": "What did the emperor do after hearing about the strangers?",
         "options": [
           "told his guards to chase them away",
-          "had them brought inside right away",
+          "waited for the next day",
           "asked them to write a letter first",
-          "waited for the next day"
+          "had them brought inside right away"
         ],
         "optionsZh": [
           "叫守衛趕走他們",
-          "馬上叫人帶進來",
+          "等到隔天",
           "要他們先寫信",
-          "等到隔天"
+          "馬上叫人帶進來"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "at once = 立刻——他馬上叫人帶那兩個人進來。",
         "tags": [
           "story",
@@ -519,18 +519,18 @@
         "sentence": "They held up their empty hands as if showing it.",
         "question": "Did they really have any cloth to show?",
         "options": [
-          "yes, a big piece",
           "no, there was nothing",
+          "yes, a big piece",
           "yes, one small piece",
           "a soft blue scarf"
         ],
         "optionsZh": [
-          "有,一大塊",
           "沒有,什麼都沒有",
+          "有,一大塊",
           "有,一小片布",
           "一條軟藍圍巾"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "他們舉起空空的手假裝展示——其實什麼都沒有,選「沒有,什麼都沒有」。",
         "tags": [
           "story",
@@ -585,18 +585,18 @@
         "sentence": "\"Only smart and good people can see it.\"",
         "question": "Who can see the cloth, according to the strangers?",
         "options": [
-          "only kind and clever people",
           "only tall grown men",
+          "only kind and clever people",
           "only the emperor alone",
           "every child in town"
         ],
         "optionsZh": [
-          "只有善良又聰明的人",
           "只有高大男人",
+          "只有善良又聰明的人",
           "只有國王",
           "城裡每個小孩"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "smart and good = 聰明又善良——按照他們的說法,只有這樣的人才看得見。",
         "tags": [
           "story",
@@ -630,17 +630,17 @@
         "question": "Why was this rule clever for the strangers?",
         "options": [
           "people would pay double price",
-          "no one would dare say it was empty",
           "all the children loved it the most",
+          "no one would dare say it was empty",
           "guards would protect them"
         ],
         "optionsZh": [
           "人們會付雙倍價錢",
-          "沒人敢說看不到",
           "所有小孩都最喜歡它",
+          "沒人敢說看不到",
           "守衛會保護他們"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "誰都不想被人家說「你看不見,你不夠聰明」——所以沒人敢說看不到,選那個答案。",
         "tags": [
           "story",
@@ -674,17 +674,17 @@
         "question": "What did they really plan?",
         "options": [
           "🧵 make real cloth",
-          "🎭 trick everyone",
+          "🍞 sell bread",
           "🏃 run away fast",
-          "🍞 sell bread"
+          "🎭 trick everyone"
         ],
         "optionsZh": [
           "做真的布",
-          "騙所有人",
+          "賣麵包",
           "快跑走",
-          "賣麵包"
+          "騙所有人"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "空手 + 假規則 → 騙所有人。",
         "tags": [
           "story",
@@ -738,18 +738,18 @@
         "sentenceZh": "兩個陌生人告訴皇帝他們了不起的才能。",
         "question": "What did the strangers claim they could do?",
         "options": [
-          "grow the finest rice anywhere",
           "craft cloth no one else could",
+          "grow the finest rice anywhere",
           "cook the best food around",
           "build the tallest towers"
         ],
         "optionsZh": [
-          "種出任何地方都沒有的好米",
           "織出任何人都做不到的布",
+          "種出任何地方都沒有的好米",
           "煮出最好的食物",
           "蓋最高的塔"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "weave the finest cloth = 織出最好的布——他們吹噓自己能做到。",
         "tags": [
           "story",
@@ -790,18 +790,18 @@
         "sentenceZh": "只有聰明善良的人才看得見這塊布。",
         "question": "Choose the correct word to fill the blank.",
         "options": [
-          "can",
           "cans",
+          "can",
           "could to",
           "canning"
         ],
         "optionsZh": [
-          "正確助動詞",
           "錯誤形",
+          "正確助動詞",
           "錯誤搭配",
           "錯誤形"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "can + 動詞原形——表示能力。can 沒有第三人稱加 s 的形式，直接用 can。",
         "tags": [
           "story",
@@ -822,17 +822,17 @@
         "question": "Why did no one say they could not see the cloth?",
         "options": [
           "the cloth was very real",
-          "no one wanted to seem foolish",
           "everyone could see it",
+          "no one wanted to seem foolish",
           "the room was too dark"
         ],
         "optionsZh": [
           "布是真的",
-          "沒人想顯得愚蠢",
           "大家都看得到",
+          "沒人想顯得愚蠢",
           "房間太暗"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "no one would want to say nothing = 沒人想說看不到——那樣會被說不夠聰明，誰都怕丟臉。",
         "tags": [
           "story",
@@ -851,18 +851,18 @@
         "sentenceZh": "陌生人真正的計畫是什麼？",
         "question": "What was their real plan?",
         "options": [
-          "🎭 trick and fool everyone",
+          "🎁 give the cloth as a gift",
           "🧵 make the best cloth ever",
           "🏃 run when the cloth was done",
-          "🎁 give the cloth as a gift"
+          "🎭 trick and fool everyone"
         ],
         "optionsZh": [
-          "欺騙所有人",
+          "把布當禮物送",
           "做出最好的布",
           "布做好就跑",
-          "把布當禮物送"
+          "欺騙所有人"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "empty hands + fake rules → 騙所有人拿到金子。",
         "tags": [
           "story",
@@ -975,18 +975,18 @@
         "sentence": "The two strangers pointed at empty looms with proud hands.",
         "question": "What did the strangers show the minister?",
         "options": [
-          "a bright blue cloth",
           "looms with no cloth on them",
+          "a bright blue cloth",
           "a big basket of fresh bread",
           "a long silver sword"
         ],
         "optionsZh": [
-          "亮藍色布",
           "空的織布機",
+          "亮藍色布",
           "一大籃新鮮麵包",
           "長銀劍"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "empty looms = 空的織布機——他們指著空空的機器假裝展示。",
         "tags": [
           "story",
@@ -1041,18 +1041,18 @@
         "sentence": "\"Am I not smart enough?\" he thought to himself.",
         "question": "What was the minister afraid people would think?",
         "options": [
-          "being seen as not clever",
           "too rich for the job",
+          "being seen as not clever",
           "sleepy after lunch",
           "being seen as too young"
         ],
         "optionsZh": [
-          "被當作不夠聰明",
           "太有錢",
+          "被當作不夠聰明",
           "午餐後想睡",
           "被當作太年輕"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "按照規則,看不到的就是「不夠聰明」——老大臣最怕被這樣說。選「被當作不夠聰明」。",
         "tags": [
           "story",
@@ -1086,17 +1086,17 @@
         "question": "What did the minister say about the cloth?",
         "options": [
           "looked broken to him",
-          "said it was beautiful",
           "asked for less of it",
+          "said it was beautiful",
           "wanted a new color"
         ],
         "optionsZh": [
           "壞掉了",
-          "說它很美",
           "說太多",
+          "說它很美",
           "想換顏色"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他說「Lovely! Truly lovely!」——意思是他稱讚布「好美」,但其實他說謊了。",
         "tags": [
           "story",
@@ -1130,17 +1130,17 @@
         "question": "How did he really feel?",
         "options": [
           "😊 truly proud and happy",
-          "😨 worried about himself",
+          "🤣 ready to laugh",
           "😴 sleepy and very bored",
-          "🤣 ready to laugh"
+          "😨 worried about himself"
         ],
         "optionsZh": [
           "真心驕傲又開心",
-          "擔心自己",
+          "想大笑",
           "想睡又很無聊",
-          "想大笑"
+          "擔心自己"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "怕被當不聰明 → 擔心自己 (lie 出於 fear)。",
         "tags": [
           "story",
@@ -1194,18 +1194,18 @@
         "sentenceZh": "兩個陌生人神氣地指著空空的織布機。",
         "question": "What were the strangers pointing at?",
         "options": [
-          "a pile of soft cloth",
           "the empty looms before them",
+          "a pile of soft cloth",
           "the emperor's finest coat",
           "a box of gold thread"
         ],
         "optionsZh": [
-          "一堆柔軟的布",
           "眼前空空的織布機",
+          "一堆柔軟的布",
           "國王最好的外套",
           "一盒金線"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "empty looms = 空空的織布機——他們指著空的機器假裝有布。",
         "tags": [
           "story",
@@ -1276,18 +1276,18 @@
         "sentenceZh": "老大臣沒有說真話，而是怎麼做？",
         "question": "What did he do?",
         "options": [
-          "praised cloth he could not see",
-          "laughed out loud then left",
           "ran straight out of the room",
+          "laughed out loud then left",
+          "praised cloth he could not see",
           "fell asleep standing there"
         ],
         "optionsZh": [
-          "稱讚他看不到的布",
-          "大聲笑出來然後離開",
           "直接跑出房間",
+          "大聲笑出來然後離開",
+          "稱讚他看不到的布",
           "站著睡著了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Lovely! Truly lovely! = 他說好美好美——稱讚那塊根本不存在的布。",
         "tags": [
           "story",
@@ -1308,17 +1308,17 @@
         "question": "Was the minister being honest when he said 'Lovely'?",
         "options": [
           "yes, he really saw it",
-          "no, he was telling a lie",
+          "no, he was just joking",
           "yes, he only saw a little",
-          "no, he was just joking"
+          "no, he was telling a lie"
         ],
         "optionsZh": [
           "是，他真的看到",
-          "不，他在說謊",
+          "不，他只是開玩笑",
           "是，他只看到一點",
-          "不，他只是開玩笑"
+          "不，他在說謊"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "he saw nothing + said Lovely = 看不到卻說好美——他在說謊。",
         "tags": [
           "story",
@@ -1430,18 +1430,18 @@
         "sentence": "The strangers moved their hands fast over the empty looms.",
         "question": "What were the strangers pretending to do?",
         "options": [
-          "cook a meal there",
           "work on cloth",
+          "cook a meal there",
           "guard a treasure",
           "count the gold"
         ],
         "optionsZh": [
-          "煮飯",
           "織布",
+          "煮飯",
           "守寶藏",
           "數金幣"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "他們的手在空的織布機上快速動——假裝在織布,選「織布」。",
         "tags": [
           "story",
@@ -1496,18 +1496,18 @@
         "sentence": "\"Am I not smart enough?\" he thought to himself.",
         "question": "What did the emperor secretly fear?",
         "options": [
-          "being seen as not clever",
           "falling on the floor",
+          "being seen as not clever",
           "losing all his gold",
           "catching a small cold"
         ],
         "optionsZh": [
-          "被認為不聰明",
           "跌倒",
+          "被認為不聰明",
           "失去金子",
           "感冒"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "他心想「難道我不夠聰明?」——他最怕被當成不聰明的人。",
         "tags": [
           "story",
@@ -1541,17 +1541,17 @@
         "question": "What did the emperor say about the cloth?",
         "options": [
           "it looked bad and dirty",
-          "he loved its nice colors",
           "he wanted his money back",
+          "he loved its nice colors",
           "it was the wrong size"
         ],
         "optionsZh": [
           "看起來糟糕又髒",
-          "他喜歡漂亮顏色",
           "想退錢",
+          "他喜歡漂亮顏色",
           "尺寸不對"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "他說「好美的顏色!」——他稱讚顏色,選「他喜歡漂亮顏色」,雖然他在說謊。",
         "tags": [
           "story",
@@ -1585,17 +1585,17 @@
         "question": "What did the men do?",
         "options": [
           "📢 told the truth",
-          "🙊 also told the same lie",
+          "😴 fell asleep right there",
           "🏃 ran out of the palace",
-          "😴 fell asleep right there"
+          "🙊 also told the same lie"
         ],
         "optionsZh": [
           "說真話",
-          "也跟著說謊",
+          "當場就睡著了",
           "跑出皇宮外面",
-          "當場就睡著了"
+          "也跟著說謊"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "所有人點頭說美 → 也跟著說謊 (cascade)。",
         "tags": [
           "story",
@@ -1649,18 +1649,18 @@
         "sentenceZh": "兩個陌生人快速地在空織布機上比劃著。",
         "question": "What were the strangers pretending to do?",
         "options": [
-          "measure the room size",
           "weave cloth on the loom",
+          "measure the room size",
           "count all the gold coins",
           "sew a long new coat"
         ],
         "optionsZh": [
-          "量房間大小",
           "在織布機上織布",
+          "量房間大小",
           "數所有金幣",
           "縫一件新外套"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "hands over the empty looms = 在空機器上動手——假裝在織布。",
         "tags": [
           "story",
@@ -1731,18 +1731,18 @@
         "sentenceZh": "為什麼皇帝身邊的人都說布很美？",
         "question": "Why did they agree?",
         "options": [
-          "😬 they feared looking foolish too",
-          "😍 they really loved the cloth",
           "😂 they were just joking",
+          "😍 they really loved the cloth",
+          "😬 they feared looking foolish too",
           "😴 they were barely awake"
         ],
         "optionsZh": [
-          "他們也怕被說笨",
-          "他們真的很愛那布",
           "他們只是開玩笑",
+          "他們真的很愛那布",
+          "他們也怕被說笨",
           "他們快睡著了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "no one wanted to be thought foolish = 誰都不想被說不夠聰明——都跟著說謊。",
         "tags": [
           "story",
@@ -1763,17 +1763,17 @@
         "question": "What did the men around the emperor all do?",
         "options": [
           "told the truth out loud",
-          "nodded and said it was lovely",
+          "asked to see it better",
           "stood very still and quiet",
-          "asked to see it better"
+          "nodded and said it was lovely"
         ],
         "optionsZh": [
           "大聲說真話",
-          "點頭說很美",
+          "要求看清楚一點",
           "非常安靜站著",
-          "要求看清楚一點"
+          "點頭說很美"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "nodded fast + said it was lovely = 快點頭、說很美——他們全跟著附和。",
         "tags": [
           "story",
@@ -1885,18 +1885,18 @@
         "sentence": "They mimed putting the coat on the emperor with care.",
         "question": "What were the strangers really putting on him?",
         "options": [
-          "warm wool coat",
           "no actual clothes",
+          "warm wool coat",
           "a thick winter cloak",
           "a long red robe"
         ],
         "optionsZh": [
-          "暖羊毛外套",
           "完全沒衣服",
+          "暖羊毛外套",
           "厚冬披風",
           "長紅袍"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "mimed = 假裝動作——他們假裝幫國王穿衣服,其實根本什麼都沒穿,選「完全沒衣服」。",
         "tags": [
           "story",
@@ -1996,17 +1996,17 @@
         "question": "What did the crowd do during the parade?",
         "options": [
           "shouted the truth aloud",
-          "praised the missing clothes",
           "turned around and left",
+          "praised the missing clothes",
           "sat down on the road"
         ],
         "optionsZh": [
           "大聲喊出真話",
-          "稱讚不存在的衣服",
           "轉身離開",
+          "稱讚不存在的衣服",
           "坐在路上"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "大家拍手、呼喊,稱讚那件根本不存在的衣服——選「稱讚不存在的衣服」。",
         "tags": [
           "story",
@@ -2039,18 +2039,18 @@
         "sentence": "Why did the people not speak the truth?",
         "question": "Why did they stay quiet?",
         "options": [
-          "🤐 fear of looking foolish",
+          "🎶 music was too loud",
           "🍔 they were eating",
           "💤 they were sleeping",
-          "🎶 music was too loud"
+          "🤐 fear of looking foolish"
         ],
         "optionsZh": [
-          "怕被當笨蛋",
+          "音樂太大聲",
           "在吃東西",
           "在睡覺",
-          "音樂太大聲"
+          "怕被當笨蛋"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "沒人想第一個說真話——因為大家都怕被當成笨蛋,選「怕被當笨蛋」。",
         "tags": [
           "story",
@@ -2104,18 +2104,18 @@
         "sentenceZh": "他們小心翼翼地比劃著，假裝把外套穿到皇帝身上。",
         "question": "Were the strangers really putting a coat on the emperor?",
         "options": [
-          "yes, a very fine coat",
           "no, they only pretended",
+          "yes, a very fine coat",
           "yes, a thick warm coat",
           "no, they were washing it"
         ],
         "optionsZh": [
-          "是，一件很好的外套",
           "不，他們只是假裝",
+          "是，一件很好的外套",
           "是，一件厚暖的外套",
           "不，他們在洗外套"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "mimed = 假裝動作——他們根本什麼都沒拿，全都是演的。",
         "tags": [
           "story",
@@ -2135,17 +2135,17 @@
         "question": "Choose the correct word to fill the blank.",
         "options": [
           "step",
-          "steps",
           "stepped",
+          "steps",
           "stepping"
         ],
         "optionsZh": [
           "原形",
-          "第三人稱現在式",
           "過去式",
+          "第三人稱現在式",
           "進行式"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "explanationZh": "這句說的是以前的事，動詞用過去式。step 的過去式加 -ped = stepped。",
         "tags": [
           "story",
@@ -2166,17 +2166,17 @@
         "question": "What was the emperor wearing in the parade?",
         "options": [
           "a long red robe",
-          "not even one stitch",
           "a white silk shirt",
+          "not even one stitch",
           "a gold crown set"
         ],
         "optionsZh": [
           "長紅袍",
-          "連一針都沒穿",
           "白絲衫",
+          "連一針都沒穿",
           "金王冠套裝"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "wearing nothing at all = 什麼都沒穿——國王完全沒衣服就走出去了！",
         "tags": [
           "story",
@@ -2195,18 +2195,18 @@
         "sentenceZh": "國王走過去時，群眾做了什麼？",
         "question": "What did the crowd do?",
         "options": [
-          "clapped and cheered loud",
+          "fell right asleep",
           "shouted out in anger",
           "ran away very fast",
-          "fell right asleep"
+          "clapped and cheered loud"
         ],
         "optionsZh": [
-          "拍手叫好",
+          "馬上睡著了",
           "憤怒大叫",
           "快跑走",
-          "馬上睡著了"
+          "拍手叫好"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "clapped and called out = 拍手、大喊——群眾跟著一起說好美。",
         "tags": [
           "story",
@@ -2226,18 +2226,18 @@
         "sentenceZh": "沒有人想第一個說別的話。",
         "question": "Why did no one tell the truth in the crowd?",
         "options": [
-          "they all saw the cloth clearly",
           "no one dared be the first to speak up",
+          "they all saw the cloth clearly",
           "the emperor told them to be quiet",
           "the music was too loud to hear"
         ],
         "optionsZh": [
-          "他們都清楚看見布",
           "沒人敢第一個說真話",
+          "他們都清楚看見布",
           "國王叫他們安靜",
           "音樂太大聲"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "no one wanted to be first = 沒人想第一個說真話——大家都怕，所以誰也不開口。",
         "tags": [
           "story",
@@ -2416,17 +2416,17 @@
         "question": "How did the emperor look to the child?",
         "options": [
           "like a hero from a story",
-          "with no clothes on at all",
           "taller than a tree",
+          "with no clothes on at all",
           "as if made of gold"
         ],
         "optionsZh": [
           "像故事裡的英雄",
-          "完全沒穿衣服",
           "比樹還高",
+          "完全沒穿衣服",
           "像金子做的"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "在小孩眼裡,國王就像剛洗完澡的人——完全沒穿衣服嘛,選「完全沒穿衣服」。",
         "tags": [
           "story",
@@ -2460,17 +2460,17 @@
         "question": "How did the child say the truth?",
         "options": [
           "in a soft whisper",
-          "loud and easy to hear",
+          "as a slow song",
           "while crying hard",
-          "as a slow song"
+          "loud and easy to hear"
         ],
         "optionsZh": [
           "輕聲耳語",
-          "大聲又清楚",
+          "像慢歌",
           "一邊大哭",
-          "像慢歌"
+          "大聲又清楚"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "cut through noise = 聲音穿透嘈雜——小孩的聲音清清楚楚傳出去,選「大聲又清楚」。",
         "tags": [
           "story",
@@ -2503,18 +2503,18 @@
         "sentence": "How did the people feel after the child spoke?",
         "question": "How did they feel?",
         "options": [
-          "🎉 excited and cheerful",
           "😶 silent and shocked",
+          "🎉 excited and cheerful",
           "🎵 still singing",
           "🍎 getting quite hungry"
         ],
         "optionsZh": [
-          "又興奮又開心",
           "安靜又驚訝",
+          "又興奮又開心",
           "還在唱",
           "開始覺得很餓"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "街道安靜 → 大家驚訝安靜 (spell broken)。",
         "tags": [
           "story",
@@ -2621,17 +2621,17 @@
         "question": "What did the child say?",
         "options": [
           "the cloth was truly lovely",
-          "the emperor had no clothes on",
           "the emperor was very tall",
+          "the emperor had no clothes on",
           "everyone could see the cloth"
         ],
         "optionsZh": [
           "布真的很美",
-          "皇帝沒穿衣服",
           "國王非常高",
+          "皇帝沒穿衣服",
           "每個人都看得到布"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "he has no clothes on = 他沒穿衣服——小孩說出了大家不敢說的真話。",
         "tags": [
           "story",
@@ -2650,18 +2650,18 @@
         "sentenceZh": "為什麼小孩能那麼輕鬆說出真話？",
         "question": "Why could he speak up?",
         "options": [
-          "📖 he never knew the secret rule",
+          "🧒 he was stronger than adults",
           "👑 he was the bravest person in town",
           "🎓 he was very well educated",
-          "🧒 he was stronger than adults"
+          "📖 he never knew the secret rule"
         ],
         "optionsZh": [
-          "他從來不知道那條秘密規則",
+          "他比大人還強壯",
           "他是城裡最勇敢的人",
           "他受過很好的教育",
-          "他比大人還強壯"
+          "他從來不知道那條秘密規則"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "never heard the rule = 不知道那個規則——不知道規則，就沒有壓力，就說了真話。",
         "tags": [
           "story",
@@ -2681,18 +2681,18 @@
         "sentenceZh": "街道安靜下來。沒有人拍手了。",
         "question": "What happened after the child spoke?",
         "options": [
-          "people clapped even more",
           "the street became silent",
+          "people clapped even more",
           "the emperor ran away",
           "the strangers laughed"
         ],
         "optionsZh": [
-          "大家拍更多手",
           "街道變得安靜",
+          "大家拍更多手",
           "國王跑掉",
           "騙子笑了"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "went quiet + no one clapped = 安靜下來、沒人拍手——小孩的話讓所有人都停住了。",
         "tags": [
           "story",
@@ -2871,17 +2871,17 @@
         "question": "What was one choice the emperor could have made?",
         "options": [
           "starting the parade over",
-          "going home to hide",
           "calling out the army",
+          "going home to hide",
           "sitting on the road"
         ],
         "optionsZh": [
           "重新開始遊行",
-          "回家躲起來",
           "叫軍隊",
+          "回家躲起來",
           "坐在路上"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "run home + shut door = 跑回家、把門關上——就是回家躲起來,選「回家躲起來」。",
         "tags": [
           "story",
@@ -2915,17 +2915,17 @@
         "question": "What did the emperor choose to do?",
         "options": [
           "hide right away",
-          "finish the parade",
+          "fight the strangers",
           "shout at the child",
-          "fight the strangers"
+          "finish the parade"
         ],
         "optionsZh": [
           "馬上躲",
-          "走完遊行",
+          "打騙子",
           "對小孩吼",
-          "打騙子"
+          "走完遊行"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "explanationZh": "kept walking = 繼續走——他沒有停,而是走完整個遊行,選「走完遊行」。",
         "tags": [
           "story",
@@ -3076,17 +3076,17 @@
         "question": "What did the emperor choose to do after learning the truth?",
         "options": [
           "go hide somewhere fast",
-          "keep on walking proudly",
           "shout back at the child",
+          "keep on walking proudly",
           "call for his royal clothes"
         ],
         "optionsZh": [
           "快找地方躲",
-          "繼續抬頭走",
           "對小孩大喊",
+          "繼續抬頭走",
           "叫人拿衣服"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "explanationZh": "held head high + did not stop = 抬頭繼續走——他選擇不逃、走完遊行。",
         "tags": [
           "story",
@@ -3105,18 +3105,18 @@
         "sentenceZh": "這個故事最重要的啟示是什麼？",
         "question": "What is the lesson?",
         "options": [
-          "🗣️ one honest voice can break a big lie",
+          "🧵 always check the cloth before you buy",
           "👗 clothes make you look important",
           "👑 emperors should never leave the palace",
-          "🧵 always check the cloth before you buy"
+          "🗣️ one honest voice can break a big lie"
         ],
         "optionsZh": [
-          "一個誠實的聲音可以打破大謊言",
+          "買布前要檢查",
           "衣服讓你看起來重要",
           "皇帝不該離開宮殿",
-          "買布前要檢查"
+          "一個誠實的聲音可以打破大謊言"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "小孩說了一句真話，所有謊言都垮了——一個誠實的聲音可以打破大謊言。",
         "tags": [
           "story",
@@ -3136,18 +3136,18 @@
         "sentenceZh": "他繼續向前走，邁著國王才有的從容步伐。",
         "question": "How did the emperor walk at the end of the parade?",
         "options": [
-          "as fast as he could go",
           "with slow and steady steps",
+          "as fast as he could go",
           "hiding well behind the men",
           "bent down and looking sad"
         ],
         "optionsZh": [
-          "盡可能快",
           "緩慢而穩定的步伐",
+          "盡可能快",
           "好好藏在人後",
           "彎腰看起來很難過"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "slow steps of a king = 國王才有的從容步伐——他走得穩穩的，沒有逃。",
         "tags": [
           "story",

@@ -70,12 +70,12 @@
         "sentence": "Mew. What animal says mew?",
         "question": "Pick the animal",
         "options": [
-          "🐱 cat",
           "🐶 dog",
+          "🐱 cat",
           "🐦 bird",
           "🐸 frog"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「喵～」是貓咪的叫聲，所以答 cat 🐱。狗才是「汪」、青蛙才是「呱」。",
         "tags": [
           "story",
@@ -117,18 +117,18 @@
         "sentence": "The night sky is dark.",
         "question": "Which word matches?",
         "options": [
-          "night",
-          "noon",
           "dawn",
+          "noon",
+          "night",
           "dusk"
         ],
         "optionsZh": [
-          "夜晚",
-          "正午",
           "黎明",
+          "正午",
+          "夜晚",
           "黃昏"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "圖裡是夜晚的深藍天空，所以選 night！night 就是「夜晚」。",
         "sentenceZh": "夜晚的天空很暗。",
         "tags": [
@@ -194,18 +194,18 @@
         "sentence": "It was a dark rainy night. Grandma heard a tiny sound and listened hard.",
         "question": "Where did the sound come from?",
         "options": [
-          "Outside the house",
+          "Near the lamp",
           "Up on the roof",
           "Inside a book",
-          "Near the lamp"
+          "Outside the house"
         ],
         "optionsZh": [
-          "在房子外面",
+          "在燈旁邊",
           "在屋頂上",
           "在書裡面",
-          "在燈旁邊"
+          "在房子外面"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "那聲音從房子外面傳來，outside the house 就是在外面。",
         "sentenceZh": "這是個暗暗的雨夜，奶奶聽到一個小聲音，豎耳細聽。",
         "tags": [
@@ -272,11 +272,11 @@
         "speaker": "narrator",
         "sentence": "Grandma ___ the door.",
         "options": [
-          "opened",
           "closed",
+          "opened",
           "broke"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶把門打開了，opened 就是「打開了」。",
         "sentenceZh": "奶奶打開了門。",
         "tags": [
@@ -331,18 +331,18 @@
         "sentence": "Mew mew! A small cat is calling.",
         "question": "Which word matches?",
         "options": [
-          "cat",
           "cow",
+          "cat",
           "cub",
           "cup"
         ],
         "optionsZh": [
-          "貓",
           "牛",
+          "貓",
           "幼崽",
           "杯子"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「喵喵」是貓咪的聲音，圖裡也是貓，選 cat！",
         "sentenceZh": "喵喵！一隻小貓在叫。",
         "tags": [
@@ -385,12 +385,12 @@
         "sentence": "The night is dark and quiet.",
         "question": "Pick the picture for dark",
         "options": [
-          "🌑 dark",
-          "🌞 bright",
           "🌈 colour",
+          "🌞 bright",
+          "🌑 dark",
           "⚡ flash"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "夜晚是暗暗的，dark 就是「暗」🌑。",
         "sentenceZh": "夜晚又暗又安靜。",
         "tags": [
@@ -410,18 +410,18 @@
         "sentence": "Grandma heard mew mew from the yard. She put down her book and stood up.",
         "question": "What did Grandma do after hearing the sound?",
         "options": [
-          "Walked to the door",
+          "Turned off the light",
           "Went back to sleep",
           "Called out loudly",
-          "Turned off the light"
+          "Walked to the door"
         ],
         "optionsZh": [
-          "走向門口",
+          "把燈關掉",
           "回去睡覺",
           "大聲呼喊",
-          "把燈關掉"
+          "走向門口"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "奶奶聽到聲音後放下書，站起來走向門口。",
         "sentenceZh": "奶奶聽到院子裡傳來喵喵聲，放下書站了起來。",
         "tags": [
@@ -527,12 +527,12 @@
         "sentence": "The little cat is wet.",
         "question": "Pick the picture",
         "options": [
-          "💧 wet",
           "☀️ dry",
+          "💧 wet",
           "🔥 hot",
           "🍃 cool"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "下著雨，小貓全身都濕了，所以是 wet 💧。",
         "tags": [
           "story",
@@ -551,12 +551,12 @@
         "sentence": "The cat sat in the yard. It was wet.",
         "question": "Pick the picture for wet",
         "options": [
-          "💧 wet",
-          "🔥 hot",
           "🌞 dry",
+          "🔥 hot",
+          "💧 wet",
           "❄️ icy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "小貓全身都濕了，所以選 wet 💧。",
         "sentenceZh": "貓坐在院子裡，全身濕透。",
         "tags": [
@@ -575,11 +575,11 @@
         "speaker": "narrator",
         "sentence": "The cat sat in the ___.",
         "options": [
-          "yard",
+          "lake",
           "tree",
-          "lake"
+          "yard"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "小貓坐在院子裡，yard 就是「院子」。",
         "sentenceZh": "貓坐在院子裡。",
         "tags": [
@@ -623,18 +623,18 @@
         "sentence": "Rain falls on the yard.",
         "question": "Which word matches?",
         "options": [
-          "rain",
+          "rock",
           "road",
           "rope",
-          "rock"
+          "rain"
         ],
         "optionsZh": [
-          "雨",
+          "石頭",
           "路",
           "繩子",
-          "石頭"
+          "雨"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "圖裡是下雨，選 rain！rain 就是雨。",
         "sentenceZh": "雨落在院子裡。",
         "tags": [
@@ -765,12 +765,12 @@
         "sentence": "The cat is safe inside. It is no longer cold.",
         "question": "Pick the picture for safe",
         "options": [
-          "🏠 home",
           "🌊 wave",
+          "🏠 home",
           "⚡ bolt",
           "🌪️ wind"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "在屋子裡才安全！home 🏠 代表安全溫暖的地方。",
         "sentenceZh": "貓在裡面很安全，不再冷了。",
         "tags": [
@@ -790,18 +790,18 @@
         "sentence": "A wet little cat sat in the yard. It shook in the rain. It looked tiny and afraid.",
         "question": "How does the cat feel?",
         "options": [
-          "Cold and scared",
-          "Warm and happy",
           "Dry and calm",
+          "Warm and happy",
+          "Cold and scared",
           "Full and sleepy"
         ],
         "optionsZh": [
-          "又冷又怕",
-          "又暖又開心",
           "乾乾的、好放鬆",
+          "又暖又開心",
+          "又冷又怕",
           "吃飽想睡"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "你看,小貓全身濕透、還一直發抖,多冷、多害怕呀!所以是「又冷又怕」。",
         "tags": [
           "story",
@@ -865,12 +865,12 @@
         "sentence": "The tiny cat was alone in the yard.",
         "question": "Pick the picture for alone",
         "options": [
-          "😿 alone",
+          "💃 dance",
           "🎉 party",
           "🤝 group",
-          "💃 dance"
+          "😿 alone"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "小貓一個人在院子裡，alone 就是「單獨」😿。",
         "sentenceZh": "小小的貓獨自在院子裡。",
         "tags": [
@@ -889,11 +889,11 @@
         "speaker": "narrator",
         "sentence": "Grandma picked up the tiny ___.",
         "options": [
-          "cat",
           "hat",
+          "cat",
           "bat"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶抱起了小貓，cat 就是「貓」。",
         "sentenceZh": "奶奶把小貓抱了起來。",
         "tags": [
@@ -992,12 +992,12 @@
         "sentence": "Grandma dried the cat with a towel.",
         "question": "Pick the picture",
         "options": [
-          "🧼 towel",
           "🍞 bread",
+          "🧼 towel",
           "🎈 ball",
           "📦 box"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶用毛巾把小貓擦乾，towel 就是「毛巾」🧼。",
         "sentenceZh": "奶奶用毛巾把貓擦乾。",
         "tags": [
@@ -1016,11 +1016,11 @@
         "speaker": "narrator",
         "sentence": "The cat felt ___ after the towel.",
         "options": [
-          "warm",
+          "lost",
           "cold",
-          "lost"
+          "warm"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "擦乾後，小貓暖呼呼的，所以選 warm（暖）。",
         "sentenceZh": "用毛巾擦乾後，小貓覺得暖呼呼的。",
         "tags": [
@@ -1064,18 +1064,18 @@
         "sentence": "The cat is soft and round like a mochi.",
         "question": "Which word matches?",
         "options": [
-          "soft",
-          "hard",
           "fast",
+          "hard",
+          "soft",
           "tall"
         ],
         "optionsZh": [
-          "軟",
-          "硬",
           "快",
+          "硬",
+          "軟",
           "高"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "小貓軟軟的就像糰子，soft 就是「軟的」。",
         "sentenceZh": "小貓又軟又圓，就像糰子。",
         "tags": [
@@ -1095,18 +1095,18 @@
         "sentence": "Grandma held the fluffy kitten. She smiled and chose a name for her.",
         "question": "Why did Grandma choose the name Mochi?",
         "options": [
-          "Soft and round like a mochi",
+          "Ran very fast away",
           "Loud noises all night",
           "Ate all the food up",
-          "Ran very fast away"
+          "Soft and round like a mochi"
         ],
         "optionsZh": [
-          "軟軟圓圓像糰子",
+          "跑得非常快",
           "整晚大聲吵鬧",
           "把食物都吃光了",
-          "跑得非常快"
+          "軟軟圓圓像糰子"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "小貓軟軟圓圓的，就像抹茶糰子，所以奶奶叫她 Mochi。",
         "sentenceZh": "奶奶抱著毛茸茸的小貓，微笑著給她取了名字。",
         "tags": [
@@ -1198,18 +1198,18 @@
         "sentence": "The towel is warm.",
         "question": "Which word matches?",
         "options": [
-          "warm",
           "cold",
+          "warm",
           "dark",
           "hard"
         ],
         "optionsZh": [
-          "暖",
           "冷",
+          "暖",
           "暗",
           "硬"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "毛巾是暖的，warm 就是「暖」，選它！",
         "sentenceZh": "毛巾是暖暖的。",
         "tags": [
@@ -1263,18 +1263,18 @@
         "sentence": "The cat was soft and warm in Grandma's hands. Grandma smiled and gave her a name.",
         "question": "How did Grandma feel about the cat?",
         "options": [
-          "She liked her",
-          "A little angry",
           "Quite bored",
+          "A little angry",
+          "She liked her",
           "Afraid of her"
         ],
         "optionsZh": [
-          "她很喜歡牠",
-          "有點生氣",
           "覺得無聊",
+          "有點生氣",
+          "她很喜歡牠",
           "有點害怕"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "奶奶笑著幫小貓取名字，這就是喜歡牠的表現。",
         "tags": [
           "story",
@@ -1316,12 +1316,12 @@
         "sentence": "Mochi is soft and cozy.",
         "question": "Pick the picture for soft",
         "options": [
-          "🐱 soft",
+          "🔩 metal",
           "🪨 hard",
           "🌵 spiky",
-          "🔩 metal"
+          "🐱 soft"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "Mochi 軟軟的就像貓咪，soft 就是「軟」🐱。",
         "sentenceZh": "Mochi 又軟又舒適。",
         "tags": [
@@ -1340,11 +1340,11 @@
         "speaker": "narrator",
         "sentence": "Grandma dried Mochi with a warm ___.",
         "options": [
-          "towel",
           "stone",
+          "towel",
           "spoon"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶用毛巾把 Mochi 擦乾，towel 就是「毛巾」。",
         "sentenceZh": "奶奶用溫暖的毛巾把 Mochi 擦乾。",
         "tags": [
@@ -1436,18 +1436,18 @@
         "sentence": "Hana is a dog.",
         "question": "Which word matches?",
         "options": [
-          "dog",
           "cat",
+          "dog",
           "cow",
           "duck"
         ],
         "optionsZh": [
-          "狗",
           "貓",
+          "狗",
           "牛",
           "鴨"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "圖裡是一隻狗，所以選 dog。Hana 是一隻柴犬。",
         "tags": [
           "story",
@@ -1466,12 +1466,12 @@
         "sentence": "Hana came to say hello.",
         "question": "Pick the picture",
         "options": [
-          "🐶 dog",
-          "🐱 cat",
           "🐰 rabbit",
+          "🐱 cat",
+          "🐶 dog",
           "🐻 bear"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "來打招呼的是 Hana，她是一隻狗 🐶。",
         "tags": [
           "story",
@@ -1489,11 +1489,11 @@
         "speaker": "narrator",
         "sentence": "Hana is a ___.",
         "options": [
-          "dog",
+          "bird",
           "cat",
-          "bird"
+          "dog"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Hana 是一隻狗，dog 就是「狗」。",
         "sentenceZh": "Hana 是一隻狗。",
         "tags": [
@@ -1536,12 +1536,12 @@
         "sentence": "Hana wagged her tail. She was happy.",
         "question": "Pick the picture for happy",
         "options": [
-          "😊 glad",
+          "😠 cross",
           "😢 sad",
           "😴 sleepy",
-          "😠 cross"
+          "😊 glad"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "Hana 搖起尾巴，表示她很開心 😊，happy 就是「開心」。",
         "sentenceZh": "Hana 搖了搖尾巴，她很高興。",
         "tags": [
@@ -1639,18 +1639,18 @@
         "sentence": "Hana has four paws and a tail.",
         "question": "Which word matches?",
         "options": [
-          "tail",
           "wing",
+          "tail",
           "horn",
           "gill"
         ],
         "optionsZh": [
-          "尾巴",
           "翅膀",
+          "尾巴",
           "角",
           "魚鰓"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "Hana 有尾巴，tail 就是「尾巴」，選它！",
         "sentenceZh": "Hana 有四隻腳掌和一條尾巴。",
         "tags": [
@@ -1703,11 +1703,11 @@
         "speaker": "narrator",
         "sentence": "Mochi and Hana are good ___.",
         "options": [
-          "friends",
           "rivals",
+          "friends",
           "strangers"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "Mochi 和 Hana 是好朋友，friends 就是「朋友」。",
         "sentenceZh": "Mochi 和 Hana 是好朋友。",
         "tags": [
@@ -1727,18 +1727,18 @@
         "sentence": "Hana sniffed Mochi. Sniff, sniff. Then Hana's tail went swish, swish. They were friends.",
         "question": "What did Hana do at the end?",
         "options": [
-          "Wagged her tail",
-          "Ran far away",
           "Fell asleep",
+          "Ran far away",
+          "Wagged her tail",
           "Ate the food"
         ],
         "optionsZh": [
-          "搖搖尾巴",
-          "跑得遠遠的",
           "睡著了",
+          "跑得遠遠的",
+          "搖搖尾巴",
           "把食物吃掉"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Hana 搖起尾巴，搖啊搖的，這樣就表示她很高興，跟 Mochi 成朋友了。",
         "tags": [
           "story",
@@ -1802,18 +1802,18 @@
         "sentence": "Grandma lives with her two pets. They are very good friends.",
         "question": "Who lives in Grandma's home?",
         "options": [
-          "Mochi and Hana",
+          "Many little fish",
           "Two big rabbits",
           "Three fluffy dogs",
-          "Many little fish"
+          "Mochi and Hana"
         ],
         "optionsZh": [
-          "Mochi 和 Hana",
+          "很多小魚",
           "兩隻大兔子",
           "三隻毛茸狗",
-          "很多小魚"
+          "Mochi 和 Hana"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "奶奶的兩隻寵物就是 Mochi（貓）和 Hana（狗）。",
         "sentenceZh": "奶奶和她的兩隻寵物住在一起，牠們是非常好的朋友。",
         "tags": [
@@ -1912,12 +1912,12 @@
         "sentence": "Mochi jumps up high. Pick the way.",
         "question": "Pick the picture",
         "options": [
-          "⬆️ up",
           "⬇️ down",
+          "⬆️ up",
           "➡️ right",
           "⬅️ left"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "Mochi 往上跳，所以是 up ⬆️，不是往下喔。",
         "tags": [
           "story",
@@ -1957,11 +1957,11 @@
         "speaker": "narrator",
         "sentence": "Mochi lives on the ___.",
         "options": [
-          "street",
+          "lake",
           "moon",
-          "lake"
+          "street"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Mochi 住在街上，street 就是「街道」。",
         "sentenceZh": "Mochi 住在街上。",
         "tags": [
@@ -2005,18 +2005,18 @@
         "sentence": "Mochi jumps up on the wall.",
         "question": "Which word matches?",
         "options": [
-          "jump",
-          "swim",
           "rest",
+          "swim",
+          "jump",
           "hide"
         ],
         "optionsZh": [
-          "跳",
-          "游",
           "休息",
+          "游",
+          "跳",
           "躲"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Mochi 往上跳，jump 就是「跳」，選它！",
         "sentenceZh": "Mochi 跳上了牆。",
         "tags": [
@@ -2036,18 +2036,18 @@
         "sentence": "Mochi lives on the street. But every night she comes home to sit and wait.",
         "question": "Where does Mochi go every night?",
         "options": [
-          "Back to the garden",
+          "Deep in the forest",
           "Far away downtown",
           "High on the rooftop",
-          "Deep in the forest"
+          "Back to the garden"
         ],
         "optionsZh": [
-          "回到花園",
+          "走進深深的樹林",
           "去遠遠的市區",
           "爬上高高的屋頂",
-          "走進深深的樹林"
+          "回到花園"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "Mochi 每晚都回到花園，坐在矮牆上等著。",
         "sentenceZh": "Mochi 住在街上，但每晚她都回家來坐著等候。",
         "tags": [
@@ -2149,18 +2149,18 @@
         "sentence": "Every night, Mochi jumps on the wall. Hana waits below. They both wait for the kind old lady with her book.",
         "question": "Who do they wait for?",
         "options": [
-          "Grandma",
           "A big cat",
+          "Grandma",
           "The dog",
           "The sun"
         ],
         "optionsZh": [
-          "奶奶",
           "一隻大貓",
+          "奶奶",
           "那隻狗",
           "太陽"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "「拿著書的老奶奶」就是 Grandma，他們在等奶奶出來說故事。",
         "tags": [
           "story",
@@ -2179,18 +2179,18 @@
         "sentence": "Mochi ___ up on the low wall every night.",
         "question": "Which word is correct?",
         "options": [
-          "jumps",
-          "jump",
           "jumping",
+          "jump",
+          "jumps",
           "jumped"
         ],
         "optionsZh": [
-          "跳（加 -s，牠／她／他）",
-          "跳（原形）",
           "正在跳",
+          "跳（原形）",
+          "跳（加 -s，牠／她／他）",
           "跳（過去式）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Mochi 是「她」，一個人的動作，現在式要加 -s 喔。所以 jump 要變成 jumps。\n原句：Mochi jumps up on the low wall every night.",
         "tags": [
           "story",
@@ -2234,12 +2234,12 @@
         "sentence": "The low wall is in the garden.",
         "question": "Pick the picture for wall",
         "options": [
-          "🧱 wall",
+          "🪟 window",
           "🌊 wave",
           "🌲 tree",
-          "🪟 window"
+          "🧱 wall"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "矮牆就是 wall 🧱，Mochi 每晚跳上那道牆。",
         "sentenceZh": "那道矮牆就在花園裡。",
         "tags": [
@@ -2369,18 +2369,18 @@
         "sentence": "Grandma reads a book.",
         "question": "Which word matches?",
         "options": [
-          "book",
           "ball",
+          "book",
           "door",
           "tree"
         ],
         "optionsZh": [
-          "書",
           "球",
+          "書",
           "門",
           "樹"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "圖片是一本書，所以選 book 📖。",
         "tags": [
           "story",
@@ -2399,12 +2399,12 @@
         "sentence": "Grandma tells a story.",
         "question": "Pick the picture",
         "options": [
-          "📖 story",
-          "🍎 apple",
           "🚗 car",
+          "🍎 apple",
+          "📖 story",
           "⚽ ball"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "奶奶在說故事，story 就是故事 📖。",
         "tags": [
           "story",
@@ -2422,11 +2422,11 @@
         "speaker": "narrator",
         "sentence": "Grandma opened a ___.",
         "options": [
-          "book",
           "door",
+          "book",
           "shop"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶翻開了一本書，book 就是「書」。",
         "sentenceZh": "奶奶翻開了一本書。",
         "tags": [
@@ -2469,12 +2469,12 @@
         "sentence": "Mochi loves to listen. Her ears go up!",
         "question": "Pick the picture for listen",
         "options": [
-          "👂 ear",
+          "👄 mouth",
           "👁️ eye",
           "👃 nose",
-          "👄 mouth"
+          "👂 ear"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "聽故事要用耳朵，ear 就是「耳朵」👂。",
         "sentenceZh": "Mochi 愛聽故事，她的耳朵豎起來了！",
         "tags": [
@@ -2524,11 +2524,11 @@
         "speaker": "narrator",
         "sentence": "Grandma began to ___.",
         "options": [
-          "read",
+          "cook",
           "sleep",
-          "cook"
+          "read"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "奶奶開始讀書，read 就是「讀」。",
         "sentenceZh": "奶奶開始讀書。",
         "tags": [
@@ -2583,18 +2583,18 @@
         "sentence": "Mochi and Hana listen to Grandma.",
         "question": "Which word matches?",
         "options": [
-          "listen",
           "shout",
+          "listen",
           "sleep",
           "laugh"
         ],
         "optionsZh": [
-          "聽",
           "大喊",
+          "聽",
           "睡覺",
           "笑"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "Mochi 和 Hana 在「聽」奶奶說故事，listen 就是「聽」。",
         "sentenceZh": "Mochi 和 Hana 聽著奶奶說故事。",
         "tags": [
@@ -2614,18 +2614,18 @@
         "sentence": "Grandma opened her book. 'Listen,' she said. 'Tonight, a story.' Mochi and Hana sat close.",
         "question": "What will Grandma do?",
         "options": [
-          "Tell a story",
-          "Cook some rice",
           "Wash the wall",
+          "Cook some rice",
+          "Tell a story",
           "Walk the dog"
         ],
         "optionsZh": [
-          "說一個故事",
-          "煮一碗飯",
           "刷洗牆壁",
+          "煮一碗飯",
+          "說一個故事",
           "去遛狗"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "奶奶說「今晚說個故事」，所以她要說故事。",
         "tags": [
           "story",
@@ -2666,18 +2666,18 @@
         "sentence": "One night, Grandma ___ a book of stories.",
         "question": "Which word is correct?",
         "options": [
-          "opened",
+          "open",
           "opens",
           "opening",
-          "open"
+          "opened"
         ],
         "optionsZh": [
-          "打開（過去式）",
+          "打開（原形）",
           "打開（現在式）",
           "正在打開",
-          "打開（原形）"
+          "打開（過去式）"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "故事說的是「有一天晚上」，那是過去的事，所以動詞用過去式 opened。\n原句：Grandma opened a book.",
         "tags": [
           "story",
@@ -2824,18 +2824,18 @@
         "sentence": "Every night now, Grandma tells a story. Mochi listens. Hana listens. This is why there is a story every night.",
         "question": "Why is there a story every night?",
         "options": [
-          "Grandma loves stories",
           "The rain never stops",
+          "Grandma loves stories",
           "The cat can read",
           "The dog is hungry"
         ],
         "optionsZh": [
-          "奶奶喜歡說故事",
           "雨一直下不停",
+          "奶奶喜歡說故事",
           "貓會自己看書",
           "狗肚子餓了"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "因為奶奶愛說故事，所以每晚都有故事時光。",
         "tags": [
           "story",
@@ -2875,11 +2875,11 @@
         "speaker": "narrator",
         "sentence": "Every ___, Grandma tells a story.",
         "options": [
-          "night",
           "week",
+          "night",
           "year"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "每「晚上」奶奶都說故事，night 就是「晚上」。",
         "sentenceZh": "每天晚上，奶奶都說一個故事。",
         "tags": [
@@ -2922,12 +2922,12 @@
         "sentence": "Grandma holds a warm cup of tea and a book.",
         "question": "Pick the picture for book",
         "options": [
-          "📖 book",
-          "🎵 song",
           "🍵 tea",
+          "🎵 song",
+          "📖 book",
           "🪑 chair"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "奶奶拿著書，book 就是書 📖，選它！",
         "sentenceZh": "奶奶拿著一杯熱茶和一本書。",
         "tags": [
@@ -2947,18 +2947,18 @@
         "sentence": "And so every night is the same. Mochi on the wall. Hana below. Grandma with her book. One warm story.",
         "question": "What happens every night?",
         "options": [
-          "Grandma tells a story",
+          "The rain falls hard",
           "Mochi goes to sleep",
           "Hana finds new food",
-          "The rain falls hard"
+          "Grandma tells a story"
         ],
         "optionsZh": [
-          "奶奶說一個故事",
+          "大雨一直下",
           "Mochi 去睡覺",
           "Hana 找到新食物",
-          "大雨一直下"
+          "奶奶說一個故事"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "explanationZh": "每晚都有故事，奶奶說、Mochi 和 Hana 聽。",
         "sentenceZh": "就這樣，每個夜晚都是一樣的。Mochi 在牆上，Hana 在下面，奶奶拿著書，說一個暖呼呼的故事。",
         "tags": [
@@ -2977,11 +2977,11 @@
         "speaker": "narrator",
         "sentence": "Hana sits ___ Grandma's feet.",
         "options": [
-          "below",
+          "inside",
           "above",
-          "inside"
+          "below"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "explanationZh": "Hana 趴在奶奶腳邊，below 就是「下面」。",
         "sentenceZh": "Hana 坐在奶奶腳下。",
         "tags": [
@@ -3137,18 +3137,18 @@
         "sentence": "Every night is story time.",
         "question": "Which word matches?",
         "options": [
-          "night",
           "noon",
+          "night",
           "dusk",
           "dawn"
         ],
         "optionsZh": [
-          "夜晚",
           "正午",
+          "夜晚",
           "黃昏",
           "黎明"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "每晚都是故事時間，night 就是「夜晚」！",
         "sentenceZh": "每天夜晚都是故事時間。",
         "tags": [
@@ -3167,11 +3167,11 @@
         "speaker": "narrator",
         "sentence": "Grandma's stories are ___ and kind.",
         "options": [
-          "warm",
           "loud",
+          "warm",
           "dark"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "explanationZh": "奶奶的故事溫暖又親切，warm 就是「溫暖」。",
         "sentenceZh": "奶奶的故事溫暖又親切。",
         "tags": [
