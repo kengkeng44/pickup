@@ -37,7 +37,8 @@ const LEVELS: Array<{ id: OnboardLevel; emoji: string; key: string; subKey: stri
 
 export default function Onboarding({ onDone }: { onDone: () => void }) {
   const { t } = useT();
-  const [step, setStep] = useState<Step>('welcome');
+  // v2.0.B.414 (per user): 語言選第一步 → 之後歡迎/登入/註冊全是該語言。
+  const [step, setStep] = useState<Step>('lang');
   const [name, setName] = useState(() => getAccount()?.name ?? '');
   const [email, setEmail] = useState('');
 
@@ -70,10 +71,10 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
             <input style={S.input} value={email} onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com" type="email" inputMode="email" />
             <button style={{ ...S.primary, opacity: name.trim() ? 1 : 0.5 }} disabled={!name.trim()}
-              onClick={() => { setAccount({ name: name.trim(), mode: 'local', email: email.trim() || undefined }); setStep('lang'); }}>
+              onClick={() => { setAccount({ name: name.trim(), mode: 'local', email: email.trim() || undefined }); setStep('level'); }}>
               {t('ob.auth.register')}
             </button>
-            <button style={S.link} onClick={() => { setAccount({ name: name.trim() || 'Guest', mode: 'guest' }); setStep('lang'); }}>
+            <button style={S.link} onClick={() => { setAccount({ name: name.trim() || 'Guest', mode: 'guest' }); setStep('level'); }}>
               {t('ob.auth.guest')}
             </button>
           </div>
@@ -86,7 +87,7 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
             <input style={S.input} value={name} onChange={(e) => setName(e.target.value)}
               placeholder={t('ob.auth.namePlaceholder')} maxLength={20} autoFocus />
             <button style={{ ...S.primary, opacity: name.trim() ? 1 : 0.5 }} disabled={!name.trim()}
-              onClick={() => { setAccount({ name: name.trim(), mode: 'local' }); setStep('lang'); }}>
+              onClick={() => { setAccount({ name: name.trim(), mode: 'local' }); setStep('level'); }}>
               {t('ob.login.enter')}
             </button>
             <button style={S.link} onClick={() => setStep('welcome')}>{t('ob.back')}</button>
@@ -100,14 +101,13 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
             <div style={S.grid}>
               {LANGS.map((l, i) => (
                 <button key={i} disabled={!l.ready}
-                  onClick={() => { if (l.ready) { setLang(l.id); } }}
+                  onClick={() => { if (l.ready) { setLang(l.id); setStep('welcome'); } }}
                   style={{ ...S.langCard, opacity: l.ready ? 1 : 0.45, cursor: l.ready ? 'pointer' : 'default' }}>
                   <span style={{ fontSize: 18, fontWeight: 800 }}>{l.native}</span>
                   {!l.ready && <span style={S.soon}>{t('ob.lang.soon')}</span>}
                 </button>
               ))}
             </div>
-            <button style={S.primary} onClick={() => setStep('level')}>{t('ob.next')}</button>
           </div>
         )}
 

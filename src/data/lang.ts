@@ -13,6 +13,25 @@ export type UiLang = 'zh' | 'en' | 'ja' | 'ko' | 'zh-Hans';
 const SUPPORTED: UiLang[] = ['zh', 'en', 'ja', 'ko', 'zh-Hans'];
 const DEFAULT: UiLang = 'zh';
 
+// v2.0.B.414 — 首次啟動依瀏覽器語言猜預設 (onboarding 語言頁標題就用對的語言)。
+function detectBrowserLang(): UiLang {
+  try {
+    const n = (navigator.language || '').toLowerCase();
+    if (n.startsWith('ja')) return 'ja';
+    if (n.startsWith('ko')) return 'ko';
+    if (n.startsWith('zh')) return /cn|hans|sg|my/.test(n) ? 'zh-Hans' : 'zh';
+    if (n.startsWith('en')) return 'en';
+  } catch { /* no navigator */ }
+  return DEFAULT;
+}
+
+// 只在「從沒設過語言」時寫入偵測值 (使用者選過就尊重)。App 啟動呼叫一次。
+export function ensureLangInitialized(): void {
+  try {
+    if (!localStorage.getItem(KEY)) localStorage.setItem(KEY, detectBrowserLang());
+  } catch { /* private browsing */ }
+}
+
 export function getLang(): UiLang {
   try {
     const v = localStorage.getItem(KEY) as UiLang | null;

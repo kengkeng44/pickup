@@ -23,7 +23,10 @@ import { startBgm } from '../audio/bgm';
 import { preloadHints } from '../ui/WordHint';
 import { isOnboarded } from '../data/onboarding';
 import { translate } from './i18n';
-import { getLang } from '../data/lang';
+import { getLang, ensureLangInitialized } from '../data/lang';
+
+// v2.0.B.414: 首次啟動依瀏覽器語言設預設 (module load 時跑一次, 早於首次 render)。
+ensureLangInitialized();
 
 const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
