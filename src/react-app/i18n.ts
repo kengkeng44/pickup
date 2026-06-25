@@ -540,9 +540,12 @@ export function translate(key: string, lang: UiLang): string {
   return DICTS[lang]?.[key] ?? DICTS.zh[key] ?? key;
 }
 
-// hook: 回傳 t() + 當前語言, 切語言時自動 re-render 訂閱的元件。
+// hook: 回傳 t() + 當前語言。切語言 / 簡中 converter 載好 都會 dispatch lang 事件;
+// 用「累加 counter」強制 re-render (不能比 lang 值 — 簡中 converter 載好時 lang 沒變,
+// setState 同值會被 React bail-out → 永遠顯示繁中。v2.0.B.417 bug fix)。
 export function useT(): { t: (key: string) => string; lang: UiLang } {
-  const [lang, setLangState] = useState<UiLang>(() => getLang());
-  useEffect(() => subscribeLang(() => setLangState(getLang())), []);
+  const [, force] = useState(0);
+  useEffect(() => subscribeLang(() => force((n) => n + 1)), []);
+  const lang = getLang();
   return { t: (key: string) => translate(key, lang), lang };
 }

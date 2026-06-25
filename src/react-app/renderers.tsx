@@ -24,8 +24,9 @@ function tq(key: string): string {
   return translate(key, getLang());
 }
 function useTq(): (key: string) => string {
-  const [lang, setLang] = useState(() => getLang());
-  useEffect(() => subscribeLang(() => setLang(getLang())), []);
+  const [, force] = useState(0);
+  useEffect(() => subscribeLang(() => force((n) => n + 1)), []);
+  const lang = getLang();
   return (key: string) => translate(key, lang);
 }
 

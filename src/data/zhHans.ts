@@ -55,3 +55,12 @@ export function toSimplified(text: string | undefined | null): string {
 export function isSimplified(): boolean {
   return getLang() === 'zh-Hans';
 }
+
+// v2.0.B.417 — 啟動時若為簡中, 先把 converter 載好再渲染主畫面 (App gate),
+// 確保「不訂閱 lang 事件的內容元件」(SpeakZh/RevealSentence) 首次渲染就拿到簡體。
+export function ensureSimplifiedReady(): Promise<void> {
+  if (getLang() !== 'zh-Hans' || convert) return Promise.resolve();
+  return import('opencc-js/t2cn')
+    .then((OpenCC) => { convert = OpenCC.Converter({ from: 'tw', to: 'cn' }); cache.clear(); })
+    .catch(() => { /* 載入失敗 → 維持繁中 */ });
+}

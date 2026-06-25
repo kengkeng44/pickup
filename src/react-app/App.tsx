@@ -24,6 +24,7 @@ import { preloadHints } from '../ui/WordHint';
 import { isOnboarded } from '../data/onboarding';
 import { translate } from './i18n';
 import { getLang, ensureLangInitialized } from '../data/lang';
+import { ensureSimplifiedReady } from '../data/zhHans';
 
 // v2.0.B.414: 首次啟動依瀏覽器語言設預設 (module load 時跑一次, 早於首次 render)。
 ensureLangInitialized();
@@ -76,8 +77,16 @@ export default function App() {
       document.removeEventListener('touchstart', unlockOnce);
     };
   }, []);
+  // v2.0.B.417 — 簡中: 先把 opencc converter 載好再渲染 (內容元件不訂閱 lang 事件,
+  // 否則首屏會閃繁中)。其他語言 i18nReady 立即 true, 無延遲。
+  const [i18nReady, setI18nReady] = useState(() => getLang() !== 'zh-Hans');
+  useEffect(() => {
+    if (!i18nReady) ensureSimplifiedReady().then(() => setI18nReady(true));
+  }, [i18nReady]);
+
   // v2.0.B.394 — 首次啟動 gate: 沒 onboard 過 → 全屏 onboarding 流程, 完成才進主畫面。
   const [onboarded, setOnboardedState] = useState(() => isOnboarded());
+  if (!i18nReady) return <LoadingShell />;
   if (!onboarded) return <Onboarding onDone={() => setOnboardedState(true)} />;
 
   return (
