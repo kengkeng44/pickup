@@ -575,6 +575,9 @@ main code { overflow-wrap: anywhere; }
     <button id="next-btn" onclick="cp('p0', this)">📋 接這個 → 開新 Claude session 貼上</button>
   </section>
 
+  <!-- v2.0.B.420 (per user「統整到底要改什麼」): 跨所有未處理 audit 的具體待辦清單 -->
+  <section id="consolidated" style="margin:14px 0;"></section>
+
   <!-- Cron card grid -->
   <section class="cron-grid" id="cron-grid">
     <div class="empty">載入中…</div>
@@ -919,6 +922,26 @@ function parseFindings(md) {
     }
     if (out.length) break;   // 取第一張 findings 表 (通常就是主表)
   }
+  // 無表格的 audit (架構 / ui-ux 常見) → 抓「### Finding N / P0-N / P1-N」標題段落,
+  // 問題=標題, 修法=段落內第一句 Fix:/Cheapest fix/修法/建議。避免退回「看看就好」廢話。
+  if (!out.length) {
+    const lines = md.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      const h = lines[i].match(/^#{2,4}\s+(Finding\s*\d+|P0-\d+|P1-\d+|P2-\d+)\b[:：\-—\s]*(.*)/i);
+      if (!h) continue;
+      const tag = h[1].toUpperCase();
+      let problem = h[2].replace(/[*`]/g, '').trim();
+      let fix = '';
+      for (let j = i + 1; j < lines.length && j < i + 14; j++) {
+        if (/^#{2,4}\s/.test(lines[j])) break;
+        const fm = lines[j].match(/(?:\*\*)?(?:Cheapest fix|Fix|修法|建議|Recommend(?:ed)?)(?:\*\*)?\s*[:：(]?\s*(.+)/i);
+        if (fm) { fix = fm[1].replace(/[*`]/g, '').replace(/\)$/, '').trim(); break; }
+        if (!problem && lines[j].trim()) problem = lines[j].replace(/[*`]/g, '').trim();
+      }
+      const sev = /P0/.test(tag) ? 'P0' : /P1/.test(tag) ? 'P1' : /P2/.test(tag) ? 'P2' : 'P1';
+      if (problem || fix) out.push({ id: tag, sev, viol: problem, fix });
+    }
+  }
   return out;
 }
 
@@ -1002,10 +1025,10 @@ async function loadDashboard(forceFresh) {
     const dataByType = {};
     await Promise.all(Object.entries(latestFileByType).map(async ([type, file]) => {
       const path = `docs/audits/${file.name}`;
-      let parsed = { angle: '', p0: 0, p1: 0, p2: 0, total: 0, topItem: '', hasP0: false };
+      let parsed = { angle: '', p0: 0, p1: 0, p2: 0, total: 0, topItem: '', hasP0: false, findings: [] };
       try {
         const res = await fetch(`https://raw.githubusercontent.com/${REPO}/master/${path}`);
-        if (res.ok) parsed = parseAuditMd(await res.text());
+        if (res.ok) { const t = await res.text(); parsed = parseAuditMd(t); parsed.findings = parseFindings(t); }
       } catch {}
       dataByType[type] = { ...parsed, ts: parseAuditTs(file.name), file: path };
     }));
@@ -1070,6 +1093,7 @@ async function loadDashboard(forceFresh) {
 
     fetchedEl.textContent = '✓ 已載入 · ' + new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
     updateNextActionBanner(dataByType, shippedByFile);
+    renderConsolidated(dataByType, shippedByFile);
   } catch (err) {
     grid.innerHTML = `<div class="empty">載入失敗: ${err.message}<br><br>(GitHub API 限額用完? 等一下 OR 直接看 <a href="https://github.com/${REPO}/tree/master/docs/audits">repo</a>)</div>`;
     fetchedEl.textContent = '✕ 載入失敗';
@@ -1167,6 +1191,54 @@ Markdown 表 + dense, < 500 字`;
 }
 
 // ─── Top "next action" banner ──────────────────────────────────────
+// v2.0.B.420 (per user「統整到底要改什麼」): 把所有「未處理」audit 的每一條 finding
+// 攤成一張具體待辦清單 — 分「可自動修(題庫)」vs「要你決定(程式碼/架構)」, 每條一句 + 修法。
+// 取代過去「多是架構,看看就好」這種無意義標註。
+function renderConsolidated(dataByType, shippedByFile = {}) {
+  const el = document.getElementById('consolidated');
+  if (!el) return;
+  const md2 = (s) => String(s || '').replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c])).replace(/\*\*|~~|`/g, '').trim();
+  const oneLine = (s) => { const t = String(s || ''); const k = t.indexOf('—'); return md2(k >= 0 ? t.slice(k + 1) : t); };
+  const rank = (s) => (/P0/i.test(s) ? 0 : /P1/i.test(s) ? 1 : 2);
+  const auto = [], manual = [];
+  for (const [type, d] of Object.entries(dataByType)) {
+    if (!d || shippedByFile[d.file] || !Array.isArray(d.findings)) continue;
+    const meta = CRON_TYPES[type] || { cnDesc: type };
+    for (const f of d.findings) {
+      if (/FP|FALSE/i.test(f.sev)) continue;     // 誤報不列
+      (type === 'content' ? auto : manual).push({ type, name: meta.cnDesc, file: d.file, ...f });
+    }
+  }
+  auto.sort((a, b) => rank(a.sev) - rank(b.sev));
+  manual.sort((a, b) => rank(a.sev) - rank(b.sev));
+
+  if (!auto.length && !manual.length) {
+    el.innerHTML = '<div style="background:#f3f8ee;border:2px solid var(--success);border-radius:12px;padding:14px;font-weight:800;color:#3d6b1f;">✅ 目前沒有待辦改善 — 各類 cron 最新一輪都處理完了。</div>';
+    return;
+  }
+  const badge = (sev) => {
+    const t = (sev || '').toUpperCase();
+    const st = 'display:inline-block;font-size:10px;font-weight:900;padding:1px 6px;border-radius:6px;margin-right:6px;';
+    if (/P0/.test(t)) return `<span style="${st}background:#fde0d2;color:var(--danger);">急修</span>`;
+    if (/P1/.test(t)) return `<span style="${st}background:var(--soft);color:var(--accent-dark);">次要</span>`;
+    return `<span style="${st}background:#eaf6d5;color:var(--success);">小改</span>`;
+  };
+  const rowHtml = (f) => `<div style="padding:7px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.55;">
+    ${badge(f.sev)}<span style="font-size:10px;color:var(--muted);">[${md2(f.name)}]</span> ${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}${oneLine(f.viol)}${f.fix ? `<span style="color:var(--accent-dark);font-weight:700;"> → ${oneLine(f.fix).replace(/^→\s*/, '')}</span>` : ''}</div>`;
+  const sectionHtml = (title, items, topBtn) => (items.length ? `
+    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;">
+      <div style="font-weight:900;font-size:14px;margin-bottom:6px;">${title} <span style="color:var(--muted);font-weight:700;font-size:12px;">· ${items.length} 條</span></div>
+      ${topBtn || ''}
+      ${items.slice(0, 40).map(rowHtml).join('')}
+      ${items.length > 40 ? `<div style="font-size:11px;color:var(--muted);padding-top:8px;">…還有 ${items.length - 40} 條 (點對應卡片看完整)</div>` : ''}
+    </div>` : '');
+  const autoBtn = auto.length ? '<button class="db-copy" style="margin:0 0 8px;" onclick="copyForCron(\'content\', null)">📋 複製指令 → 開 Claude 一次清掉這些題目改善</button>' : '';
+  el.innerHTML = `
+    <h2 style="font-size:16px;font-weight:900;margin:0 0 8px;">📋 統整:到底要改什麼 <span style="font-size:12px;color:var(--muted);font-weight:700;">(所有未處理 audit 全攤開)</span></h2>
+    ${sectionHtml('🛠 題目品質 — 可自動修', auto, autoBtn)}
+    ${sectionHtml('🔧 程式碼/架構 — 要你決定後再動', manual, '')}`;
+}
+
 function updateNextActionBanner(dataByType, shippedByFile = {}) {
   const banner = document.getElementById('next-action');
   const titleEl = document.getElementById('next-title');
