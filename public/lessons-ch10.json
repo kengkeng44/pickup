@@ -1269,6 +1269,107 @@
           "ch10",
           "change"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch10-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "她快速思考。",
+        "answer": "She thought fast.",
+        "accept": [
+          "She thought quickly.",
+          "She thought fast",
+          "She quickly thought."
+        ],
+        "explanationZh": "thought 是 think 的過去式，fast 當副詞用，意思是「快速地」。也可以說 quickly，兩種都對！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch10",
+          "change"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch10-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "她把藥丸拿起來。",
+        "answer": "She picked up the pill.",
+        "accept": [
+          "She picked the pill up.",
+          "She took the pill.",
+          "She picked up the white pill."
+        ],
+        "explanationZh": "pick up = 拿起來，是分開的動詞片語，pill 可以放中間或後面都對。take 也可以，意思相近。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch10",
+          "change"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch10-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "她站著不動，緊握著藥丸。",
+        "answer": "She stood still and held the pill.",
+        "accept": [
+          "She stood very still and held the pill.",
+          "She stood still, holding the pill.",
+          "She did not move and held the pill."
+        ],
+        "explanationZh": "stood 是 stand 的過去式，still = 不動，held 是 hold 的過去式。這句把嫦娥那個緊張又堅定的瞬間說出來了，很厲害！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch10",
+          "change",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch10-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "Chang'e stood very still. She thought fast. If she gave him the pill, he would hurt many people.",
+        "question": "What does Chang'e's quick thinking really show?",
+        "options": [
+          "she was too scared to hand it over right away",
+          "she chose to protect others even at a cost to herself",
+          "she was waiting for Hou Yi to come home and help her",
+          "she thought the student would give up and walk away"
+        ],
+        "optionsZh": [
+          "她太害怕了，一時交不出去",
+          "她選擇保護大家，就算要付出代價",
+          "她在等后羿回來幫她",
+          "她覺得學生自己會放棄離開"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她「快速思考」後做的決定，是為了保護大家，而不是只為了自己——這就是真正的勇敢，知道代價還是選了對的事。",
+        "subSkill": "inference",
+        "tags": [
+          "inference",
+          "comprehension",
+          "story",
+          "ch10",
+          "change",
+          "legendary"
+        ]
       }
     ]
   },

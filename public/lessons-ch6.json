@@ -1374,6 +1374,107 @@
           "six-swans",
           "inference"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch6-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "她不能說話。",
+        "answer": "She could not speak.",
+        "accept": [
+          "She cannot speak.",
+          "She was not able to speak.",
+          "She couldn't speak."
+        ],
+        "explanationZh": "could not = 不能（過去式）。She could not speak. 是故事裡最重要的一句——妹妹整整六年不能開口。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch6",
+          "six-swans"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch6-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "白天他們飛翔。",
+        "answer": "They flew by day.",
+        "accept": [
+          "By day they flew.",
+          "They flew in the daytime.",
+          "During the day they flew."
+        ],
+        "explanationZh": "flew 是 fly 的過去式。by day = 在白天。故事說哥哥們白天是天鵝，只有夜裡才能變回男孩。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch6",
+          "six-swans"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch6-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "她縫了六件衣服來救哥哥們。",
+        "answer": "She sewed six shirts to save them.",
+        "accept": [
+          "She made six shirts to save her brothers.",
+          "She sewed six shirts to free them.",
+          "She sewed six shirts to rescue her brothers."
+        ],
+        "explanationZh": "sewed = sew（縫）的過去式；to save = 為了救。這是整個故事的核心：妹妹縫六件魔法衣服來解救哥哥們！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch6",
+          "six-swans",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch6-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "She could not speak. She could not laugh. Not for six long years. She sewed and sewed, alone in the dark wood.",
+        "sentenceZh": "她不能說話，不能笑，整整六年都不行。她一個人在黑暗森林裡，縫了又縫。",
+        "question": "Why did the sister choose to stay silent for six years?",
+        "options": [
+          "She was too tired to speak after sewing all night.",
+          "She was angry at her brothers for leaving her.",
+          "She had to obey the rule to break the spell.",
+          "She was afraid the forest animals would hear her."
+        ],
+        "optionsZh": [
+          "縫了一整夜，累到沒力氣說話。",
+          "她對哥哥們離開她感到生氣。",
+          "她必須遵守規矩，才能解開魔咒。",
+          "她怕森林裡的動物聽到她。"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "沉默不是因為累或生氣——那是解開魔咒**不可缺少的條件**。開口說一個字，六年的努力就白費了。答 C：她必須遵守規矩才能解開魔咒。",
+        "subSkill": "inference",
+        "tags": [
+          "inference",
+          "story",
+          "ch6",
+          "six-swans",
+          "legendary"
+        ]
       }
     ]
   },

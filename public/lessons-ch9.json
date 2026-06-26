@@ -1277,6 +1277,108 @@
           "ch9",
           "cinderella"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch9-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "她哭了。",
+        "answer": "She cried.",
+        "accept": [
+          "She was crying.",
+          "She started to cry.",
+          "She began to cry."
+        ],
+        "explanationZh": "cry 的過去式是 cried——「她哭了」最自然的說法就是 She cried！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch9",
+          "cinderella"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch9-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "她的眼睛閃著光。",
+        "answer": "Her eyes shone bright.",
+        "accept": [
+          "Her eyes were bright.",
+          "Her eyes shone.",
+          "Her eyes lit up."
+        ],
+        "explanationZh": "shone 是 shine 的過去式，「閃光、閃亮」的意思。bright 加在後面讓描述更生動——故事原句就是這樣說的！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch9",
+          "cinderella"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch9-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "仙女教母從黑暗裡走出來。",
+        "answer": "The fairy stepped from the dark.",
+        "accept": [
+          "The fairy came out of the dark.",
+          "The fairy walked out of the dark.",
+          "The fairy godmother stepped from the dark.",
+          "The fairy godmother came out of the dark."
+        ],
+        "explanationZh": "step from = 從……走出，是故事原句的說法。「从黑暗中走出」的英文可以用 stepped from the dark 或 came out of the dark，都對！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch9",
+          "cinderella",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch9-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "speaker": "narrator",
+        "sentence": "No door opened. No window moved. A kind old woman stepped from the dark.",
+        "question": "What does this scene tell us about the old woman?",
+        "options": [
+          "she had been hiding in a corner all along",
+          "she arrived through an open door at the back",
+          "she is not an ordinary person",
+          "she was too small for anyone to notice her"
+        ],
+        "optionsZh": [
+          "她一直躲在角落裡",
+          "她從後門進來的",
+          "她不是普通人",
+          "她個子太小，大家都沒注意到她"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "沒有門開、沒有窗動，她就這樣出現了——這說明她「不是普通人」，是有魔法的存在！",
+        "tags": [
+          "comprehension",
+          "inference",
+          "story",
+          "ch9",
+          "cinderella",
+          "legendary"
+        ]
       }
     ]
   },

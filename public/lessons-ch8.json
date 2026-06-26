@@ -1252,6 +1252,89 @@
           "ch8",
           "three-pigs"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch8-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他敲了門三次。",
+        "answer": "He knocked three times.",
+        "accept": [
+          "He knocked on the door three times.",
+          "He knocked the door three times."
+        ],
+        "explanationZh": "knock 的過去式是 knocked（不規則嗎？其實是規則的 -ed 變化）。「三次」用 three times。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch8-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他的聲音甜得像蜂蜜。",
+        "answer": "His voice was sweet like honey.",
+        "accept": [
+          "His voice was soft like honey.",
+          "His voice sounded sweet like honey."
+        ],
+        "explanationZh": "sweet like honey = 甜得像蜂蜜。故事裡用 soft like honey，兩種說法都對！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch8-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "小豬小豬，讓我進來！",
+        "answer": "Little pig, let me come in!",
+        "accept": [
+          "Little pig, little pig, let me come in!",
+          "Let me come in, little pig!"
+        ],
+        "explanationZh": "這是故事最經典的一句台詞！let me come in = 讓我進來。完整原文是 Little pig, little pig, let me come in！",
+        "tags": [
+          "production",
+          "type-translate",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch8-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "His knocks were loud, and his voice was soft like honey. \"Little pig, little pig, let me come in!\" he called.",
+        "question": "What does the wolf's sweet voice tell us about him?",
+        "options": [
+          "He is kind and just wants a warm place to sleep.",
+          "He is pretending to be friendly to trick the pig.",
+          "He is shy and hopes the pig will not be afraid.",
+          "He is tired and cannot speak in a normal voice."
+        ],
+        "optionsZh": [
+          "他很善良，只是想找個溫暖的地方睡覺。",
+          "他假裝友善，是要騙小豬開門。",
+          "他很害羞，希望小豬不要害怕。",
+          "他累壞了，沒辦法用正常的聲音說話。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "大聲敲門卻說話超甜——這是把戲！大野狼假裝友善，目的是讓小豬放鬆警戒、把門打開。聽起來越甜，其實越危險。",
+        "subSkill": "inference",
+        "tags": [
+          "comprehension",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

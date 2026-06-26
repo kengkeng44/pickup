@@ -1345,6 +1345,87 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch7-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "她把骨頭藏好。",
+        "answer": "She hid the bones.",
+        "accept": [
+          "She kept the bones hidden.",
+          "She put the bones away."
+        ],
+        "explanationZh": "hide → hid（過去式）。動詞不規則：hide / hid / hidden。「藏好」就是 hide，這裡說的是過去的事。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch7-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "骨頭能實現她的願望。",
+        "answer": "The bones could grant her wishes.",
+        "accept": [
+          "The bones can grant her wishes.",
+          "The bones would grant her wishes."
+        ],
+        "explanationZh": "grant wishes = 實現願望，是固定說法。could 表示「具有那樣的能力」，用在故事過去式中很自然。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch7-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "她把骨頭包好，藏在草蓆下面。",
+        "answer": "She wrapped the bones and hid them under the mat.",
+        "accept": [
+          "She wrapped the bones and put them under the mat.",
+          "She covered the bones and hid them under her mat."
+        ],
+        "explanationZh": "wrap（包）和 hide（藏）都是動作動詞。注意 wrap 過去式 → wrapped；hide 過去式 → hid，用代詞 them 代替 the bones，避免重複。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch7-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "An old man in a sky-colored robe stepped down beside Yexian. His feet did not touch the wet grass. He told her where the bones were and said they would answer any wish.",
+        "sentenceZh": "一個穿著天藍色長袍的老人走到葉限身邊。他的腳沒有碰到濕草地。他告訴她骨頭在哪裡，說骨頭能回應她的任何願望。",
+        "question": "Why does the story tell us his feet did not touch the grass?",
+        "options": [
+          "to show he wore very light sandals",
+          "to show he came from the spirit world",
+          "to show the grass was too slippery",
+          "to show he arrived in a great hurry"
+        ],
+        "optionsZh": [
+          "說明他穿了很輕的涼鞋",
+          "說明他來自靈界",
+          "說明草地太滑了",
+          "說明他來得很匆忙"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "腳不碰地是超自然特徵，古代故事常用這個細節暗示「靈界來的存在」。選項A、C、D都只是表面原因，只有B觸及這個細節的深層含義。",
+        "tags": [
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

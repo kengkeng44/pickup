@@ -1345,6 +1345,107 @@
           "baba-yaga",
           "inference"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch5-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "圍籬是白骨做的。",
+        "answer": "The fence was made of bones.",
+        "accept": [
+          "The fence was built from bones.",
+          "It was made of white bones.",
+          "The fence was made of white bones."
+        ],
+        "explanationZh": "made of = 用…做的。fence = 圍籬，bones = 骨頭。Baba Yaga 的院子，用白骨當圍籬——記住這個畫面就不會忘！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch5",
+          "baba-yaga"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch5-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "門自己打開了。",
+        "answer": "The door opened by itself.",
+        "accept": [
+          "The door opened on its own.",
+          "It opened by itself.",
+          "The door opened alone."
+        ],
+        "explanationZh": "by itself = 自己（沒有人幫忙）。opened = 打開了（過去式）。這間屋子什麼都是自己動的——門也不例外！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch5",
+          "baba-yaga"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch5-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "頭骨的眼睛在黑暗中發光。",
+        "answer": "The skulls glowed in the dark.",
+        "accept": [
+          "The skull eyes glowed in the dark.",
+          "Their eyes glowed in the dark.",
+          "The eyes of the skulls glowed in the dark."
+        ],
+        "explanationZh": "glowed = 發光（過去式）。in the dark = 在黑暗裡。那些頭骨的眼睛在黑夜裡發著光——想到就起雞皮疙瘩！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch5",
+          "baba-yaga",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch5-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "The house stood on chicken legs. The legs turned slowly. The whole house moved. The door stopped right in front of her.",
+        "sentenceZh": "屋子用雞腳站著。雞腳慢慢地轉動，整間屋子跟著動起來。門剛好停在她正前方。",
+        "question": "Why did the house turn its door toward Vasilisa?",
+        "options": [
+          "it was broken and fell that way",
+          "Vasilisa pushed it with both hands",
+          "it chose to let her enter",
+          "the wind blew it around"
+        ],
+        "optionsZh": [
+          "房子壞掉，剛好倒向那邊",
+          "Vasilisa 用雙手把它推過去",
+          "房子主動讓她進去",
+          "被風吹轉過去的"
+        ],
+        "correctIndex": 2,
+        "subSkill": "inference",
+        "explanationZh": "房子自己轉動、門對準她——這不是意外，也不是風。這代表房子「主動讓她進去」。這樣的屋子，有自己的意志！",
+        "tags": [
+          "inference",
+          "story",
+          "ch5",
+          "baba-yaga",
+          "legendary"
+        ]
       }
     ]
   },
