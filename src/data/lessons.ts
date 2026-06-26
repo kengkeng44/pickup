@@ -252,8 +252,19 @@ export const ListenPairsSchema = z.object({
   })).min(3).max(4),
 });
 
+// v2.0.B.434 (per user 大工程): 外文打字題 — 顯示來源語言, 玩家用外文打出同樣意思。
+// sentence = 來源句 (玩家看的, 例: 中文「我很好」); answer = 主要正解 (例: "I'm good");
+// accept = 其他文法正確的可接受講法 (引擎再自動吃縮寫/標點/大小寫變體, 見 answerMatch.ts)。
+export const TypeTranslateSchema = z.object({
+  ...QuestionBaseFields,
+  type: z.literal('type-translate'),
+  answer: z.string().min(1),
+  accept: z.array(z.string()).optional(),
+});
+
 const QuestionUnion = z.discriminatedUnion('type', [
   ListenMcSchema,
+  TypeTranslateSchema,
   ListenEmojiSchema,
   ComprehensionSchema,
   ListenComprehensionSchema,

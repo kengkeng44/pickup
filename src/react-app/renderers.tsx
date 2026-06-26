@@ -17,6 +17,7 @@ import SpeakZh from './components/SpeakZh';
 import { translate } from './i18n';
 import { getLang, subscribeLang } from '../data/lang';
 import { toSimplified } from '../data/zhHans';
+import { checkAnswer, type NearReason } from '../data/answerMatch';
 
 // v2.0.B.393 — 統一語言: 題目畫面 prompt 跟著選的語言走 (非 hook, 給 const map / 工具用).
 // 用 hook useTq() 讓元件切語言自動 re-render; 純函式 tq() 給非元件 (如 SPEAKER label).
@@ -60,6 +61,9 @@ export interface RawQuestion {
   correctTiles?: string[];   // drag-blank
   audioWord?: string;        // listen-emoji (deprecated, fallback to sentence)
   acceptableVariants?: string[]; // speak-back
+  // v2.0.B.434 type-translate: answer = 主要正解, accept = 其他可接受講法.
+  answer?: string;
+  accept?: string[];
 }
 
 export interface RendererProps {
@@ -715,6 +719,106 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {revealed && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           正解: <strong>{en}</strong>
+          {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── type-translate (v2.0.B.434 大工程: 外文打字 + 近似判斷) ─────────────────
+//
+// 玩家看「來源語言」句子 (q.sentence, 例 中文「我很好」), 用外文打出同樣意思。
+// 一個意思有多種文法正確講法 → q.answer (主解) + q.accept[] (別句), 引擎再吃縮寫/標點/大小寫。
+// 近似判斷 (answerMatch.checkAnswer):
+//   correct → 慶祝 + 推進。
+//   near    → 「差一點」溫柔提示 (依 reason), 不罰體力, 留輸入讓玩家改 (force-correct/blindRetry)。
+//   wrong   → 明顯錯, 首錯記一次 (扣體力), 不揭答案, 重試。
+const NEAR_MSG: Record<NearReason, string> = {
+  typo: '差一點！拼字再檢查一下 ✏️',
+  article: '差一點！少了或多了一個小字 (a / an / the) 📝',
+  order: '差一點！順序調整一下就對了 🔄',
+  extra: '差一點！好像多打了一個字 ✂️',
+};
+const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
+  const source = q.sentence ?? '';
+  const answer = q.answer ?? '';
+  const accept = q.accept ?? [];
+  const [text, setText] = useState('');
+  const [done, setDone] = useState(false);
+  const [near, setNear] = useState<string | null>(null);
+  const [wrong, setWrong] = useState(false);
+  const recorded = useRef(false);
+
+  useEffect(() => {
+    setText(''); setDone(false); setNear(null); setWrong(false); recorded.current = false;
+  }, [q.id]);
+
+  const submit = () => {
+    if (done || !text.trim()) return;
+    const r = checkAnswer(text, answer, accept);
+    sfxCardPress();
+    if (r.status === 'correct') {
+      setDone(true); setNear(null); setWrong(false);
+      try { sfxCorrect(); } catch {}
+      if (!recorded.current) { recorded.current = true; onAnswer(0, true); }
+      window.setTimeout(() => onAdvance(answer), 2500);
+      return;
+    }
+    if (r.status === 'near') {
+      // 差一點: 溫柔提示, 不罰, 不揭答案, 讓玩家改。
+      setNear(NEAR_MSG[r.reason ?? 'typo']);
+      setWrong(false);
+      return;
+    }
+    // 明顯錯: 首錯記一次 (扣體力), 不揭答案。
+    setWrong(true); setNear(null);
+    try { sfxWrong(); } catch {}
+    if (!recorded.current) { recorded.current = true; onAnswer(1, false); }
+  };
+
+  const canSubmit = !done && !!text.trim();
+  return (
+    <div className="pickup-lesson-words">
+      <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 8 }}>
+        {tq('q.typeTranslate')}
+      </div>
+      {/* 來源句 (要翻的意思) */}
+      <div style={{
+        fontSize: 22, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.4,
+        padding: '14px 16px', background: 'var(--t-surface-alt)',
+        border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14,
+      }}>{source}</div>
+      <textarea
+        value={text}
+        onChange={(e) => { setText(e.target.value); if (near) setNear(null); if (wrong) setWrong(false); }}
+        onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } }}
+        disabled={done}
+        placeholder={tq('q.typePlaceholder')}
+        rows={2}
+        autoCapitalize="off"
+        autoCorrect="off"
+        spellCheck={false}
+        style={{
+          width: '100%', padding: 10, fontSize: 16, fontFamily: 'inherit',
+          border: `2px solid ${wrong ? 'var(--t-error)' : near ? 'var(--t-accent)' : 'var(--t-border-card)'}`,
+          borderRadius: 10, background: 'var(--t-surface)', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
+        }}
+      />
+      {near && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-accent)', marginBottom: 10 }}>{near}</div>}
+      {wrong && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-error)', marginBottom: 10 }}>再試一次 · Try again</div>}
+      {/* 檢查按鈕: 沒打字 = 灰不可按; 有字 = 綠可按 (Duolingo 風) */}
+      <button onClick={submit} disabled={!canSubmit} style={{
+        width: '100%', padding: '13px 0',
+        background: canSubmit ? 'var(--t-success)' : 'var(--t-border-card)',
+        color: '#fff', border: 'none',
+        borderBottom: canSubmit ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
+        borderRadius: 14, fontSize: 16, fontWeight: 900,
+        cursor: canSubmit ? 'pointer' : 'default', fontFamily: 'inherit',
+      }}>{tq('q.check')}</button>
+      {done && (
+        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-success)', borderRadius: '0 8px 8px 0' }}>
+          ✅ <strong>{answer}</strong>
           {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
         </div>
       )}
@@ -2084,6 +2188,7 @@ export const RENDERERS: Record<string, React.FC<RendererProps>> = {
   'listen-emoji': ListenEmojiRenderer,
   'read-mc-with-audio': ListenMcRenderer,
   'type-what-you-hear': TypeWhatYouHearRenderer,
+  'type-translate': TypeTranslateRenderer, // v2.0.B.434 外文打字 + 近似判斷
   'tap-tiles': TapTilesRenderer,
   'tap-pairs': TapPairsRenderer,
   'phrase-pairs': TapPairsRenderer, // v2.0.B.321: 片語配對復用 tap-pairs UI
