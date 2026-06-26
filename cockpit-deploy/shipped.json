@@ -63,6 +63,13 @@
       "what": "cleanText CJK+括號共除 + EM_DASH 正規化 (Ch7 listen-mc TTS P0)",
       "version": "v2.0.B.291",
       "date": "2026-06-13"
+    },
+    {
+      "audit": "docs/audits/2026-06-26T1810-content-qa-cron.md",
+      "archRec": "A7 content-word repeat",
+      "what": "13 筆 A7 內容重複 P0/P1 修正 (Ch18-24 listen-mc/comprehension 正解 paraphrase, 不碰 correctIndex) — 全過 build+answer-index gate",
+      "version": "v2.0.B.448",
+      "date": "2026-06-26"
     }
   ]
 }
