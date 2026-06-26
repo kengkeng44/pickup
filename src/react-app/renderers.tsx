@@ -185,17 +185,18 @@ const Waveform = ({ active, seed = 0 }: { active?: boolean; seed?: number }) => 
 };
 
 const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
-  label: string; labelZh?: string; state: 'idle' | 'correct' | 'wrong' | 'shown';
+  label: string; labelZh?: string; state: 'idle' | 'selected' | 'correct' | 'wrong' | 'shown';
   onClick: () => void; disabled?: boolean;
 }) => {
-  const bg = state === 'correct' ? 'var(--t-success-tint)' : state === 'wrong' ? '#fde0d2' : state === 'shown' ? 'var(--t-bg)' : '#fff';
+  // v2.0.B.435 (per user): 'selected' = 已選未檢查 (琥珀高亮), 跟 idle / 答後狀態區隔。
+  const bg = state === 'correct' ? 'var(--t-success-tint)' : state === 'wrong' ? '#fde0d2' : state === 'shown' ? 'var(--t-bg)' : state === 'selected' ? 'var(--t-tint-warn)' : '#fff';
   const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? '#a23829' : 'var(--t-text)';
-  const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : 'var(--t-border-card)';
+  const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : state === 'selected' ? 'var(--t-accent)' : 'var(--t-border-card)';
   return (
     <button onClick={onClick} disabled={disabled} className={state === 'correct' ? 'pickup-correct-pop' : undefined} style={{
       width: '100%', padding: '14px 16px', marginBottom: 8,
       background: bg, color: fg,
-      border: `2px solid ${border}`, borderBottom: '4px solid var(--t-brand-dark)',
+      border: `2px solid ${border}`, borderBottom: `4px solid ${state === 'selected' ? 'var(--t-accent)' : 'var(--t-brand-dark)'}`,
       borderRadius: 14, fontSize: 15, fontWeight: 800,
       cursor: disabled ? 'default' : 'pointer', fontFamily: 'inherit',
       textAlign: 'left',
@@ -204,6 +205,18 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
     </button>
   );
 };
+
+// v2.0.B.435 (per user 「答題前下面要有個檢查按鈕, 只有選完答案才會變綠色可按」):
+// 共用檢查鈕 — 未選 = 灰不可按; 已選 = 綠可按。
+const CheckBtn = ({ active, onCheck }: { active: boolean; onCheck: () => void }) => (
+  <button type="button" onClick={onCheck} disabled={!active} style={{
+    width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 14,
+    background: active ? 'var(--t-success)' : 'var(--t-border-card)', color: '#fff',
+    borderBottom: active ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
+    fontSize: 16, fontWeight: 900, fontFamily: 'inherit',
+    cursor: active ? 'pointer' : 'default', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+  }}>{tq('q.check')}</button>
+);
 
 const Explanation = ({ text }: { text: string }) => text ? (
   <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
@@ -308,12 +321,16 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revealed]);
 
+  // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
     if (revealed) return;
     sfxCardPress();
     setSelected(i);
+  };
+  const check = () => {
+    if (revealed || selected == null) return;
     setRevealed(true);
-    onAnswer(i, i === correctIdx);
+    onAnswer(selected, selected === correctIdx);
   };
 
   if (!revealed) {
@@ -326,7 +343,8 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         </div>
         <div style={{ fontSize: 14, color: 'var(--t-text-muted)', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 {tq('q.listenThenAnswer')}</div>
         <div className="pickup-answer-sticky">
-          {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
+          {opts.map((o, i) => <OptionBtn key={i} label={o} state={i === selected ? 'selected' : 'idle'} onClick={() => click(i)} />)}
+          <CheckBtn active={selected != null} onCheck={check} />
         </div>
       </div>
     );
@@ -392,12 +410,17 @@ const GrammarMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revealed]);
+  // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
     if (revealed) return;
     sfxCardPress();
-    setSelected(i); setRevealed(true);
-    onAnswer(i, i === correctIdx);
-    try { (i === correctIdx ? sfxCorrect : sfxWrong)(); } catch {}
+    setSelected(i);
+  };
+  const check = () => {
+    if (revealed || selected == null) return;
+    setRevealed(true);
+    onAnswer(selected, selected === correctIdx);
+    try { (selected === correctIdx ? sfxCorrect : sfxWrong)(); } catch {}
   };
   return (
     <div>
@@ -411,10 +434,11 @@ const GrammarMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         {opts.map((o, i) => {
           const isCorrect = i === correctIdx;
           const isSel = i === selected;
-          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
-            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          const state: 'idle' | 'selected' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? (isSel ? 'selected' : 'idle') : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
           return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
         })}
+        {!revealed && <CheckBtn active={selected != null} onCheck={check} />}
       </div>
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
     </div>
@@ -536,12 +560,16 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revealed]);
 
+  // v2.0.B.435: 點選項 = 只選取 (不送出); 底部「檢查」鈕才送出。
   const click = (i: number) => {
     if (revealed) return;
     sfxCardPress();
     setSelected(i);
+  };
+  const check = () => {
+    if (revealed || selected == null) return;
     setRevealed(true);
-    onAnswer(i, i === correctIdx);
+    onAnswer(selected, selected === correctIdx);
   };
 
   return (
@@ -559,10 +587,11 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         {opts.map((o, i) => {
           const isCorrect = i === correctIdx;
           const isSel = i === selected;
-          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
-            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          const state: 'idle' | 'selected' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? (isSel ? 'selected' : 'idle') : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
           return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
         })}
+        {!revealed && <CheckBtn active={selected != null} onCheck={check} />}
       </div>
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
     </div>
@@ -592,13 +621,17 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
+  // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
     if (revealed) return;
     sfxCardPress();
-    const correct = i === correctIdx;
     setSelected(i);
+  };
+  const check = () => {
+    if (revealed || selected == null) return;
+    const correct = selected === correctIdx;
     setRevealed(true);
-    onAnswer(i, correct);
+    onAnswer(selected, correct);
     try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
     // 答完 (對/錯都算完成作答) → 1.2s 顯示對錯後進入閱讀模式
     window.setTimeout(() => setDone(true), 1200);
@@ -619,10 +652,11 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
             {opts.map((o, i) => {
               const isCorrect = i === correctIdx;
               const isSel = i === selected;
-              const state: 'idle' | 'correct' | 'wrong' | 'shown' =
-                !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+              const state: 'idle' | 'selected' | 'correct' | 'wrong' | 'shown' =
+                !revealed ? (isSel ? 'selected' : 'idle') : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
               return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
             })}
+            {!revealed && <CheckBtn active={selected != null} onCheck={check} />}
           </div>
         </>
       ) : (
@@ -1514,12 +1548,16 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revealed]);
 
+  // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
     if (revealed) return;
     sfxCardPress();
     setSelected(i);
+  };
+  const check = () => {
+    if (revealed || selected == null) return;
     setRevealed(true);
-    onAnswer(i, i === correctIdx);
+    onAnswer(selected, selected === correctIdx);
   };
 
   return (
@@ -1546,10 +1584,11 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         {opts.map((o, i) => {
           const isCorrect = i === correctIdx;
           const isSel = i === selected;
-          const state: 'idle' | 'correct' | 'wrong' | 'shown' =
-            !revealed ? 'idle' : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
+          const state: 'idle' | 'selected' | 'correct' | 'wrong' | 'shown' =
+            !revealed ? (isSel ? 'selected' : 'idle') : isSel ? (isCorrect ? 'correct' : 'wrong') : isCorrect ? 'correct' : 'shown';
           return <OptionBtn key={i} label={o} labelZh={revealed ? optsZh[i] : undefined} state={state} onClick={() => click(i)} disabled={revealed} />;
         })}
+        {!revealed && <CheckBtn active={selected != null} onCheck={check} />}
       </div>
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
     </div>
