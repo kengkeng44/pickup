@@ -8,31 +8,14 @@
     "storyBeat": "火滅了 — 誰要去拿火?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch5-l1-q1",
+        "type": "narration",
+        "id": "kt-ch5-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "女孩",
-            "right": "girl"
-          },
-          {
-            "left": "森林",
-            "right": "forest"
-          },
-          {
-            "left": "爸爸",
-            "right": "father"
-          },
-          {
-            "left": "火",
-            "right": "fire"
-          }
-        ],
-        "explanationZh": "今晚的故事要認識 4 個字！\n🔑 girl = 女孩\n🔑 forest = 森林\n🔑 father = 爸爸\n🔑 fire = 火\n記住這 4 個字，Vasilisa 的故事就要開始了。",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事有幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講 Baba Yaga 雞腳屋的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch5",
@@ -42,441 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch5-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch5-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "A girl named Vasilisa lived at the edge of a dark forest.",
-        "explanationZh": "有個叫 Vasilisa 的女孩，住在一片黑黑的森林旁邊。奶奶說，光是住在那裡，就已經很需要勇氣了。",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "森林",
+            "right": "forest"
+          },
+          {
+            "left": "火",
+            "right": "fire"
+          },
+          {
+            "left": "骨頭",
+            "right": "bone"
+          },
+          {
+            "left": "圍籬",
+            "right": "fence"
+          }
+        ],
+        "explanationZh": "這四個字都在今晚的故事裡：\n🔑 forest = 森林\n🔑 fire = 火\n🔑 bone = 骨頭\n🔑 fence = 圍籬",
         "tags": [
           "story",
           "ch5",
-          "baba-yaga"
+          "baba-yaga",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "phrase-pairs",
-        "id": "kt-ch5-l1-x1",
+        "type": "tap-pairs",
+        "id": "kt-ch5-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the words from today's story.",
+        "sentence": "Four more words — can you match them all?",
         "pairs": [
           {
-            "left": "每天",
-            "right": "each day"
+            "left": "頭骨",
+            "right": "skull"
           },
           {
-            "left": "安靜地",
-            "right": "kept quiet"
+            "left": "門",
+            "right": "door"
           },
           {
-            "left": "新太太",
-            "right": "new wife"
+            "left": "騎士",
+            "right": "rider"
           },
           {
-            "left": "做工",
-            "right": "did the work"
+            "left": "黑暗",
+            "right": "dark"
           }
         ],
-        "explanationZh": "這幾組詞剛剛在故事裡都出現過，配對看看，記不記得？",
+        "explanationZh": "再來四個：\n🔑 skull = 頭骨\n🔑 door = 門\n🔑 rider = 騎士\n🔑 dark = 黑暗",
+        "tags": [
+          "story",
+          "ch5",
+          "baba-yaga",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch5-l1-ep1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one shows fire?",
+        "question": "Which one shows fire?",
+        "options": [
+          "🌊 water",
+          "🌬️ wind",
+          "🔥 fire",
+          "🪨 stone"
+        ],
+        "optionsZh": [
+          "水",
+          "風",
+          "火",
+          "石頭"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "fire = 火 🔥！故事裡小屋的火滅了，冷冷的夜裡沒有火，真的很可怕。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "vocab"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her mother was gone. Her father had a new wife.",
-        "explanationZh": "她的媽媽不在了。爸爸娶了新太太。奶奶說這話的時候，輕輕嘆了一口氣。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Each day Vasilisa worked from dawn to dark, alone.",
-        "questionEn": "Was the new woman kind to her?",
-        "options": [
-          "Yes",
-          "No"
         ],
-        "correctIndex": 1,
-        "explanationZh": "從天亮做到天黑，還是「一個人」——新太太這樣對她，哪裡稱得上善良？答案當然是 No。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "inference"
-        ],
-        "sentenceZh": "Vasilisa 每天從天亮做到天黑，一個人。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Vasilisa lived at the edge of a dark forest.",
-        "sentenceZh": "Vasilisa 住在一片黑黑的森林旁邊。",
-        "question": "Where did Vasilisa live?",
-        "options": [
-          "inside a large city",
-          "near a dark forest",
-          "on top of a hill",
-          "beside a wide river"
-        ],
-        "optionsZh": [
-          "大城市裡",
-          "在黑森林旁邊",
-          "山頂上",
-          "寬河邊"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "故事說她住在黑黑的森林旁邊，選「在黑森林旁邊」。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Vasilisa did not cry. She did the work and kept quiet.",
-        "explanationZh": "Vasilisa 沒有哭。她把事情做完，安安靜靜地，一個字也沒多說。奶奶說，這樣的小孩，心裡很強。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch5-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She held her tears inside and kept her face still.",
-        "question": "How did Vasilisa act?",
-        "options": [
-          "crying out very loudly",
-          "running away from home",
-          "holding herself together",
-          "singing songs to herself"
-        ],
-        "optionsZh": [
-          "大聲哭出來",
-          "從家裡逃走",
-          "咬牙把自己撐住",
-          "對自己輕輕唱歌"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "眼淚憋著不掉、臉也不動——她是在咬牙撐著自己，把心裡所有委屈都吞下去。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她把眼淚憋在心裡，臉上一動也不動。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Vasilisa's mother was gone. Her father had a new wife.",
-        "sentenceZh": "Vasilisa 的媽媽不在了，爸爸娶了新太太。",
-        "questionEn": "Did Vasilisa still have her real mother?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "故事說她媽媽不在了——親生媽媽已經走了，答 No。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One cold night, the fire in the small house went out.",
-        "explanationZh": "有一個冷冷的夜，小屋裡的火滅了。火一滅，屋子馬上就冷了起來。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch5-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "No fire. The house gets cold. No hot food.",
-        "question": "Why was the fire going out a big problem?",
-        "options": [
-          "only the lamp went off",
-          "clothes were lost",
-          "music stopped",
-          "cold and hungry"
-        ],
-        "optionsZh": [
-          "只是燈關掉了",
-          "衣服找不到了",
-          "音樂停了",
-          "又冷又餓"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "沒火就沒暖氣、沒熱飯——一個冬天的晚上沒有火，那就是又冷又餓啊！",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "沒有火。屋子變冷了。沒有熱食。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l1-x4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Each day Vasilisa worked from dawn to dark, alone.",
-        "sentenceZh": "Vasilisa 每天從天亮做到天黑，一個人。",
-        "question": "What does working 'from dawn to dark' mean?",
-        "options": [
-          "working all day long",
-          "working a short time",
-          "working only at night",
-          "resting all day"
-        ],
-        "optionsZh": [
-          "工作一整天",
-          "工作很短的時間",
-          "只在晚上工作",
-          "整天休息"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "天亮就開始、天黑才停——這就是工作「一整天」，沒有休息。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch5-l1-q9",
+        "id": "kt-ch5-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "What season did this happen in?",
-        "question": "What season?",
+        "sentence": "Which one shows a forest?",
+        "question": "Which one shows a forest?",
         "options": [
-          "☀️ summer",
-          "❄️ winter",
-          "🌸 spring",
-          "🍂 autumn"
+          "🏔️ mountain",
+          "🌊 ocean",
+          "🏜️ desert",
+          "🌲 forest"
         ],
         "optionsZh": [
-          "夏天",
-          "冬天",
-          "春天",
-          "秋天"
+          "山",
+          "海洋",
+          "沙漠",
+          "森林"
         ],
-        "correctIndex": 1,
-        "explanationZh": "故事裡說「冷冷的夜」——一到冬天才會這麼冷，答案就是冬天！",
+        "correctIndex": 3,
+        "explanationZh": "forest = 森林 🌲！Vasilisa 要走進一片深深的森林，去找 Baba Yaga 拿火。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
-          "hook"
+          "vocab"
         ],
-        "subSkill": "vocab",
-        "sentenceZh": "這件事發生在哪個季節？"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The new woman looked at Vasilisa and smiled with cold eyes.",
-        "question": "What kind of person is the new woman?",
-        "options": [
-          "kind and warm",
-          "tired and sad",
-          "cruel under a smile",
-          "busy with cooking"
-        ],
-        "optionsZh": [
-          "善良又溫暖",
-          "又累又難過",
-          "笑裡藏著刀",
-          "忙著煮東西"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "她笑著，但眼睛是冷的——奶奶說，這樣的笑，不是真的善意，是笑裡藏刀。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ],
-        "subSkill": "inference",
-        "sentenceZh": "新太太看著 Vasilisa，帶著冷冷的眼神笑了。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l1-x5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "One cold night, the fire in the small house went out.",
-        "sentenceZh": "有一個冷冷的夜，小屋裡的火滅了。",
-        "questionEn": "Was the night warm when the fire went out?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "故事說那是個「冷冷的夜」——答 No，天氣是冷的。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Go,\" she said. \"Go into the deep woods. Get fire from Baba Yaga.\"",
-        "explanationZh": "「去，」她說，「到深深的樹林裡去。去跟 Baba Yaga 拿火。」奶奶說完這句，停了一下——因為這個名字，沒有人能輕輕鬆鬆說出口。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
+        "subSkill": "vocab"
       },
       {
         "type": "picture-mc",
-        "id": "kt-ch5-l1-x6",
+        "id": "kt-ch5-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The new woman looked at Vasilisa with cold eyes.",
-        "sentenceZh": "新太太用冷冷的眼神看著 Vasilisa。",
-        "question": "What kind of look did the new woman give?",
-        "imageEmoji": "👁️",
+        "sentence": "The fence was made of white bones.",
+        "sentenceZh": "圍籬是用白骨做的。",
+        "question": "Which picture matches 'a fence made of bones'?",
+        "imageEmoji": "🦴",
         "options": [
-          "warm and welcoming",
-          "tired and sleepy",
-          "proud and happy",
-          "cold and unkind"
+          "a tall stone wall around a garden",
+          "a wooden gate at the front of a house",
+          "a fence built from white bones",
+          "a line of tall trees along a path"
         ],
         "optionsZh": [
-          "溫暖又友善",
-          "疲憊又想睡",
-          "驕傲又開心",
-          "冷漠又不友善"
+          "花園外的高石牆",
+          "房子前面的木門",
+          "用白骨搭的圍籬",
+          "小路旁一排高樹"
         ],
-        "correctIndex": 3,
-        "explanationZh": "冷冷的眼神——就是「冷漠又不友善」。",
+        "correctIndex": 2,
+        "explanationZh": "bone = 骨頭，fence = 圍籬。Baba Yaga 的院子用白骨當圍籬——光是想到就起雞皮疙瘩！",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "\"Go,\" she said. \"Go into the deep woods. Get fire from Baba Yaga.\"",
-        "sentenceZh": "「去，」她說，「到深深的樹林裡去，跟 Baba Yaga 拿火。」",
-        "question": "Who sent Vasilisa into the forest?",
-        "options": [
-          "the new wife",
-          "her father",
-          "Baba Yaga",
-          "a neighbor"
-        ],
-        "optionsZh": [
-          "新太太",
-          "她爸爸",
-          "Baba Yaga",
-          "鄰居"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "是新太太命令她去的——說了「去」，叫她去跟 Baba Yaga 拿火。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l1-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "She held her tears inside and kept her face still.",
-        "sentenceZh": "她把眼淚憋在心裡，臉上一動也不動。",
-        "questionEn": "Could people easily see how Vasilisa felt?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "她臉上一動也不動——外面的人看不出她的感受，答 No。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "inference"
-        ]
+        "subSkill": "vocab"
       }
     ]
   },
@@ -489,31 +195,14 @@
     "storyBeat": "大家都知道這個名字",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch5-l2-q1",
+        "type": "narration",
+        "id": "kt-ch5-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "名字",
-            "right": "name"
-          },
-          {
-            "left": "深",
-            "right": "deep"
-          },
-          {
-            "left": "娃娃",
-            "right": "doll"
-          },
-          {
-            "left": "口袋",
-            "right": "pocket"
-          }
-        ],
-        "explanationZh": "今晚 4 個字，記住它們！\n🔑 name = 名字\n🔑 deep = 深\n🔑 doll = 娃娃\n🔑 pocket = 口袋\n其中「娃娃」是今晚最重要的角色——等你聽到就知道了。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，Baba Yaga 的故事就更好懂囉！",
         "tags": [
           "story",
           "ch5",
@@ -523,345 +212,125 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch5-l2-q2",
+        "type": "phrase-pairs",
+        "id": "kt-ch5-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Vasilisa stood at the door. The night wind was loud.",
-        "explanationZh": "Vasilisa 站在門口，夜風嗚嗚地吹。奶奶說，她就站在那裡，很小的一個人。",
+        "sentence": "Match each Chinese phrase to its English.",
+        "pairs": [
+          {
+            "left": "黑暗的森林",
+            "right": "dark forest"
+          },
+          {
+            "left": "雞腳屋",
+            "right": "chicken-leg hut"
+          },
+          {
+            "left": "火熄了",
+            "right": "fire went out"
+          },
+          {
+            "left": "深深的樹林",
+            "right": "deep woods"
+          }
+        ],
+        "explanationZh": "這四個片語都出現在 Baba Yaga 的故事裡：\n🔑 dark forest = 黑暗的森林\n🔑 chicken-leg hut = 雞腳屋\n🔑 fire went out = 火熄了\n🔑 deep woods = 深深的樹林",
         "tags": [
           "story",
           "ch5",
-          "baba-yaga"
+          "baba-yaga",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "phrase-pairs",
-        "id": "kt-ch5-l2-x1",
+        "type": "picture-mc",
+        "id": "kt-ch5-l2-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the words from tonight's story.",
-        "pairs": [
-          {
-            "left": "深",
-            "right": "deep"
-          },
-          {
-            "left": "娃娃",
-            "right": "doll"
-          },
-          {
-            "left": "口袋",
-            "right": "pocket"
-          },
-          {
-            "left": "走進",
-            "right": "stepped into"
-          }
+        "sentence": "She walked into the deep, dark forest alone.",
+        "sentenceZh": "她一個人走進又深又黑的森林。",
+        "question": "Which picture matches 'a dark forest'?",
+        "imageEmoji": "🌑",
+        "options": [
+          "a bright sunny meadow with flowers",
+          "a dim forest with tall black trees",
+          "a snowy open field at noon",
+          "a rocky hillside under blue sky"
         ],
-        "explanationZh": "這幾組詞剛剛在故事裡都出現過，來配對看看！",
+        "optionsZh": [
+          "陽光明媚的花草地",
+          "昏暗的森林，樹又高又黑",
+          "中午陽光下的雪地",
+          "藍天下的岩石山坡"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "dark forest = 黑暗的森林。Vasilisa 走進那片又深又黑的樹林——奶奶說，那條路黑到看不清楚。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "vocab"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l2-q3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "She did not turn back. She did not ask why.",
-        "questionEn": "Did Vasilisa feel safe about this trip?",
-        "options": [
-          "Yes",
-          "No"
         ],
-        "correctIndex": 1,
-        "explanationZh": "她沒有回頭、也沒有問為什麼——奶奶說，她知道這條路很危險，但她只能走。這不是覺得安全，而是沒有別的辦法，所以答案是 No。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "inference"
-        ],
-        "sentenceZh": "她沒有回頭。她沒有問為什麼。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She knew the name Baba Yaga. Every child knew it.",
-        "explanationZh": "她知道 Baba Yaga 這個名字。每個小孩都知道——奶奶說，但「知道」這件事，不會讓人覺得比較安心。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She knew the name Baba Yaga. Every child knew it.",
-        "sentenceZh": "她知道 Baba Yaga 這個名字，每個小孩都知道。",
-        "question": "Who knew the name Baba Yaga?",
-        "options": [
-          "only old people",
-          "all the children",
-          "only the king",
-          "only Vasilisa"
-        ],
-        "optionsZh": [
-          "只有老人",
-          "所有小孩",
-          "只有國王",
-          "只有瓦西里莎"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "每個孩子都知道——所以是「所有小孩」。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch5-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In the village, mothers only spoke that name as a quiet whisper.",
-        "question": "How did people in the village say the name?",
-        "options": [
-          "loud and proud",
-          "with a loud song",
-          "softly and afraid",
-          "in a happy way"
-        ],
-        "optionsZh": [
-          "大聲又自豪",
-          "唱出一首大聲的歌",
-          "輕聲又帶著害怕",
-          "開開心心地說"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "媽媽們只敢「輕輕說」——那是怕被聽到、怕說出口會有事的那種害怕。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "村子裡的媽媽們說起那個名字，都只敢壓低聲音、輕輕說。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Before she left, her mother had given her a small wooden doll.",
-        "explanationZh": "在她離開之前，她的媽媽——親生媽媽——留給她一個小小的木娃娃。奶奶說，媽媽知道有一天女兒會需要它。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Before she left, her mother had given her a small wooden doll.",
-        "sentenceZh": "在她離開之前，媽媽留給她一個小小的木娃娃。",
-        "questionEn": "Did her birth mother leave her something special?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "親生媽媽留給她一個小木娃娃——答 Yes，她留了一樣東西。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ]
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch5-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What did Vasilisa take with her?",
-        "question": "What did she take?",
-        "options": [
-          "🔑 a key",
-          "🗡️ a sword",
-          "🍞 a loaf of bread",
-          "🧸 a small doll"
-        ],
-        "optionsZh": [
-          "一把鑰匙",
-          "一把劍",
-          "一個麵包",
-          "一個小娃娃"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "媽媽留給她的那個小木娃娃——那是她唯一帶走的東西。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "Vasilisa 帶了什麼一起走？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch5-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She put the doll deep in her pocket and stepped into the trees.",
-        "explanationZh": "她把娃娃藏進口袋最深的地方，然後走進了樹林。奶奶說，那個小小的重量，給了她一點點勇氣。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l2-x4",
+        "id": "kt-ch5-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "She put the doll deep in her pocket and stepped into the trees.",
-        "sentenceZh": "她把娃娃藏進口袋最深的地方，然後走進了樹林。",
-        "question": "Why did she put the doll deep in her pocket?",
+        "sentence": "Which one shows a skull?",
+        "question": "Which one shows a skull?",
         "options": [
-          "to keep it safe and close",
-          "to throw it away later",
-          "to give it to Baba Yaga",
-          "she forgot about it"
+          "💀 a skull",
+          "🦴 a bone",
+          "🐚 a shell",
+          "🪨 a rock"
         ],
         "optionsZh": [
-          "讓它緊貼著、不丟失",
-          "之後丟掉",
-          "要送給 Baba Yaga",
-          "她忘記了"
+          "頭骨",
+          "骨頭",
+          "貝殼",
+          "石頭"
         ],
         "correctIndex": 0,
-        "explanationZh": "藏進口袋最深處——她想保護它，讓媽媽留下的東西緊緊跟著她。",
+        "explanationZh": "skull = 頭骨 💀！Baba Yaga 的圍籬柱子上，每根都放著一個頭骨，眼睛在黑暗裡發著光。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
-          "inference"
+          "vocab"
         ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch5-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Vasilisa kept one hand on her pocket the whole way.",
-        "question": "Why did she keep her hand on the pocket?",
-        "options": [
-          "for warmth",
-          "touching the doll",
-          "looking for food",
-          "searching for money"
-        ],
-        "optionsZh": [
-          "取暖用的",
-          "一直在摸那個娃娃",
-          "在裡面找吃的",
-          "在裡面找錢"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "媽媽留的那個小木娃娃就在口袋裡——她一路用手護著，那是她唯一的陪伴。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她一路把手放在口袋上。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l2-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "A small girl walks into the dark forest, all alone, with only a doll.",
-        "question": "What is this scene mainly showing?",
-        "options": [
-          "a happy daytime walk with friends",
-          "children playing in the trees",
-          "one lonely girl heading into danger",
-          "a big family walking together"
-        ],
-        "optionsZh": [
-          "白天和朋友快樂地散步",
-          "小孩子在樹林裡玩耍",
-          "一個孤單的小女孩走向危險",
-          "一大家人一起走進去"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "一個小女孩，只帶著一個娃娃，走進黑漆漆的森林——奶奶說，光是想這個畫面，心裡就揪起來了。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "一個小女孩走進黑漆漆的森林，只有一個人，只帶著一個娃娃。"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch5-l2-x5",
+        "id": "kt-ch5-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Nobody who left to find her ___ come back.",
-        "sentenceZh": "沒有任何人去找過她，之後回來過。",
-        "question": "Which word fits best?",
+        "sentence": "One cold night, the fire in the small house ___ out.",
+        "sentenceEasy": "The fire ___ out.",
+        "sentenceHard": "One cold night, the fire in the small house ___ out and the whole room turned cold.",
+        "question": "Which word is correct?",
         "options": [
-          "have",
-          "has",
-          "having",
-          "had"
+          "go",
+          "goes",
+          "going",
+          "went"
         ],
         "optionsZh": [
-          "have",
-          "had（現在完成）",
-          "having",
-          "had（過去完成）"
+          "去（原形）",
+          "去（第三人稱現在式）",
+          "正在去",
+          "去了（過去式）"
         ],
         "correctIndex": 3,
-        "explanationZh": "這是過去的事，所以用 had——「Nobody... had come back」，是過去完成式喔。",
+        "explanationZh": "這個句子說的是過去發生的事，go 的過去式是 went（不規則動詞）。\n完整句：the fire went out = 火熄了。",
         "tags": [
           "story",
           "ch5",
@@ -871,103 +340,38 @@
         "subSkill": "function"
       },
       {
-        "type": "narration",
-        "id": "kt-ch5-l2-q11",
+        "type": "tap-pairs",
+        "id": "kt-ch5-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Everyone knew the name Baba Yaga. Nobody who left to find her had come back...",
-        "explanationZh": "每個人都知道 Baba Yaga 這個名字。但是，沒有人去找過她之後，回來過……奶奶說完，停了好一會兒。",
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "巫婆",
+            "right": "witch"
+          },
+          {
+            "left": "馬",
+            "right": "horse"
+          },
+          {
+            "left": "夜晚",
+            "right": "night"
+          },
+          {
+            "left": "暖和",
+            "right": "warm"
+          }
+        ],
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 witch = 巫婆\n🔑 horse = 馬\n🔑 night = 夜晚\n🔑 warm = 暖和",
         "tags": [
           "story",
           "ch5",
-          "baba-yaga"
+          "baba-yaga",
+          "vocab",
+          "review"
         ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch5-l2-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Vasilisa kept one hand on her pocket the whole way.",
-        "sentenceZh": "她一路把手放在口袋上。",
-        "questionEn": "Did she feel calm and carefree on her walk?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "手一直放著口袋，護著那個娃娃——她很緊張，不是輕輕鬆鬆的。答 No。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "inference"
-        ]
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch5-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In the village, mothers only spoke that name as a quiet whisper.",
-        "sentenceZh": "村子裡的媽媽們說起那個名字，都只敢壓低聲音、輕輕說。",
-        "question": "How did villagers say Baba Yaga's name?",
-        "imageEmoji": "🤫",
-        "options": [
-          "whispering it quietly",
-          "shouting it out loud",
-          "singing it as a song",
-          "writing it down only"
-        ],
-        "optionsZh": [
-          "輕聲低語",
-          "大聲喊出來",
-          "唱成歌",
-          "只寫下來"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "媽媽們只敢小聲說——就是「輕聲低語」。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch5-l2-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Everyone knew the name Baba Yaga. Nobody who left to find her had come back.",
-        "sentenceZh": "每個人都知道 Baba Yaga 這個名字。但是，沒有人去找過她之後，回來過。",
-        "question": "What does this tell us about Baba Yaga?",
-        "options": [
-          "a kind and gentle old woman",
-          "very dangerous",
-          "living right next to the village",
-          "someone who loves children"
-        ],
-        "optionsZh": [
-          "慈祥又溫柔的老奶奶",
-          "非常危險",
-          "就住在村子旁邊",
-          "很疼小孩的人"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "沒有人去找她回得來——這說明她「非常危險」。",
-        "tags": [
-          "story",
-          "ch5",
-          "baba-yaga",
-          "inference"
-        ],
-        "subSkill": "inference"
       }
     ]
   },

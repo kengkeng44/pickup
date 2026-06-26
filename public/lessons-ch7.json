@@ -8,31 +8,14 @@
     "storyBeat": "洞穴村莊的孤女 — 後母會一直這樣?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch7-l1-q1",
+        "type": "narration",
+        "id": "kt-ch7-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "村",
-            "right": "village"
-          },
-          {
-            "left": "妻",
-            "right": "wife"
-          },
-          {
-            "left": "自己的",
-            "right": "own"
-          },
-          {
-            "left": "辛苦",
-            "right": "hard"
-          }
-        ],
-        "explanationZh": "今晚的故事要認識 4 個字：\n🔑 village = 村\n🔑 wife = 妻\n🔑 own = 自己的\n🔑 hard = 辛苦\n記住這 4 個字，葉限的故事就好聽懂了！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講葉限的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch7",
@@ -42,451 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch7-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch7-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago in southern China, a girl named 葉限 (Yexian) lived in a cave village.",
-        "explanationZh": "好久好久以前，在中國南方，有個叫葉限的女孩，住在一個洞穴村莊裡。",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "魚",
+            "right": "fish"
+          },
+          {
+            "left": "池塘",
+            "right": "pond"
+          },
+          {
+            "left": "骨頭",
+            "right": "bone"
+          },
+          {
+            "left": "衣服",
+            "right": "dress"
+          }
+        ],
+        "explanationZh": "這四個字都在葉限的故事裡：\n🔑 fish = 魚\n🔑 pond = 池塘\n🔑 bone = 骨頭\n🔑 dress = 衣服",
         "tags": [
           "story",
           "ch7",
-          "yexian"
+          "yexian",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "phrase-pairs",
-        "id": "kt-ch7-l1-x1",
+        "type": "tap-pairs",
+        "id": "kt-ch7-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match each phrase with its Chinese meaning.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "cave village",
-            "right": "洞穴村莊"
+            "left": "刀",
+            "right": "knife"
           },
           {
-            "left": "carry water",
-            "right": "扛水"
+            "left": "願望",
+            "right": "wish"
           },
           {
-            "left": "kind word",
-            "right": "溫柔的話"
+            "left": "空的",
+            "right": "empty"
           },
           {
-            "left": "hard work",
-            "right": "辛苦的活"
+            "left": "扛",
+            "right": "carry"
           }
         ],
-        "explanationZh": "這 4 個片語都是葉限日常的縮影——洞穴村莊、扛水、溫柔的話、辛苦的活。",
+        "explanationZh": "再來四個：\n🔑 knife = 刀\n🔑 wish = 願望\n🔑 empty = 空的\n🔑 carry = 扛",
+        "tags": [
+          "story",
+          "ch7",
+          "yexian",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch7-l1-ep1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one is a fish?",
+        "question": "Which one is a fish?",
+        "options": [
+          "🐸 frog",
+          "🐟 fish",
+          "🦢 swan",
+          "🐢 turtle"
+        ],
+        "optionsZh": [
+          "青蛙",
+          "魚",
+          "天鵝",
+          "烏龜"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "fish = 魚 🐟！葉限每天去池塘餵一條神奇的紅鰭魚——這就是故事的開始。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "vocab"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her mother died when she was small. Her father died too.",
-        "explanationZh": "她很小的時候，媽媽就不在了；後來，爸爸也走了。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The new wife gave her own daughter soft food and warm clothes.",
-        "questionEn": "Did the new wife treat Yexian the same way?",
-        "options": [
-          "Yes",
-          "No"
         ],
-        "correctIndex": 1,
-        "explanationZh": "好東西都給自己的孩子——葉限呢？當然不一樣。答 No，後母對她不一樣。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ],
-        "sentenceZh": "後母把軟的食物、暖的衣服，都留給自己的女兒。"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch7-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in southern China, a girl named Yexian ___ in a cave village.",
-        "sentenceZh": "好久好久以前，在中國南方，有個叫葉限的女孩，住在一個洞穴村莊裡。",
-        "question": "Which word is correct?",
-        "options": [
-          "lived",
-          "live",
-          "living",
-          "lives"
-        ],
-        "optionsZh": [
-          "住（過去式）",
-          "住（原形）",
-          "住著（進行式）",
-          "住（現在三單）"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "故事發生在「很久以前」——用過去式 lived 喔。live → lived，就像 walk → walked 一樣。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "grammar"
-        ],
-        "subSkill": "function"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Each day, Yexian carried water up the hill and washed dishes by the well.",
-        "explanationZh": "每天，葉限扛著水桶爬上山坡，再蹲在井邊把碗盤一個個洗乾淨。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch7-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She worked from when the sun rose until the moon came out.",
-        "question": "How long did she work each day?",
-        "options": [
-          "just a short moment",
-          "from morning to night",
-          "only at noon each day",
-          "only late at night"
-        ],
-        "optionsZh": [
-          "只有一下子",
-          "從早做到晚",
-          "每天只在中午",
-          "只有深夜"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "太陽升起開始，月亮出來才停——這就是「從早做到晚」，一整天沒停過。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她從太陽升起就開始做事，一直到月亮出來才能停。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l1-x3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The new wife gave her own daughter soft food and warm clothes, but made Yexian carry water up the hill every day.",
-        "sentenceZh": "後母把軟食物、暖衣服都留給自己女兒，卻讓葉限每天爬山扛水。",
-        "question": "What does this tell us about the new wife?",
-        "options": [
-          "fair to both girls",
-          "enjoyed cooking for all",
-          "cruel only to Yexian",
-          "afraid of the cave"
-        ],
-        "optionsZh": [
-          "對兩個孩子都公平",
-          "喜歡幫大家做菜",
-          "只對葉限殘忍",
-          "很怕洞穴"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "好的給自己女兒，辛苦的全推給葉限——這就是「只對葉限殘忍」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch7-l1-q7",
+        "id": "kt-ch7-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did she feel about her days?",
-        "question": "How did she feel each day?",
+        "sentence": "Which one shows a knife?",
+        "question": "Which one shows a knife?",
         "options": [
-          "🤩 proud and loud",
-          "🎉 happy and free",
-          "😴 lazy and bored",
-          "😢 alone and tired"
+          "🥄 spoon",
+          "🍴 fork",
+          "🥢 chopsticks",
+          "🔪 knife"
         ],
         "optionsZh": [
-          "驕傲又大聲",
-          "開心又自由",
-          "懶洋洋又無聊",
-          "孤單又累"
+          "湯匙",
+          "叉子",
+          "筷子",
+          "刀"
         ],
         "correctIndex": 3,
-        "explanationZh": "一個人扛水、一個人洗碗——當然是「孤單又累」。",
+        "explanationZh": "knife = 刀 🔪！後母把刀藏進袖子裡，悄悄走向池塘。",
         "tags": [
           "story",
           "ch7",
           "yexian",
-          "hook"
+          "vocab"
         ],
-        "subSkill": "vocab",
-        "sentenceZh": "她覺得每一天怎麼樣？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Year after year, no one in the cave village spoke a kind word to her.",
-        "explanationZh": "一年又一年，洞穴村莊裡沒有一個人對她說過一句溫柔的話。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Year after year, no one in the cave village spoke a kind word to her.",
-        "sentenceZh": "一年又一年，洞穴村莊裡沒有一個人對她說過一句溫柔的話。",
-        "questionEn": "Did anyone in the village care about Yexian?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "一句溫柔的話也沒有——整個村子裡，沒有人在乎她。答 No。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "detail"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch7-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new wife only smiled at her own child.",
-        "question": "Who got the new wife's smiles?",
-        "options": [
-          "her own daughter",
-          "Yexian herself",
-          "the neighbours",
-          "no one at all"
-        ],
-        "optionsZh": [
-          "她自己的女兒",
-          "葉限自己",
-          "鄰居",
-          "完全沒有人"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "笑只留給自己孩子——後母的笑，給的是「她自己的女兒」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "後母只對自己的孩子笑。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Yexian carried buckets, washed pots, and slept on a thin straw mat in the corner.",
-        "question": "What is this scene mainly showing?",
-        "options": [
-          "a happy family dinner",
-          "Yexian's hard daily life",
-          "a busy market day",
-          "a noisy festival night"
-        ],
-        "optionsZh": [
-          "快樂的家庭晚餐",
-          "葉限辛苦的日常",
-          "熱鬧的市集日",
-          "吵鬧的節慶夜"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "扛水、洗碗、睡草蓆——這就是她每一天的「辛苦日常」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "葉限扛桶子、洗鍋碗，晚上睡在角落一張薄薄的草蓆上。"
+        "subSkill": "vocab"
       },
       {
         "type": "picture-mc",
-        "id": "kt-ch7-l1-x5",
+        "id": "kt-ch7-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Each day, Yexian carried water up the hill and washed dishes by the well.",
-        "sentenceZh": "每天，葉限扛著水桶爬上山坡，再蹲在井邊把碗盤一個個洗乾淨。",
-        "question": "Which image matches this sentence?",
+        "sentence": "Yexian went to the pond every morning.",
+        "sentenceZh": "葉限每天早上都去池塘。",
+        "question": "Which picture matches the sentence?",
         "imageEmoji": "🪣",
         "options": [
-          "resting in a warm bed",
-          "eating at the dinner table",
-          "carrying buckets up a hill",
-          "dancing at a party"
+          "a girl sitting alone beside a quiet pond",
+          "a girl dancing at a bright festival",
+          "an old woman cooking in her kitchen",
+          "a girl running through a busy market"
         ],
         "optionsZh": [
-          "睡在暖床上",
-          "在桌邊吃大餐",
-          "扛著重水桶爬山",
-          "在派對上跳舞"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "扛水桶爬山——就是「扛著重水桶爬山」這幅畫面。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "And every night, she gave Yexian all the hard work, again and again...",
-        "explanationZh": "每個晚上，所有辛苦的活，一樣都不少地壓在葉限身上，一次又一次……",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her mother died when she was small. Her father died too.",
-        "sentenceZh": "她很小的時候，媽媽就不在了；後來，爸爸也走了。",
-        "question": "Why was Yexian alone in the world?",
-        "options": [
-          "she chose to live alone",
-          "she moved to a new city",
-          "her friends all left her",
-          "both her parents were gone"
-        ],
-        "optionsZh": [
-          "她選擇一個人住",
-          "她搬去新的城市",
-          "她的朋友都離開她",
-          "她的父母都不在了"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "媽媽走了、爸爸也走了——她孤單，是因為「父母都不在了」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "She worked from when the sun rose until the moon came out.",
-        "sentenceZh": "她從太陽升起就開始做事，一直到月亮出來才能停。",
-        "questionEn": "Did Yexian have time to rest during the day?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "從日出做到月出——整天都沒停。答 No，她沒有休息的時間。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l1-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The new wife only smiled at her own child.",
-        "sentenceZh": "後母只對自己的孩子笑。",
-        "question": "What does this tell us about how Yexian felt?",
-        "options": [
-          "lonely and left out",
-          "glad and excited",
-          "full and sleepy",
-          "proud and brave"
-        ],
-        "optionsZh": [
-          "孤單又被排斥",
-          "開心又興奮",
-          "吃飽又想睡",
-          "驕傲又勇敢"
+          "一個女孩獨自坐在安靜的池塘旁",
+          "一個女孩在熱鬧節慶跳舞",
+          "一位老婆婆在廚房煮飯",
+          "一個女孩穿過熱鬧市集奔跑"
         ],
         "correctIndex": 0,
-        "explanationZh": "後母只對自己孩子笑，從不看葉限一眼——當然讓她覺得「孤單又被排斥」。",
+        "explanationZh": "pond = 池塘，句子說葉限去池塘——圖中正好是女孩獨自坐在安靜池塘旁。",
         "tags": [
           "story",
           "ch7",
           "yexian",
-          "inference"
+          "vocab"
         ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       }
     ]
   },
@@ -499,31 +195,14 @@
     "storyBeat": "池塘裡的紅鰭魚 — 牠不只是魚?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch7-l2-q1",
+        "type": "narration",
+        "id": "kt-ch7-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "朋友",
-            "right": "friend"
-          },
-          {
-            "left": "池塘",
-            "right": "pond"
-          },
-          {
-            "left": "鰭",
-            "right": "fin"
-          },
-          {
-            "left": "溫馴",
-            "right": "tame"
-          }
-        ],
-        "explanationZh": "今晚要認識 4 個字：\n🔑 friend = 朋友\n🔑 pond = 池塘\n🔑 fin = 鰭\n🔑 tame = 溫馴\n記住這 4 個字，今晚的故事就好跟了！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch7",
@@ -533,441 +212,165 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch7-l2-q2",
+        "type": "phrase-pairs",
+        "id": "kt-ch7-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Behind the cave village was a small quiet pond.",
-        "explanationZh": "洞穴村莊後面，藏著一個安靜的小池塘。",
+        "sentence": "Match each Chinese phrase to its English.",
+        "pairs": [
+          {
+            "left": "節日",
+            "right": "festival"
+          },
+          {
+            "left": "金鞋",
+            "right": "gold shoe"
+          },
+          {
+            "left": "紅鰭",
+            "right": "red fin"
+          },
+          {
+            "left": "空池",
+            "right": "empty pond"
+          }
+        ],
+        "explanationZh": "這四個片語都出現在葉限的故事裡：\n🔑 festival = 節日\n🔑 gold shoe = 金鞋\n🔑 red fin = 紅鰭\n🔑 empty pond = 空池",
         "tags": [
           "story",
           "ch7",
-          "yexian"
+          "yexian",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "phrase-pairs",
-        "id": "kt-ch7-l2-x1",
+        "type": "picture-mc",
+        "id": "kt-ch7-l2-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match each phrase with its Chinese meaning.",
-        "pairs": [
-          {
-            "left": "red fins",
-            "right": "紅鰭"
-          },
-          {
-            "left": "golden eyes",
-            "right": "金眼睛"
-          },
-          {
-            "left": "rice crumbs",
-            "right": "米飯碎屑"
-          },
-          {
-            "left": "smooth side",
-            "right": "光滑的身體"
-          }
+        "sentence": "The pond was empty. The fish was gone.",
+        "sentenceZh": "池塘空空的，魚不見了。",
+        "question": "Which picture matches 'an empty pond'?",
+        "imageEmoji": "💧",
+        "options": [
+          "a pond full of bright fish",
+          "a girl splashing in the water",
+          "a still pool with nothing inside",
+          "a river rushing past the rocks"
         ],
-        "explanationZh": "這 4 個片語都跟那條神奇的魚有關——紅鰭、金眼睛、米飯碎屑、光滑的身體。",
+        "optionsZh": [
+          "一個充滿亮麗魚的池塘",
+          "一個女孩在水裡嬉戲",
+          "一個什麼都沒有的靜靜水池",
+          "一條急流過石頭的河"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "empty pond = 空池塘。魚被後母帶走後，池子裡什麼也沒有了。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "vocab"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l2-q3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "No one in the village ever walked down to the pond.",
-        "questionEn": "Could Yexian keep a secret there?",
-        "options": [
-          "Yes",
-          "No"
         ],
-        "correctIndex": 0,
-        "explanationZh": "沒有人來這裡——那葉限當然可以把自己的小祕密藏在這裡！答 Yes。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ],
-        "sentenceZh": "村裡沒有人會走到池塘來。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In the water lived a fish with bright 紅鰭 (red fins) and golden eyes.",
-        "explanationZh": "水裡住著一條魚，長著火紅的鰭，還有一雙金色的眼睛。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l2-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Each morning, Yexian dropped rice crumbs onto the still water. The fish swam up to her hand and let her touch its smooth side.",
-        "sentenceZh": "每天早晨，葉限把米飯的碎屑撒在平靜的水面上。那條魚游過來，靠近她的手，讓她摸摸牠光滑滑的身體。",
-        "question": "What do these details show about the fish?",
-        "options": [
-          "afraid of her hands",
-          "trusted Yexian fully",
-          "wild and hard to tame",
-          "trying to escape the pond"
-        ],
-        "optionsZh": [
-          "怕她的手",
-          "完全信任葉限",
-          "野蠻難以馴服",
-          "想逃出池塘"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "讓她摸、游到她手邊——這條魚是「完全信任葉限」的。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch7-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Each morning, Yexian dropped rice crumbs onto the still water.",
-        "question": "What did Yexian bring to the pond?",
-        "options": [
-          "stones",
-          "shoes",
-          "food",
-          "flowers"
-        ],
-        "optionsZh": [
-          "石頭",
-          "鞋子",
-          "食物",
-          "花"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "米屑就是食物——她每天帶「食物」來餵魚。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "每天早晨，葉限把米飯的碎屑撒在平靜的水面上。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The fish swam up to her hand and let her touch its smooth side.",
-        "explanationZh": "那條魚游過來，靠近她的手，讓她摸摸牠光滑滑的身體。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Day by day, the fish grew longer than her two arms put together.",
-        "sentenceZh": "一天天過去，魚長得比她兩隻手臂張開還要長。",
-        "questionEn": "Was the fish getting smaller over time?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "越長越大，比兩手張開還要長——當然不是越來越小！答 No。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "detail"
-        ]
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch7-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What kind of fish was it?",
-        "question": "What kind of fish was it?",
-        "options": [
-          "🐟 small and shy",
-          "🐡 round and angry",
-          "🦈 sharp and wild",
-          "🐠 bright and tame"
-        ],
-        "optionsZh": [
-          "小又害羞",
-          "圓滾滾又兇",
-          "尖利又野蠻",
-          "亮麗又溫馴"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "紅鰭、金眼，還讓人摸——這條魚「亮麗又溫馴」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "那是一條怎樣的魚？"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch7-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Day by day, the fish grew longer than her two arms put together.",
-        "question": "How did the fish change?",
-        "options": [
-          "got much larger",
-          "became smaller",
-          "turned all white",
-          "died one night"
-        ],
-        "optionsZh": [
-          "越來越大",
-          "越來越小",
-          "全身變白",
-          "有一天死掉了"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "比兩手張開還長——牠「越來越大」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "一天天過去，魚長得比她兩隻手臂張開還要長。"
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch7-l2-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In the water lived a fish with bright red fins and golden eyes.",
-        "sentenceZh": "水裡住著一條魚，長著火紅的鰭，還有一雙金色的眼睛。",
-        "question": "Which image matches this fish?",
-        "imageEmoji": "🐠",
-        "options": [
-          "a flat grey stone in the water",
-          "bright fish, red fins, gold eyes",
-          "a large plain white shark",
-          "a round spotted pufferfish"
-        ],
-        "optionsZh": [
-          "水裡一塊灰扁石頭",
-          "亮麗魚，紅鰭金眼",
-          "一條大白鯊",
-          "圓滾滾有斑點的河豚"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "紅鰭、金眼睛——就是「亮麗魚，紅鰭金眼」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l2-q9",
+        "id": "kt-ch7-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The village was loud and cold. Yexian sat by the pond, and the fish came up to her hand.",
-        "question": "What is this scene mainly showing?",
+        "sentence": "Which one shows a shoe?",
+        "question": "Which one shows a shoe?",
         "options": [
-          "a busy market day in town",
-          "fishing lessons at noon",
-          "a secret friendship by the water",
-          "a stormy night of heavy rain"
+          "👡 shoe",
+          "👑 crown",
+          "👒 hat",
+          "🧤 glove"
         ],
         "optionsZh": [
-          "鎮上熱鬧的市集日",
-          "中午的釣魚課",
-          "水邊的祕密友誼",
-          "下大雨的暴風夜"
+          "鞋子",
+          "王冠",
+          "帽子",
+          "手套"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "shoe = 鞋 👡！骨頭給了葉限兩隻小小的金鞋，輕得像葉子一樣。",
+        "tags": [
+          "story",
+          "ch7",
+          "yexian",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch7-l2-gm1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Yexian ___ to the pond every morning.",
+        "sentenceEasy": "Yexian ___ to the pond.",
+        "sentenceHard": "Every morning without fail, Yexian ___ to the pond to feed her fish.",
+        "question": "Which word is correct?",
+        "options": [
+          "go",
+          "goes",
+          "went",
+          "going"
+        ],
+        "optionsZh": [
+          "去（原形）",
+          "去（現在三單）",
+          "去了（過去式）",
+          "正在去（進行式）"
         ],
         "correctIndex": 2,
-        "explanationZh": "只有她知道這個池塘，只有魚願意靠近她——這就是「水邊的祕密友誼」。",
+        "explanationZh": "這個句子說的是過去的習慣，go 的過去式是 went（不規則動詞）。\n完整句：Yexian went to the pond every morning.",
         "tags": [
           "story",
           "ch7",
           "yexian",
-          "gist"
+          "grammar"
         ],
-        "subSkill": "gist",
-        "sentenceZh": "村莊吵鬧又冷漠，但葉限坐在池邊，魚就游到她手邊來。"
+        "subSkill": "function"
       },
       {
-        "type": "narration",
-        "id": "kt-ch7-l2-q10",
+        "type": "tap-pairs",
+        "id": "kt-ch7-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "But the new wife was watching from behind the rocks.",
-        "explanationZh": "但是，後母就躲在石頭後面，偷偷地看著這一切。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l2-x5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "But the new wife was watching from behind the rocks. Her eyes did not blink.",
-        "sentenceZh": "但是，後母就躲在石頭後面，偷偷地看著這一切。她眼睛一眨也不眨。",
-        "question": "What is the new wife likely planning?",
-        "options": [
-          "a song for the festival",
-          "a kind gift for Yexian",
-          "a trip to another village",
-          "something harmful for the fish"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "魚",
+            "right": "fish"
+          },
+          {
+            "left": "骨頭",
+            "right": "bone"
+          },
+          {
+            "left": "願望",
+            "right": "wish"
+          },
+          {
+            "left": "鞋",
+            "right": "shoe"
+          }
         ],
-        "optionsZh": [
-          "為節慶準備一首歌",
-          "給葉限一份好禮物",
-          "去另一個村子旅行",
-          "對那條魚做什麼壞事"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "躲在石頭後面偷看、眼睛不眨——這個神情，八成是在打「那條魚的壞主意」。",
+        "explanationZh": "複習一下：\n🔑 fish = 魚\n🔑 bone = 骨頭\n🔑 wish = 願望\n🔑 shoe = 鞋",
         "tags": [
           "story",
           "ch7",
           "yexian",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch7-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her eyes did not blink. Something cold and slow turned inside her chest...",
-        "explanationZh": "她眼睛一眨也不眨。胸口裡，有什麼又冷又慢的東西，正在慢慢地轉……",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l2-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "No one in the village ever walked down to the pond.",
-        "sentenceZh": "村裡沒有人會走到池塘來。",
-        "questionEn": "Was the pond a secret place for Yexian?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "沒人來——那這裡就是葉限的秘密地方。答 Yes。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch7-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The village was loud and cold. Yexian sat by the pond, and the fish came up to her hand.",
-        "sentenceZh": "村莊吵鬧又冷漠，但葉限坐在池邊，魚就游到她手邊來。",
-        "question": "Why was the pond important to Yexian?",
-        "options": [
-          "it was the one warm place she had",
-          "it had the best drinking water",
-          "the new wife often came there",
-          "she could catch fish to sell"
-        ],
-        "optionsZh": [
-          "那是她唯一溫暖的地方",
-          "那裡的水最好喝",
-          "後母常去那裡",
-          "她可以捉魚去賣"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "村子冷漠，但池邊有魚靠近她——那裡是她「唯一溫暖的地方」。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "gist"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch7-l2-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Her eyes did not blink. Something cold and slow turned inside her chest.",
-        "sentenceZh": "她眼睛一眨也不眨。胸口裡，有什麼又冷又慢的東西，正在慢慢地轉……",
-        "questionEn": "Was the new wife feeling kind and happy?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "眼睛不眨、心裡有什麼冷冷的東西在轉——她心裡可不是什麼好感受。答 No。",
-        "tags": [
-          "story",
-          "ch7",
-          "yexian",
-          "inference"
+          "vocab",
+          "review"
         ]
       }
     ]
