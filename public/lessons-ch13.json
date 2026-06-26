@@ -1378,6 +1378,90 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch13-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "狼跑得很快。",
+        "answer": "The wolf ran fast.",
+        "accept": [
+          "The wolf ran quickly.",
+          "The wolf ran very fast.",
+          "The wolf ran very quickly."
+        ],
+        "explanationZh": "ran 是 run 的過去式，故事發生在過去，所以要用 ran，不是 run！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch13-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他敲了木門。",
+        "answer": "He knocked on the door.",
+        "accept": [
+          "He knocked on the wooden door.",
+          "The wolf knocked on the door.",
+          "The wolf knocked on the wooden door."
+        ],
+        "explanationZh": "knock on the door = 敲門，這是固定說法！knocked 是 knock 的過去式，記住 -ed 就對了。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch13-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "可憐的奶奶躺在床上，她病了。",
+        "answer": "Poor grandma was in bed.",
+        "accept": [
+          "Poor grandma lay in bed.",
+          "Poor grandma was lying in bed.",
+          "Grandma was sick in bed."
+        ],
+        "explanationZh": "poor 在這裡是「可憐的」，不是「窮的」！was in bed = 躺在床上，是很地道的英文說法。",
+        "tags": [
+          "production",
+          "type-translate",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch13-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "The wolf ran fast to grandma's house. Back in the woods, the girl picked many bright flowers.",
+        "question": "Why did the wolf want the girl to pick flowers?",
+        "options": [
+          "He wanted grandma to have a gift.",
+          "He needed more time to reach the house first.",
+          "He thought flowers would cheer the girl up.",
+          "He was afraid the girl would follow him."
+        ],
+        "optionsZh": [
+          "他想讓奶奶收到禮物。",
+          "他需要更多時間，好先到奶奶家。",
+          "他覺得花會讓女孩開心。",
+          "他擔心女孩會跟著他。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "狼叫女孩採花，是為了讓她在樹林裡多花時間——這樣他就能先到奶奶家，完成他的壞計劃。",
+        "tags": [
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

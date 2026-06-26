@@ -1251,6 +1251,103 @@
           "ch14",
           "urashima"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch14-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "日子像夢一樣過去。",
+        "answer": "Days passed like a dream.",
+        "accept": [
+          "The days passed like a dream.",
+          "Days went by like a dream.",
+          "The days went by like a dream."
+        ],
+        "explanationZh": "passed = 過去了；like a dream = 像夢一樣。整句說「日子像夢一樣流逝」——在龍宮的快樂時光過得特別快。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch14",
+          "urashima"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch14-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他想念他年老的媽媽。",
+        "answer": "He missed his old mother.",
+        "accept": [
+          "He missed his mother.",
+          "He thought of his old mother.",
+          "He thought of his mother."
+        ],
+        "explanationZh": "missed = 想念（過去式）；old mother = 年老的媽媽。就算住在夢幻的龍宮，浦島心裡還是掛念著媽媽。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch14",
+          "urashima"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch14-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他的心又暖又有一點沉。",
+        "answer": "His heart felt warm and heavy.",
+        "accept": [
+          "His heart was warm and heavy.",
+          "His heart felt warm and a little heavy.",
+          "His heart was warm and a little heavy."
+        ],
+        "explanationZh": "felt warm = 感到溫暖；heavy = 沉重的。這句說浦島的心情——快樂但又有一點憂愁，因為他思念家人。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch14",
+          "urashima",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch14-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "subSkill": "inference",
+        "sentence": "Fish servants danced. Music played all night long. Days passed like a dream. But in the quiet hours, he thought of his old mother.",
+        "question": "Why did Urashima think of his mother only in the quiet hours?",
+        "options": [
+          "He forgot her name during the day",
+          "The palace noise kept his mind busy",
+          "He was not allowed to think of home",
+          "The princess asked him to stay happy"
+        ],
+        "optionsZh": [
+          "他白天忘了媽媽的名字",
+          "宮殿的熱鬧讓他腦子都忙著",
+          "他不被允許想家",
+          "公主要他保持開心"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事說白天又是跳舞又是音樂，到了「安靜的時刻」他才想起媽媽——熱鬧填滿了腦子，安靜下來心裡的思念才浮出來。選「宮殿的熱鬧讓他腦子都忙著」。",
+        "tags": [
+          "inference",
+          "comprehension",
+          "story",
+          "ch14",
+          "urashima",
+          "legendary"
+        ]
       }
     ]
   },

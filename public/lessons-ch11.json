@@ -1386,6 +1386,108 @@
           "houyi",
           "detail"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch11-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "他一個接一個地射。",
+        "answer": "He shot one by one.",
+        "accept": [
+          "He shot them one by one.",
+          "He shot one after another.",
+          "He shot them one after another."
+        ],
+        "explanationZh": "one by one = 一個接一個。后羿沉著地，把太陽一個接一個射落。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch11",
+          "houyi"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch11-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "每射一次，空氣就涼一些。",
+        "answer": "The air grew cooler with every shot.",
+        "accept": [
+          "The air got cooler with every shot.",
+          "The air became cooler with each shot.",
+          "With every shot, the air grew cooler.",
+          "With each shot, the air got cooler."
+        ],
+        "explanationZh": "grew cooler = 變得更涼。每次箭飛出去，大地就多喘一口氣，空氣就涼了一點。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch11",
+          "houyi"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch11-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "他讓最後那個太陽留在天空。",
+        "answer": "He let the last sun stay in the sky.",
+        "accept": [
+          "He allowed the last sun to stay in the sky.",
+          "He left the last sun in the sky.",
+          "He kept the last sun up in the sky."
+        ],
+        "explanationZh": "let … stay = 讓……留下。后羿放下弓，選擇了留下那個太陽——因為大地需要它的光。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch11",
+          "houyi",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch11-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "subSkill": "inference",
+        "speaker": "narrator",
+        "sentence": "Nine suns were gone. Hou Yi lifted his bow at the last one. Then he put it down.",
+        "sentenceZh": "九個太陽消失了。后羿把弓對準最後那個，然後放下了。",
+        "question": "What does putting down the bow tell us about Hou Yi?",
+        "options": [
+          "He forgot how to aim at the final sun.",
+          "He chose to think of others, not just finish the task.",
+          "He was sure the last sun would fall on its own.",
+          "He wanted the Emperor to take the last shot."
+        ],
+        "optionsZh": [
+          "他忘了怎麼對準最後那個太陽。",
+          "他選擇為別人著想，而不是只想完成任務。",
+          "他以為最後一個太陽會自己落下。",
+          "他想讓玉皇大帝來射最後一箭。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "后羿停手，是因為他想到人們需要光和溫暖——這不只是「完成任務」，而是真正替別人著想。這才是英雄最難的選擇。",
+        "tags": [
+          "inference",
+          "story",
+          "ch11",
+          "houyi",
+          "legendary"
+        ]
       }
     ]
   },

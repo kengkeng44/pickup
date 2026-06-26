@@ -1251,6 +1251,105 @@
           "ch16",
           "issun-boshi"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch16-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他深深鞠躬。",
+        "answer": "He bowed very low.",
+        "accept": [
+          "He bowed deeply.",
+          "He bowed down low.",
+          "Issun bowed very low.",
+          "Issun bowed deeply."
+        ],
+        "explanationZh": "bowed = 鞠躬（動詞過去式）；very low / deeply 都是「深深地」。這一句來自故事：一寸走到大人家門口，深深行禮，表示有禮貌。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch16",
+          "issun-boshi"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch16-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "公主走去寺廟。",
+        "answer": "The princess walked to the temple.",
+        "accept": [
+          "The princess went to the temple.",
+          "The princess walked towards the temple.",
+          "The princess walked to a temple."
+        ],
+        "explanationZh": "walked to = 走去（某地）；the princess = 公主（特指）；the temple = 那間寺廟。記得加 the，因為是故事裡那間特定的寺廟。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch16",
+          "issun-boshi"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch16-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "他站在她的肩膀上。",
+        "answer": "He stood on her shoulder.",
+        "accept": [
+          "He was standing on her shoulder.",
+          "He stood upon her shoulder.",
+          "Issun stood on her shoulder.",
+          "He stood on her shoulders."
+        ],
+        "explanationZh": "stood on = 站在……上面（stood 是 stand 的過去式）；shoulder = 肩膀。一寸那麼小，才能站在公主肩膀上守護她——這就是他的「崗位」！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch16",
+          "issun-boshi",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch16-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "Issun stood near her ear and watched the road ahead.",
+        "sentenceZh": "一寸站在公主耳邊，注意前方的路。",
+        "question": "Why did Issun watch the road so carefully?",
+        "options": [
+          "he wanted to find a nice place to rest",
+          "he was trying to learn the way to the city",
+          "it was his job to keep the princess safe",
+          "he was looking for his lost bowl on the road"
+        ],
+        "optionsZh": [
+          "他想找個好地方休息",
+          "他想記住去城市的路",
+          "他的工作是保護公主的安全",
+          "他在路上找他掉了的碗"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "一寸的工作是當公主的侍衛（guard）——所以他站在最高的地方盯著前方，不是在休息或認路，而是保護公主的安全。這題要你「推理」他的動機，不只是記句子喔！",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

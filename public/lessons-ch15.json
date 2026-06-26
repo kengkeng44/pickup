@@ -1282,6 +1282,102 @@
           "ch15",
           "emperors-new-clothes"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch15-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "國王看了又看。",
+        "answer": "The emperor looked and looked.",
+        "accept": [
+          "The king looked and looked.",
+          "He looked and looked."
+        ],
+        "explanationZh": "looked and looked = 看了又看，用過去式 looked 重複表示「一直看」的動作。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch15",
+          "emperors-new-clothes"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch15-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他的心裡涼了。",
+        "answer": "His heart went cold.",
+        "accept": [
+          "His heart felt cold.",
+          "His heart turned cold."
+        ],
+        "explanationZh": "went cold = 涼了，go cold 是常用慣用語，表示心裡突然很慌很不安。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch15",
+          "emperors-new-clothes"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch15-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "所有的人都說布很美。",
+        "answer": "All his men said it was lovely.",
+        "accept": [
+          "All the men said it was lovely.",
+          "Everyone said it was lovely.",
+          "All his men said it was beautiful."
+        ],
+        "explanationZh": "all his men = 他所有的人，said it was lovely = 說它很美，這句話出現在故事裡，大家都跟著說謊。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch15",
+          "emperors-new-clothes",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch15-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "The emperor smiled and praised the cloth, even though his heart went cold inside.",
+        "sentenceZh": "國王笑著稱讚那布，即使他的心裡早就涼了。",
+        "question": "Why did the emperor praise cloth he could not see?",
+        "options": [
+          "He truly believed the cloth was fine.",
+          "He feared being thought not clever.",
+          "He wanted to make the weavers feel proud.",
+          "He planned to test his men later."
+        ],
+        "optionsZh": [
+          "他真的相信布很好。",
+          "他怕被人覺得不聰明。",
+          "他想讓織工感到驕傲。",
+          "他打算之後考驗他的人。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "heart went cold = 他知道自己看不到，但怕被說不聰明——所以硬撐著稱讚。這是故事裡最重要的核心：害怕讓人選擇說謊。",
+        "subSkill": "inference",
+        "tags": [
+          "comprehension",
+          "inference",
+          "story",
+          "ch15",
+          "emperors-new-clothes",
+          "legendary"
+        ]
       }
     ]
   },

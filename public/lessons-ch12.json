@@ -1378,6 +1378,102 @@
           "inference"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch12-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "她從東到西畫了一條線。",
+        "answer": "She drew a line",
+        "accept": [
+          "She drew a line across the sky",
+          "She drew a long line",
+          "The Queen drew a line"
+        ],
+        "explanationZh": "draw 的過去式是 drew。「從東到西畫了一條線」——She drew a line。這一條線，改變了兩個人的一生。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch12",
+          "cowherd-weaver"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch12-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "兩人都伸出手，卻碰不到。",
+        "answer": "They could not touch",
+        "accept": [
+          "They could not reach",
+          "Their hands could not meet",
+          "They could not hold hands"
+        ],
+        "explanationZh": "could not 表示「無法做到」。兩人都伸出手，卻碰不到——They could not touch。中間隔著整條銀河，差那麼一點。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch12",
+          "cowherd-weaver"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch12-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "銀河把他們分開了。",
+        "answer": "The river kept them apart",
+        "accept": [
+          "The silver river kept them apart",
+          "The river pulled them apart",
+          "The river held them apart"
+        ],
+        "explanationZh": "keep apart = 讓…分開、隔開。銀河把兩個人永遠隔在兩岸——The river kept them apart。這句話說得出口，才真的懂這個故事有多難過。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch12-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "Niulang stood on one side. Zhinu stood far on the other. Tears fell on both sides of the wide silver river.",
+        "question": "Why did tears fall on both sides of the river?",
+        "options": [
+          "Both Niulang and Zhinu were apart and full of longing",
+          "Niulang was angry at the silver river for being too wide",
+          "The rain began to fall and made the river overflow",
+          "Zhinu was happy to go back and cried with joy"
+        ],
+        "optionsZh": [
+          "牛郎和織女都被分開了，心裡充滿思念",
+          "牛郎對銀河太寬感到很生氣",
+          "開始下雨，讓河水溢出來",
+          "織女很高興回去，開心地哭了"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「兩邊都有眼淚」——不是一個人哭，是兩個人都心碎。他們隔著銀河，碰不到彼此，只能遙遙相望，思念讓眼淚止不住。",
+        "subSkill": "inference",
+        "tags": [
+          "story",
+          "ch12",
+          "cowherd-weaver",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },
