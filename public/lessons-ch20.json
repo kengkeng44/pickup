@@ -1332,6 +1332,90 @@
           "enormous-turnip"
         ],
         "subSkill": "detail"
+      },
+      {
+        "id": "kt-ch20-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他們一起拉。",
+        "answer": "They pull together.",
+        "accept": [
+          "They all pull together.",
+          "All of them pull together.",
+          "They pull as one."
+        ],
+        "explanationZh": "pull together = 一起拉！故事裡每個人都加入，團隊合作就是這句話的精神。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch20-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "三個還是不夠。",
+        "answer": "Three is not enough.",
+        "accept": [
+          "Three people is not enough.",
+          "Three are not enough.",
+          "Three is still not enough."
+        ],
+        "explanationZh": "not enough = 不夠！三個人全力拉還是動不了，才要再叫更多幫手。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch20-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "每個新幫手抓住前面那個人。",
+        "answer": "Each new helper holds the one in front.",
+        "accept": [
+          "Every new helper holds the person in front.",
+          "Each helper grabs the one in front of them.",
+          "Every new helper grabs the person in front."
+        ],
+        "explanationZh": "hold = 抓住，in front = 在前面。這就是故事裡拔蘿蔔隊伍的規則——一個接一個！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch20-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "One person tried. Two tried. Three tried. The turnip stayed in the ground.",
+        "question": "What does the turnip staying put tell us about how the family should act next?",
+        "options": [
+          "they should rest and try again tomorrow",
+          "one more person joining will fix everything",
+          "no amount of extra help can ever work",
+          "they need to keep asking until it comes out"
+        ],
+        "optionsZh": [
+          "休息一下明天再試",
+          "再加一個人就能解決一切",
+          "再多幫手也沒用",
+          "要一直找幫手直到成功"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "蘿蔔一直不動，但大家也一直沒放棄——故事的規律是「繼續加人、繼續試」，最後一定會成功！",
+        "tags": [
+          "production",
+          "comprehension",
+          "legendary"
+        ]
       }
     ]
   },

@@ -1340,6 +1340,95 @@
           "ch19",
           "sang-kancil"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch19-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "國王想知道幾隻。",
+        "answer": "The king wants to know how many.",
+        "accept": [
+          "The king wants to know the number.",
+          "The king needs to know how many.",
+          "The king wishes to know how many."
+        ],
+        "explanationZh": "鼠鹿騙鱷魚說這是國王的命令。wants to know how many = 想知道幾隻。",
+        "tags": [
+          "production",
+          "type-translate"
+        ],
+        "speaker": "narrator"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch19-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "沒有鱷魚想看起來不知道。",
+        "answer": "No one wanted to look bad.",
+        "accept": [
+          "None of them wanted to look bad.",
+          "No crocodile wanted to look bad.",
+          "No one wanted to seem like they did not know."
+        ],
+        "explanationZh": "鱷魚們都不肯開口問——look bad = 看起來很差、丟臉。",
+        "tags": [
+          "production",
+          "type-translate"
+        ],
+        "speaker": "narrator"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch19-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "鼠鹿叫鱷魚在河上排好隊。",
+        "answer": "Mouse deer told the crocodiles to line up.",
+        "accept": [
+          "Mouse deer asked the crocodiles to line up.",
+          "He told the crocodiles to line up across the river.",
+          "Mouse deer said to the crocodiles: line up."
+        ],
+        "explanationZh": "鼠鹿說「排成一排讓我來數」——told … to line up = 叫……排隊。這是他計謀的關鍵一步！",
+        "tags": [
+          "production",
+          "type-translate"
+        ],
+        "speaker": "narrator"
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch19-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "subSkill": "inference",
+        "speaker": "narrator",
+        "sentence": "The big crocodile did not want to say he did not know about a king.",
+        "question": "What does the big crocodile's silence tell us about him?",
+        "options": [
+          "He was too frightened to open his mouth",
+          "He cared more about his pride than the truth",
+          "He already knew the king very well",
+          "He wanted to help mouse deer cross safely"
+        ],
+        "optionsZh": [
+          "他嚇得張不開嘴",
+          "他的面子比真相更重要",
+          "他早就非常了解那位國王",
+          "他想幫助鼠鹿安全過河"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "大鱷魚寧可沉默也不肯承認「我不知道」——說明面子（pride）比弄清真相更重要。這正是鼠鹿計謀成功的原因！",
+        "tags": [
+          "production",
+          "comprehension",
+          "inference"
+        ],
+        "sentenceZh": "大鱷魚不想說自己不知道有什麼國王。"
       }
     ]
   },

@@ -1344,6 +1344,102 @@
           "mencius-mother"
         ],
         "subSkill": "detail"
+      },
+      {
+        "id": "kt-ch22-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "她打包好東西。",
+        "answer": "She packed their things.",
+        "accept": [
+          "She packed everything.",
+          "She packed up their things.",
+          "She packed all their things."
+        ],
+        "explanationZh": "pack = 打包。故事裡媽媽每次搬家前都先打包——『She packed their things』是最自然的說法！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch22",
+          "mencius-mother"
+        ]
+      },
+      {
+        "id": "kt-ch22-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "這個地方在教他。",
+        "answer": "The place was teaching him.",
+        "accept": [
+          "This place was teaching him.",
+          "The place taught him.",
+          "This place taught him."
+        ],
+        "explanationZh": "媽媽的大發現：住的地方默默影響孩子。『The place was teaching him』用過去進行式，表示「那時候一直在發生的事」。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch22",
+          "mencius-mother"
+        ]
+      },
+      {
+        "id": "kt-ch22-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "她知道是時候再搬一次了。",
+        "answer": "She knew it was time to move.",
+        "accept": [
+          "She knew it was time to move again.",
+          "She knew they had to move again.",
+          "She knew they needed to move."
+        ],
+        "explanationZh": "媽媽每次發現地方不對，就果斷搬家。『She knew it was time to move』是故事的核心句！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch22",
+          "mencius-mother",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch22-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "She started packing again with steady, calm hands.",
+        "question": "What does the mother's calm manner while packing tell us about her?",
+        "options": [
+          "she is too busy to notice Meng",
+          "she is tired and wants to rest",
+          "she has a clear plan in her heart",
+          "she enjoys the work of packing"
+        ],
+        "optionsZh": [
+          "她太忙了，沒注意到孟子",
+          "她累了，想休息",
+          "她心裡已經有明確的計畫",
+          "她很享受打包的工作"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "「手又穩又平靜」不是因為喜歡打包，而是她胸有成竹、已決定好下一步。所以答案是「她心裡已經有明確的計畫」。",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

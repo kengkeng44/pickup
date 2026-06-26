@@ -1308,6 +1308,105 @@
           "ch17",
           "crane-gratitude"
         ]
+      },
+      {
+        "id": "kt-ch17-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "老人把布拿到市場去賣。",
+        "answer": "The old man took the cloth to the market.",
+        "accept": [
+          "The old man brought the cloth to the market.",
+          "He took the cloth to the market.",
+          "He brought the cloth to the market.",
+          "The old man took the cloth to sell at the market."
+        ],
+        "explanationZh": "took to the market = 拿到市場去。take → took（過去式），the cloth 是布，the market 是市場。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch17",
+          "crane-gratitude"
+        ]
+      },
+      {
+        "id": "kt-ch17-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "這是我看過最棒的布！",
+        "answer": "This is the finest cloth I have ever seen!",
+        "accept": [
+          "This is the best cloth I have ever seen!",
+          "This is the most beautiful cloth I have ever seen!",
+          "This is the finest cloth I've ever seen!",
+          "This is the best cloth I've ever seen!"
+        ],
+        "explanationZh": "finest = 最棒的（fine 的最高級）。I have ever seen = 我曾看過的——合在一起就是「我看過最棒的」。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch17",
+          "crane-gratitude"
+        ]
+      },
+      {
+        "id": "kt-ch17-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "她織出的布閃耀得像剛落的雪。",
+        "answer": "The cloth she made shone like fresh snow.",
+        "accept": [
+          "The cloth she wove shone like fresh snow.",
+          "Her cloth shone like fresh snow.",
+          "The cloth shone like fresh snow.",
+          "The cloth she made glowed like fresh snow."
+        ],
+        "explanationZh": "shone = 閃耀（shine 的過去式）。like fresh snow = 像新落的雪。這句描述白布的美麗，是故事裡的核心畫面。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch17",
+          "crane-gratitude",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch17-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "Every night the old man heard feathers brushing against wood. After three days the young woman came out, pale and thin, holding a cloth that glowed like moonlight.",
+        "question": "Why did the young woman look pale and thin after weaving?",
+        "options": [
+          "She forgot to eat during the long winter nights.",
+          "She used her own body to make something precious.",
+          "The cold room made her feel unwell each time.",
+          "She worked too fast and hurt her hands on the loom."
+        ],
+        "optionsZh": [
+          "她在漫長的冬夜忘了吃東西。",
+          "她用自己的身體來創造珍貴的東西。",
+          "冰冷的房間讓她每次都不舒服。",
+          "她工作太快，雙手被織布機割傷了。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "鶴的秘密：她用自己的白羽毛織進布裡，每織一塊就消耗自己的一部分——所以織完後都蒼白又消瘦。這是推論題，答案是「用自己的身體來創造珍貴的東西」。",
+        "tags": [
+          "inference",
+          "story",
+          "ch17",
+          "crane-gratitude",
+          "legendary"
+        ]
       }
     ]
   },

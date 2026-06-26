@@ -1331,6 +1331,103 @@
           "anansi-spider"
         ],
         "subSkill": "gist"
+      },
+      {
+        "id": "kt-ch21-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "阿南西拿了一根樹枝。",
+        "answer": "Anansi got a stick.",
+        "accept": [
+          "Anansi found a stick.",
+          "Anansi picked up a stick.",
+          "Anansi took a stick."
+        ],
+        "explanationZh": "get/find/pick up/take 都能說「拿到某樣東西」，這裡用過去式 got / found / picked up / took。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch21",
+          "anansi-spider"
+        ]
+      },
+      {
+        "id": "kt-ch21-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "大蛇為自己的長度感到驕傲。",
+        "answer": "The snake was proud of his length.",
+        "accept": [
+          "The python was proud of his length.",
+          "The snake felt proud of his length.",
+          "The python felt proud of his length."
+        ],
+        "explanationZh": "「be proud of + 名詞」= 為……感到驕傲。snake 和 python 都可以，was/felt 都接受。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch21",
+          "anansi-spider"
+        ]
+      },
+      {
+        "id": "kt-ch21-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "阿南西用一句話讓大蛇乖乖躺下。",
+        "answer": "Anansi used words to make the snake lie down.",
+        "accept": [
+          "Anansi used one sentence to make the snake lie down.",
+          "Anansi used a clever line to make the python lie down.",
+          "Anansi used words to make the python lie down."
+        ],
+        "explanationZh": "「use words to make someone do something」= 用言語讓某人做某事。這句考的是因果結構，很厲害！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch21",
+          "anansi-spider",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch21-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "The python often showed off his long body to the other animals.",
+        "question": "What does this habit tell us about the python's character?",
+        "options": [
+          "He was too shy to talk to anyone.",
+          "He wanted others to admire him.",
+          "He enjoyed helping weaker animals.",
+          "He was always looking for new friends."
+        ],
+        "optionsZh": [
+          "他太害羞，不敢跟任何人說話。",
+          "他希望別人羨慕他。",
+          "他喜歡幫助弱小的動物。",
+          "他一直在找新朋友。"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "常常炫耀自己的長度 → 他在乎別人的目光、希望受到羨慕。這就是阿南西能利用的弱點！",
+        "subSkill": "inference",
+        "tags": [
+          "inference",
+          "comprehension",
+          "story",
+          "ch21",
+          "anansi-spider",
+          "legendary"
+        ]
       }
     ]
   },

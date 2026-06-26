@@ -1306,6 +1306,107 @@
           "ch18",
           "heungbu-nolbu"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch18-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "興夫用軟布包住小鳥的腳。",
+        "answer": "He wrapped the bird's leg",
+        "accept": [
+          "He wrapped the bird's leg in cloth",
+          "He wrapped the little bird's leg",
+          "Heungbu wrapped the bird's leg",
+          "Heungbu wrapped the bird's leg in cloth"
+        ],
+        "explanationZh": "wrap = 包；cloth = 布——興夫用軟布把小鳥的腳包起來，好好照顧牠。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch18",
+          "heungbu-nolbu"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch18-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "燕子把一顆種子放在興夫手上。",
+        "answer": "The swallow dropped a seed",
+        "accept": [
+          "The swallow dropped one seed",
+          "The swallow left a seed",
+          "The swallow gave a seed",
+          "A swallow dropped a seed"
+        ],
+        "explanationZh": "drop = 放下/投下——燕子把種子輕輕放在興夫的手心上，這是牠給他的禮物。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch18",
+          "heungbu-nolbu"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch18-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "興夫的好心讓大葫蘆長了出來。",
+        "answer": "His kindness grew big gourds",
+        "accept": [
+          "His kindness brought big gourds",
+          "Heungbu's kindness grew big gourds",
+          "Heungbu's kindness brought big gourds",
+          "His kind heart grew big gourds"
+        ],
+        "explanationZh": "kindness = 好心；gourd = 葫蘆——因為興夫的善良，燕子才帶來神奇的種子，長出大葫蘆。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch18",
+          "heungbu-nolbu"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch18-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "The swallow came back in spring and dropped one small seed on Heungbu's hand.",
+        "question": "What does the swallow's return tell us about Heungbu?",
+        "options": [
+          "swallows always fly back home",
+          "a kind act can earn a reward",
+          "birds remember every house they see",
+          "spring is the best time to plant"
+        ],
+        "optionsZh": [
+          "燕子總是會飛回家",
+          "好心的行為可以得到回報",
+          "鳥兒記得牠見過的每一棟房子",
+          "春天是種植的最好時機"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "燕子回來是因為興夫曾救了牠——這說明他的好心(善行)得到了回報。這是推論，不是故事直接說出來的。",
+        "subSkill": "inference",
+        "tags": [
+          "story",
+          "ch18",
+          "heungbu-nolbu",
+          "inference"
+        ]
       }
     ]
   },
