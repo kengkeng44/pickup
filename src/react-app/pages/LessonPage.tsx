@@ -7,9 +7,7 @@
  */
 import { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
-import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp } from '../../data/xp';
@@ -24,7 +22,7 @@ import { getHp, loseHp, refillHp, subscribeHp, MAX_HP } from '../../data/hp';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
-import { RENDERERS, FallbackRenderer, wrapWords, type RawQuestion } from '../renderers';
+import { RENDERERS, FallbackRenderer, type RawQuestion } from '../renderers';
 import { getLessonHook } from '../../data/lessonHooks';
 import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
@@ -194,13 +192,9 @@ export default function LessonPage() {
       {/* v2.0.B.315 RULE (per user): lesson 完全符合手機大小, 不往下延伸.
           外層 100dvh + overflow hidden; 內容區 flex 撐滿剩餘高度, 內容過長才『內部』捲動,
           整頁永不外溢. 各題型上方自帶內容/圖片槽, 選項不再下沉到畫面外. */}
+      {/* v2.0.B.431 (per user「上面原文應該要不見」): 拿掉歷史題堆疊 — 每題只顯示當前題,
+          上方不再殘留前一題的句子 (配對/單字題尤其不需要)。 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-        {history.length > 0 && (
-          // v2.0.B.425 (per user 折疊): 只留最近 2 句歷史, 避免堆疊把題目/選項擠出畫面 (不折疊規則)
-          <div style={{ marginBottom: 14 }}>
-            {history.slice(-2).map((s, i) => <NarrativeLine key={history.length - 2 + i} text={s} />)}
-          </div>
-        )}
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
     </div>
@@ -255,27 +249,6 @@ function Hearts() {
       style={{ flex: '0 0 auto', fontSize: 14, letterSpacing: '1px', lineHeight: 1, whiteSpace: 'nowrap' }}>
       {'🧡'.repeat(hp)}{'🤍'.repeat(MAX_HP - hp)}
     </span>
-  );
-}
-
-// v2.0.B.424 (per user): 歷史題也「空白底線 → 點才出英文」(聽力訓練, 一進來不該有英文).
-function NarrativeLine({ text }: { text: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
-  const replay = () => { try { speak(text, 'en-US', { force: true }); } catch {} };
-  useEffect(() => {
-    if (shown && ref.current) { try { wireSentenceHints(ref.current); } catch {} }
-  }, [shown]);
-  const blanked = text.split(/\s+/).filter(Boolean).map(() => '＿＿＿').join(' ');
-  return (
-    <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: 'var(--t-text)', lineHeight: 1.7, fontWeight: 600 }}>
-      <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 44, height: 44, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
-        <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ opacity: 0.7 }} />
-      </button>
-      {shown
-        ? <span ref={ref} style={{ flex: '1 1 auto' }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
-        : <span onClick={() => setShown(true)} style={{ flex: '1 1 auto', cursor: 'pointer', color: 'var(--t-text-muted)', letterSpacing: '0.1em' }}>{blanked}</span>}
-    </div>
   );
 }
 
