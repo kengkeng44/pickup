@@ -8,31 +8,14 @@
     "storyBeat": "父親再婚 — 新家有兩個姊姊",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch9-l1-q1",
+        "type": "narration",
+        "id": "kt-ch9-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "父親",
-            "right": "father"
-          },
-          {
-            "left": "新的",
-            "right": "new"
-          },
-          {
-            "left": "妻子",
-            "right": "wife"
-          },
-          {
-            "left": "女兒",
-            "right": "daughter"
-          }
-        ],
-        "explanationZh": "今晚的故事是灰姑娘！先認識 4 個字：\n🔑 father = 父親\n🔑 new = 新的\n🔑 wife = 妻子\n🔑 daughter = 女兒\n記住了，等一下更好懂！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講灰姑娘的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch9",
@@ -42,401 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch9-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch9-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago in France, a kind girl lived with her father.",
-        "explanationZh": "很久很久以前，在法國有個心地善良的女孩，和爸爸相依為命，過著安靜的日子。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her own mother had died. Her father took a new wife.",
-        "explanationZh": "可是，她的親生媽媽不在了。爸爸後來娶了新妻子，家裡就變了……",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch9-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "At night the girl held her mother's soft shawl close.",
-        "questionEn": "Did the girl miss her mother?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "禮服",
+            "right": "dress"
+          },
+          {
+            "left": "鞋子",
+            "right": "shoe"
+          },
+          {
+            "left": "舞",
+            "right": "dance"
+          },
+          {
+            "left": "王子",
+            "right": "prince"
+          }
         ],
-        "correctIndex": 0,
-        "explanationZh": "把媽媽留下的披巾緊緊抱著——那溫度，只有她自己知道有多想念。答 Yes。",
+        "explanationZh": "這四個字都在灰姑娘的故事裡：\n🔑 dress = 禮服\n🔑 shoe = 鞋子\n🔑 dance = 跳舞\n🔑 prince = 王子",
         "tags": [
           "story",
           "ch9",
           "cinderella",
-          "inference"
-        ],
-        "sentenceZh": "夜裡，女孩把媽媽留下來的軟披巾緊緊抱在懷裡。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new wife had two grown daughters of her own.",
-        "explanationZh": "新妻子帶來了她自己的兩個女兒，兩個都已經長大了。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch9-l1-q6",
+        "type": "tap-pairs",
+        "id": "kt-ch9-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "They wore fine dresses and had soft hands.",
-        "question": "What kind of life did the two sisters have?",
-        "options": [
-          "they worked very hard",
-          "they lived alone",
-          "they grew food",
-          "an easy and rich life"
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "鏡子",
+            "right": "mirror"
+          },
+          {
+            "left": "緞帶",
+            "right": "ribbon"
+          },
+          {
+            "left": "午夜",
+            "right": "midnight"
+          },
+          {
+            "left": "魔法",
+            "right": "magic"
+          }
         ],
-        "optionsZh": [
-          "工作很辛苦",
-          "一個人獨自住",
-          "靠種田過日子",
-          "輕鬆又有錢的生活"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "漂亮衣服、柔嫩的手——這表示她們過的是輕鬆又富有的日子！",
+        "explanationZh": "再來四個：\n🔑 mirror = 鏡子\n🔑 ribbon = 緞帶\n🔑 midnight = 午夜\n🔑 magic = 魔法",
         "tags": [
           "story",
           "ch9",
-          "cinderella"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她們穿著漂亮衣服，手柔柔嫩嫩的。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They sat in the sun. They did no work at all.",
-        "explanationZh": "她們就坐在陽光下，什麼事都不做——真是好命呀！",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch9-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The kind girl watched them and stayed quiet.",
-        "question": "How did the girl react to the two sisters?",
-        "options": [
-          "kept her mouth shut",
-          "laughed out loud",
-          "ran away fast",
-          "pushed them down"
-        ],
-        "optionsZh": [
-          "閉著嘴不說話",
-          "哈哈大笑出來",
-          "轉頭就跑走",
-          "把她們推開"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "stayed quiet——她看著，卻靜靜地「閉口不說」，一句話都沒有。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "善良的女孩看著她們，靜靜的，什麼也沒說。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new wife looked at the girl with cold eyes.",
-        "explanationZh": "新妻子用冷冷的眼神打量著這個女孩，那目光，像冬天的霜……",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
+          "cinderella",
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch9-l1-q10",
+        "id": "kt-ch9-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did the new wife feel about the girl?",
-        "question": "How did the new wife feel?",
+        "sentence": "Which one is a shoe?",
+        "question": "Which one is a shoe?",
         "options": [
-          "💖 warm and kind",
-          "🧊 cold and hard",
-          "😴 getting very sleepy",
-          "🎉 excited and cheerful"
+          "👗 dress",
+          "👑 crown",
+          "👠 shoe",
+          "🎀 ribbon"
         ],
         "optionsZh": [
-          "💖 溫暖又善良",
-          "🧊 又冷又硬",
-          "😴 快睡著了",
-          "🎉 開心又興奮"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "冷冷的眼神——那就是「又冷又硬」，完全不溫柔。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "新妻子對女孩的態度是？"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch9-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the word to its meaning.",
-        "pairs": [
-          {
-            "left": "father",
-            "right": "父親"
-          },
-          {
-            "left": "new",
-            "right": "新的"
-          },
-          {
-            "left": "wife",
-            "right": "妻子"
-          },
-          {
-            "left": "daughter",
-            "right": "女兒"
-          }
-        ],
-        "explanationZh": "複習一下今晚的生字：father=父親、new=新的、wife=妻子、daughter=女兒！",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella",
-          "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch9-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in France, a kind girl lived with her father. Her own mother had died. Her father took a new wife.",
-        "question": "What big change happened in the girl's life?",
-        "options": [
-          "her father gave all his money away",
-          "she moved to a new town all alone",
-          "her father married again after her mother died",
-          "she found a new cat to keep her company"
-        ],
-        "optionsZh": [
-          "爸爸把所有錢都送出去了",
-          "她一個人搬到新的城鎮",
-          "媽媽過世後，爸爸再婚了",
-          "她找了一隻新貓陪她"
+          "禮服",
+          "皇冠",
+          "鞋子",
+          "緞帶"
         ],
         "correctIndex": 2,
-        "explanationZh": "媽媽不在了，爸爸後來娶了新妻子——這是女孩生活中最大的「改變」，所以是「媽媽過世後，爸爸再婚了」！",
-        "sentenceZh": "很久以前在法國，一個善良的女孩和爸爸住在一起。她的親生媽媽過世了，爸爸娶了新妻子。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch9-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new wife had two grown daughters of her own.",
-        "questionEn": "Were the two sisters young children?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "grown daughters——她們早就長大了，不是在院子裡玩泥巴的小孩。答 No。",
-        "sentenceZh": "新妻子帶來了她自己的兩個已經長大的女兒。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella",
-          "detail"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch9-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They wore fine dresses and had soft hands. They sat in the sun and did no work at all.",
-        "question": "What kind of life did the two sisters lead?",
-        "options": [
-          "📚 always reading",
-          "🌧️ hard and lonely",
-          "🌾 busy farming",
-          "🌸 easy and rich"
-        ],
-        "optionsZh": [
-          "📚 一直在讀書",
-          "🌧️ 辛苦又孤單",
-          "🌾 整天在種田",
-          "🌸 輕鬆又富裕"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "穿好衣服、曬太陽、什麼事都不做——她們的生活是「輕鬆又富裕」，就是這樣！",
-        "sentenceZh": "兩個姊姊穿著漂亮衣服、曬太陽，什麼事都不做。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch9-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The kind girl watched them and stayed quiet. The new wife looked at the girl with cold eyes.",
-        "question": "What does the cold look from the new wife tell us?",
-        "options": [
-          "not a drop of warmth for the girl",
-          "trying hard to stay awake",
-          "full of admiration for the girl",
-          "cold because of the weather outside"
-        ],
-        "optionsZh": [
-          "對女孩半點溫柔都沒有",
-          "努力不讓自己睡著",
-          "心裡充滿對女孩的欣賞",
-          "因為天氣冷才皺著臉"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "冰冷的眼神——那是不喜歡、甚至討厭的表情，所以是「她根本不喜歡這個女孩」！",
-        "sentenceZh": "善良的女孩靜靜地看著，新妻子用冷冷的眼神打量她。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch9-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the character to the description.",
-        "pairs": [
-          {
-            "left": "cold eyes",
-            "right": "new wife"
-          },
-          {
-            "left": "stayed quiet",
-            "right": "kind girl"
-          },
-          {
-            "left": "fine dresses",
-            "right": "two sisters"
-          },
-          {
-            "left": "died long ago",
-            "right": "mother"
-          }
-        ],
-        "explanationZh": "誰做了什麼？新妻子冷眼、女孩沉默、兩個姊姊穿好衣服、親生媽媽已離開。",
+        "explanationZh": "鞋子的英文是 shoe 👠！故事裡灰姑娘掉了一隻玻璃鞋，王子就靠這隻鞋找到她。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch9-l1-x7",
+        "type": "emoji-pick",
+        "id": "kt-ch9-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "At night the girl held her mother's soft shawl close.",
-        "questionEn": "Did the girl have a happy new family life?",
+        "sentence": "Which one shows a mirror?",
+        "question": "Which one shows a mirror?",
         "options": [
-          "Yes",
-          "No"
+          "🪟 window",
+          "🖼️ picture",
+          "📺 screen",
+          "🪞 mirror"
         ],
-        "correctIndex": 1,
-        "explanationZh": "夜裡縮在火爐邊，抱著媽媽的披巾——這個家，對她來說從來不算溫暖。答 No。",
-        "sentenceZh": "夜裡，女孩把媽媽留下的軟披巾緊緊抱著。",
+        "optionsZh": [
+          "窗戶",
+          "圖畫",
+          "螢幕",
+          "鏡子"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "mirror = 鏡子 🪞！故事裡兩個姊姊對著鏡子試緞帶、換禮服，開心地準備去舞會。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "narration",
-        "id": "kt-ch9-l1-q11",
+        "type": "picture-mc",
+        "id": "kt-ch9-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The new wife's cold look stayed in the girl's mind...",
-        "explanationZh": "那道冷冷的眼神，深深刻在女孩心裡，揮之不去……故事，才剛開始。",
+        "sentence": "The two sisters danced in front of the mirror.",
+        "sentenceZh": "兩個姊姊在鏡子前面跳舞。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🪞",
+        "options": [
+          "two girls reading books at a table",
+          "two girls dancing in front of a mirror",
+          "an old woman cooking by the fire",
+          "a girl sitting alone on the floor"
+        ],
+        "optionsZh": [
+          "兩個女孩坐在桌邊看書",
+          "兩個女孩在鏡子前面跳舞",
+          "一位老婦人在火爐邊煮飯",
+          "一個女孩獨自坐在地上"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "dance = 跳舞，mirror = 鏡子——句子說她們在鏡子前跳舞，正好是圖中的場景！",
         "tags": [
           "story",
           "ch9",
-          "cinderella"
-        ]
+          "cinderella",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -449,31 +195,14 @@
     "storyBeat": "灰塵堆 — 她哭給誰聽?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch9-l2-q1",
+        "type": "narration",
+        "id": "kt-ch9-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "掃",
-            "right": "sweep"
-          },
-          {
-            "left": "煮",
-            "right": "cook"
-          },
-          {
-            "left": "火",
-            "right": "fire"
-          },
-          {
-            "left": "灰",
-            "right": "ash"
-          }
-        ],
-        "explanationZh": "這節的生字要認識一下：\n🔑 sweep = 掃\n🔑 cook = 煮\n🔑 fire = 火\n🔑 ash = 灰\n記住這 4 個，後面故事更清楚！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch9",
@@ -483,326 +212,123 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch9-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new wife was not kind to the girl.",
-        "explanationZh": "新妻子對女孩可不好——她的眼神、她說話的語氣，冷得很。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch9-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She made the girl sweep, cook, and carry water all day.",
-        "question": "What did the new wife make the girl do?",
-        "options": [
-          "rest in a soft bed",
-          "a lot of house work",
-          "read books all day",
-          "play with friends"
-        ],
-        "optionsZh": [
-          "躺在軟軟的床上休息",
-          "做一大堆家事",
-          "整天待著看書",
-          "跟朋友出去玩"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "掃地、煮飯、提水——一堆家事都是她在做，真的好辛苦！",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "新妻子叫女孩整天掃地、煮飯、提水，什麼都要做。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At night, the girl slept by the fire to stay warm.",
-        "explanationZh": "夜裡，她連床都沒有，只能縮在火爐旁邊取暖，這才能睡著。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch9-l2-q5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "She had no soft bed. She had no warm room.",
-        "questionEn": "Was the girl treated well at home?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "連一張床都沒有，只有冰冷地板和火爐的灰——這樣的日子，怎麼算善待呢。答 No。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella",
-          "inference"
-        ],
-        "sentenceZh": "她沒有柔軟的床，也沒有溫暖的房間。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her clothes got grey with ash from the fire.",
-        "explanationZh": "整天靠在火爐邊，衣服也被灰煙燻得灰灰的，像蒙了一層塵。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch9-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What color were the girl's clothes?",
-        "question": "What color were her clothes?",
-        "options": [
-          "🌸 pink",
-          "🌟 gold",
-          "⚫ grey",
-          "🌊 blue"
-        ],
-        "optionsZh": [
-          "🌸 粉粉的",
-          "🌟 金色的",
-          "⚫ 灰灰的",
-          "🌊 藍色的"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "被火灰燻染，衣服變成了灰色——grey！",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "女孩的衣服是什麼顏色？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The two sisters laughed and called her Cinderella.",
-        "explanationZh": "兩個姊姊嘻嘻哈哈地笑，給她取了一個名字——「灰姑娘！」Cinderella，就是這樣來的。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch9-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The word came from the cinders that stained her gown.",
-        "question": "Why did they call her Cinderella?",
-        "options": [
-          "she liked the name",
-          "she sang songs about fire",
-          "her father chose it",
-          "because of the ash on her"
-        ],
-        "optionsZh": [
-          "她自己喜歡這名字",
-          "她喜歡唱火焰的歌",
-          "父親幫她取的",
-          "因為她身上老是有灰"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "名字是從 cinders（灰燼）來的——因為她身上總是有灰！",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "這個名字，來自沾在她衣服上的灰燼。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "When the others slept, she sat by the fire and cried.",
-        "explanationZh": "等大家都睡了，她獨自坐在火爐旁，輕輕地哭……",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ]
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch9-l2-x1",
+        "id": "kt-ch9-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the word to its meaning.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "sweep",
-            "right": "掃"
+            "left": "玻璃鞋",
+            "right": "glass shoe"
           },
           {
-            "left": "cook",
-            "right": "煮"
+            "left": "金馬車",
+            "right": "gold coach"
           },
           {
-            "left": "fire",
-            "right": "火"
+            "left": "仙女教母",
+            "right": "fairy godmother"
           },
           {
-            "left": "ash",
-            "right": "灰"
+            "left": "舞會",
+            "right": "grand ball"
           }
         ],
-        "explanationZh": "sweep=掃、cook=煮、fire=火、ash=灰——記住這幾個字！",
+        "explanationZh": "這四個片語都出現在灰姑娘的故事裡：\n🔑 glass shoe = 玻璃鞋\n🔑 gold coach = 金馬車\n🔑 fairy godmother = 仙女教母\n🔑 grand ball = 舞會",
+        "tags": [
+          "story",
+          "ch9",
+          "cinderella",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch9-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The prince held the glass shoe in his hands.",
+        "sentenceZh": "王子雙手捧著那只玻璃鞋。",
+        "question": "Which picture matches 'a glass shoe'?",
+        "imageEmoji": "👠",
+        "options": [
+          "a small shiny shoe made of glass",
+          "a tall prince in a long red coat",
+          "a round gold coin on a table",
+          "a big key hanging on a wall"
+        ],
+        "optionsZh": [
+          "一隻閃亮的小玻璃鞋",
+          "一位穿紅色長外套的高挑王子",
+          "一枚放在桌上的圓金幣",
+          "一把掛在牆上的大鑰匙"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "glass shoe = 玻璃鞋 👠！王子帶著那只玻璃鞋，走遍全鎮，找那個穿得上的女孩。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch9-l2-x2",
+        "type": "emoji-pick",
+        "id": "kt-ch9-l2-ep1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "She made the girl sweep, cook, and carry water all day. At night, the girl slept by the fire to stay warm.",
-        "question": "How was Cinderella treated compared to the two sisters?",
+        "sentence": "The clock struck midnight and the magic ended.",
+        "question": "Which emoji shows midnight?",
         "options": [
-          "she worked all day while they rested",
-          "she rested more than the two sisters",
-          "they all shared the same hard work",
-          "she had her own warm room to sleep"
+          "🌅 sunrise",
+          "🌄 morning",
+          "🌆 evening",
+          "🕛 midnight"
         ],
         "optionsZh": [
-          "她整天做事，姊姊們在休息",
-          "她比兩個姊姊休息更多",
-          "三個人平分所有工作",
-          "她有自己溫暖的房間可以睡"
+          "日出",
+          "早晨",
+          "黃昏",
+          "午夜"
         ],
-        "correctIndex": 0,
-        "explanationZh": "灰姑娘整天掃地煮飯提水，而姊姊們什麼都不做——她的待遇是「整天做事，姊姊們在休息」！",
-        "sentenceZh": "她被迫整天掃地、煮飯、提水。夜裡，她只能縮在火爐旁取暖入睡。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch9-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The two sisters laughed and called her Cinderella.",
-        "questionEn": "Was Cinderella a name given to her with kindness?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "兩個姊姊嘻嘻哈哈笑著叫她「灰姑娘」——那聲音裡沒有半點溫柔，只是嘲笑。答 No。",
-        "sentenceZh": "兩個姊姊嘲笑她，叫她灰姑娘。",
+        "correctIndex": 3,
+        "explanationZh": "midnight = 午夜 🕛！12 點鐘聲一響，魔法就結束——灰姑娘要趕快跑回家！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
-          "inference"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch9-l2-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "When the others slept, she sat by the fire and cried alone.",
-        "question": "How did Cinderella feel at night?",
-        "options": [
-          "😤 angry at everyone",
-          "😢 lonely and sad",
-          "😴 fast asleep",
-          "😁 happy and playful"
+          "vocab"
         ],
-        "optionsZh": [
-          "😤 對大家很憤怒",
-          "😢 孤單又難過",
-          "😴 睡得很香",
-          "😁 開心又愛玩"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "等大家睡了才偷偷哭——她是「孤單又難過」，lonely and sad！",
-        "sentenceZh": "等其他人睡著後，她一個人坐在火爐旁哭泣。",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch9-l2-x5",
+        "id": "kt-ch9-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Her clothes _____ grey with ash from the fire.",
-        "question": "Which word fits in the blank?",
+        "sentence": "The prince ___ with Cinderella all night.",
+        "question": "Which word is correct?",
         "options": [
-          "gets",
-          "get",
-          "got",
-          "getting"
+          "dances",
+          "dance",
+          "dancing",
+          "danced"
         ],
         "optionsZh": [
-          "gets（第三人稱現在）",
-          "get（現在原形）",
-          "got（過去式，變成）",
-          "getting（現在分詞）"
+          "dances（第三人稱現在）",
+          "dance（現在原形）",
+          "dancing（現在分詞）",
+          "danced（過去式）"
         ],
-        "correctIndex": 2,
-        "explanationZh": "故事說的是過去發生的事，「她的衣服變灰了」要用過去式——get → got！",
-        "sentenceZh": "她的衣服被火灰燻得灰灰的。",
+        "correctIndex": 3,
+        "explanationZh": "故事是過去發生的事，「王子和灰姑娘跳了整晚的舞」要用過去式——dance → danced！",
         "tags": [
           "story",
           "ch9",
@@ -812,80 +338,37 @@
         "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch9-l2-x6",
+        "type": "tap-pairs",
+        "id": "kt-ch9-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Only the fire heard her. Only the wind heard her. Only the night.",
-        "question": "What feeling does this ending give us?",
-        "options": [
-          "warm enough not to need any help",
-          "quite enjoying the warmth of the fire",
-          "waiting for a friend to come by",
-          "alone with no one to comfort her"
-        ],
-        "optionsZh": [
-          "覺得夠暖了，不需要幫助",
-          "很享受一個人待在火爐旁",
-          "在等一個朋友來找她",
-          "孤孤單單、沒有人陪她、安慰她"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "只有火、只有風、只有夜——這些都不是人，說明她完全沒有人陪，「沒有任何人安慰她」。",
-        "sentenceZh": "只有火聽見她哭，只有風聽見，只有夜晚……",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch9-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the action to who did it.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "swept and cooked",
-            "right": "Cinderella"
+            "left": "禮服",
+            "right": "dress"
           },
           {
-            "left": "sat in the sun",
-            "right": "two sisters"
+            "left": "鏡子",
+            "right": "mirror"
           },
           {
-            "left": "stained her gown",
-            "right": "ash from fire"
+            "left": "午夜",
+            "right": "midnight"
           },
           {
-            "left": "laughed and named",
-            "right": "two sisters"
+            "left": "魔法",
+            "right": "magic"
           }
         ],
-        "explanationZh": "灰姑娘做家事、兩個姊姊曬太陽、灰燻了衣服、姊姊嘲笑並給她取名。",
+        "explanationZh": "複習一下今晚的生字：\n🔑 dress = 禮服\n🔑 mirror = 鏡子\n🔑 midnight = 午夜\n🔑 magic = 魔法\n全記住了嗎？故事開始囉！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
-          "vocab"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch9-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Only the fire heard her. Only the wind heard her. Only the night...",
-        "explanationZh": "只有火聽見她哭。只有風聽見她哭。只有夜……在這世界上，有誰在意她？",
-        "tags": [
-          "story",
-          "ch9",
-          "cinderella"
+          "vocab",
+          "review"
         ]
       }
     ]

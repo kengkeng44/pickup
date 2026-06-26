@@ -8,31 +8,14 @@
     "storyBeat": "后羿射日 + 娶嫦娥 — 神會盯著他們嗎?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch10-l1-q1",
+        "type": "narration",
+        "id": "kt-ch10-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "太陽",
-            "right": "sun"
-          },
-          {
-            "left": "天空",
-            "right": "sky"
-          },
-          {
-            "left": "弓",
-            "right": "bow"
-          },
-          {
-            "left": "英雄",
-            "right": "hero"
-          }
-        ],
-        "explanationZh": "今晚故事的開場單字，左邊中文、右邊英文：\n🔑 sun = 太陽\n🔑 sky = 天空\n🔑 bow = 弓\n🔑 hero = 英雄\n把這 4 個字記進心裡，故事聽起來就輕鬆多了！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講嫦娥奔月的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch10",
@@ -42,387 +25,95 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch10-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch10-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago in old China, ten suns came up in the sky.",
-        "explanationZh": "很久很久以前，在古老的中國，天上有十個太陽。奶奶說，光是想像那樣的天空，就覺得熱得喘不過氣。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The land was hot. The rivers dried up. The plants died.",
-        "explanationZh": "土地被烤得滾燙，河水一點一點乾掉，植物枯黃掉落——十個太陽同時高掛，大地根本受不了。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "No rain fell. No green grass grew.",
-        "questionEn": "Was life easy for the people?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "學生",
+            "right": "student"
+          },
+          {
+            "left": "心",
+            "right": "heart"
+          },
+          {
+            "left": "壞",
+            "right": "bad"
+          },
+          {
+            "left": "打獵",
+            "right": "hunt"
+          }
         ],
-        "correctIndex": 1,
-        "explanationZh": "沒有雨、沒有綠草——十個太陽把人的生路都烤乾了，哪裡輕鬆得了。答 No。",
+        "explanationZh": "這四個字都在今晚的故事裡：\n🔑 student = 學生\n🔑 heart = 心\n🔑 bad = 壞\n🔑 hunt = 打獵\n其中「壞心腸的學生」是今晚最麻煩的人！",
         "tags": [
           "story",
           "ch10",
           "change",
-          "inference"
-        ],
-        "sentenceZh": "沒有雨。沒有綠草。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A strong young man named Hou Yi lifted his bow.",
-        "explanationZh": "就在這時候，一個叫后羿的強壯年輕人站出來了。他把弓舉起來，對著天空，奶奶說，那個姿勢，真的很帥。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch10-l1-q6",
+        "type": "tap-pairs",
+        "id": "kt-ch10-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "He shot the suns one by one. Only one sun was left.",
-        "question": "What did Hou Yi do to the suns?",
-        "options": [
-          "made them go away",
-          "painted them gold",
-          "put them in a box",
-          "sent them rain"
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "盒子",
+            "right": "box"
+          },
+          {
+            "left": "藥丸",
+            "right": "pill"
+          },
+          {
+            "left": "藏",
+            "right": "hide"
+          },
+          {
+            "left": "英雄",
+            "right": "hero"
+          }
         ],
-        "optionsZh": [
-          "讓它們消失",
-          "畫成金色",
-          "放進盒子",
-          "送雨給它們"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "他一支一支把太陽射落，只留下最後一個。那些被射中的太陽，一個接著一個從天上消失——所以是「讓它們消失」。",
+        "explanationZh": "再來四個：\n🔑 box = 盒子\n🔑 pill = 藥丸\n🔑 hide = 藏\n🔑 hero = 英雄\n「藥丸」是今晚故事裡最重要的東西！",
         "tags": [
           "story",
           "ch10",
-          "change"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "后羿對后把太陽一個個射下。只剩最後一個。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The land was saved. The people loved Hou Yi.",
-        "explanationZh": "大地得救了！河水開始流，植物慢慢回來，人民圍著后羿，感激得不知道說什麼才好。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch10-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The Queen Mother said he could marry a sweet young woman.",
-        "question": "What did the Queen Mother say?",
-        "options": [
-          "live alone for life",
-          "take a kind wife",
-          "go away far away",
-          "fight more battles"
-        ],
-        "optionsZh": [
-          "一生獨居",
-          "娶善良妻子",
-          "遠走他鄉",
-          "繼續打仗"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "西王母說后羿可以娶一個溫柔的女子——用現在的話說，就是「娶善良的妻子」。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "西王母說他可以娶一個溫柔的好女子。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He married Chang'e. They lived in a small house.",
-        "explanationZh": "后羿娶了嫦娥，兩人住在一間小屋子裡。奶奶說，那段日子，應該是他們最平靜、最幸福的時光。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
+          "change",
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch10-l1-q10",
+        "id": "kt-ch10-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did the people feel about Hou Yi?",
-        "question": "How did the people feel?",
+        "sentence": "Which one is a pill?",
+        "question": "Which one is a pill?",
         "options": [
-          "😨 they ran away",
-          "😠 they were angry",
-          "💖 they loved him",
-          "😴 they were sleepy"
+          "💊 pill",
+          "🍎 apple",
+          "🌰 nut",
+          "🍬 candy"
         ],
         "optionsZh": [
-          "都逃跑了",
-          "很生氣",
-          "大家好愛他",
-          "想睡覺"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "后羿救了大地，人民對他感激又崇拜——當然是好愛他啦！",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "人民對后羿的感情是怎樣的？"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch10-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match each action to its Chinese meaning.",
-        "pairs": [
-          {
-            "left": "lift his bow",
-            "right": "舉起弓"
-          },
-          {
-            "left": "dry up",
-            "right": "乾枯"
-          },
-          {
-            "left": "shoot the suns",
-            "right": "射下太陽"
-          },
-          {
-            "left": "save the land",
-            "right": "拯救大地"
-          }
-        ],
-        "explanationZh": "這 4 個詞是今天故事的核心動作：\n🔑 lift his bow = 舉起弓\n🔑 dry up = 乾枯\n🔑 shoot the suns = 射下太陽\n🔑 save the land = 拯救大地",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "vocab"
-        ],
-        "subSkill": "vocab"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch10-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old China, ten suns came up in the sky. The land was hot. The rivers dried up. The plants died.",
-        "question": "What is the main idea of this part?",
-        "options": [
-          "a heavy rain flooded the whole land",
-          "farmers worked hard in a warm summer",
-          "rivers carried fresh water to the villages",
-          "ten suns caused great suffering on earth"
-        ],
-        "optionsZh": [
-          "一場大雨把大地淹沒了",
-          "農夫在溫暖夏天辛勤耕作",
-          "河水把清水帶到村莊",
-          "十個太陽讓大地受苦"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "十個太陽讓大地熱壞了，河流乾了、植物死了——這整段說的是「十個太陽讓大地受苦」。",
-        "sentenceZh": "很久很久以前，中國天空升起了十個太陽。大地滾燙，河流枯乾，植物也死了。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "gist"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He shot the suns one by one. Only one sun was left.",
-        "questionEn": "Did Hou Yi shoot all ten suns down?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他一個個射，但留下了最後一個，讓大地還能有光——不是全部射盡。答 No。",
-        "sentenceZh": "他一個個把太陽射落，最後只剩一個。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch10-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The land was saved. The people loved Hou Yi.",
-        "question": "Why did the people love Hou Yi?",
-        "options": [
-          "shot the extra suns and saved everyone",
-          "brought rain and saved the harvest",
-          "built houses for all the poor families",
-          "drove away dangerous animals for them"
-        ],
-        "optionsZh": [
-          "射落多餘的太陽、救了所有人",
-          "帶來雨水、救了收成",
-          "為窮人蓋了房子",
-          "為他們趕走了危險動物"
+          "藥丸",
+          "蘋果",
+          "堅果",
+          "糖果"
         ],
         "correctIndex": 0,
-        "explanationZh": "后羿射下多餘的太陽，大地才得救——他是英雄，人民當然愛他。所以是「射落多餘的太陽，救了所有人」。",
-        "sentenceZh": "大地得救了，人民都好愛后羿。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The Queen Mother said he could marry a sweet young woman.",
-        "questionEn": "Was the Queen Mother angry at Hou Yi?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "西王母讓后羿娶個好女子——這是給英雄的恩賜，不是怒罰，她心裡是欣慰的。答 No。",
-        "sentenceZh": "西王母說他可以娶一個溫柔的好女子。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch10-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He married Chang'e. They lived in a small house.",
-        "question": "What do we learn about Hou Yi and Chang'e's life together?",
-        "options": [
-          "busy and grand, full of visitors every day",
-          "quiet and simple, away from the palace",
-          "lonely and cold, with no one around them",
-          "dangerous and exciting, on a long journey"
-        ],
-        "optionsZh": [
-          "熱鬧隆重，每天都有訪客",
-          "平靜簡單，遠離皇宮",
-          "孤單又冷清，身邊沒有人",
-          "充滿危險和刺激，踏上長途旅程"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他們住在一間小屋子裡——是平靜、簡單的生活，不是什麼宮殿大宅。所以是「平靜簡單，遠離皇宮」。",
-        "sentenceZh": "他娶了嫦娥，兩個人住在一間小屋子裡。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch10-l1-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the English words to their Chinese meanings.",
-        "pairs": [
-          {
-            "left": "hero",
-            "right": "英雄"
-          },
-          {
-            "left": "marry",
-            "right": "結婚"
-          },
-          {
-            "left": "loved",
-            "right": "喜愛"
-          },
-          {
-            "left": "saved",
-            "right": "救了"
-          }
-        ],
-        "explanationZh": "再複習一次：\n🔑 hero = 英雄\n🔑 marry = 結婚\n🔑 loved = 喜愛\n🔑 saved = 救了",
+        "explanationZh": "藥丸的英文是 pill 💊！故事裡有一顆神奇的白色藥丸——吃了可以永遠活著。",
         "tags": [
           "story",
           "ch10",
@@ -432,18 +123,66 @@
         "subSkill": "vocab"
       },
       {
-        "type": "narration",
-        "id": "kt-ch10-l1-q11",
+        "type": "emoji-pick",
+        "id": "kt-ch10-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The people loved them both. Would the gods watch them, too?",
-        "explanationZh": "人民愛著他們倆。可是奶奶說，被人愛戴，有時候也會惹來神的注意……",
+        "sentence": "Which one shows a box?",
+        "question": "Which one shows a box?",
+        "options": [
+          "🪣 bucket",
+          "📦 box",
+          "🎒 bag",
+          "🪴 pot"
+        ],
+        "optionsZh": [
+          "水桶",
+          "盒子",
+          "袋子",
+          "花盆"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "box = 盒子 📦！故事裡后羿把珍貴的藥丸放進一個小盒子藏好。",
         "tags": [
           "story",
           "ch10",
-          "change"
-        ]
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch10-l1-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "One morning, Hou Yi went out to hunt.",
+        "sentenceZh": "那天早上，后羿出去打獵了。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🏹",
+        "options": [
+          "a man sleeping in his house",
+          "a man cooking by the fire",
+          "a man walking with his bow",
+          "a man reading at a table"
+        ],
+        "optionsZh": [
+          "一個男人在屋子裡睡覺",
+          "一個男人在火邊煮飯",
+          "一個男人拿著弓走路",
+          "一個男人坐在桌邊看書"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "hunt = 打獵，句子說后羿出去打獵——拿著弓走進森林就是去打獵的樣子。",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -456,31 +195,14 @@
     "storyBeat": "西王母給仙藥 — 仙藥是什麼?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch10-l2-q1",
+        "type": "narration",
+        "id": "kt-ch10-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "山",
-            "right": "hill"
-          },
-          {
-            "left": "藥丸",
-            "right": "pill"
-          },
-          {
-            "left": "白色",
-            "right": "white"
-          },
-          {
-            "left": "藏",
-            "right": "hide"
-          }
-        ],
-        "explanationZh": "今晚再認識 4 個字！\n🔑 hill = 山\n🔑 pill = 藥丸\n🔑 white = 白色\n🔑 hide = 藏\n其中「藥丸」是今晚最重要的東西——等你聽到就懂了。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch10",
@@ -490,214 +212,63 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch10-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One spring day, the Queen Mother came down from her hill.",
-        "explanationZh": "那個春天，西王母從高山上走下來。奶奶說，這樣的事情，不是每個人都能遇上的。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch10-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She walked to Hou Yi's home. Her face was kind.",
-        "question": "Why did the Queen Mother come?",
-        "options": [
-          "picked a fight",
-          "wanted his bow",
-          "paid him a visit",
-          "sought his cat"
-        ],
-        "optionsZh": [
-          "挑戰打架",
-          "想拿他的弓",
-          "拜訪他",
-          "找他的貓"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "她走到后羿家門口，臉上帶著慈和的笑——這樣的來訪，是要「拜訪他」，不是找麻煩。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "西王母走到后羿家，臉上帶著溫和的神情。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She gave Hou Yi a small white pill in her hand.",
-        "explanationZh": "西王母把一顆白色的小藥丸，輕輕放在手心，遞給后羿。奶奶說，那顆藥丸，不是普通的東西。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l2-q5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The pill shone with a soft warm light.",
-        "questionEn": "Was the pill an ordinary pill?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "那顆藥丸會發出柔柔的暖光——普通的藥哪裡會發光？這顆裡頭藏著嫦娥往後所有的命運。答 No。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "sentenceZh": "那顆藥丸散著柔和的溫暖光芒。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"This pill can let one live for ever,\" she said.",
-        "explanationZh": "「這顆藥丸，可以讓一個人永遠活著，」西王母說。奶奶說這句話的時候，停了一下。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch10-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What can the white pill do?",
-        "question": "What can the pill do?",
-        "options": [
-          "💤 make sleep",
-          "🔥 light a fire",
-          "🌧️ bring rain",
-          "♾️ give long life"
-        ],
-        "optionsZh": [
-          "讓人睡著",
-          "點燃火焰",
-          "帶來雨水",
-          "給人長生"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「永遠活著」——這就是「長生不老」，所以答案是「給人長生」。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "那顆白色藥丸能做什麼？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"But only one of you can take it,\" she said.",
-        "explanationZh": "「但你們只有一個人可以吃，」她說。后羿和嫦娥，兩個人，一顆藥……這問題，你想想，難不難？",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch10-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "There was just one pill. There were two of them.",
-        "question": "What was the problem with the pill?",
-        "options": [
-          "they could not share",
-          "it was too small",
-          "it tasted very bad",
-          "it was too cold"
-        ],
-        "optionsZh": [
-          "兩人不能分",
-          "太小",
-          "它非常難吃",
-          "太冷"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "一顆藥，兩個人，不能分著吃——這就是問題所在，所以是「兩人不能分」。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "只有一顆藥丸，卻有兩個人。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Hou Yi put the pill in a small box. He hid the box.",
-        "explanationZh": "后羿把藥丸放進小盒子，再把盒子藏起來。奶奶說，他大概還不知道怎麼決定。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
-        ]
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch10-l2-x1",
+        "id": "kt-ch10-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match each word to its Chinese meaning.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "spring",
-            "right": "春天"
+            "left": "壞心腸",
+            "right": "bad heart"
           },
           {
-            "left": "pill",
-            "right": "藥丸"
+            "left": "永遠活著",
+            "right": "live for ever"
           },
           {
-            "left": "live for ever",
-            "right": "永遠活著"
+            "left": "等機會",
+            "right": "wait for a chance"
           },
           {
-            "left": "hide",
-            "right": "藏起來"
+            "left": "藏起來",
+            "right": "hide it away"
           }
         ],
-        "explanationZh": "今天的重點詞：\n🔑 spring = 春天\n🔑 pill = 藥丸\n🔑 live for ever = 永遠活著\n🔑 hide = 藏起來",
+        "explanationZh": "這四個片語都出現在今晚的故事裡：\n🔑 bad heart = 壞心腸\n🔑 live for ever = 永遠活著\n🔑 wait for a chance = 等機會\n🔑 hide it away = 藏起來",
+        "tags": [
+          "story",
+          "ch10",
+          "change",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch10-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The student pulled out a knife.",
+        "sentenceZh": "那個學生拔出了一把刀。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🔪",
+        "options": [
+          "a person holding a key in their hand",
+          "a person holding a stick on their shoulder",
+          "a person raising a knife in front of them",
+          "a person carrying a box under their arm"
+        ],
+        "optionsZh": [
+          "一個人手裡拿著鑰匙",
+          "一個人肩上扛著棍子",
+          "一個人在面前舉起刀",
+          "一個人腋下夾著一個盒子"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "knife = 刀 🔪！故事裡那個壞學生拔出一把刀要威脅嫦娥——好危險！",
         "tags": [
           "story",
           "ch10",
@@ -707,113 +278,58 @@
         "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch10-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She gave Hou Yi a small white pill in her hand. The pill shone with a soft warm light.",
-        "question": "What tells us the pill was special?",
-        "options": [
-          "its sweet smell filled the whole room",
-          "its gentle glow showed it had power",
-          "it was heavier than any stone",
-          "it made a loud sound when touched"
-        ],
-        "optionsZh": [
-          "它的香氣充滿整個房間",
-          "它柔和的光芒顯示它有神力",
-          "它比任何石頭都沉",
-          "碰到它會發出很大的聲音"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "那顆藥丸會發出柔柔的暖光——光芒代表它有神力。「它柔和的光芒顯示它有力量」就是這個意思。",
-        "sentenceZh": "她把一顆白色小藥丸輕輕放在手心遞給后羿，那顆藥丸散發著柔和的暖光。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"But only one of you can take it,\" she said.",
-        "questionEn": "Could Hou Yi and Chang'e both take the pill?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "西王母說只有一個人可以吃——一顆藥、兩個人，這道難題從這刻起就種下了。答 No。",
-        "sentenceZh": "「但你們只有一個人可以吃，」她說。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
         "type": "emoji-pick",
-        "id": "kt-ch10-l2-x4",
+        "id": "kt-ch10-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Hou Yi put the pill in a small box. He hid the box.",
-        "question": "What did Hou Yi do with the pill?",
+        "sentence": "Chang'e put the pill in her mouth and swallowed it.",
+        "question": "Which emoji shows swallowing?",
         "options": [
-          "🔥 burned it in the fire",
-          "🌊 threw it into the river",
-          "💊 locked it away safely",
-          "🎁 gave it away as a gift"
+          "😴 sleep",
+          "🍽️ eat a meal",
+          "🤔 think hard",
+          "😮‍💨 swallow"
         ],
         "optionsZh": [
-          "在火裡燒掉",
-          "丟進河裡",
-          "把它鎖起來藏好",
-          "當禮物送人"
+          "睡覺",
+          "吃一頓飯",
+          "用力思考",
+          "吞下去"
         ],
-        "correctIndex": 2,
-        "explanationZh": "后羿把藥丸放進盒子、把盒子藏起來——也就是「把它鎖起來藏好」。",
-        "sentenceZh": "后羿把藥丸放進小盒子，把盒子藏了起來。",
+        "correctIndex": 3,
+        "explanationZh": "swallow = 吞 😮‍💨！嫦娥為了不讓壞人得到仙藥，把藥丸整顆吞進去了——這個決定改變了她的一生。",
         "tags": [
           "story",
           "ch10",
           "change",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch10-l2-x5",
+        "id": "kt-ch10-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "She _____ Hou Yi a small white pill.",
+        "sentence": "She _____ the pill in a small box.",
         "question": "Which word fits the blank?",
         "options": [
-          "giving",
-          "give",
-          "gives",
-          "gave"
+          "hiding",
+          "hides",
+          "hide",
+          "hid"
         ],
         "optionsZh": [
-          "給（進行式）",
-          "給（原形）",
-          "給（第三人稱現在式）",
-          "給了（過去式）"
+          "藏（進行式）",
+          "藏（第三人稱現在式）",
+          "藏（原形）",
+          "藏了（過去式）"
         ],
         "correctIndex": 3,
-        "explanationZh": "這是過去發生的事，主詞是「她（she）」，動詞要用過去式——「give」的過去式是「gave」，所以選 gave。",
-        "sentenceZh": "她___后羿一顆白色小藥丸。",
+        "explanationZh": "這是過去發生的事，主詞是「她（she）」，動詞要用過去式——hide 的過去式是 hid，所以選 hid。",
+        "sentenceZh": "她把藥丸_____進一個小盒子。",
         "tags": [
           "story",
           "ch10",
@@ -823,71 +339,37 @@
         "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch10-l2-x6",
+        "type": "tap-pairs",
+        "id": "kt-ch10-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "There was just one pill. There were two of them.",
-        "question": "What does this situation tell us?",
-        "options": [
-          "one of them would have to give up living forever",
-          "they could take turns eating the pill every year",
-          "the pill would grow bigger if they waited longer",
-          "the Queen Mother would bring two pills next time"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "學生",
+            "right": "student"
+          },
+          {
+            "left": "刀",
+            "right": "knife"
+          },
+          {
+            "left": "藥丸",
+            "right": "pill"
+          },
+          {
+            "left": "藏",
+            "right": "hide"
+          }
         ],
-        "optionsZh": [
-          "其中一個人要放棄長生不老",
-          "他們可以輪流每年吃一次",
-          "只要等久一點，藥丸會變大",
-          "西王母下次會帶兩顆藥來"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "一顆藥、兩個人——這代表只有一個人能長生不老，另一個人必須放棄。這才是真正的難題。",
-        "sentenceZh": "只有一顆藥丸，卻有兩個人。",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 student = 學生\n🔑 knife = 刀\n🔑 pill = 藥丸\n🔑 hide = 藏",
         "tags": [
           "story",
           "ch10",
           "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch10-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Hou Yi put the pill in a small box. He hid the box.",
-        "questionEn": "Had Hou Yi already decided who would take the pill?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他把藥丸收起來藏好——捨不得決定，才會藏著不動，這個「還沒決定」日後讓嫦娥代他選了。答 No。",
-        "sentenceZh": "后羿把藥丸放進小盒子，把盒子藏了起來。",
-        "tags": [
-          "story",
-          "ch10",
-          "change",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch10-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The little white pill sat alone in its box. What was it really?",
-        "explanationZh": "小小的白藥丸，靜靜躺在盒子裡。它是長生的機會，也是一道難題。",
-        "tags": [
-          "story",
-          "ch10",
-          "change"
+          "vocab",
+          "review"
         ]
       }
     ]
