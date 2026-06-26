@@ -1373,6 +1373,95 @@
           "heracles-twelve-labors"
         ],
         "subSkill": "detail"
+      },
+      {
+        "id": "kt-ch30-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "箭彈開了。",
+        "answer": "The arrow bounced off.",
+        "accept": [
+          "The arrows bounced off.",
+          "The arrow bounced away.",
+          "The arrows bounced away.",
+          "It bounced off."
+        ],
+        "explanationZh": "bounce off = 彈開。句子說箭打到獅子厚厚的皮，直接彈開——一點都沒傷到牠！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch30-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他的皮太厚了。",
+        "answer": "His skin is too thick.",
+        "accept": [
+          "Its skin is too thick.",
+          "The skin is too thick.",
+          "His skin was too thick.",
+          "Its skin was too thick.",
+          "The skin was too thick."
+        ],
+        "explanationZh": "too thick = 太厚。故事裡就是因為獅子的皮太厚，弓箭和劍都沒有用——這句話解釋了為什麼！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch30-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "海格力斯是個非常勇敢的英雄。",
+        "answer": "Heracles is a very brave hero.",
+        "accept": [
+          "Heracles is a really brave hero.",
+          "Heracles was a very brave hero.",
+          "Heracles was a really brave hero.",
+          "He is a very brave hero.",
+          "He was a very brave hero."
+        ],
+        "explanationZh": "brave hero = 勇敢的英雄。Heracles 一個人走進黑森林，沒有朋友幫忙，這就是真正的勇敢！",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch30-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "The lion's skin was too thick. Arrows could not hurt it at all.",
+        "question": "What does this tell us about the lion?",
+        "options": [
+          "it was tired and hungry that day",
+          "its body could not be harmed by weapons",
+          "it was hiding inside the cave",
+          "it had never seen a person before"
+        ],
+        "optionsZh": [
+          "牠那天很疲倦又很餓",
+          "牠的身體無法被武器傷到",
+          "牠躲在山洞裡",
+          "牠從來沒見過人類"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "箭射不穿、劍砍不進，說明這頭獅子的身體『無法被武器傷到』。這不是普通的獅子！",
+        "tags": [
+          "production",
+          "comprehension",
+          "inference"
+        ]
       }
     ]
   },

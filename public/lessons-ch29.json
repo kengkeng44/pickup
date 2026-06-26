@@ -1375,6 +1375,101 @@
           "odyssey",
           "inference"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch29-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "船員們升起了帆。",
+        "answer": "The crew raised the sail.",
+        "accept": [
+          "The men raised the sail.",
+          "The crew put up the sail.",
+          "The sailors raised the sail."
+        ],
+        "explanationZh": "raise = 升起；crew = 船員。「升起帆」的英文是 raised the sail，就像他們在故事裡做的那樣！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch29",
+          "odyssey"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch29-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他望著前方，不回頭。",
+        "answer": "He looked forward, not back.",
+        "accept": [
+          "He faced forward, not back.",
+          "He looked ahead, not back."
+        ],
+        "explanationZh": "look forward = 向前看；not back = 不回頭。這句話說明 Odysseus 一心朝著家的方向，很有決心！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch29",
+          "odyssey"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch29-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "風鼓進了帆，船越跑越快。",
+        "answer": "The wind caught the sails and the ships moved faster.",
+        "accept": [
+          "Wind filled the sails and the ships went faster.",
+          "The wind hit the sails and the ships moved faster.",
+          "The wind filled the sails and the ships moved faster."
+        ],
+        "explanationZh": "catch the sails = 風進入帆；moved faster = 跑得更快。這是故事裡比喻船像大鳥飛翔的那一刻，很美的句子！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch29",
+          "odyssey",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch29-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "Odysseus stood at the front of the first ship and gave a steady nod.",
+        "question": "Why did Odysseus nod instead of shout an order?",
+        "options": [
+          "He was too cold to open his mouth",
+          "His nod showed he was calm and trusted his crew",
+          "He had lost his voice in the strong ocean wind",
+          "He wanted to keep the plan a secret from everyone"
+        ],
+        "optionsZh": [
+          "他太冷了，無法開口",
+          "點頭說明他很冷靜，也信任船員",
+          "他的聲音被強烈的海風吹走了",
+          "他想對所有人保密計畫"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "『steady nod』= 穩穩地點頭。Odysseus 不需要大喊，因為他冷靜自信，而且船員都準備好了、信任他。點頭就夠了——這才是真正有力量的領導者！",
+        "subSkill": "inference",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

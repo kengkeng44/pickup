@@ -1367,6 +1367,91 @@
           "robin-hood"
         ],
         "subSkill": "detail"
+      },
+      {
+        "id": "kt-ch31-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "樹木會藏住我。",
+        "answer": "The trees will hide me.",
+        "accept": [
+          "Trees will hide me.",
+          "The trees can hide me.",
+          "The trees will cover me."
+        ],
+        "explanationZh": "Robin 對老婆婆說的話！hide = 藏住。他相信森林能保護他。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch31-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他幫助窮人太多了。",
+        "answer": "He helps the poor too much.",
+        "accept": [
+          "He helped the poor too much.",
+          "He helps poor people too much.",
+          "He helped poor people too much."
+        ],
+        "explanationZh": "這是黃紙上寫的話！the poor = 窮人（當名詞用）。Sheriff 覺得 Robin 做太多好事了。",
+        "tags": [
+          "production",
+          "type-translate"
+        ]
+      },
+      {
+        "id": "kt-ch31-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "Robin 把那張紙讀了兩遍。",
+        "answer": "Robin read the paper twice.",
+        "accept": [
+          "Robin read the paper two times.",
+          "Robin read that paper twice.",
+          "Robin read that paper two times."
+        ],
+        "explanationZh": "twice = 兩遍，比說『two times』更自然！Robin 很冷靜，讀了兩遍臉色都沒有變。",
+        "tags": [
+          "production",
+          "type-translate",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch31-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "grandma",
+        "sentence": "He packed a small bag, his bow, and a brown coat for cold nights.",
+        "question": "What does Robin's choice of items tell us about him?",
+        "options": [
+          "he forgot most of his things at home",
+          "he was ready to travel light and act fast",
+          "he wanted to show off his new coat",
+          "he was planning to go shopping soon"
+        ],
+        "optionsZh": [
+          "他把大部分東西忘在家裡了",
+          "他準備好輕裝上路、快速行動",
+          "他想炫耀他的新外套",
+          "他打算很快去購物"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "只帶弓、小袋子和外套——東西少表示他重視行動靈活，不是想要舒適。『輕裝快速行動』才符合他離開村莊的處境。注意：正確答案沒有重複句子裡的 bag、bow、coat 等字。",
+        "subSkill": "inference",
+        "tags": [
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },
