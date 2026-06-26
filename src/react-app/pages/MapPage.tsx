@@ -59,6 +59,9 @@ const COLOR_NODE_DONE = 'var(--t-success)';
 const COLOR_NODE_DONE_DARK = 'var(--t-success-dark)';
 const COLOR_NODE_LOCKED = '#c4b89c';
 const COLOR_NODE_LOCKED_DARK = '#a89c80';
+// v2.0.B.425 ⚠️ 測試版: 灰色(未完成)節點也可以點進去玩。正式上線要改回 false
+// (改回後: 只有解鎖的節點能點, 未解鎖灰色不能按)。
+const TEST_NODES_CLICKABLE = true;
 const COLOR_TEXT_DARK = 'var(--t-text)';
 const NODE_SIZE = 82;
 const NODE_HEIGHT = 64;
@@ -759,9 +762,10 @@ export default function MapPage() {
             const done = lessonCompletedSet.has(l.id);
             const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const inProgress = unlocked && !done && inProgressIds.has(l.id);
-            // v2.0.B.318 (per user): 未完成且解鎖的節點 = 該章專屬色 (done 仍金星, locked 仍灰) → 整段路徑跟故事變色
-            const baseColor = done ? COLOR_NODE_DONE : unlocked ? chMeta.accent : COLOR_NODE_LOCKED;
-            const shadowColor = done ? COLOR_NODE_DONE_DARK : unlocked ? darken(chMeta.accent, 0.30) : COLOR_NODE_LOCKED_DARK;
+            // v2.0.B.425 (per user): 未完成一律灰色, 完成後才有顏色 (金星綠)。
+            // (原 B.318 未完成解鎖=該章色 已取消 — 灰=未完成, 綠=完成, 一目了然)
+            const baseColor = done ? COLOR_NODE_DONE : COLOR_NODE_LOCKED;
+            const shadowColor = done ? COLOR_NODE_DONE_DARK : COLOR_NODE_LOCKED_DARK;
             const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
             const iconFilter = !unlocked && !done ? 'grayscale(1)' : 'none';
             const iconOpacity = !unlocked && !done ? 0.65 : 1;
@@ -804,7 +808,7 @@ export default function MapPage() {
                 height={NODE_HEIGHT}
                 done={done}
                 inProgress={inProgress}
-                unlocked={unlocked}
+                unlocked={unlocked || TEST_NODES_CLICKABLE}
                 isCurrent={isCurrent}
                 isPressed={isPressed}
                 baseColor={baseColor}

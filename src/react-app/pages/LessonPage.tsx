@@ -196,8 +196,9 @@ export default function LessonPage() {
           整頁永不外溢. 各題型上方自帶內容/圖片槽, 選項不再下沉到畫面外. */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
         {history.length > 0 && (
+          // v2.0.B.425 (per user 折疊): 只留最近 2 句歷史, 避免堆疊把題目/選項擠出畫面 (不折疊規則)
           <div style={{ marginBottom: 14 }}>
-            {history.map((s, i) => <NarrativeLine key={i} text={s} />)}
+            {history.slice(-2).map((s, i) => <NarrativeLine key={history.length - 2 + i} text={s} />)}
           </div>
         )}
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
