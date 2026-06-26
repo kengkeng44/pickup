@@ -8,31 +8,14 @@
     "storyBeat": "媽媽和孟子 — 第一個家在「人們想念家人的地方」旁",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch22-l1-q1",
+        "id": "kt-ch22-l1-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "媽媽",
-            "right": "mother"
-          },
-          {
-            "left": "兒子",
-            "right": "son"
-          },
-          {
-            "left": "男孩",
-            "right": "boy"
-          },
-          {
-            "left": "家",
-            "right": "house"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 mother = 媽媽\n🔑 son = 兒子\n🔑 boy = 男孩\n🔑 house = 家\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first! Little Meng liked to watch the people walk past.",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講孟母三遷的故事，先來認識幾個關鍵字，學會了故事更好聽喔！",
         "tags": [
           "story",
           "ch22",
@@ -42,446 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch22-l1-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in China, a mother lived with her small son.",
-        "explanationZh": "很久以前在中國,有一位媽媽和她的小兒子住在一起。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The boy's name was Meng. His father was gone.",
-        "question": "Who lived with the boy at home?",
-        "options": [
-          "only his mother",
-          "his big brother",
-          "his school teacher",
-          "his old uncle"
-        ],
-        "optionsZh": [
-          "只有媽媽",
-          "他哥哥",
-          "老師",
-          "老叔叔"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "爸爸不在了——家裡就只剩媽媽陪他。所以答案是「只有媽媽」!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "男孩的名字叫孟。他的爸爸已經不在了。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The mother wanted Meng to grow up strong and kind.",
-        "questionEn": "Did the mother care about how her son would grow up?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "她希望兒子「堅強善良」——這就是在乎孩子怎麼長大的心嘛。答案是 Yes!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ],
-        "sentenceZh": "媽媽希望孟子長大後又堅強、又善良。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Their first house stood near a place of rest.",
-        "explanationZh": "他們的第一個家就在一個安息之地附近。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every day Meng watched people walk past in long white lines.",
-        "question": "What did Meng see every day from his home?",
-        "options": [
-          "kids playing ball games",
-          "people walking past slowly",
-          "farmers in green fields",
-          "boats on a wide river"
-        ],
-        "optionsZh": [
-          "小孩玩球",
-          "人們慢慢走過",
-          "田裡的農夫",
-          "河上的船"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「long white lines」——一排排慢慢走過去,就是「人們慢慢走過」的畫面!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "每天孟子都看著穿著白色長衣的隊伍從外面走過。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He saw them bow. He saw them cry softly.",
-        "explanationZh": "他看見他們鞠躬。他看見他們輕輕哭泣。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The people were thinking of family they had loved.",
-        "question": "How did the people in the street feel?",
-        "options": [
-          "very happy and loud",
-          "angry at each other",
-          "quiet and full of love",
-          "too sleepy to walk"
-        ],
-        "optionsZh": [
-          "很開心又大聲",
-          "互相生氣",
-          "安靜又充滿愛",
-          "太睏走不動"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "他們鞠躬、輕輕哭——是在思念愛的人。所以心情是「安靜又充滿愛」!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "那些人在思念自己愛過的家人。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Soon Meng started to copy what he saw outside.",
-        "explanationZh": "不久後,孟子開始模仿他在外面看到的事。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch22-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Where does Meng learn most of his actions from?",
-        "question": "Where does Meng learn from?",
-        "options": [
-          "📚 books at home",
-          "🐦 birds in the sky",
-          "🎵 songs from far away",
-          "👀 what he sees nearby"
-        ],
-        "optionsZh": [
-          "家裡的書",
-          "天上的鳥",
-          "遠方的歌",
-          "他附近看到的事"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "孟子看什麼就學什麼——所以他是從「他附近看到的事」學習的!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "孟子的動作,大部分是從哪裡學來的?"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His mother watched him from the window. She began to worry...",
-        "explanationZh": "媽媽從窗邊看著他。她開始擔心……",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in China, a mother lived with her small son.",
-        "question": "Who lived together in this story?",
-        "options": [
-          "a mother and her son",
-          "two brothers and a sister",
-          "a father and his daughter",
-          "a grandpa and grandma"
-        ],
-        "optionsZh": [
-          "媽媽和兒子",
-          "兩兄弟和妹妹",
-          "爸爸和女兒",
-          "爺爺和奶奶"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「a mother lived with her small son」——媽媽和小兒子住在一起!",
-        "sentenceZh": "很久以前在中國,有一位媽媽和她的小兒子住在一起。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l1-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The boy's name was Meng. His father was gone.",
-        "questionEn": "Did Meng have a father at home with him?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「father was gone」——爸爸已經不在了。答案是 No!",
-        "sentenceZh": "男孩的名字叫孟,他的爸爸已經不在了。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ]
-      },
-      {
+        "id": "kt-ch22-l1-vp1",
         "type": "tap-pairs",
-        "id": "kt-ch22-l1-x3",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the words from this lesson.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "鞠躬",
-            "right": "bow"
+            "left": "媽媽",
+            "right": "mother"
           },
           {
-            "left": "哭泣",
-            "right": "cry"
+            "left": "家",
+            "right": "house"
           },
           {
-            "left": "思念",
-            "right": "miss"
+            "left": "搬家",
+            "right": "move"
           },
           {
-            "left": "模仿",
-            "right": "copy"
+            "left": "鄰居",
+            "right": "neighbor"
           }
         ],
-        "explanationZh": "🔑 bow = 鞠躬\n🔑 cry = 哭泣\n🔑 miss = 思念\n🔑 copy = 模仿\n第一個家附近的行為!",
+        "explanationZh": "這四個字都在孟母三遷的故事裡：\n🔑 mother = 媽媽\n🔑 house = 家\n🔑 move = 搬家\n🔑 neighbor = 鄰居",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch22-l1-vp2",
+        "type": "tap-pairs",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "市場",
+            "right": "market"
+          },
+          {
+            "left": "布",
+            "right": "cloth"
+          },
+          {
+            "left": "男孩",
+            "right": "boy"
+          },
+          {
+            "left": "地方",
+            "right": "place"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 market = 市場\n🔑 cloth = 布\n🔑 boy = 男孩\n🔑 place = 地方",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch22-l1-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one is a market?",
+        "question": "Which one is a market?",
+        "options": [
+          "🏫 school",
+          "🏠 house",
+          "🌳 park",
+          "🏪 market"
+        ],
+        "optionsZh": [
+          "學校",
+          "房子",
+          "公園",
+          "市場"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "market = 市場 🏪！孟子的媽媽帶他搬到市場旁邊——那裡很熱鬧。",
         "tags": [
           "story",
           "ch22",
           "mencius-mother",
           "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every day Meng watched people walk past in long white lines.",
-        "question": "What did Meng see going past his home every day?",
-        "options": [
-          "children kicking bright red balls",
-          "long lines of white-robed people",
-          "farmers carrying heavy bags",
-          "horses pulling carts"
-        ],
-        "optionsZh": [
-          "小孩踢紅球",
-          "穿白衣的長隊伍",
-          "農夫扛重袋子",
-          "馬拉車"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「long white lines」——一排穿白衣的隊伍!就是喪禮行列。",
-        "sentenceZh": "每天孟子都看著穿白色長衣的隊伍從外面走過。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Soon Meng started to copy what he saw outside.",
-        "question": "What does this tell us about how young children learn?",
-        "options": [
-          "children only copy spoken words",
-          "books help more than anything",
-          "surroundings shape their actions",
-          "playing alone is most important"
-        ],
-        "optionsZh": [
-          "孩子只模仿說的話",
-          "書本比任何事都重要",
-          "環境塑造他們的行為",
-          "獨自玩耍最重要"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "孟子看到什麼就模仿什麼——環境直接塑造行為!",
-        "sentenceZh": "不久,孟子開始模仿他在外面看到的事。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "theme"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l1-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "His mother watched him from the window. She began to worry.",
-        "questionEn": "Was the mother happy about what Meng was copying?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "她開始擔心了——不開心才會擔心!答案是 No。",
-        "sentenceZh": "媽媽從窗邊看著他,開始擔心。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch22-l1-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The people bowed and cried softly at the place of rest.",
-        "question": "What is the mood near the first house?",
-        "options": [
-          "😴 calm and peaceful",
-          "🎉 loud and happy",
-          "😤 busy and noisy",
-          "😢 quiet and sad"
-        ],
-        "optionsZh": [
-          "平靜安詳",
-          "又大聲又開心",
-          "忙碌吵鬧",
-          "安靜難過"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "鞠躬、輕輕哭——這是很安靜、很難過的氣氛。選「安靜難過」!",
-        "sentenceZh": "人們在安息之地鞠躬、輕輕哭泣。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "hook"
         ],
         "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch22-l1-x8",
+        "id": "kt-ch22-l1-ep2",
+        "type": "emoji-pick",
         "level": "A2",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The mother wanted Meng to grow up strong and kind.",
-        "question": "What kind of person does the mother want Meng to become?",
+        "sentence": "Which one shows cloth?",
+        "question": "Which one shows cloth?",
         "options": [
-          "good and full of care",
-          "rich and very powerful",
-          "fast and very strong only",
-          "famous far and wide"
+          "🧱 brick",
+          "🪵 wood",
+          "🧶 cloth",
+          "🪨 stone"
         ],
         "optionsZh": [
-          "善良且充滿關愛",
-          "富有且很有權力",
-          "只是快和強壯",
-          "遠近聞名"
+          "磚頭",
+          "木頭",
+          "布",
+          "石頭"
         ],
-        "correctIndex": 0,
-        "explanationZh": "「strong and kind」——強壯且善良,「kind」就是「full of care」(充滿關愛)!",
-        "sentenceZh": "媽媽希望孟子長大後又堅強又善良。",
+        "correctIndex": 2,
+        "explanationZh": "cloth = 布 🧶！孟子的媽媽用布做東西，把家裡的東西也裝進布袋裡搬走。",
         "tags": [
           "story",
           "ch22",
-          "mencius-mother"
+          "mencius-mother",
+          "vocab"
         ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch22-l1-pm1",
+        "type": "picture-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The mother packed their things and moved to a new house.",
+        "sentenceZh": "媽媽收拾好東西，搬到新的家。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🏠",
+        "options": [
+          "a boy sitting alone at a desk",
+          "a woman packing bags to move home",
+          "a girl buying fruit at a stall",
+          "an old man reading by a fire"
+        ],
+        "optionsZh": [
+          "一個男孩獨自坐在書桌前",
+          "一位女士打包行李要搬家",
+          "一個女孩在攤位買水果",
+          "一位老公公在火旁讀書"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "move = 搬家。句子說媽媽打包行李搬到新的家——圖中正好是女士在打包要搬家。",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -494,31 +195,14 @@
     "storyBeat": "玩埋葬遊戲 — 媽媽心很重",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch22-l2-q1",
+        "id": "kt-ch22-l2-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "看",
-            "right": "watch"
-          },
-          {
-            "left": "玩",
-            "right": "play"
-          },
-          {
-            "left": "遊戲",
-            "right": "game"
-          },
-          {
-            "left": "心",
-            "right": "heart"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 watch = 看\n🔑 play = 玩\n🔑 game = 遊戲\n🔑 heart = 心\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch22",
@@ -528,446 +212,166 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch22-l2-q2",
+        "id": "kt-ch22-l2-pp1",
+        "type": "phrase-pairs",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Meng played the same games at home with sticks.",
-        "explanationZh": "孟子在家用樹枝玩同樣的遊戲。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He set up small piles and walked around them in lines.",
-        "question": "What kind of games did Meng play?",
-        "options": [
-          "running races outside",
-          "games copying what he saw",
-          "card games with friends",
-          "kite games in the sky"
-        ],
-        "optionsZh": [
-          "外面賽跑",
-          "模仿他看到的遊戲",
-          "跟朋友玩牌",
-          "放風箏"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「走小堆走線」——這是在模仿他外面看到的喪禮隊伍,所以是「模仿他看到的遊戲」!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他把小東西堆成一排,在上面繞圈走。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Meng walked slowly and did not laugh while he played.",
-        "questionEn": "Was Meng playing in a happy and noisy way?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「慢慢走 + 不笑」——一點都不開心熱鬧。所以「是開心吵鬧的方式?」答案是 No!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ],
-        "sentenceZh": "孟子慢慢走著,玩耍時都沒有笑。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His mother watched from the kitchen door.",
-        "explanationZh": "媽媽從廚房門口看著。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her heart felt heavy as she watched her son.",
-        "question": "How did the mother feel inside?",
-        "options": [
-          "proud and excited about his games",
-          "angry and loud",
-          "sad and worried",
-          "sleepy and slow"
-        ],
-        "optionsZh": [
-          "為他的比賽驕傲又興奮",
-          "生氣又大聲",
-          "難過又擔心",
-          "想睡又慢"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「heart felt heavy」——心裡好重好沉,就是「難過又擔心」的感覺喔!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她看著兒子,心裡沉甸甸的。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"My son is learning what he sees every day.\"",
-        "explanationZh": "「我的兒子在學他每天看見的事。」",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch22-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She knew she had to do something to change things.",
-        "question": "What did the mother decide to do?",
-        "options": [
-          "stop the boy with shouts",
-          "send him far away to study",
-          "wait and see for years",
-          "change something for her son"
-        ],
-        "optionsZh": [
-          "用罵的阻止小孩",
-          "送他去很遠的地方讀書",
-          "再等很多年看看",
-          "為兒子改變些事"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "她覺得「得改變」——所以決定要「為兒子改變些事」!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "她知道她得做點什麼來改變這個情況。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She looked around the room at all their things.",
-        "explanationZh": "她環視整個房間,看著他們所有的東西。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch22-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What will the mother most likely do next?",
-        "question": "What will the mother do?",
-        "options": [
-          "📦 pack and move home",
-          "😴 take a long nap",
-          "🛒 buy new toys",
-          "✏️ write a long letter"
-        ],
-        "optionsZh": [
-          "收拾搬家",
-          "長時間睡覺",
-          "買新玩具",
-          "寫長信"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "她環顧家裡、想要改變——下一步當然是「收拾搬家」啦!",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "媽媽接下來最可能會做什麼?"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch22-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "That night, she made a quiet decision...",
-        "explanationZh": "那天晚上,她做了一個安靜的決定……",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Meng played the same games at home with sticks.",
-        "question": "What does Meng use to play his games?",
-        "options": [
-          "bright shiny marbles",
-          "sticks from outside",
-          "small round coins",
-          "pieces of soft cloth"
-        ],
-        "optionsZh": [
-          "亮亮的彈珠",
-          "外面的樹枝",
-          "小圓硬幣",
-          "軟布料"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「played with sticks」——孟子用樹枝在家玩!",
-        "sentenceZh": "孟子在家裡用樹枝玩同樣的遊戲。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l2-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Meng walked slowly and did not laugh while he played.",
-        "questionEn": "Did Meng play in a cheerful, energetic way?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「slowly + did not laugh」——慢慢走又不笑,完全不活潑。答案是 No!",
-        "sentenceZh": "孟子慢慢走著,玩耍時都沒有笑。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ]
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch22-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from this lesson.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "排",
-            "right": "pile"
+            "left": "學習",
+            "right": "learn"
           },
           {
-            "left": "心情",
-            "right": "mood"
+            "left": "讀書",
+            "right": "study"
           },
           {
-            "left": "沉重",
-            "right": "heavy"
+            "left": "學校",
+            "right": "school"
           },
           {
-            "left": "決定",
-            "right": "decision"
+            "left": "好地方",
+            "right": "good place"
           }
         ],
-        "explanationZh": "🔑 pile = 排\n🔑 mood = 心情\n🔑 heavy = 沉重\n🔑 decision = 決定\n媽媽下決定的關鍵字!",
+        "explanationZh": "這四個片語都出現在孟母三遷的故事裡：\n🔑 learn = 學習\n🔑 study = 讀書\n🔑 school = 學校\n🔑 good place = 好地方",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch22-l2-pm1",
+        "type": "picture-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Meng wanted to learn and study near a school.",
+        "sentenceZh": "孟子想在學校旁邊學習和讀書。",
+        "question": "Which picture matches 'study near a school'?",
+        "imageEmoji": "🏫",
+        "options": [
+          "a boy reading books beside a school",
+          "a woman selling fruit at a stall",
+          "a girl playing with a cat outside",
+          "a man walking past a busy market"
+        ],
+        "optionsZh": [
+          "一個男孩在學校旁邊讀書",
+          "一位女士在攤位賣水果",
+          "一個女孩在外面和貓玩",
+          "一個男人走過熱鬧的市場"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "school = 學校，study = 讀書。句子說孟子想在學校附近學習——圖中是男孩在學校旁讀書。",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch22-l2-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one shows a school?",
+        "question": "Which one shows a school?",
+        "options": [
+          "🏪 market",
+          "🏠 house",
+          "🏫 school",
+          "🌲 forest"
+        ],
+        "optionsZh": [
+          "市場",
+          "房子",
+          "學校",
+          "森林"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "school = 學校 🏫！孟子的媽媽最後搬到學校旁邊，讓孟子可以好好學習。",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch22-l2-gm1",
+        "type": "grammar-mc",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "narrator",
+        "sentence": "Every year the mother ___ to a new house.",
+        "sentenceEasy": "The mother ___ to a new house.",
+        "sentenceHard": "When the place was not right, the mother ___ her family to a better home.",
+        "question": "Which word is correct?",
+        "options": [
+          "move",
+          "moved",
+          "moves",
+          "moving"
+        ],
+        "optionsZh": [
+          "搬（原形）",
+          "搬了（過去式）",
+          "搬（第三人稱現在式）",
+          "搬（進行式）"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "故事發生在以前，所以要用過去式 moved（搬了）。\n🔑 move → moved（過去式規則動詞，字尾加 -d）",
+        "tags": [
+          "story",
+          "ch22",
+          "mencius-mother",
+          "vocab",
+          "grammar"
+        ],
+        "subSkill": "function"
+      },
+      {
+        "id": "kt-ch22-l2-rev1",
+        "type": "tap-pairs",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "學校",
+            "right": "school"
+          },
+          {
+            "left": "搬家",
+            "right": "move"
+          },
+          {
+            "left": "學習",
+            "right": "learn"
+          },
+          {
+            "left": "市場",
+            "right": "market"
+          }
+        ],
+        "explanationZh": "複習一下今天學過的字：\n🔑 school = 學校\n🔑 move = 搬家\n🔑 learn = 學習\n🔑 market = 市場",
         "tags": [
           "story",
           "ch22",
           "mencius-mother",
           "vocab"
         ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l2-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His mother watched from the kitchen door.",
-        "question": "From what spot does the mother watch Meng?",
-        "options": [
-          "the back of the garden",
-          "the top of the rooftop",
-          "the doorway of the kitchen",
-          "next to a large window"
-        ],
-        "optionsZh": [
-          "花園後面",
-          "屋頂上",
-          "廚房門口",
-          "大窗戶旁邊"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「from the kitchen door」——媽媽站在廚房門口看著!",
-        "sentenceZh": "他的母親從廚房門口看著他。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l2-x5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "\"My son is learning what he sees every day.\"",
-        "question": "What has the mother understood?",
-        "options": [
-          "the games need a different set of rules",
-          "Meng is playing in a harmful way",
-          "she should buy him new toys now",
-          "surroundings teach children things"
-        ],
-        "optionsZh": [
-          "遊戲需要換規則",
-          "孟子在做有害的事",
-          "她應該買新玩具",
-          "環境在教孩子"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「my son learns what he sees」——她明白了「環境在教孩子」這個道理!",
-        "sentenceZh": "「我的兒子在學他每天看見的事。」",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch22-l2-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "That night, she made a quiet decision.",
-        "questionEn": "Did the mother plan to do something about the situation?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「made a decision」——她做了決定!決定代表她要行動了。答案是 Yes!",
-        "sentenceZh": "那天晚上,她做了一個安靜的決定。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "inference"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch22-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Her heart felt heavy as she watched her son.",
-        "question": "What feeling does a heavy heart describe?",
-        "options": [
-          "😔 worry and sadness",
-          "😊 joy and pride",
-          "😡 anger and rage",
-          "😴 tiredness and sleep"
-        ],
-        "optionsZh": [
-          "擔心和悲傷",
-          "快樂和驕傲",
-          "憤怒和暴怒",
-          "疲憊和睡意"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「heart felt heavy」是一種比喻——沉重的心,代表「擔心和悲傷」!",
-        "sentenceZh": "她看著兒子,心裡沉甸甸的。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother",
-          "hook"
-        ],
-        "subSkill": "vocab"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch22-l2-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "She knew she had to do something to change things.",
-        "question": "What does the mother decide to do?",
-        "options": [
-          "lock Meng inside the house",
-          "move to a better place",
-          "call his teacher right away",
-          "sell all of their things"
-        ],
-        "optionsZh": [
-          "把孟子鎖在家裡",
-          "搬到更好的地方",
-          "馬上打電話給老師",
-          "賣掉所有東西"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "後來她搬家了——這就是「move to a better place」(搬到更好的地方)!",
-        "sentenceZh": "她知道她必須做點什麼來改變這個情況。",
-        "tags": [
-          "story",
-          "ch22",
-          "mencius-mother"
-        ],
-        "subSkill": "inference"
       }
     ]
   },
