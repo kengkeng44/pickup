@@ -8,31 +8,14 @@
     "storyBeat": "愚公門口兩座大山 — 出門很不方便",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch25-l1-q1",
+        "type": "narration",
+        "id": "kt-ch25-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "老人",
-            "right": "old man"
-          },
-          {
-            "left": "家",
-            "right": "home"
-          },
-          {
-            "left": "山",
-            "right": "mountain"
-          },
-          {
-            "left": "路",
-            "right": "road"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 old man = 老人\n🔑 home = 家\n🔑 mountain = 山\n🔑 road = 路\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講愚公移山的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch25",
@@ -42,467 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch25-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch25-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago, there lived an old man called Yu Gong.",
-        "explanationZh": "很久以前,有一位老人叫做愚公。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch25-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His home stood right between two very big mountains.",
-        "question": "Where did Yu Gong live?",
-        "options": [
-          "by a quiet sea with blue water",
-          "with tall walls of rock on each side",
-          "on a small island full of green trees",
-          "inside a busy town full of people"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "山",
+            "right": "mountain"
+          },
+          {
+            "left": "老人",
+            "right": "old man"
+          },
+          {
+            "left": "兒子",
+            "right": "son"
+          },
+          {
+            "left": "河",
+            "right": "river"
+          }
         ],
-        "optionsZh": [
-          "在有藍色海水的安靜海邊",
-          "兩邊都有高大岩壁的地方",
-          "在長滿綠樹的小島上",
-          "在滿是人的熱鬧城裡"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「between two very big mountains」——家在兩座大山中間,兩邊都是高高的岩壁,所以選「兩邊都有高大岩壁的地方」!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他的家就夾在兩座很大很大的山中間。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The mountains made every trip out of his house very long.",
-        "questionEn": "Was it easy for Yu Gong to leave his home?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「every trip very long」——每次出門都很遠!那當然不容易嘛,答案是 No!",
+        "explanationZh": "這四個字都在愚公移山的故事裡：\n🔑 mountain = 山\n🔑 old man = 老人\n🔑 son = 兒子\n🔑 river = 河",
         "tags": [
           "story",
           "ch25",
           "yugong",
-          "inference"
-        ],
-        "sentenceZh": "兩座山讓每次出門都要走好長一段路。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every day Yu Gong had to walk a long way around them.",
-        "explanationZh": "愚公每天都要繞著山走很長一段路。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch25-l1-q6",
+        "type": "tap-pairs",
+        "id": "kt-ch25-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "He could not go straight to town. He had to take the long path.",
-        "question": "Why did Yu Gong take a long path each day?",
-        "options": [
-          "he loved long walks in the morning",
-          "he was looking for a friend",
-          "two mountains blocked the short way",
-          "he was afraid of the fast river"
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "挖",
+            "right": "dig"
+          },
+          {
+            "left": "籃子",
+            "right": "basket"
+          },
+          {
+            "left": "石頭",
+            "right": "rock"
+          },
+          {
+            "left": "泥土",
+            "right": "dirt"
+          }
         ],
-        "optionsZh": [
-          "他喜歡早上走遠路",
-          "他在找朋友",
-          "兩座山擋住短路線",
-          "他怕湍急的河流"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「could not go straight + had to take long path」——直路走不了,因為兩座山擋住短路線!所以選「兩座山擋住短路線」!",
+        "explanationZh": "再來四個：\n🔑 dig = 挖\n🔑 basket = 籃子\n🔑 rock = 石頭\n🔑 dirt = 泥土",
         "tags": [
           "story",
           "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他沒辦法直接走到鎮上,得繞遠路走。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His legs grew tired from the long walk again and again.",
-        "explanationZh": "一次又一次走遠路,他的腳越來越累。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch25-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Yu Gong thought about this problem for many, many days.",
-        "question": "How did Yu Gong feel about the long walk?",
-        "options": [
-          "it made him very happy",
-          "a new house would be best",
-          "it slipped his mind right away",
-          "he wanted to find an answer"
-        ],
-        "optionsZh": [
-          "這讓他很開心",
-          "蓋新家最好",
-          "一下就忘了",
-          "他想要找出解決辦法"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「thought about this for many days」——一直在想、一直想辦法——就是「想要找出解決辦法」的心情呀!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "愚公把這個問題想啊想,想了好多好多天。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One evening, an idea came to him.",
-        "explanationZh": "一個傍晚,他想到了一個辦法。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
+          "yugong",
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch25-l1-q10",
+        "id": "kt-ch25-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did Yu Gong feel about his new idea?",
-        "question": "How did he feel?",
+        "sentence": "Which one is a mountain?",
+        "question": "Which one is a mountain?",
         "options": [
-          "🤔 ready to try",
-          "😴 getting very sleepy",
-          "😡 starting to feel mad",
-          "😱 feeling a bit afraid"
+          "⛰️ mountain",
+          "🌋 volcano",
+          "🏝️ island",
+          "🌳 forest"
         ],
         "optionsZh": [
-          "準備動手",
-          "快要睡著了",
-          "開始覺得生氣",
-          "覺得有點害怕"
+          "山",
+          "海浪",
+          "樹",
+          "沙漠"
         ],
         "correctIndex": 0,
-        "explanationZh": "想到辦法了,站起來走去找家人——這就是「準備動手」的感覺,躍躍欲試呢!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "愚公想到新辦法,心裡是什麼感覺?"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He stood up tall and walked back to his family...",
-        "explanationZh": "他站直身子,走回去找家人……",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch25-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match each Chinese word to its English meaning.",
-        "pairs": [
-          {
-            "left": "大山",
-            "right": "big mountain"
-          },
-          {
-            "left": "中間",
-            "right": "between"
-          },
-          {
-            "left": "走路",
-            "right": "walk"
-          },
-          {
-            "left": "繞路",
-            "right": "go around"
-          }
-        ],
-        "explanationZh": "🔑 大山 = big mountain｜🔑 中間 = between｜🔑 走路 = walk｜🔑 繞路 = go around。",
+        "explanationZh": "mountain = 山 ⛰️！故事裡愚公的家就在兩座大山中間，出門很不方便。",
         "tags": [
           "story",
           "ch25",
           "yugong",
           "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch25-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago, there lived an old man called Yu Gong.",
-        "sentenceZh": "很久以前,有一位老人叫做愚公。",
-        "question": "Which story is this about?",
-        "options": [
-          "the tale of Kong Rong",
-          "the tale of Yu Gong",
-          "a story of Sima Guang",
-          "the tale of Hou Yi"
-        ],
-        "optionsZh": [
-          "孔融的故事",
-          "愚公的故事",
-          "司馬光的故事",
-          "后羿的故事"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "故事說「有一位老人叫做愚公」——這是愚公的故事!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His home stood right between two very big mountains.",
-        "sentenceZh": "他的家就在兩座大山的中間。",
-        "questionEn": "Was Yu Gong's home far from any mountains?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他的家「就在兩座大山中間」——山就在旁邊!答案是 No!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch25-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "To go anywhere, the family had to walk a long way around.",
-        "sentenceZh": "要出門,全家人必須走很長的一段繞路。",
-        "question": "Why was going out so hard for Yu Gong's family?",
-        "options": [
-          "the road was always flooded",
-          "their legs were too weak to go",
-          "mountains blocked their way out",
-          "no road at all was built"
-        ],
-        "optionsZh": [
-          "路總是被水淹了",
-          "他們的腿太虛弱了",
-          "山擋住了出去的路",
-          "根本沒有路"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「必須走很長的繞路」——因為山擋路,所以要繞!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch25-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His home stood right between two very big mountains.",
-        "sentenceZh": "他的家就在兩座大山的中間。",
-        "question": "Which emoji shows a home surrounded by mountains?",
-        "options": [
-          "🏖️ a sunny beach house",
-          "🌆 a tall city building",
-          "🌊 a house near the ocean",
-          "🏔️ a home among mountains"
-        ],
-        "optionsZh": [
-          "海邊陽光小屋",
-          "高樓城市",
-          "海洋旁的房子",
-          "山中的家"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「就在兩座大山中間」——🏔️ 就是那個被山包圍的家!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
         ],
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch25-l1-x6",
+        "type": "emoji-pick",
+        "id": "kt-ch25-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "To go anywhere, the family had to walk a long way around.",
-        "sentenceZh": "要出門,全家人必須走很長的一段繞路。",
-        "questionEn": "Was it quick and easy to leave the house each day?",
+        "sentence": "Which one shows someone digging?",
+        "question": "Which one shows someone digging?",
         "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "每次出門都要走很長的繞路——一點都不快!答案是 No!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch25-l1-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His home stood right between two very big mountains.",
-        "sentenceZh": "他的家就在兩座大山的中間。",
-        "question": "What problem did the location of the home create?",
-        "options": [
-          "mountains blocked the only way out",
-          "the home was too cold in winter",
-          "the walls of the home were weak",
-          "wild animals came too close"
+          "🏃 run",
+          "🛌 sleep",
+          "⛏️ dig",
+          "🍽️ eat"
         ],
         "optionsZh": [
-          "山擋住了唯一的出路",
-          "家冬天太冷",
-          "家的牆壁太薄弱",
-          "野生動物走太近"
+          "跑",
+          "睡",
+          "挖",
+          "吃"
         ],
-        "correctIndex": 0,
-        "explanationZh": "家在山中間——山把出路全擋住了!",
+        "correctIndex": 2,
+        "explanationZh": "dig = 挖 ⛏️！愚公一家用工具挖山，一籃一籃把石頭和泥土搬走。",
         "tags": [
           "story",
           "ch25",
-          "yugong"
+          "yugong",
+          "vocab"
         ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       },
       {
-        "type": "grammar-mc",
-        "id": "kt-ch25-l1-x8",
+        "type": "picture-mc",
+        "id": "kt-ch25-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago, there ___ an old man called Yu Gong.",
-        "sentenceZh": "很久以前,___一位老人叫做愚公。",
-        "question": "Choose the correct verb form.",
+        "sentence": "The old man carried a basket of rock to the river.",
+        "sentenceZh": "老人把一籃石頭搬到河邊。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🧺",
         "options": [
-          "live",
-          "lived",
-          "lives",
-          "living"
+          "an old man sitting and reading near a window",
+          "a boy running fast along an empty road",
+          "an old man walking with a basket toward a river",
+          "a woman cooking soup in a warm kitchen"
         ],
         "optionsZh": [
-          "live",
-          "lived (過去式)",
-          "lives",
-          "living"
+          "老人坐著在窗邊看書",
+          "男孩沿著空路快速奔跑",
+          "老人拿著籃子走向河邊",
+          "女人在溫暖廚房煮湯"
         ],
-        "correctIndex": 1,
-        "explanationZh": "「Long ago」= 很久以前,要用過去式「lived」!",
+        "correctIndex": 2,
+        "explanationZh": "basket = 籃子，river = 河——老人拿著籃子走向河邊，這就對了！",
         "tags": [
           "story",
           "ch25",
           "yugong",
-          "grammar"
+          "vocab"
         ],
-        "subSkill": "function"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l1-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago, there lived an old man called Yu Gong.",
-        "sentenceZh": "很久以前,有一位老人叫做愚公。",
-        "questionEn": "Is this story set in modern times?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「Long ago」= 很久以前——是古代的故事,不是現代!答案是 No!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "inference"
-        ]
+        "subSkill": "vocab"
       }
     ]
   },
@@ -515,31 +195,14 @@
     "storyBeat": "愚公決定移山 — 鄰居問: 這可能嗎?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch25-l2-q1",
+        "type": "narration",
+        "id": "kt-ch25-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "家人",
-            "right": "family"
-          },
-          {
-            "left": "搬走",
-            "right": "move away"
-          },
-          {
-            "left": "鄰居",
-            "right": "neighbor"
-          },
-          {
-            "left": "可能",
-            "right": "possible"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 family = 家人\n🔑 move away = 搬走\n🔑 neighbor = 鄰居\n🔑 possible = 可能\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch25",
@@ -549,466 +212,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch25-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "That evening, Yu Gong sat with his family by the door.",
-        "explanationZh": "那個傍晚,愚公和家人坐在門口。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch25-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His sons and grandsons all came close to hear him.",
-        "question": "Who came to hear Yu Gong speak?",
-        "options": [
-          "only his one youngest son",
-          "a kind doctor from the town",
-          "the whole big and small family",
-          "a quiet old neighbor next door"
-        ],
-        "optionsZh": [
-          "只有他最小的一個兒子",
-          "一位鎮上來的好心醫生",
-          "全家大大小小",
-          "隔壁一位安靜的老鄰居"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「sons and grandsons all came」——兒子孫子全都來了,就是「全家大大小小」都到齊了!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "兒子和孫子們全都靠近來聽他說話。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The whole family kept very quiet and looked at him.",
-        "questionEn": "Was the family ready to listen to Yu Gong?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「安靜 + 看著他」——靜靜地等著聽,這就是準備好認真聽了!答案是 Yes!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "inference"
-        ],
-        "sentenceZh": "全家人安安靜靜地看著他。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"I want to move the mountains away from our home,\" he said.",
-        "explanationZh": "「我想把山從我們家門口搬走,」他說。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch25-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He wanted to take the two big mountains far from his door.",
-        "question": "What was Yu Gong's big plan?",
-        "options": [
-          "build a tall new house",
-          "walk to a new town",
-          "plant ten small trees",
-          "take the mountains far away"
-        ],
-        "optionsZh": [
-          "蓋一棟高新房子",
-          "走到新的鎮上",
-          "種十棵小樹",
-          "把山搬到很遠的地方"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「take mountains far from door」——把山搬到遠遠的地方,這就是他的大計畫!選「把山搬到很遠的地方」!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他想把兩座大山從家門口搬到很遠的地方。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A neighbor from next door heard every word.",
-        "explanationZh": "隔壁的鄰居把每一句話都聽到了。",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch25-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The neighbor laughed and asked, \"Is that even possible?\"",
-        "question": "What did the neighbor think of the plan?",
-        "options": [
-          "it would never really happen",
-          "it sounded very easy",
-          "a great chance to help out",
-          "time to buy a new house"
-        ],
-        "optionsZh": [
-          "永遠不會真的發生",
-          "聽起來很簡單",
-          "幫忙的好機會",
-          "該買新房子了"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「laughed + 問可能嗎」——鄰居笑著質疑,覺得這根本「永遠不會真的發生」啦!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "鄰居笑了笑,問:「這可能嗎?」"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Yu Gong smiled and said, \"Day by day, we can do it.\"",
-        "explanationZh": "愚公笑著說:「一天又一天,我們做得到。」",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch25-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did Yu Gong feel when he answered the neighbor?",
-        "question": "How did he feel?",
-        "options": [
-          "😢 feeling a little sad",
-          "😄 calm and sure",
-          "😡 starting to feel mad",
-          "😴 getting very sleepy"
-        ],
-        "optionsZh": [
-          "覺得有點難過",
-          "平靜又確定",
-          "開始覺得生氣",
-          "快要睡著了"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他笑著說「我們做得到」——笑著說、沒有動搖——就是「平靜又確定」的樣子!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "愚公回答鄰居的時候,心裡是什麼感覺?"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch25-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The neighbor walked home shaking his head. But the family stayed up to talk...",
-        "explanationZh": "鄰居搖搖頭走回家。但家人留下來繼續商量……",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ]
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch25-l2-x1",
+        "id": "kt-ch25-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match each Chinese word to its English meaning.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
             "left": "搬走",
             "right": "move away"
           },
           {
-            "left": "決定",
-            "right": "decide"
+            "left": "大山",
+            "right": "big mountain"
           },
           {
-            "left": "家人",
-            "right": "family"
+            "left": "一點一點",
+            "right": "little by little"
           },
           {
-            "left": "鄰居",
-            "right": "neighbor"
+            "left": "每天",
+            "right": "every day"
           }
         ],
-        "explanationZh": "🔑 搬走 = move away｜🔑 決定 = decide｜🔑 家人 = family｜🔑 鄰居 = neighbor。",
+        "explanationZh": "這四個片語都出現在愚公移山的故事裡：\n🔑 move away = 搬走\n🔑 big mountain = 大山\n🔑 little by little = 一點一點\n🔑 every day = 每天",
+        "tags": [
+          "story",
+          "ch25",
+          "yugong",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch25-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The son dug dirt from the hill and put it in a basket.",
+        "sentenceZh": "兒子從山坡上挖泥土，裝進籃子裡。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "⛰️",
+        "options": [
+          "a boy digging soil and filling a basket",
+          "a girl planting seeds in a garden bed",
+          "a man fishing at the edge of a river",
+          "a child drawing a picture on white paper"
+        ],
+        "optionsZh": [
+          "男孩挖土裝進籃子",
+          "女孩在花圃裡種種子",
+          "男人在河邊釣魚",
+          "小孩在白紙上畫畫"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "dig = 挖，dirt = 泥土，basket = 籃子——男孩挖土裝進籃子，這就是故事裡愚公一家做的事！",
         "tags": [
           "story",
           "ch25",
           "yugong",
           "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch25-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One day, Yu Gong made a big decision: he would move the mountains.",
-        "sentenceZh": "有一天,愚公做了一個重大決定:他要把山搬走。",
-        "question": "What did Yu Gong decide to do?",
-        "options": [
-          "build a new road around",
-          "leave his home for good",
-          "move the mountains away",
-          "plant trees to block the wind"
-        ],
-        "optionsZh": [
-          "蓋一條新的繞路",
-          "永遠離開他的家",
-          "把山搬走",
-          "種樹擋風"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「他要把山搬走」——愚公的大決定就是搬走大山!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One day, Yu Gong made a big decision: he would move the mountains.",
-        "sentenceZh": "有一天,愚公做了一個重大決定:他要把山搬走。",
-        "questionEn": "Was Yu Gong's decision a small and simple one?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「重大決定」——搬走整座山,這當然不是小事!答案是 No!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch25-l2-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He told his family and they all said yes.",
-        "sentenceZh": "他告訴了家人,他們全都說好。",
-        "question": "How did Yu Gong's family react to the plan?",
-        "options": [
-          "most of them said no",
-          "only one person said yes",
-          "they all ran away scared",
-          "everyone agreed to help"
-        ],
-        "optionsZh": [
-          "大多數人說不",
-          "只有一個人說好",
-          "大家都嚇跑了",
-          "大家都同意幫忙"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「他們全都說好」——全家都同意!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch25-l2-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A neighbor heard the plan and laughed.",
-        "sentenceZh": "一個鄰居聽到這個計畫,笑了起來。",
-        "question": "Which emoji shows someone laughing at a silly idea?",
-        "options": [
-          "😂 laughing out loud",
-          "😢 crying very sadly",
-          "😮 surprised and quiet",
-          "😡 angry and upset"
-        ],
-        "optionsZh": [
-          "大聲笑出來",
-          "非常難過地哭",
-          "驚訝又安靜",
-          "生氣又難受"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "鄰居「笑了起來」——就是那個大聲笑的感覺!😂",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
         ],
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch25-l2-x6",
+        "type": "emoji-pick",
+        "id": "kt-ch25-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "He told his family and they all said yes.",
-        "sentenceZh": "他告訴了家人,他們全都說好。",
-        "questionEn": "Did any family member refuse to help Yu Gong?",
+        "sentence": "Which one shows a river?",
+        "question": "Which one shows a river?",
         "options": [
-          "Yes",
-          "No"
+          "🏔️ mountain",
+          "🌊 river",
+          "🌵 cactus",
+          "🏠 house"
+        ],
+        "optionsZh": [
+          "山",
+          "河",
+          "仙人掌",
+          "房子"
         ],
         "correctIndex": 1,
-        "explanationZh": "「全都說好」——沒有人拒絕!全家都支持。答案是 No!",
+        "explanationZh": "river = 河 🌊！愚公一家每天把石頭和泥土搬到河邊去，走了好遠好遠的路。",
         "tags": [
           "story",
           "ch25",
           "yugong",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch25-l2-x7",
+        "type": "grammar-mc",
+        "id": "kt-ch25-l2-gm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "A neighbor heard the plan and laughed.",
-        "sentenceZh": "一個鄰居聽到這個計畫,笑了起來。",
-        "question": "Why did the neighbor laugh at Yu Gong?",
+        "sentence": "Every day, the old man ___ rocks to the river.",
+        "question": "Which word is correct?",
         "options": [
-          "the neighbor had a funny joke",
-          "moving mountains seemed impossible",
-          "he thought the plan was a game",
-          "he was happy for the family"
+          "carried",
+          "carries",
+          "carry",
+          "carrying"
         ],
         "optionsZh": [
-          "鄰居說了個好笑的笑話",
-          "搬山看起來根本不可能",
-          "他以為計畫是在玩遊戲",
-          "他為這家人感到高興"
+          "搬（過去式）",
+          "搬（第三人稱現在式）",
+          "搬（原形）",
+          "正在搬"
         ],
         "correctIndex": 1,
-        "explanationZh": "搬走整座山——鄰居覺得這根本不可能,才笑出來!",
-        "tags": [
-          "story",
-          "ch25",
-          "yugong"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch25-l2-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A neighbor heard the plan and laughed.",
-        "sentenceZh": "一個鄰居聽到這個計畫,笑了起來。",
-        "questionEn": "Did the neighbor support Yu Gong's plan?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "鄰居「笑了起來」——笑就是不支持、覺得可笑!答案是 No!",
+        "explanationZh": "「every day」= 每天的習慣，用現在式。主詞是「the old man」（第三人稱單數），要加 -s，所以用「carries」。\n完整句：Every day, the old man carries rocks to the river.",
         "tags": [
           "story",
           "ch25",
           "yugong",
-          "inference"
-        ]
+          "grammar"
+        ],
+        "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch25-l2-x9",
+        "type": "tap-pairs",
+        "id": "kt-ch25-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "One day, Yu Gong made a big decision: he would move the mountains.",
-        "sentenceZh": "有一天,愚公做了一個重大決定:他要把山搬走。",
-        "question": "What shows that Yu Gong was not afraid of big tasks?",
-        "options": [
-          "asking neighbors for cash",
-          "waiting for someone to take the lead",
-          "planning to move the mountains",
-          "making plans but never starting"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "搬走",
+            "right": "move away"
+          },
+          {
+            "left": "挖",
+            "right": "dig"
+          },
+          {
+            "left": "石頭",
+            "right": "rock"
+          },
+          {
+            "left": "每天",
+            "right": "every day"
+          }
         ],
-        "optionsZh": [
-          "向鄰居要錢",
-          "等著有人帶頭",
-          "計畫搬走整座山",
-          "計畫了但沒開始"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「要把山搬走」——搬整座山!這說明他不怕任何大挑戰!",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 move away = 搬走\n🔑 dig = 挖\n🔑 rock = 石頭\n🔑 every day = 每天",
         "tags": [
           "story",
           "ch25",
-          "yugong"
-        ],
-        "subSkill": "inference"
+          "yugong",
+          "vocab",
+          "review"
+        ]
       }
     ]
   },

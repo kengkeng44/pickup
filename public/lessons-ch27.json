@@ -8,31 +8,14 @@
     "storyBeat": "和尚 Sanzang — 一個安靜會讀書的人",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch27-l1-q1",
+        "id": "kt-ch27-l1-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "和尚",
-            "right": "monk"
-          },
-          {
-            "left": "寺廟",
-            "right": "temple"
-          },
-          {
-            "left": "讀",
-            "right": "read"
-          },
-          {
-            "left": "安靜的",
-            "right": "quiet"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 monk = 和尚\n🔑 temple = 寺廟\n🔑 read = 讀\n🔑 quiet = 安靜的\n記好了，奶奶開始說故事囉！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事有幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講西遊記的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch27",
@@ -42,427 +25,162 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch27-l1-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Long ago in China, a young monk named 三藏 (Sanzang) lived in a quiet temple.",
-        "explanationZh": "很久很久以前，在中國有個安靜的寺廟，住著一個叫三藏的年輕和尚。一個人讀書、一個人想事情。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He read holy books every day, from morning until late at night.",
-        "explanationZh": "從早讀到深夜——他不是在讀，是在跟書說話。奶奶說，這叫「把書讀進心裡去」。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "He did not like loud talk or big parties.",
-        "questionEn": "Was Sanzang a quiet kind of person?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "不喜歡吵鬧大派對 → 當然是安靜的人，答 Yes。三藏就是這樣的人。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ],
-        "sentenceZh": "他不喜歡嘈雜的交談，也不喜歡熱鬧的宴席。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "His heart was soft. He cared about people he had never met.",
-        "explanationZh": "他的心很軟——連沒見過的人也放在心上。這樣的人，很難不喜歡他。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch27-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sanzang spent each day with books and tea, and slept on a thin mat.",
-        "question": "How did Sanzang live every day?",
-        "options": [
-          "with big feasts and gold",
-          "on a fast horse all day",
-          "in a busy market street",
-          "with simple things and study"
-        ],
-        "optionsZh": [
-          "豐盛大餐和黃金",
-          "整天騎快馬",
-          "熱鬧的市場街上",
-          "簡單的東西和讀書"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "書、茶、薄草蓆——這就是他的全部。「簡單的東西和讀書」就是答案。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "三藏每天與書和茶為伴，睡在一張薄薄的蓆子上。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "But the books in his temple were old and not enough.",
-        "explanationZh": "寺廟裡的書又舊又少，讀完了就沒了。他的心開始往外望——往更遠的地方。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch27-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He felt there was much more to learn far, far away.",
-        "question": "What did Sanzang feel about his learning?",
-        "options": [
-          "there was still much more to know",
-          "he had learned all he needed",
-          "books were not very useful",
-          "he wanted to stop reading"
-        ],
-        "optionsZh": [
-          "還有很多要知道的",
-          "他學完了所有需要的",
-          "書沒什麼用",
-          "他想停止讀書"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「遠方還有很多要學的。」他感覺得到自己的書本還不夠——「還有很多要知道的」就是答案。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他感覺，在很遠很遠的地方，還有更多東西等著他去學。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sometimes he stood by the gate and looked toward the west.",
-        "explanationZh": "有時候他站在寺門口，望著西邊的天空，眼神裡有一種說不清楚的渴望。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch27-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "How did Sanzang feel standing by the gate?",
-        "question": "How did he feel?",
-        "options": [
-          "😴 just very sleepy now",
-          "🌅 ready for something new",
-          "😡 really quite angry now",
-          "🍔 just a little hungry"
-        ],
-        "optionsZh": [
-          "現在只是想睡",
-          "準備好迎接新東西",
-          "現在真的很生氣",
-          "只是有點肚子餓"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "望向遠方、想學更多 → 「準備好迎接新東西」。那個 🌅 剛好是他的感覺。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "站在城門邊，三藏心裡在想什麼？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "One morning, a man in fine yellow clothes came to the temple door...",
-        "explanationZh": "一個早晨，一個穿黃色華服的人來到寺門口……奶奶說，有些人的出現，會改變你的一生。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch27-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Long ago in China, a young monk named 三藏 (Sanzang) lived in a quiet temple.",
-        "question": "What does this sentence tell us about Sanzang?",
-        "options": [
-          "a soldier who guarded the city wall",
-          "an old farmer who owned a big field",
-          "a young monk who lived alone in peace",
-          "a boy who ran away from his family"
-        ],
-        "optionsZh": [
-          "一個守護城牆的士兵",
-          "一個擁有大農田的老農夫",
-          "一個在寺廟裡安靜生活的年輕和尚",
-          "一個逃家的男孩"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「young monk in a quiet temple」——年輕和尚、安靜寺廟。「一個在寺廟裡安靜生活的年輕和尚」就是答案。",
-        "sentenceZh": "很久以前，中國有個年輕的和尚，叫三藏，住在安靜的寺廟裡。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l1-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "He did not like loud talk or big parties.",
-        "questionEn": "Did Sanzang prefer quiet over noise?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "不喜歡吵鬧和大派對——這說明他偏好安靜，答 Yes。",
-        "sentenceZh": "他不喜歡嘈雜的交談，也不喜歡熱鬧的宴席。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ]
-      },
-      {
+        "id": "kt-ch27-l1-vp1",
         "type": "tap-pairs",
-        "id": "kt-ch27-l1-x3",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Match the words from this lesson.",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
+          {
+            "left": "猴子",
+            "right": "monkey"
+          },
           {
             "left": "和尚",
             "right": "monk"
           },
           {
-            "left": "安靜的",
-            "right": "quiet"
+            "left": "雲",
+            "right": "cloud"
           },
           {
-            "left": "聖書",
-            "right": "holy book"
-          },
-          {
-            "left": "西方",
-            "right": "west"
+            "left": "石頭",
+            "right": "stone"
           }
         ],
-        "explanationZh": "🔑 monk = 和尚\n🔑 quiet = 安靜的\n🔑 holy book = 聖書\n🔑 west = 西方\n三藏的故事關鍵字！",
+        "explanationZh": "這四個字都在西遊記的故事裡：\n🔑 monkey = 猴子\n🔑 monk = 和尚\n🔑 cloud = 雲\n🔑 stone = 石頭",
+        "tags": [
+          "story",
+          "ch27",
+          "wukong",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch27-l1-vp2",
+        "type": "tap-pairs",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "飛",
+            "right": "fly"
+          },
+          {
+            "left": "魔法",
+            "right": "magic"
+          },
+          {
+            "left": "妖怪",
+            "right": "demon"
+          },
+          {
+            "left": "蟠桃",
+            "right": "peach"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 fly = 飛\n🔑 magic = 魔法\n🔑 demon = 妖怪\n🔑 peach = 蟠桃",
+        "tags": [
+          "story",
+          "ch27",
+          "wukong",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch27-l1-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one is a monkey?",
+        "question": "Which one is a monkey?",
+        "options": [
+          "🐯 tiger",
+          "🐻 bear",
+          "🐒 monkey",
+          "🐼 panda"
+        ],
+        "optionsZh": [
+          "老虎",
+          "熊",
+          "猴子",
+          "貓熊"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "monkey = 猴子 🐒！故事裡那隻猴子被壓在大石頭下五百年了。",
         "tags": [
           "story",
           "ch27",
           "wukong",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch27-l1-x4",
+        "id": "kt-ch27-l1-ep2",
+        "type": "emoji-pick",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "His heart was soft. He cared about people he had never met.",
-        "question": "What does this tell us about Sanzang's character?",
+        "speaker": "narrator",
+        "sentence": "Which one shows a cloud?",
+        "question": "Which one shows a cloud?",
         "options": [
-          "someone who never wanted any friends",
-          "someone who only cared about himself",
-          "a man who was afraid of strangers",
-          "a kind person who thought of others"
+          "⭐ star",
+          "🌧️ rain",
+          "🌙 moon",
+          "☁️ cloud"
         ],
         "optionsZh": [
-          "從不想要朋友的人",
-          "只關心自己的人",
-          "害怕陌生人的人",
-          "一個關心他人的善良人"
+          "星星",
+          "雨",
+          "月亮",
+          "雲"
         ],
         "correctIndex": 3,
-        "explanationZh": "「heart was soft」「cared about people he had never met」——關心素不相識的人，是「關心他人的善良人」。",
-        "sentenceZh": "他的心很軟，連沒見過的人也放在心上。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch27-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He read holy books every day, from morning until late ___ night.",
-        "question": "Which word fits the blank?",
-        "options": [
-          "at",
-          "in",
-          "on",
-          "by"
-        ],
-        "optionsZh": [
-          "在（at night 固定用法）",
-          "在（in night — 錯誤）",
-          "在（on night — 錯誤）",
-          "在（by night — 不同意思）"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「late at night」是固定片語，表示「深夜」——填 at 才正確。",
-        "sentenceZh": "他每天讀聖書，從早讀到深___。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "function"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l1-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "But the books in his temple were old and not enough.",
-        "questionEn": "Did Sanzang have all the books he wanted at his temple?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「old and not enough」——舊的又不夠，他沒有足夠的書，答 No。",
-        "sentenceZh": "但他寺廟裡的書又舊又不夠。",
+        "explanationZh": "cloud = 雲 ☁️！故事裡的猴子會踩著雲飛行——那叫做筋斗雲。",
         "tags": [
           "story",
           "ch27",
           "wukong",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch27-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "Sometimes he stood by the gate and looked toward the west.",
-        "question": "What does Sanzang looking west most likely show?",
-        "options": [
-          "checking the weather before going out",
-          "a longing for something far and beyond",
-          "watching for enemies near the gate",
-          "waiting for his friends to arrive"
-        ],
-        "optionsZh": [
-          "出門前查看天氣",
-          "對遠方事物的渴望",
-          "留意門口有沒有敵人",
-          "等待朋友到來"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "站在門口望著西邊——不是看天氣也不是等人，是心裡對遠方的「渴望」。",
-        "sentenceZh": "有時他站在寺門口，望著西方的天空。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch27-l1-x8",
+        "id": "kt-ch27-l1-pm1",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sanzang read books alone, slept on a thin mat, and longed for more learning.",
-        "question": "Which best shows his life?",
+        "speaker": "narrator",
+        "sentence": "The monkey sat on a stone and looked at the monk.",
+        "sentenceZh": "猴子坐在石頭上，看著和尚。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🐒",
         "options": [
-          "🏇 riding fast every morning",
-          "🎉 celebrating every evening",
-          "📚 reading and learning quietly",
-          "🍔 enjoying big meals always"
+          "a monk reading a book in his room",
+          "a monkey sitting on a rock",
+          "a demon flying over the clouds",
+          "a peach falling from a tall tree"
         ],
         "optionsZh": [
-          "每天早上快騎馬",
-          "每晚慶祝",
-          "安靜地讀書學習",
-          "總是享用大餐"
+          "和尚在房間裡讀書",
+          "猴子坐在石頭上",
+          "妖怪在雲上飛翔",
+          "蟠桃從高樹落下"
         ],
-        "correctIndex": 2,
-        "explanationZh": "書、薄草蓆、渴望學更多——「安靜地讀書學習」那個 📚 最像三藏。",
-        "sentenceZh": "三藏一個人讀書，睡薄蓆，渴望更多知識。",
+        "correctIndex": 1,
+        "explanationZh": "句子說「猴子坐在石頭上看著和尚」——圖中正好是猴子坐在石頭上。",
         "tags": [
           "story",
           "ch27",
           "wukong",
-          "hook"
+          "vocab"
         ],
         "subSkill": "vocab"
       }
@@ -477,31 +195,14 @@
     "storyBeat": "皇帝的請求 — 去西方拿回真經",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch27-l2-q1",
+        "id": "kt-ch27-l2-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "皇帝",
-            "right": "emperor"
-          },
-          {
-            "left": "請求",
-            "right": "ask"
-          },
-          {
-            "left": "西方",
-            "right": "west"
-          },
-          {
-            "left": "經書",
-            "right": "holy book"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 emperor = 皇帝\n🔑 ask = 請求\n🔑 west = 西方\n🔑 holy book = 經書\n記好了，重要的任務來了！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了故事更好懂囉！",
         "tags": [
           "story",
           "ch27",
@@ -511,437 +212,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch27-l2-q2",
+        "id": "kt-ch27-l2-pp1",
+        "type": "phrase-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "The man said, \"The 皇帝 (Emperor) wants to see you at his palace.\"",
-        "explanationZh": "「皇帝想見你。」——奶奶說，穿黃衣服的人來叫你，不是小事。三藏的人生要轉彎了。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l2-q3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "Sanzang put on his clean robe and went without saying no.",
-        "questionEn": "Did Sanzang turn down the invitation?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他穿上乾淨的袈裟，沒說「不去」，就去了——他沒拒絕，答 No。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ],
-        "sentenceZh": "三藏整理好袈裟，沒有說不，就出發了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "At the palace, the Emperor sat on a tall chair and looked tired.",
-        "explanationZh": "皇帝高坐在大椅子上，臉上帶著疲倦。連皇帝也有煩惱的時候。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch27-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"My people need new holy books from India. Will you go?\" he asked.",
-        "question": "What did the Emperor want Sanzang to do?",
-        "options": [
-          "stay in the city as a teacher",
-          "build a new wall by the river",
-          "write a brand new song",
-          "travel far and bring back books"
-        ],
-        "optionsZh": [
-          "留在城裡當老師",
-          "在河邊蓋新牆",
-          "寫一首新歌",
-          "走遠路把書帶回來"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「去印度，把真正的經書帶回來。」——「走遠路把書帶回來」就是答案。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "「我的子民需要從印度取回的聖典，你願意去嗎？」他問。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sanzang knew the road was long. He knew it could take many years.",
-        "explanationZh": "三藏心裡明白，這條路很遠、可能要走很多年——他沒騙自己。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch27-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "But he bowed and said, \"I will go. I will not come back empty.\"",
-        "question": "What did Sanzang promise the Emperor?",
-        "options": [
-          "to bring the holy books home",
-          "to come back a very rich man",
-          "to fight every dragon",
-          "to find a new emperor"
-        ],
-        "optionsZh": [
-          "把經書帶回家",
-          "回來變成大富翁",
-          "打敗每一隻龍",
-          "找新皇帝"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「我去。我不會空手回來。」——「把經書帶回家」就是他的承諾。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "但他鞠了一個躬說：「我願意去，不取得真經決不回頭。」"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "The Emperor stood up and gave Sanzang a soft yellow scarf.",
-        "explanationZh": "皇帝站起來，把一條柔軟的黃色圍巾給了他。這不只是禮物，是一份心意。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l2-q9",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "\"From today, you are my brother of the road,\" the Emperor said.",
-        "questionEn": "Did the Emperor treat Sanzang as someone very close?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「從今天起，你是我路上的兄弟。」——皇帝把他當最親近的人，答 Yes。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ],
-        "sentenceZh": "「從今天起，你是我路上的兄弟。」皇帝說。"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch27-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "How did Sanzang feel after the Emperor's words?",
-        "question": "How did he feel?",
-        "options": [
-          "😴 ready to sleep",
-          "🙏 honored and serious",
-          "😡 angry and loud",
-          "🍎 hungry and thirsty"
-        ],
-        "optionsZh": [
-          "想睡",
-          "受到尊重,認真起來",
-          "生氣大聲",
-          "又餓又渴"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "皇帝叫他「兄弟」→ 受到尊重，他認真起來了。「受到尊重，認真起來」就是他的感受。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "皇帝說完那番話，三藏心裡是什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch27-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "That night, Sanzang sat in his room and packed a very small bag...",
-        "explanationZh": "那天晚上，他一個人坐在房裡，打包了一個非常小的包……奶奶說，有時候最重要的旅行，從一個小包開始。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch27-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sanzang put on his clean robe and went without saying no.",
-        "question": "What does this tell us about Sanzang?",
-        "options": [
-          "slow and reluctant to leave his books",
-          "angry and upset about being called",
-          "obedient and ready to serve others",
-          "afraid and hiding inside the temple"
-        ],
-        "optionsZh": [
-          "慢吞吞、不想離開書",
-          "生氣、不高興被叫來",
-          "順從、樂意服務他人",
-          "害怕、躲在寺廟裡"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "穿好衣服、沒說不——「順從、樂意服務他人」就是他的表現。",
-        "sentenceZh": "三藏穿上乾淨的袈裟，沒有推辭就去了。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch27-l2-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "Sanzang knew the road was long. He knew it could take many years.",
-        "questionEn": "Was Sanzang unaware of how hard the journey would be?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他知道路很長、可能要花幾年——他完全清楚旅途的艱難，答 No（他不是不知道）。",
-        "sentenceZh": "三藏知道路很漫長，知道可能要花好幾年。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ]
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch27-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Match the words from this lesson.",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "皇帝",
-            "right": "emperor"
+            "left": "長途旅程",
+            "right": "long journey"
           },
           {
-            "left": "皇宮",
-            "right": "palace"
+            "left": "金色棒子",
+            "right": "golden staff"
           },
           {
-            "left": "印度",
-            "right": "India"
+            "left": "在雲上飛",
+            "right": "fly on clouds"
           },
           {
-            "left": "空手",
-            "right": "empty-handed"
+            "left": "魔法力量",
+            "right": "magic power"
           }
         ],
-        "explanationZh": "🔑 emperor = 皇帝\n🔑 palace = 皇宮\n🔑 India = 印度\n🔑 empty-handed = 空手\n皇帝見面節的字！",
+        "explanationZh": "這四個片語都出現在西遊記的故事裡：\n🔑 long journey = 長途旅程\n🔑 golden staff = 金色棒子\n🔑 fly on clouds = 在雲上飛\n🔑 magic power = 魔法力量",
+        "tags": [
+          "story",
+          "ch27",
+          "wukong",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch27-l2-pm1",
+        "type": "picture-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The monk walked on a long journey to the west.",
+        "sentenceZh": "和尚踏上了往西的長途旅程。",
+        "question": "Which picture matches 'a long journey'?",
+        "imageEmoji": "🚶",
+        "options": [
+          "a man walking alone on a long road",
+          "a boy eating a warm meal at home",
+          "a monkey resting under a big tree",
+          "a woman sitting by a quiet river"
+        ],
+        "optionsZh": [
+          "一個人獨自走在長路上",
+          "一個男孩在家吃暖餐",
+          "一隻猴子在大樹下休息",
+          "一位女士坐在靜靜的河邊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "long journey = 長途旅程。和尚一個人走向西方，這就是「獨自走在長路上」的樣子！",
         "tags": [
           "story",
           "ch27",
           "wukong",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch27-l2-x4",
+        "id": "kt-ch27-l2-ep1",
+        "type": "emoji-pick",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"My people need new holy books from India. Will you go?\" he asked.",
-        "question": "Why did the Emperor ask Sanzang to go?",
+        "speaker": "narrator",
+        "sentence": "The monkey used his magic staff in a fight with a demon.",
+        "question": "Which emoji shows a staff?",
         "options": [
-          "India was only a few days from the palace",
-          "Sanzang had argued with the palace monks",
-          "the Emperor wanted Sanzang far away",
-          "the people needed holy books from a far land"
+          "🗡️ sword",
+          "🏹 bow",
+          "🪄 staff",
+          "🛡️ shield"
         ],
         "optionsZh": [
-          "印度距皇宮只有幾天路",
-          "三藏和宮廷和尚起了爭執",
-          "皇帝想讓三藏離開",
-          "人民需要從遠方帶回聖書"
+          "劍",
+          "弓箭",
+          "棒子",
+          "盾牌"
         ],
-        "correctIndex": 3,
-        "explanationZh": "「My people need new holy books」——人民需要聖書，所以叫他去取。",
-        "sentenceZh": "「我的子民需要從印度取回新的聖書，你願意去嗎？」",
+        "correctIndex": 2,
+        "explanationZh": "staff = 棒子 🪄！故事裡猴子有一根神奇的金色棒子，可以變大變小。",
         "tags": [
           "story",
           "ch27",
-          "wukong"
+          "wukong",
+          "vocab"
         ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
+        "id": "kt-ch27-l2-gm1",
         "type": "grammar-mc",
-        "id": "kt-ch27-l2-x5",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "But he bowed and said, \"I will go. I will not ___ back empty.\"",
+        "speaker": "narrator",
+        "sentence": "Yesterday the monkey ___ over the clouds on his magic staff.",
         "question": "Which word fits the blank?",
         "options": [
-          "come",
-          "came",
-          "coming",
-          "comes"
+          "fly",
+          "flies",
+          "flying",
+          "flew"
         ],
         "optionsZh": [
-          "回來（原形，配 will）",
-          "回來（過去式）",
-          "回來（現在分詞）",
-          "回來（第三人稱單數）"
+          "飛（原形）",
+          "飛（第三人稱現在式）",
+          "飛（現在分詞）",
+          "飛（過去式）"
         ],
-        "correctIndex": 0,
-        "explanationZh": "「will not + 動詞原形」——「will not come back」才是正確的否定未來式。",
-        "sentenceZh": "但他鞠躬說：「我會去。我不會___空手回來。」",
+        "correctIndex": 3,
+        "explanationZh": "句子用了「Yesterday」——說的是過去發生的事，fly 的過去式是 flew（不規則動詞）。\n完整句：Yesterday the monkey flew over the clouds on his magic staff.",
         "tags": [
           "story",
           "ch27",
-          "wukong"
+          "wukong",
+          "grammar"
         ],
         "subSkill": "function"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch27-l2-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "The Emperor stood up and gave Sanzang a soft yellow scarf.",
-        "questionEn": "Did the Emperor show respect toward Sanzang?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "皇帝站起身、親自送黃巾——這是對三藏表示尊敬，答 Yes。",
-        "sentenceZh": "皇帝站了起來，送給三藏一條柔軟的黃色圍巾。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch27-l2-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "\"From today, you are my brother of the road,\" the Emperor said.",
-        "question": "What did the Emperor mean by these words?",
-        "options": [
-          "asking Sanzang to stay inside the palace",
-          "treating Sanzang like a trusted companion",
-          "telling Sanzang the trip was not important",
-          "warning Sanzang never to return at all"
-        ],
-        "optionsZh": [
-          "叫三藏留在宮裡",
-          "把三藏當作信任的伴侶",
-          "告訴三藏這次旅程不重要",
-          "警告三藏永遠不要回來"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「brother of the road」——路上的兄弟，就是把他當作信任的同伴。",
-        "sentenceZh": "「從今天起，你是我路上的兄弟。」皇帝說。",
-        "tags": [
-          "story",
-          "ch27",
-          "wukong"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch27-l2-x8",
+        "id": "kt-ch27-l2-rev1",
+        "type": "tap-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Sanzang bowed to the Emperor and agreed to go, even knowing the long road ahead.",
-        "question": "Which best shows Sanzang's choice?",
-        "options": [
-          "😡 arguing back loudly at the palace",
-          "😴 falling asleep during the meeting",
-          "🙏 accepting with courage and respect",
-          "🏃 running away from the palace fast"
+        "speaker": "narrator",
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "旅程",
+            "right": "journey"
+          },
+          {
+            "left": "棒子",
+            "right": "staff"
+          },
+          {
+            "left": "妖怪",
+            "right": "demon"
+          },
+          {
+            "left": "魔法",
+            "right": "magic"
+          }
         ],
-        "optionsZh": [
-          "在宮裡大聲回嘴",
-          "在會面中睡著了",
-          "帶著勇氣和尊重接受任務",
-          "快速逃離皇宮"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "他鞠躬、答應去——「帶著勇氣和尊重接受任務」，那個 🙏 最像他。",
-        "sentenceZh": "三藏向皇帝鞠躬，同意出發，就算知道前方路途漫長。",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 journey = 旅程\n🔑 staff = 棒子\n🔑 demon = 妖怪\n🔑 magic = 魔法",
         "tags": [
           "story",
           "ch27",
           "wukong",
-          "hook"
-        ],
-        "subSkill": "vocab"
+          "vocab",
+          "review"
+        ]
       }
     ]
   },
