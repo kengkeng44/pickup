@@ -8,31 +8,14 @@
     "storyBeat": "兔子愛現,烏龜怎敢挑戰?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch3-l1-q1",
+        "type": "narration",
+        "id": "kt-ch3-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "快",
-            "right": "fast"
-          },
-          {
-            "left": "慢",
-            "right": "slow"
-          },
-          {
-            "left": "笑",
-            "right": "laugh"
-          },
-          {
-            "left": "田野",
-            "right": "field"
-          }
-        ],
-        "explanationZh": "今晚故事的開場單字，左邊中文、右邊英文：\n🔑 fast = 快\n🔑 slow = 慢\n🔑 laugh = 笑\n🔑 field = 田野\n這 4 個字記住了，故事一開口就聽得懂！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講龜兔賽跑的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch3",
@@ -42,509 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch3-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch3-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Every day, the hare jumped fast across the open field.",
-        "explanationZh": "每天，兔子都在田野上嗖嗖嗖地跳，風都跟不上他，跑得可神氣了。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Look at me! I am the fastest!\" he said loud to the other animals.",
-        "explanationZh": "「看我！我最快！」他昂著頭大聲說，聲音響遍整個田野，讓所有動物都聽見。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "No animal said a word back, and they all looked at the ground.",
-        "questionEn": "Did the other animals enjoy his words?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "兔子",
+            "right": "hare"
+          },
+          {
+            "left": "烏龜",
+            "right": "tortoise"
+          },
+          {
+            "left": "快",
+            "right": "fast"
+          },
+          {
+            "left": "慢",
+            "right": "slow"
+          }
         ],
-        "correctIndex": 1,
-        "explanationZh": "沒人回應、個個低頭——誰喜歡聽人一直吹噓？動物們早就聽膩了，所以答 No。",
+        "explanationZh": "這四個字都在龜兔賽跑的故事裡：\n🔑 hare = 兔子\n🔑 tortoise = 烏龜\n🔑 fast = 快\n🔑 slow = 慢",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "inference"
-        ],
-        "sentenceZh": "沒有任何動物回話，大家都低著頭看地。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A tortoise walked by, slow and quiet, on the side of the path.",
-        "explanationZh": "就在這時候，一隻烏龜慢慢地、安靜地走過來，低著頭，穩穩地沿著路邊走。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch3-l1-q6",
+        "type": "tap-pairs",
+        "id": "kt-ch3-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Step by step, his short legs moved without any sound.",
-        "question": "How did the tortoise move?",
-        "options": [
-          "fast and loud",
-          "sleepy and still",
-          "angry and fast",
-          "slow and quiet"
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "賽跑",
+            "right": "race"
+          },
+          {
+            "left": "贏",
+            "right": "win"
+          },
+          {
+            "left": "輸",
+            "right": "lose"
+          },
+          {
+            "left": "驕傲",
+            "right": "proud"
+          }
         ],
-        "optionsZh": [
-          "又快又大聲",
-          "又睏又不動",
-          "又氣又快",
-          "又慢又安靜"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "一步一步無聲地走——不快、不急，就是「又慢又安靜」。",
+        "explanationZh": "再來四個：\n🔑 race = 賽跑\n🔑 win = 贏\n🔑 lose = 輸\n🔑 proud = 驕傲",
         "tags": [
           "story",
           "ch3",
-          "tortoise-hare"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他短短的腿，一步一步，沒有一點聲音。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Hello, slow one,\" the hare laughed. \"Can you even walk?\"",
-        "explanationZh": "「嗨，慢慢仔！」兔子湊過去笑他，「你這樣也叫走路？」語氣充滿嘲弄。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
+          "tortoise-hare",
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch3-l1-q8",
+        "id": "kt-ch3-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did the hare treat the tortoise?",
-        "question": "How did the hare treat him?",
+        "sentence": "Which one is a tortoise?",
+        "question": "Which one is a tortoise?",
         "options": [
-          "😂 laughed at him",
-          "🤝 helped him",
-          "🎁 gave a gift",
-          "🤫 stayed silent"
+          "🐢 tortoise",
+          "🐇 rabbit",
+          "🐒 monkey",
+          "🦒 giraffe"
         ],
         "optionsZh": [
-          "😂 笑他",
-          "🤝 幫他",
-          "🎁 送禮物",
-          "🤫 保持安靜"
+          "烏龜",
+          "兔子",
+          "狐狸",
+          "鳥"
         ],
         "correctIndex": 0,
-        "explanationZh": "兔子笑著問「你會走路嗎」，這不是關心，就是「笑他」。在大家面前這樣說，真不好意思。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "兔子是怎麼對待烏龜的？"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch3-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The hare bent down close to the tortoise's small head, still smiling.",
-        "question": "How close was the hare to the tortoise?",
-        "options": [
-          "very far",
-          "very close",
-          "inside his shell",
-          "on a tree"
-        ],
-        "optionsZh": [
-          "很遠",
-          "很近",
-          "在殼裡面",
-          "在樹上"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「彎下身靠近」——距離這麼近，當然是「很近」，幾乎鼻子都碰到了。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "兔子彎下身，湊近烏龜的小腦袋，臉上還掛著笑。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The big rabbit teased the small green animal in front of the whole field.",
-        "question": "What is happening in this scene?",
-        "options": [
-          "a quiet morning walk in the field",
-          "a peaceful animal meeting",
-          "the hare laughing at the tortoise",
-          "a loud fight between two birds"
-        ],
-        "optionsZh": [
-          "田野裡安靜的早晨散步",
-          "動物的和平聚會",
-          "兔子嘲笑烏龜",
-          "兩隻鳥大聲打架"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "這一幕是兔子在大家面前笑烏龜——這就是整個場景在發生的事。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "大兔子在全田野的面前嘲笑那隻小綠動物。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every day, the hare jumped fast across the open field and said \"I am the fastest!\" No animal said a word back.",
-        "sentenceZh": "每天，兔子都在田野上嗖嗖嗖地跳，大聲說「我最快！」沒有動物回應。",
-        "question": "What does the hare do every day?",
-        "options": [
-          "works hard to help others",
-          "sleeps under the tree",
-          "races the tortoise",
-          "runs fast and shows off"
-        ],
-        "optionsZh": [
-          "努力幫助別人",
-          "在樹下睡覺",
-          "和烏龜比賽",
-          "跑很快又愛現"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「每天跑很快」＋「我最快！」大聲說給大家聽——這就是「跑很快又愛現」。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Look at me! I am the fastest!\" he said loud to the other animals.",
-        "sentenceZh": "「看我！我最快！」他大聲跟其他動物說。",
-        "questionEn": "Was the hare quiet and humble about his speed?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「看我！我最快！」說得又大聲又得意——哪裡謙虛？所以答 No。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch3-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A tortoise walked by, slow and quiet, on the side of the path.",
-        "sentenceZh": "一隻烏龜慢慢地、安靜地，沿著路邊走了過來。",
-        "question": "How did the tortoise move?",
-        "imageEmoji": "🐢",
-        "options": [
-          "slow and quiet",
-          "fast and loud",
-          "jumping up high",
-          "running backward"
-        ],
-        "optionsZh": [
-          "慢慢安靜地走",
-          "又快又大聲地走",
-          "往高處跳",
-          "倒退著跑"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「slow and quiet」——慢慢地、安靜地，就是「慢慢安靜地走」。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The hare bent down close to the tortoise's small head, still smiling.",
-        "sentenceZh": "兔子彎下身，湊近烏龜的小腦袋，臉上還掛著笑。",
-        "question": "Why did the hare smile when he bent close to the tortoise?",
-        "options": [
-          "he was always last to finish",
-          "races were his favorite thing",
-          "the tortoise loved every challenge",
-          "speed was never his strong point"
-        ],
-        "optionsZh": [
-          "他總是最後一個完成的",
-          "比賽是他最喜歡的事",
-          "烏龜喜歡每一個挑戰",
-          "速度從來不是他的強項"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "湊近又笑——那個笑不是友善，是「覺得烏龜可笑又弱小」，嘲弄的笑。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The tortoise looked up at him. \"I will race you,\" he said, slow and sure.",
-        "sentenceZh": "烏龜慢慢抬起頭。「我來和你比賽，」他說，慢慢的、篤定的。",
-        "questionEn": "Was the tortoise nervous when he challenged the hare?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「慢慢的、篤定的」——不緊張、不慌張，沉穩地說出來，所以答 No。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch3-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match these phrases from the opening scene.",
-        "sentenceZh": "把開場那段的片語配起來！",
-        "pairs": [
-          {
-            "left": "最快",
-            "right": "the fastest"
-          },
-          {
-            "left": "嘲笑他",
-            "right": "laughed at him"
-          },
-          {
-            "left": "慢慢走",
-            "right": "walked slow"
-          },
-          {
-            "left": "和你比賽",
-            "right": "race you"
-          }
-        ],
-        "explanationZh": "這四組都是故事開場的關鍵片語，配一配！",
+        "explanationZh": "tortoise = 烏龜 🐢！故事裡那隻慢慢走的烏龜，最後贏得了比賽。",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch3-l1-x7",
+        "type": "emoji-pick",
+        "id": "kt-ch3-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "No animal said a word back, and they all looked at the ground.",
-        "sentenceZh": "沒有任何動物回話，大家都低著頭看地。",
-        "question": "What does the animals' silence tell us?",
+        "sentence": "Which emoji shows someone winning?",
+        "question": "Which emoji shows someone winning?",
         "options": [
-          "they were ready to race at dawn",
-          "everyone said the tortoise would lose",
-          "the hare had already won",
-          "something big was about to change"
+          "😴 sleeping",
+          "😢 crying",
+          "🏆 win",
+          "🏃 running"
         ],
         "optionsZh": [
-          "他們準備好在黎明比賽了",
-          "大家都說烏龜會輸",
-          "野兔已經贏了",
-          "有什麼大事即將發生"
+          "睡覺",
+          "哭泣",
+          "贏",
+          "跑步"
         ],
         "correctIndex": 2,
-        "explanationZh": "大家低頭、沒人回應——這說明「他們聽膩了他的自誇」，一點都不想搭理他。",
+        "explanationZh": "win = 贏 🏆！故事的最後，慢慢走的烏龜赢得了比賽——讓大家都嚇一跳！",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "inference"
+          "vocab"
         ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l1-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Step by step, his short legs moved without any sound.",
-        "sentenceZh": "一步一步，他短短的腿沒有發出任何聲音。",
-        "questionEn": "Did the tortoise move with loud, heavy steps?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「沒有任何聲音」——安靜極了，哪裡「大聲又沉重」？所以答 No。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
         "type": "picture-mc",
-        "id": "kt-ch3-l1-x9",
+        "id": "kt-ch3-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "\"Hello, slow one,\" the hare laughed. \"Can you even walk?\"",
-        "sentenceZh": "「嗨，慢慢仔！」兔子笑著說，「你這樣也叫走路？」",
-        "question": "How did the hare speak to the tortoise?",
+        "sentence": "The hare jumped fast across the open field.",
+        "sentenceZh": "兔子在空曠的田野上飛快地跳著。",
+        "question": "Which picture matches the sentence?",
         "imageEmoji": "🐰",
         "options": [
-          "sadly and gently",
-          "in a kind and friendly way",
-          "very quietly",
-          "in a mocking way"
+          "a hare sleeping under a big oak tree",
+          "a tortoise sitting quietly by the road",
+          "a fox standing at the finish line",
+          "a hare leaping fast across an open field"
         ],
         "optionsZh": [
-          "悲傷溫柔地說",
-          "親切友善地說",
-          "非常小聲",
-          "嘲弄地說"
+          "兔子在大橡樹下睡覺",
+          "烏龜靜靜地坐在路邊",
+          "狐狸站在終點線旁",
+          "兔子在空曠田野上飛快跳躍"
         ],
         "correctIndex": 3,
-        "explanationZh": "「慢慢仔！你這樣也叫走路？」這是嘲諷，就是「嘲弄地說」。",
+        "explanationZh": "fast = 快，field = 田野。句子說兔子飛快地跳過田野——圖中正好是兔子在田野上快速跳躍。",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l1-x10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every day, the hare jumped fast across the open field.",
-        "sentenceZh": "每天，兔子都在空曠的田野上嗖嗖地跳。",
-        "question": "What was the hare's biggest problem?",
-        "options": [
-          "pride made him stop to rest",
-          "he kept going step by step",
-          "the tortoise gave up mid-race",
-          "nobody was watching him run"
-        ],
-        "optionsZh": [
-          "驕傲讓他停下來休息",
-          "他一步一步繼續往前走",
-          "烏龜在中途放棄了",
-          "沒有人看著他跑"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "跑那麼快卻輸了——問題不是腿，是「太驕傲、太愛吹噓了」，驕傲讓他犯了大錯。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "gist"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The tortoise looked up at him. \"I will race you,\" he said, slow and sure...",
-        "explanationZh": "烏龜慢慢抬起頭，看著兔子，不慌不忙地說：「我來和你比賽。」那股篤定，讓兔子愣了一下。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
+        "subSkill": "vocab"
       }
     ]
   },
@@ -557,31 +195,14 @@
     "storyBeat": "比賽開始 — 差距這麼大,追得上嗎?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch3-l2-q1",
+        "type": "narration",
+        "id": "kt-ch3-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "比賽",
-            "right": "race"
-          },
-          {
-            "left": "樹",
-            "right": "tree"
-          },
-          {
-            "left": "法官",
-            "right": "judge"
-          },
-          {
-            "left": "看",
-            "right": "watch"
-          }
-        ],
-        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 race = 比賽\n🔑 tree = 樹\n🔑 judge = 裁判\n🔑 watch = 看\n這 4 個字記住了，故事一開口就聽得懂！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch3",
@@ -591,258 +212,125 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch3-l2-q2",
+        "type": "phrase-pairs",
+        "id": "kt-ch3-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The hare fell over laughing. \"You? Race me?\" he said again and again.",
-        "explanationZh": "兔子笑到整個人倒在地上，肚子都笑痛了。「你？跟我比賽？」他重複了一遍又一遍，就是不相信。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l2-q3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "His ears shook hard from his loud laughing.",
-        "questionEn": "Did the hare believe the tortoise could win?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "笑到耳朵都在搖——這種笑法就是「完全不相信烏龜能贏」，所以答 No。",
+        "sentence": "Match each Chinese phrase to its English.",
+        "explanationZh": "這四個片語都出現在龜兔賽跑的故事裡：\n🔑 finish line = 終點線\n🔑 take a nap = 打個盹\n🔑 steady pace = 穩定的步伐\n🔑 show off = 愛現",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "inference"
+          "vocab",
+          "intro"
         ],
-        "sentenceZh": "他笑得那麼大聲，連耳朵都搖起來了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Yes. Tomorrow, at the big tree,\" the tortoise said quietly.",
-        "explanationZh": "「對，明天，大樹那裡見。」烏龜安安靜靜說，不激動、不慌張，就是穩穩的一句話。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
+        "pairs": [
+          {
+            "left": "終點線",
+            "right": "finish line"
+          },
+          {
+            "left": "打個盹",
+            "right": "take a nap"
+          },
+          {
+            "left": "穩定的步伐",
+            "right": "steady pace"
+          },
+          {
+            "left": "愛現",
+            "right": "show off"
+          }
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch3-l2-q5",
+        "type": "picture-mc",
+        "id": "kt-ch3-l2-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "A clever fox said he would stand at the finish line and call the winner.",
-        "question": "What was the fox's job?",
+        "sentence": "The tortoise walked slow and steady all the way to the finish line.",
+        "sentenceZh": "烏龜慢慢地、穩穩地一路走到了終點線。",
+        "question": "Which picture matches 'the finish line'?",
+        "imageEmoji": "🏁",
         "options": [
-          "to run too",
-          "to be the judge",
-          "to time the race",
-          "to give a prize"
+          "a tall tree with a big bird nest on top",
+          "a wide river with no bridge to cross over",
+          "a sleeping hare under a warm sunny oak tree",
+          "a flag and a line at the end of a race"
         ],
         "optionsZh": [
-          "也下去跑",
-          "當裁判",
-          "計時",
-          "頒發獎品"
+          "一棵頂上有大巢的樹",
+          "一條沒有橋的寬河",
+          "一隻兔子在溫暖陽光下的樹旁睡覺",
+          "一面旗子和標記比賽終點的線"
         ],
-        "correctIndex": 1,
-        "explanationZh": "站在終點喊誰贏——這就是「裁判」的工作！",
+        "correctIndex": 3,
+        "explanationZh": "finish line = 終點線 🏁！比賽裡，誰先過終點線就贏——烏龜穩穩走到了那裡。",
         "tags": [
           "story",
           "ch3",
-          "tortoise-hare"
+          "tortoise-hare",
+          "vocab"
         ],
-        "subSkill": "detail",
-        "sentenceZh": "一隻聰明的狐狸說，他要站在終點那裡，宣布誰贏。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The next morning, all the animals came to the field to watch.",
-        "explanationZh": "隔天一早，田野裡擠滿了動物，大家都好奇：烏龜真的敢跟兔子比賽？",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch3-l2-q7",
+        "id": "kt-ch3-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Who was at the race?",
-        "question": "Who was at the race?",
+        "sentence": "The hare stopped to take a nap in the middle of the race.",
+        "question": "Which emoji shows taking a nap?",
         "options": [
-          "🐢 only the tortoise",
-          "🐰 only the hare",
-          "👥 lots of animals",
-          "🌳 only trees"
+          "🏃 running fast",
+          "😴 taking a nap",
+          "🏆 winning a prize",
+          "🐢 walking slow"
         ],
         "optionsZh": [
-          "🐢 只有烏龜",
-          "🐰 只有兔子",
-          "👥 很多動物",
-          "🌳 只有樹"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "所有動物都來了——田野上到處是大家，當然是「很多動物」！",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "比賽現場有誰？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Ready, set, go!\" the fox called out in a clear voice.",
-        "explanationZh": "「預備——開始！」狐狸一聲喊，清清楚楚，比賽就這樣展開了。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch3-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In one minute, the brown hare was a small dot ahead on the road.",
-        "question": "How fast did the hare go?",
-        "options": [
-          "very slow",
-          "sideways",
-          "backwards",
-          "very fast"
-        ],
-        "optionsZh": [
-          "非常慢",
-          "橫著走",
-          "倒退走",
-          "非常快"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "一分鐘就跑得只剩一個小點——這不是快，這是「非常非常快」！",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "才一分鐘，棕色的兔子已經變成路上遠遠一個小點。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l2-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The tortoise lifted one foot, then put it down. Then the next foot. Then the next.",
-        "question": "Why did the tortoise still keep going?",
-        "options": [
-          "he had a steady plan",
-          "he gave up already",
-          "he lost his way",
-          "he was sleeping"
-        ],
-        "optionsZh": [
-          "他有穩定的計畫",
-          "他已經放棄了",
-          "他迷了路",
-          "他在睡覺"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "一步一步穩穩地走，沒有停下來，沒有放棄——這說明他「有穩定的計畫」，慢慢往前走就對了。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
-        ],
-        "subSkill": "inference",
-        "sentenceZh": "烏龜抬起一隻腳，放下去。再下一隻腳，再下一隻腳。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The hare fell over laughing. \"You? Race me?\" he said again and again.",
-        "sentenceZh": "兔子笑到整個人倒在地上。「你？跟我比賽？」他一遍又一遍地說。",
-        "question": "How did the hare react to the tortoise's challenge?",
-        "options": [
-          "he dashed ahead but stopped to sleep",
-          "he ran straight to the finish",
-          "the tortoise took the lead early",
-          "both animals ran at the same pace"
-        ],
-        "optionsZh": [
-          "他衝出去、但停下來睡了一覺",
-          "他一直跑到終點",
-          "烏龜很早就取得領先",
-          "兩隻動物跑得一樣快"
+          "快跑",
+          "打個盹",
+          "贏得獎品",
+          "慢慢走"
         ],
         "correctIndex": 1,
-        "explanationZh": "笑到倒在地上，還一遍一遍地重複「你？」——就是「笑了，完全不相信」。",
+        "explanationZh": "nap = 打個盹 😴！故事裡兔子覺得自己跑得夠快，就在樹下打了個盹——結果就輸了！",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch3-l2-x2",
+        "id": "kt-ch3-l2-gm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "\"Ready, set, go!\" the fox ___ out in a clear voice.",
-        "sentenceZh": "「預備——開始！」狐狸用清楚的聲音喊出來。",
+        "sentence": "The tortoise ___ slow and steady all the way to the finish line.",
+        "sentenceEasy": "The tortoise ___ slow and steady.",
+        "sentenceHard": "Without pause or hurry, the tortoise ___ slow and steady all the way to the finish line.",
         "question": "Which word is correct?",
         "options": [
-          "calling",
-          "call",
-          "called",
-          "calls"
+          "walk",
+          "walking",
+          "walked",
+          "walks"
         ],
         "optionsZh": [
-          "calling（進行式）",
-          "call（原形）",
-          "called（過去式）",
-          "calls（現在式第三人稱）"
+          "walk（原形）",
+          "walking（進行式）",
+          "walked（過去式）",
+          "walks（現在式第三人稱）"
         ],
         "correctIndex": 2,
-        "explanationZh": "這是故事裡已經發生的事，所以用過去式。call 的過去式是 called！「the fox called out」——狐狸喊出來了。",
+        "explanationZh": "這個句子說的是故事裡已發生的事，要用過去式。walk 的過去式是 walked（規則動詞，直接加 -ed）。\n完整句：The tortoise walked slow and steady all the way to the finish line.",
         "tags": [
           "story",
           "ch3",
@@ -852,245 +340,37 @@
         "subSkill": "function"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch3-l2-x3",
+        "type": "tap-pairs",
+        "id": "kt-ch3-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "\"Yes. Tomorrow, at the big tree,\" the tortoise said quietly.",
-        "sentenceZh": "「對，明天，大樹那裡見，」烏龜安靜地說。",
-        "questionEn": "Did the tortoise agree to race the next day?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「對，明天，大樹那裡見」——他同意了！明天比賽，所以答 Yes。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l2-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "A clever fox said he would stand at the finish line and call the winner.",
-        "sentenceZh": "一隻聰明的狐狸說，他要站在終點，宣布誰贏。",
-        "question": "What was the fox's role in the race?",
-        "options": [
-          "he laughed at the tortoise for trying",
-          "both animals cheered each other on",
-          "the tortoise sped past without words",
-          "the hare felt nervous about losing"
-        ],
-        "optionsZh": [
-          "他嘲笑烏龜居然來挑戰",
-          "兩隻動物互相加油",
-          "烏龜默默地超越了野兔",
-          "野兔緊張地怕自己會輸"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "站在終點、宣布誰贏——這就是「終點的裁判」。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l2-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The next morning, all the animals came to the field to watch.",
-        "sentenceZh": "隔天早上，所有動物都來到田野觀看。",
-        "questionEn": "Did the race happen at night?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「the next morning」——是早上，不是晚上，所以答 No。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch3-l2-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match these race phrases.",
-        "sentenceZh": "把比賽相關的片語配起來！",
+        "sentence": "Let's review all the new words from this lesson.",
         "pairs": [
           {
-            "left": "裁判",
-            "right": "judge"
+            "left": "睡覺",
+            "right": "sleep"
           },
           {
-            "left": "終點",
+            "left": "穩定",
+            "right": "steady"
+          },
+          {
+            "left": "終點線",
             "right": "finish line"
           },
           {
-            "left": "預備開始",
-            "right": "ready set go"
-          },
-          {
-            "left": "才一分鐘",
-            "right": "in one minute"
+            "left": "驕傲",
+            "right": "proud"
           }
         ],
-        "explanationZh": "這四組都是比賽開始那一段的重要片語，配一配！",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 sleep = 睡覺\n🔑 steady = 穩定\n🔑 finish line = 終點線\n🔑 proud = 驕傲",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
-          "vocab"
-        ]
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch3-l2-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In one minute, the brown hare was a small dot ahead on the road.",
-        "sentenceZh": "才一分鐘，棕色的兔子已經變成路上遠遠一個小點。",
-        "question": "What does this tell us about the hare's speed?",
-        "imageEmoji": "🐰",
-        "options": [
-          "he took a long nap and lost",
-          "the hare won by one step",
-          "the tortoise gave up at the hill",
-          "both ended the race at the same time"
-        ],
-        "optionsZh": [
-          "他睡了一大覺、輸掉了",
-          "野兔以一步之差勝出",
-          "烏龜在山丘前放棄了",
-          "兩隻動物同時到終點"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "一分鐘就變成遠遠的小點——這說明他「非常快」！",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l2-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The tortoise lifted one foot, then put it down. Then the next foot. Then the next.",
-        "sentenceZh": "烏龜抬起一隻腳，放下去。再下一隻腳，再下一隻腳。",
-        "question": "What does the tortoise's way of moving tell us?",
-        "options": [
-          "he trusted his speed and grew careless",
-          "the hare trained all night before the race",
-          "his fear of losing kept him awake",
-          "the tortoise's steady pace worried him"
-        ],
-        "optionsZh": [
-          "他太相信自己的速度、所以掉以輕心",
-          "野兔在比賽前整夜練習",
-          "對失敗的恐懼讓他睡不著",
-          "烏龜穩定的速度讓他擔心"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "一隻腳換一隻腳，沒有停——這說明「他穩穩地，不會停下來」。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch3-l2-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His ears shook hard from his loud laughing.",
-        "sentenceZh": "他笑得那麼大聲，連耳朵都搖起來了。",
-        "questionEn": "Was the hare's laughter gentle and soft?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「耳朵都搖起來了」——這樣的笑聲是大聲的、誇張的，哪裡「輕柔」？答 No。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch3-l2-x10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The hare was already far away. The tortoise had taken only one step.",
-        "sentenceZh": "兔子早就跑到遠處了。烏龜才走了一步。",
-        "question": "At the start of the race, who was winning?",
-        "options": [
-          "slow and steady still wins the race",
-          "resting is fine whenever you want",
-          "speed is always the better choice",
-          "a nap never hurt anyone"
-        ],
-        "optionsZh": [
-          "慢慢穩穩的還是能贏",
-          "想休息的時候隨時可以休息",
-          "速度永遠是更好的選擇",
-          "打個盹從來沒傷害過任何人"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "兔子「遠遠跑走了」，烏龜才走一步——「兔子遠遠領先」。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch3-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The hare was already far away. The tortoise had taken only one step...",
-        "explanationZh": "兔子早就跑到不知道哪裡去了。烏龜呢？才走了一步……差距大得讓人心疼，但他還是走。",
-        "tags": [
-          "story",
-          "ch3",
-          "tortoise-hare"
+          "vocab",
+          "review"
         ]
       }
     ]

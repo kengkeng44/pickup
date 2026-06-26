@@ -9,50 +9,111 @@
     "questions": [
       {
         "type": "narration",
-        "id": "kt-ch0-l1-n0",
+        "id": "kt-ch0-l1-intro",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "One rainy night, Grandma heard a tiny sound.",
-        "explanationZh": "那是個下著雨的夜晚。奶奶豎起耳朵——好像有個小小的聲音。",
+        "sentence": "Tonight we'll learn a few first words. Let's start!",
+        "sentenceZh": "我們先學幾個最簡單的字，開始囉！",
+        "explanationZh": "奶奶說：今晚先來認識幾個最基本的字，記住了，故事更好聽喔！",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
+          "vocab",
           "intro"
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch0-l1-n1",
+        "type": "tap-pairs",
+        "id": "kt-ch0-l1-vp1",
         "level": "A1",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Mew... mew... It came from the yard.",
-        "explanationZh": "喵⋯喵⋯那聲音從院子裡傳過來，輕輕的，濕濕的。",
+        "speaker": "narrator",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "貓",
+            "right": "cat"
+          },
+          {
+            "left": "雨",
+            "right": "rain"
+          },
+          {
+            "left": "夜晚",
+            "right": "night"
+          },
+          {
+            "left": "院子",
+            "right": "yard"
+          }
+        ],
+        "explanationZh": "這四個字都在故事裡：\n🔑 cat = 貓\n🔑 rain = 雨\n🔑 night = 夜晚\n🔑 yard = 院子",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch0-l1-vp2",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Three more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "聲音",
+            "right": "sound"
+          },
+          {
+            "left": "濕",
+            "right": "wet"
+          },
+          {
+            "left": "矮牆",
+            "right": "wall"
+          },
+          {
+            "left": "門",
+            "right": "door"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 sound = 聲音\n🔑 wet = 濕\n🔑 wall = 矮牆\n🔑 door = 門",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab",
           "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch0-l1-q2",
+        "id": "kt-ch0-l1-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Mew. What animal says mew?",
-        "question": "Pick the animal",
+        "sentence": "Which one is a cat?",
+        "question": "Which one is a cat?",
         "options": [
           "🐶 dog",
-          "🐱 cat",
           "🐦 bird",
+          "🐱 cat",
           "🐸 frog"
         ],
-        "correctIndex": 1,
-        "explanationZh": "「喵～」是貓咪的叫聲，所以答 cat 🐱。狗才是「汪」、青蛙才是「呱」。",
+        "optionsZh": [
+          "狗",
+          "鳥",
+          "貓",
+          "青蛙"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "貓的英文是 cat 🐱！故事裡奶奶在雨夜聽到一聲喵——那就是小貓 Mochi。",
         "tags": [
           "story",
           "ch0",
@@ -62,130 +123,59 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch0-l1-q3",
+        "type": "emoji-pick",
+        "id": "kt-ch0-l1-ep2",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Tonight it is raining.",
-        "questionEn": "Is it a sunny day?",
+        "sentence": "Which one shows rain?",
+        "question": "Which one shows rain?",
         "options": [
-          "Yes",
-          "No"
+          "🌧️ rain",
+          "🌈 rainbow",
+          "⛅ cloud",
+          "☀️ sun"
         ],
-        "correctIndex": 1,
-        "explanationZh": "今晚在下雨，不是晴天，所以選 No。",
+        "optionsZh": [
+          "雨",
+          "彩虹",
+          "雲",
+          "太陽"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "rain = 雨 🌧️！那個雨夜，Mochi 被淋得全身濕透。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
-          "inference"
+          "vocab"
         ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       },
       {
         "type": "picture-mc",
-        "id": "kt-ch0-l1-x1",
+        "id": "kt-ch0-l1-pm1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
+        "sentence": "Grandma heard a tiny sound at night.",
+        "sentenceZh": "夜晚，奶奶聽到一個小小的聲音。",
+        "question": "Which picture matches the sentence?",
         "imageEmoji": "🌙",
-        "sentence": "The night sky is dark.",
-        "question": "Which word matches?",
         "options": [
-          "dawn",
-          "noon",
-          "night",
-          "dusk"
+          "a bright sunny morning with birds singing",
+          "a dark quiet night with stars in the sky",
+          "a busy afternoon market full of people",
+          "a rainy day with children playing outside"
         ],
         "optionsZh": [
-          "黎明",
-          "正午",
-          "夜晚",
-          "黃昏"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "圖裡是夜晚的深藍天空，所以選 night！night 就是「夜晚」。",
-        "sentenceZh": "夜晚的天空很暗。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "vocab"
-        ],
-        "subSkill": "vocab"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch0-l1-x2",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Grandma heard a sound.",
-        "questionEn": "Did Grandma hear nothing?",
-        "options": [
-          "Yes",
-          "No"
+          "陽光燦爛的早晨，有小鳥唱歌",
+          "深沉安靜的夜晚，天上有星星",
+          "熱鬧的下午市場，人來人往",
+          "下雨的白天，小孩在外面玩"
         ],
         "correctIndex": 1,
-        "explanationZh": "奶奶「聽到了」一個聲音，所以「沒聽到」是錯的，答 No。",
-        "sentenceZh": "奶奶聽到了一個聲音。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch0-l1-x4",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "It was a dark rainy night. Grandma heard a tiny sound and listened hard.",
-        "question": "Where did the sound come from?",
-        "options": [
-          "Near the lamp",
-          "Up on the roof",
-          "Inside a book",
-          "Outside the house"
-        ],
-        "optionsZh": [
-          "在燈旁邊",
-          "在屋頂上",
-          "在書裡面",
-          "在房子外面"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "那聲音從房子外面傳來，outside the house 就是在外面。",
-        "sentenceZh": "這是個暗暗的雨夜，奶奶聽到一個小聲音，豎耳細聽。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "story"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch0-l1-x5",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "It is raining. The sky is dark and wet.",
-        "question": "Pick the picture for rain",
-        "options": [
-          "🌧️ rain",
-          "🌈 bow",
-          "🌤️ sun",
-          "🌬️ wind"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "下雨天嘛！選 rain 🌧️。雨讓夜晚又濕又暗。",
-        "sentenceZh": "正在下雨，天空又暗又濕。",
+        "explanationZh": "night = 夜晚，句子說奶奶在夜晚聽到聲音——圖中正是靜靜的夜晚。",
         "tags": [
           "story",
           "ch0",
@@ -193,36 +183,6 @@
           "vocab"
         ],
         "subSkill": "vocab"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch0-l1-n4",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "mochi",
-        "sentence": "That little sound... was me.",
-        "explanationZh": "那個小小的聲音⋯是我，是 Mochi 在叫呢。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "intro"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch0-l1-n5",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Grandma opened the door. Brave little one!",
-        "explanationZh": "奶奶打開了門，俯身看著小貓：「哇，這麼小一隻！你真勇敢！」",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "intro"
-        ]
       }
     ]
   },
@@ -236,42 +196,79 @@
     "questions": [
       {
         "type": "narration",
-        "id": "kt-ch0-l2-n0",
+        "id": "kt-ch0-l2-intro",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "In the yard sat a wet little cat.",
-        "explanationZh": "院子裡坐著一隻濕答答的小貓，雨水把牠淋得全身透濕。",
+        "sentence": "A few more words — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個字，學完了，故事馬上開始囉！",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
+          "vocab",
           "intro"
         ]
       },
       {
-        "type": "picture-mc",
-        "id": "kt-ch0-l2-q1",
+        "type": "phrase-pairs",
+        "id": "kt-ch0-l2-pp1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "imageEmoji": "🐱",
-        "sentence": "A small cat in the rain.",
-        "question": "Which word matches?",
+        "sentence": "Match each Chinese phrase to its English.",
+        "explanationZh": "這四個片語都在故事裡：\n🔑 little cat = 小貓\n🔑 warm towel = 暖毛巾\n🔑 open the door = 開門\n🔑 safe now = 現在安全了",
+        "tags": [
+          "story",
+          "ch0",
+          "ground-floor",
+          "vocab",
+          "intro"
+        ],
+        "pairs": [
+          {
+            "left": "小貓",
+            "right": "little cat"
+          },
+          {
+            "left": "暖毛巾",
+            "right": "warm towel"
+          },
+          {
+            "left": "開門",
+            "right": "open the door"
+          },
+          {
+            "left": "現在安全了",
+            "right": "safe now"
+          }
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch0-l2-pm1",
+        "level": "A1",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Grandma kept a dog named Hana.",
+        "sentenceZh": "奶奶養了一隻叫 Hana 的狗。",
+        "question": "Which picture matches 'a dog'?",
+        "imageEmoji": "🐶",
         "options": [
-          "cat",
-          "dog",
-          "bird",
-          "fish"
+          "a small fish swimming in a bowl",
+          "a little bird sitting on a branch",
+          "a fluffy dog wagging its tail",
+          "a green frog on a lily pad"
         ],
         "optionsZh": [
-          "貓",
-          "狗",
-          "鳥",
-          "魚"
+          "一條小魚在碗裡游",
+          "一隻小鳥站在樹枝上",
+          "一隻毛茸茸的狗在搖尾巴",
+          "一隻青蛙坐在荷葉上"
         ],
-        "correctIndex": 0,
-        "explanationZh": "你看，圖裡是一隻貓——所以選 cat！",
+        "correctIndex": 2,
+        "explanationZh": "dog = 狗 🐶。奶奶的狗叫 Hana，她是 Mochi 的好朋友！",
         "tags": [
           "story",
           "ch0",
@@ -282,76 +279,26 @@
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch0-l2-x1",
+        "id": "kt-ch0-l2-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The cat sat in the yard. It was wet.",
-        "question": "Pick the picture for wet",
+        "sentence": "Grandma reads a book of stories every night.",
+        "question": "Which one is a book?",
         "options": [
-          "🌞 dry",
-          "🔥 hot",
-          "💧 wet",
-          "❄️ icy"
+          "🎵 music",
+          "📖 book",
+          "🎨 painting",
+          "🎮 game"
         ],
-        "correctIndex": 2,
-        "explanationZh": "小貓全身都濕了，所以選 wet 💧。",
-        "sentenceZh": "貓坐在院子裡，全身濕透。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "vocab"
-        ],
-        "subSkill": "vocab"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch0-l2-x3",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Rain fell on the little cat.",
-        "questionEn": "Was the cat dry?",
-        "options": [
-          "Yes",
-          "No"
+        "optionsZh": [
+          "音樂",
+          "書",
+          "畫",
+          "遊戲"
         ],
         "correctIndex": 1,
-        "explanationZh": "雨一直下在小貓身上，牠當然不乾，所以答 No。",
-        "sentenceZh": "雨打在小貓身上。",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch0-l2-x4",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "imageEmoji": "🌧️",
-        "sentence": "Rain falls on the yard.",
-        "question": "Which word matches?",
-        "options": [
-          "rock",
-          "road",
-          "rope",
-          "rain"
-        ],
-        "optionsZh": [
-          "石頭",
-          "路",
-          "繩子",
-          "雨"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "圖裡是下雨，選 rain！rain 就是雨。",
-        "sentenceZh": "雨落在院子裡。",
+        "explanationZh": "book = 書 📖！奶奶每晚翻開一本英文故事書，讀給 Mochi 和 Hana 聽。",
         "tags": [
           "story",
           "ch0",
@@ -361,72 +308,69 @@
         "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch0-l2-x6",
+        "type": "grammar-mc",
+        "id": "kt-ch0-l2-gm1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Grandma said, 'You are safe now.'",
-        "questionEn": "Was the cat in danger before?",
+        "sentence": "Grandma has ___ old book.",
+        "sentenceEasy": "Grandma has ___ old book.",
+        "sentenceHard": "Grandma keeps ___ old book of stories on her shelf.",
+        "question": "Which word is correct?",
         "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "奶奶說「你現在安全了」，表示之前確實有危險，所以答 Yes。",
-        "sentenceZh": "奶奶說：「你現在安全了。」",
-        "tags": [
-          "story",
-          "ch0",
-          "ground-floor",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch0-l2-x7",
-        "level": "A1",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Grandma found a tiny cat. She opened the door wide and picked her up gently.",
-        "question": "What did Grandma do for the cat?",
-        "options": [
-          "Opened the door for her",
-          "Drove her away fast",
-          "Closed the gate tight",
-          "Went back to sleep"
+          "a",
+          "an",
+          "the",
+          "some"
         ],
         "optionsZh": [
-          "為她開了門",
-          "把她趕走",
-          "把門關緊",
-          "回去睡覺"
+          "a（放在子音前）",
+          "an（放在母音前）",
+          "the（特定的那個）",
+          "some（一些）"
         ],
-        "correctIndex": 0,
-        "explanationZh": "奶奶把門打開，把小貓迎進來，選「為她開了門」。",
-        "sentenceZh": "奶奶發現一隻小貓，把門打開，輕輕地把她抱起來。",
+        "correctIndex": 1,
+        "explanationZh": "old 的開頭發音是母音 /o/，所以要用 an，不用 a。\n完整句：Grandma has an old book.",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
-          "story"
+          "grammar"
         ],
-        "subSkill": "detail"
+        "subSkill": "function"
       },
       {
-        "type": "narration",
-        "id": "kt-ch0-l2-n5",
+        "type": "tap-pairs",
+        "id": "kt-ch0-l2-rev1",
         "level": "A1",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Come here, little one. You are safe now.",
-        "explanationZh": "奶奶蹲下來，輕輕說：「來吧，小傢伙。你現在安全了。」",
+        "speaker": "narrator",
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "暖",
+            "right": "warm"
+          },
+          {
+            "left": "狗",
+            "right": "dog"
+          },
+          {
+            "left": "書",
+            "right": "book"
+          },
+          {
+            "left": "故事",
+            "right": "story"
+          }
+        ],
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 warm = 暖\n🔑 dog = 狗\n🔑 book = 書\n🔑 story = 故事",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
-          "intro"
+          "vocab",
+          "review"
         ]
       }
     ]

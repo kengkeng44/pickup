@@ -1,44 +1,44 @@
 # Pickup Content DB — per-chapter summary
 
-**Generated**: 2026-06-26T12:25:28.934Z
+**Generated**: 2026-06-26T12:36:19.495Z
 
 ## Aggregate
 
-- **Total Q**: 3474
-- **Total play time est**: 1560 min
-- **Avg Q per chapter**: 134
-- **25% tolerance band**: 101 ≤ Q ≤ 168
+- **Total Q**: 3415
+- **Total play time est**: 1533 min
+- **Avg Q per chapter**: 131
+- **25% tolerance band**: 98 ≤ Q ≤ 164
 
 ## Per chapter (with 25% tolerance check)
 
 | Ch | Title | Lessons | Q count | Avg Q/lesson | Avg lesson time (5 min budget) | Variance from avg | Tolerance |
 |----|-------|---------|---------|--------------|--------------------------------|-------------------|-----------|
-| 1 | 桃太郎 | 7 | 113 | 16.1 | 446s/lesson ⚠️ 446s>300s | -16% | ✓ |
-| 2 | 醜小鴨 | 7 | 141 | 20.1 | 554s/lesson ⚠️ 554s>300s | +5% | ✓ |
-| 3 | 龜兔賽跑 | 7 | 147 | 21.0 | 600s/lesson ⚠️ 600s>300s | +10% | ✓ |
-| 4 | 駱駝為什麼有駝峰 | 7 | 147 | 21.0 | 569s/lesson ⚠️ 569s>300s | +10% | ✓ |
-| 5 | Baba Yaga | 7 | 133 | 19.0 | 525s/lesson ⚠️ 525s>300s | -1% | ✓ |
-| 6 | 六隻天鵝 | 7 | 133 | 19.0 | 546s/lesson ⚠️ 546s>300s | -1% | ✓ |
-| 7 | 葉限 | 7 | 133 | 19.0 | 526s/lesson ⚠️ 526s>300s | -1% | ✓ |
-| 8 | 三隻小豬 | 7 | 126 | 18.0 | 466s/lesson ⚠️ 466s>300s | -6% | ✓ |
-| 9 | 灰姑娘 | 7 | 126 | 18.0 | 469s/lesson ⚠️ 469s>300s | -6% | ✓ |
-| 10 | 嫦娥奔月 | 7 | 126 | 18.0 | 465s/lesson ⚠️ 465s>300s | -6% | ✓ |
-| 11 | 后羿射日 | 7 | 140 | 20.0 | 516s/lesson ⚠️ 516s>300s | +4% | ✓ |
-| 12 | 牛郎織女 | 7 | 140 | 20.0 | 527s/lesson ⚠️ 527s>300s | +4% | ✓ |
-| 13 | 小紅帽 | 7 | 140 | 20.0 | 525s/lesson ⚠️ 525s>300s | +4% | ✓ |
-| 14 | 浦島太郎 | 7 | 126 | 18.0 | 460s/lesson ⚠️ 460s>300s | -6% | ✓ |
-| 15 | 國王的新衣 | 7 | 126 | 18.0 | 483s/lesson ⚠️ 483s>300s | -6% | ✓ |
-| 16 | 一寸法師 | 7 | 126 | 18.0 | 460s/lesson ⚠️ 460s>300s | -6% | ✓ |
-| 17 | 鶴的報恩 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | -1% | ✓ |
-| 18 | 興夫和孬夫 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | -1% | ✓ |
-| 19 | Sang Kancil 鼠鹿 | 7 | 133 | 19.0 | 540s/lesson ⚠️ 540s>300s | -1% | ✓ |
-| 20 | 蘿蔔大冒險 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | -1% | ✓ |
-| 21 | Anansi 蜘蛛 | 7 | 133 | 19.0 | 508s/lesson ⚠️ 508s>300s | -1% | ✓ |
-| 22 | 孟母三遷 | 7 | 133 | 19.0 | 510s/lesson ⚠️ 510s>300s | -1% | ✓ |
-| 23 | 司馬光砸缸 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +4% | ✓ |
-| 24 | 孔融讓梨 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +4% | ✓ |
-| 25 | 愚公移山 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +4% | ✓ |
-| 26 | Archimedes 阿基米德 | 7 | 133 | 19.0 | 510s/lesson ⚠️ 510s>300s | -1% | ✓ |
+| 1 | 桃太郎 | 7 | 113 | 16.1 | 446s/lesson ⚠️ 446s>300s | -14% | ✓ |
+| 2 | 醜小鴨 | 7 | 112 | 16.0 | 444s/lesson ⚠️ 444s>300s | -15% | ✓ |
+| 3 | 龜兔賽跑 | 7 | 117 | 16.7 | 479s/lesson ⚠️ 479s>300s | -11% | ✓ |
+| 4 | 駱駝為什麼有駝峰 | 7 | 147 | 21.0 | 569s/lesson ⚠️ 569s>300s | +12% | ✓ |
+| 5 | Baba Yaga | 7 | 133 | 19.0 | 525s/lesson ⚠️ 525s>300s | +2% | ✓ |
+| 6 | 六隻天鵝 | 7 | 133 | 19.0 | 546s/lesson ⚠️ 546s>300s | +2% | ✓ |
+| 7 | 葉限 | 7 | 133 | 19.0 | 526s/lesson ⚠️ 526s>300s | +2% | ✓ |
+| 8 | 三隻小豬 | 7 | 126 | 18.0 | 466s/lesson ⚠️ 466s>300s | -4% | ✓ |
+| 9 | 灰姑娘 | 7 | 126 | 18.0 | 469s/lesson ⚠️ 469s>300s | -4% | ✓ |
+| 10 | 嫦娥奔月 | 7 | 126 | 18.0 | 465s/lesson ⚠️ 465s>300s | -4% | ✓ |
+| 11 | 后羿射日 | 7 | 140 | 20.0 | 516s/lesson ⚠️ 516s>300s | +7% | ✓ |
+| 12 | 牛郎織女 | 7 | 140 | 20.0 | 527s/lesson ⚠️ 527s>300s | +7% | ✓ |
+| 13 | 小紅帽 | 7 | 140 | 20.0 | 525s/lesson ⚠️ 525s>300s | +7% | ✓ |
+| 14 | 浦島太郎 | 7 | 126 | 18.0 | 460s/lesson ⚠️ 460s>300s | -4% | ✓ |
+| 15 | 國王的新衣 | 7 | 126 | 18.0 | 483s/lesson ⚠️ 483s>300s | -4% | ✓ |
+| 16 | 一寸法師 | 7 | 126 | 18.0 | 460s/lesson ⚠️ 460s>300s | -4% | ✓ |
+| 17 | 鶴的報恩 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | +2% | ✓ |
+| 18 | 興夫和孬夫 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | +2% | ✓ |
+| 19 | Sang Kancil 鼠鹿 | 7 | 133 | 19.0 | 540s/lesson ⚠️ 540s>300s | +2% | ✓ |
+| 20 | 蘿蔔大冒險 | 7 | 133 | 19.0 | 515s/lesson ⚠️ 515s>300s | +2% | ✓ |
+| 21 | Anansi 蜘蛛 | 7 | 133 | 19.0 | 508s/lesson ⚠️ 508s>300s | +2% | ✓ |
+| 22 | 孟母三遷 | 7 | 133 | 19.0 | 510s/lesson ⚠️ 510s>300s | +2% | ✓ |
+| 23 | 司馬光砸缸 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +7% | ✓ |
+| 24 | 孔融讓梨 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +7% | ✓ |
+| 25 | 愚公移山 | 7 | 140 | 20.0 | 540s/lesson ⚠️ 540s>300s | +7% | ✓ |
+| 26 | Archimedes 阿基米德 | 7 | 133 | 19.0 | 510s/lesson ⚠️ 510s>300s | +2% | ✓ |
 
 ## Per-lesson hook ending (v6, emotional peak cut)
 
@@ -54,8 +54,8 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | `kt-ch1-l5` | 渡海起霧 — 島上太安靜 | B6+B1 | 島上為何安靜?是埋伏? | [momotaro.md#beat-5-departure](../docs/canon/momotaro.md#beat-5-departure) |
 | `kt-ch1-l6` | 鬼王在等他 — 怎知名字? | B2 | 鬼王怎知他名字? | [momotaro.md#beat-6-battle](../docs/canon/momotaro.md#beat-6-battle) |
 | `kt-ch1-l7` | 凱旋 — 口袋裡還剩一顆糰子 | B6 open | 口袋還留一顆糰子 — 還有下一段? | [momotaro.md#beat-7-victory](../docs/canon/momotaro.md#beat-7-victory) |
-| `kt-ch2-l1` | 鴨媽媽等待 — 大蛋還沒裂 | B3 | 那大蛋裡是什麼? | [ugly-duckling.md#beat-1-setup](../docs/canon/ugly-duckling.md#beat-1-setup) |
-| `kt-ch2-l2` | 大蛋裂開 — 灰色鴨寶寶 — 大家盯著看 | B2 | 他是醜?還是只是不一樣? | [ugly-duckling.md#beat-2-discovery](../docs/canon/ugly-duckling.md#beat-2-discovery) |
+| `kt-ch2-l1` | 醜小鴨的故事開始前 — 先學關鍵字 | B3 | 那大蛋裡是什麼? | [ugly-duckling.md#beat-1-setup](../docs/canon/ugly-duckling.md#beat-1-setup) |
+| `kt-ch2-l2` | 再記幾個字，故事就要開始了 | B2 | 他是醜?還是只是不一樣? | [ugly-duckling.md#beat-2-discovery](../docs/canon/ugly-duckling.md#beat-2-discovery) |
 | `kt-ch2-l3` | 農場 — 被啄被追 — 媽媽轉頭 | B2 | 媽媽會回來保護他嗎? | [ugly-duckling.md#beat-3-rejection](../docs/canon/ugly-duckling.md#beat-3-rejection) |
 | `kt-ch2-l4` | 逃跑 — 野鴨朋友 — 槍聲 | B1 | 他會被打中?還能逃多遠? | [ugly-duckling.md#beat-4-escape](../docs/canon/ugly-duckling.md#beat-4-escape) |
 | `kt-ch2-l5` | 小屋 — 貓和母雞嘲笑 — 走入冷夜 | B5 | 他要去哪?外面更冷 | [ugly-duckling.md#beat-5-cottage](../docs/canon/ugly-duckling.md#beat-5-cottage) |
@@ -235,8 +235,8 @@ Hook coverage: Ch1 ✓ applied. Ch2-7 待 narrative-cut-analyst skill 重切.
 | Ch | comprehension | emoji-pick | grammar-mc | listen-mc | listen-tf | narration | phrase-pairs | picture-mc | scroll-pick | tap-pairs |
 |----|---|---|---|---|---|---|---|---|---|---|
 | 1 | 23 | 8 | 3 | 10 | 16 | 31 | 6 | 2 | 1 | 13 |
-| 2 | 28 | 6 | 2 | 14 | 24 | 42 | 8 | 10 | 0 | 7 |
-| 3 | 35 | 7 | 2 | 14 | 28 | 35 | 7 | 12 | 0 | 7 |
+| 2 | 20 | 7 | 2 | 10 | 17 | 32 | 7 | 9 | 0 | 8 |
+| 3 | 25 | 8 | 2 | 10 | 20 | 27 | 6 | 11 | 0 | 8 |
 | 4 | 24 | 10 | 2 | 14 | 28 | 42 | 14 | 6 | 0 | 7 |
 | 5 | 27 | 7 | 3 | 14 | 25 | 36 | 7 | 7 | 0 | 7 |
 | 6 | 28 | 7 | 2 | 21 | 26 | 28 | 7 | 7 | 0 | 7 |

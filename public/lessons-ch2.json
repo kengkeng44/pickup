@@ -5,34 +5,17 @@
     "lessonInChapter": 1,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "鴨媽媽等待 — 大蛋還沒裂",
+    "storyBeat": "醜小鴨的故事開始前 — 先學關鍵字",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch2-l1-q1",
+        "type": "narration",
+        "id": "kt-ch2-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "蛋",
-            "right": "egg"
-          },
-          {
-            "left": "等",
-            "right": "wait"
-          },
-          {
-            "left": "窩",
-            "right": "nest"
-          },
-          {
-            "left": "裡面",
-            "right": "inside"
-          }
-        ],
-        "explanationZh": "今晚故事的開場單字，左邊中文、右邊英文：\n🔑 egg = 蛋\n🔑 wait = 等\n🔑 nest = 窩\n🔑 inside = 裡面\n這 4 個字記住了，故事一開口就聽得懂！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講醜小鴨的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch2",
@@ -42,229 +25,95 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch2-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch2-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "In the warm reeds by the pond, mother duck sat on her nest.",
-        "sentenceEasy": "Mother duck sat on her nest by the pond.",
-        "sentenceHard": "Nestled among the warm reeds beside the pond, the mother duck kept faithful watch over her nest.",
-        "explanationZh": "池塘邊，蘆葦輕輕搖著，曬得暖呼呼的。鴨媽媽就窩在那裡，守著她的窩，一動也不動。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She had six round eggs to keep safe and warm.",
-        "sentenceEasy": "She had six eggs in her nest.",
-        "sentenceHard": "Beneath her soft feathers, she cradled six round eggs, keeping each one safe and warm.",
-        "explanationZh": "窩裡有六顆圓滾滾的蛋！鴨媽媽把翅膀輕輕蓋上去，像棉被一樣，不讓任何一顆著涼。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The reeds around her stood very still in the soft sun.",
-        "questionEn": "Was the place busy and loud?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "蛋",
+            "right": "egg"
+          },
+          {
+            "left": "池塘",
+            "right": "pond"
+          },
+          {
+            "left": "窩",
+            "right": "nest"
+          },
+          {
+            "left": "天鵝",
+            "right": "swan"
+          }
         ],
-        "correctIndex": 1,
-        "explanationZh": "你聽，蘆葦一動也不動地立著，陽光輕輕灑下來，多安靜的地方呀！所以不是「嘈雜熱鬧」。",
+        "explanationZh": "這四個字都在醜小鴨的故事裡：\n🔑 egg = 蛋\n🔑 pond = 池塘\n🔑 nest = 窩\n🔑 swan = 天鵝",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "inference"
-        ],
-        "sentenceZh": "她周圍的蘆葦，在柔柔的陽光下靜靜地立著。"
+          "vocab",
+          "intro"
+        ]
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch2-l1-x1",
+        "type": "tap-pairs",
+        "id": "kt-ch2-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Mother duck sat on her nest and waited day after day for the big egg to crack.",
-        "sentenceZh": "鴨媽媽坐在窩上，一天又一天地等著那顆大蛋裂開。",
-        "question": "What is the big idea of this part of the story?",
-        "options": [
-          "mother duck on her nest",
-          "a swan flying past",
-          "a fox chasing rabbits",
-          "a farmer planting seeds"
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "醜",
+            "right": "ugly"
+          },
+          {
+            "left": "羽毛",
+            "right": "feather"
+          },
+          {
+            "left": "孤單",
+            "right": "lonely"
+          },
+          {
+            "left": "美麗",
+            "right": "beautiful"
+          }
         ],
-        "optionsZh": [
-          "鴨媽媽趴在窩上",
-          "一隻天鵝飛過",
-          "一隻狐狸追兔子",
-          "農夫在種種子"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "這段故事的重點就是：鴨媽媽等著那顆特別大的蛋——她等了一天又一天，滿心期待。",
+        "explanationZh": "再來四個：\n🔑 ugly = 醜\n🔑 feather = 羽毛\n🔑 lonely = 孤單\n🔑 beautiful = 美麗",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "gist"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One sunny morning, five small eggs began to crack open.",
-        "sentenceEasy": "Five eggs cracked open one morning.",
-        "sentenceHard": "On a bright sunny morning, five of the small eggs began to tremble and crack open one by one.",
-        "explanationZh": "有個晴朗的早晨，五顆小蛋開始發出輕輕的「咔」聲——裂開啦！小鴨寶寶要出來了！",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch2-l1-q6",
+        "type": "emoji-pick",
+        "id": "kt-ch2-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Five tiny shapes pushed past the broken shells onto the grass.",
-        "question": "What came out of the eggs?",
+        "sentence": "Which one is an egg?",
+        "question": "Which one is an egg?",
         "options": [
-          "tiny yellow ducklings",
-          "small grey baby chicks",
-          "tiny green baby frogs",
-          "soft white kittens"
+          "🍎 apple",
+          "🥚 egg",
+          "🐟 fish",
+          "🌸 flower"
         ],
         "optionsZh": [
-          "小小的黃色鴨寶寶",
-          "小小的灰色雛雞",
-          "綠色的小青蛙寶寶",
-          "軟軟的白色小貓"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "你看！殼一片一片掉開，小小的黃色鴨寶寶搖搖晃晃鑽出來了！鴨媽媽的窩嘛，當然是黃色鴨寶寶囉。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "五個小小的身影，撥開碎殼，搖搖晃晃爬到草地上。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "All the other eggs were small and yellow. The last egg was large.",
-        "sentenceZh": "其他所有的蛋都小小的、黃黃的。最後那顆蛋很大。",
-        "questionEn": "Were all the eggs the same size?",
-        "options": [
-          "Yes",
-          "No"
+          "蘋果",
+          "蛋",
+          "魚",
+          "花"
         ],
         "correctIndex": 1,
-        "explanationZh": "其他蛋小小的，最後一顆卻大大的——大小明明不一樣，所以答 No。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "But one large egg was bigger than all the others.",
-        "sentenceEasy": "One egg was very big.",
-        "sentenceHard": "Yet among them lay one egg that was noticeably larger than all the rest, smooth and still.",
-        "explanationZh": "等一下……五顆都裂了，還有一顆大大的，就靜靜躺在那裡，圓滾滾的，一點動靜都沒有。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The largest one made no sound, soft and round on the nest.",
-        "question": "What was different about this egg?",
-        "options": [
-          "very small",
-          "still closed up",
-          "already broken",
-          "painted with color"
-        ],
-        "optionsZh": [
-          "很小",
-          "還沒打開",
-          "已經破了",
-          "塗了顏色"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "大顆的蛋靜悄悄的，一點聲音都沒有，圓滾滾地躺著——還沒裂開呢，所以是「還沒打開」。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "最大的那顆蛋，靜靜地、圓圓地躺在窩裡，沒有任何聲音。"
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch2-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The biggest egg sat still and round in the warm nest.",
-        "sentenceZh": "最大的那顆蛋，圓滾滾地靜靜躺在溫暖的窩裡。",
-        "question": "Which picture shows what happened?",
-        "imageEmoji": "🥚",
-        "options": [
-          "a pond with ducks swimming",
-          "five broken eggs on grass",
-          "one big egg in a nest",
-          "a farmyard with many hens"
-        ],
-        "optionsZh": [
-          "鴨子在池塘裡游泳",
-          "五顆破掉的蛋在草地上",
-          "一顆大蛋躺在窩裡",
-          "農場裡有很多母雞"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "故事說的就是那顆大大的蛋，圓滾滾的，靜靜待在窩裡，這就是「一顆大蛋躺在窩裡」。",
+        "explanationZh": "egg = 蛋 🥚！故事裡鴨媽媽守著一窩蛋，最大的那顆一直遲遲沒有孵出來。",
         "tags": [
           "story",
           "ch2",
@@ -274,263 +123,66 @@
         "subSkill": "vocab"
       },
       {
-        "type": "narration",
-        "id": "kt-ch2-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Mother duck sat down again and waited day after day.",
-        "sentenceEasy": "Mother duck waited and waited.",
-        "sentenceHard": "Patiently, mother duck settled back onto her nest and waited, day after day, for the great egg to stir.",
-        "explanationZh": "鴨媽媽嘆了口氣，再次輕輕坐下去。就這樣，一天又一天，她繼續等著、守著那顆大蛋。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Five eggs cracked open, but mother duck sat back down on the big egg and waited more.",
-        "sentenceZh": "五顆蛋裂開了，但鴨媽媽又坐回去，繼續等那顆大蛋。",
-        "question": "Why did mother duck sit back down?",
-        "options": [
-          "she wanted more warmth",
-          "she heard a loud noise",
-          "she was hungry and resting",
-          "the big egg had not hatched yet"
-        ],
-        "optionsZh": [
-          "她想多曬曬太陽",
-          "她聽到一個響聲",
-          "她肚子餓了要休息",
-          "大蛋還沒孵出來"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "五顆小蛋都出來了，可那顆大蛋還沒動靜——所以鴨媽媽只好再坐下來，繼續等啊等。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
         "type": "emoji-pick",
-        "id": "kt-ch2-l1-q10",
+        "id": "kt-ch2-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did mother duck feel?",
-        "question": "How did she feel?",
+        "sentence": "Which one shows a swan?",
+        "question": "Which one shows a swan?",
         "options": [
-          "😟 worried",
-          "😄 excited",
-          "😴 getting very sleepy",
-          "😡 starting to feel mad"
+          "🐧 penguin",
+          "🦅 eagle",
+          "🦢 swan",
+          "🐦 small bird"
         ],
         "optionsZh": [
-          "😟 擔心",
-          "😄 興奮",
-          "😴 快要睡著了",
-          "😡 開始覺得生氣"
+          "企鵝",
+          "老鷹",
+          "天鵝",
+          "小鳥"
         ],
-        "correctIndex": 0,
-        "explanationZh": "一天又一天地等，大蛋還是沒動靜……換作是你，是不是也會開始擔心了？所以鴨媽媽是「擔心」。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "鴨媽媽的心情怎麼樣？"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Mother duck sat down again and waited day after day.",
-        "sentenceZh": "鴨媽媽又坐回去，一天又一天地等著。",
-        "questionEn": "Did mother duck give up and leave the nest?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "她坐回去繼續等——沒有放棄，沒有離開，媽媽就是這樣，所以答 No。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l1-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "In the warm reeds by the pond, mother duck sat on her nest. She had six round eggs to keep safe and warm.",
-        "sentenceZh": "在池塘邊暖和的蘆葦叢裡，鴨媽媽坐在她的窩上。她有六顆圓蛋要好好守護。",
-        "question": "Where did mother duck sit to keep her eggs warm?",
-        "options": [
-          "beside the pond among the reeds",
-          "high up on a snowy mountain",
-          "deep inside a dark forest",
-          "floating alone in the middle of a river"
-        ],
-        "optionsZh": [
-          "在蘆葦叢旁邊的池塘邊",
-          "在白雪皚皚的高山上",
-          "在黑暗森林的深處",
-          "孤零零漂在河中央"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「池塘邊暖和的蘆葦叢裡」——鴨媽媽就窩在那裡，守著她的六顆蛋。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch2-l1-x10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the egg scene phrases.",
-        "sentenceZh": "把這些關於蛋的片語配配看！",
-        "pairs": [
-          {
-            "left": "六顆蛋",
-            "right": "six eggs"
-          },
-          {
-            "left": "大蛋",
-            "right": "the big egg"
-          },
-          {
-            "left": "沒有聲音",
-            "right": "no sound"
-          },
-          {
-            "left": "一天又一天",
-            "right": "day after day"
-          }
-        ],
-        "explanationZh": "這四組都出現在這節故事裡，你還記得嗎？配一配就記更牢！",
+        "correctIndex": 2,
+        "explanationZh": "swan = 天鵝 🦢！故事的結局，醜小鴨慢慢長大，竟然變成了一隻美麗的天鵝！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch2-l1-x11",
+        "type": "picture-mc",
+        "id": "kt-ch2-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The reeds around her stood very still in the soft sun.",
-        "sentenceZh": "她周圍的蘆葦，在柔柔的陽光下靜靜地立著。",
-        "questionEn": "Was it a stormy and loud day when mother duck was waiting?",
+        "sentence": "The mother duck sat on her nest beside the pond.",
+        "sentenceZh": "鴨媽媽坐在池塘邊的窩上。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🦆",
         "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "蘆葦靜靜地立著、陽光柔柔的——那天平靜得很，哪來的暴風雨？答 No。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "inference"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l1-x12",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One sunny morning, five small eggs began to crack open.",
-        "sentenceZh": "有個晴朗的早晨，五顆小蛋開始裂開了。",
-        "question": "What kind of morning was it when the eggs started to crack?",
-        "options": [
-          "on a bright sunny morning",
-          "late at cold night",
-          "one snowy evening",
-          "during a windy afternoon"
+          "a duck flying high above the clouds",
+          "a duck swimming alone in the open sea",
+          "a duck sitting on a nest near a calm pond",
+          "a duck running quickly across a dry field"
         ],
         "optionsZh": [
-          "在一個晴朗的早晨",
-          "在寒冷的深夜",
-          "一個下雪的傍晚",
-          "在一個有風的下午"
+          "一隻鴨子飛在雲端上",
+          "一隻鴨子獨自在大海裡游泳",
+          "一隻鴨子坐在平靜池塘邊的窩上",
+          "一隻鴨子快速跑過乾燥的田野"
         ],
         "correctIndex": 2,
-        "explanationZh": "「One sunny morning」——晴朗的早晨，就是這樣開始的！",
+        "explanationZh": "pond = 池塘，nest = 窩，句子說鴨媽媽坐在池塘邊的窩上——圖中正是這個畫面。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l1-x13",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She had six round eggs to keep safe and warm.",
-        "sentenceZh": "她有六顆圓滾滾的蛋要好好守護，讓它們安全暖和。",
-        "questionEn": "Did mother duck have more than five eggs?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "她有「六顆」蛋——六比五多，所以答 Yes！",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Then she felt a small thump from inside the big egg...",
-        "sentenceEasy": "She felt a bump inside the big egg.",
-        "sentenceHard": "Then, at last, she felt a faint but unmistakable thump stir from deep within the great egg...",
-        "explanationZh": "就在這時候——「咚」！鴨媽媽感覺到大蛋裡頭有什麼東西輕輕撞了一下……要出來了嗎？",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
+        "subSkill": "vocab"
       }
     ]
   },
@@ -540,34 +192,17 @@
     "lessonInChapter": 2,
     "segmentType": "main-story",
     "storyId": "ugly-duckling",
-    "storyBeat": "大蛋裂開 — 灰色鴨寶寶 — 大家盯著看",
+    "storyBeat": "再記幾個字，故事就要開始了",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch2-l2-q1",
+        "type": "narration",
+        "id": "kt-ch2-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "灰",
-            "right": "grey"
-          },
-          {
-            "left": "大",
-            "right": "large"
-          },
-          {
-            "left": "不同",
-            "right": "different"
-          },
-          {
-            "left": "孵出",
-            "right": "hatch"
-          }
-        ],
-        "explanationZh": "今晚故事的新單字，左邊中文、右邊英文：\n🔑 grey = 灰\n🔑 large = 大\n🔑 different = 不同\n🔑 hatch = 孵出\n這 4 個字記住了，故事一開口就聽得懂！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch2",
@@ -577,236 +212,125 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch2-l2-q2",
+        "type": "phrase-pairs",
+        "id": "kt-ch2-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "At last the great egg began to crack open slowly.",
-        "sentenceEasy": "The big egg began to crack.",
-        "sentenceHard": "After so many long days of waiting, the great egg at last began to split and crack open, slowly and surely.",
-        "explanationZh": "等了好多好多天，終於，大蛋開始慢慢地裂開——「喀、喀、喀」，一條細縫，越來越大……",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Out came a baby duck — but he was large and grey.",
-        "sentenceEasy": "A baby duck came out. He was big and grey.",
-        "sentenceHard": "From within the broken shell emerged a baby duck — yet unlike his golden siblings, he was large and grey.",
-        "explanationZh": "結果呀，出來的鴨寶寶，不是黃黃的，是又大又灰的！大家都愣住了。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The yellow ducklings stopped playing and turned their heads.",
-        "questionEn": "Did the yellow ducklings notice him?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese phrase to its English.",
+        "pairs": [
+          {
+            "left": "長大",
+            "right": "grow up"
+          },
+          {
+            "left": "倒影",
+            "right": "reflection"
+          },
+          {
+            "left": "冷冷的冬天",
+            "right": "cold winter"
+          },
+          {
+            "left": "飛走了",
+            "right": "flew away"
+          }
         ],
-        "correctIndex": 0,
-        "explanationZh": "小鴨們本來在玩，突然全部停下來，把頭轉過去看——就是「注意到他」，所以答 Yes。",
+        "explanationZh": "這四個片語都出現在醜小鴨的故事裡：\n🔑 grow up = 長大\n🔑 reflection = 倒影\n🔑 cold winter = 冷冷的冬天\n🔑 flew away = 飛走了",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "inference"
-        ],
-        "sentenceZh": "黃色的鴨寶寶們停下來玩耍，把頭都轉了過去。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At last the great egg cracked open, and out came a baby duck who was large and grey.",
-        "sentenceZh": "終於，那顆大蛋裂開了，出來的是一隻又大又灰的小鴨。",
-        "question": "What surprised everyone when the egg opened?",
-        "options": [
-          "big and grey, unlike the others",
-          "thin and brown with spots",
-          "soft white and round",
-          "small and yellow like a daisy"
-        ],
-        "optionsZh": [
-          "大大的、灰灰的，跟其他兄弟姊妹不一樣",
-          "瘦瘦的、棕色的、還有斑點",
-          "軟軟的、白白的、圓滾滾的",
-          "小小的、黃黃的，像朵小菊花"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "大家都在等，結果出來的鴨寶寶是又大又灰的——這跟大家預期的黃色小鴨完全不一樣，所以讓大家愣住了。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They looked at the new baby for a long, quiet moment.",
-        "sentenceEasy": "They all looked at the new baby.",
-        "sentenceHard": "For a long and perfectly quiet moment, every duckling stood still and fixed their gaze upon the strange new baby.",
-        "explanationZh": "大家就這樣靜靜地看著這個灰色的新寶寶，沒人動、沒人說話，那份沉默好奇妙，好長、好長……",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch2-l2-q6",
+        "type": "picture-mc",
+        "id": "kt-ch2-l2-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The new duckling did not look like his brothers and sisters.",
-        "question": "How was the new duckling not the same?",
+        "sentence": "The duckling saw his reflection in the water.",
+        "sentenceZh": "小鴨在水面看到了自己的倒影。",
+        "question": "Which picture matches 'a reflection in the water'?",
+        "imageEmoji": "🦆",
         "options": [
-          "a different color",
-          "missing his feet",
-          "smaller in size",
-          "unable to swim"
+          "a duckling hiding alone under a green bush",
+          "a duckling looking at itself in the water",
+          "a duckling sleeping inside a warm round nest",
+          "a duckling eating small seeds on dry land"
         ],
         "optionsZh": [
-          "他顏色不同",
-          "他沒有腳",
-          "他比較小",
-          "他不會游泳"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "哥哥姐姐們是黃的，他是灰的，就是顏色不同嘛！",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "新來的小鴨，長得跟哥哥姐姐們不一樣。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The new duckling did not look like his brothers and sisters. They looked at him for a long, quiet moment.",
-        "sentenceZh": "新來的小鴨，長得跟哥哥姐姐們不一樣。大家靜靜地盯著他看了好一會兒。",
-        "question": "How did the yellow ducklings react to the grey one?",
-        "options": [
-          "they ran away and left him",
-          "nobody liked him at all",
-          "he was chased out by the hens",
-          "everyone laughed at his face"
-        ],
-        "optionsZh": [
-          "他們跑開、把他拋在後頭",
-          "根本沒有人喜歡他",
-          "他被母雞們趕走了",
-          "大家都嘲笑他的樣子"
+          "一隻小鴨躲在灌木叢下",
+          "一隻小鴨低頭看著水面的倒影",
+          "一隻小鴨在溫暖的窩裡睡覺",
+          "一隻小鴨在乾地上吃種子"
         ],
         "correctIndex": 1,
-        "explanationZh": "沒有人玩、沒有人說話，大家就這樣靜靜地「盯著他看」——那種沉默，比什麼都奇怪。",
+        "explanationZh": "reflection = 倒影，句子說小鴨看著水面上的自己——圖中正是小鴨低頭看水面倒影的樣子。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "detail"
+          "vocab"
         ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
-        "type": "narration",
-        "id": "kt-ch2-l2-q7",
+        "type": "emoji-pick",
+        "id": "kt-ch2-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Mother duck looked at her new son and gave him a name.",
-        "sentenceEasy": "Mother duck gave him a name.",
-        "sentenceHard": "Mother duck gazed softly at her new son, and with great tenderness, she gave him a name of his own.",
-        "explanationZh": "鴨媽媽低頭輕輕看著這個新來的孩子，眼神很溫柔，她伸出脖子，給他取了一個名字。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch2-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "She wanted him to feel welcome in the warm green nest.",
-        "question": "How did mother duck treat him?",
+        "sentence": "The duckling shivered alone in the cold winter.",
+        "question": "Which emoji shows winter?",
         "options": [
-          "coldness",
-          "teasing",
-          "kindness",
-          "silence"
+          "☀️ sunny day",
+          "🌸 spring flowers",
+          "❄️ cold winter",
+          "🍂 autumn leaves"
         ],
         "optionsZh": [
-          "冷淡",
-          "嘲笑",
-          "善意",
-          "不說話"
+          "晴天",
+          "春天的花",
+          "冷冷的冬天",
+          "秋天的落葉"
         ],
         "correctIndex": 2,
-        "explanationZh": "鴨媽媽希望他感覺到溫暖、被接受，這就是「善意」——媽媽的心，都是這樣的。",
+        "explanationZh": "winter = 冬天 ❄️！醜小鴨獨自一人在冰冷的冬天裡發抖，好可憐喔。",
         "tags": [
           "story",
           "ch2",
-          "ugly-duckling"
+          "ugly-duckling",
+          "vocab"
         ],
-        "subSkill": "detail",
-        "sentenceZh": "她想讓他在溫暖的綠色窩裡覺得被歡迎。"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch2-l2-x4",
+        "id": "kt-ch2-l2-gm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Out ___ a baby duck — but he was large and grey.",
-        "sentenceZh": "出來的是一隻小鴨——但他又大又灰。",
+        "sentence": "The ugly duckling ___ alone all through the cold winter.",
+        "sentenceEasy": "The duckling ___ alone in winter.",
+        "sentenceHard": "Through every bitter cold night of the long winter, the ugly duckling ___ quite alone.",
         "question": "Which word is correct?",
         "options": [
-          "comes",
-          "come",
-          "coming",
-          "came"
+          "live",
+          "lives",
+          "living",
+          "lived"
         ],
         "optionsZh": [
-          "comes（第三人稱現在式）",
-          "come（原形）",
-          "coming（進行式）",
-          "came（過去式）"
+          "live（原形）",
+          "lives（第三人稱現在式）",
+          "living（進行式）",
+          "lived（過去式）"
         ],
         "correctIndex": 3,
-        "explanationZh": "這是過去發生的事，所以動詞要用過去式。come 的過去式是 came！「Out came a baby duck」——就這樣出來了。",
+        "explanationZh": "這個句子說的是過去發生的事，live 的過去式是 lived（規則動詞加 -d）。\n完整句：The ugly duckling lived alone all through the cold winter.",
         "tags": [
           "story",
           "ch2",
@@ -816,249 +340,37 @@
         "subSkill": "function"
       },
       {
-        "type": "narration",
-        "id": "kt-ch2-l2-q9",
+        "type": "tap-pairs",
+        "id": "kt-ch2-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "But the other ducklings whispered words behind his back.",
-        "sentenceEasy": "The other ducklings whispered about him.",
-        "sentenceHard": "Behind his back, however, the other ducklings huddled close and whispered unkind words to one another.",
-        "explanationZh": "但是，鴨媽媽背對的時候，其他小鴨悄悄湊在一起，用小小的聲音說著那些不好聽的話……",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
-        ]
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch2-l2-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The other ducklings whispered words behind his back.",
-        "sentenceZh": "其他小鴨在他背後悄悄說著話。",
-        "question": "What were the yellow ducklings doing?",
-        "imageEmoji": "🐥",
-        "options": [
-          "whispering about him",
-          "swimming together",
-          "eating their lunch",
-          "sleeping in the nest"
-        ],
-        "optionsZh": [
-          "在說他的悄悄話",
-          "一起游泳",
-          "吃午餐",
-          "在窩裡睡覺"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「在他背後說話」就是背地裡議論他——悄悄說話，不讓他聽見。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch2-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They stood in a line and kept their eyes on him without a word.",
-        "question": "How did the other ducklings act?",
-        "options": [
-          "🙄 looking away",
-          "👀 staring",
-          "🤝 friendly",
-          "🎉 excited and cheerful"
-        ],
-        "optionsZh": [
-          "🙄 移開視線",
-          "👀 盯著看",
-          "🤝 友善",
-          "🎉 又興奮又開心"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "站成一排、眼睛黏在他身上、一個字都不說——這就是「盯著看」，讓人渾身不自在呀。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "他們排成一排，眼睛黏在他身上，沒有一個人出聲。"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch2-l2-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match these phrases from the grey duckling's birth.",
-        "sentenceZh": "把這些描述灰色小鴨出生的片語配起來！",
+        "sentence": "Let's review all the new words from this lesson.",
         "pairs": [
           {
-            "left": "終於裂開",
-            "right": "crack open at last"
+            "left": "醜",
+            "right": "ugly"
           },
           {
-            "left": "又大又灰",
-            "right": "large and grey"
+            "left": "美麗",
+            "right": "beautiful"
           },
           {
-            "left": "長久沉默",
-            "right": "long quiet moment"
+            "left": "長大",
+            "right": "grow up"
           },
           {
-            "left": "取了個名字",
-            "right": "gave him a name"
+            "left": "孤單",
+            "right": "lonely"
           }
         ],
-        "explanationZh": "這四組都出現在這節故事裡，你還記得嗎？配一配就記更牢！",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 ugly = 醜\n🔑 beautiful = 美麗\n🔑 grow up = 長大\n🔑 lonely = 孤單",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
-          "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l2-x10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The yellow ducklings stopped playing and turned their heads. They looked at the new baby for a long, quiet moment.",
-        "sentenceZh": "黃色的小鴨停下玩耍，把頭轉了過去。他們靜靜地看了新寶寶好久好久。",
-        "question": "How did the yellow ducklings first react to the grey one?",
-        "options": [
-          "they mocked him for looking different",
-          "the ducks gave him a song",
-          "he was welcomed with open wings",
-          "mother duck kept him safe"
-        ],
-        "optionsZh": [
-          "他們嘲笑他長得不一樣",
-          "鴨群唱歌給他聽",
-          "大家張開翅膀歡迎他",
-          "鴨媽媽保護著他"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "停下玩、頭轉過去、靜靜看了好久——就是「停下來靜靜地盯著他看」。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch2-l2-x11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Nobody made a sound. They just stared at the large grey baby.",
-        "sentenceZh": "沒有人出聲。大家只是盯著那個又大又灰的寶寶看。",
-        "questionEn": "Did the yellow ducklings make a lot of noise when they saw the grey one?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「沒有人出聲」——安靜得很，沒有噪音也沒有大聲，所以答 No。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "picture-mc",
-        "id": "kt-ch2-l2-x12",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At last the great egg began to crack open slowly.",
-        "sentenceZh": "終於，那顆大蛋開始慢慢地裂開了。",
-        "question": "What happened to the big egg?",
-        "imageEmoji": "🥚",
-        "options": [
-          "mother duck cheered him up",
-          "nothing changed after that",
-          "all the birds became his friends",
-          "it showed him he did not belong"
-        ],
-        "optionsZh": [
-          "鴨媽媽替他打氣",
-          "什麼都沒有改變",
-          "所有鳥兒都成了他的朋友",
-          "讓他知道自己格格不入"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「At last...began to crack open slowly」——終於慢慢裂開了！就是這個。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch2-l2-x13",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Mother duck looked at her new son and gave him a name. She wanted him to feel welcome in the warm green nest.",
-        "sentenceZh": "鴨媽媽看著她的新兒子，給他取了個名字。她希望他在溫暖的綠色窩裡覺得被歡迎。",
-        "question": "How did mother duck show she cared for the grey duckling?",
-        "options": [
-          "mother duck kept every hurt away",
-          "she could not stop all the pain",
-          "the pond became his safe home",
-          "all the other ducks changed too"
-        ],
-        "optionsZh": [
-          "鴨媽媽擋下了每一份傷害",
-          "她沒辦法阻止所有的傷害",
-          "池塘變成了他安全的家",
-          "其他的鴨子也都改變了"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "給他取名字、讓他覺得被歡迎——這就是媽媽表達在乎的方式。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling",
-          "detail"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch2-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Nobody made a sound. They just stared at the large grey baby...",
-        "sentenceEasy": "No one spoke. They all stared at him.",
-        "sentenceHard": "Not a single voice broke the silence — they simply stood and stared, wide-eyed, at the large grey baby before them...",
-        "explanationZh": "沒有人動，沒有人說話。大家就這樣靜靜地盯著那個又大又灰的寶寶……那種安靜，比什麼都沉重。",
-        "tags": [
-          "story",
-          "ch2",
-          "ugly-duckling"
+          "vocab",
+          "review"
         ]
       }
     ]
