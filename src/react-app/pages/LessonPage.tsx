@@ -11,7 +11,6 @@ import { speak } from '../../audio/tts';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { wireSentenceHints } from '../../ui/WordHint';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
-import { estimateLessonMinutes } from '../../data/lessons';
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
@@ -21,6 +20,7 @@ import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { logLesson } from '../../data/learnLog';
 // v2.0.B.286: shared resume key (was local resumeKey in B.272).
 import { lessonResumeKey as resumeKey } from '../../data/lessonProgress';
+import { getHp, loseHp, refillHp, subscribeHp, MAX_HP } from '../../data/hp';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
@@ -60,6 +60,9 @@ export default function LessonPage() {
   // v2.0.B.303: ?preview=N — deep-link to a specific question index (used by the
   // UI/UX spec doc's live 1:1 iframes). Read-only: does NOT persist resume state.
   const isPreview = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('preview');
+
+  // v2.0.B.424: 每進一個 lesson 把體力補滿 (每節重新開始, 不跨節懲罰)
+  useEffect(() => { refillHp(); }, [chapter, lessonId]);
 
   useEffect(() => {
     fetch(`/lessons-ch${chapter}.json`)
@@ -122,8 +125,6 @@ export default function LessonPage() {
     return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
   }
 
-  // v2.0.B.379 (per user): 依題型加權估時 (旁白7s/配對·產出26s/其他16s), 取代舊高估 22s×entry
-  const estMin = estimateLessonMinutes(lesson.questions);
   const done = idx >= lesson.questions.length;
   if (done) {
     return <CompletePanel
@@ -145,6 +146,7 @@ export default function LessonPage() {
   };
 
   const onAnswer = (userIdx: number, isCorrect: boolean) => {
+    if (!isCorrect) loseHp(); // v2.0.B.424: 答錯扣體力 (愛心)
     answerLog.current.push({ q, userIdx, isCorrect });
     try {
       track(EVENT.ANSWER_SUBMIT, {
@@ -175,9 +177,9 @@ export default function LessonPage() {
           style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 999, overflow: 'hidden' }}
         >
           <div style={{
-            // v2.0.B.320 (per user): 進度條前快後慢 — 用 pow(linear, 0.6) 前載曲線,
-            // 前幾題跳得多 (momentum/多巴胺), 後面增量變小. 最後一題仍精確到 100%.
-            width: `${Math.max(4, Math.pow((idx + 1) / lesson.questions.length, 0.6) * 100)}%`,
+            // v2.0.B.424 (per user): 線性進度 idx/total — 不再 pow 前載 (會讓一進來就看起來半滿);
+            // 第 1 題 (idx 0) = 空, 答一題 +1/total. 進度條不顯示任何文字/分鐘數。
+            width: `${Math.round((idx / lesson.questions.length) * 100)}%`,
             height: '100%',
             background: 'var(--t-success)',
             borderRadius: 999,
@@ -185,7 +187,7 @@ export default function LessonPage() {
             transition: 'width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }} />
         </div>
-        <span aria-hidden="true" style={{ fontSize: 11, color: '#a08060', fontWeight: 700, flex: '0 0 auto' }}>~{estMin}m</span>
+        <Hearts />
         <MuteToggleBtn />
       </div>
 
@@ -243,19 +245,35 @@ function MuteToggleBtn() {
   );
 }
 
+// v2.0.B.424 (per user): 體力愛心 — 右上角顯示 🧡, 答錯扣一顆 (空心 🤍).
+function Hearts() {
+  const [hp, setHp] = useState(() => getHp());
+  useEffect(() => subscribeHp(() => setHp(getHp())), []);
+  return (
+    <span aria-label={`體力 ${hp}/${MAX_HP}`} title={`體力 ${hp}/${MAX_HP}`}
+      style={{ flex: '0 0 auto', fontSize: 14, letterSpacing: '1px', lineHeight: 1, whiteSpace: 'nowrap' }}>
+      {'🧡'.repeat(hp)}{'🤍'.repeat(MAX_HP - hp)}
+    </span>
+  );
+}
+
+// v2.0.B.424 (per user): 歷史題也「空白底線 → 點才出英文」(聽力訓練, 一進來不該有英文).
 function NarrativeLine({ text }: { text: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
   const replay = () => { try { speak(text, 'en-US', { force: true }); } catch {} };
   useEffect(() => {
-    if (ref.current) { try { wireSentenceHints(ref.current); } catch {} }
-  });
+    if (shown && ref.current) { try { wireSentenceHints(ref.current); } catch {} }
+  }, [shown]);
+  const blanked = text.split(/\s+/).filter(Boolean).map(() => '＿＿＿').join(' ');
   return (
     <div className="pickup-lesson-words" style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '4px 0', fontSize: 17, color: 'var(--t-text)', lineHeight: 1.7, fontWeight: 600 }}>
-      {/* v2.0.B.187 P1-A: speaker tap 22 → 44px HIG (內含 20px img + 12px halo padding) */}
       <button onClick={replay} aria-label="Replay" style={{ flex: '0 0 auto', width: 44, height: 44, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
         <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ opacity: 0.7 }} />
       </button>
-      <span ref={ref} style={{ flex: '1 1 auto' }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
+      {shown
+        ? <span ref={ref} style={{ flex: '1 1 auto' }} dangerouslySetInnerHTML={{ __html: wrapWords(text) }} />
+        : <span onClick={() => setShown(true)} style={{ flex: '1 1 auto', cursor: 'pointer', color: 'var(--t-text-muted)', letterSpacing: '0.1em' }}>{blanked}</span>}
     </div>
   );
 }
