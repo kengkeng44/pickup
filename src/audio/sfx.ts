@@ -117,50 +117,6 @@ export function sfxCardPress(): void {
 }
 
 /**
- * Bell-like tone — fundamental + harmonics with slow attack and
- * exponential release. Sounds chime-y, not buzzy. Used by sfxCorrect.
- */
-function bellTone(
-  fundamental: number,
-  duration: number,
-  peak: number,
-  startAt = 0
-): void {
-  const ctx = audio.ctx;
-  const dest = audio.getSfxDestination();
-  if (!ctx || !dest) return;
-  const now = ctx.currentTime + startAt;
-  // Harmonic series with decreasing amplitude — bell timbre.
-  const harmonics: Array<{ mult: number; amp: number }> = [
-    { mult: 1, amp: 1.0 },
-    { mult: 2, amp: 0.35 },
-    { mult: 3, amp: 0.18 },
-    { mult: 4.2, amp: 0.08 }, // slightly inharmonic — adds shimmer
-  ];
-  const attack = 0.04;
-  const sustain = Math.max(0.04, duration * 0.25);
-  const end = now + duration;
-  for (const h of harmonics) {
-    const osc = ctx.createOscillator();
-    const env = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(fundamental * h.mult, now);
-    const p = peak * h.amp;
-    env.gain.setValueAtTime(0, now);
-    env.gain.linearRampToValueAtTime(p, now + attack);
-    env.gain.exponentialRampToValueAtTime(
-      Math.max(0.0001, p * 0.5),
-      now + attack + sustain
-    );
-    env.gain.exponentialRampToValueAtTime(0.0001, end);
-    osc.connect(env);
-    env.connect(dest);
-    osc.start(now);
-    osc.stop(end + 0.02);
-  }
-}
-
-/**
  * Ascending bell chime for correct answer (~520ms).
  * Layered: two-note rising bell (E5, B5) + a soft major triad pad
  * (C5/E5/G5) struck under it for warmth. Slow attack so it feels
@@ -170,15 +126,12 @@ export function sfxCorrect(): void {
   if (!isSfxEnabled()) return; // v2.0.B.329 音效開關
   audio.ensureContext();
   // v2.0.B.190 INP fix: defer 11 sync Web Audio nodes 1 frame
+  // v2.0.B.427 (per user「一瞬間很短」): 短促亮「叮」(~130ms), 取代舊 520ms 鐘聲。
   deferAudio(() => {
-    bellTone(659.25, 0.5, 0.26, 0);
-    bellTone(987.77, 0.46, 0.22, 0.09);
-    tone({ freq: 523.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.1 }, 0.02);
-    tone({ freq: 659.25, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.08 }, 0.02);
-    tone({ freq: 783.99, type: 'sine', duration: 0.42, attack: 0.04, gain: 0.07 }, 0.02);
+    tone({ freq: 988, type: 'triangle', duration: 0.10, attack: 0.003, gain: 0.22 });
+    tone({ freq: 1319, type: 'sine', duration: 0.12, attack: 0.003, gain: 0.15 }, 0.03);
   });
-  // Haptic vibrate can stay sync — non-blocking on render thread
-  vibrate([25, 40, 25]);
+  vibrate(20);
 }
 
 /**
@@ -190,45 +143,11 @@ export function sfxCorrect(): void {
 export function sfxWrong(): void {
   if (!isSfxEnabled()) return; // v2.0.B.329 音效開關
   audio.ensureContext();
-  vibrate([60, 40, 60]);
-  // v2.0.B.190 INP fix: defer Web Audio node creation 1 frame
+  vibrate(40);
+  // v2.0.B.427 (per user「一瞬間很短」): 短促低「噗」(~130ms), 快速下滑兩音, 取代舊 ~300ms。
   deferAudio(() => {
-    const ctx = audio.ctx;
-    const dest = audio.getSfxDestination();
-    if (!ctx || !dest) return;
-    const now = ctx.currentTime;
-
-  // Helper: smooth cosine-shaped envelope (no harsh clicks).
-  const playSoft = (
-    freq: number,
-    startAt: number,
-    duration: number,
-    peak: number
-  ): void => {
-    const t0 = now + startAt;
-    const osc = ctx.createOscillator();
-    const env = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, t0);
-    // Subtle downward glide for a "deflating" feel.
-    osc.frequency.exponentialRampToValueAtTime(
-      Math.max(20, freq * 0.94),
-      t0 + duration
-    );
-    // Cosine attack/release ≈ raised-cosine for smoothness.
-    env.gain.setValueAtTime(0, t0);
-    env.gain.linearRampToValueAtTime(peak, t0 + 0.025);
-    env.gain.setValueAtTime(peak, t0 + duration * 0.35);
-    env.gain.exponentialRampToValueAtTime(0.0001, t0 + duration);
-    osc.connect(env);
-    env.connect(dest);
-    osc.start(t0);
-    osc.stop(t0 + duration + 0.02);
-  };
-
-    // A4 → F4 = descending minor third. Gentle, classic "wrong" cue.
-    playSoft(440, 0, 0.16, 0.22);
-    playSoft(349.23, 0.11, 0.22, 0.24);
+    tone({ freq: 330, type: 'sine', duration: 0.11, attack: 0.003, gain: 0.22 });
+    tone({ freq: 247, type: 'sine', duration: 0.10, attack: 0.003, gain: 0.18 }, 0.05);
   });
 }
 
