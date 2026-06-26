@@ -73,3 +73,24 @@ export function resetXp(): void {
     // ignore
   }
 }
+
+// ─── Lesson-completion XP standard (v2.0.B.433) ──────────────────────────────
+// 對齊 Duolingo 的「節點點開 → 跳框 → 選難度」模式 (見
+// docs/standards/2026-06-26-lesson-xp-and-legendary-standard.md)。
+// Duolingo 實值 ≈ 一般 10–15 / 複習 5 / 傳奇 40;作者拍板用下列數字。
+export const LESSON_XP = {
+  /** 第一次完成一般難度。 */
+  firstClear: 30,
+  /** 已完成過 → 再玩一般 (複習)。 */
+  review: 5,
+  /** 第一次用傳奇難度完成。 */
+  legendaryFirst: 45,
+  /** 已完成過 → 再用傳奇難度 (複習)。 */
+  legendaryReview: 40,
+} as const;
+
+/** 依「是否傳奇 / 是否已完成過」算這次完成該發多少 XP。 */
+export function lessonXp(opts: { legendary: boolean; alreadyDone: boolean }): number {
+  if (opts.legendary) return opts.alreadyDone ? LESSON_XP.legendaryReview : LESSON_XP.legendaryFirst;
+  return opts.alreadyDone ? LESSON_XP.review : LESSON_XP.firstClear;
+}

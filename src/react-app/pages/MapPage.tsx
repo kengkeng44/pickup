@@ -11,7 +11,7 @@ import { getInProgressLessonIds } from '../../data/lessonProgress';
 import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
 import { useT } from '../i18n';
-import { readXp, levelForXp, levelProgress } from '../../data/xp';
+import { readXp, levelForXp, levelProgress, lessonXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverOpenChest } from '../../data/backend';
 import { readStreak, readFreezes } from '../../data/streak';
@@ -232,6 +232,90 @@ function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void 
   );
 }
 
+// v2.0.B.433: Duolingo 風「點節點 → 跳框」對話框。
+// 第一次: 繼續 +30 / 晉升傳奇 +45。已完成過: 開始複習 +5 / 晉升傳奇 +40。
+function NodeStartDialog({ done, lang, onPick, onClose }: {
+  done: boolean;
+  lang: string;
+  onPick: (legendary: boolean) => void;
+  onClose: () => void;
+}) {
+  const normalXp = lessonXp({ legendary: false, alreadyDone: done });
+  const legXp = lessonXp({ legendary: true, alreadyDone: done });
+  const zh = lang === 'zh' || lang === 'zh-Hans';
+  const normalLabel = done ? (zh ? '開始複習' : 'Review') : (zh ? '繼續' : 'Start');
+  const legLabel = zh ? '晉升傳奇' : 'Legendary';
+  const xpWord = zh ? '經驗' : 'XP';
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 50,
+        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+        background: 'rgba(40,28,16,0.45)',
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          width: '100%', maxWidth: 420,
+          background: 'var(--t-surface)',
+          borderTopLeftRadius: 22, borderTopRightRadius: 22,
+          padding: '22px 20px calc(22px + env(safe-area-inset-bottom))',
+          boxShadow: '0 -8px 28px rgba(0,0,0,0.18)',
+          animation: 'pickup-fade-up 200ms ease',
+        }}
+      >
+        {/* 一般 / 複習 */}
+        <button
+          type="button"
+          onClick={() => onPick(false)}
+          style={{
+            width: '100%', border: 'none', borderRadius: 16,
+            background: 'var(--t-brand)', color: '#fff',
+            fontFamily: 'inherit', fontWeight: 900, fontSize: 17,
+            padding: '15px 16px', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            boxShadow: '0 4px 0 var(--t-brand-dark)',
+          }}
+        >
+          <span>{normalLabel}</span>
+          <span style={{ fontSize: 14, fontWeight: 800, opacity: 0.95 }}>+{normalXp} {xpWord}</span>
+        </button>
+        {/* 晉升傳奇 — 紫金 Duolingo legendary 配色 */}
+        <button
+          type="button"
+          onClick={() => onPick(true)}
+          style={{
+            width: '100%', border: 'none', borderRadius: 16,
+            background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', color: '#fff',
+            fontFamily: 'inherit', fontWeight: 900, fontSize: 17,
+            padding: '15px 16px', marginTop: 12, cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            boxShadow: '0 4px 0 #4c1d95',
+          }}
+        >
+          <span>👑 {legLabel}</span>
+          <span style={{ fontSize: 14, fontWeight: 800, opacity: 0.95 }}>+{legXp} {xpWord}</span>
+        </button>
+        <button
+          type="button"
+          onClick={onClose}
+          style={{
+            width: '100%', border: 'none', background: 'transparent',
+            color: 'var(--t-text-muted)', fontFamily: 'inherit', fontWeight: 700,
+            fontSize: 14, padding: '14px 0 2px', marginTop: 4, cursor: 'pointer',
+          }}
+        >
+          {zh ? '取消' : 'Cancel'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function MapPage() {
   const navigate = useNavigate();
   const { t, lang } = useT();
@@ -434,10 +518,12 @@ export default function MapPage() {
     }
   }, []);
 
+  // v2.0.B.433: 點節點先跳框 (跟 Duolingo 一樣) — 選一般/複習 or 晉升傳奇。
+  const [tapNode, setTapNode] = useState<{ ch: number; id: string } | null>(null);
   // v2.0.B.275: stable callbacks for MapNode React.memo — 不 inline 給 memo 才能 bail-out
   const handleLessonTap = useCallback((ch: number, id: string) => {
-    navigate(`/lesson/${ch}/${id}`);
-  }, [navigate]);
+    setTapNode({ ch, id });
+  }, []);
   const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
   const handlePressEnd = useCallback(() => { setPressedId(null); }, []);
 
@@ -838,6 +924,20 @@ export default function MapPage() {
           chapter={displayChapter}
           titleEn={chTitle(meta)}
           onClose={() => setShowKeySheet(false)}
+        />
+      )}
+
+      {/* v2.0.B.433: 點節點 → Duolingo 風選單 (繼續/複習 + 晉升傳奇) */}
+      {tapNode && (
+        <NodeStartDialog
+          done={completedByChapter.get(tapNode.ch)?.has(tapNode.id) ?? false}
+          lang={lang}
+          onPick={(legendary) => {
+            const { ch, id } = tapNode;
+            setTapNode(null);
+            navigate(`/lesson/${ch}/${id}${legendary ? '?mode=legendary' : ''}`);
+          }}
+          onClose={() => setTapNode(null)}
         />
       )}
 

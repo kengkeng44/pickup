@@ -10,7 +10,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { isMuted, toggleMuted, subscribeMuteChange } from '../../data/muteSetting';
 import { markLessonCompleted, readCompletedLessons } from '../../store/runStore';
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
-import { addXp } from '../../data/xp';
+import { addXp, lessonXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 // v2.0.B.283 Mochi Bond: award +10 per lesson completion.
@@ -58,6 +58,8 @@ export default function LessonPage() {
   // v2.0.B.303: ?preview=N — deep-link to a specific question index (used by the
   // UI/UX spec doc's live 1:1 iframes). Read-only: does NOT persist resume state.
   const isPreview = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('preview');
+  // v2.0.B.433: 晉升傳奇模式 (?mode=legendary) — 更高 XP + 傳奇 framing。
+  const legendary = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('mode') === 'legendary';
 
   // v2.0.B.424: 每進一個 lesson 把體力補滿 (每節重新開始, 不跨節懲罰)
   useEffect(() => { refillHp(); }, [chapter, lessonId]);
@@ -131,6 +133,7 @@ export default function LessonPage() {
       elapsedMs={Date.now() - startedAt.current}
       isLastLessonOfChapter={maxLessonInChapter > 0 && lesson.lessonInChapter >= maxLessonInChapter}
       isPreview={isPreview}
+      legendary={legendary}
       onBack={() => navigate('/')}
     />;
   }
@@ -252,12 +255,13 @@ function Hearts() {
   );
 }
 
-function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPreview, onBack }: {
+function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPreview, legendary, onBack }: {
   lesson: Lesson;
   log: Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>;
   elapsedMs: number;
   isLastLessonOfChapter: boolean;
   isPreview?: boolean;
+  legendary?: boolean;
   onBack: () => void;
 }) {
   // v2.0.B.192 (UI/UX P1 #35 + cron P0 latent): wire addXp + addCoins on
@@ -267,7 +271,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
   // consistent across CompletePanel display + persisted state。
   const correct = log.filter(a => a.isCorrect).length;
   const total = log.length;
-  const xp = correct * 10;
   const coinDelta = correct * 3;
   const accuracy = total > 0 ? Math.round(correct / total * 100) : 100;
   // v2.0.B.306: 擋重複領獎 — freeze 完成前狀態. 已完成過 → 重玩不再發 XP/coins
@@ -275,6 +278,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
   const [alreadyDone] = useState(() => {
     try { return readCompletedLessons(Number(lesson.chapter)).has(lesson.id); } catch { return false; }
   });
+  // v2.0.B.433: XP 改用 lesson 完成標準 (固定值, 不再 correct×10):
+  // 一般首過 30 / 複習 5 / 傳奇首過 45 / 傳奇複習 40。
+  const xp = lessonXp({ legendary: !!legendary, alreadyDone });
 
   // v2.0.B.230 (was B.221, mis-landed in dead LessonScene.ts): hook framework
   // metadata for inquiry microcopy + PostHog tag. Per docs/research/chapter-
@@ -375,6 +381,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 4 }}>
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
+      {legendary && (
+        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 999, fontSize: 13, fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
+      )}
       <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
         <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
