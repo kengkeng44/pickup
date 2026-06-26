@@ -1469,6 +1469,106 @@
           "ch3",
           "tortoise-hare"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch3-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他沒有停下來。",
+        "answer": "He did not stop.",
+        "accept": [
+          "He did not stop",
+          "He didn't stop",
+          "He kept going",
+          "He kept walking"
+        ],
+        "explanationZh": "「I will not stop」是故事裡烏龜說的話，描述他沒有停下來繼續走的行動。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch3",
+          "tortoise-hare"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch3-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "烏龜把眼睛放在前方的樹上。",
+        "answer": "The tortoise kept his eyes on the tree.",
+        "accept": [
+          "The tortoise kept his eyes on the tree",
+          "He kept his eyes on the tree",
+          "The tortoise looked at the tree ahead",
+          "He focused on the tree ahead"
+        ],
+        "explanationZh": "「kept his eyes on」是「眼睛盯著、專注於」的意思，這是烏龜不分心的最佳表達！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch3",
+          "tortoise-hare"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch3-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "烏龜慢而穩，一步一步地走。",
+        "answer": "The tortoise walked slow and sure.",
+        "accept": [
+          "The tortoise walked slow and sure",
+          "The tortoise moved slow and sure",
+          "He walked slow and sure",
+          "The tortoise was slow and sure"
+        ],
+        "explanationZh": "「slow and sure」是這個故事的靈魂短語——慢慢的、穩穩的，就是烏龜贏得比賽的秘訣！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch3",
+          "tortoise-hare",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch3-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "The tortoise walked past the sleeping hare and did not stop. He kept his eyes on the tree far ahead.",
+        "sentenceZh": "烏龜走過睡著的兔子，沒有停下來，把眼睛放在前方那棵樹上。",
+        "question": "Why did the tortoise not wake the hare up?",
+        "options": [
+          "he was afraid the hare would win",
+          "he did not care who won the race",
+          "waking the hare would only slow himself down",
+          "he thought the hare was already at the finish"
+        ],
+        "optionsZh": [
+          "他怕兔子會贏",
+          "他不在意誰贏得比賽",
+          "叫醒兔子只會讓自己慢下來",
+          "他以為兔子已經到終點了"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "烏龜心裡很清楚：比賽還沒結束，停下來叫醒對手只會浪費時間，讓自己輸掉。所以他選擇專心往前走。這才是「slow and sure」的真正智慧！",
+        "tags": [
+          "story",
+          "ch3",
+          "tortoise-hare",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

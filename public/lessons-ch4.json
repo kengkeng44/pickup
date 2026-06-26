@@ -1429,6 +1429,105 @@
           "ch4",
           "camel-hump"
         ]
+      },
+      {
+        "id": "kt-ch4-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "精靈出現了。",
+        "answer": "The Djinn appeared.",
+        "accept": [
+          "A Djinn appeared.",
+          "The Djinn showed up.",
+          "A Djinn showed up.",
+          "The Djinn came out."
+        ],
+        "explanationZh": "「appeared」= 出現了。The Djinn appeared. 是最自然的說法。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch4",
+          "camel-hump"
+        ]
+      },
+      {
+        "id": "kt-ch4-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他聽了他們的故事。",
+        "answer": "He heard their story.",
+        "accept": [
+          "He listened to their story.",
+          "He heard the story.",
+          "He listened to the story."
+        ],
+        "explanationZh": "「heard」= 聽到了，「listened to」= 專心聽。兩個都對！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch4",
+          "camel-hump"
+        ]
+      },
+      {
+        "id": "kt-ch4-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "駱駝一個人藏在沙漠裡。",
+        "answer": "The camel hid alone in the desert.",
+        "accept": [
+          "The camel was alone in the desert.",
+          "The camel stayed alone in the desert.",
+          "The camel hid by himself in the desert."
+        ],
+        "explanationZh": "「hid」= 躲藏（hide 的過去式）。「alone」= 一個人，一個字就夠了！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch4",
+          "camel-hump",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch4-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "speaker": "narrator",
+        "sentence": "The Djinn heard the three animals and rubbed his chin for a long time before he asked where the Camel was.",
+        "question": "Why did the Djinn pause before asking about the Camel?",
+        "options": [
+          "He forgot the Camel's name.",
+          "He needed time to decide what to do.",
+          "He wanted the animals to do it themselves.",
+          "He was too tired to speak right away."
+        ],
+        "optionsZh": [
+          "他忘記了駱駝的名字",
+          "他需要時間想清楚怎麼做",
+          "他想讓動物們自己去處理",
+          "他太累了，說不出話"
+        ],
+        "correctIndex": 1,
+        "subSkill": "inference",
+        "explanationZh": "精靈搓了好久的下巴——這個動作代表他在認真思考。先想清楚，再行動，才是有智慧的做法。",
+        "tags": [
+          "comprehension",
+          "inference",
+          "story",
+          "ch4",
+          "camel-hump",
+          "legendary"
+        ]
       }
     ]
   },

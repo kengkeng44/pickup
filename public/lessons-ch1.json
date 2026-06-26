@@ -1451,6 +1451,104 @@
           "vocab",
           "review"
         ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch1-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他向爸媽道別。",
+        "answer": "He said goodbye to them",
+        "accept": [
+          "He waved goodbye to his parents",
+          "He said goodbye to his parents",
+          "He left home to start his trip"
+        ],
+        "explanationZh": "「say goodbye」是道別的意思。桃太郎踏上旅途前，先向爸媽好好道別，你也說得出來了！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch1-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "狗想要那顆糰子。",
+        "answer": "The dog wanted the dumpling",
+        "accept": [
+          "The dog wanted a dumpling",
+          "The dog was interested in the dumpling",
+          "The dog really wanted the dumpling"
+        ],
+        "explanationZh": "「wanted」是「想要」的過去式，「dumpling」是糰子。狗聞到糰子的香味，就忍不住靠過去了！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch1",
+          "momotaro"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch1-l4-lg1",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他轉身走去的時候，媽媽的眼睛裡盈滿了淚水。",
+        "answer": "His mother's eyes were full of tears as he turned away",
+        "accept": [
+          "His mother's eyes filled with tears as he walked away",
+          "Tears filled his mother's eyes as he turned and left",
+          "His mother cried as he turned away from home"
+        ],
+        "explanationZh": "「full of tears」是眼淚盈滿，「as」連接同時發生的兩件事。媽媽的捨不得藏在這句話裡——能打出來的你真的好厲害！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch1",
+          "momotaro",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch1-l4-lg2",
+        "tier": "legendary",
+        "level": "A2",
+        "difficulty": "hard",
+        "speaker": "narrator",
+        "sentence": "Momotaro reached into the bag and pulled out one dumpling. The dog's eyes grew bright as he stepped slowly closer.",
+        "sentenceZh": "桃太郎伸手進袋子拿出一顆糰子。狗的眼睛一亮，慢慢靠了過來。",
+        "question": "What does sharing a dumpling with the dog tell us about Momotaro?",
+        "options": [
+          "he is too scared to keep walking alone",
+          "he is generous and hopes to make a friend",
+          "he has too many dumplings and needs to eat less",
+          "he is trying to scare the dog away from the road"
+        ],
+        "optionsZh": [
+          "他太害怕，無法獨自繼續走",
+          "他慷慨大方，想結交一個朋友",
+          "他的糰子太多，需要少吃一點",
+          "他想把狗從路上趕走"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "桃太郎把媽媽準備的珍貴糰子分給陌生的狗，說明他樂於分享、希望找到一起同行的夥伴。慷慨是英雄最重要的特質！",
+        "subSkill": "inference",
+        "tags": [
+          "inference",
+          "story",
+          "ch1",
+          "momotaro",
+          "legendary"
+        ]
       }
     ]
   },
