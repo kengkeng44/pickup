@@ -1373,6 +1373,103 @@
           "kong-rong",
           "inference"
         ]
+      },
+      {
+        "id": "kt-ch24-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他拿了最小的梨。",
+        "answer": "He took the small pear.",
+        "accept": [
+          "He picked the small pear.",
+          "He took the smallest pear.",
+          "He picked up the small pear.",
+          "He picked up the smallest pear."
+        ],
+        "explanationZh": "took 是 take 的過去式，small/smallest 都對，pear 是梨——把這三個字組起來就搞定了！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch24",
+          "kong-rong"
+        ]
+      },
+      {
+        "id": "kt-ch24-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他把大的梨留給哥哥們。",
+        "answer": "He left the big pears for his brothers.",
+        "accept": [
+          "He gave the big pears to his brothers.",
+          "He gave the big ones to his brothers.",
+          "He left the big ones for his brothers."
+        ],
+        "explanationZh": "left 是 leave 的過去式，意思是『留給』。gave the big pears to his brothers 也完全正確——兩種說法都很自然！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch24",
+          "kong-rong"
+        ]
+      },
+      {
+        "id": "kt-ch24-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "他說他是家裡年紀最小的。",
+        "answer": "He said he was the youngest in his family.",
+        "accept": [
+          "He said he was the youngest in the family.",
+          "He said that he was the youngest in his family.",
+          "He said that he was the youngest in the family."
+        ],
+        "explanationZh": "注意時態：說話是過去（said），所以裡面的 is 也要變成 was。youngest = 年紀最小的，in his family = 在家裡——全句加起來剛好 8 個字！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch24",
+          "kong-rong"
+        ]
+      },
+      {
+        "id": "kt-ch24-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "Kong Rong held the small pear and let his brothers take the bigger ones.",
+        "sentenceZh": "孔融握著小梨，讓哥哥們拿走大的。",
+        "question": "What does Kong Rong's choice most likely show about him?",
+        "options": [
+          "he found the small pear easier to carry",
+          "he wanted others to have more than him",
+          "he thought big pears were not ready to eat",
+          "he was waiting to swap it for a snack later"
+        ],
+        "optionsZh": [
+          "他覺得小梨比較好拿",
+          "他希望別人得到比自己更多",
+          "他覺得大梨還沒熟",
+          "他打算之後換別的點心"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "孔融主動拿最小的，把較好的留給哥哥們——這說明他希望『別人得到比自己更多』。選項A說方便拿、選項C說梨沒熟、選項D說要換點心，這三個故事裡都沒有根據。",
+        "tags": [
+          "inference",
+          "comprehension",
+          "story",
+          "ch24",
+          "kong-rong"
+        ]
       }
     ]
   },

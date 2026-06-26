@@ -1330,6 +1330,105 @@
           "hook"
         ],
         "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch26-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "水從浴缸裡溢出來了。",
+        "answer": "Water spilled from the tub.",
+        "accept": [
+          "Water spilled out of the tub.",
+          "The water spilled from the tub.",
+          "Water flowed out of the tub.",
+          "Water came out of the tub."
+        ],
+        "explanationZh": "spill = 溢出——浴缸裡的水太滿，一踩進去就嘩啦溢了出來。短短一句，故事的轉折點就從這裡開始！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "id": "kt-ch26-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他的心跳得很快。",
+        "answer": "His heart beat fast.",
+        "accept": [
+          "His heart was beating fast.",
+          "His heart started to beat fast.",
+          "His heart began to beat fast.",
+          "His heart raced."
+        ],
+        "explanationZh": "beat fast = 跳得快——阿基米德看見地板上的水，腦袋裡有什麼東西剛剛動了，所以心跳「咚咚咚」加速！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch26",
+          "archimedes-eureka"
+        ]
+      },
+      {
+        "id": "kt-ch26-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "他停下來，看著地板上的水。",
+        "answer": "He stopped and looked at the water.",
+        "accept": [
+          "He stopped and stared at the water.",
+          "He stopped and looked at the water on the floor.",
+          "He paused and looked at the water.",
+          "He stopped to look at the water."
+        ],
+        "explanationZh": "stop = 停下來，look at = 看著——別人只想拿布擦掉，他卻停住了、盯著那灘水。就是這個停頓，改變了科學史！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch26-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "Most people would have called for a cloth to wipe it up.",
+        "question": "What does this tell us about Archimedes?",
+        "options": [
+          "he wanted a cleaner bath house",
+          "he asked a friend to help him",
+          "he saw what others would miss",
+          "he forgot the bath was still warm"
+        ],
+        "optionsZh": [
+          "他想要一間更乾淨的澡堂",
+          "他請一個朋友來幫他",
+          "他看見了別人不會注意的事",
+          "他忘了洗澡水還是熱的"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "別人的反應是『擦掉就好了』，阿基米德卻停下來、睜大眼睛看——這說明他注意到了別人忽略的事。正確答案是『他看見了別人不會注意的事』。",
+        "tags": [
+          "story",
+          "ch26",
+          "archimedes-eureka",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

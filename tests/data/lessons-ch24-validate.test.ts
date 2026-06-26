@@ -79,7 +79,9 @@ describe('Ch24 孔融讓梨 (Kong Rong Shares the Pear, 中華歷史民間 PD)',
     const lessons = ch24raw as Array<{ questions: Array<Record<string, unknown>> }>;
     for (const lesson of lessons) {
       for (const q of lesson.questions) {
-        if (typeof q.sentence === 'string') {
+        // type-translate intentionally shows the source language (Chinese) in
+        // `sentence` — the player types the English translation. Exempt it.
+        if (typeof q.sentence === 'string' && q.type !== 'type-translate') {
           expect(q.sentence).not.toMatch(/[一-龥]/);
         }
         if (Array.isArray(q.options)) {

@@ -1393,6 +1393,100 @@
           "hook"
         ],
         "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch28-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他穿上外套。",
+        "answer": "He put on his coat.",
+        "accept": [
+          "He wore his coat.",
+          "He put his coat on."
+        ],
+        "explanationZh": "put on = 穿上。『He put on his coat.』是最自然的說法，put on / wore 都對。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch28",
+          "three-visits"
+        ]
+      },
+      {
+        "id": "kt-ch28-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "雪落在他的肩膀上。",
+        "answer": "Snow fell on his shoulders.",
+        "accept": [
+          "Snow fell on his shoulder.",
+          "The snow fell on his shoulders."
+        ],
+        "explanationZh": "fell 是 fall 的過去式。『Snow fell on his shoulders.』直接從故事原句來，記住 fell on = 落在⋯⋯上。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch28",
+          "three-visits"
+        ]
+      },
+      {
+        "id": "kt-ch28-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "他在寒冷的回家路上悄悄許下承諾。",
+        "answer": "He made a quiet promise on the cold ride home.",
+        "accept": [
+          "He made a quiet promise riding home in the cold.",
+          "On the cold ride home he made a quiet promise."
+        ],
+        "explanationZh": "made a promise = 許下承諾，quiet = 悄悄的，ride home = 回家的路程。整句從故事原文改寫，試試看！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch28",
+          "three-visits",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch28-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "Even in deep snow, Liu Bei put on his coat and rode up the hill alone.",
+        "sentenceZh": "就算在深雪裡，劉備穿上外套，獨自騎上了山。",
+        "question": "Why did Liu Bei go alone through the snow, even when his brothers refused?",
+        "options": [
+          "he wanted to reach the house before the storm stopped",
+          "showing respect for the wise man mattered more than comfort",
+          "his brothers were too tired after the journey to join him",
+          "he planned to rest at the house and wait for the wise man"
+        ],
+        "optionsZh": [
+          "他想在暴風雪停之前先到小屋",
+          "對智者表示尊重比個人舒適更重要",
+          "兄弟們旅途太累了，沒辦法一起去",
+          "他打算在小屋等智者回來"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "兄弟說太冷太遠、不想去，但劉備還是穿上外套出發了。他的行動說明：『對有智慧的人表示尊重，比個人舒適更重要。』選項A說在暴風停前趕到，故事沒有這個意思；選項C兄弟不是太累——他們只是不願意；選項D劉備敲了門就離開，沒有等。",
+        "subSkill": "inference",
+        "tags": [
+          "story",
+          "ch28",
+          "three-visits",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

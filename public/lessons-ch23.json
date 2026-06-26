@@ -1375,6 +1375,103 @@
           "sima-guang",
           "inference"
         ]
+      },
+      {
+        "id": "kt-ch23-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他們跑得非常快。",
+        "answer": "They ran very fast.",
+        "accept": [
+          "They ran so fast.",
+          "They were running very fast.",
+          "They were running so fast.",
+          "All of them ran very fast."
+        ],
+        "explanationZh": "ran 是 run 的過去式。They ran very fast. = 他們跑得非常快。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch23",
+          "sima-guang"
+        ]
+      },
+      {
+        "id": "kt-ch23-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "大門離水缸非常遠。",
+        "answer": "The gate was very far.",
+        "accept": [
+          "The gate was far away.",
+          "The gate was really far.",
+          "The gate was so far away.",
+          "The garden gate was very far."
+        ],
+        "explanationZh": "far = 遠，gate = 大門。The gate was very far. = 大門離這裡非常遠。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch23",
+          "sima-guang"
+        ]
+      },
+      {
+        "id": "kt-ch23-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "時間快沒了，他必須馬上行動。",
+        "answer": "Time was short. He had to act now.",
+        "accept": [
+          "Time was running out. He had to act now.",
+          "There was no time. He had to act at once.",
+          "Time was short and he had to act right away.",
+          "He had no time. He had to act now."
+        ],
+        "explanationZh": "time was short = 時間快沒了；had to act = 必須行動。兩個短句合起來表達緊迫感！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch23",
+          "sima-guang"
+        ]
+      },
+      {
+        "id": "kt-ch23-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "sentence": "The other children ran to find a grown-up. The path to the gate was long and full of corners. Even fast feet would take many minutes to come back.",
+        "question": "What does this tell us about the plan to fetch an adult?",
+        "options": [
+          "it would work if they hurried hard enough",
+          "the boy in the jar could hold on easily",
+          "waiting for outside help put the boy at risk",
+          "a grown-up was already on the way back"
+        ],
+        "optionsZh": [
+          "只要跑夠快還是來得及",
+          "水裡的小孩可以輕鬆等著",
+          "等外面的人來救太危險了",
+          "大人其實已經在趕回來了"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "路又長又彎、就算跑得快也要好幾分鐘才能回來——這說明等外面的人來根本來不及，水裡的小孩等不了那麼久。選項 C 正確地推斷出：等外面的人來救太危險了。",
+        "tags": [
+          "inference",
+          "story",
+          "ch23",
+          "sima-guang"
+        ]
       }
     ]
   },

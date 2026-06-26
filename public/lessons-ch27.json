@@ -1340,6 +1340,106 @@
           "hook"
         ],
         "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch27-l4-ttx1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "風吹進他的眼睛。",
+        "answer": "The wind hit his eyes.",
+        "accept": [
+          "Wind hit his eyes.",
+          "The wind blew into his eyes.",
+          "Wind blew into his eyes.",
+          "The wind got into his eyes."
+        ],
+        "explanationZh": "『風吹進眼睛』可以說 the wind hit his eyes 或 the wind blew into his eyes——hit 是比較簡短有力的說法，blew into 更貼近中文原意，兩種都對！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch27",
+          "wukong"
+        ]
+      },
+      {
+        "id": "kt-ch27-l4-ttx2",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "他沒有朋友可以說話。",
+        "answer": "He had no friend to talk with.",
+        "accept": [
+          "He had no friends to talk with.",
+          "He had no one to talk with.",
+          "He had nobody to talk to.",
+          "He had no one to talk to."
+        ],
+        "explanationZh": "『沒有朋友可以說話』英文是 he had no friend to talk with——friend 可以單數也可以複數，with 放尾巴是口語常用說法。試著把這句記起來！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch27",
+          "wukong"
+        ]
+      },
+      {
+        "id": "kt-ch27-l4-lg1",
+        "type": "type-translate",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "他每天早上繼續向前走，就算腳在痛。",
+        "answer": "He kept walking on every morning.",
+        "accept": [
+          "He kept walking every morning.",
+          "He walked on every morning.",
+          "Every morning he kept walking on.",
+          "Every morning he walked on."
+        ],
+        "explanationZh": "『繼續向前走』英文是 kept walking on——kept + 動詞-ing 表示『一直持續做某件事』，是很好用的句型！腳痛還是繼續走，三藏真的很勇敢。",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch27",
+          "wukong",
+          "legendary"
+        ]
+      },
+      {
+        "id": "kt-ch27-l4-lg2",
+        "type": "comprehension",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "subSkill": "inference",
+        "speaker": "grandma",
+        "sentence": "The stars were his only company.",
+        "question": "What does this sentence tell us about Sanzang on his journey?",
+        "options": [
+          "he liked to look at maps at night",
+          "he sang songs under the open sky",
+          "he felt very alone in the dark",
+          "he slept well beside his horse"
+        ],
+        "optionsZh": [
+          "他喜歡在晚上看地圖",
+          "他在開闊的天空下唱歌",
+          "他在黑暗中感到非常孤單",
+          "他在馬旁邊睡得很好"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "『星星是他唯一的陪伴』——沒有人在他身邊，只有星星，這代表他在黑夜裡非常孤單。答案是『他在黑暗中感到非常孤單』。注意：correct option 裡沒有用到 stars、only、company 這幾個原句的字，要從意思去推斷喔！",
+        "tags": [
+          "story",
+          "ch27",
+          "wukong",
+          "inference",
+          "legendary"
+        ]
       }
     ]
   },

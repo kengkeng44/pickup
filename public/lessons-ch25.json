@@ -1383,6 +1383,103 @@
           "yugong"
         ],
         "subSkill": "inference"
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch25-l4-ttx1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "他們每天都不停下來。",
+        "answer": "They never stopped.",
+        "accept": [
+          "They did not stop.",
+          "The family never stopped.",
+          "They kept going every day."
+        ],
+        "explanationZh": "『never stopped』= 從來不停下來。故事裡愚公一家每天都繼續工作，用 never 表示『從不』！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch25",
+          "yugong"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch25-l4-ttx2",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "那個男人大笑並說你做不完這個。",
+        "answer": "He laughed and said this.",
+        "accept": [
+          "The man laughed at him.",
+          "He laughed and walked away.",
+          "The man laughed out loud."
+        ],
+        "explanationZh": "『laughed』是 laugh 的過去式，表示『笑了』。路人嘲笑愚公，覺得他做不完——but the family kept going anyway！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch25",
+          "yugong"
+        ]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch25-l4-lg1",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "愚公繼續走，眼睛看著前方的路。",
+        "answer": "He kept his eyes on the path.",
+        "accept": [
+          "Yu Gong looked ahead and walked on.",
+          "He walked on and looked straight ahead.",
+          "He kept looking at the path ahead."
+        ],
+        "explanationZh": "『kept his eyes on the path』= 眼睛一直看著路。表示愚公不受嘲笑影響，繼續專注向前——這是很有力量的一句話！",
+        "tags": [
+          "production",
+          "type-translate",
+          "story",
+          "ch25",
+          "yugong",
+          "legendary"
+        ]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch25-l4-lg2",
+        "level": "A2",
+        "difficulty": "hard",
+        "tier": "legendary",
+        "sentence": "Every day they took one basket of stone and dirt away.",
+        "question": "What does Yu Gong's plan of moving one basket at a time show about him?",
+        "options": [
+          "he was too weak to carry more at once",
+          "he had no plan and just tried his best",
+          "he trusted that small steps would add up",
+          "he wanted to stop after enough trips"
+        ],
+        "optionsZh": [
+          "他太虛弱一次搬不多",
+          "他沒有計畫只是盡力",
+          "他相信一小步一小步累積起來能成功",
+          "他打算跑幾趟之後就停下來"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "愚公每天只搬一籃——這不是因為虛弱，也不是沒計畫，而是他相信只要持續累積，終究能完成大事。選項 C 描述的是這種『一點一點、終能成功』的信念。",
+        "subSkill": "inference",
+        "tags": [
+          "comprehension",
+          "inference",
+          "story",
+          "ch25",
+          "yugong",
+          "legendary"
+        ]
       }
     ]
   },
