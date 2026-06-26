@@ -44,6 +44,9 @@ const QuestionBaseFields = {
   // concept (玉兔/玉皇大帝) → difficulty floor risk, must be marked easy.
   // 'low' (default when absent) = no cultural presupposition.
   culturalLoad: z.enum(['high_unfamiliar', 'high_familiar', 'low']).optional(),
+  // v2.0.B.444 (per user 晉升傳奇): tier:'legendary' = 更難的傳奇專屬題,
+  // 只在傳奇模式 (?mode=legendary) 出現;一般模式過濾掉。缺 = 一般題。
+  tier: z.enum(['legendary']).optional(),
 };
 
 // 4-option multiple choice shape (5 types share this).

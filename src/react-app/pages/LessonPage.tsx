@@ -69,6 +69,10 @@ export default function LessonPage() {
       .then(r => r.json())
       .then((arr: Lesson[]) => {
         const found = arr.find(l => l.id === lessonId);
+        // v2.0.B.444: 傳奇難題 (tier:'legendary') 只在傳奇模式出現; 一般模式過濾掉。
+        if (found && !legendary) {
+          found.questions = found.questions.filter((q) => (q as { tier?: string }).tier !== 'legendary');
+        }
         setLesson(found ?? null);
         const maxL = arr.reduce((m, l) => Math.max(m, l.lessonInChapter ?? 0), 0);
         setMaxLessonInChapter(maxL);
