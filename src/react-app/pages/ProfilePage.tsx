@@ -5,6 +5,7 @@ import { readXp, levelForXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverRename } from '../../data/backend';
 import { readOutfit, getOutfitById } from '../../data/mascotOutfits';
+import { listPlayers, getActivePlayer, createPlayer, switchPlayer } from '../../data/players';
 import { useT } from '../i18n';
 
 // v2.0.B.234 招 3: lazy-load WardrobeView (modal opens on tap, not on mount).
@@ -120,6 +121,9 @@ export default function ProfilePage() {
         </div>
       </div>
 
+      {/* v2.0.B.436: 多帳號 / 進度保留 切換 */}
+      <PlayerSwitcher />
+
       {/* v2.0.B.234 招 3: 衣櫥 entry — opens WardrobeView modal */}
       <button
         onClick={() => setWardrobeOpen(true)}
@@ -187,6 +191,71 @@ export default function ProfilePage() {
             onApplied={(id) => setOutfitId(id)}
           />
         </Suspense>
+      )}
+    </div>
+  );
+}
+
+// v2.0.B.436: 進度保留 — 帳號切換卡。切換 = 快照當前進度 → 載入目標 → reload。
+function PlayerSwitcher() {
+  const [players, setPlayers] = useState(() => listPlayers());
+  const [activeId, setActiveId] = useState(() => getActivePlayer()?.id ?? '');
+  const [adding, setAdding] = useState(false);
+  const [name, setName] = useState('');
+
+  const doSwitch = (id: string) => {
+    if (id === activeId) return;
+    const ok = confirm('切換帳號？目前進度會自動保存，之後切回來不會不見。');
+    if (!ok) return;
+    if (switchPlayer(id)) {
+      try { location.reload(); } catch { setActiveId(id); }
+    }
+  };
+
+  const doAdd = () => {
+    const id = createPlayer(name);
+    setPlayers(listPlayers());
+    setName(''); setAdding(false);
+    doSwitch(id);
+  };
+
+  return (
+    <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 14, marginBottom: 14 }}>
+      <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>👥 帳號 · Players</div>
+      {players.map((p) => {
+        const isActive = p.id === activeId;
+        return (
+          <button key={p.id} type="button" onClick={() => doSwitch(p.id)} disabled={isActive} style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8,
+            padding: '11px 14px', borderRadius: 12, fontFamily: 'inherit', textAlign: 'left',
+            border: `2px solid ${isActive ? 'var(--t-success)' : 'var(--t-border-card)'}`,
+            background: isActive ? 'var(--t-success-tint)' : '#fff',
+            cursor: isActive ? 'default' : 'pointer',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}>
+            <span style={{ fontSize: 20 }} aria-hidden="true">{isActive ? '✅' : '🐱'}</span>
+            <span style={{ flex: 1, fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>{p.name}</span>
+            {isActive && <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--t-success)' }}>使用中</span>}
+          </button>
+        );
+      })}
+      {adding ? (
+        <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="新帳號名字" maxLength={12} autoFocus style={{
+            flex: 1, padding: 9, fontSize: 15, fontWeight: 700, border: '2px solid var(--t-border-card)', borderRadius: 8,
+            color: 'var(--t-text)', background: 'var(--t-bg)', fontFamily: 'inherit',
+          }} />
+          <button type="button" onClick={doAdd} style={{
+            padding: '9px 14px', border: 'none', borderRadius: 8, fontFamily: 'inherit', fontSize: 14, fontWeight: 800,
+            color: '#fff', background: 'var(--t-brand-dark)', cursor: 'pointer',
+          }}>建立</button>
+        </div>
+      ) : (
+        <button type="button" onClick={() => setAdding(true)} style={{
+          width: '100%', padding: '10px 0', marginTop: 2, border: '2px dashed var(--t-border-card)', borderRadius: 12,
+          background: 'transparent', color: 'var(--t-text-muted)', fontFamily: 'inherit', fontSize: 14, fontWeight: 800,
+          cursor: 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}>＋ 新增帳號</button>
       )}
     </div>
   );

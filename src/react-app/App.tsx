@@ -25,9 +25,12 @@ import { isOnboarded } from '../data/onboarding';
 import { translate } from './i18n';
 import { getLang, ensureLangInitialized } from '../data/lang';
 import { ensureSimplifiedReady } from '../data/zhHans';
+import { ensureProfilesInit } from '../data/players';
 
 // v2.0.B.414: 首次啟動依瀏覽器語言設預設 (module load 時跑一次, 早於首次 render)。
 ensureLangInitialized();
+// v2.0.B.436: 進度保留 — 首啟建立帳號 registry (玩家 1 = 現有進度 + 玩家 2 測試)。
+ensureProfilesInit();
 
 const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
