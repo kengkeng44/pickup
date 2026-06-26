@@ -1194,6 +1194,31 @@ Markdown 表 + dense, < 500 字`;
 // v2.0.B.420 (per user「統整到底要改什麼」): 把所有「未處理」audit 的每一條 finding
 // 攤成一張具體待辦清單 — 分「可自動修(題庫)」vs「要你決定(程式碼/架構)」, 每條一句 + 修法。
 // 取代過去「多是架構,看看就好」這種無意義標註。
+// v2.0.B.423 (per user): 把 finding 的英文代碼變中文「類型」+ 該類型「改的方向」。
+const FINDING_CATS = [
+  [/SPOILER/i,                         { zh: '劇情爆雷',   dir: '把提前爆雷的字眼移到劇情後面或改中性' }],
+  [/DISTRACTOR/i,                      { zh: '干擾項給提示', dir: '改成合理但錯的選項,不暗示正解' }],
+  [/VERBATIM|SUBSTRING|\bR1\b/i,       { zh: '答案外洩',   dir: '正解別出現在題幹或句子裡' }],
+  [/ECHO|OVERLAP|CONSEC/i,             { zh: '關鍵字重複', dir: '換句話說,別照抄原句' }],
+  [/MIRROR|NEGATION|ANTONYM|POLARITY/i,{ zh: '鏡像干擾',   dir: '選項別正反鏡像,改成語意各自獨立' }],
+  [/VERDICT|FORMULA/i,                 { zh: '語氣公式',   dir: '結尾改溫暖故事語氣,不要冷判決' }],
+  [/SCALE|EXTREME/i,                   { zh: '級距極端',   dir: '選項數值別過度懸殊' }],
+  [/LENGTH/i,                          { zh: '長度暗示',   dir: '選項長度拉齊' }],
+  [/BIAS/i,                            { zh: '選項偏誤',   dir: '選項別都用同一個字開頭' }],
+  [/JARGON|GRAMMAR.?LABEL|\bLABEL\b/i, { zh: '術語',       dir: '改成兒童白話' }],
+  [/VOICE|STORY|EMOTION/i,             { zh: '故事語氣',   dir: '加一句情感或故事鉤' }],
+  [/TDZ|CIRCULAR|IMPORT|DEP/i,         { zh: '依賴/架構',  dir: '斷開循環/抽共用型別' }],
+  [/GOD ?CLASS|HUB|CONCENTRAT/i,       { zh: '巨型元件',   dir: '拆分職責' }],
+];
+function categorize(viol) {
+  const code = String(viol || '').replace(/\*\*|`/g, '').split(/[:：]/)[0].trim();
+  for (const [re, c] of FINDING_CATS) if (re.test(code) || re.test(viol)) return c;
+  // 只有「真的像代碼」(全大寫 SCREAMING_SNAKE) 才當類型, 否則一律「其他」
+  // (避免玩家視角中文敘述被當成一堆亂類型)
+  if (/^[A-Z][A-Z0-9 _-]{3,26}$/.test(code)) return { zh: code, dir: '看細節' };
+  return { zh: '其他', dir: '看細節' };
+}
+
 function renderConsolidated(dataByType, shippedByFile = {}) {
   const el = document.getElementById('consolidated');
   if (!el) return;
@@ -1206,13 +1231,11 @@ function renderConsolidated(dataByType, shippedByFile = {}) {
     const meta = CRON_TYPES[type] || { cnDesc: type };
     for (const f of d.findings) {
       if (/FP|FALSE/i.test(f.sev)) continue;     // 誤報不列
-      (type === 'content' ? auto : manual).push({ type, name: meta.cnDesc, file: d.file, ...f });
+      (type === 'content' ? auto : manual).push({ type, name: meta.cnDesc, file: d.file, cat: categorize(f.viol), ...f });
     }
   }
-  auto.sort((a, b) => rank(a.sev) - rank(b.sev));
-  manual.sort((a, b) => rank(a.sev) - rank(b.sev));
-
-  if (!auto.length && !manual.length) {
+  const total = auto.length + manual.length;
+  if (!total) {
     el.innerHTML = '<div style="background:#f3f8ee;border:2px solid var(--success);border-radius:12px;padding:14px;font-weight:800;color:#3d6b1f;">✅ 目前沒有待辦改善 — 各類 cron 最新一輪都處理完了。</div>';
     return;
   }
@@ -1223,20 +1246,33 @@ function renderConsolidated(dataByType, shippedByFile = {}) {
     if (/P1/.test(t)) return `<span style="${st}background:var(--soft);color:var(--accent-dark);">次要</span>`;
     return `<span style="${st}background:#eaf6d5;color:var(--success);">小改</span>`;
   };
-  const rowHtml = (f) => `<div style="padding:7px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.55;">
-    ${badge(f.sev)}<span style="font-size:10px;color:var(--muted);">[${md2(f.name)}]</span> ${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}${oneLine(f.viol)}${f.fix ? `<span style="color:var(--accent-dark);font-weight:700;"> → ${oneLine(f.fix).replace(/^→\s*/, '')}</span>` : ''}</div>`;
-  const sectionHtml = (title, items, topBtn) => (items.length ? `
-    <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;">
+  const rowHtml = (f) => `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;">
+    ${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span></div>`;
+  const groupBy = (items) => { const g = {}; for (const it of items) (g[it.cat.zh] = g[it.cat.zh] || { dir: it.cat.dir, items: [] }).items.push(it); return g; };
+  const chip = (zh, n) => `<span style="display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:2px 9px;margin:2px 4px 2px 0;font-size:11px;font-weight:800;">${md2(zh)} ×${n}</span>`;
+  const section = (title, items, topBtn) => {
+    if (!items.length) return '';
+    items.sort((a, b) => rank(a.sev) - rank(b.sev));
+    const groups = groupBy(items);
+    const order = Object.keys(groups).sort((a, b) => groups[b].items.length - groups[a].items.length);
+    const chips = order.map((z) => chip(z, groups[z].items.length)).join('');
+    const detail = order.map((z) => `
+      <div style="margin-top:10px;">
+        <div style="font-weight:800;font-size:12.5px;color:var(--text);">${md2(z)} <span style="color:var(--muted);font-weight:600;">· ${groups[z].items.length} 條 · 方向:${md2(groups[z].dir)}</span></div>
+        ${groups[z].items.map(rowHtml).join('')}
+      </div>`).join('');
+    return `<div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;">
       <div style="font-weight:900;font-size:14px;margin-bottom:6px;">${title} <span style="color:var(--muted);font-weight:700;font-size:12px;">· ${items.length} 條</span></div>
+      <div style="margin-bottom:4px;">${chips}</div>
       ${topBtn || ''}
-      ${items.slice(0, 40).map(rowHtml).join('')}
-      ${items.length > 40 ? `<div style="font-size:11px;color:var(--muted);padding-top:8px;">…還有 ${items.length - 40} 條 (點對應卡片看完整)</div>` : ''}
-    </div>` : '');
-  const autoBtn = auto.length ? '<button class="db-copy" style="margin:0 0 8px;" onclick="copyForCron(\'content\', null)">📋 複製指令 → 開 Claude 一次清掉這些題目改善</button>' : '';
+      <details style="margin-top:4px;"><summary style="cursor:pointer;font-weight:800;font-size:12px;color:var(--accent-dark);padding:4px 0;">▸ 點開看每條細節</summary>${detail}</details>
+    </div>`;
+  };
+  const autoBtn = auto.length ? '<button class="db-copy" style="margin:2px 0 6px;" onclick="copyForCron(\'content\', null)">📋 複製指令 → 開 Claude 一次清掉題目改善</button>' : '';
   el.innerHTML = `
-    <h2 style="font-size:16px;font-weight:900;margin:0 0 8px;">📋 統整:到底要改什麼 <span style="font-size:12px;color:var(--muted);font-weight:700;">(所有未處理 audit 全攤開)</span></h2>
-    ${sectionHtml('🛠 題目品質 — 可自動修', auto, autoBtn)}
-    ${sectionHtml('🔧 程式碼/架構 — 要你決定後再動', manual, '')}`;
+    <h2 style="font-size:16px;font-weight:900;margin:0 0 8px;">📋 統整:${total} 條待改 <span style="font-size:12px;color:var(--muted);font-weight:700;">— 先看類型,點開看細節</span></h2>
+    ${section('🛠 題目品質 — 可自動修', auto, autoBtn)}
+    ${section('🔧 程式碼/架構 — 要你決定後再動', manual, '')}`;
 }
 
 function updateNextActionBanner(dataByType, shippedByFile = {}) {
@@ -1322,6 +1358,7 @@ async function openAuditModal(file, type, sha, meta) {
         if (!fs.length) return '';
         const md2 = (s) => esc(String(s || '').replace(/\*\*/g, '').replace(/~~/g, '').replace(/`/g, '').trim());
         const oneLine = (s) => { const t = String(s || ''); const k = t.indexOf('—'); return md2(k >= 0 ? t.slice(k + 1) : t); };
+        const rank = (s) => (/P0/i.test(s) ? 0 : /P1/i.test(s) ? 1 : 2);
         const badge = (sev) => {
           const t = (sev || '').toUpperCase();
           const st = 'display:inline-block;font-size:10px;font-weight:900;padding:1px 6px;border-radius:6px;margin-right:6px;';
@@ -1330,17 +1367,22 @@ async function openAuditModal(file, type, sha, meta) {
           if (/P1/.test(t)) return `<span style="${st}background:var(--soft);color:var(--accent-dark);">次要</span>`;
           return `<span style="${st}background:#eaf6d5;color:var(--success);">小改</span>`;
         };
-        const show = fs.slice(0, 60);
-        const rows = show.map((f) => `
-          <div style="padding:7px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.55;">
-            ${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}${oneLine(f.viol)}
-            ${f.fix ? `<span style="color:var(--accent-dark);font-weight:700;"> ${oneLine(f.fix).replace(/^→\s*/, '→ ')}</span>` : ''}
+        // v2.0.B.423: 類型分組 + 折疊 (中文類型常駐, 細節點開) — 丟掉冗長英文 violation
+        const real = fs.filter((f) => !/FP|FALSE/i.test(f.sev)).map((f) => ({ ...f, cat: categorize(f.viol) }));
+        if (!real.length) return '';
+        const groups = {};
+        for (const f of real) (groups[f.cat.zh] = groups[f.cat.zh] || { dir: f.cat.dir, items: [] }).items.push(f);
+        const order = Object.keys(groups).sort((a, b) => groups[b].items.length - groups[a].items.length);
+        const chips = order.map((z) => `<span style="display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:2px 9px;margin:2px 4px 2px 0;font-size:11px;font-weight:800;">${md2(z)} ×${groups[z].items.length}</span>`).join('');
+        const detail = order.map((z) => `
+          <div style="margin-top:10px;">
+            <div style="font-weight:800;font-size:12.5px;">${md2(z)} <span style="color:var(--muted);font-weight:600;">· ${groups[z].items.length} 條 · 方向:${md2(groups[z].dir)}</span></div>
+            ${groups[z].items.sort((a, b) => rank(a.sev) - rank(b.sev)).map((f) => `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;">${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span></div>`).join('')}
           </div>`).join('');
         return `<div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:10px;">
-          <div style="font-weight:900;font-size:13px;margin-bottom:2px;">📋 這輪 ${fs.length} 條改善 — 每條一句</div>
-          <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">紅=急修 / 黃=次要 / 綠=小改 / 灰=誤報。→ 後面是怎麼改。</div>
-          ${rows}
-          ${fs.length > show.length ? `<div style="font-size:11px;color:var(--muted);padding-top:8px;">…還有 ${fs.length - show.length} 條,點下面原文看完整表格</div>` : ''}
+          <div style="font-weight:900;font-size:13px;margin-bottom:4px;">📋 這輪 ${real.length} 條改善 — 分 ${order.length} 類</div>
+          <div style="margin-bottom:2px;">${chips}</div>
+          <details style="margin-top:4px;"><summary style="cursor:pointer;font-weight:800;font-size:12px;color:var(--accent-dark);padding:4px 0;">▸ 點開看每條細節</summary>${detail}</details>
         </div>`;
       })()}
       <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">這是 cron 自動產生的稽核報告,原文是英文 + 技術細節。上面是白話判讀;要看完整原文點下面展開。</div>`;
