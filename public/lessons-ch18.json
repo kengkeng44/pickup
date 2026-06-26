@@ -8,31 +8,14 @@
     "storyBeat": "兩兄弟父母過世 → 興夫被趕出家門",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch18-l1-q1",
+        "type": "narration",
+        "id": "kt-ch18-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "哥哥",
-            "right": "older brother"
-          },
-          {
-            "left": "弟弟",
-            "right": "younger brother"
-          },
-          {
-            "left": "貪心",
-            "right": "greedy"
-          },
-          {
-            "left": "好心",
-            "right": "kind"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 older brother = 哥哥\n🔑 younger brother = 弟弟\n🔑 greedy = 貪心\n🔑 kind = 好心\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要說興夫與孬夫的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch18",
@@ -42,428 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch18-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch18-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago, there were two brothers in Korea.",
-        "explanationZh": "很久以前,在韓國有兩個兄弟。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The older was Nolbu. The younger was Heungbu.",
-        "explanationZh": "哥哥叫孬夫。弟弟叫興夫。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Nolbu was greedy. Heungbu was kind.",
-        "questionEn": "Were the two brothers very different?",
-        "options": [
-          "Yes",
-          "No"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "好心的",
+            "right": "kind"
+          },
+          {
+            "left": "貪心的",
+            "right": "greedy"
+          },
+          {
+            "left": "窮",
+            "right": "poor"
+          },
+          {
+            "left": "有錢",
+            "right": "rich"
+          }
         ],
-        "correctIndex": 0,
-        "explanationZh": "一個貪心,一個好心——個性差很多,當然不一樣,答 Yes。",
+        "explanationZh": "這四個字是故事的核心：\n🔑 kind = 好心的\n🔑 greedy = 貪心的\n🔑 poor = 窮\n🔑 rich = 有錢",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
-          "inference"
-        ],
-        "sentenceZh": "那夫貪心，興夫善良。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One day, their parents were gone.",
-        "explanationZh": "有一天,他們的父母過世了。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "listen-mc",
-        "id": "kt-ch18-l1-q6",
+        "type": "tap-pairs",
+        "id": "kt-ch18-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Nolbu took the big house, the rice, and the cows.",
-        "question": "What did Nolbu take for himself?",
-        "options": [
-          "just a small bag",
-          "only one cow",
-          "everything good",
-          "nothing at all"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "鳥",
+            "right": "bird"
+          },
+          {
+            "left": "燕子",
+            "right": "swallow"
+          },
+          {
+            "left": "鳥巢",
+            "right": "nest"
+          },
+          {
+            "left": "屋頂",
+            "right": "roof"
+          }
         ],
-        "optionsZh": [
-          "只有小袋子",
-          "只有一頭牛",
-          "所有好東西",
-          "什麼也沒拿"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "孬夫把房子、米、牛都拿走——把好東西全部佔為己有,選「所有好東西」。",
+        "explanationZh": "再來四個：\n🔑 bird = 鳥\n🔑 swallow = 燕子\n🔑 nest = 鳥巢\n🔑 roof = 屋頂",
         "tags": [
           "story",
           "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "那夫把大房子、米糧和牛都留給自己了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Then Nolbu kicked Heungbu out of the family home.",
-        "explanationZh": "然後孬夫把興夫趕出家門。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch18-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu walked away with only one small bag.",
-        "question": "What did Heungbu have when he left?",
-        "options": [
-          "a big farm",
-          "piles of gold",
-          "a strong horse",
-          "almost nothing"
-        ],
-        "optionsZh": [
-          "一個大農場",
-          "一堆黃金",
-          "一匹強壯的馬",
-          "幾乎什麼都沒有"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "only one small bag = 只有一個小袋子——幾乎什麼都沒有,選那個答案。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "興夫走了，手上只拿著一個小包袱。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The road was long. The sun was hot.",
-        "explanationZh": "路很長。太陽很熱。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
+          "heungbu-nolbu",
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch18-l1-q10",
+        "id": "kt-ch18-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How does Heungbu feel as he walks away?",
-        "question": "How does he feel?",
+        "sentence": "Which one is a swallow?",
+        "question": "Which one is a swallow?",
         "options": [
-          "😢 sad and alone",
-          "😄 happy and free",
-          "😡 ready to fight",
-          "😴 sleepy and full"
+          "🐝 bug",
+          "🐦 bird",
+          "🐸 frog",
+          "🐢 turtle"
         ],
         "optionsZh": [
-          "難過又孤單",
-          "開心又自由",
-          "想打架",
-          "想睡又飽"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "被趕出家門 + 走遠路 → 難過又孤單。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "走在離開的路上，興夫心裡是什麼感受？"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch18-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago, there were two brothers in Korea. The older was Nolbu. The younger was Heungbu.",
-        "question": "Who were the two brothers?",
-        "options": [
-          "Mochi and Hana",
-          "Nolbu and Heungbu",
-          "Nolbu and the king",
-          "Heungbu and a stranger"
-        ],
-        "optionsZh": [
-          "Mochi 和 Hana",
-          "孬夫和興夫",
-          "孬夫和國王",
-          "興夫和陌生人"
+          "蟲子",
+          "鳥",
+          "青蛙",
+          "烏龜"
         ],
         "correctIndex": 1,
-        "explanationZh": "The older was Nolbu, the younger was Heungbu——兩兄弟就是孬夫和興夫。",
-        "sentenceZh": "很久以前，韓國有兩個兄弟：哥哥孬夫和弟弟興夫。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Nolbu was greedy. Heungbu was kind.",
-        "questionEn": "Were the brothers the same kind of person?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "一個貪心,一個善良——他們完全不一樣,答 No。",
-        "sentenceZh": "孬夫貪心，興夫善良。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch18-l1-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Nolbu took the big house, the rice, and the cows.",
-        "question": "What did Nolbu take for himself after their parents were gone?",
-        "options": [
-          "half of everything",
-          "only one small bag",
-          "all the good things",
-          "nothing from the house"
-        ],
-        "optionsZh": [
-          "所有東西的一半",
-          "只有一個小袋子",
-          "所有好東西",
-          "家裡什麼都沒拿"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "房子、米、牛——他把好東西全部拿走了。",
-        "sentenceZh": "孬夫把大房子、米糧和牛都留給自己。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch18-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match each word with its meaning.",
-        "pairs": [
-          {
-            "left": "greedy",
-            "right": "貪心"
-          },
-          {
-            "left": "kind",
-            "right": "好心"
-          },
-          {
-            "left": "kicked out",
-            "right": "趕出去"
-          },
-          {
-            "left": "walked away",
-            "right": "走遠了"
-          }
-        ],
-        "explanationZh": "🔑 greedy = 貪心\n🔑 kind = 好心\n🔑 kicked out = 趕出去\n🔑 walked away = 走遠了",
+        "explanationZh": "swallow = 燕子，是一種鳥 🐦！故事裡一隻小燕子在興夫家的屋頂築巢。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch18-l1-x5",
+        "type": "emoji-pick",
+        "id": "kt-ch18-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Then Nolbu kicked Heungbu out of the family home.",
-        "question": "Why did Nolbu kick Heungbu out?",
+        "sentence": "Which one shows a nest?",
+        "question": "Which one shows a nest?",
         "options": [
-          "the house was getting too small",
-          "Heungbu asked to leave first",
-          "their parents told him to",
-          "he was greedy and wanted it all"
+          "🌊 wave",
+          "🏠 house",
+          "🪺 nest",
+          "🌳 tree"
         ],
         "optionsZh": [
-          "家裡變太小了",
-          "興夫先要求離開",
-          "父母叫他這樣做",
-          "他貪心想要全部"
+          "海浪",
+          "房子",
+          "鳥巢",
+          "樹"
         ],
-        "correctIndex": 3,
-        "explanationZh": "孬夫貪心、把所有好東西佔走——他趕走興夫是因為貪心,想要全部。",
-        "sentenceZh": "孬夫把興夫趕出了家門。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu walked away with only one small bag.",
-        "questionEn": "Did Heungbu leave with many things?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "only one small bag = 只有一個小袋子——他帶走的東西很少,答 No。",
-        "sentenceZh": "興夫走了，手上只拿著一個小包袱。",
+        "correctIndex": 2,
+        "explanationZh": "nest = 鳥巢 🪺！燕子在興夫家的屋頂上築了巢。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
-          "detail"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch18-l1-x7",
+        "type": "picture-mc",
+        "id": "kt-ch18-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The road was long. The sun was hot.",
-        "question": "How did the road feel for Heungbu?",
+        "sentence": "A small swallow built a nest on the roof.",
+        "sentenceZh": "一隻小燕子在屋頂上築了巢。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🐦",
         "options": [
-          "long and hard",
-          "short and easy",
-          "cool and quiet",
-          "dark and rainy"
+          "a bird sitting inside a warm kitchen",
+          "a fish swimming under a wooden bridge",
+          "a small bird on a nest on a rooftop",
+          "a dog sleeping at the front door"
         ],
         "optionsZh": [
-          "又長又辛苦",
-          "又短又輕鬆",
-          "涼爽又安靜",
-          "黑暗下著雨"
+          "一隻鳥坐在溫暖的廚房裡",
+          "一條魚游在木橋下",
+          "一隻小鳥在屋頂鳥巢裡",
+          "一隻狗睡在前門口"
         ],
-        "correctIndex": 0,
-        "explanationZh": "long road + hot sun = 又長又辛苦的路。",
-        "sentenceZh": "路很長，太陽很熱。",
+        "correctIndex": 2,
+        "explanationZh": "roof = 屋頂，nest = 鳥巢——小燕子的家就在興夫家的屋頂上！",
         "tags": [
           "story",
           "ch18",
-          "heungbu-nolbu"
+          "heungbu-nolbu",
+          "vocab"
         ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch18-l1-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Two brothers. One kind, one greedy. When their parents were gone, the greedy one took everything.",
-        "question": "What is the big problem at the start of the story?",
-        "options": [
-          "Nolbu lost his big house in a fire",
-          "Heungbu has nothing after Nolbu takes all",
-          "Heungbu is angry and will not work",
-          "both brothers share everything equally"
-        ],
-        "optionsZh": [
-          "孬夫的大房子被火燒了",
-          "孬夫拿走一切後興夫一無所有",
-          "興夫很生氣不肯工作",
-          "兩個弟兄平均分享一切"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "孬夫把好東西都拿走、趕走興夫——興夫一無所有,這是故事的問題。",
-        "sentenceZh": "兩個兄弟，一個善良，一個貪心。父母去世後，貪心的那個把所有東西都拿走了。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu walks away with only one small bag...",
-        "explanationZh": "興夫帶著一個小袋子,默默走遠……",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
+        "subSkill": "vocab"
       }
     ]
   },
@@ -476,31 +195,14 @@
     "storyBeat": "興夫家裡很窮 → 他怎麼養家?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch18-l2-q1",
+        "type": "narration",
+        "id": "kt-ch18-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "妻子",
-            "right": "wife"
-          },
-          {
-            "left": "小孩",
-            "right": "children"
-          },
-          {
-            "left": "草屋",
-            "right": "straw house"
-          },
-          {
-            "left": "餓",
-            "right": "hungry"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 wife = 妻子\n🔑 children = 小孩\n🔑 straw house = 草屋\n🔑 hungry = 餓\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins! The greedy brother once kicked a little swallow.",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch18",
@@ -510,427 +212,163 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch18-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu had a kind wife and many small children.",
-        "explanationZh": "興夫有一個好心的妻子和很多小孩。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch18-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They lived in a tiny straw house with thin walls.",
-        "question": "What was their house like?",
-        "options": [
-          "big and warm",
-          "made of stone",
-          "small and weak",
-          "high in a tree"
-        ],
-        "optionsZh": [
-          "又大又暖",
-          "石頭做",
-          "又小又脆弱",
-          "在樹上"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "tiny straw + thin walls = 很小的草屋、牆又薄——又小又脆弱。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他們住在一間薄牆草屋裡。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The rain came in. The wind blew through the wall.",
-        "explanationZh": "雨會漏進來。風會從牆吹進來。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l2-q5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Heungbu worked all day, but the rice was never enough.",
-        "questionEn": "Was hard work enough to feed his family?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "整天做事,但米還是不夠——辛苦工作也餵不飽家人,答 No。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu",
-          "inference"
-        ],
-        "sentenceZh": "興夫整天工作，米糧還是不夠吃。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He cut grass. He carried water. He helped neighbours.",
-        "explanationZh": "他割草。他挑水。他幫鄰居做事。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch18-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What jobs did Heungbu do?",
-        "question": "What jobs did he do?",
-        "options": [
-          "🏫 teach at a school",
-          "👑 work for a king",
-          "🏪 sell in a big shop",
-          "💪 small hard jobs"
-        ],
-        "optionsZh": [
-          "學校教書",
-          "幫國王做事",
-          "在大店裡賣",
-          "辛苦的小工作"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "割草 + 挑水 + 幫鄰居 → 辛苦的小工作。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "興夫做過哪些工作？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At night, the children were always a little hungry.",
-        "explanationZh": "到晚上,小孩們總是有點餓。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch18-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu looked at the empty rice pot and felt sad.",
-        "question": "Why did Heungbu feel sad?",
-        "options": [
-          "there was no rice left",
-          "the pot was new",
-          "the children were laughing",
-          "his wife was singing"
-        ],
-        "optionsZh": [
-          "米都吃完了",
-          "鍋子是新的",
-          "小孩在笑",
-          "妻子在唱歌"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "看著空空的米鍋——米都吃完了,這讓他難過。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "興夫看著空空的米甕，心裡好難過。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His wife sat next to him. She held his hand.",
-        "explanationZh": "他的妻子坐在他旁邊。她握住他的手。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch18-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They lived in a tiny straw house with thin walls.",
-        "question": "What was their house like?",
-        "options": [
-          "big with strong stone walls",
-          "small with thin weak walls",
-          "clean with soft warm walls",
-          "tall with wide open walls"
-        ],
-        "optionsZh": [
-          "石頭砌成的大牆",
-          "小而薄弱的牆",
-          "乾淨溫暖的牆",
-          "高而寬的牆"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "tiny straw + thin walls = 小草屋、牆又薄——小而薄弱。",
-        "sentenceZh": "他們住在一間薄牆草屋裡。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu worked all day, but the rice was never enough.",
-        "questionEn": "Did Heungbu work hard?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "worked all day = 整天做事——他很努力工作,答 Yes。",
-        "sentenceZh": "興夫整天工作，米糧還是不夠吃。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu",
-          "detail"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch18-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The rain came in. The wind blew through the wall.",
-        "question": "What problem did the family have with their house?",
-        "options": [
-          "mice ate all the rice",
-          "the roof fell on them",
-          "rain and wind came inside",
-          "the door was always stuck"
-        ],
-        "optionsZh": [
-          "老鼠把米吃光",
-          "屋頂塌下來",
-          "雨和風跑進來",
-          "門一直打不開"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "rain came in + wind blew through = 雨和風都跑進來——房子太破了。",
-        "sentenceZh": "雨水漏進來，風也從牆縫吹進來。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail"
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch18-l2-x4",
+        "id": "kt-ch18-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match each phrase with its meaning.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "cut grass",
-            "right": "割草"
+            "left": "草屋",
+            "right": "straw house"
           },
           {
-            "left": "carried water",
-            "right": "挑水"
+            "left": "空米鍋",
+            "right": "empty pot"
           },
           {
-            "left": "rice was never enough",
-            "right": "米不夠吃"
+            "left": "好心的哥哥",
+            "right": "kind brother"
           },
           {
-            "left": "empty rice pot",
-            "right": "空空的米鍋"
+            "left": "分享食物",
+            "right": "share food"
           }
         ],
-        "explanationZh": "🔑 cut grass = 割草\n🔑 carried water = 挑水\n🔑 rice was never enough = 米不夠吃\n🔑 empty rice pot = 空空的米鍋",
+        "explanationZh": "這四個片語都出現在故事裡：\n🔑 straw house = 草屋\n🔑 empty pot = 空米鍋\n🔑 kind brother = 好心的哥哥\n🔑 share food = 分享食物",
+        "tags": [
+          "story",
+          "ch18",
+          "heungbu-nolbu",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch18-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Heungbu was kind. He always shared what he had.",
+        "sentenceZh": "興夫好心，他總是把有的東西分給別人。",
+        "question": "Which picture shows someone sharing?",
+        "imageEmoji": "🤲",
+        "options": [
+          "a boy giving food to a friend",
+          "a girl reading alone by a window",
+          "a man running away from a crowd",
+          "a child hiding food under a hat"
+        ],
+        "optionsZh": [
+          "男孩把食物分給朋友",
+          "女孩一個人在窗邊看書",
+          "一個男人從人群中跑走",
+          "小孩把食物藏在帽子下"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "share = 分享 🤲！興夫雖然很窮，還是把有的東西分給別人——這就是他好心的地方。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch18-l2-x5",
+        "type": "emoji-pick",
+        "id": "kt-ch18-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "At night, the children were always a little hungry.",
-        "question": "How did the children feel at night?",
+        "sentence": "Which one shows someone who is poor?",
+        "question": "Which one shows someone poor?",
         "options": [
-          "tired from fun games",
-          "full after a big meal",
-          "warm and very happy",
-          "a little hungry every night"
+          "👑 royal",
+          "🏰 castle",
+          "🏚️ poor",
+          "💎 jewel"
         ],
         "optionsZh": [
-          "玩累了",
-          "吃飽了",
-          "溫暖又快樂",
-          "每晚有點餓"
+          "皇室",
+          "城堡",
+          "貧窮",
+          "珠寶"
         ],
-        "correctIndex": 3,
-        "explanationZh": "always a little hungry = 總是有點餓——每晚有點餓。",
-        "sentenceZh": "到了晚上，孩子們總是有點餓。",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch18-l2-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu looked at the empty rice pot and felt sad.",
-        "questionEn": "Was Heungbu happy looking at the rice pot?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "空空的米鍋讓他難過——他不快樂,答 No。",
-        "sentenceZh": "興夫看著空空的米甕，心裡好難過。",
+        "correctIndex": 2,
+        "explanationZh": "poor = 窮 🏚️！興夫住在破舊的草屋裡，家裡很窮。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch18-l2-x7",
+        "type": "grammar-mc",
+        "id": "kt-ch18-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "His wife sat next to him. She held his hand.",
-        "question": "How did Heungbu's wife help him?",
+        "sentence": "Every spring, a swallow ___ back to Heungbu's roof.",
+        "question": "Which word is correct?",
         "options": [
-          "holding his hand close by",
-          "running to ask Nolbu for rice",
-          "singing him songs all night",
-          "searching for extra work"
+          "come",
+          "came",
+          "coming",
+          "comes"
         ],
         "optionsZh": [
-          "握著他的手陪著他",
-          "跑去找孬夫要米",
-          "整晚唱歌給他聽",
-          "出門再找別的工作"
+          "來（原形）",
+          "來了（過去式）",
+          "正在來（進行式）",
+          "來（第三人稱現在）"
         ],
-        "correctIndex": 0,
-        "explanationZh": "坐在他旁邊、握著他的手——她陪在身邊關心他。",
-        "sentenceZh": "他的妻子坐在他身旁，握住他的手。",
+        "correctIndex": 3,
+        "explanationZh": "主詞 a swallow 是第三人稱單數，現在習慣用 comes（原形 +s）。\n完整句：Every spring, a swallow comes back to Heungbu's roof.",
         "tags": [
           "story",
           "ch18",
-          "heungbu-nolbu"
+          "heungbu-nolbu",
+          "grammar"
         ],
-        "subSkill": "inference"
+        "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch18-l2-x8",
+        "type": "tap-pairs",
+        "id": "kt-ch18-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Heungbu worked hard every day, but his family was still poor and hungry.",
-        "question": "What best describes Heungbu's life at this point?",
-        "options": [
-          "lazy days with plenty of rice",
-          "hard work but not enough food",
-          "easy life in a warm big house",
-          "rich but still feeling lonely"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "好心的",
+            "right": "kind"
+          },
+          {
+            "left": "貪心的",
+            "right": "greedy"
+          },
+          {
+            "left": "分享",
+            "right": "share"
+          },
+          {
+            "left": "草屋",
+            "right": "straw house"
+          }
         ],
-        "optionsZh": [
-          "懶懶散散米又多",
-          "努力工作但食物不夠",
-          "溫暖大房子裡過好日子",
-          "有錢但感到孤單"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "整天工作、米還是不夠——努力工作但食物不夠。",
-        "sentenceZh": "興夫每天辛苦工作，但家人還是又窮又餓。",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 kind = 好心的\n🔑 greedy = 貪心的\n🔑 share = 分享\n🔑 straw house = 草屋",
         "tags": [
           "story",
           "ch18",
-          "heungbu-nolbu"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch18-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heungbu looks at the empty rice pot. What can he do?",
-        "explanationZh": "興夫看著空空的米鍋。他能怎麼辦?",
-        "tags": [
-          "story",
-          "ch18",
-          "heungbu-nolbu"
+          "heungbu-nolbu",
+          "vocab",
+          "review"
         ]
       }
     ]

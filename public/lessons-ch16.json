@@ -8,31 +8,14 @@
     "storyBeat": "老夫婦求子 — 會生出什麼?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch16-l1-q1",
+        "type": "narration",
+        "id": "kt-ch16-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "老人",
-            "right": "old man"
-          },
-          {
-            "left": "老婦",
-            "right": "old woman"
-          },
-          {
-            "left": "田",
-            "right": "rice field"
-          },
-          {
-            "left": "祈求",
-            "right": "pray"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 old man = 老人\n🔑 old woman = 老婦\n🔑 rice field = 田\n🔑 pray = 祈求\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first! This tiny boy will travel all the way to Kyoto.",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講一寸法師的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch16",
@@ -42,399 +25,164 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch16-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch16-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Long ago, an old man and old woman lived by a rice field.",
-        "explanationZh": "很久以前,一個老人和一個老婦住在田邊。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They had no children. Their house was quiet.",
-        "explanationZh": "他們沒有小孩。他們的家很安靜。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Every night they sat by the window and looked out.",
-        "questionEn": "Did the old couple feel lonely?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "沒有小孩、家裡安靜、每晚望著窗外——你感覺得到嗎?他們一定很孤單,答 Yes。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "inference"
-        ],
-        "sentenceZh": "每天晚上，他們坐在窗邊，靜靜地望著外面。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every night they prayed for a child.",
-        "explanationZh": "每個晚上,他們祈求一個小孩。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch16-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Please, please give us a child,\" they said softly.",
-        "question": "What did the old couple ask for?",
-        "options": [
-          "a big new house to live in",
-          "a small child of their own",
-          "a heavy bag of gold coins",
-          "a fast horse for the farm"
-        ],
-        "optionsZh": [
-          "一棟可以住的大新房子",
-          "一個自己的小孩",
-          "一大袋重重的金幣",
-          "一匹農場用的快馬"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他們輕聲說「給我們一個孩子吧」——就是想要一個自己的小孩。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "「求求你，賜給我們一個孩子吧。」他們輕聲說。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"Even a tiny one will do,\" they said.",
-        "explanationZh": "「就算很小的也好,」他們說。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch16-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One spring morning, the old woman heard a small cry.",
-        "question": "What surprised the old woman?",
-        "options": [
-          "a knock at the door",
-          "birds singing outside",
-          "a small voice crying",
-          "rain on the roof"
-        ],
-        "optionsZh": [
-          "敲門聲",
-          "外面鳥在唱歌",
-          "小小的哭聲",
-          "雨打屋頂"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "heard a small cry = 聽到小小的哭聲——讓老婦人嚇到的就是那個小哭聲。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "一個春天的早晨，老婆婆聽見一聲細細的哭聲。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "There, in her hand, sat a tiny baby.",
-        "explanationZh": "在她的手心裡,坐著一個小小的寶寶。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch16-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How big was the baby?",
-        "question": "How big was the baby?",
-        "options": [
-          "🍼 just a little smaller",
-          "👶 like a normal baby",
-          "🐘 very big and very heavy",
-          "👍 only as tall as a thumb"
-        ],
-        "optionsZh": [
-          "只小一點點",
-          "像普通寶寶",
-          "非常大又非常重",
-          "只有拇指那麼高"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "tiny baby + in her hand → 拇指那麼高。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "那個寶寶有多大？"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch16-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from tonight's story.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "老人",
-            "right": "old man"
+            "left": "小小的",
+            "right": "tiny"
           },
           {
-            "left": "老婦",
-            "right": "old woman"
+            "left": "男孩",
+            "right": "boy"
           },
           {
-            "left": "田",
-            "right": "rice field"
+            "left": "河",
+            "right": "river"
           },
           {
             "left": "祈求",
             "right": "pray"
           }
         ],
-        "explanationZh": "今晚的 4 個關鍵字，配對試試。",
+        "explanationZh": "這四個字都在一寸法師的故事裡：\n🔑 tiny = 小小的\n🔑 boy = 男孩\n🔑 river = 河\n🔑 pray = 祈求",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch16-l1-vp2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "縫衣針",
+            "right": "needle"
+          },
+          {
+            "left": "碗",
+            "right": "bowl"
+          },
+          {
+            "left": "漂浮",
+            "right": "float"
+          },
+          {
+            "left": "拇指",
+            "right": "thumb"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 needle = 縫衣針\n🔑 bowl = 碗\n🔑 float = 漂浮\n🔑 thumb = 拇指",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch16-l1-ep1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Which one is a needle?",
+        "question": "Which one is a needle?",
+        "options": [
+          "🪡 needle",
+          "🍴 fork",
+          "🪝 hook",
+          "🔑 key"
+        ],
+        "optionsZh": [
+          "縫衣針",
+          "叉子",
+          "鉤子",
+          "鑰匙"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "needle = 縫衣針 🪡！故事裡，媽媽給一寸一根縫衣針當劍——這就是他的武器。",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
           "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch16-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The old couple had lived in the same quiet place for many years.",
-        "sentenceZh": "這對老夫婦在同一個安靜的地方住了好多年。",
-        "question": "Where did the old couple live?",
-        "options": [
-          "beside their rice field",
-          "near a great city",
-          "deep inside a forest",
-          "at the top of a hill"
-        ],
-        "optionsZh": [
-          "田邊",
-          "大城市旁邊",
-          "森林深處",
-          "山頂上"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "by a rice field = 住在田邊——這對老夫婦的家就在田旁邊。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l1-x3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "They had no children. Their house was quiet.",
-        "sentenceZh": "他們沒有小孩。他們的家很安靜。",
-        "questionEn": "Did the old couple have a noisy, busy home?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "no children + quiet = 沒有小孩、安安靜靜——不熱鬧，答 No。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch16-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The couple had one simple wish about any child they might receive.",
-        "sentenceZh": "這對夫婦對他們可能得到的孩子只有一個小小的願望。",
-        "question": "What size of child did the old couple ask for?",
-        "options": [
-          "a very strong one",
-          "just a tiny one",
-          "only a tall one",
-          "one who could farm"
-        ],
-        "optionsZh": [
-          "非常強壯的",
-          "就一個小小的也好",
-          "只要高大的",
-          "能耕田的"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "even a tiny one will do = 就算很小的也好——他們不挑，只要有個孩子就夠了。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch16-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did the old woman feel when she found the tiny baby?",
-        "sentenceZh": "老婆婆發現小小的寶寶時，心情怎麼樣？",
-        "question": "How did she feel?",
-        "options": [
-          "😢 sad and worried",
-          "😠 angry and upset",
-          "😊 surprised and overjoyed",
-          "😴 too tired to care"
-        ],
-        "optionsZh": [
-          "難過又擔心",
-          "生氣又難受",
-          "驚喜又非常開心",
-          "太累不在乎"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "smile and cry with joy = 又笑又哭開心——驚喜又非常開心。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "hook"
         ],
         "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch16-l1-x6",
+        "type": "emoji-pick",
+        "id": "kt-ch16-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "There, in her hand, sat a tiny baby.",
-        "sentenceZh": "在她的手心裡，坐著一個小小的寶寶。",
-        "question": "How big was the baby?",
+        "sentence": "Which one shows a bowl?",
+        "question": "Which one shows a bowl?",
         "options": [
-          "big enough to walk around",
-          "the size of a normal newborn",
-          "as tall as a door frame",
-          "tiny enough to fit a palm"
+          "🪣 bucket",
+          "🫙 jar",
+          "🍜 bowl",
+          "🪤 trap"
         ],
         "optionsZh": [
-          "夠大能走路",
-          "普通新生兒大小",
-          "像門框一樣高",
-          "小到能放在手掌裡"
+          "水桶",
+          "罐子",
+          "碗",
+          "捕獸夾"
         ],
-        "correctIndex": 3,
-        "explanationZh": "in her hand = 在她手裡——寶寶小到可以坐在手心裡。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Every night they prayed for a child.",
-        "sentenceZh": "每個晚上,他們祈求一個小孩。",
-        "questionEn": "Did the old couple pray only once?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "every night = 每個晚上——他們每天晚上都祈求，不只一次，答 No。",
+        "correctIndex": 2,
+        "explanationZh": "bowl = 碗 🍜！爸爸給一寸一個飯碗，他把碗當作小船——多聰明！",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "narration",
-        "id": "kt-ch16-l1-q11",
+        "type": "picture-mc",
+        "id": "kt-ch16-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The old couple smile and cry with joy. What kind of child will he be?",
-        "explanationZh": "老夫婦又笑又哭,好開心。這小孩會變成怎樣呢?",
+        "sentence": "A tiny boy floated down the river in a bowl.",
+        "sentenceZh": "一個小小的男孩坐在碗裡，順著河漂下去。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🍜",
+        "options": [
+          "an old woman washing clothes by the river",
+          "a small boy sitting in a bowl on the river",
+          "a big man rowing a boat on the sea",
+          "a girl feeding fish beside a pond"
+        ],
+        "optionsZh": [
+          "老婆婆在河邊洗衣服",
+          "一個小男孩坐在碗裡漂在河上",
+          "一個大人在海上划船",
+          "一個女孩在池塘邊餵魚"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "tiny boy + bowl + river → 小男孩坐在碗裡漂在河上——這就是一寸法師出發的樣子！",
         "tags": [
           "story",
           "ch16",
-          "issun-boshi"
-        ]
+          "issun-boshi",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -447,31 +195,14 @@
     "storyBeat": "拇指大小的男孩 — 他能做什麼?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch16-l2-q1",
+        "type": "narration",
+        "id": "kt-ch16-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "名字",
-            "right": "name"
-          },
-          {
-            "left": "意思",
-            "right": "mean"
-          },
-          {
-            "left": "聰明",
-            "right": "clever"
-          },
-          {
-            "left": "勇敢",
-            "right": "brave"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 name = 名字\n🔑 mean = 意思\n🔑 clever = 聰明\n🔑 brave = 勇敢\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch16",
@@ -481,296 +212,125 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch16-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They named him Issun-bōshi.",
-        "explanationZh": "他們給他取名叫一寸法師。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch16-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His name meant \"tiny boy\" in old words.",
-        "question": "What did his name mean?",
-        "options": [
-          "small boy",
-          "big hero",
-          "kind father",
-          "old friend"
-        ],
-        "optionsZh": [
-          "小男孩",
-          "大英雄",
-          "好爸爸",
-          "老朋友"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "tiny boy = 小小的男孩——他的名字就是「小男孩」的意思。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他的名字用古語來說是「小小的男孩」。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Years went by. He stayed thumb-sized.",
-        "explanationZh": "很多年過去了。他還是拇指那麼大。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l2-q5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "He helped at home. He made his mother laugh.",
-        "questionEn": "Was Issun useless because he was so small?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他幫忙做事、還讓媽媽笑——這樣有用嗎?當然有用!答 No,他可不是沒用的。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "inference"
-        ],
-        "sentenceZh": "他在家幫忙，還會逗媽媽笑。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He was clever and brave, with a big heart.",
-        "explanationZh": "他很聰明,也很勇敢,有一顆大大的心。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch16-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What was Issun like inside?",
-        "question": "What was he like inside?",
-        "options": [
-          "😴 sleepy and lazy",
-          "💛 brave with a big heart",
-          "😠 angry and rude",
-          "😢 sad all the time"
-        ],
-        "optionsZh": [
-          "又困又懶",
-          "勇敢又有大大的心",
-          "生氣又沒禮貌",
-          "一直難過"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "clever + brave + big heart → 勇敢又有大大的心。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "一寸法師內心是個什麼樣的孩子？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One day, Issun said, \"I want to see Kyoto.\"",
-        "explanationZh": "有一天,一寸說:「我想去看京都。」",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch16-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His parents looked at each other and felt a little worried.",
-        "question": "How did his parents feel?",
-        "options": [
-          "proud only",
-          "angry at him",
-          "a bit worried",
-          "very sleepy"
-        ],
-        "optionsZh": [
-          "只有驕傲",
-          "對他生氣",
-          "有一點擔心",
-          "很想睡"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "爸媽你看我、我看你——心裡有一點擔心,選「有一點擔心」。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "爸爸和媽媽對看了一眼，心裡有點擔心。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "But they nodded slowly. They believed in him.",
-        "explanationZh": "但他們慢慢點頭。他們相信他。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ]
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch16-l2-x1",
+        "id": "kt-ch16-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the words from tonight's story.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "名字",
-            "right": "name"
+            "left": "勇敢的",
+            "right": "brave"
           },
           {
-            "left": "意思",
-            "right": "mean"
-          },
-          {
-            "left": "聰明",
+            "left": "聰明的",
             "right": "clever"
           },
           {
-            "left": "勇敢",
-            "right": "brave"
+            "left": "公主",
+            "right": "princess"
+          },
+          {
+            "left": "鬼",
+            "right": "demon"
           }
         ],
-        "explanationZh": "今晚的關鍵字，配對看看。",
+        "explanationZh": "這四個字都在一寸法師的故事裡：\n🔑 brave = 勇敢的\n🔑 clever = 聰明的\n🔑 princess = 公主\n🔑 demon = 鬼",
+        "tags": [
+          "story",
+          "ch16",
+          "issun-boshi",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch16-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "A brave boy stood up to a big red demon.",
+        "sentenceZh": "一個勇敢的男孩站出來面對大紅鬼。",
+        "question": "Which picture matches 'a brave boy'?",
+        "imageEmoji": "🧒",
+        "options": [
+          "a small cat sleeping near a fire",
+          "a young boy standing tall with a sword",
+          "an old woman resting under a tree",
+          "a girl hiding behind a big rock"
+        ],
+        "optionsZh": [
+          "一隻小貓睡在火爐旁",
+          "一個男孩站得直直的，手持劍",
+          "一位老婆婆坐在樹下休息",
+          "一個女孩躲在大石頭後面"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "brave boy = 勇敢的男孩。一寸雖然很小，卻挺直身子、面對大鬼——這就是「勇敢」！",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch16-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "They named him Issun-bōshi.",
-        "sentenceZh": "他們給他取名叫一寸法師。",
-        "question": "What was the tiny boy's name?",
-        "options": [
-          "Momotaro",
-          "Urashima Taro",
-          "Kintaro",
-          "Issun-boshi"
-        ],
-        "optionsZh": [
-          "桃太郎",
-          "浦島太郎",
-          "金太郎",
-          "一寸法師"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "They named him Issun-bōshi = 他叫一寸法師。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l2-x3",
+        "type": "emoji-pick",
+        "id": "kt-ch16-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Years went by. He stayed thumb-sized.",
-        "sentenceZh": "很多年過去了。他還是拇指那麼大。",
-        "questionEn": "Did Issun grow to normal size over the years?",
+        "sentence": "Which one shows a mallet?",
+        "question": "Which one shows a mallet?",
         "options": [
-          "Yes",
-          "No"
+          "🪄 wand",
+          "🪓 axe",
+          "🗡️ blade",
+          "🔨 hammer"
         ],
-        "correctIndex": 1,
-        "explanationZh": "stayed thumb-sized = 還是拇指大——多年過去也沒長高，答 No。",
+        "optionsZh": [
+          "魔杖",
+          "斧頭",
+          "刀刃",
+          "槌子"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "mallet = 木槌 🔨！故事裡有一把神奇的小木槌，敲一下就能實現願望。",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
-          "inference"
-        ]
+          "vocab"
+        ],
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch16-l2-x4",
+        "id": "kt-ch16-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Issun _____ clever and brave, with a big heart.",
-        "sentenceZh": "一寸聰明又勇敢，有一顆大大的心。",
-        "question": "Choose the correct word to fill the blank.",
+        "sentence": "The tiny boy ___ clever and brave.",
+        "sentenceEasy": "The tiny boy ___ clever and brave.",
+        "sentenceHard": "Even when he was very small, the tiny boy ___ clever and brave.",
+        "question": "Which word is correct?",
         "options": [
           "was",
           "is",
           "am",
-          "were"
+          "be"
         ],
         "optionsZh": [
-          "第三人稱過去",
-          "第三人稱現在",
-          "第一人稱現在",
-          "複數過去"
+          "第三人稱過去式",
+          "第三人稱現在式",
+          "第一人稱現在式",
+          "原形"
         ],
         "correctIndex": 0,
-        "explanationZh": "Issun 是「他」，說的是故事裡的往事，所以用 was（過去式）。",
+        "explanationZh": "說的是故事裡過去的事，主語是「他」（第三人稱單數），所以用 was（be 的過去式）。\n完整句：The tiny boy was clever and brave.",
         "tags": [
           "story",
           "ch16",
@@ -780,100 +340,37 @@
         "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch16-l2-x5",
+        "type": "tap-pairs",
+        "id": "kt-ch16-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "He was clever and brave, with a big heart.",
-        "sentenceZh": "他很聰明,也很勇敢,有一顆大大的心。",
-        "question": "What three things describe Issun?",
-        "options": [
-          "big, strong and very fast",
-          "clever, brave, big-hearted",
-          "quiet, shy and very kind",
-          "small, scared and quite weak"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "勇敢",
+            "right": "brave"
+          },
+          {
+            "left": "公主",
+            "right": "princess"
+          },
+          {
+            "left": "鬼",
+            "right": "demon"
+          },
+          {
+            "left": "木槌",
+            "right": "mallet"
+          }
         ],
-        "optionsZh": [
-          "大、強壯、很快",
-          "聰明、勇敢、大心胸",
-          "安靜、害羞、很善良",
-          "小、膽小、相當弱"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "clever + brave + big heart = 聰明、勇敢、有大大的心——就是這三個。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch16-l2-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Where did Issun want to go?",
-        "sentenceZh": "一寸法師想去哪裡？",
-        "question": "Where did he want to go?",
-        "options": [
-          "🌊 to the deep sea",
-          "🏔️ to the top of a tall mountain",
-          "🏯 to the great city of Kyoto",
-          "🌾 to a quiet rice field"
-        ],
-        "optionsZh": [
-          "到深海",
-          "到高山頂上",
-          "到京都大城市",
-          "到安靜的稻田"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "I want to see Kyoto = 我想去看京都——他的夢想是去大城市。",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 brave = 勇敢\n🔑 princess = 公主\n🔑 demon = 鬼\n🔑 mallet = 木槌",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
-          "hook"
-        ],
-        "subSkill": "vocab"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch16-l2-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "But they nodded slowly. They believed in him.",
-        "sentenceZh": "但他們慢慢點頭。他們相信他。",
-        "questionEn": "Did Issun's parents have faith in him?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "nodded + believed in him = 點頭、相信他——爸媽相信他能做到，答 Yes。",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi",
-          "inference"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch16-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Issun is tiny but clever. What can a tiny boy do out there?",
-        "explanationZh": "一寸又小又聰明。一個拇指大的男孩在外面能做什麼呢?",
-        "tags": [
-          "story",
-          "ch16",
-          "issun-boshi"
+          "vocab",
+          "review"
         ]
       }
     ]

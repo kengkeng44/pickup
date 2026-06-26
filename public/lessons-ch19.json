@@ -8,12 +8,63 @@
     "storyBeat": "鼠鹿看見對岸水果 — 怎麼過河?",
     "questions": [
       {
+        "type": "narration",
+        "id": "kt-ch19-l1-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講鼠鹿的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
         "type": "tap-pairs",
-        "id": "kt-ch19-l1-q1",
+        "id": "kt-ch19-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "鹿",
+            "right": "deer"
+          },
+          {
+            "left": "河",
+            "right": "river"
+          },
+          {
+            "left": "水果",
+            "right": "fruit"
+          },
+          {
+            "left": "森林",
+            "right": "forest"
+          }
+        ],
+        "explanationZh": "這四個字都在鼠鹿的故事裡：\n🔑 deer = 鹿\n🔑 river = 河\n🔑 fruit = 水果\n🔑 forest = 森林",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch19-l1-vp2",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "Four more words — can you match them all?",
         "pairs": [
           {
             "left": "小",
@@ -24,15 +75,15 @@
             "right": "smart"
           },
           {
-            "left": "河",
-            "right": "river"
+            "left": "跳",
+            "right": "jump"
           },
           {
-            "left": "水果",
-            "right": "fruit"
+            "left": "對岸",
+            "right": "other side"
           }
         ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 small = 小\n🔑 smart = 聰明\n🔑 river = 河\n🔑 fruit = 水果\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "explanationZh": "再來四個：\n🔑 small = 小\n🔑 smart = 聰明\n🔑 jump = 跳\n🔑 other side = 對岸",
         "tags": [
           "story",
           "ch19",
@@ -42,445 +93,96 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch19-l1-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil was a small mouse deer in the green forest.",
-        "explanationZh": "Sang Kancil 是綠色森林裡一隻小鼠鹿。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He was not big. He was not strong. But he was very smart.",
-        "explanationZh": "他不大。他不強。但他非常聰明。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Other animals often laughed at his short legs and tiny body.",
-        "questionEn": "Did other animals think mouse deer was strong?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "大家笑他短短的腿、小小的身體——覺得他不夠強壯,所以答 No。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "inference"
-        ],
-        "sentenceZh": "其他動物常常嘲笑牠的短腿和小小的身子。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "One morning, he stood by the side of a wide river.",
-        "explanationZh": "一個早上,他站在一條寬寬的河邊。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch19-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Across the water he saw a tall tree full of sweet ripe fruit.",
-        "question": "What did mouse deer see across the river?",
-        "options": [
-          "a big grey rock",
-          "a friend deer",
-          "a tree with fruit",
-          "an empty field"
-        ],
-        "optionsZh": [
-          "一塊大灰石頭",
-          "朋友鹿",
-          "有水果的樹",
-          "空草地"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "高樹滿滿是熟水果 → 有水果的樹。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "對岸，一棵高樹上掛著甜甜的熟果實。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"That fruit looks so good,\" he said to himself, very softly.",
-        "explanationZh": "「那水果看起來好棒,」他小聲對自己說。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
         "type": "emoji-pick",
-        "id": "kt-ch19-l1-q8",
+        "id": "kt-ch19-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "How did mouse deer feel about the fruit?",
-        "question": "How did mouse deer feel?",
+        "sentence": "Which one shows a river?",
+        "question": "Which one shows a river?",
         "options": [
-          "😡 was very angry",
-          "😴 wanted to sleep",
-          "😢 wanted to cry",
-          "😋 wanted to eat it"
+          "🌊 river",
+          "🌳 tree",
+          "⛵ boat",
+          "🏠 house"
         ],
         "optionsZh": [
-          "非常生氣",
-          "想睡",
-          "想哭",
-          "想吃"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "看起來好棒 + 自言自語 → 很想吃。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "小鹿對那些果實是什麼感覺？"
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch19-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "But the river was wide. He could not see the bottom of the water.",
-        "question": "How wide was the river?",
-        "options": [
-          "very wide",
-          "very small",
-          "almost dry",
-          "short and easy"
-        ],
-        "optionsZh": [
-          "很寬",
-          "很小",
-          "幾乎乾了",
-          "又短又容易"
+          "河",
+          "樹",
+          "船",
+          "房子"
         ],
         "correctIndex": 0,
-        "explanationZh": "看不到底 → 很寬。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "但河面很寬，連河底都看不到。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The little mouse deer stood by the river. The fruit tree stood far across the water.",
-        "question": "What is happening in this scene?",
-        "options": [
-          "a deer is swimming in the river for fun",
-          "a mouse deer wants fruit on the other side",
-          "animals are sleeping by a tree",
-          "a hunter walks slowly in the forest"
-        ],
-        "optionsZh": [
-          "一隻鹿在河裡游泳玩",
-          "鼠鹿想要對岸的水果",
-          "動物在樹下睡覺",
-          "獵人在森林裡慢慢走"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "鼠鹿站在河邊,對岸有棵果樹——故事的重點就是「鼠鹿想要對岸的水果」。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "小鹿站在河邊，果樹在遠遠的對岸。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-x1",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil was a small mouse deer in the green forest.",
-        "question": "Where did Sang Kancil live?",
-        "options": [
-          "in a big city",
-          "next to the sea",
-          "deep in the forest",
-          "near a tall mountain"
-        ],
-        "optionsZh": [
-          "在大城市",
-          "在海邊",
-          "在森林深處",
-          "在高山附近"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "故事一開始說他住在綠色的森林裡——答「在綠色的森林裡」。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "Sang Kancil 是綠色森林裡的一隻小鼠鹿。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l1-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "He was not big. He was not strong. But he was very smart.",
-        "questionEn": "Was mouse deer bigger than the other animals?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他不大、不強——比其他動物小,答 No。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "detail"
-        ],
-        "sentenceZh": "牠不大，也不強，但非常聰明。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-x3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Other animals often laughed at his short legs and tiny body.",
-        "question": "How did other animals treat mouse deer?",
-        "options": [
-          "ran away scared",
-          "helped him cross",
-          "asked him for food",
-          "laughed at him"
-        ],
-        "optionsZh": [
-          "嚇得逃走",
-          "幫他過河",
-          "向他要食物",
-          "嘲笑他"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "其他動物常笑他腿短身小——答「嘲笑他」。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "其他動物常常嘲笑他的短腿和小身子。"
-      },
-      {
-        "type": "phrase-pairs",
-        "id": "kt-ch19-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the phrases.",
-        "pairs": [
-          {
-            "left": "short legs",
-            "right": "短腿"
-          },
-          {
-            "left": "sweet fruit",
-            "right": "甜水果"
-          },
-          {
-            "left": "wide river",
-            "right": "寬河"
-          },
-          {
-            "left": "green forest",
-            "right": "綠色森林"
-          }
-        ],
-        "explanationZh": "配對:short legs=短腿、sweet fruit=甜水果、wide river=寬河、green forest=綠色森林。",
+        "explanationZh": "river = 河 🌊！故事裡鼠鹿站在一條寬寬的河邊，想要過去。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-x5",
+        "type": "emoji-pick",
+        "id": "kt-ch19-l1-ep2",
         "level": "A2",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "One morning, he stood by the side of a wide river.",
-        "question": "What time of day did mouse deer go to the river?",
+        "sentence": "Which one shows fruit?",
+        "question": "Which one shows fruit?",
         "options": [
-          "early in the day",
-          "late at night",
-          "in the middle of the day",
-          "just before sunset"
+          "🌿 grass",
+          "🪨 rock",
+          "🍎 fruit",
+          "💧 water"
         ],
         "optionsZh": [
-          "大清早",
-          "深夜",
-          "大中午",
-          "剛好日落前"
+          "草",
+          "石頭",
+          "水果",
+          "水"
         ],
-        "correctIndex": 0,
-        "explanationZh": "「one morning」→ 早上。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "某天早上，牠站在一條寬河的旁邊。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l1-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Across the water he saw a tall tree full of sweet ripe fruit.",
-        "questionEn": "Was the fruit tree on mouse deer's side of the river?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「across the water」表示在對岸,不是他這邊,答 No。",
+        "correctIndex": 2,
+        "explanationZh": "fruit = 水果 🍎！故事裡對岸的樹上掛滿了又甜又熟的水果。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
-          "detail"
+          "vocab"
         ],
-        "sentenceZh": "對岸，牠看到一棵高樹，上面全是甜甜的熟果實。"
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "But the river was wide. He could not see the bottom of the water.",
-        "question": "Why was crossing the river a problem?",
-        "options": [
-          "he was afraid of fruit",
-          "too wide and deep to cross easily",
-          "the forest path was blocked",
-          "no animals were around"
-        ],
-        "optionsZh": [
-          "他害怕水果",
-          "太寬太深,難以過去",
-          "森林小路被擋住了",
-          "周圍沒有動物"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "河太寬、看不到底——難以渡過,這就是問題所在。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "inference",
-        "sentenceZh": "但河面太寬，連河底都看不到。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l1-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The little mouse deer stood by the river. The fruit tree stood far across the water.",
-        "question": "What is the main problem in this story?",
-        "options": [
-          "big animals chase him all day",
-          "mouse deer lost his way home",
-          "fruit is across a wide river",
-          "the fruit tree fell over last night"
-        ],
-        "optionsZh": [
-          "大動物整天追他",
-          "鼠鹿迷路了",
-          "水果在寬河對岸",
-          "果樹昨晚倒了"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "鼠鹿站在河邊,水果在對岸——這是整個故事的核心問題。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "小鹿站在河邊，果樹在遠遠的對岸。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l1-q11",
+        "type": "picture-mc",
+        "id": "kt-ch19-l1-pm1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Across the water he saw a tall tree full of sweet ripe fruit...",
-        "explanationZh": "在水的另一邊,他看到一棵高高的樹,上面全是又甜又熟的水果……",
+        "sentence": "A small deer stood by the river and looked at the fruit.",
+        "sentenceZh": "一隻小鹿站在河邊看著水果。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🦌",
+        "options": [
+          "a deer running fast through a tall forest",
+          "a deer sitting beside a tree eating grass",
+          "a deer standing at a river and looking across",
+          "a deer sleeping under a big fruit tree"
+        ],
+        "optionsZh": [
+          "一隻鹿在高高的森林裡快跑",
+          "一隻鹿坐在樹旁吃草",
+          "一隻鹿站在河邊往對岸看",
+          "一隻鹿在大果樹下睡覺"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "句子說小鹿站在河邊、望向對岸——圖中正好是一隻鹿站在河邊往對岸看。",
         "tags": [
           "story",
           "ch19",
-          "sang-kancil"
-        ]
+          "sang-kancil",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -493,31 +195,14 @@
     "storyBeat": "河裡有很多鱷魚 — 該怎麼辦?",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch19-l2-q1",
+        "type": "narration",
+        "id": "kt-ch19-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "寬",
-            "right": "wide"
-          },
-          {
-            "left": "游泳",
-            "right": "swim"
-          },
-          {
-            "left": "鱷魚",
-            "right": "crocodile"
-          },
-          {
-            "left": "嘴巴",
-            "right": "mouth"
-          }
-        ],
-        "explanationZh": "本節新單字 (左中右英):\n🔑 wide = 寬\n🔑 swim = 游泳\n🔑 crocodile = 鱷魚\n🔑 mouth = 嘴巴\n背熟這 4 個字,故事就會輕鬆聽懂。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch19",
@@ -527,443 +212,165 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch19-l2-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil wanted to eat that fruit so much.",
-        "explanationZh": "Sang Kancil 好想好想吃那水果。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l2-q3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "His small belly made a loud sound while he stood there.",
-        "questionEn": "Was mouse deer hungry?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "肚子發出大聲音——餓了嘛,答 Yes。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "inference"
-        ],
-        "sentenceZh": "牠站在那裡，小肚子咕嚕嚕地叫了起來。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l2-q4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"But the river is too wide. I cannot swim that far,\" he said.",
-        "explanationZh": "「但河太寬了。我游不了那麼遠,」他說。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch19-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His short legs could only swim a few steps before they got tired.",
-        "question": "Why could mouse deer not swim across?",
-        "options": [
-          "the water was hot",
-          "he had no time that day",
-          "he was sleeping all day",
-          "his legs were too short"
-        ],
-        "optionsZh": [
-          "水很燙",
-          "他那天沒時間",
-          "他睡了一整天",
-          "他的腿太短"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "短腿游幾步就累 → 腿太短。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "牠的短腿只能游幾步就累了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Many crocodiles lived in the dark water of the river.",
-        "explanationZh": "很多鱷魚住在這條河的暗色水裡。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch19-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What lived in the river?",
-        "question": "What lived in the river?",
-        "options": [
-          "🐊 lots of crocodiles",
-          "🐠 small fish only",
-          "🦆 many noisy ducks",
-          "🐢 lots of old turtles"
-        ],
-        "optionsZh": [
-          "很多鱷魚",
-          "只有小魚",
-          "很多吵鬧的鴨子",
-          "很多老烏龜"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "黑水裡住很多鱷魚 → 很多鱷魚。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "河裡住著什麼？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Only their eyes and noses stuck up above the river.",
-        "explanationZh": "只有他們的眼睛和鼻子露出水面。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch19-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The water was so dark that mouse deer could not count them.",
-        "question": "Why could mouse deer not count the crocodiles?",
-        "options": [
-          "they ran away fast",
-          "the water was too dark",
-          "he was bad at math",
-          "they were sleeping"
-        ],
-        "optionsZh": [
-          "他們跑很快",
-          "水太暗",
-          "他數學不好",
-          "他們在睡"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "水黑看不到 → 水太暗。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "水太深太暗，小鹿根本數不清有幾條鱷魚。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-q10",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil could not swim and could not see the crocodiles. He sat down on the side.",
-        "question": "Why did mouse deer sit down?",
-        "options": [
-          "he wanted a long nap",
-          "he saw a friend close by",
-          "he had no easy way across",
-          "his foot hurt from walking"
-        ],
-        "optionsZh": [
-          "他想睡個長長的覺",
-          "他看到附近有朋友",
-          "他沒有簡單的辦法過河",
-          "他走路走到腳痛"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "游不過去、又看不到鱷魚——他沒有輕鬆的辦法,只好坐下來想,選「他沒有簡單的辦法過河」。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "inference",
-        "sentenceZh": "Sang Kancil 不會游泳，也看不見鱷魚，只好坐在河邊。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-x1",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil wanted to eat that fruit so much.",
-        "question": "How much did mouse deer want the fruit?",
-        "options": [
-          "only for his friend",
-          "just a little",
-          "not really",
-          "very much"
-        ],
-        "optionsZh": [
-          "只想給朋友",
-          "只有一點點",
-          "不太想",
-          "非常想要"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「so much」→ 非常想要。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "Sang Kancil 非常非常想吃那些水果。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l2-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "His small belly made a loud sound while he stood there.",
-        "questionEn": "Was mouse deer's belly making noise because he was full?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "肚子發出聲音是因為餓——不是因為吃飽了,答 No。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil",
-          "inference"
-        ],
-        "sentenceZh": "牠的小肚子站在那裡咕嚕嚕地響。"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-x3",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "His short legs could only swim a few steps before they got tired.",
-        "question": "What did mouse deer's legs do after a few steps?",
-        "options": [
-          "got tired and stopped",
-          "moved faster and faster",
-          "kicked the crocodiles away",
-          "carried him to dry land"
-        ],
-        "optionsZh": [
-          "累了就停下來",
-          "越游越快",
-          "把鱷魚踢走",
-          "帶他到陸地上"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「before they got tired」→ 游幾步就累了停下。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "牠的短腿只能游幾步就累了。"
-      },
-      {
         "type": "phrase-pairs",
-        "id": "kt-ch19-l2-x4",
+        "id": "kt-ch19-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Match the phrases.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "loud sound",
-            "right": "大聲"
+            "left": "寬河",
+            "right": "wide river"
           },
           {
-            "left": "dark water",
-            "right": "暗水"
+            "left": "游過去",
+            "right": "swim across"
           },
           {
-            "left": "short legs",
-            "right": "短腿"
+            "left": "數一數",
+            "right": "count them"
           },
           {
-            "left": "long mouth",
-            "right": "長嘴"
+            "left": "回去",
+            "right": "go back"
           }
         ],
-        "explanationZh": "配對:loud sound=大聲、dark water=暗水、short legs=短腿、long mouth=長嘴。",
+        "explanationZh": "這四個片語都出現在鼠鹿的故事裡：\n🔑 wide river = 寬河\n🔑 swim across = 游過去\n🔑 count them = 數一數\n🔑 go back = 回去",
+        "tags": [
+          "story",
+          "ch19",
+          "sang-kancil",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch19-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "narrator",
+        "sentence": "The river was very wide. Mouse deer could not swim across.",
+        "sentenceZh": "河很寬，鼠鹿游不過去。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🌊",
+        "options": [
+          "a small deer jumping over a narrow stream",
+          "a small deer standing at a wide river it cannot cross",
+          "a small deer swimming to the middle of a lake",
+          "a small deer resting next to a dry rocky path"
+        ],
+        "optionsZh": [
+          "小鹿跳過一條窄窄的小溪",
+          "小鹿站在寬河邊，過不去",
+          "小鹿游到湖的中間",
+          "小鹿在乾石頭路旁休息"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "wide river = 寬河，游不過去——圖中小鹿站在寬河邊過不去，最符合。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-x5",
+        "type": "emoji-pick",
+        "id": "kt-ch19-l2-ep1",
         "level": "A2",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Many crocodiles lived in the dark water of the river.",
-        "question": "Where did the crocodiles live?",
+        "sentence": "Which one shows a crocodile?",
+        "question": "Which one shows a crocodile?",
         "options": [
-          "tall grass on land",
-          "under the murky river",
-          "near the fruit tree",
-          "inside a deep cave"
+          "🐢 turtle",
+          "🦭 walrus",
+          "🦎 lizard",
+          "🐊 crocodile"
         ],
         "optionsZh": [
-          "岸上的高草叢",
-          "在混濁的河水下",
-          "果樹附近",
-          "深洞裡"
+          "烏龜",
+          "海象",
+          "蜥蜴",
+          "鱷魚"
         ],
-        "correctIndex": 1,
-        "explanationZh": "「the dark water of the river」→ 暗色的河水裡。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "很多鱷魚住在河裡暗色的水中。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch19-l2-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Only their eyes and noses stuck up above the river.",
-        "questionEn": "Could mouse deer see the whole crocodile body?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "只有眼睛和鼻子露出水面——看不到整個身體,答 No。",
+        "correctIndex": 3,
+        "explanationZh": "crocodile = 鱷魚 🐊！故事裡河水很暗，很多鱷魚藏在水裡。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
-          "detail"
+          "vocab"
         ],
-        "sentenceZh": "只有牠們的眼睛和鼻子露出水面。"
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-x7",
+        "type": "grammar-mc",
+        "id": "kt-ch19-l2-gm1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The water was so dark that mouse deer could not count them.",
-        "question": "Why did the dark water make things harder for mouse deer?",
+        "sentence": "Mouse deer ___ a fruit tree on the other side of the river.",
+        "sentenceEasy": "Mouse deer ___ a fruit tree across the water.",
+        "sentenceHard": "Standing at the river bank, mouse deer ___ a tall fruit tree on the other side.",
+        "question": "Which word is correct?",
         "options": [
-          "blocked his path to the forest",
-          "made him cold and sleepy",
-          "hard to see or count them",
-          "turned his legs weak"
+          "saw",
+          "see",
+          "sees",
+          "seen"
         ],
         "optionsZh": [
-          "擋住他回森林的路",
-          "讓他又冷又睏",
-          "看不清也數不清",
-          "讓他的腿變軟"
+          "看到了（過去式）",
+          "看（原形）",
+          "看（第三人稱現在式）",
+          "看過（過去分詞）"
         ],
-        "correctIndex": 2,
-        "explanationZh": "水太暗,數不清鱷魚——讓過河更難了。",
+        "correctIndex": 0,
+        "explanationZh": "這個句子講的是故事裡發生過的事，用過去式 saw（see 的過去式，不規則動詞）。\n完整句：Mouse deer saw a fruit tree on the other side of the river.",
         "tags": [
           "story",
           "ch19",
-          "sang-kancil"
+          "sang-kancil",
+          "grammar"
         ],
-        "subSkill": "inference",
-        "sentenceZh": "水太暗，小鹿根本數不清鱷魚有幾條。"
+        "subSkill": "function"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch19-l2-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Sang Kancil could not swim and could not see the crocodiles. He sat down on the side.",
-        "question": "Why was crossing the river scary for mouse deer?",
-        "options": [
-          "he had no energy left at all",
-          "the bridge was already broken",
-          "birds dive at him from above",
-          "crocodiles wait in dark water below"
-        ],
-        "optionsZh": [
-          "他完全沒有體力了",
-          "橋已經斷了",
-          "鳥從上面俯衝攻擊他",
-          "鱷魚躲在黑水裡等著"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "暗水裡全是看不見的鱷魚——最可怕的是看不見危險。",
-        "tags": [
-          "story",
-          "ch19",
-          "sang-kancil"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "Sang Kancil 不會游泳，又看不到鱷魚，只好坐在河邊。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch19-l2-q11",
+        "type": "tap-pairs",
+        "id": "kt-ch19-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Their long mouths waited under the river all day...",
-        "explanationZh": "他們長長的嘴巴整天在河水下等著……",
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "寬",
+            "right": "wide"
+          },
+          {
+            "left": "鱷魚",
+            "right": "crocodile"
+          },
+          {
+            "left": "數",
+            "right": "count"
+          },
+          {
+            "left": "游泳",
+            "right": "swim"
+          }
+        ],
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 wide = 寬\n🔑 crocodile = 鱷魚\n🔑 count = 數\n🔑 swim = 游泳",
         "tags": [
           "story",
           "ch19",
-          "sang-kancil"
+          "sang-kancil",
+          "vocab",
+          "review"
         ]
       }
     ]
