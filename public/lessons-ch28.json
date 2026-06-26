@@ -8,508 +8,174 @@
     "storyBeat": "Liu Bei 是好領袖 — 他需要一位有智慧的朋友",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch28-l1-q1",
+        "id": "kt-ch28-l1-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "領袖",
-            "right": "leader"
-          },
-          {
-            "left": "善良",
-            "right": "kind"
-          },
-          {
-            "left": "需要",
-            "right": "need"
-          },
-          {
-            "left": "聰明",
-            "right": "smart"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 leader = 領袖\n🔑 kind = 善良\n🔑 need = 需要\n🔑 smart = 聰明\n準備好了嗎？",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講諸葛亮借箭的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch28",
-          "zhuge",
+          "zhuge-liang-strategems",
           "vocab",
           "intro"
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch28-l1-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Long ago in China, there lived a kind leader named Liu Bei.",
-        "explanationZh": "很久以前在中國，有個善良的領袖叫劉備——奶奶說，這個名字是「好人」的代名詞。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Liu Bei was warm to his soldiers and gentle with the village people.",
-        "question": "How did Liu Bei treat the people around him?",
-        "options": [
-          "with warmth and care",
-          "with cold harsh words",
-          "with no words at all",
-          "with loud orders"
-        ],
-        "optionsZh": [
-          "用溫暖和關心",
-          "用冷酷嚴厲的話",
-          "完全不說話",
-          "用大聲的命令"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "對士兵暖心、對村民溫柔——「用溫暖和關心」就是他對待大家的方式。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "劉備對兵士溫柔，對村民也和善。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch28-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "But fighting and trouble filled the land in those years.",
-        "questionEn": "Were times peaceful when Liu Bei lived?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "那個年代，打打殺殺、麻煩不斷——不和平，答 No。劉備的日子可不好過。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "inference"
-        ],
-        "sentenceZh": "但那些年，整片土地充滿了爭鬥和動亂。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Liu Bei had two brave brothers, but no one with a clever mind.",
-        "explanationZh": "他有兩個勇敢的兄弟，可是沒有一個「腦袋裝滿計謀」的人。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Brave hearts could fight, but a smart head was needed to plan.",
-        "question": "What did Liu Bei's team still need?",
-        "options": [
-          "more swords and shields",
-          "a person with a clever head",
-          "a faster horse for the road",
-          "bigger warm coats for winter"
-        ],
-        "optionsZh": [
-          "更多劍和盾",
-          "一個有聰明頭腦的人",
-          "一匹跑更快的馬",
-          "更大的冬天暖外套"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "打仗靠勇氣，但要贏靠智慧——「一個有聰明頭腦的人」就是他們最缺的。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "勇敢的心可以打仗，但還需要一個聰明的頭腦來謀劃。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He sat by his window at night, thinking about the years ahead.",
-        "explanationZh": "他晚上坐在窗邊，看著遠方，想著以後的日子。這樣的夜晚，很長。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"I must find a wise friend, or our work will fail.\"",
-        "question": "What did Liu Bei decide he must do?",
-        "options": [
-          "give up and go home",
-          "sell all his swords",
-          "look for a wise friend",
-          "sleep for many days"
-        ],
-        "optionsZh": [
-          "放棄回家",
-          "賣掉所有的劍",
-          "去找一位有智慧的朋友",
-          "睡很多天"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「我必須找到一個有智慧的朋友，不然我們的事業會失敗。」——「去找一位有智慧的朋友」就是答案。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "「我必須找到一個智慧的朋友，否則我們的大業會失敗。」"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch28-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "How did Liu Bei feel about his future?",
-        "question": "How did Liu Bei feel?",
-        "options": [
-          "😴 sleepy and lazy",
-          "🎉 carefree and loud",
-          "😡 angry at everyone",
-          "🤔 worried but hopeful"
-        ],
-        "optionsZh": [
-          "想睡又懶",
-          "無憂又大聲",
-          "對每個人生氣",
-          "擔心但有希望"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "戰亂年代，又擔心又有希望——「擔心但有希望」就是劉備的心情。那個 🤔 很像他。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "劉備對自己的前途有什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He shared his worry with the two brothers by the warm fire.",
-        "explanationZh": "他靠著火堆的暖意，把心裡的擔心說給兩個兄弟聽。三個人，圍著一個火，說著一個夢。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l1-q11",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "Liu Bei had brave fighters, but he was missing one important kind of help.",
-        "question": "What is this scene mainly showing?",
-        "options": [
-          "Liu Bei needs a wise mind on his team",
-          "Liu Bei wants to sell his sword",
-          "Liu Bei plans a big party",
-          "Liu Bei goes back to farming"
-        ],
-        "optionsZh": [
-          "劉備需要一個有智慧的人加入",
-          "劉備想賣劍",
-          "劉備計畫大派對",
-          "劉備回去種田"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "劉備需要一個有智慧的人加入——這就是這一節最重要的事。其他選項都偏了。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "劉備有勇猛的武將，但少了一種重要的幫助。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l1-q12",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"Tomorrow,\" he said softly, \"we begin the search...\"",
-        "explanationZh": "「明天，」他輕輕說，「我們開始找……」——奶奶說，這一句，是三顧茅廬的起點。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in China, there lived a kind leader named Liu Bei.",
-        "question": "What does this opening tell us about Liu Bei?",
-        "options": [
-          "a soldier who owned the biggest army",
-          "a leader known for kindness and care",
-          "a farmer who became a famous cook",
-          "an emperor who lived in a large palace"
-        ],
-        "optionsZh": [
-          "一個擁有最大軍隊的士兵",
-          "一個以善良和關懷著稱的領袖",
-          "一個成為著名廚師的農夫",
-          "一個住在大宮殿裡的皇帝"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「kind leader」——善良的領袖，「以善良和關懷著稱的領袖」就是答案。",
-        "sentenceZh": "很久以前，在中國，住著一個善良的領袖，叫劉備。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch28-l1-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "But fighting and trouble filled the land in those years.",
-        "questionEn": "Was the land peaceful during Liu Bei's time?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「fighting and trouble filled the land」——戰亂充滿土地，根本不太平，答 No。",
-        "sentenceZh": "但那些年，戰亂和麻煩充滿了這片土地。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits",
-          "inference"
-        ]
-      },
-      {
+        "id": "kt-ch28-l1-vp1",
         "type": "tap-pairs",
-        "id": "kt-ch28-l1-x3",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from this lesson.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "領袖",
-            "right": "leader"
+            "left": "箭",
+            "right": "arrow"
           },
           {
-            "left": "士兵",
-            "right": "soldier"
+            "left": "船",
+            "right": "boat"
           },
           {
-            "left": "聰明的",
-            "right": "wise"
+            "left": "霧",
+            "right": "fog"
           },
           {
             "left": "計畫",
             "right": "plan"
           }
         ],
-        "explanationZh": "🔑 leader = 領袖\n🔑 soldier = 士兵\n🔑 wise = 聰明的\n🔑 plan = 計畫\n劉備介紹節的字！",
+        "explanationZh": "這四個字都在諸葛亮的故事裡：\n🔑 arrow = 箭\n🔑 boat = 船\n🔑 fog = 霧\n🔑 plan = 計畫",
         "tags": [
           "story",
           "ch28",
-          "three-visits",
-          "vocab"
+          "zhuge-liang-strategems",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch28-l1-x4",
+        "id": "kt-ch28-l1-vp2",
+        "type": "tap-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Brave hearts could fight, but a smart head was needed to plan.",
-        "question": "What was Liu Bei still missing?",
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "河",
+            "right": "river"
+          },
+          {
+            "left": "風",
+            "right": "wind"
+          },
+          {
+            "left": "稻草",
+            "right": "straw"
+          },
+          {
+            "left": "夜晚",
+            "right": "night"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 river = 河\n🔑 wind = 風\n🔑 straw = 稻草\n🔑 night = 夜晚",
+        "tags": [
+          "story",
+          "ch28",
+          "zhuge-liang-strategems",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch28-l1-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Which one is an arrow?",
+        "question": "Which one is an arrow?",
         "options": [
-          "a bigger house to live and sleep in",
-          "more swords and weapons for battle",
-          "someone clever enough to make good plans",
-          "stronger boots for riding in winter"
+          "🏹 arrow",
+          "⚔️ sword",
+          "🛡️ shield",
+          "🪃 boomerang"
         ],
         "optionsZh": [
-          "一個更大的房子住",
-          "更多刀劍和武器",
-          "一個聰明到能做好計畫的人",
-          "更強的冬季騎馬靴"
+          "箭",
+          "劍",
+          "盾",
+          "回旋鏢"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "箭的英文是 arrow 🏹！故事裡諸葛亮用稻草人借了十萬支箭——這就是故事最精彩的地方。",
+        "tags": [
+          "story",
+          "ch28",
+          "zhuge-liang-strategems",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch28-l1-ep2",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Which one shows fog?",
+        "question": "Which one shows fog?",
+        "options": [
+          "☀️ sunshine",
+          "🌧️ rain",
+          "🌫️ fog",
+          "⛄ snow"
+        ],
+        "optionsZh": [
+          "陽光",
+          "下雨",
+          "霧",
+          "雪"
         ],
         "correctIndex": 2,
-        "explanationZh": "勇敢的心能打仗，但「smart head to plan」還不夠——他缺的是「聰明到能做好計畫的人」。",
-        "sentenceZh": "勇敢的心能打仗，但需要一個聰明的頭腦來計畫。",
+        "explanationZh": "霧的英文是 fog 🌫️！故事裡諸葛亮選了一個大霧的夜晚行動——霧是他計畫裡最重要的工具。",
         "tags": [
           "story",
           "ch28",
-          "three-visits"
+          "zhuge-liang-strategems",
+          "vocab"
         ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       },
       {
-        "type": "grammar-mc",
-        "id": "kt-ch28-l1-x5",
+        "id": "kt-ch28-l1-pm1",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"I must find a wise friend, or our work will ___,\" he thought.",
-        "question": "Which word fits the blank?",
+        "sentence": "Zhuge Liang sailed his boat slowly through the night fog.",
+        "sentenceZh": "諸葛亮在夜霧中慢慢划船。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🌫️",
         "options": [
-          "failing",
-          "fails",
-          "failed",
-          "fail"
+          "a man riding a horse across a sunny field",
+          "a boat moving through thick fog on a river at night",
+          "a soldier standing on a tall stone wall in daytime",
+          "a man sitting beside a warm fire inside his house"
         ],
         "optionsZh": [
-          "失敗（現在分詞）",
-          "失敗（第三人稱單數）",
-          "失敗（過去式）",
-          "失敗（原形，配 will）"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「will + 動詞原形」——「will fail」才是正確的未來式用法。",
-        "sentenceZh": "「我必須找到一個有智慧的朋友，否則我們的事業將會___。」",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "function"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch28-l1-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "He sat by his window at night, thinking about the years ahead.",
-        "questionEn": "Was Liu Bei worried about what the future might bring?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "坐在窗邊、想著未來的歲月——他在擔心前路，答 Yes。",
-        "sentenceZh": "他夜裡坐在窗邊，思考著未來的歲月。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l1-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "He shared his worry with the two brothers by the warm fire.",
-        "question": "What does this action show about Liu Bei?",
-        "options": [
-          "trusting his brothers and not hiding his feelings",
-          "asking his brothers to go find the wise man alone",
-          "keeping his plan secret from everyone around him",
-          "pretending to be brave when he felt no fear at all"
-        ],
-        "optionsZh": [
-          "信任兄弟、不隱藏自己的感受",
-          "叫兄弟們單獨去找有智慧的人",
-          "對身邊的人保守計畫",
-          "假裝勇敢，其實完全不害怕"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "在火邊和兄弟分享擔憂——他不隱藏心裡的事，「信任兄弟、不隱藏感受」就是答案。",
-        "sentenceZh": "他在溫暖的火邊與兩位兄弟分享了他的擔憂。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch28-l1-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Liu Bei had brave fighters, but he knew he needed a wise mind to lead well.",
-        "question": "Which best shows what Liu Bei needed most?",
-        "options": [
-          "⚔️ more strong and brave warriors",
-          "🧠 a sharp and clever thinker",
-          "🏰 a bigger and stronger castle",
-          "🍔 plenty of food for his army"
-        ],
-        "optionsZh": [
-          "更多強壯勇敢的戰士",
-          "一個精明有智慧的思考者",
-          "更大更堅固的城堡",
-          "為軍隊準備充足的食物"
+          "一個人在晴天騎馬穿過田野",
+          "一艘船在夜晚濃霧中穿越河面",
+          "一個士兵白天站在高石牆上",
+          "一個人坐在屋內溫暖的火爐旁"
         ],
         "correctIndex": 1,
-        "explanationZh": "他有勇士，但缺「smart head to plan」——「精明有智慧的思考者」，那個 🧠 最像他缺的東西。",
-        "sentenceZh": "劉備有勇敢的戰士，但他知道要領導好，需要一個有智慧的頭腦。",
+        "explanationZh": "boat = 船，night = 夜晚，fog = 霧——三個字都在句子裡，圖中是船在夜霧的河上行進。",
         "tags": [
           "story",
           "ch28",
-          "three-visits",
-          "hook"
+          "zhuge-liang-strategems",
+          "vocab"
         ],
         "subSkill": "vocab"
       }
@@ -524,510 +190,177 @@
     "storyBeat": "村人指路 — Zhuge Liang 住在山上的小屋",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch28-l2-q1",
+        "id": "kt-ch28-l2-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "村人",
-            "right": "villager"
-          },
-          {
-            "left": "山",
-            "right": "hill"
-          },
-          {
-            "left": "小屋",
-            "right": "small house"
-          },
-          {
-            "left": "靜的",
-            "right": "quiet"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 villager = 村人\n🔑 hill = 山\n🔑 small house = 小屋\n🔑 quiet = 靜的\n線索快出現了！",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，諸葛亮借箭的計謀就更好懂囉！",
         "tags": [
           "story",
           "ch28",
-          "zhuge",
+          "zhuge-liang-strategems",
           "vocab",
           "intro"
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch28-l2-q2",
+        "id": "kt-ch28-l2-pp1",
+        "type": "phrase-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Liu Bei asked the villagers about smart people in the land.",
-        "explanationZh": "劉備問村人：這片土地上，有沒有什麼厲害的聰明人？",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "An old man stepped forward and tapped his walking stick.",
-        "question": "Who answered Liu Bei first?",
-        "options": [
-          "a young child on the road",
-          "a passing soldier",
-          "an old man with a stick",
-          "a busy cook from the inn"
-        ],
-        "optionsZh": [
-          "路上的一個小孩",
-          "路過的士兵",
-          "一個拿拐杖的老人",
-          "客棧裡忙碌的廚師"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "一個拿拐杖的老人走上前，敲了敲拐杖——「一個拿拐杖的老人」就是最先回答的人。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "一位老人走上前，用手杖敲了敲地。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch28-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "The old man's eyes shone when he heard the name Zhuge Liang.",
-        "questionEn": "Did the old man know about Zhuge Liang?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "老人一聽到「諸葛亮」，眼睛就發亮了——眼睛亮 = 認識他，答 Yes。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "inference"
-        ],
-        "sentenceZh": "聽到諸葛亮這個名字，老人眼睛亮了起來。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"Zhuge Liang is the smartest man in all the hills,\" he said.",
-        "explanationZh": "「諸葛亮是這些山裡最聰明的人。」——老人說這話的時候，聲音裡有敬意。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"He lives in a small house far up the green hill.\"",
-        "question": "Where does Zhuge Liang live?",
-        "options": [
-          "in a busy town market",
-          "by the river in a boat",
-          "inside the king's palace",
-          "in a small house on a hill"
-        ],
-        "optionsZh": [
-          "在熱鬧的市集",
-          "在河邊的船上",
-          "在國王的皇宮裡",
-          "在山上的小屋"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「他住在山上的小屋。」——「在山上的小屋」就是答案，不是市集、不是皇宮。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "「他住在山上的一間小屋裡，遠遠的。」"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "\"He reads many books and grows his own food there.\"",
-        "explanationZh": "「他在那裡讀很多書，自己種食物。」——活得簡單，卻活得很豐富。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch28-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "Liu Bei's eyes lit up at every word the old man said.",
-        "question": "How did Liu Bei feel about the news?",
-        "options": [
-          "excited and full of hope",
-          "tired and very bored",
-          "afraid and shaking",
-          "angry and red in the face"
-        ],
-        "optionsZh": [
-          "興奮又充滿希望",
-          "又累又很無聊",
-          "害怕又發抖",
-          "氣得滿臉通紅"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "老人說的每句話，都讓劉備的眼睛亮一點——「興奮又充滿希望」就是他的感受。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "老人說的每一句話，劉備的眼睛都亮了一下。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He thanked the old man with a deep bow and a soft voice.",
-        "explanationZh": "他深深鞠一躬，輕聲謝謝老人。這個動作，說明他是個懂得感恩的人。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch28-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "What did Liu Bei plan to do next?",
-        "question": "What was his next step?",
-        "options": [
-          "🏠 go straight to bed",
-          "⛰️ climb the hill to the house",
-          "🛒 visit the busy market",
-          "📜 write a long letter"
-        ],
-        "optionsZh": [
-          "直接去睡覺",
-          "爬山到那間小屋",
-          "去熱鬧市集",
-          "寫一封長信"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "知道地點了，下一步當然是「爬山到那間小屋」！那個 ⛰️ 就是他的下一步。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "劉備打算接下來怎麼做？"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l2-q11",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "grandma",
-        "sentence": "The old man told Liu Bei that the wisest man he knew was hiding in the quiet hills.",
-        "question": "What is this scene mainly showing?",
-        "options": [
-          "Liu Bei sells his sword to buy a horse",
-          "Liu Bei loses his map on the long road",
-          "Liu Bei finds out where the wise man lives",
-          "Liu Bei meets a great king in the city"
-        ],
-        "optionsZh": [
-          "劉備賣劍買了一匹馬",
-          "劉備在長路上弄丟了地圖",
-          "劉備知道智者住在哪裡",
-          "劉備在城裡遇見一位大王"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "劉備知道智者住在哪裡——這就是這一節的重點。其他選項都不對。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge",
-          "gist"
-        ],
-        "subSkill": "gist",
-        "sentenceZh": "老人告訴劉備，他認識的最有智慧的人，正隱居在幽靜的山中。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch28-l2-q12",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "grandma",
-        "sentence": "He called his brothers, and the three set off the next morning...",
-        "explanationZh": "他叫上兩個兄弟，三人第二天早上出發——奶奶說，這就是「三顧茅廬」的第一顧。",
-        "tags": [
-          "story",
-          "ch28",
-          "zhuge"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Liu Bei asked the villagers about smart people in the land.",
-        "question": "What was Liu Bei doing in this scene?",
-        "options": [
-          "looking for a road that led to a new city",
-          "buying food from the village market that day",
-          "asking for soldiers to join his army soon",
-          "searching for a wise person who could help him"
-        ],
-        "optionsZh": [
-          "尋找通往新城市的道路",
-          "在村子市場買食物",
-          "招募加入軍隊的士兵",
-          "尋找能幫助他的有智慧的人"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "向村民打聽聰明人——他在「尋找能幫助他的有智慧的人」。",
-        "sentenceZh": "劉備向村民打聽這片土地上聰明的人。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch28-l2-x2",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The old man's eyes shone when he heard the name Zhuge Liang.",
-        "questionEn": "Did the old man seem to admire Zhuge Liang?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "聽到諸葛亮的名字，眼睛閃亮——這說明他很欣賞諸葛亮，答 Yes。",
-        "sentenceZh": "老人一聽到諸葛亮的名字，眼睛就亮了。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits",
-          "inference"
-        ]
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch28-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from this lesson.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "村民",
-            "right": "villager"
+            "left": "聰明的計謀",
+            "right": "smart plan"
           },
           {
-            "left": "老人",
-            "right": "old man"
+            "left": "數箭",
+            "right": "count arrows"
           },
           {
-            "left": "山丘",
-            "right": "hill"
+            "left": "稻草人",
+            "right": "straw figure"
           },
           {
-            "left": "讀書",
-            "right": "read books"
+            "left": "趁著夜晚",
+            "right": "under cover of night"
           }
         ],
-        "explanationZh": "🔑 villager = 村民\n🔑 old man = 老人\n🔑 hill = 山丘\n🔑 read books = 讀書\n指路節的字！",
+        "explanationZh": "這四個片語都出現在諸葛亮借箭的故事裡：\n🔑 smart plan = 聰明的計謀\n🔑 count arrows = 數箭\n🔑 straw figure = 稻草人\n🔑 under cover of night = 趁著夜晚",
         "tags": [
           "story",
           "ch28",
-          "three-visits",
-          "vocab"
+          "zhuge-liang-strategems",
+          "vocab",
+          "intro"
         ]
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch28-l2-x4",
+        "id": "kt-ch28-l2-pm1",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "\"He reads many books and grows his own food there.\"",
-        "question": "What kind of life did Zhuge Liang lead?",
+        "sentence": "The wind blew across the wide river all night.",
+        "sentenceZh": "風整晚吹過寬闊的河面。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "💨",
         "options": [
-          "quiet reading and farming on the hill",
-          "busy battles leading many armies",
-          "constant travel from one town to the next",
-          "rich living with many servants at home"
+          "a child flying a kite on a calm sunny day",
+          "wind blowing over a wide river at night",
+          "rain falling on a small village garden",
+          "smoke rising from a fire inside a tent"
         ],
         "optionsZh": [
-          "在山丘上安靜讀書和務農",
-          "帶領許多軍隊打仗的忙碌生活",
-          "從一個城鎮不斷旅行到下一個",
-          "在家有許多僕人的富裕生活"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "讀很多書、自己種食物——「安靜的讀書和務農生活」就是答案。",
-        "sentenceZh": "「他在那裡讀很多書，自己種食物。」",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch28-l2-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He thanked the old man with a deep bow and ___ soft voice.",
-        "question": "Which word fits the blank?",
-        "options": [
-          "an",
-          "a",
-          "the",
-          "his"
-        ],
-        "optionsZh": [
-          "一個（冠詞 an，用在母音前）",
-          "一個（冠詞 a，用在輔音前）",
-          "這個（定冠詞）",
-          "他的（所有格）"
+          "一個孩子在晴朗無風的天氣放風箏",
+          "風在夜晚吹過寬闊的河面",
+          "雨水落在小村子花園上",
+          "煙從帳篷裡的火堆升起"
         ],
         "correctIndex": 1,
-        "explanationZh": "「soft voice」以輔音 /s/ 開頭——用不定冠詞 a，「a soft voice」才正確。",
-        "sentenceZh": "他向老人深深鞠了一躬，用___柔和的聲音道謝。",
+        "explanationZh": "wind = 風，river = 河，night = 夜晚——三個本課的字都在句子裡，圖中是風吹過夜晚的河面。",
         "tags": [
           "story",
           "ch28",
-          "three-visits"
+          "zhuge-liang-strategems",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch28-l2-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Which one shows a boat?",
+        "question": "Which one shows a boat?",
+        "options": [
+          "🐎 horse",
+          "⛵ boat",
+          "🪵 log",
+          "🛖 hut"
+        ],
+        "optionsZh": [
+          "馬",
+          "船",
+          "木頭",
+          "小屋"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "船的英文是 boat ⛵！故事裡諸葛亮借來二十艘船，把稻草人排成一排等著「借箭」。",
+        "tags": [
+          "story",
+          "ch28",
+          "zhuge-liang-strategems",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch28-l2-gm1",
+        "type": "grammar-mc",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "That night, the fog ___ across the river and Zhuge Liang smiled.",
+        "sentenceZh": "那天夜晚，霧___過河面，諸葛亮微笑了。",
+        "question": "Which word fits the blank?",
+        "options": [
+          "spreads",
+          "spread",
+          "spreading",
+          "to spread"
+        ],
+        "optionsZh": [
+          "蔓延（第三人稱單數現在式）",
+          "蔓延（過去式，配 That night）",
+          "蔓延（現在分詞）",
+          "蔓延（不定詞）"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「That night」表示過去的那一晚，要用過去式 spread——「That night, the fog spread」才正確。",
+        "tags": [
+          "story",
+          "ch28",
+          "zhuge-liang-strategems",
+          "grammar"
         ],
         "subSkill": "function"
       },
       {
-        "type": "listen-tf",
-        "id": "kt-ch28-l2-x6",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Liu Bei's eyes lit up at every word the old man said.",
-        "questionEn": "Was Liu Bei excited by what the old man told him?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "聽到每個字眼睛都亮起來——劉備對老人說的話非常興奮，答 Yes。",
-        "sentenceZh": "劉備在老人說的每一個字裡，眼睛都亮了。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch28-l2-x7",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "He called his brothers, and the three set off the next morning.",
-        "question": "What does this action show about Liu Bei?",
-        "options": [
-          "asking the old man to come along with them",
-          "waiting many weeks before deciding to go",
-          "wasting no time once he had a clear lead",
-          "sending his brothers alone to visit Zhuge Liang"
-        ],
-        "optionsZh": [
-          "請老人一起同行",
-          "等了好幾個星期才決定去",
-          "一有線索就立刻行動",
-          "獨自派兄弟去拜訪諸葛亮"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "叫兄弟來、隔天就出發——「一有線索就立刻行動」就是他的行事風格。",
-        "sentenceZh": "他叫來兄弟，三人隔天早上就出發了。",
-        "tags": [
-          "story",
-          "ch28",
-          "three-visits"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch28-l2-x8",
+        "id": "kt-ch28-l2-rev1",
+        "type": "tap-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The old man pointed to the green hill where the wisest man lived alone.",
-        "question": "Which best shows Liu Bei's feeling after hearing this?",
-        "options": [
-          "😔 sad and ready to go home",
-          "😴 too tired to care at all",
-          "😡 angry and ready to argue",
-          "💡 sparked with hope and purpose"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "聰明",
+            "right": "smart"
+          },
+          {
+            "left": "數",
+            "right": "count"
+          },
+          {
+            "left": "稻草",
+            "right": "straw"
+          },
+          {
+            "left": "夜晚",
+            "right": "night"
+          }
         ],
-        "optionsZh": [
-          "難過，準備回家",
-          "太累了，完全不在乎",
-          "生氣，準備爭論",
-          "燃起了希望和目標"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "眼睛亮了、第二天就出發——「燃起了希望和目標」，那個 💡 最像劉備此時的狀態。",
-        "sentenceZh": "老人指著那座綠色山丘，說最有智慧的人就獨自住在那裡。",
+        "explanationZh": "複習一下本章的關鍵字：\n🔑 smart = 聰明\n🔑 count = 數\n🔑 straw = 稻草\n🔑 night = 夜晚\n準備好聽故事了嗎？",
         "tags": [
           "story",
           "ch28",
-          "three-visits",
-          "hook"
-        ],
-        "subSkill": "vocab"
+          "zhuge-liang-strategems",
+          "vocab",
+          "review"
+        ]
       }
     ]
   },

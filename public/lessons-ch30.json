@@ -8,31 +8,14 @@
     "storyBeat": "Heracles 是強壯的英雄 — 他必須做 12 件難事",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch30-l1-q1",
+        "id": "kt-ch30-l1-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "強壯",
-            "right": "strong"
-          },
-          {
-            "left": "英雄",
-            "right": "hero"
-          },
-          {
-            "left": "任務",
-            "right": "task"
-          },
-          {
-            "left": "十二",
-            "right": "twelve"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 strong = 強壯\n🔑 hero = 英雄\n🔑 task = 任務\n🔑 twelve = 十二\n十二件難事，一件一件來！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講海格力斯的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch30",
@@ -42,475 +25,159 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch30-l1-q2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old Greece, there lived a strong man named Heracles.",
-        "explanationZh": "很久以前在古希臘，有一個超強壯的人，叫 Heracles——奶奶說，他一個人就能當一支軍隊。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His arms were like tree trunks, and he could lift a full-grown bull.",
-        "question": "How strong was Heracles?",
-        "options": [
-          "weaker than a small child",
-          "only good at running fast",
-          "about the same as other men",
-          "strong enough to lift a big bull"
-        ],
-        "optionsZh": [
-          "比小孩還弱",
-          "只會跑得快",
-          "跟其他男人差不多",
-          "強到能舉起大公牛"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "手臂像樹幹，能舉起一頭大公牛——「強到能舉起大公牛」就是答案。這不是普通的力氣。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他的手臂像樹幹一樣粗，能舉起一頭成年的牛。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "But the gods were angry with him, and he had to pay for an old mistake.",
-        "questionEn": "Were the gods happy with Heracles?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "眾神對他很不高興，他必須為一個舊的錯誤付出代價——不高興，答 No。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "inference"
-        ],
-        "sentenceZh": "但諸神對他動了怒，他必須為一個舊日的錯誤付出代價。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "So a king sent him a list. On the list were twelve hard tasks.",
-        "explanationZh": "一個國王給他一張清單，上面有十二件困難的任務。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Each task was meant to test his courage, his body, and his mind.",
-        "question": "What were the tasks made to test?",
-        "options": [
-          "his bravery, his strength, and his thinking",
-          "his cooking, his songs, and his dancing",
-          "his money, his clothes, and his house",
-          "only how fast he could run a long race"
-        ],
-        "optionsZh": [
-          "勇氣、力氣和頭腦",
-          "煮菜、唱歌和跳舞",
-          "錢、衣服和房子",
-          "只看他長跑能跑多快"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "每件任務都要考驗他的勇氣、力氣和頭腦——「勇氣、力氣和頭腦」就是三個考驗。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "每一個任務都是為了考驗他的勇氣、體力和智慧。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heracles read the list slowly. His face stayed calm and brave.",
-        "explanationZh": "他慢慢讀著清單，臉色平靜而勇敢——沒有退縮，沒有抱怨，只有「好，我做。」",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He folded the paper and put it deep inside his pocket.",
-        "question": "What did Heracles do with the list?",
-        "options": [
-          "burned it in the fire",
-          "kept it safe in his pocket",
-          "gave it back to the king",
-          "tore it into many pieces"
-        ],
-        "optionsZh": [
-          "丟進火裡燒掉",
-          "好好放進口袋",
-          "還給國王",
-          "撕成很多片"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他折好清單，深深放進口袋——「好好放進口袋」就是答案。他把它當成承諾收起來。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他把那張紙折好，深深地塞進口袋裡。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Twelve tasks. One man. He would do them, one by one.",
-        "explanationZh": "十二件任務、一個男人——他會一件一件完成。奶奶說，這就是「說到做到」。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch30-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did Heracles feel about the twelve tasks?",
-        "question": "How did he feel?",
-        "options": [
-          "😢 ready to give up",
-          "😴 sleepy and bored",
-          "💪 ready and brave",
-          "🤣 like it was a joke"
-        ],
-        "optionsZh": [
-          "想要放棄",
-          "想睡又無聊",
-          "準備好,很勇敢",
-          "覺得是笑話"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "臉色平靜 + 把清單收好 → 「準備好，很勇敢」。那個 💪 就是他的表情。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "赫拉克勒斯對這十二件任務有什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The very first task was waiting for him in a place called Nemea...",
-        "explanationZh": "第一件任務，在一個叫 Nemea 的地方等著他……奶奶說，那裡有一隻讓整個村子都不敢出門的獅子。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old Greece, there lived a strong man named Heracles.",
-        "question": "Where did Heracles live?",
-        "options": [
-          "far away in a hot desert",
-          "near the sea in today's time",
-          "deep in a cold northern land",
-          "ancient Greece, many years ago"
-        ],
-        "optionsZh": [
-          "遙遠的炎熱沙漠",
-          "今天的海邊",
-          "寒冷的北方深處",
-          "很久以前的古希臘"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「Long ago in old Greece」——很久以前在古希臘，那就是他住的地方！",
-        "sentenceZh": "很久以前在古希臘，有一個超強壯的人叫 Heracles。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Twelve tasks. One man. He would do them, one by one.",
-        "questionEn": "Did Heracles plan to do all the tasks alone?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "十二件任務，一個人——「一件一件做」，他自己一個人做，答 Yes！",
-        "sentenceZh": "十二件任務，一個人，他會一件一件完成。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "inference"
-        ]
-      },
-      {
+        "id": "kt-ch30-l1-vp1",
         "type": "tap-pairs",
-        "id": "kt-ch30-l1-x3",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from tonight's story.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "勇氣",
-            "right": "courage"
+            "left": "英雄",
+            "right": "hero"
           },
           {
-            "left": "身體",
-            "right": "body"
+            "left": "強壯",
+            "right": "strong"
           },
           {
-            "left": "清單",
-            "right": "list"
+            "left": "任務",
+            "right": "task"
           },
           {
-            "left": "口袋",
-            "right": "pocket"
+            "left": "勇敢",
+            "right": "brave"
           }
         ],
-        "explanationZh": "🔑 courage = 勇氣 / body = 身體 / list = 清單 / pocket = 口袋\n這四個字，今晚故事的關鍵！",
+        "explanationZh": "這四個字都在海格力斯的故事裡：\n🔑 hero = 英雄\n🔑 strong = 強壯\n🔑 task = 任務\n🔑 brave = 勇敢",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch30-l1-vp2",
+        "type": "tap-pairs",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Four more words — can you match them all?",
+        "pairs": [
+          {
+            "left": "獅子",
+            "right": "lion"
+          },
+          {
+            "left": "野獸",
+            "right": "beast"
+          },
+          {
+            "left": "黃金",
+            "right": "gold"
+          },
+          {
+            "left": "河",
+            "right": "river"
+          }
+        ],
+        "explanationZh": "再來四個：\n🔑 lion = 獅子\n🔑 beast = 野獸\n🔑 gold = 黃金\n🔑 river = 河",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch30-l1-ep1",
+        "type": "emoji-pick",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Which one is a lion?",
+        "question": "Which one is a lion?",
+        "options": [
+          "🦁 lion",
+          "🐯 tiger",
+          "🐺 wolf",
+          "🐻 bear"
+        ],
+        "optionsZh": [
+          "獅子",
+          "老虎",
+          "狼",
+          "熊"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "獅子的英文是 lion 🦁！故事裡有一隻超巨大的獅子，是海格力斯的第一個任務。",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch30-l1-x4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Each task was meant to test his courage, his body, and his mind.",
-        "question": "What did the twelve tasks test?",
-        "options": [
-          "bravery, strength, and thinking",
-          "his speed, his money, and his cooking",
-          "singing, dancing, and drawing",
-          "swimming, climbing, and hiding"
-        ],
-        "optionsZh": [
-          "勇氣、體力和頭腦",
-          "速度、金錢和廚藝",
-          "唱歌、跳舞和畫畫",
-          "游泳、爬山和躲藏"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "考驗勇氣、體力和頭腦——「勇氣、體力和頭腦」就是答案。不是其他的！",
-        "sentenceZh": "每一個任務都是為了考驗他的勇氣、體力和智慧。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l1-x5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Heracles read the list slowly. His face stayed calm and brave.",
-        "question": "How did Heracles feel when he read the list?",
-        "options": [
-          "he cried and ran away fast",
-          "calm and ready to face it all",
-          "laughed as though it were a game",
-          "asked someone else to take his place"
-        ],
-        "optionsZh": [
-          "他哭著跑掉",
-          "平靜，準備好面對一切",
-          "笑著好像是個遊戲",
-          "叫別人代替他"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "臉色平靜而勇敢——他「平靜而準備好出發」。",
-        "sentenceZh": "他慢慢讀著清單，臉色平靜而勇敢。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch30-l1-x6",
+        "id": "kt-ch30-l1-ep2",
+        "type": "emoji-pick",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old Greece, there ___ a strong man named Heracles.",
-        "sentenceZh": "很久以前在古希臘，___一個強壯的人叫 Heracles。",
-        "question": "Choose the correct verb form.",
+        "sentence": "Which emoji shows something strong?",
+        "question": "Which one shows strong?",
         "options": [
-          "live",
-          "living",
-          "lived",
-          "lives"
+          "🍃 leaf",
+          "💪 strong",
+          "🌸 flower",
+          "🍬 candy"
         ],
         "optionsZh": [
-          "live",
-          "living",
-          "lived (過去式)",
-          "lives"
+          "葉子",
+          "強壯",
+          "花",
+          "糖果"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "strong = 強壯 💪！海格力斯非常強壯，一個人就能舉起大公牛。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch30-l1-pm1",
+        "type": "picture-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Heracles was a brave hero who went on many tasks.",
+        "sentenceZh": "海格力斯是一個勇敢的英雄，去完成了許多任務。",
+        "question": "Which picture matches 'a brave hero'?",
+        "imageEmoji": "🛡️",
+        "options": [
+          "a child hiding under a wooden table",
+          "an old woman resting by a warm fire",
+          "a strong man standing tall and ready to go",
+          "a small cat sleeping on a soft bed"
+        ],
+        "optionsZh": [
+          "一個小孩躲在木桌下",
+          "一位老婆婆坐在暖火旁休息",
+          "一個強壯的男人站得筆直、準備出發",
+          "一隻小貓睡在軟床上"
         ],
         "correctIndex": 2,
-        "explanationZh": "「Long ago」= 很久以前，要用過去式「lived」！",
+        "explanationZh": "brave hero = 勇敢的英雄。海格力斯站得筆直、目光堅定——這就是「勇敢」的樣子！",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
-          "grammar"
+          "vocab"
         ],
-        "subSkill": "function"
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch30-l1-x7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heracles folded the paper and put it deep inside his pocket.",
-        "question": "What kind of person was Heracles?",
-        "options": [
-          "🤣 silly and playful",
-          "😴 lazy and bored",
-          "😢 scared and sad",
-          "💪 strong and determined"
-        ],
-        "optionsZh": [
-          "傻呼呼又愛玩",
-          "懶惰又無聊",
-          "害怕又傷心",
-          "強壯又有決心"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "把清單放好、臉色平靜 → 「強壯又有決心」。那個 💪 就是他的樣子。",
-        "sentenceZh": "他把那張紙折好，深深地塞進口袋裡。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l1-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "A king sent him a list. On the list were twelve hard tasks.",
-        "questionEn": "Were the tasks easy for Heracles?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「twelve hard tasks」——十二件「困難」的任務，不是容易的，答 No！",
-        "sentenceZh": "一個國王給他一張清單，上面有十二件困難的任務。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l1-x9",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The very first task was waiting for him in a place called Nemea...",
-        "question": "Where did the first task take place?",
-        "options": [
-          "Nemea, a distant village",
-          "inside old Rome far away",
-          "inside the walls of a great castle",
-          "near a wide and open sea"
-        ],
-        "optionsZh": [
-          "遙遠的 Nemea 村",
-          "遙遠的古羅馬",
-          "一座大城堡的牆內",
-          "寬闊的大海旁"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「in a place called Nemea」——第一個任務在叫做 Nemea 的地方。",
-        "sentenceZh": "第一件任務，在一個叫 Nemea 的地方等著他……",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
+        "subSkill": "vocab"
       }
     ]
   },
@@ -523,31 +190,14 @@
     "storyBeat": "第一任務 — 尼米亞地區有一隻可怕的大獅子",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch30-l2-q1",
+        "id": "kt-ch30-l2-intro",
+        "type": "narration",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "獅子",
-            "right": "lion"
-          },
-          {
-            "left": "可怕",
-            "right": "scary"
-          },
-          {
-            "left": "村莊",
-            "right": "village"
-          },
-          {
-            "left": "害怕",
-            "right": "afraid"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 lion = 獅子\n🔑 scary = 可怕\n🔑 village = 村莊\n🔑 afraid = 害怕\n大獅子出場了！",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch30",
@@ -557,386 +207,120 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch30-l2-q2",
+        "id": "kt-ch30-l2-pp1",
+        "type": "phrase-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Near the village of Nemea, there was a huge and scary lion.",
-        "explanationZh": "Nemea 村莊附近，有一隻巨大又可怕的獅子——奶奶說，光是說這句話，她自己都起雞皮疙瘩。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "It was twice the size of any lion the people had ever seen.",
-        "question": "How big was the Nemean lion?",
-        "options": [
-          "about the same size as a big horse",
-          "two times bigger than a normal lion",
-          "about the same size as a baby goat",
-          "a little smaller than a grey wolf"
-        ],
-        "optionsZh": [
-          "跟一匹大馬差不多大",
-          "比一般獅子大兩倍",
-          "跟小山羊差不多大",
-          "比灰狼還小一點"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "比任何人見過的獅子大兩倍——「比一般獅子大兩倍」就是答案。那真的很大。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "牠比人們見過的任何一隻獅子都大上兩倍。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Its skin was so thick that no arrow and no sword could go through.",
-        "questionEn": "Could a sharp sword cut the lion's skin?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "毛皮厚到箭射不進、劍砍不斷——切不開，答 No。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "inference"
-        ],
-        "sentenceZh": "牠的皮厚得連箭和劍都穿不透。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The lion lived in a dark cave on a hill above the village.",
-        "explanationZh": "獅子住在村莊上方的山洞裡——黑暗的山洞，就是它的家。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every night it came down and took sheep and cows from the farms.",
-        "question": "What did the lion do at night?",
-        "options": [
-          "slept quietly in its cave",
-          "played with village children",
-          "stole farm animals from the people",
-          "swam in the cold river all night"
-        ],
-        "optionsZh": [
-          "在洞裡安靜睡覺",
-          "和村裡小孩玩",
-          "從人們那裡叼走家畜",
-          "整晚在冰冷的河裡游泳"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "每天晚上，它下山叼走農場的羊和牛——「從人們那裡叼走家畜」就是答案。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "每到夜晚，牠就下山，把農場的羊和牛都叼走。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "The people of Nemea were afraid to leave their homes after dark.",
-        "explanationZh": "天黑後，Nemea 的人沒有一個敢出門——這種恐懼，每天都有。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch30-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Many brave men had gone up the hill, but none of them came back.",
-        "question": "What happened to the men who went up the hill?",
-        "options": [
-          "they came back rich",
-          "they all became kings",
-          "they made friends with the lion",
-          "none of them ever returned"
-        ],
-        "optionsZh": [
-          "他們發財回來",
-          "他們全都當國王",
-          "他們跟獅子變朋友",
-          "沒有一個回來"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "去過山上的勇士，沒有一個回來——「沒有一個回來」就是答案。這隻獅子，不好惹。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "許多勇敢的人上了山，但沒有一個人回來。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "This was the first task for Heracles: stop the lion.",
-        "explanationZh": "Heracles 的第一個任務：阻止這隻獅子。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch30-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did the village of Nemea feel about the lion?",
-        "question": "How did the people feel?",
-        "options": [
-          "😱 very afraid",
-          "😊 happy and safe",
-          "🥱 bored of it",
-          "🤝 friends with it"
-        ],
-        "optionsZh": [
-          "非常害怕",
-          "開心又安全",
-          "覺得很無聊",
-          "和獅子是朋友"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "天黑不敢出門 + 家畜被叼走 → 「非常害怕」。那個 😱 就是村人的臉。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "尼米亞村子的人們對那頭獅子有什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch30-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Heracles tied his cloak tight and looked up at the dark hill...",
-        "explanationZh": "Heracles 把披風綁緊，抬頭望著那座黑色的山丘……奶奶說，這個眼神，是「我決定了」的眼神。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Near the village of Nemea, there was a huge and scary lion.",
-        "question": "Where was the scary lion?",
-        "options": [
-          "deep inside the king's stone castle",
-          "close to Nemea, a small village",
-          "far away beyond the cold river",
-          "right in the middle of the market"
-        ],
-        "optionsZh": [
-          "深藏在國王的石頭城堡裡",
-          "靠近小村莊 Nemea 附近",
-          "遠在冰冷河流的另一邊",
-          "就在市集正中間"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「Near the village of Nemea」——在 Nemea 村莊附近。",
-        "sentenceZh": "Nemea 村莊附近，有一隻巨大又可怕的獅子。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Its skin was so thick that no arrow and no sword could go through.",
-        "questionEn": "Was the lion's skin very strong?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "毛皮厚到箭和劍都穿不透——它的皮非常強，答 Yes！",
-        "sentenceZh": "牠的皮厚得連箭和劍都穿不透。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors",
-          "inference"
-        ]
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch30-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from tonight's story.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "山洞",
-            "right": "cave"
+            "left": "木棍",
+            "right": "wooden club"
           },
           {
-            "left": "村莊",
-            "right": "village"
+            "left": "金色的鹿",
+            "right": "golden deer"
           },
           {
-            "left": "山",
-            "right": "hill"
+            "left": "強壯的英雄",
+            "right": "strong hero"
           },
           {
-            "left": "黑暗",
-            "right": "dark"
+            "left": "完成任務",
+            "right": "finish the task"
           }
         ],
-        "explanationZh": "🔑 cave = 山洞 / village = 村莊 / hill = 山 / dark = 黑暗\n今晚的場景詞！",
+        "explanationZh": "這四個片語都出現在海格力斯的故事裡：\n🔑 wooden club = 木棍\n🔑 golden deer = 金色的鹿\n🔑 strong hero = 強壯的英雄\n🔑 finish the task = 完成任務",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "id": "kt-ch30-l2-pm1",
+        "type": "picture-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Heracles walked along the river every morning with his club.",
+        "sentenceZh": "海格力斯每天早上帶著木棍沿著河走。",
+        "question": "Which picture matches 'walking along a river'?",
+        "imageEmoji": "🏞️",
+        "options": [
+          "a man climbing up a steep stone wall",
+          "two children playing in a dusty market",
+          "a woman cooking fish over a fire",
+          "a man walking beside a flowing stream"
+        ],
+        "optionsZh": [
+          "一個男人爬上陡峭的石牆",
+          "兩個小孩在塵土飛揚的市集玩耍",
+          "一個女人在火上烤魚",
+          "一個男人走在流動的小河旁"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "river = 河，句子說海格力斯沿著河走——圖中正好是一個人走在河旁邊。",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch30-l2-x4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "The people of Nemea were afraid to leave their homes after dark.",
-        "question": "Why were the Nemea people scared?",
-        "options": [
-          "a flood came every night",
-          "the road was always muddy",
-          "a huge lion roamed nearby",
-          "the market closed at sunset"
-        ],
-        "optionsZh": [
-          "每天晚上都洪水",
-          "路總是很泥濘",
-          "附近有一隻巨獅出沒",
-          "日落時市集就關門"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "天黑後不敢出門——因為「附近有一隻巨獅出沒」讓大家害怕！",
-        "sentenceZh": "天黑後，Nemea 的人沒有一個敢出門。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l2-x5",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Many brave men had gone up the hill, but none of them came back.",
-        "question": "What happened to all the men who tried to stop the lion?",
-        "options": [
-          "they returned with big rewards",
-          "they all ran to the sea",
-          "they became friends with it",
-          "not a single one came home"
-        ],
-        "optionsZh": [
-          "他們帶著大獎回來",
-          "他們全都逃往大海",
-          "他們跟獅子變朋友",
-          "沒有一個人回家"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "去過山上的勇士，沒有一個回來——「沒有一個人回家」就是答案。",
-        "sentenceZh": "許多勇敢的人上了山，但沒有一個人回來。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch30-l2-x6",
+        "id": "kt-ch30-l2-ep1",
+        "type": "emoji-pick",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every night it ___ down and took sheep and cows from the farms.",
-        "sentenceZh": "每個晚上，牠___下山，從農場叼走羊和牛。",
-        "question": "Choose the correct verb form.",
+        "sentence": "Which one is a deer?",
+        "question": "Which one is a deer?",
         "options": [
-          "came",
-          "come",
-          "coming",
-          "comes"
+          "🐄 cow",
+          "🐑 sheep",
+          "🦌 deer",
+          "🐴 horse"
         ],
         "optionsZh": [
-          "came (過去式)",
-          "come",
-          "coming",
-          "comes"
+          "牛",
+          "羊",
+          "鹿",
+          "馬"
         ],
-        "correctIndex": 0,
-        "explanationZh": "故事是過去發生的，「came」是 come 的過去式！",
+        "correctIndex": 2,
+        "explanationZh": "deer = 鹿 🦌！故事裡有一隻金色的鹿，是海格力斯的第三個任務。",
+        "tags": [
+          "story",
+          "ch30",
+          "heracles-twelve-labors",
+          "vocab"
+        ],
+        "subSkill": "vocab"
+      },
+      {
+        "id": "kt-ch30-l2-gm1",
+        "type": "grammar-mc",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Yesterday morning, Heracles ___ his club and went to the river.",
+        "sentenceZh": "昨天早上，海格力斯___他的木棍，走向了河邊。",
+        "question": "Which word is correct?",
+        "options": [
+          "take",
+          "took",
+          "takes",
+          "taking"
+        ],
+        "optionsZh": [
+          "take（原形）",
+          "took（過去式）",
+          "takes（第三人稱現在式）",
+          "taking（進行式）"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "「Yesterday morning」= 昨天早上，要用過去式「took」！take 的過去式是 took（不規則動詞）。",
         "tags": [
           "story",
           "ch30",
@@ -946,86 +330,37 @@
         "subSkill": "function"
       },
       {
-        "type": "emoji-pick",
-        "id": "kt-ch30-l2-x7",
+        "id": "kt-ch30-l2-rev1",
+        "type": "tap-pairs",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What was the first task for Heracles?",
-        "question": "What was the first task?",
-        "options": [
-          "🐟 catch a huge fish",
-          "🦁 stop the scary lion",
-          "🌳 cut a very big tree",
-          "🏃 run a long mountain race"
+        "sentence": "Let's review all the new words from this lesson.",
+        "pairs": [
+          {
+            "left": "木棍",
+            "right": "club"
+          },
+          {
+            "left": "鹿",
+            "right": "deer"
+          },
+          {
+            "left": "黃金",
+            "right": "gold"
+          },
+          {
+            "left": "野獸",
+            "right": "beast"
+          }
         ],
-        "optionsZh": [
-          "抓一條大魚",
-          "阻止可怕的大獅子",
-          "砍一棵大樹",
-          "跑長山路"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "第一件任務：「stop the lion」——阻止那隻獅子。那個 🦁 就是任務！",
-        "sentenceZh": "Heracles 的第一個任務：阻止這隻獅子。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch30-l2-x8",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "Heracles tied his cloak tight and looked up at the dark hill...",
-        "questionEn": "Did Heracles look afraid of the dark hill?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他把披風綁緊，抬頭望著山——這個動作是「準備好了」，不是害怕，答 No！",
-        "sentenceZh": "Heracles 把披風綁緊，抬頭望著那座黑色的山丘……",
+        "explanationZh": "把這節的重點字再複習一遍：\n🔑 club = 木棍\n🔑 deer = 鹿\n🔑 gold = 黃金\n🔑 beast = 野獸",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
-          "inference"
+          "vocab",
+          "review"
         ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch30-l2-x9",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "It was twice the size of any lion the people had ever seen.",
-        "question": "How did the Nemean lion compare to normal lions?",
-        "options": [
-          "smaller than a house cat",
-          "about the same size",
-          "much bigger than any lion",
-          "a little bit shorter"
-        ],
-        "optionsZh": [
-          "比家貓還小",
-          "差不多大",
-          "比任何獅子都大很多",
-          "稍微矮一點"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "比任何人見過的獅子都大兩倍——「比任何獅子都大很多」就是正確答案！",
-        "sentenceZh": "牠比人們見過的任何一隻獅子都大上兩倍。",
-        "tags": [
-          "story",
-          "ch30",
-          "heracles-twelve-labors"
-        ],
-        "subSkill": "detail"
       }
     ]
   },

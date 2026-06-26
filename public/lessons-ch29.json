@@ -8,31 +8,14 @@
     "storyBeat": "戰爭結束 — Odysseus 是個勇敢的國王",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch29-l1-q1",
+        "type": "narration",
+        "id": "kt-ch29-l1-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "戰爭",
-            "right": "war"
-          },
-          {
-            "left": "結束",
-            "right": "over"
-          },
-          {
-            "left": "勇敢",
-            "right": "brave"
-          },
-          {
-            "left": "國王",
-            "right": "king"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 war = 戰爭\n🔑 over = 結束\n🔑 brave = 勇敢\n🔑 king = 國王\n故事要開始了！",
+        "speaker": "grandma",
+        "sentence": "Tonight's story has a few new words. Let's learn them first!",
+        "sentenceZh": "今晚的故事會用到幾個新字，我們先把它們學會！",
+        "explanationZh": "奶奶說：今晚要講奧德修斯航海回家的故事，先來認識幾個關鍵字，記住了故事更好聽喔！",
         "tags": [
           "story",
           "ch29",
@@ -42,476 +25,159 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch29-l1-q2",
+        "type": "tap-pairs",
+        "id": "kt-ch29-l1-vp1",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old Greece, there lived a brave king named Odysseus.",
-        "explanationZh": "很久很久以前，在古希臘，有一個勇敢的國王叫 Odysseus。奶奶說，他的故事是海上最精彩的故事。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l1-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "For ten long years he had been away fighting a big war in Troy.",
-        "question": "How long was he away from home?",
-        "options": [
-          "for about two years",
-          "one cold winter",
-          "for ten long years",
-          "for half a year"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "海",
+            "right": "sea"
+          },
+          {
+            "left": "船",
+            "right": "ship"
+          },
+          {
+            "left": "英雄",
+            "right": "hero"
+          },
+          {
+            "left": "家",
+            "right": "home"
+          }
         ],
-        "optionsZh": [
-          "大約兩年",
-          "一個寒冷的冬天",
-          "十年那麼久",
-          "半年"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "他在特洛伊打了整整十年的仗——「十年那麼久」就是答案。干擾項「大約兩年」也是「年」，要聽清楚「十」才對。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他在特洛伊打了整整十年的大戰。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l1-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "At last the war was over, and the city of Troy had fallen.",
-        "questionEn": "Was the war still going on?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "戰爭已經結束了——「already over」，答 No，不是還在打。",
+        "explanationZh": "這四個字都在奧德修斯的故事裡：\n🔑 sea = 海\n🔑 ship = 船\n🔑 hero = 英雄\n🔑 home = 家",
         "tags": [
           "story",
           "ch29",
           "odyssey",
-          "inference"
-        ],
-        "sentenceZh": "戰爭終於結束了，特洛伊城也陷落了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l1-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Odysseus looked at the sky and thought of his home far across the sea.",
-        "explanationZh": "Odysseus 望著天空，心裡想著海的另一邊的家。那種想念，像一塊石頭壓在胸口。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l1-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He had been a brave king in every battle, but his heart felt tired.",
-        "question": "How did Odysseus feel inside?",
-        "options": [
-          "fresh and full of energy",
-          "angry at his men",
-          "ready for one more war",
-          "his heart was tired"
-        ],
-        "optionsZh": [
-          "充滿活力",
-          "對他的人生氣",
-          "想再打一場仗",
-          "心裡很累"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "「心裡很累」——他打了十年仗，勇敢歸勇敢，但心已經累了。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他在每一場戰役中都是勇敢的王，但心裡感到好累。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l1-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He said quietly, \"It is time to go back to my own home.\"",
-        "explanationZh": "「該回家了。」他輕輕說出這句話——就這樣，回家的決定就定了。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l1-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His men stood beside him with the same wish in their eyes.",
-        "question": "What did his men want?",
-        "options": [
-          "the same thing as their king",
-          "to stay in Troy a bit longer",
-          "to begin another war at sea",
-          "to sleep on the beach"
-        ],
-        "optionsZh": [
-          "跟他們國王想的一樣",
-          "在 Troy 多留一陣子",
-          "再去海上打一場仗",
-          "在海邊睡覺"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "他的人站在旁邊，眼神和他一樣——「跟他們國王想的一樣」就是答案。大家都想回家。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他的士兵們站在他身旁，眼神裡有著一樣的渴望。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l1-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Around them the wind blew warm. The sea was wide and bright.",
-        "explanationZh": "風溫溫地吹，海又寬又亮——大自然好像也在說：「是時候了。」",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch29-l1-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did Odysseus feel as he looked at the sea?",
-        "question": "How did he feel?",
-        "options": [
-          "😴 getting very sleepy",
-          "🏠 ready to go home",
-          "😡 angry at the sea",
-          "🎵 in the mood to sing"
-        ],
-        "optionsZh": [
-          "快要睡著了",
-          "準備好回家",
-          "對海生氣",
-          "很想唱起歌"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "戰爭結束 + 心裡想家 → 「準備好回家」。那個 🏠 就是他的心。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "望著大海，奧德修斯心裡是什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l1-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He took one long breath. The trip back was about to begin...",
-        "explanationZh": "他深深吸一口氣，回家的長路就要開始了……奶奶說，這一口氣，帶著十年的故事。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l1-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Long ago in old Greece, there lived a brave king named Odysseus.",
-        "question": "Where did this story take place?",
-        "options": [
-          "deep in a cold northern forest",
-          "near the sea in today's world",
-          "ancient Greece, many years ago",
-          "far away in a sandy desert"
-        ],
-        "optionsZh": [
-          "寒冷的北方森林深處",
-          "今天的海邊世界",
-          "很久以前的古希臘",
-          "遙遠的沙漠"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "「Long ago in old Greece」——很久以前的古希臘，那就是地點！",
-        "sentenceZh": "很久很久以前，在古希臘，有一個勇敢的國王叫 Odysseus。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l1-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He said quietly, \"It is time to go back to my own home.\"",
-        "questionEn": "Did Odysseus want to go home?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「It is time to go back to my home」——他說是時候回家了，當然答 Yes！",
-        "sentenceZh": "他輕輕說：「是時候回到我自己的家了。」",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "inference"
+          "vocab",
+          "intro"
         ]
       },
       {
         "type": "tap-pairs",
-        "id": "kt-ch29-l1-x3",
+        "id": "kt-ch29-l1-vp2",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from tonight's lesson.",
+        "sentence": "Match each Chinese word to its English.",
         "pairs": [
           {
-            "left": "回家",
-            "right": "go home"
+            "left": "島",
+            "right": "island"
           },
           {
-            "left": "很久以前",
-            "right": "long ago"
+            "left": "巨人",
+            "right": "giant"
           },
           {
-            "left": "勇敢的",
-            "right": "brave"
+            "left": "風",
+            "right": "wind"
           },
           {
-            "left": "過去的",
-            "right": "gone"
+            "left": "帆",
+            "right": "sail"
           }
         ],
-        "explanationZh": "🔑 go home = 回家\n🔑 long ago = 很久以前\n🔑 brave = 勇敢的\n🔑 gone = 過去的\n回家路，從這裡開始！",
+        "explanationZh": "再來四個：\n🔑 island = 島\n🔑 giant = 巨人\n🔑 wind = 風\n🔑 sail = 帆",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "emoji-pick",
+        "id": "kt-ch29-l1-ep1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Which one is a ship?",
+        "question": "Which one is a ship?",
+        "options": [
+          "🌊 wave",
+          "⛵ ship",
+          "🏝️ island",
+          "💨 wind"
+        ],
+        "optionsZh": [
+          "海浪",
+          "船",
+          "島",
+          "風"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "船的英文是 ship ⛵！奧德修斯就是坐著船要回家的。",
         "tags": [
           "story",
           "ch29",
           "odyssey",
           "vocab"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l1-x4",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He had been a brave king in every battle, but his heart felt tired.",
-        "question": "Why did Odysseus feel tired inside?",
-        "options": [
-          "he had been reading too many books",
-          "he had been running all night without rest",
-          "he ate too much and needed a nap",
-          "so many years of war had worn him out"
         ],
-        "optionsZh": [
-          "他讀太多書了",
-          "他整晚跑步沒休息",
-          "他吃太多需要小睡",
-          "多年的戰爭讓他精疲力竭"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "他在每一場戰役中勇敢作戰——多年的戰爭讓他心裡累透了，這才是答案。",
-        "sentenceZh": "他在每一場戰役中都是勇敢的王，但心裡感到好累。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l1-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His men stood beside him with the same wish in their eyes.",
-        "question": "What did the men's eyes tell us about them?",
-        "options": [
-          "both crew and captain wanted home",
-          "the sailors were sleepy and full",
-          "everyone agreed to start right then",
-          "the crew just wanted to rest more"
-        ],
-        "optionsZh": [
-          "船員和隊長都想回家",
-          "水手們睡意濃厚吃得飽",
-          "大家同意立刻出發",
-          "船員只是想多休息"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "他們的眼神裡有「一樣的渴望」——和國王一樣，想回家！",
-        "sentenceZh": "他的士兵們站在旁邊，眼神裡有著一樣的渴望。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "inference"
-      },
-      {
-        "type": "grammar-mc",
-        "id": "kt-ch29-l1-x6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "For ten long years he ___ fighting a big war.",
-        "sentenceZh": "整整十年，他___在一場大戰中打仗。",
-        "question": "Choose the correct verb form.",
-        "options": [
-          "is fighting",
-          "had fought",
-          "will fight",
-          "has fought"
-        ],
-        "optionsZh": [
-          "is fighting",
-          "had fought (過去完成)",
-          "will fight",
-          "has fought"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "這句說的是過去某段時間，用「過去完成式」had been——表示在另一個過去時間點之前已持續的動作。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "grammar"
-        ],
-        "subSkill": "function"
+        "subSkill": "vocab"
       },
       {
         "type": "emoji-pick",
-        "id": "kt-ch29-l1-x7",
+        "id": "kt-ch29-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What is the main feeling of tonight's opening story?",
-        "question": "What is the main feeling?",
+        "sentence": "Which one shows a giant?",
+        "question": "Which one shows a giant?",
         "options": [
-          "😡 anger at friends",
-          "🎉 a big celebration",
-          "🏠 longing for home",
-          "❄️ cold and lost"
+          "🐭 mouse",
+          "🐱 cat",
+          "🐣 chick",
+          "🗿 giant"
         ],
         "optionsZh": [
-          "對朋友生氣",
-          "盛大慶典",
-          "思念家鄉",
-          "又冷又迷路"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "十年戰爭 + 心累 + 想回家 → 「思念家鄉」。那個 🏠 最能代表這個故事的感情。",
-        "sentenceZh": "今晚故事開頭的主要情緒是什麼？",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "hook"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l1-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He took one long breath. The trip back was about to begin.",
-        "questionEn": "Was the journey home just starting?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「The trip back was about to begin」——回家之路即將開始，答 Yes！",
-        "sentenceZh": "他深深吸一口氣，回家的旅程即將開始。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "inference"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l1-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Around them the wind blew warm. The sea was wide and bright.",
-        "question": "What does the warm wind and bright sea suggest?",
-        "options": [
-          "the soldiers were cold",
-          "a big storm was coming soon",
-          "the ship was too hot inside",
-          "it was a fine time to set out"
-        ],
-        "optionsZh": [
-          "士兵們很冷",
-          "大暴風雨即將來臨",
-          "船裡太熱了",
-          "這是出發的好時機"
+          "老鼠",
+          "貓",
+          "小雞",
+          "巨人"
         ],
         "correctIndex": 3,
-        "explanationZh": "風溫暖、海寬又明亮——大自然也在說「出發吧」，這是啟航的好時機！",
-        "sentenceZh": "他們身邊的風暖暖地吹，海又寬又亮。",
+        "explanationZh": "giant = 巨人 🗿！故事裡有一個住在洞穴裡的可怕巨人。",
         "tags": [
           "story",
           "ch29",
-          "odyssey"
+          "odyssey",
+          "vocab"
         ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch29-l1-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The hero sailed across the wide sea.",
+        "sentenceZh": "英雄划著船穿越寬廣的大海。",
+        "question": "Which picture matches the sentence?",
+        "imageEmoji": "🌊",
+        "options": [
+          "a hero sitting by a fire in a cave",
+          "a hero riding a horse on a road",
+          "a hero walking through a green forest",
+          "a hero on a ship crossing open water"
+        ],
+        "optionsZh": [
+          "英雄坐在洞穴的火旁",
+          "英雄騎馬走在路上",
+          "英雄走過綠色森林",
+          "英雄在船上越過開闊的水面"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "sea = 海，ship = 船，hero = 英雄——句子說英雄坐船穿越大海，第四張圖最符合！",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab"
+        ],
+        "subSkill": "vocab"
       }
     ]
   },
@@ -524,31 +190,14 @@
     "storyBeat": "他想念家人 — 妻子 Penelope 跟兒子 Telemachus",
     "questions": [
       {
-        "type": "tap-pairs",
-        "id": "kt-ch29-l2-q1",
+        "type": "narration",
+        "id": "kt-ch29-l2-intro",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Here are 4 words you will meet in tonight's story.",
-        "pairs": [
-          {
-            "left": "妻子",
-            "right": "wife"
-          },
-          {
-            "left": "兒子",
-            "right": "son"
-          },
-          {
-            "left": "想念",
-            "right": "miss"
-          },
-          {
-            "left": "家",
-            "right": "home"
-          }
-        ],
-        "explanationZh": "今晚 4 個字：\n🔑 wife = 妻子\n🔑 son = 兒子\n🔑 miss = 想念\n🔑 home = 家\n最牽掛的人在等他。",
+        "speaker": "grandma",
+        "sentence": "A few more words to learn — then the story begins!",
+        "sentenceZh": "再記幾個字，故事就要開始了！",
+        "explanationZh": "奶奶說：再學幾個重要的字，學會了，故事就更好懂囉！",
         "tags": [
           "story",
           "ch29",
@@ -558,386 +207,120 @@
         ]
       },
       {
-        "type": "narration",
-        "id": "kt-ch29-l2-q2",
+        "type": "phrase-pairs",
+        "id": "kt-ch29-l2-pp1",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At home, Odysseus had a kind wife. Her name was Penelope.",
-        "explanationZh": "在家裡，他有一位善良的妻子，叫 Penelope——奶奶說，她是最有耐心的妻子。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l2-q3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He also had a small son. The boy's name was Telemachus.",
-        "question": "Who was Telemachus?",
-        "options": [
-          "Odysseus's small son",
-          "Odysseus's brother",
-          "an old man in Troy",
-          "a friend of Penelope"
-        ],
-        "optionsZh": [
-          "Odysseus 的小兒子",
-          "Odysseus 的兄弟",
-          "Troy 的老人",
-          "Penelope 的朋友"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "他還有一個小兒子，叫 Telemachus——「Odysseus 的小兒子」就是答案。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "他還有一個小兒子，名叫特勒馬科斯。"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l2-q4",
-        "level": "A2",
-        "difficulty": "medium",
-        "speaker": "narrator",
-        "sentence": "When he left for the war, his son was just a baby in arms.",
-        "questionEn": "Was Telemachus already a grown man when his father left?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "他出發的時候，兒子還是懷裡抱的嬰兒——當然不是大人，答 No。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "inference"
-        ],
-        "sentenceZh": "他出征打仗的時候，兒子還只是個嬰兒。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l2-q5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Now ten years had gone by. The boy would be tall and growing fast.",
-        "explanationZh": "十年過去了，那個嬰兒應該長高很多，變化很快。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l2-q6",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every night Odysseus thought of their faces and missed them deeply.",
-        "question": "How often did he think of his family?",
-        "options": [
-          "only once a month",
-          "every single night",
-          "never at all",
-          "just on his birthday"
-        ],
-        "optionsZh": [
-          "一個月只一次",
-          "每一個晚上",
-          "完全不會",
-          "只在生日"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「每一個晚上」他都想到他們——每晚，不是偶爾。「每一個晚上」就是答案。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "每天晚上，奧德修斯想起他們的臉，思念得心痛。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l2-q7",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He kept their picture safe inside his mind, like a small light.",
-        "explanationZh": "他把家人的樣子放在心裡，像一盞小燈——再暗的地方，那盞燈都不熄。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "listen-mc",
-        "id": "kt-ch29-l2-q8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His wife was waiting. His son was waiting. He had been gone too long.",
-        "question": "Why was he ready to leave Troy?",
-        "options": [
-          "the city was too loud",
-          "he wanted to find more gold",
-          "his family was waiting at home",
-          "he was bored of the sea"
-        ],
-        "optionsZh": [
-          "城裡太吵",
-          "他想找到更多金子",
-          "家人在家等著他",
-          "他厭倦了海"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "妻子在等、兒子在等——「家人在家等著他」就是答案。這就是他要回去的理由。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail",
-        "sentenceZh": "妻子在等，兒子在等，他離開太久了。"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l2-q9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He whispered their names in the warm Greek wind: \"Penelope. Telemachus.\"",
-        "explanationZh": "他在溫暖的夜風裡，輕聲念著他們的名字：「Penelope。Telemachus。」",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "emoji-pick",
-        "id": "kt-ch29-l2-q10",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "How did Odysseus feel when he thought of his family?",
-        "question": "How did he feel?",
-        "options": [
-          "🎉 ready for a party",
-          "😴 getting very sleepy",
-          "😡 starting to feel mad",
-          "💔 missing them very much"
-        ],
-        "optionsZh": [
-          "想開派對",
-          "快要睡著了",
-          "開始覺得生氣",
-          "非常想念他們"
-        ],
-        "correctIndex": 3,
-        "explanationZh": "每晚思念 + 輕念名字 → 「非常想念他們」。那個 💔 就是他的心。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "hook"
-        ],
-        "subSkill": "vocab",
-        "sentenceZh": "想到家人，奧德修斯心裡是什麼感覺？"
-      },
-      {
-        "type": "narration",
-        "id": "kt-ch29-l2-q11",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Then he turned to his men and gave the first order of the long trip home...",
-        "explanationZh": "他轉向他的人，下達回家路上的第一個命令——奶奶說，這一刻，旅程正式開始。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l2-x1",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "At home, Odysseus had a kind wife. Her name was Penelope.",
-        "question": "What kind of person was Penelope?",
-        "options": [
-          "loyal and kind wife",
-          "a fierce and angry queen",
-          "lazy old woman",
-          "wise and brave queen"
-        ],
-        "optionsZh": [
-          "忠誠又善良的妻子",
-          "凶猛又憤怒的女王",
-          "懶惰的老婦人",
-          "聰明勇敢的女王"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「a kind wife」——「善良體貼的妻子」就是答案！",
-        "sentenceZh": "在家裡，奧德修斯有一位善良的妻子，叫 Penelope。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l2-x2",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Every night Odysseus thought of their faces and missed them deeply.",
-        "questionEn": "Did Odysseus think about his family often?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "「每一個晚上」他都想起他們——非常頻繁，答 Yes！",
-        "sentenceZh": "每天晚上，奧德修斯都想起他們的臉，深深地思念著。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "inference"
-        ]
-      },
-      {
-        "type": "tap-pairs",
-        "id": "kt-ch29-l2-x3",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Match the words from tonight's lesson.",
+        "sentence": "Match each Chinese phrase to its English.",
         "pairs": [
           {
-            "left": "妻子",
-            "right": "wife"
+            "left": "回家",
+            "right": "go home"
           },
           {
-            "left": "嬰兒",
-            "right": "baby"
+            "left": "黑暗洞穴",
+            "right": "dark cave"
           },
           {
-            "left": "思念",
-            "right": "miss"
+            "left": "海怪",
+            "right": "sea monster"
           },
           {
-            "left": "臉",
-            "right": "face"
+            "left": "揚帆出發",
+            "right": "set sail"
           }
         ],
-        "explanationZh": "🔑 wife = 妻子\n🔑 baby = 嬰兒\n🔑 miss = 思念\n🔑 face = 臉\n這些是他最想念的人的相關字！",
+        "explanationZh": "這四個片語都出現在奧德修斯的故事裡：\n🔑 go home = 回家\n🔑 dark cave = 黑暗洞穴\n🔑 sea monster = 海怪\n🔑 set sail = 揚帆出發",
+        "tags": [
+          "story",
+          "ch29",
+          "odyssey",
+          "vocab",
+          "intro"
+        ]
+      },
+      {
+        "type": "picture-mc",
+        "id": "kt-ch29-l2-pm1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Odysseus hid inside a dark cave.",
+        "sentenceZh": "奧德修斯躲在一個黑暗的洞穴裡。",
+        "question": "Which picture matches 'a dark cave'?",
+        "imageEmoji": "🌑",
+        "options": [
+          "a bright field with tall green trees",
+          "a small ship on a calm blue sea",
+          "a dark hollow space deep in a rock",
+          "a warm house on a quiet island"
+        ],
+        "optionsZh": [
+          "有高大綠樹的明亮田野",
+          "平靜藍海上的小船",
+          "深藏在岩石裡的黑暗空間",
+          "安靜島上的溫暖小屋"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "cave = 洞穴，dark = 黑暗——「深藏在岩石裡的黑暗空間」就是洞穴的樣子！",
         "tags": [
           "story",
           "ch29",
           "odyssey",
           "vocab"
-        ]
+        ],
+        "subSkill": "vocab"
       },
       {
-        "type": "comprehension",
-        "id": "kt-ch29-l2-x4",
+        "type": "emoji-pick",
+        "id": "kt-ch29-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "When he left for the war, his son was just a baby in arms.",
-        "question": "How old was Telemachus when Odysseus went to war?",
+        "sentence": "Which one shows a monster?",
+        "question": "Which one shows a monster?",
         "options": [
-          "a boy of ten years old",
-          "a tiny newborn baby",
-          "a young man who could fight",
-          "an old man in the village"
+          "🐰 rabbit",
+          "👻 monster",
+          "🌸 flower",
+          "🍎 apple"
         ],
         "optionsZh": [
-          "十歲的男孩",
-          "剛出生的小嬰兒",
-          "能上戰場的年輕男人",
-          "村裡的老人"
+          "兔子",
+          "怪獸",
+          "花",
+          "蘋果"
         ],
         "correctIndex": 1,
-        "explanationZh": "「a baby in arms」——在懷裡抱著的嬰兒，所以是「剛出生的小嬰兒」！",
-        "sentenceZh": "他出征的時候，兒子還只是個懷裡抱著的嬰兒。",
+        "explanationZh": "monster = 怪獸 👻！故事裡的海怪（sea monster）住在大海裡，很可怕。",
         "tags": [
           "story",
           "ch29",
-          "odyssey"
+          "odyssey",
+          "vocab"
         ],
-        "subSkill": "detail"
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l2-x5",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "He kept their picture safe inside his mind, like a small light.",
-        "question": "What does the \"small light\" tell us about how he felt?",
-        "options": [
-          "he forgot them after many weeks",
-          "he carried a real lamp on the ship",
-          "their memory gave him warmth and hope",
-          "the stars on the sea were very bright"
-        ],
-        "optionsZh": [
-          "幾週後他忘記了他們",
-          "他在船上帶著真正的燈",
-          "他們的記憶給他溫暖和希望",
-          "海上的星星非常亮"
-        ],
-        "correctIndex": 2,
-        "explanationZh": "把家人放在心裡「像一盞小燈」——溫暖、不熄，給他希望和力量！",
-        "sentenceZh": "他把他們的樣子好好藏在心裡，像一盞小燈。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "inference"
+        "subSkill": "vocab"
       },
       {
         "type": "grammar-mc",
-        "id": "kt-ch29-l2-x6",
+        "id": "kt-ch29-l2-gm1",
         "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His wife ___ waiting. His son ___ waiting.",
-        "sentenceZh": "他的妻子在等，他的兒子在等。",
-        "question": "Which word fits both blanks?",
+        "difficulty": "medium",
+        "sentence": "Every morning Odysseus ___ at the wide sea.",
+        "sentenceZh": "每天早上，奧德修斯從他的船上___著大海。",
+        "question": "Choose the correct verb form.",
         "options": [
-          "are",
-          "were",
-          "is",
-          "was"
+          "looks",
+          "look",
+          "looked",
+          "looking"
         ],
         "optionsZh": [
-          "are（現在複數）",
-          "were（過去複數）",
-          "is（現在單數）",
-          "was（過去單數）"
+          "看(現在,第三人稱)",
+          "看(原形)",
+          "看(過去)",
+          "看(進行)"
         ],
-        "correctIndex": 3,
-        "explanationZh": "這是過去的故事，主詞是「his wife / his son」（單數），所以用「was」！",
+        "correctIndex": 0,
+        "explanationZh": "這是過去的故事，加上「every morning」描述的是那段時間的習慣動作，用過去式 looked！",
         "tags": [
           "story",
           "ch29",
@@ -947,87 +330,37 @@
         "subSkill": "function"
       },
       {
-        "type": "emoji-pick",
-        "id": "kt-ch29-l2-x7",
+        "type": "tap-pairs",
+        "id": "kt-ch29-l2-rev1",
         "level": "A2",
         "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "What is the main theme of tonight's lesson about Odysseus and his family?",
-        "question": "What is the main theme?",
-        "options": [
-          "💕 love and longing for family",
-          "💰 the love of gold and treasure",
-          "⚔️ the love of fighting wars",
-          "🌊 the love of sailing the sea"
+        "sentence": "Match each Chinese word to its English.",
+        "pairs": [
+          {
+            "left": "洞穴",
+            "right": "cave"
+          },
+          {
+            "left": "怪獸",
+            "right": "monster"
+          },
+          {
+            "left": "英雄",
+            "right": "hero"
+          },
+          {
+            "left": "島",
+            "right": "island"
+          }
         ],
-        "optionsZh": [
-          "對家人的愛與思念",
-          "對金子和寶藏的愛",
-          "對打仗的熱愛",
-          "對航海的熱愛"
-        ],
-        "correctIndex": 0,
-        "explanationZh": "每晚想念 + 輕念名字 → 主題是「對家人的愛與思念」。那個 💕 最合適。",
-        "sentenceZh": "今晚關於奧德修斯和家人的故事，主題是什麼？",
+        "explanationZh": "複習今晚學過的字：\n🔑 cave = 洞穴\n🔑 monster = 怪獸\n🔑 hero = 英雄\n🔑 island = 島\n準備好聽故事了！",
         "tags": [
           "story",
           "ch29",
           "odyssey",
-          "hook"
-        ],
-        "subSkill": "gist"
-      },
-      {
-        "type": "listen-tf",
-        "id": "kt-ch29-l2-x8",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "Now ten years had gone by. The boy would be tall and growing fast.",
-        "questionEn": "Was Telemachus still a small baby when his father was ready to return?",
-        "options": [
-          "Yes",
-          "No"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "十年過去了，嬰兒長大了——他已經不是小嬰兒了，答 No！",
-        "sentenceZh": "現在十年過去了，那個男孩應該已經又高又壯，正在快速長大。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey",
-          "inference"
+          "vocab",
+          "review"
         ]
-      },
-      {
-        "type": "comprehension",
-        "id": "kt-ch29-l2-x9",
-        "level": "A2",
-        "difficulty": "easy",
-        "speaker": "narrator",
-        "sentence": "His wife was waiting. His son was waiting. He had been gone too long.",
-        "question": "What does \"too long\" suggest about Odysseus?",
-        "options": [
-          "he wanted to stay away much longer",
-          "he felt it was past time to go back",
-          "the sea was a very slow crossing",
-          "his men were still very happy waiting"
-        ],
-        "optionsZh": [
-          "他想再離家更久",
-          "他覺得早就該回家了",
-          "大海的距離很難跨越",
-          "他的人還很樂意等"
-        ],
-        "correctIndex": 1,
-        "explanationZh": "「gone too long」——離開太久了，表示他覺得早就該回家，超過應該的時間！",
-        "sentenceZh": "妻子在等，兒子也在等——他離開太久了。",
-        "tags": [
-          "story",
-          "ch29",
-          "odyssey"
-        ],
-        "subSkill": "inference"
       }
     ]
   },
