@@ -54,15 +54,16 @@ describe('players — progress preservation', () => {
     expect(localStorage.getItem('pickup.xp.total')).toBe('5');
   });
 
-  it('device prefs (lang/theme/audio) do NOT travel between accounts', () => {
-    store['pickup.lang'] = 'ja';
+  it('language is per-profile (player2 = Korean); theme stays global', () => {
+    store['pickup.lang'] = 'ja';     // player1 language
+    store['pickup.theme'] = 'dark';  // device-global pref
     store['pickup.xp.total'] = '99';
     ensureProfilesInit();
     const [, p2] = listPlayers();
     switchPlayer(p2.id);
-    // lang stays global; xp cleared
-    expect(localStorage.getItem('pickup.lang')).toBe('ja');
-    expect(localStorage.getItem('pickup.xp.total')).toBe(null);
+    expect(localStorage.getItem('pickup.lang')).toBe('ko');    // p2 seeded Korean
+    expect(localStorage.getItem('pickup.theme')).toBe('dark'); // global pref untouched
+    expect(localStorage.getItem('pickup.xp.total')).toBe(null); // progress isolated
   });
 
   it('createPlayer adds an empty account', () => {

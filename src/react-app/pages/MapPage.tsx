@@ -62,9 +62,8 @@ const COLOR_NODE_LOCKED_DARK = '#a89c80';
 // v2.0.B.425 ⚠️ 測試版: 灰色(未完成)節點也可以點進去玩。正式上線要改回 false
 // (改回後: 只有解鎖的節點能點, 未解鎖灰色不能按)。
 const TEST_NODES_CLICKABLE = true;
-// v2.0.B.426 ⚠️ 測試版: 全部節點統一灰 (連完成的也壓灰)。正式上線改回 false
-// → 恢復「完成=金星綠、未完成灰」。
-const TEST_ALL_NODES_GREY = true;
+// v2.0.B.464 (per user「第一個已顯示開始複習就該有顏色」): 恢復「完成=綠、未完成灰」。
+const TEST_ALL_NODES_GREY = false;
 const COLOR_TEXT_DARK = 'var(--t-text)';
 const NODE_SIZE = 82;
 const NODE_HEIGHT = 64;

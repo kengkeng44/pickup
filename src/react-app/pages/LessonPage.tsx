@@ -36,6 +36,7 @@ const TYPE_TITLE: Record<string, string> = {
   'read-comprehension': 'q.title.choose', 'read-mc-with-audio': 'q.title.choose',
 };
 import { getHp, loseHp, refillHp, subscribeHp, MAX_HP } from '../../data/hp';
+import { sfxCorrect } from '../../audio/sfx';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
 import { track, EVENT } from '../../analytics/posthog';
@@ -43,7 +44,6 @@ import { RENDERERS, FallbackRenderer, type RawQuestion } from '../renderers';
 import { getLessonHook } from '../../data/lessonHooks';
 import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
-import Button from '../../ui/components/Button';
 import ShareModal from '../components/ShareModal';
 // v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
 import NextStoryPicker from '../components/NextStoryPicker';
@@ -191,7 +191,13 @@ export default function LessonPage() {
       {/* v2.0.B.284 Duolingo-style lesson header: ✕ + progress bar (flex 1) + 🔇
           砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-        <Button variant="ghost" size="md" iconOnly aria-label="Close" onClick={() => navigate('/')} style={{ flex: '0 0 auto' }}>✕</Button>
+        {/* v2.0.B.463 fix: ✕ 改扁平鈕, glyph 靠左對齊內容左緣 (14px), 垂直置中 (修「左上角 ❌ 沒對齊」) */}
+        <button onClick={() => navigate('/')} aria-label="Close" style={{
+          flex: '0 0 auto', width: 40, height: 44, padding: 0, border: 'none', background: 'transparent',
+          color: 'var(--t-text-muted)', fontSize: 24, fontWeight: 700, lineHeight: 1, cursor: 'pointer',
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', fontFamily: 'inherit',
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}>✕</button>
         {/* Progress bar — fills proportional to (idx+1)/total. olive success bg + inset top highlight (Duolingo flat) */}
         <div
           role="progressbar"
@@ -292,11 +298,21 @@ function Hearts() {
       }}>
       <span aria-hidden="true" style={{ fontSize: 15, color: accent }}>★</span>
       <span style={{ fontSize: 14, fontWeight: 900, color: low ? 'var(--t-error)' : 'var(--t-text)' }}>{hp}</span>
-      <span aria-hidden="true" style={{
-        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        width: 18, height: 18, borderRadius: '50%', background: 'var(--t-success)',
-        color: '#fff', fontSize: 15, fontWeight: 900,
-      }}>+</span>
+      {/* v2.0.B.464 (per user「加功能」): 點加號補滿體力 (友善 top-up, 非懲罰式; 滿了則 pulse 一下) */}
+      <button
+        type="button"
+        aria-label="補滿體力 · Refill energy"
+        title="補滿體力"
+        onClick={() => { if (hp < MAX_HP) { try { sfxCorrect(); } catch {} refillHp(); } }}
+        style={{
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+          width: 20, height: 20, padding: 0, border: 'none', borderRadius: '50%',
+          background: hp < MAX_HP ? 'var(--t-success)' : '#cdbfa8',
+          color: '#fff', fontSize: 15, fontWeight: 900, lineHeight: 1,
+          cursor: hp < MAX_HP ? 'pointer' : 'default', fontFamily: 'inherit',
+          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        }}
+      >+</button>
     </span>
   );
 }
