@@ -221,13 +221,14 @@ export default function LessonPage() {
           整頁永不外溢. 各題型上方自帶內容/圖片槽, 選項不再下沉到畫面外. */}
       {/* v2.0.B.431 (per user「上面原文應該要不見」): 拿掉歷史題堆疊 — 每題只顯示當前題,
           上方不再殘留前一題的句子 (配對/單字題尤其不需要)。 */}
+      {/* v2.0.B.462: 題型標題移出捲動區 (固定), 跟上面隔開有空間, 避免標題被捲走 / 撐出空白下滑 */}
+      {TYPE_TITLE[q.type] && (
+        <h2 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '8px 0 0', lineHeight: 1.2, flexShrink: 0 }}>
+          {translate(TYPE_TITLE[q.type], getLang())}
+        </h2>
+      )}
+      {/* 內容區: 內容短=置中不外溢; 內容長(有原文)才往上滑看, 永不往下滑到空白 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-        {/* v2.0.B.461: 題型標題 (各語言自己語言, Duolingo 風大標題) */}
-        {TYPE_TITLE[q.type] && (
-          <h2 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px', lineHeight: 1.2 }}>
-            {translate(TYPE_TITLE[q.type], getLang())}
-          </h2>
-        )}
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
     </div>
@@ -274,13 +275,22 @@ function MuteToggleBtn() {
 }
 
 // v2.0.B.424 (per user): 體力愛心 — 右上角顯示 🧡, 答錯扣一顆 (空心 🤍).
+// v2.0.B.462 (per user「最上面不要愛心, 改一個圖案裡有數字, 不佔空間」):
+// 5 顆愛心 → 單一「⚡ N」膠囊 (Duolingo 現行 energy 風)。圖案備選: 見 HP_ICON。
+const HP_ICON = '⚡'; // 備選: '🔋' / '💎' / '⭐' / '❤️‍🔥' — 作者挑一個
 function Hearts() {
   const [hp, setHp] = useState(() => getHp());
   useEffect(() => subscribeHp(() => setHp(getHp())), []);
+  const low = hp <= 1;
   return (
     <span aria-label={`體力 ${hp}/${MAX_HP}`} title={`體力 ${hp}/${MAX_HP}`}
-      style={{ flex: '0 0 auto', fontSize: 14, letterSpacing: '1px', lineHeight: 1, whiteSpace: 'nowrap' }}>
-      {'🧡'.repeat(hp)}{'🤍'.repeat(MAX_HP - hp)}
+      style={{
+        flex: '0 0 auto', display: 'inline-flex', alignItems: 'center', gap: 3,
+        height: 26, padding: '0 9px', borderRadius: 999,
+        background: low ? 'var(--t-tint-error, #fbe4dc)' : 'var(--t-tint-warn)',
+        color: low ? 'var(--t-error)' : '#e0892f', fontSize: 14, fontWeight: 900, lineHeight: 1, whiteSpace: 'nowrap',
+      }}>
+      <span style={{ fontSize: 14 }} aria-hidden="true">{HP_ICON}</span>{hp}
     </span>
   );
 }

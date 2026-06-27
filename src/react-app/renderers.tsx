@@ -1162,7 +1162,9 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     // v2.0.B.461 (per user 格式照第二張圖片): 無吉祥物, 兩欄大卡 (左中文/右英文) 填滿, 底部檢查鈕。
     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-      <div style={{ display: 'flex', gap: 16, marginTop: 6 }}>
+      {/* v2.0.B.462 (per user「題目要在中間, 跟上面有空間」): 卡片群垂直置中於剩餘空間 */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', gap: 16 }}>
         {/* LEFT — 中文 */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 14 }}>
           {pairs.map((p, i) => {
@@ -1212,8 +1214,9 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {revealed && (
         <div className="pickup-pair-celebrate" style={{ marginTop: 16, textAlign: 'center', fontSize: 40, lineHeight: 1 }}>🎉</div>
       )}
+      </div>
       {/* v2.0.B.461 (格式照第二張圖片): 底部檢查鈕 — 配對題全配對自動推進, 此鈕維持灰 (視覺一致) */}
-      <div style={{ marginTop: 'auto', paddingTop: 16 }}>
+      <div style={{ paddingTop: 16 }}>
         <button type="button" disabled style={{
           width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
           background: 'var(--t-border-card)', color: '#fff', fontSize: 16, fontWeight: 900,
