@@ -567,12 +567,15 @@ export function markLessonCompleted(chapter: number, lessonId: string): void {
 }
 
 export function isLessonUnlocked(
-  // 保留 signature 兼容呼叫端 (MapPage line 463)
+  // 保留 signature 兼容呼叫端 (MapPage)
   _chapter: number,
-  _lessonInChapter: number,
-  _totalCompleted: number
+  lessonInChapter: number,
+  totalCompleted: number
 ): boolean {
-  // v2.0.B.262: 章內 lesson 全 free-select (B.261 keeps), 章節 progression 改 ChaptersPage 層處理
-  // 進到此 MapPage 表示前章已完成 (ChaptersPage gate 過), 章內 7 lesson 任順序可選
-  return true;
+  // v2.0.B.473 (per user「還沒解鎖的要是灰色的」+「第一章一三節容易出問題」):
+  // 還原「章內循序解鎖」(Duolingo model)。B.262 的全 free-select 會讓人跳關
+  // (做了 L1 又跳做 L3, L2 留中間 → 看起來壞掉), 且沒有「鎖」概念 → 灰色節點消失。
+  // 第 1 關永遠解鎖 (1 <= 0+1); 完成 k 關後第 k+1 關解鎖, 其餘灰鎖。
+  // 循序完成保證 completed = 前綴 {L1..Lk}, 用 count 判斷即正確。
+  return lessonInChapter <= totalCompleted + 1;
 }

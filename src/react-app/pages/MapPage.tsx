@@ -61,9 +61,9 @@ const COLOR_NODE_DONE = 'var(--t-success)';
 const COLOR_NODE_DONE_DARK = 'var(--t-success-dark)';
 const COLOR_NODE_LOCKED = '#c4b89c';
 const COLOR_NODE_LOCKED_DARK = '#a89c80';
-// v2.0.B.425 ⚠️ 測試版: 灰色(未完成)節點也可以點進去玩。正式上線要改回 false
-// (改回後: 只有解鎖的節點能點, 未解鎖灰色不能按)。
-const TEST_NODES_CLICKABLE = true;
+// v2.0.B.473 (per user「還沒解鎖的要是灰色的」): 關掉測試旗標 → 只有解鎖節點能點,
+// 未解鎖 = 灰色不能按 (配合 isLessonUnlocked 循序解鎖)。
+const TEST_NODES_CLICKABLE = false;
 // v2.0.B.464 (per user「第一個已顯示開始複習就該有顏色」): 恢復「完成=綠、未完成灰」。
 const TEST_ALL_NODES_GREY = false;
 const COLOR_TEXT_DARK = 'var(--t-text)';

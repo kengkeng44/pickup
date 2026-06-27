@@ -27,14 +27,18 @@ describe('lesson progress', () => {
     expect(s.size).toBe(1);
   });
 
-  // v2.0.B.261: free-select 模式 — isLessonUnlocked 永遠 true (user 「不要按順序 要用選的」)
-  // 之前 B.109 線性 unlock 規則被取代, 推薦邏輯改走章末 NextStoryPicker 大數據引擎
-  it('isLessonUnlocked: always returns true (free-select mode)', () => {
+  // v2.0.B.473: 還原章內循序解鎖 (per user「還沒解鎖的要是灰色的」+「第一章一三節容易出問題」)。
+  // lesson 解鎖 iff lessonInChapter <= totalCompleted + 1。
+  it('isLessonUnlocked: sequential gating within chapter', () => {
+    // 0 完成 → 只有第 1 關解鎖
     expect(isLessonUnlocked(1, 1, 0)).toBe(true);
-    expect(isLessonUnlocked(1, 5, 0)).toBe(true);
-    expect(isLessonUnlocked(1, 10, 0)).toBe(true);
-    expect(isLessonUnlocked(1, 15, 0)).toBe(true); // 之前 false, 現在 true
-    expect(isLessonUnlocked(1, 24, 0)).toBe(true);
-    expect(isLessonUnlocked(99, 999, 0)).toBe(true); // 任意 chapter / lesson 都 unlock
+    expect(isLessonUnlocked(1, 2, 0)).toBe(false);
+    expect(isLessonUnlocked(1, 5, 0)).toBe(false);
+    // 2 完成 → 第 1-3 關解鎖, 第 4 起鎖
+    expect(isLessonUnlocked(1, 1, 2)).toBe(true);
+    expect(isLessonUnlocked(1, 3, 2)).toBe(true);
+    expect(isLessonUnlocked(1, 4, 2)).toBe(false);
+    // 全完成 → 全解鎖
+    expect(isLessonUnlocked(1, 7, 7)).toBe(true);
   });
 });
