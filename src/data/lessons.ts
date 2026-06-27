@@ -529,7 +529,7 @@ const cache = new Map<string, Lesson[]>();
 // 簡中(zh-Hans) 不走 overlay — 由 opencc 執行時轉 (見 zhHans.ts)。
 interface OverlayEntry { s?: string; e?: string; q?: string; o?: string[]; p?: string[]; }
 
-async function applyContentOverlay(lessons: Lesson[], ch: ChapterId, lang: UiLang): Promise<void> {
+export async function applyContentOverlay(lessons: Lesson[], ch: ChapterId, lang: UiLang): Promise<void> {
   if (lang !== 'ja' && lang !== 'ko') return;
   let map: Record<string, OverlayEntry>;
   try {

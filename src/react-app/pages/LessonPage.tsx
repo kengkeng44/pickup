@@ -18,6 +18,8 @@ import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { logLesson } from '../../data/learnLog';
 // v2.0.B.286: shared resume key (was local resumeKey in B.272).
 import { lessonResumeKey as resumeKey } from '../../data/lessonProgress';
+import { applyContentOverlay, type Lesson as LessonData, type ChapterId } from '../../data/lessons';
+import { getLang } from '../../data/lang';
 import { getHp, loseHp, refillHp, subscribeHp, MAX_HP } from '../../data/hp';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
@@ -67,7 +69,10 @@ export default function LessonPage() {
   useEffect(() => {
     fetch(`/lessons-ch${chapter}.json`)
       .then(r => r.json())
-      .then((arr: Lesson[]) => {
+      .then(async (arr: Lesson[]) => {
+        // v2.0.B.457: 套用 ja/ko 內容 overlay (之前只在 Phaser path 套, React LessonPage 漏了 →
+        // 日韓使用者課內看到的全是繁中)。現在 fetch 後套 overlay, sentenceZh/options/pairs 轉日韓。
+        try { await applyContentOverlay(arr as unknown as LessonData[], Number(chapter) as ChapterId, getLang()); } catch {}
         const found = arr.find(l => l.id === lessonId);
         // v2.0.B.444: 傳奇難題 (tier:'legendary') 只在傳奇模式出現; 一般模式過濾掉。
         if (found && !legendary) {

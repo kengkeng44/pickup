@@ -775,7 +775,9 @@ const NEAR_MSG: Record<NearReason, string> = {
   extra: '差一點！好像多打了一個字 ✂️',
 };
 const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
-  const source = q.sentence ?? '';
+  // v2.0.B.457: 來源句顯示玩家自己的語言 — sentenceZh (繁中母檔; ja/ko 經 overlay 換成日韓;
+  // zh-Hans 經 toSimplified 轉簡中)。fallback 舊 sentence 欄。
+  const source = toSimplified(q.sentenceZh ?? q.sentence ?? '');
   const answer = q.answer ?? '';
   const accept = q.accept ?? [];
   const [text, setText] = useState('');
