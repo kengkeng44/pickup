@@ -16,8 +16,8 @@ export default function BottomNav() {
   const navigate = useNavigate();
   const { t } = useT();
 
-  // Hide on Lesson immersive routes
-  if (location.pathname.startsWith('/lesson/')) return null;
+  // Hide on Lesson immersive routes + 連勝戰績全屏頁 (B.483)
+  if (location.pathname.startsWith('/lesson/') || location.pathname === '/streak') return null;
 
   return (
     <nav style={{

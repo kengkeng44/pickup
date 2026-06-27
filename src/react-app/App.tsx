@@ -16,6 +16,7 @@ import AlertsPage from './pages/AlertsPage';
 import CardsPage from './pages/CardsPage';
 import ParentPage from './pages/ParentPage';
 import SettingsPage from './pages/SettingsPage';
+import StreakPage from './pages/StreakPage';
 import BottomNav from './components/BottomNav';
 import Onboarding from './components/Onboarding';
 import { audio } from '../audio/AudioManager';
@@ -120,6 +121,7 @@ export default function App() {
             <Route path="/cards" element={<CardsPage />} />
             <Route path="/parent" element={<ParentPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/streak" element={<StreakPage />} />
             <Route path="*" element={<ChaptersPage />} />
           </Routes>
         </Suspense>

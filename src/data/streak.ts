@@ -27,6 +27,8 @@ const LS_COUNT = 'pickup.streak.count';
 const LS_LAST = 'pickup.streak.lastDate';
 const LS_FREEZES = 'pickup.streak.freezes';
 const LS_LAST_FREEZE = 'pickup.streak.lastFreezeUsedDate';
+// v2.0.B.483: 每日打卡記錄 (連勝戰績頁的週曆 ✓ 用)。存最近 ~60 個 ISO 日期。
+const LS_DAYS = 'pickup.streak.days';
 
 const DEFAULT_FREEZES = 2;
 
@@ -126,6 +128,7 @@ export function updateStreak(): StreakUpdateResult {
     return { count: 0, freezesRemaining: 0, freezeUsed: false, resetOccurred: false };
   }
   const today = isoDate();
+  recordCheckedDay(today); // v2.0.B.483: 週曆打卡 (即使今天已計過 streak 也要記)
   const last = readLastDate();
   let count = readStreak();
   let freezes = readFreezes();
@@ -185,3 +188,68 @@ export function resetStreak(): void {
 }
 
 export const STREAK_DEFAULTS = { DEFAULT_FREEZES } as const;
+
+// ─── v2.0.B.483: 每日打卡記錄 + 連勝戰績週曆 ──────────────────────────────
+const WEEKDAY_ZH = ['日', '一', '二', '三', '四', '五', '六'];
+
+export function readCheckedDays(): Set<string> {
+  if (typeof localStorage === 'undefined') return new Set();
+  try {
+    const raw = localStorage.getItem(LS_DAYS);
+    const arr = raw ? JSON.parse(raw) : [];
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch { return new Set(); }
+}
+
+function recordCheckedDay(iso: string): void {
+  if (typeof localStorage === 'undefined') return;
+  try {
+    const days = readCheckedDays();
+    if (days.has(iso)) return;
+    days.add(iso);
+    // 只留最近 60 天 (按日期排序後取尾端), 避免無限長。
+    const trimmed = [...days].sort().slice(-60);
+    localStorage.setItem(LS_DAYS, JSON.stringify(trimmed));
+  } catch { /* ignore */ }
+}
+
+export interface StreakDay {
+  iso: string;
+  label: string;     // 週幾 (日一二三四五六)
+  checked: boolean;  // 有打卡
+  isToday: boolean;
+  isReward: boolean; // 視窗最後一天 = 完美連勝周寶箱
+}
+
+export interface StreakWeek {
+  days: StreakDay[];
+  remaining: number; // 還要打卡幾天才完美 (視窗內未打卡天數)
+  perfect: boolean;  // 視窗 7 天全打卡
+}
+
+/**
+ * 連勝戰績頁的 7 天視窗: 今天置中 (today-3 ... today+3), 對齊截圖。
+ * 已打卡 = checkedDays 命中; 未來天 = 空; 最後一格 = 完美周寶箱。
+ */
+export function getStreakWeek(): StreakWeek {
+  const checked = readCheckedDays();
+  const todayIso = isoDate();
+  const base = new Date(todayIso + 'T00:00:00');
+  const days: StreakDay[] = [];
+  let checkedCount = 0;
+  for (let offset = -3; offset <= 3; offset++) {
+    const d = new Date(base);
+    d.setDate(base.getDate() + offset);
+    const iso = isoDate(d);
+    const isChecked = checked.has(iso);
+    if (isChecked) checkedCount++;
+    days.push({
+      iso,
+      label: WEEKDAY_ZH[d.getDay()],
+      checked: isChecked,
+      isToday: offset === 0,
+      isReward: offset === 3,
+    });
+  }
+  return { days, remaining: Math.max(0, 7 - checkedCount), perfect: checkedCount >= 7 };
+}
