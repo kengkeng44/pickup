@@ -21,6 +21,9 @@ import {
   setComprehensionMode,
   resolveComprehension,
   subscribeComprehensionMode,
+  setRunComprehensionOverride,
+  readLessonCompMode,
+  writeLessonCompMode,
 } from '../../src/data/comprehensionMode';
 
 describe('comprehensionMode global switch (理解選擇 merge)', () => {
@@ -80,5 +83,31 @@ describe('comprehensionMode global switch (理解選擇 merge)', () => {
       expect(reads).toBeGreaterThan(0);    // 有讀
       expect(reads).toBeLessThan(modes.length); // 也有聽 (混合)
     });
+  });
+});
+
+// v2.0.B.484: 閱讀/聽力 per-run override + per-lesson 記憶 (重現挑戰沿用當初模式)。
+describe('comprehensionMode — run override + per-lesson memory', () => {
+  beforeEach(() => { localStorage.clear(); setRunComprehensionOverride(null); });
+
+  it('run override 優先於全域開關', () => {
+    setComprehensionMode('read');           // 全域=讀
+    setRunComprehensionOverride('listen');   // 但這個 run 玩家選了聽
+    expect(resolveComprehension('q1')).toBe('listen');
+  });
+
+  it('清掉 override 後回到全域開關', () => {
+    setComprehensionMode('read');
+    setRunComprehensionOverride('listen');
+    setRunComprehensionOverride(null);
+    expect(resolveComprehension('q1')).toBe('read');
+  });
+
+  it('per-lesson 模式 round-trip (重現挑戰沿用)', () => {
+    expect(readLessonCompMode('kt-ch1-l3')).toBe(null);
+    writeLessonCompMode('kt-ch1-l3', 'listen');
+    expect(readLessonCompMode('kt-ch1-l3')).toBe('listen');
+    writeLessonCompMode('kt-ch1-l3', 'read');
+    expect(readLessonCompMode('kt-ch1-l3')).toBe('read');
   });
 });

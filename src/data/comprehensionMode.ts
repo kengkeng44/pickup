@@ -57,7 +57,27 @@ function hashStr(s: string): number {
 //     easy   (低年級/初學)   → read  (有字 + 點詞看中文, 零挫折)
 //     hard   (進階/親子)     → listen (盲聽原文)
 //     medium (主客群預設)    → 混合: 依 q.id hash ~1/3 讀 + 2/3 聽 (交錯 + 鷹架, 同題穩定)
+// v2.0.B.484 (per user「閱讀測驗跟聽力測驗」+「重現挑戰沿用當初模式」):
+// 單次 run 覆寫 — LessonPage 進關時依玩家在節點選的 閱讀/聽力 設定, 蓋過全域開關。
+// 離開關卡 (unmount) 清掉 → 不影響其它頁的全域行為。
+let _runOverride: ResolvedComprehension | null = null;
+export function setRunComprehensionOverride(m: ResolvedComprehension | null): void {
+  _runOverride = m;
+}
+
+// 每關記住玩家選的模式 (重現挑戰時 NodeStartDialog 預選 + 沿用)。
+export function readLessonCompMode(lessonId: string): ResolvedComprehension | null {
+  try {
+    const v = localStorage.getItem(`pickup.lesson.${lessonId}.comp`);
+    return v === 'read' || v === 'listen' ? v : null;
+  } catch { return null; }
+}
+export function writeLessonCompMode(lessonId: string, m: ResolvedComprehension): void {
+  try { localStorage.setItem(`pickup.lesson.${lessonId}.comp`, m); } catch { /* ignore */ }
+}
+
 export function resolveComprehension(qId: string): ResolvedComprehension {
+  if (_runOverride) return _runOverride; // 關卡內玩家選的模式優先
   const mode = getComprehensionMode();
   if (mode === 'listen' || mode === 'read') return mode;
   const d = readDifficulty();

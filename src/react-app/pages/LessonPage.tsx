@@ -13,6 +13,7 @@ import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp, lessonXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
+import { setRunComprehensionOverride } from '../../data/comprehensionMode';
 // v2.0.B.283 Mochi Bond: award +10 per lesson completion.
 // Parent Corner: log learning history for parent-facing stats.
 import { logLesson } from '../../data/learnLog';
@@ -81,6 +82,14 @@ export default function LessonPage() {
 
   // v2.0.B.424: 每進一個 lesson 把體力補滿 (每節重新開始, 不跨節懲罰)
   useEffect(() => { refillHp(); }, [chapter, lessonId]);
+
+  // v2.0.B.484: 套用玩家在節點選的 閱讀/聽力 模式 (?comp=read|listen) — 覆寫全域開關,
+  // 只在這個 run 生效, 離開關卡清掉。理解題 renderer 會讀這個 override。
+  useEffect(() => {
+    const comp = new URLSearchParams(window.location.search).get('comp');
+    if (comp === 'read' || comp === 'listen') setRunComprehensionOverride(comp);
+    return () => setRunComprehensionOverride(null);
+  }, [chapter, lessonId]);
 
   useEffect(() => {
     fetch(`/lessons-ch${chapter}.json`)

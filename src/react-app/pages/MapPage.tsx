@@ -16,6 +16,7 @@ import { addCoins } from '../../data/coins';
 import { getHp, MAX_HP } from '../../data/hp';
 import { isBackendLive, serverOpenChest } from '../../data/backend';
 import { readStreak } from '../../data/streak';
+import { readLessonCompMode, writeLessonCompMode } from '../../data/comprehensionMode';
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
@@ -237,11 +238,12 @@ function HpHudIcon({ hp, onClick }: { hp: number; onClick: () => void }) {
 
 // v2.0.B.433: Duolingo 風「點節點 → 跳框」對話框。
 // 第一次: 繼續 +30 / 晉升傳奇 +45。已完成過: 開始複習 +5 / 晉升傳奇 +40。
-function NodeStartDialog({ done, lang, title, onPick, onClose }: {
+function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
   done: boolean;
   lang: string;
   title?: string;
-  onPick: (legendary: boolean) => void;
+  defaultMode: 'read' | 'listen';
+  onPick: (legendary: boolean, mode: 'read' | 'listen') => void;
   onClose: () => void;
 }) {
   const normalXp = lessonXp({ legendary: false, alreadyDone: done });
@@ -250,6 +252,9 @@ function NodeStartDialog({ done, lang, title, onPick, onClose }: {
   const normalLabel = done ? (zh ? '開始複習' : 'Review') : (zh ? '繼續' : 'Start');
   const legLabel = zh ? '晉升傳奇' : 'Legendary';
   const xpWord = zh ? '經驗' : 'XP';
+  const [mode, setMode] = useState<'read' | 'listen'>(defaultMode);
+  const readLabel = zh ? '📖 閱讀測驗' : '📖 Reading';
+  const listenLabel = zh ? '🎧 聽力測驗' : '🎧 Listening';
   return (
     <div
       role="dialog"
@@ -273,10 +278,22 @@ function NodeStartDialog({ done, lang, title, onPick, onClose }: {
         }}
       >
         {title && <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)', margin: '0 2px 14px', textAlign: 'center' }}>{title}</div>}
+        {/* v2.0.B.484: 閱讀 / 聽力 測驗切換 — 閱讀=字顯示, 聽力=盲聽。重現挑戰沿用當初選的。 */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+          {([['read', readLabel], ['listen', listenLabel]] as const).map(([m, label]) => (
+            <button key={m} type="button" onClick={() => setMode(m)} style={{
+              flex: 1, padding: '11px 0', borderRadius: 12, fontFamily: 'inherit', fontWeight: 800, fontSize: 14,
+              cursor: 'pointer', minHeight: 44,
+              border: mode === m ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
+              background: mode === m ? 'var(--t-brand-dark)' : 'var(--t-bg)',
+              color: mode === m ? '#fff' : 'var(--t-text)',
+            }}>{label}</button>
+          ))}
+        </div>
         {/* 一般 / 複習 */}
         <button
           type="button"
-          onClick={() => onPick(false)}
+          onClick={() => onPick(false, mode)}
           style={{
             width: '100%', border: 'none', borderRadius: 16,
             background: 'var(--t-brand)', color: '#fff',
@@ -292,7 +309,7 @@ function NodeStartDialog({ done, lang, title, onPick, onClose }: {
         {/* 晉升傳奇 — 紫金 Duolingo legendary 配色 */}
         <button
           type="button"
-          onClick={() => onPick(true)}
+          onClick={() => onPick(true, mode)}
           style={{
             width: '100%', border: 'none', borderRadius: 16,
             background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', color: '#fff',
@@ -956,10 +973,15 @@ export default function MapPage() {
           done={completedByChapter.get(tapNode.ch)?.has(tapNode.id) ?? false}
           lang={lang}
           title={lessons.find((l) => l.id === tapNode.id)?.lessonName}
-          onPick={(legendary) => {
+          defaultMode={readLessonCompMode(tapNode.id) ?? 'read'}
+          onPick={(legendary, mode) => {
             const { ch, id } = tapNode;
+            writeLessonCompMode(id, mode); // 記住 → 重現挑戰沿用
             setTapNode(null);
-            navigate(`/lesson/${ch}/${id}${legendary ? '?mode=legendary' : ''}`);
+            const params = new URLSearchParams();
+            params.set('comp', mode);
+            if (legendary) params.set('mode', 'legendary');
+            navigate(`/lesson/${ch}/${id}?${params.toString()}`);
           }}
           onClose={() => setTapNode(null)}
         />
