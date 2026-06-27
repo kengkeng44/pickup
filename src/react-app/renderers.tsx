@@ -18,6 +18,7 @@ import { translate } from './i18n';
 import { getLang, subscribeLang } from '../data/lang';
 import { toSimplified } from '../data/zhHans';
 import { checkAnswer, canonical } from '../data/answerMatch';
+import { readDifficulty } from '../data/difficulty';
 
 // v2.0.B.393 — 統一語言: 題目畫面 prompt 跟著選的語言走 (非 hook, 給 const map / 工具用).
 // 用 hook useTq() 讓元件切語言自動 re-render; 純函式 tq() 給非元件 (如 SPEAKER label).
@@ -89,8 +90,7 @@ export function wrapWords(text: string): string {
 // sentenceEasy(簡化)/sentence(medium 預設). 缺版 fallback 到 sentence.
 export function pickSentence(q: RawQuestion): string {
   const base = q.sentence ?? '';
-  let d = 'medium';
-  try { d = localStorage.getItem('pickup.difficulty') || 'medium'; } catch { /* ignore */ }
+  const d = readDifficulty();
   if (d === 'hard' && q.sentenceHard) return q.sentenceHard;
   if (d === 'easy' && q.sentenceEasy) return q.sentenceEasy;
   return base;

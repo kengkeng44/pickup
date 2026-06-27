@@ -8,12 +8,10 @@ import { isBgmEnabled, setBgmEnabled, isSfxEnabled, setSfxEnabled } from '../../
 import { startBgm, stopBgm } from '../../audio/bgm';
 import { getComprehensionMode, setComprehensionMode, type ComprehensionMode } from '../../data/comprehensionMode';
 import { getLang, setLang, type UiLang } from '../../data/lang';
+import { readDifficulty, writeDifficulty, type Difficulty } from '../../data/difficulty';
 import { useT } from '../i18n';
 
-type Diff = 'easy' | 'medium' | 'hard';
-function readDiff(): Diff {
-  try { const v = localStorage.getItem('pickup.difficulty'); return v === 'easy' || v === 'hard' ? v : 'medium'; } catch { return 'medium'; }
-}
+type Diff = Difficulty;
 
 function Toggle({ on, onChange, ariaLabel }: { on: boolean; onChange: () => void; ariaLabel: string }) {
   return (
@@ -77,13 +75,13 @@ export default function SettingsPage() {
   const [dark, setDark] = useState(() => getTheme() === 'dark');
   const [bgm, setBgm] = useState(() => isBgmEnabled());
   const [sfx, setSfx] = useState(() => isSfxEnabled());
-  const [diff, setDiff] = useState<Diff>(() => readDiff());
+  const [diff, setDiff] = useState<Diff>(() => readDifficulty());
   const [compMode, setCompMode] = useState<ComprehensionMode>(() => getComprehensionMode());
   const [lang, setLangState] = useState<UiLang>(() => getLang());
 
   const applyDiff = (d: Diff) => {
     setDiff(d);
-    try { localStorage.setItem('pickup.difficulty', d); } catch { /* ignore */ }
+    writeDifficulty(d);
   };
   const applyCompMode = (m: ComprehensionMode) => { setCompMode(m); setComprehensionMode(m); };
   const applyLang = (l: UiLang) => { setLangState(l); setLang(l); /* useT subscribe → 整頁即時換語言 */ };

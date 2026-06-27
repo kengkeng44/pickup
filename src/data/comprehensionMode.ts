@@ -8,6 +8,7 @@
 //   'auto'   = 跟著難度自動切 (預設, 鷹架式) — 見 resolveComprehension()
 //
 // 全 surface 共享, localStorage 持久化, window event 給 UI subscribe (mirror muteSetting.ts)。
+import { readDifficulty } from './difficulty';
 
 const KEY = 'pickup.comprehensionMode';
 const EVT = 'pickup-comprehension-mode-changed';
@@ -59,8 +60,7 @@ function hashStr(s: string): number {
 export function resolveComprehension(qId: string): ResolvedComprehension {
   const mode = getComprehensionMode();
   if (mode === 'listen' || mode === 'read') return mode;
-  let d = 'medium';
-  try { d = localStorage.getItem('pickup.difficulty') || 'medium'; } catch { /* ignore */ }
+  const d = readDifficulty();
   if (d === 'easy') return 'read';
   if (d === 'hard') return 'listen';
   return hashStr(qId) % 3 === 0 ? 'read' : 'listen';

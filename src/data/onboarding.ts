@@ -4,6 +4,8 @@
 // 真雲端帳號 (跨裝置同步) 之後接 — 現在全存 localStorage, 零後端成本.
 // 對齊 lang.ts / muteSetting.ts 的 localStorage + window event 模式.
 
+import { writeDifficulty, type Difficulty } from './difficulty';
+
 const DONE_KEY = 'pickup.onboarded';
 const ACCT_KEY = 'pickup.account';
 
@@ -55,9 +57,8 @@ export function setAccount(a: Account): void {
 export type OnboardLevel = 'A0' | 'A1' | 'A2' | 'A2+';
 
 const ABILITY_KEY = 'pickup.ability.level';   // 同 LevelTest.tsx
-const DIFFICULTY_KEY = 'pickup.difficulty';   // 同 runStore.ts
 
-const LEVEL_TO_DIFFICULTY: Record<OnboardLevel, 'easy' | 'medium' | 'hard'> = {
+const LEVEL_TO_DIFFICULTY: Record<OnboardLevel, Difficulty> = {
   A0: 'easy',
   A1: 'easy',
   A2: 'medium',
@@ -65,10 +66,6 @@ const LEVEL_TO_DIFFICULTY: Record<OnboardLevel, 'easy' | 'medium' | 'hard'> = {
 };
 
 export function setLevel(level: OnboardLevel): void {
-  try {
-    localStorage.setItem(ABILITY_KEY, level);
-    localStorage.setItem(DIFFICULTY_KEY, LEVEL_TO_DIFFICULTY[level]);
-  } catch {
-    /* ignore */
-  }
+  try { localStorage.setItem(ABILITY_KEY, level); } catch { /* ignore */ }
+  writeDifficulty(LEVEL_TO_DIFFICULTY[level]);
 }
