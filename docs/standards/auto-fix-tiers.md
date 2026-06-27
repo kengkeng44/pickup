@@ -46,3 +46,10 @@ node tools/check-answer-index.cjs   # correctIndex 前後不變 (HARD_STOP)
 > 預設 = **全部安全的都修 (A+B)**, 過 gate 才上, 剩下 (C + 沒過 gate) 分隔報告。
 > 想保守回「只機械式」: 第 4 步改「只處理 Tier A」, Tier B 改成只寫 audit。
 
+## code/UI 規則性錯誤(walkthrough / ui-ux cron 額外角度)
+
+> 上面是**內容** cron(只動 lessons JSON)。**code/UI bug**(書封每章顯示同一關、死碼殘留、TEST 旗標沒關、視覺三態不全)走
+> `docs/standards/2026-06-27-recurring-bug-prevention.md` — 該文 §「加進 cron 檢查清單」列了 4 個掃描角度,
+> 給 walkthrough-cron / ui-ux-cron 用(讀 `src/**`、**只寫 audit 不自動改 code** = Tier C)。
+> 主 session 改 code commit 前也要過該文的 R1–R7 自查清單。
+
