@@ -90,3 +90,56 @@ describe('renderers — select→check→advance lifecycle', () => {
     expect(onAnswer).not.toHaveBeenCalled();
   });
 });
+
+// 異質題型 (非 MC 選項+檢查) 也補覆蓋 — 之前完全沒測。
+describe('renderers — type-translate (外文打字)', () => {
+  beforeEach(() => { vi.useFakeTimers(); });
+  afterEach(() => { vi.runOnlyPendingTimers(); vi.useRealTimers(); cleanup(); });
+
+  function renderTT() {
+    const onAnswer = vi.fn();
+    const onAdvance = vi.fn();
+    const q = { id: 'tt', type: 'type-translate', sentenceZh: '我很好', answer: 'I am good', accept: [] };
+    const utils = render(createElement(RENDERERS['type-translate'], { q: q as RendererProps['q'], onAnswer, onAdvance }));
+    const ta = utils.container.querySelector('textarea')!;
+    return { onAnswer, onAdvance, ta };
+  }
+
+  it('打對 → onAnswer(true) + 推進', () => {
+    const { onAnswer, onAdvance, ta } = renderTT();
+    fireEvent.change(ta, { target: { value: 'I am good' } });
+    fireEvent.keyDown(ta, { key: 'Enter' });
+    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onAnswer.mock.calls[0][1]).toBe(true);
+    vi.runOnlyPendingTimers();
+    expect(onAdvance).toHaveBeenCalledTimes(1);
+  });
+
+  it('打錯 → onAnswer(false), 不揭答案不推進', () => {
+    const { onAnswer, onAdvance, ta } = renderTT();
+    fireEvent.change(ta, { target: { value: 'totally wrong xyz' } });
+    fireEvent.keyDown(ta, { key: 'Enter' });
+    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onAnswer.mock.calls[0][1]).toBe(false);
+    vi.runOnlyPendingTimers();
+    expect(onAdvance).not.toHaveBeenCalled();
+  });
+});
+
+describe('renderers — tap-pairs (配對)', () => {
+  beforeEach(() => { vi.useFakeTimers(); });
+  afterEach(() => { vi.runOnlyPendingTimers(); vi.useRealTimers(); cleanup(); });
+
+  it('配對完成 → onAnswer(true) + 推進 (單組, shuffle 對 1 組無影響)', () => {
+    const onAnswer = vi.fn();
+    const onAdvance = vi.fn();
+    const q = { id: 'tp', type: 'tap-pairs', pairs: [{ left: '貓', right: 'cat' }] };
+    const { container } = render(createElement(RENDERERS['tap-pairs'], { q: q as RendererProps['q'], onAnswer, onAdvance }));
+    fireEvent.click(within(container).getByText('貓').closest('button')!);
+    fireEvent.click(within(container).getByText('cat').closest('button')!);
+    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onAnswer.mock.calls[0][1]).toBe(true);
+    vi.runOnlyPendingTimers();
+    expect(onAdvance).toHaveBeenCalledTimes(1);
+  });
+});
