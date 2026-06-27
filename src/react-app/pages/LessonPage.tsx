@@ -275,22 +275,28 @@ function MuteToggleBtn() {
 }
 
 // v2.0.B.424 (per user): 體力愛心 — 右上角顯示 🧡, 答錯扣一顆 (空心 🤍).
-// v2.0.B.462 (per user「最上面不要愛心, 改一個圖案裡有數字, 不佔空間」):
-// 5 顆愛心 → 單一「⚡ N」膠囊 (Duolingo 現行 energy 風)。圖案備選: 見 HP_ICON。
-const HP_ICON = '⚡'; // 備選: '🔋' / '💎' / '⭐' / '❤️‍🔥' — 作者挑一個
+// v2.0.B.463 (per user 參考圖「星星+數字+綠加號」, 但簡化 + 用拾光設計標準):
+// 砍木紋/反光/黑邊 → 扁平暖色膠囊 + 琥珀星 + 數字 + 小橄欖綠加號 (裝飾, 非按鈕)。
 function Hearts() {
   const [hp, setHp] = useState(() => getHp());
   useEffect(() => subscribeHp(() => setHp(getHp())), []);
   const low = hp <= 1;
+  const accent = low ? 'var(--t-error)' : 'var(--t-accent)';
   return (
     <span aria-label={`體力 ${hp}/${MAX_HP}`} title={`體力 ${hp}/${MAX_HP}`}
       style={{
-        flex: '0 0 auto', display: 'inline-flex', alignItems: 'center', gap: 3,
-        height: 26, padding: '0 9px', borderRadius: 999,
-        background: low ? 'var(--t-tint-error, #fbe4dc)' : 'var(--t-tint-warn)',
-        color: low ? 'var(--t-error)' : '#e0892f', fontSize: 14, fontWeight: 900, lineHeight: 1, whiteSpace: 'nowrap',
+        flex: '0 0 auto', display: 'inline-flex', alignItems: 'center', gap: 4,
+        height: 28, padding: '0 4px 0 8px', borderRadius: 999,
+        background: 'var(--t-tint-warn)', border: `1.5px solid ${accent}`,
+        lineHeight: 1, whiteSpace: 'nowrap',
       }}>
-      <span style={{ fontSize: 14 }} aria-hidden="true">{HP_ICON}</span>{hp}
+      <span aria-hidden="true" style={{ fontSize: 15, color: accent }}>★</span>
+      <span style={{ fontSize: 14, fontWeight: 900, color: low ? 'var(--t-error)' : 'var(--t-text)' }}>{hp}</span>
+      <span aria-hidden="true" style={{
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        width: 18, height: 18, borderRadius: '50%', background: 'var(--t-success)',
+        color: '#fff', fontSize: 15, fontWeight: 900,
+      }}>+</span>
     </span>
   );
 }
