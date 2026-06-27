@@ -612,6 +612,42 @@ main code { overflow-wrap: anywhere; }
     <div id="arch-rec-done"></div>
   </section>
 
+  <!-- v2.0.B.466: Duolingo 痛點 → 拾光優化機會 (上網查 2025 批評 + 教學弱點, ROI 排序決策) -->
+  <section class="pending-todos" style="border:2px solid #c84a3a;">
+    <h2>🦉 Duolingo 痛點 → 拾光優化機會</h2>
+    <div class="desc">2025 網路批評 + 教學弱點掃描。把它們的弱點變成拾光的差異化。✅=已是我們的設計 / 🔜=可加。
+      來源:autolingual review · TechCrunch AI backlash · Trustpilot · PR Daily。</div>
+
+    <div class="todo-item" data-todo-id="dp-story">
+      <strong>① 句子隨機、無真實情境、不連貫</strong> — Duo 被罵「背沒用的句子、字句隨機不成文」。
+      <div class="desc">🟢 ROI 最高 ✅ <b>拾光對策</b>:每章 = 一個完整童話故事 (桃太郎/灰姑娘…),句子都在劇情裡 → 這是我們最大差異化,行銷主打。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-grammar">
+      <strong>② 不解釋文法、學完不會自己造句</strong> — Duo 主要靠翻譯,缺語境文法 → 無法自產句。
+      <div class="desc">🟢 ✅ <b>對策</b>:grammar-mc 貼原文語境 + 每題溫度中文解釋 + 新「外文打字」產出題 (看中文打英文)。可再加「為什麼」小註解強化。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-newword">
+      <strong>③「新單字」其實早教過很多次</strong> — Trustpilot 常見抱怨。
+      <div class="desc">🟡 ✅ <b>對策</b>:開場 2 節「真·沒學過的字」預習 + SRS 錯題庫。🔜 可強化:出題前查 vocab 已學表,別把學過的標成新字。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-translation">
+      <strong>④ 翻譯不道地 / 有文法錯</strong> — Duo AI 內容被批品質下降。
+      <div class="desc">🟢 ✅ <b>對策</b>:真人策劃 + 母語檢查;已上「回報問題」鈕 (B.466) 收使用者回饋 → 之後 cron 讀 pickup.reports 修。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-speak">
+      <strong>⑤ 不教口說 / 真實對話</strong> — Duo 最大教學缺口。
+      <div class="desc">🟡 ROI 中 🔜 <b>對策</b>:speak-back 題型 schema 已存在但未鋪題 → 可鋪「跟讀奶奶」口說練習 (用 Web Speech 辨識,免費起步)。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-gamify">
+      <strong>⑥ 過度遊戲化、streak 壓力大、學習淪次要</strong> — 連勝焦慮被詬病。
+      <div class="desc">🟢 ✅ <b>對策</b>:兒童非懲罰式設計 (force-correct + blindRetry, 無死亡), 體力友善可補。保持遊戲化輕量、學習優先。</div>
+    </div>
+    <div class="todo-item" data-todo-id="dp-ai-privacy">
+      <strong>⑦ AI-first 品質降 + 隱私疑慮 (2025 大反彈)</strong> — 用戶不滿淪 AI 訓練資料。
+      <div class="desc">🟡 ROI 中 (行銷) 🔜 <b>對策</b>:打「真人奶奶溫暖策劃、不拿小孩資料訓練 AI」當對外差異化文案,接 Duo 出走用戶。</div>
+    </div>
+  </section>
+
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
   <section class="pending-todos">
     <h2>📌 一次性 Todos</h2>
