@@ -220,6 +220,7 @@ export default function LessonPage() {
           }} />
         </div>
         <Hearts />
+        <ReportBtn qid={q.id} />
         <MuteToggleBtn />
       </div>
 
@@ -275,6 +276,80 @@ export default function LessonPage() {
 // Mute toggle 給「auto-TTS 無靜音 gate, 深夜外放吵醒孩子」的核心場景。
 // 點一下切 ON/OFF, localStorage 持久化, window event 讓所有 LessonPage instance 同步。
 // auto-speak useEffect 透過 tts.ts 內 mute gate 沉默跳過; manual SpeakerBtn 帶 force: true 仍可播。
+// v2.0.B.466 (per user 照圖3+圖5): 回報問題鈕 — 點旗子開問題清單, 記錄到 localStorage
+// (無後端, 存 pickup.reports 供日後匯出/cron 讀)。選項各語言自帶。
+const REPORT_OPTS: Record<string, { title: string; thanks: string; opts: Array<{ key: string; label: string }> }> = {
+  zh: { title: '回報這題的問題', thanks: '謝謝回報！我們會看 🙏', opts: [
+    { key: 'answer', label: '我的答案應該被接受' }, { key: 'translation', label: '中文翻譯有誤' },
+    { key: 'hint', label: '提示 / 解釋有誤' }, { key: 'audio', label: '音檔有問題' },
+    { key: 'image', label: '圖片有問題' }, { key: 'other', label: '其他問題' } ] },
+  en: { title: 'Report a problem', thanks: 'Thanks for the report! 🙏', opts: [
+    { key: 'answer', label: 'My answer should be accepted' }, { key: 'translation', label: 'The translation is wrong' },
+    { key: 'hint', label: 'The hint / explanation is wrong' }, { key: 'audio', label: 'Audio problem' },
+    { key: 'image', label: 'Image problem' }, { key: 'other', label: 'Something else' } ] },
+  ja: { title: '問題を報告', thanks: '報告ありがとう！🙏', opts: [
+    { key: 'answer', label: '私の答えも正解のはず' }, { key: 'translation', label: '日本語訳がおかしい' },
+    { key: 'hint', label: 'ヒント / 解説が違う' }, { key: 'audio', label: '音声の問題' },
+    { key: 'image', label: '画像の問題' }, { key: 'other', label: 'その他' } ] },
+  ko: { title: '문제 신고', thanks: '신고 고마워요! 🙏', opts: [
+    { key: 'answer', label: '제 답도 정답이어야 해요' }, { key: 'translation', label: '한국어 번역이 틀렸어요' },
+    { key: 'hint', label: '힌트 / 설명이 틀렸어요' }, { key: 'audio', label: '오디오 문제' },
+    { key: 'image', label: '이미지 문제' }, { key: 'other', label: '기타' } ] },
+};
+function ReportBtn({ qid }: { qid: string }) {
+  const [open, setOpen] = useState(false);
+  const [done, setDone] = useState(false);
+  const lang = getLang();
+  const cfg = REPORT_OPTS[lang] ?? REPORT_OPTS.zh;
+  const submit = (key: string) => {
+    try {
+      const raw = localStorage.getItem('pickup.reports');
+      const arr = raw ? JSON.parse(raw) : [];
+      arr.push({ qid, issue: key, ts: Date.now() });
+      localStorage.setItem('pickup.reports', JSON.stringify(arr.slice(-200)));
+    } catch {}
+    setDone(true);
+    window.setTimeout(() => setOpen(false), 1200);
+  };
+  return (
+    <>
+      <button onClick={() => { setOpen(true); setDone(false); }} aria-label={cfg.title} title={cfg.title} style={{
+        flex: '0 0 auto', width: 40, height: 44, padding: 0, border: 'none', background: 'transparent',
+        fontSize: 19, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        opacity: 0.7, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', fontFamily: 'inherit',
+      }}>🚩</button>
+      {open && (
+        <div role="dialog" aria-modal="true" onClick={() => setOpen(false)} style={{
+          position: 'fixed', inset: 0, zIndex: 60, display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+          background: 'rgba(40,28,16,0.45)',
+        }}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            width: '100%', maxWidth: 420, background: 'var(--t-surface)', borderTopLeftRadius: 22, borderTopRightRadius: 22,
+            padding: '18px 16px calc(16px + env(safe-area-inset-bottom))', boxShadow: '0 -8px 28px rgba(0,0,0,0.18)',
+            animation: 'pickup-fade-up 200ms ease',
+          }}>
+            {done ? (
+              <div style={{ textAlign: 'center', fontSize: 16, fontWeight: 900, color: 'var(--t-success)', padding: '20px 0' }}>{cfg.thanks}</div>
+            ) : (
+              <>
+                <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)', margin: '2px 4px 12px' }}>{cfg.title}</div>
+                {cfg.opts.map((o) => (
+                  <button key={o.key} type="button" onClick={() => submit(o.key)} style={{
+                    width: '100%', textAlign: 'left', padding: '13px 14px', marginBottom: 8, borderRadius: 12,
+                    border: '2px solid var(--t-border-card)', background: '#fff', color: 'var(--t-text)',
+                    fontSize: 15, fontWeight: 700, fontFamily: 'inherit', cursor: 'pointer',
+                    WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+                  }}>{o.label}</button>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
 function MuteToggleBtn() {
   const [muted, setMuted] = useState<boolean>(() => isMuted());
   useEffect(() => {

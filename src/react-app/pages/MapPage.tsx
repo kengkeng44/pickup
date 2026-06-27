@@ -461,6 +461,13 @@ export default function MapPage() {
     ? (lessons[currentNodeIdx >= 0 ? currentNodeIdx : 0]?.chapter ?? requestedChapter)
     : chapter;
   const meta = CHAPTER_META[displayChapter] ?? CHAPTER_META[1];
+  // v2.0.B.466 (per user「書封要顯示現在在第幾關」): 當前章的關卡進度 = 完成數+1 / 總關數。
+  const chTotalGuan = lessons.filter((l) => l.chapter === displayChapter).length;
+  const chDoneGuan = completedByChapter.get(displayChapter)?.size ?? 0;
+  const curGuan = chTotalGuan > 0 ? Math.min(chDoneGuan + 1, chTotalGuan) : 0;
+  const guanLabel = (lang === 'zh' || lang === 'zh-Hans')
+    ? `第 ${curGuan} / ${chTotalGuan} 關`
+    : `${curGuan} / ${chTotalGuan}`;
 
   // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
   // 從硬編 xp=0/level=1/coins=0 改成讀 localStorage 實際資料。
@@ -644,6 +651,10 @@ export default function MapPage() {
             <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{chTitle(meta)}
             </div>
+            {/* v2.0.B.466: 現在在第幾關 */}
+            {chTotalGuan > 0 && (
+              <div style={{ fontSize: 12, fontWeight: 800, color: 'rgba(255,255,255,0.85)', marginTop: 3 }}>{guanLabel}</div>
+            )}
           </div>
           <span aria-hidden="true" style={{
             fontSize: 20, lineHeight: 1, color: '#fff',
