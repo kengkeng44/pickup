@@ -12,9 +12,10 @@ import KeySentencesSheet from '../components/KeySentencesSheet';
 import { MapNode } from '../components/MapNode';
 import { useT } from '../i18n';
 import { readXp, levelForXp, levelProgress, lessonXp } from '../../data/xp';
-import { readCoins, addCoins } from '../../data/coins';
+import { addCoins } from '../../data/coins';
+import { getHp, MAX_HP } from '../../data/hp';
 import { isBackendLive, serverOpenChest } from '../../data/backend';
-import { readStreak, readFreezes } from '../../data/streak';
+import { readStreak } from '../../data/streak';
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
@@ -212,22 +213,24 @@ function HudIcon({ src, value, valueColor, width = 22, ariaLabel, onClick, progr
   );
 }
 
-// v2.0.B.232 招 1: emoji-based freeze pill (no PNG asset yet).
-function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void }) {
+// v2.0.B.471 (per user「冰塊換成體力」): HUD 體力指示 — 琥珀星 ★ + 數字 (對齊課內樣式)。
+function HpHudIcon({ hp, onClick }: { hp: number; onClick: () => void }) {
+  const low = hp <= 1;
+  const c = low ? 'var(--t-error)' : 'var(--t-accent)';
   return (
     <button
       onClick={onClick}
-      aria-label={`Streak freezes ${count} available`}
+      aria-label={`體力 ${hp}/${MAX_HP}`}
       style={{
         background: 'transparent', border: 'none', cursor: 'pointer',
-        padding: '12px 6px', borderRadius: 10, fontFamily: 'inherit',
-        minWidth: 40, minHeight: 48,
+        padding: '6px 8px', borderRadius: 10, fontFamily: 'inherit',
+        minWidth: 38, minHeight: 38,
         touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-        display: 'flex', alignItems: 'center', gap: 3,
+        display: 'flex', alignItems: 'center', gap: 4,
       }}
     >
-      <span style={{ fontSize: 20, lineHeight: 1 }}>🧊</span>
-      <span style={{ fontSize: 15, fontWeight: 900, color: '#5a8cc4', lineHeight: 1 }}>{count}</span>
+      <span style={{ fontSize: 18, lineHeight: 1, color: c }}>★</span>
+      <span style={{ fontSize: 15, fontWeight: 900, color: c, lineHeight: 1 }}>{hp}</span>
     </button>
   );
 }
@@ -358,7 +361,6 @@ export default function MapPage() {
   // v2.0.B.232 招 1: read persistent daily streak + freeze count from
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
-  const freezes = readFreezes();
   // v2.0.B.326 寶箱分配標準 (per user):「每 5 關一個寶箱, 且不能離章節開頭太近」。
   // 規則: 距上個寶箱 ≥5 關才放; 只在章節中段放 (當前關 lessonInChapter≥2 且下一關不是新章第一關),
   // → 寶箱永不貼章首/章尾, 不會撞到章節分隔線.
@@ -476,7 +478,7 @@ export default function MapPage() {
   // 從硬編 xp=0/level=1/coins=0 改成讀 localStorage 實際資料。
   // Crown tier per Phaser StoryMapView (L1-2 Silver, L3-4 Gold, L5+ Diamond)
   const xp = readXp();
-  const coins = readCoins();
+  const hp = getHp(); // v2.0.B.471: 體力 (取代冰塊 freeze)
   const level = levelForXp(xp);
   const progress = levelProgress(xp);
   const tierLabel = `L${level}`;
@@ -549,6 +551,7 @@ export default function MapPage() {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const coverChRef = useRef<HTMLDivElement>(null);
   const coverTitleRef = useRef<HTMLDivElement>(null);
+  const coverGuanRef = useRef<HTMLDivElement>(null); // v2.0.B.471: 第幾關 (跟著捲動章節更新, 修「每章都顯示第2關」bug)
   useEffect(() => {
     if (!isAggregate || lessons.length === 0) return;
     let lastCh = -999;
@@ -558,6 +561,14 @@ export default function MapPage() {
       const m = CHAPTER_META[ch] ?? CHAPTER_META[1];
       if (coverChRef.current) coverChRef.current.textContent = `CH ${ch}`;
       if (coverTitleRef.current) coverTitleRef.current.textContent = `${m.emoji} ${chTitle(m)}`;
+      // v2.0.B.471: 第幾關跟著捲動章節走 (用 readCompletedLessons 讀即時完成數, 不會 stale)
+      if (coverGuanRef.current) {
+        const total = lessons.filter((x) => x.chapter === ch).length;
+        const cur = total > 0 ? Math.min(readCompletedLessons(ch).size + 1, total) : 0;
+        coverGuanRef.current.textContent = total > 0
+          ? ((lang === 'zh' || lang === 'zh-Hans') ? `第 ${cur} / ${total} 關` : `${cur} / ${total}`)
+          : '';
+      }
       if (coverBtnRef.current) {
         coverBtnRef.current.style.background = m.accent;
         coverBtnRef.current.style.boxShadow = `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(m.accent, 0.28)}`;
@@ -609,11 +620,11 @@ export default function MapPage() {
           paddingTop: 'calc(6px + env(safe-area-inset-top))',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2,
         }}>
+          {/* v2.0.B.471 (per user): 上排留 4 個 — 砍金幣🐾, 冰塊🧊→體力★ */}
           <HudIcon src="/mascots/flag-en.webp" value="" valueColor="var(--t-text)" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
           <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
-          <HudIcon src="/mascots/coin-gold.webp" value={firstTime ? '' : String(coins)} valueColor="#c79410" ariaLabel={`Coins ${coins}`} onClick={() => navigate('/profile')} />
           <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/tasks')} />
-          {!firstTime && <FreezeHudPill count={freezes} onClick={() => navigate('/tasks')} />}
+          <HpHudIcon hp={hp} onClick={() => navigate('/profile')} />
         </div>
         {/* Chapter book cover — flow 在 HUD 下方, 不再 position:fixed */}
         <button
@@ -654,10 +665,8 @@ export default function MapPage() {
             <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{chTitle(meta)}
             </div>
-            {/* v2.0.B.466: 現在在第幾關 */}
-            {chTotalGuan > 0 && (
-              <div style={{ fontSize: 12, fontWeight: 800, color: 'rgba(255,255,255,0.85)', marginTop: 3 }}>{guanLabel}</div>
-            )}
+            {/* v2.0.B.466/471: 現在在第幾關 (初始用 displayChapter, 捲動由 coverGuanRef 更新) */}
+            <div ref={coverGuanRef} style={{ fontSize: 12, fontWeight: 800, color: 'rgba(255,255,255,0.85)', marginTop: 3 }}>{chTotalGuan > 0 ? guanLabel : ''}</div>
           </div>
           <span aria-hidden="true" style={{
             fontSize: 20, lineHeight: 1, color: '#fff',
@@ -864,11 +873,12 @@ export default function MapPage() {
             const done = lessonCompletedSet.has(l.id);
             const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const inProgress = unlocked && !done && inProgressIds.has(l.id);
-            // v2.0.B.426 (per user「全部修成灰」): 測試版全節點統一灰 (TEST_ALL_NODES_GREY)。
-            // 正式上線把 flag 改 false → 恢復「完成=金星綠, 未完成灰」。
+            // v2.0.B.471 (per user「進度到的還沒完成也要有顏色」): 三態上色 —
+            // 完成=綠 / 已到達未完成(unlocked && !done)=該章主色 / 還沒到(locked)=灰。
             const showDone = done && !TEST_ALL_NODES_GREY;
-            const baseColor = showDone ? COLOR_NODE_DONE : COLOR_NODE_LOCKED;
-            const shadowColor = showDone ? COLOR_NODE_DONE_DARK : COLOR_NODE_LOCKED_DARK;
+            const reached = unlocked && !done;
+            const baseColor = showDone ? COLOR_NODE_DONE : reached ? chMeta.accent : COLOR_NODE_LOCKED;
+            const shadowColor = showDone ? COLOR_NODE_DONE_DARK : reached ? darken(chMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
             const iconSrc = showDone ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
             const iconFilter = 'none';
             const iconOpacity = 1;
@@ -910,7 +920,7 @@ export default function MapPage() {
                 size={NODE_SIZE}
                 height={NODE_HEIGHT}
                 done={done}
-                inProgress={inProgress}
+                inProgress={false}
                 unlocked={unlocked || TEST_NODES_CLICKABLE}
                 isCurrent={isCurrent}
                 isPressed={isPressed}
