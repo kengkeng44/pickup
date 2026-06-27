@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRunStore } from '../../store/runStore';
+import { readStreak } from '../../data/streak';
 import { readXp, levelForXp } from '../../data/xp';
 import { readCoins, addCoins } from '../../data/coins';
 import { isBackendLive, serverRename } from '../../data/backend';
@@ -14,7 +14,9 @@ const WardrobeView = lazy(() => import('./WardrobeView'));
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { t, lang } = useT();
-  const streak = useRunStore(s => s.streak);
+  // v2.0.B.475: 改讀真正的每日 streak (data/streak), 修「個人頁 streak 永遠顯示 0」bug
+  // (原讀 runStore in-run cloze streak, React 從不更新它 → 恆 0; HUD 用的才是對的每日 streak)。
+  const streak = readStreak();
   // v2.0.B.191 P1 fix (UI/UX): wire stats to real data layer (was '—' literals)
   const xp = readXp();
   const coins = readCoins();
