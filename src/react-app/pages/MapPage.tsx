@@ -34,6 +34,7 @@ interface Lesson {
   lessonInChapter: number;
   segmentType: string;
   storyBeat?: string;
+  lessonName?: string; // v2.0.B.470: 關卡名 (點節點框框標題)
   intro?: { zh: string };
   questions: unknown[];
 }
@@ -233,9 +234,10 @@ function FreezeHudPill({ count, onClick }: { count: number; onClick: () => void 
 
 // v2.0.B.433: Duolingo 風「點節點 → 跳框」對話框。
 // 第一次: 繼續 +30 / 晉升傳奇 +45。已完成過: 開始複習 +5 / 晉升傳奇 +40。
-function NodeStartDialog({ done, lang, onPick, onClose }: {
+function NodeStartDialog({ done, lang, title, onPick, onClose }: {
   done: boolean;
   lang: string;
+  title?: string;
   onPick: (legendary: boolean) => void;
   onClose: () => void;
 }) {
@@ -267,6 +269,7 @@ function NodeStartDialog({ done, lang, onPick, onClose }: {
           animation: 'pickup-fade-up 200ms ease',
         }}
       >
+        {title && <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)', margin: '0 2px 14px', textAlign: 'center' }}>{title}</div>}
         {/* 一般 / 複習 */}
         <button
           type="button"
@@ -942,6 +945,7 @@ export default function MapPage() {
         <NodeStartDialog
           done={completedByChapter.get(tapNode.ch)?.has(tapNode.id) ?? false}
           lang={lang}
+          title={lessons.find((l) => l.id === tapNode.id)?.lessonName}
           onPick={(legendary) => {
             const { ch, id } = tapNode;
             setTapNode(null);

@@ -483,6 +483,9 @@ export const LessonSchema = z.object({
   segmentType: SegmentTypeSchema,
   storyId: z.string().optional(),
   storyBeat: z.string().optional(),
+  // v2.0.B.470 (per user 方案C 混用): 關卡名 — 預習節=學習重點, 故事節=劇情短名, 複習=複習。
+  // 顯示在地圖點節點的框框標題。選填 (缺則框框不顯示標題)。
+  lessonName: z.string().optional(),
   intro: LessonIntroSchema.optional(),
   // v2.0.B.198: max bumped 15→20 to allow Ch1 opening Mochi self-intro
   // (n00 + n01 before Q0 + n1 existing arc). headroom for future hooks.
