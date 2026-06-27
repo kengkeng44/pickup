@@ -110,6 +110,25 @@ function useWordHint(ref: React.RefObject<HTMLElement | null>, deps: unknown[]) 
   }, deps);
 }
 
+// v2.0.B.479: 「揭示後播音效 + 延遲推進」是多個 MC renderer 重複的 effect。
+// 抽成一個 hook (literal extraction, 行為不變): revealed 翻 true → 播對/錯音效 →
+// delay 後 advance(), unmount 清 timer。delayWrong 省略時同 delayCorrect。
+function useRevealAdvance(
+  revealed: boolean,
+  correct: boolean,
+  advance: () => void,
+  delayCorrect: number,
+  delayWrong: number = delayCorrect,
+) {
+  useEffect(() => {
+    if (!revealed) return;
+    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
+    const t = window.setTimeout(advance, correct ? delayCorrect : delayWrong);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [revealed]);
+}
+
 function blanks(text: string): string {
   return text.split(/\s+/).filter(Boolean).map(() => '____').join(' ');
 }
@@ -312,14 +331,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
-  useEffect(() => {
-    if (!revealed) return;
-    const correct = selected === correctIdx;
-    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
-    const t = window.setTimeout(() => onAdvance(en), correct ? 2500 : 4000);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [revealed]);
+  useRevealAdvance(revealed, selected === correctIdx, () => onAdvance(en), 2500, 4000);
 
   // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
@@ -551,14 +563,7 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
-  useEffect(() => {
-    if (!revealed) return;
-    const correct = selected === correctIdx;
-    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
-    const t = window.setTimeout(() => onAdvance(en), 3000);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [revealed]);
+  useRevealAdvance(revealed, selected === correctIdx, () => onAdvance(en), 3000);
 
   // v2.0.B.435: 點選項 = 只選取 (不送出); 底部「檢查」鈕才送出。
   const click = (i: number) => {
@@ -1465,14 +1470,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
-  useEffect(() => {
-    if (!revealed) return;
-    const correct = selected === correctIdx;
-    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
-    const t = window.setTimeout(() => onAdvance(word), correct ? 2500 : 4000);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [revealed]);
+  useRevealAdvance(revealed, selected === correctIdx, () => onAdvance(word), 2500, 4000);
 
   const click = (i: number) => {
     if (revealed) return;
@@ -1562,14 +1560,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
-  useEffect(() => {
-    if (!revealed) return;
-    const correct = selected === correctIdx;
-    try { (correct ? sfxCorrect : sfxWrong)(); } catch {}
-    const t = window.setTimeout(() => onAdvance(opts[correctIdx]), 3000);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [revealed]);
+  useRevealAdvance(revealed, selected === correctIdx, () => onAdvance(opts[correctIdx]), 3000);
 
   // v2.0.B.435: 點選項 = 只選取; 底部「檢查」鈕才送出。
   const click = (i: number) => {
