@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { getLang, type UiLang } from './lang';
-// v2.0.B.148: applyCatName/applyDogName imports retired — loader is passthrough now.
+// v2.0.B.148: {catName}/{dogName} placeholder 系統退役, JSON 直接寫死 Mochi/Hana,
+// loader 純 passthrough。B.481: 死的 cat/dogName.ts 模組已刪 (Profile 用自己的 key)。
 
 // v2.0: ClozeLevelSchema + DifficultySchema previously lived in
 // `./sentences.ts`, but `sentences.ts` now re-exports `QuestionSchema`
@@ -581,11 +582,9 @@ export async function loadChapterLessons(ch: ChapterId): Promise<Lesson[]> {
   // Fix: cover EVERY user-visible string field on the Question.
   // v2.0.B.148: placeholder system retired per user '不要給他們自訂 就固定叫
   // mochi'. All {catName}/{dogName} now hardcoded 'Mochi'/'Hana' literal in
-  // JSON (sed-replaced across 8 lessons-ch*.json). Loader is pure passthrough.
-  // applyCatName/applyDogName functions kept in src/data/{cat,dog}Name.ts for
-  // back-compat with non-lesson modules (Profile / mascot wiring) but no
-  // longer called here. Resolves B.124 → B.130 → B.134 phantom-field cycle
-  // structurally — no more loader/schema sync drift.
+  // JSON (sed-replaced across lessons-ch*.json). Loader is pure passthrough.
+  // B.481: 死的 cat/dogName.ts 模組已刪 (零引用; Profile 用自己的 pickup.catName key)。
+  // Resolves B.124 → B.130 → B.134 phantom-field cycle 結構性根治 — 無 loader/schema 漂移。
   const injected = parsed as Lesson[];
 
   // v2.0.B.396: 日/韓 覆寫題目內容翻譯 (繁中/英/簡中 不動)。
