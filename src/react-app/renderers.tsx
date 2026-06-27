@@ -17,7 +17,7 @@ import SpeakZh from './components/SpeakZh';
 import { translate } from './i18n';
 import { getLang, subscribeLang } from '../data/lang';
 import { toSimplified } from '../data/zhHans';
-import { checkAnswer, type NearReason } from '../data/answerMatch';
+import { checkAnswer, canonical } from '../data/answerMatch';
 
 // v2.0.B.393 — 統一語言: 題目畫面 prompt 跟著選的語言走 (非 hook, 給 const map / 工具用).
 // 用 hook useTq() 讓元件切語言自動 re-render; 純函式 tq() 給非元件 (如 SPEAKER label).
@@ -768,12 +768,6 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 //   correct → 慶祝 + 推進。
 //   near    → 「差一點」溫柔提示 (依 reason), 不罰體力, 留輸入讓玩家改 (force-correct/blindRetry)。
 //   wrong   → 明顯錯, 首錯記一次 (扣體力), 不揭答案, 重試。
-const NEAR_MSG: Record<NearReason, string> = {
-  typo: '差一點！拼字再檢查一下 ✏️',
-  article: '差一點！少了或多了一個小字 (a / an / the) 📝',
-  order: '差一點！順序調整一下就對了 🔄',
-  extra: '差一點！好像多打了一個字 ✂️',
-};
 const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   // v2.0.B.457: 來源句顯示玩家自己的語言 — sentenceZh (繁中母檔; ja/ko 經 overlay 換成日韓;
   // zh-Hans 經 toSimplified 轉簡中)。fallback 舊 sentence 欄。
@@ -781,39 +775,44 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const answer = q.answer ?? '';
   const accept = q.accept ?? [];
   const [text, setText] = useState('');
-  const [done, setDone] = useState(false);
-  const [near, setNear] = useState<string | null>(null);
+  // v2.0.B.460 (per user): 結果四態 — exact(完全對) / alt(別句也對, 兩個都顯示) /
+  // near(有錯字, 顯示『有錯字喔！』+ 正解, 算過) / null。wrong 另開 (錯, 重試不揭答案)。
+  const [result, setResult] = useState<'exact' | 'alt' | 'near' | null>(null);
   const [wrong, setWrong] = useState(false);
   const recorded = useRef(false);
 
   useEffect(() => {
-    setText(''); setDone(false); setNear(null); setWrong(false); recorded.current = false;
+    setText(''); setResult(null); setWrong(false); recorded.current = false;
   }, [q.id]);
 
   const submit = () => {
-    if (done || !text.trim()) return;
+    if (result || !text.trim()) return;
     const r = checkAnswer(text, answer, accept);
     sfxCardPress();
     if (r.status === 'correct') {
-      setDone(true); setNear(null); setWrong(false);
+      const isAlt = canonical(text) !== canonical(answer); // 命中 accept[] 的別句
+      setResult(isAlt ? 'alt' : 'exact'); setWrong(false);
       try { sfxCorrect(); } catch {}
       if (!recorded.current) { recorded.current = true; onAnswer(0, true); }
-      window.setTimeout(() => onAdvance(answer), 2500);
+      window.setTimeout(() => onAdvance(answer), isAlt ? 3200 : 2500);
       return;
     }
     if (r.status === 'near') {
-      // 差一點: 溫柔提示, 不罰, 不揭答案, 讓玩家改。
-      setNear(NEAR_MSG[r.reason ?? 'typo']);
-      setWrong(false);
+      // 差一點 = 有錯字: 顯示『有錯字喔！』+ 揭正解, 算過 (Duolingo typo 模式)。
+      setResult('near'); setWrong(false);
+      try { sfxCorrect(); } catch {}
+      if (!recorded.current) { recorded.current = true; onAnswer(0, true); }
+      window.setTimeout(() => onAdvance(answer), 3500); // 多停一下讓玩家看正解
       return;
     }
-    // 明顯錯: 首錯記一次 (扣體力), 不揭答案。
-    setWrong(true); setNear(null);
+    // 明顯錯: 首錯記一次 (扣體力), 不揭答案, 重試。
+    setWrong(true);
     try { sfxWrong(); } catch {}
     if (!recorded.current) { recorded.current = true; onAnswer(1, false); }
   };
 
-  const canSubmit = !done && !!text.trim();
+  const canSubmit = !result && !!text.trim();
+  const borderColor = wrong ? 'var(--t-error)' : result ? 'var(--t-success)' : 'var(--t-border-card)';
   return (
     <div className="pickup-lesson-words">
       <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 8 }}>
@@ -827,9 +826,9 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       }}>{source}</div>
       <textarea
         value={text}
-        onChange={(e) => { setText(e.target.value); if (near) setNear(null); if (wrong) setWrong(false); }}
+        onChange={(e) => { setText(e.target.value); if (wrong) setWrong(false); }}
         onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } }}
-        disabled={done}
+        disabled={!!result}
         placeholder={tq('q.typePlaceholder')}
         rows={2}
         autoCapitalize="off"
@@ -837,11 +836,10 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         spellCheck={false}
         style={{
           width: '100%', padding: 10, fontSize: 16, fontFamily: 'inherit',
-          border: `2px solid ${wrong ? 'var(--t-error)' : near ? 'var(--t-accent)' : 'var(--t-border-card)'}`,
+          border: `2px solid ${borderColor}`,
           borderRadius: 10, background: 'var(--t-surface)', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
         }}
       />
-      {near && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-accent)', marginBottom: 10 }}>{near}</div>}
       {wrong && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-error)', marginBottom: 10 }}>再試一次 · Try again</div>}
       {/* 檢查按鈕: 沒打字 = 灰不可按; 有字 = 綠可按 (Duolingo 風) */}
       <button onClick={submit} disabled={!canSubmit} style={{
@@ -852,9 +850,18 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         borderRadius: 14, fontSize: 16, fontWeight: 900,
         cursor: canSubmit ? 'pointer' : 'default', fontFamily: 'inherit',
       }}>{tq('q.check')}</button>
-      {done && (
-        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-success)', borderRadius: '0 8px 8px 0' }}>
-          ✅ <strong>{answer}</strong>
+      {result && (
+        <div style={{
+          marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)',
+          borderLeft: `3px solid ${result === 'near' ? 'var(--t-accent)' : 'var(--t-success)'}`, borderRadius: '0 8px 8px 0',
+        }}>
+          {result === 'near' && <div style={{ fontWeight: 900, color: 'var(--t-accent)', marginBottom: 6 }}>✏️ {tq('q.typo')}</div>}
+          {result === 'alt' && <div style={{ fontWeight: 900, color: 'var(--t-success)', marginBottom: 6 }}>✅ {tq('q.alsoCorrect')}</div>}
+          {/* alt: 顯示玩家寫的別句 + 標準答案 */}
+          {result === 'alt' && (
+            <div style={{ fontSize: 13, color: 'var(--t-text-muted)', marginBottom: 4 }}>{tq('q.yourAnswer')}: <strong style={{ color: 'var(--t-text)' }}>{text.trim()}</strong></div>
+          )}
+          <div>{result === 'exact' ? '✅ ' : ''}{(result === 'near' || result === 'alt') ? `${tq('q.correctAnswer')}: ` : ''}<strong>{answer}</strong></div>
           {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
         </div>
       )}
