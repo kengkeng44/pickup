@@ -648,9 +648,54 @@ main code { overflow-wrap: anywhere; }
     </div>
   </section>
 
+  <!-- v2.0.B.467: 待生圖片 queue — 照 isometric 標準, 8個一批, 同角色加一致性鎖 -->
+  <section class="pending-todos" style="border:2px solid #e7a44a;">
+    <h2>🖼️ 待生圖片 (8 個一批)</h2>
+    <div class="desc">用 ChatGPT/Gemini 生圖。每批點「複製」貼進去。<b>同角色不同姿勢/裝扮:每批先貼「一致性鎖」再貼該批 8 句</b>,確保是同一隻不會變形。生完去背 (rembg) 放 public/mascots/。</div>
+
+    <div class="todo-item" data-todo-id="img-lock">
+      <strong>🔒 一致性鎖 (每批最前面先貼這段)</strong>
+      <pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:8px 0;">Studio Ghibli 暖色手繪 isometric chibi 貼紙風: 大頭小身、純色塊「無黑邊」、軟陰影、坐/站在白色圓角小平台上、奶油底 #fef8ed、暖色調 (橄欖綠 #7d9a4f / 赤陶 #c84a3a / 琥珀 #e7a44a)。整組角色必須「完全一致」: 同一張臉、同比例、同配色,只換姿勢/表情。輸出透明背景 PNG。</pre>
+      <button class="copy-btn" onclick="copyText(this.previousElementSibling.textContent)">📋 複製一致性鎖</button>
+    </div>
+
+    <div class="todo-item" data-todo-id="img-mochi">
+      <strong>批次 1 — Mochi 三花貓 ×8 表情</strong>
+      <pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:8px 0;">角色: Mochi = 三花貓, 白底配橘+黑斑塊, 圓圓綠眼, 粉紅小鼻, 害羞但勇敢。生 8 張同一隻不同姿勢:
+1) 端正坐著微笑 (idle)  2) 開心跳起來  3) 歪頭思考 (爪抵下巴)  4) 難過耳朵垂下
+5) 蜷著睡覺  6) 揮手打招呼  7) 趴著看一本小書  8) 灑彩帶慶祝</pre>
+      <button class="copy-btn" onclick="copyText(this.previousElementSibling.textContent)">📋 複製批次1</button>
+    </div>
+
+    <div class="todo-item" data-todo-id="img-hana">
+      <strong>批次 2 — Hana 柴犬 ×8 表情</strong>
+      <pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:8px 0;">角色: Hana = 柴犬, 米黃毛, 捲尾, 溫和笑臉。生 8 張同一隻不同姿勢:
+1) 坐著搖尾  2) 趴著專心聽  3) 奔跑  4) 開心吠叫  5) 想睡  6) 歪頭好奇  7) 玩耍  8) 歡呼加油</pre>
+      <button class="copy-btn" onclick="copyText(this.previousElementSibling.textContent)">📋 複製批次2</button>
+    </div>
+
+    <div class="todo-item" data-todo-id="img-grandma">
+      <strong>批次 3 — 奶奶 ×8 表情</strong>
+      <pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:8px 0;">角色: 奶奶 = 慈祥老奶奶, 灰髮挽髻, 圓框眼鏡, 柔軟針織衫, 溫暖笑容。生 8 張同一人不同姿勢:
+1) 坐椅子翻開書說故事  2) 揮手  3) 微笑特寫  4) 輕輕指方向  5) 端茶  6) 拍手  7) 思考  8) 揮手道晚安</pre>
+      <button class="copy-btn" onclick="copyText(this.previousElementSibling.textContent)">📋 複製批次3</button>
+    </div>
+
+    <div class="todo-item" data-todo-id="img-scenes">
+      <strong>批次 4+ — 章節場景卡 (painterly Ghibli, 非 isometric)</strong>
+      <pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px;margin:8px 0;">場景背景用「painterly 宮崎駿水彩」風 (不是 chibi, 因角色不在場景內), 暖色氛圍, 16:9。每章一張:
+ch1 桃太郎=春日河邊大桃漂來 / ch2 醜小鴨=蘆葦池塘 / ch3 龜兔=賽道森林 / ch4 駱駝=金黃沙漠 / ch5 Baba Yaga=雞腳屋暗森林 / ch6 六天鵝=城堡夜空 / ch7 葉限=池塘紅鰭魚 / ch8 三隻小豬=磚草木三屋…(依 storyRegistry 補完)</pre>
+      <button class="copy-btn" onclick="copyText(this.previousElementSibling.textContent)">📋 複製批次4</button>
+    </div>
+  </section>
+
   <!-- v2.0.B.194: pending one-time todos (operational SOP items) -->
   <section class="pending-todos">
     <h2>📌 一次性 Todos</h2>
+    <div class="todo-item" data-todo-id="report-review-sop">
+      <strong>🚩 回報處理 SOP (待玩家 + DB 後啟用)</strong>
+      <div class="desc">回報鈕已上 (B.466), 暫存 localStorage <code>pickup.reports</code>。等有玩家 + 後端後:cron 定期讀回報 → 逐筆檢查並修題;<b>同一題多人回報 → 列出來給作者決策</b> (要不要改/接受答案)。目前無玩家無 DB, 先擱置。</div>
+    </div>
     <div class="desc">設定一次永久解決,跟「定時稽核」的急修不同性質的基礎建設任務</div>
 
     <div class="todo-item" data-todo-id="perm-token">
