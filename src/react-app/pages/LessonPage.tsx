@@ -70,6 +70,7 @@ export default function LessonPage() {
   const [maxLessonInChapter, setMaxLessonInChapter] = useState(0);
   const [idx, setIdx] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
+  const [showExit, setShowExit] = useState(false); // v2.0.B.465: ✕ 離開確認框 (照圖2)
   const startedAt = useRef(Date.now());
   const answerLog = useRef<Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>>([]);
   // v2.0.B.303: ?preview=N — deep-link to a specific question index (used by the
@@ -192,7 +193,7 @@ export default function LessonPage() {
           砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
         {/* v2.0.B.463 fix: ✕ 改扁平鈕, glyph 靠左對齊內容左緣 (14px), 垂直置中 (修「左上角 ❌ 沒對齊」) */}
-        <button onClick={() => navigate('/')} aria-label="Close" style={{
+        <button onClick={() => { if (idx > 0 && idx < lesson.questions.length) setShowExit(true); else navigate('/'); }} aria-label="Close" style={{
           flex: '0 0 auto', width: 40, height: 44, padding: 0, border: 'none', background: 'transparent',
           color: 'var(--t-text-muted)', fontSize: 24, fontWeight: 700, lineHeight: 1, cursor: 'pointer',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', fontFamily: 'inherit',
@@ -237,6 +238,35 @@ export default function LessonPage() {
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
+
+      {/* v2.0.B.465 (per user 照圖2): ✕ 中途離開確認框 — 別走, 快完成了 */}
+      {showExit && (
+        <div role="dialog" aria-modal="true" onClick={() => setShowExit(false)} style={{
+          position: 'fixed', inset: 0, zIndex: 60, display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+          background: 'rgba(40,28,16,0.45)',
+        }}>
+          <div onClick={(e) => e.stopPropagation()} style={{
+            width: '100%', maxWidth: 420, background: 'var(--t-surface)',
+            borderTopLeftRadius: 22, borderTopRightRadius: 22,
+            padding: '24px 20px calc(20px + env(safe-area-inset-bottom))', textAlign: 'center',
+            boxShadow: '0 -8px 28px rgba(0,0,0,0.18)', animation: 'pickup-fade-up 200ms ease',
+          }}>
+            <img src="/mascots/calico-anchor.webp" width={84} height={84} alt="" style={{ display: 'block', margin: '0 auto 12px' }} />
+            <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', marginBottom: 18, lineHeight: 1.4 }}>
+              {translate('q.exitTitle', getLang())}
+            </div>
+            <button type="button" onClick={() => setShowExit(false)} style={{
+              width: '100%', minHeight: 50, border: 'none', borderRadius: 14, background: 'var(--t-success)',
+              color: '#fff', fontSize: 16, fontWeight: 900, fontFamily: 'inherit', cursor: 'pointer',
+              borderBottom: '4px solid var(--t-brand-dark)',
+            }}>{translate('q.exitStay', getLang())}</button>
+            <button type="button" onClick={() => navigate('/')} style={{
+              width: '100%', minHeight: 46, marginTop: 10, border: 'none', borderRadius: 14, background: 'transparent',
+              color: 'var(--t-error)', fontSize: 15, fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
+            }}>{translate('q.exitLeave', getLang())}</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
