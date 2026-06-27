@@ -780,6 +780,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const [result, setResult] = useState<'exact' | 'alt' | 'near' | null>(null);
   const [wrong, setWrong] = useState(false);
   const recorded = useRef(false);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     setText(''); setResult(null); setWrong(false); recorded.current = false;
@@ -814,42 +815,40 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const canSubmit = !result && !!text.trim();
   const borderColor = wrong ? 'var(--t-error)' : result ? 'var(--t-success)' : 'var(--t-border-card)';
   return (
-    <div className="pickup-lesson-words">
-      <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 8 }}>
-        {tq('q.typeTranslate')}
+    // v2.0.B.461 (per user 格式照第一張圖片): 吉祥物 + 對話泡(來源句, 虛線底) + 橫線輸入區 + 底部鍵盤鈕+檢查鈕。
+    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+      {/* 吉祥物 + 對話泡 */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginTop: 8 }}>
+        <img src="/mascots/scene-mochi-talking.webp" width={92} height={92} alt="" style={{ flexShrink: 0, display: 'block' }} />
+        <div style={{
+          position: 'relative', flex: 1, background: '#fff', border: '2px solid #e5e0d6',
+          borderRadius: 16, padding: '14px 16px', marginTop: 10,
+        }}>
+          <span aria-hidden="true" style={{ position: 'absolute', left: -10, top: 18, width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderRight: '10px solid #e5e0d6' }} />
+          <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--t-text)', borderBottom: '2px dashed var(--t-border-card)', paddingBottom: 4, lineHeight: 1.6 }}>{source}</span>
+        </div>
       </div>
-      {/* 來源句 (要翻的意思) */}
-      <div style={{
-        fontSize: 22, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.4,
-        padding: '14px 16px', background: 'var(--t-surface-alt)',
-        border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14,
-      }}>{source}</div>
-      <textarea
-        value={text}
-        onChange={(e) => { setText(e.target.value); if (wrong) setWrong(false); }}
-        onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } }}
-        disabled={!!result}
-        placeholder={tq('q.typePlaceholder')}
-        rows={2}
-        autoCapitalize="off"
-        autoCorrect="off"
-        spellCheck={false}
-        style={{
-          width: '100%', padding: 10, fontSize: 16, fontFamily: 'inherit',
-          border: `2px solid ${borderColor}`,
-          borderRadius: 10, background: 'var(--t-surface)', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
-        }}
-      />
-      {wrong && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-error)', marginBottom: 10 }}>再試一次 · Try again</div>}
-      {/* 檢查按鈕: 沒打字 = 灰不可按; 有字 = 綠可按 (Duolingo 風) */}
-      <button onClick={submit} disabled={!canSubmit} style={{
-        width: '100%', padding: '13px 0',
-        background: canSubmit ? 'var(--t-success)' : 'var(--t-border-card)',
-        color: '#fff', border: 'none',
-        borderBottom: canSubmit ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
-        borderRadius: 14, fontSize: 16, fontWeight: 900,
-        cursor: canSubmit ? 'pointer' : 'default', fontFamily: 'inherit',
-      }}>{tq('q.check')}</button>
+      {/* 橫線輸入區 (兩條橫線, 照圖) */}
+      <div style={{ marginTop: 26 }}>
+        <textarea
+          ref={inputRef}
+          value={text}
+          onChange={(e) => { setText(e.target.value); if (wrong) setWrong(false); }}
+          onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } }}
+          disabled={!!result}
+          placeholder={tq('q.typePlaceholder')}
+          rows={2}
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
+          style={{
+            width: '100%', padding: '12px 4px', fontSize: 18, fontFamily: 'inherit',
+            border: 'none', borderTop: `2px solid ${borderColor}`, borderBottom: `2px solid ${borderColor}`,
+            borderRadius: 0, background: 'transparent', color: 'var(--t-text)', resize: 'none', outline: 'none',
+          }}
+        />
+      </div>
+      {wrong && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-error)', marginTop: 10 }}>再試一次 · Try again</div>}
       {result && (
         <div style={{
           marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)',
@@ -865,6 +864,22 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
         </div>
       )}
+      {/* 底部列: 鍵盤鈕 + 檢查鈕 (照第一張圖) */}
+      <div style={{ marginTop: 'auto', paddingTop: 16, display: 'flex', gap: 12 }}>
+        <button type="button" aria-label="keyboard" onClick={() => inputRef.current?.focus()} disabled={!!result} style={{
+          flexShrink: 0, width: 60, minHeight: 52, borderRadius: 14, border: '2px solid var(--t-border-card)',
+          background: '#fff', fontSize: 22, cursor: result ? 'default' : 'pointer', fontFamily: 'inherit',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>⌨️</button>
+        <button onClick={submit} disabled={!canSubmit} style={{
+          flex: 1, minHeight: 52,
+          background: canSubmit ? 'var(--t-success)' : 'var(--t-border-card)',
+          color: '#fff', border: 'none',
+          borderBottom: canSubmit ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
+          borderRadius: 14, fontSize: 16, fontWeight: 900,
+          cursor: canSubmit ? 'pointer' : 'default', fontFamily: 'inherit',
+        }}>{tq('q.check')}</button>
+      </div>
     </div>
   );
 };
@@ -1128,35 +1143,28 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     return <div style={{ padding: 20, color: 'var(--t-text-muted)', textAlign: 'center' }}>{tq('q.noPairData')}</div>;
   }
 
-  // Shared card style — green when matched, amber when selected, white default
+  // v2.0.B.461 (per user 格式照第二張圖片): 扁平白卡 + 淺灰邊 + 底部軟陰影; 配對成功 = 灰掉淡出。
   const cardStyle = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
-    padding: '14px 10px',
-    background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
-    color: 'var(--t-text)',
-    border: state === 'matched' ? '2px solid var(--t-success)' : '2px solid var(--t-border-card)',
-    borderBottom: state === 'matched' ? '3px solid var(--t-success)' : '3px solid var(--t-brand-dark)',
-    borderRadius: 12,
-    fontSize: 15, fontWeight: 800,
+    width: '100%', minHeight: 78, padding: '0 12px',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    background: state === 'matched' ? '#f6f3ee' : state === 'selected' ? 'var(--t-tint-warn)' : '#fff',
+    color: state === 'matched' ? '#cfc8bb' : 'var(--t-text)',
+    border: `2px solid ${state === 'selected' ? 'var(--t-accent)' : state === 'matched' ? '#ece7df' : '#e5e0d6'}`,
+    boxShadow: state === 'matched' ? 'none' : '0 2px 0 #e0dacf',
+    borderRadius: 16,
+    fontSize: 23, fontWeight: 700, fontFamily: 'inherit',
     cursor: state === 'matched' ? 'default' : 'pointer',
-    fontFamily: 'inherit',
-    minHeight: 52,
-    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
     touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-    transition: 'background 180ms ease, border-color 180ms ease',
+    transition: 'background 150ms ease, border-color 150ms ease, opacity 150ms ease',
+    opacity: state === 'matched' ? 0.55 : 1,
   });
 
   return (
-    // v2.0.B.315 (per user): 塞滿手機不外溢 + 選項上移 + 上方留圖片槽.
-    // 砍 B.293 marginTop:auto 下沉 (會把最後一行推出畫面); 改頂部固定圖片槽 + 配對格緊接其下.
+    // v2.0.B.461 (per user 格式照第二張圖片): 無吉祥物, 兩欄大卡 (左中文/右英文) 填滿, 底部檢查鈕。
     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-      {/* 圖片槽 — 預留給未來插圖 (per user「留個放圖片的位置就好」). 暫放 Mochi 當佔位 */}
-      <div style={{ flexShrink: 0, height: 132, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-        <img src="/mascots/calico-anchor.webp" width={92} height={92} alt="" style={{ borderRadius: '50%', display: 'block' }} />
-      </div>
-      {/* v2.0.B.317 (per user): 配對格往下移 — marginTop/Bottom auto 垂直置中於圖片槽下方剩餘空間 */}
-      <div style={{ display: 'flex', gap: 10, marginTop: 'auto', marginBottom: 'auto' }}>
+      <div style={{ display: 'flex', gap: 16, marginTop: 6 }}>
         {/* LEFT — 中文 */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 14 }}>
           {pairs.map((p, i) => {
             const isMatched = matched.includes(i);
             const isSelected = selected?.side === 'left' && selected.idx === i;
@@ -1179,7 +1187,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           })}
         </div>
         {/* RIGHT — 英文 */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 8 }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 14 }}>
           {rightShuffle.current.map((origIdx, sIdx) => {
             const isMatched = matched.includes(origIdx);
             const isSelected = selected?.side === 'right' && selected.idx === sIdx;
@@ -1201,14 +1209,17 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           })}
         </div>
       </div>
-      {/* v2.0.B.281: 砍 "All matched!" 文字 — 卡片全變綠已 self-evident, 留純 🎉 emoji burst */}
       {revealed && (
-        <div className="pickup-pair-celebrate" style={{
-          marginTop: 20, textAlign: 'center', fontSize: 44, lineHeight: 1,
-        }}>
-          🎉
-        </div>
+        <div className="pickup-pair-celebrate" style={{ marginTop: 16, textAlign: 'center', fontSize: 40, lineHeight: 1 }}>🎉</div>
       )}
+      {/* v2.0.B.461 (格式照第二張圖片): 底部檢查鈕 — 配對題全配對自動推進, 此鈕維持灰 (視覺一致) */}
+      <div style={{ marginTop: 'auto', paddingTop: 16 }}>
+        <button type="button" disabled style={{
+          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+          background: 'var(--t-border-card)', color: '#fff', fontSize: 16, fontWeight: 900,
+          fontFamily: 'inherit', cursor: 'default',
+        }}>{tq('q.check')}</button>
+      </div>
     </div>
   );
 };

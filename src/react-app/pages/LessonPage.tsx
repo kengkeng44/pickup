@@ -20,6 +20,21 @@ import { logLesson } from '../../data/learnLog';
 import { lessonResumeKey as resumeKey } from '../../data/lessonProgress';
 import { applyContentOverlay, type Lesson as LessonData, type ChapterId } from '../../data/lessons';
 import { getLang } from '../../data/lang';
+import { translate } from '../i18n';
+
+// v2.0.B.461 (per user「右上角要顯示題型, 各語言用自己的語言」): 題型 → 標題 i18n key。
+// narration 不顯示標題 (它是故事旁白)。
+const TYPE_TITLE: Record<string, string> = {
+  'type-translate': 'q.title.translate',
+  'tap-pairs': 'q.title.match', 'phrase-pairs': 'q.title.match', 'listen-pairs': 'q.title.match',
+  'emoji-pick': 'q.title.picture', 'picture-mc': 'q.title.picture', 'listen-emoji': 'q.title.picture',
+  'grammar-mc': 'q.title.grammar',
+  'listen-tf': 'q.title.tf', 'listen-tf-zh': 'q.title.tf',
+  'scroll-pick': 'q.title.fill',
+  'type-what-you-hear': 'q.title.listenType',
+  'listen-mc': 'q.title.choose', 'comprehension': 'q.title.choose', 'listen-comprehension': 'q.title.choose',
+  'read-comprehension': 'q.title.choose', 'read-mc-with-audio': 'q.title.choose',
+};
 import { getHp, loseHp, refillHp, subscribeHp, MAX_HP } from '../../data/hp';
 import { unlockCardsForLesson, type CardId } from '../../data/cards';
 import { unlockOutfitsForLesson, getOutfitById, type OutfitId } from '../../data/mascotOutfits';
@@ -207,6 +222,12 @@ export default function LessonPage() {
       {/* v2.0.B.431 (per user「上面原文應該要不見」): 拿掉歷史題堆疊 — 每題只顯示當前題,
           上方不再殘留前一題的句子 (配對/單字題尤其不需要)。 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+        {/* v2.0.B.461: 題型標題 (各語言自己語言, Duolingo 風大標題) */}
+        {TYPE_TITLE[q.type] && (
+          <h2 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px', lineHeight: 1.2 }}>
+            {translate(TYPE_TITLE[q.type], getLang())}
+          </h2>
+        )}
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
     </div>
