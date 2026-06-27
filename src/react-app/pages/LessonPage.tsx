@@ -220,6 +220,7 @@ export default function LessonPage() {
           }} />
         </div>
         <Hearts />
+        <ShareBtn en={q.sentence ?? q.answer ?? ''} zh={q.sentenceZh ?? ''} />
         <ReportBtn qid={q.id} />
         <MuteToggleBtn />
       </div>
@@ -347,6 +348,86 @@ function ReportBtn({ qid }: { qid: string }) {
         </div>
       )}
     </>
+  );
+}
+
+// v2.0.B.469 (per user 照圖4): 每題分享鈕 — 把句子畫成卡片 (canvas) → 系統分享 / 下載。
+function roundRectPath(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+function wrapCanvasText(ctx: CanvasRenderingContext2D, text: string, maxW: number): string[] {
+  const tokens = (text || '').split(/(\s+)/);
+  const lines: string[] = []; let cur = '';
+  for (const w of tokens) {
+    if (ctx.measureText(cur + w).width <= maxW) { cur += w; continue; }
+    if (ctx.measureText(w).width > maxW) {
+      if (cur.trim()) { lines.push(cur.trim()); cur = ''; }
+      let chunk = '';
+      for (const ch of w) {
+        if (ctx.measureText(chunk + ch).width <= maxW) chunk += ch;
+        else { if (chunk) lines.push(chunk); chunk = ch; }
+      }
+      cur = chunk;
+    } else { if (cur.trim()) lines.push(cur.trim()); cur = w; }
+  }
+  if (cur.trim()) lines.push(cur.trim());
+  return lines;
+}
+function loadImg(src: string): Promise<HTMLImageElement> {
+  return new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = src; });
+}
+async function buildShareCard(en: string, zh: string): Promise<Blob | null> {
+  const W = 1080, H = 1080;
+  const c = document.createElement('canvas'); c.width = W; c.height = H;
+  const ctx = c.getContext('2d'); if (!ctx) return null;
+  ctx.fillStyle = '#fef8ed'; ctx.fillRect(0, 0, W, H);
+  roundRectPath(ctx, 70, 130, W - 140, H - 380, 44); ctx.fillStyle = '#fff'; ctx.fill();
+  ctx.strokeStyle = '#ead8c4'; ctx.lineWidth = 5; ctx.stroke();
+  ctx.textBaseline = 'top';
+  ctx.fillStyle = '#3a2c1a'; ctx.font = 'bold 62px sans-serif';
+  let y = 230;
+  for (const ln of wrapCanvasText(ctx, en, W - 280)) { ctx.fillText(ln, 130, y); y += 82; }
+  y += 16;
+  ctx.fillStyle = '#7a6a55'; ctx.font = '46px sans-serif';
+  for (const ln of wrapCanvasText(ctx, zh, W - 280)) { ctx.fillText(ln, 130, y); y += 64; }
+  try { const im = await loadImg('/mascots/calico-anchor.webp'); ctx.drawImage(im, W - 300, H - 360, 220, 220); } catch { /* ignore */ }
+  ctx.fillStyle = '#e0892f'; ctx.font = 'bold 44px sans-serif'; ctx.fillText('拾光 Pickup', 80, H - 160);
+  ctx.fillStyle = '#a89c80'; ctx.font = '32px sans-serif'; ctx.fillText('pickupwords.pages.dev', 80, H - 100);
+  return await new Promise((res) => c.toBlob((b) => res(b), 'image/png'));
+}
+function ShareBtn({ en, zh }: { en: string; zh: string }) {
+  const [busy, setBusy] = useState(false);
+  const share = async () => {
+    if (busy || !en) return;
+    setBusy(true);
+    try {
+      const blob = await buildShareCard(en, zh);
+      if (blob) {
+        const file = new File([blob], 'pickup-sentence.png', { type: 'image/png' });
+        const nav = navigator as Navigator & { canShare?: (d: unknown) => boolean; share?: (d: unknown) => Promise<void> };
+        if (nav.canShare && nav.canShare({ files: [file] }) && nav.share) {
+          await nav.share({ files: [file], title: '拾光 Pickup', text: en });
+        } else {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a'); a.href = url; a.download = 'pickup-sentence.png'; a.click();
+          URL.revokeObjectURL(url);
+        }
+      }
+    } catch { /* user cancelled / unsupported */ }
+    setBusy(false);
+  };
+  return (
+    <button onClick={share} aria-label="分享句子 · Share" title="分享" disabled={busy || !en} style={{
+      flex: '0 0 auto', width: 38, height: 44, padding: 0, border: 'none', background: 'transparent',
+      fontSize: 19, cursor: en ? 'pointer' : 'default', display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      opacity: en ? 0.7 : 0.3, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', fontFamily: 'inherit',
+    }}>📤</button>
   );
 }
 
