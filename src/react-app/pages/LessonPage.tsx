@@ -206,7 +206,7 @@ export default function LessonPage() {
           aria-valuenow={idx + 1}
           aria-valuemin={0}
           aria-valuemax={lesson.questions.length}
-          style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 999, overflow: 'hidden' }}
+          style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 'var(--t-radius-pill)', overflow: 'hidden' }}
         >
           <div style={{
             // v2.0.B.424 (per user): 線性進度 idx/total — 不再 pow 前載 (會讓一進來就看起來半滿);
@@ -214,7 +214,7 @@ export default function LessonPage() {
             width: `${Math.round((idx / lesson.questions.length) * 100)}%`,
             height: '100%',
             background: 'var(--t-success)',
-            borderRadius: 999,
+            borderRadius: 'var(--t-radius-pill)',
             boxShadow: 'inset 0 4px 0 rgba(255,255,255,0.28)',
             transition: 'width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }} />
@@ -258,12 +258,12 @@ export default function LessonPage() {
               {translate('q.exitTitle', getLang())}
             </div>
             <button type="button" onClick={() => setShowExit(false)} style={{
-              width: '100%', minHeight: 50, border: 'none', borderRadius: 14, background: 'var(--t-success)',
+              width: '100%', minHeight: 50, border: 'none', borderRadius: 'var(--t-radius-card)', background: 'var(--t-success)',
               color: '#fff', fontSize: 16, fontWeight: 900, fontFamily: 'inherit', cursor: 'pointer',
               borderBottom: '4px solid var(--t-brand-dark)',
             }}>{translate('q.exitStay', getLang())}</button>
             <button type="button" onClick={() => navigate('/')} style={{
-              width: '100%', minHeight: 46, marginTop: 10, border: 'none', borderRadius: 14, background: 'transparent',
+              width: '100%', minHeight: 46, marginTop: 10, border: 'none', borderRadius: 'var(--t-radius-card)', background: 'transparent',
               color: 'var(--t-error)', fontSize: 15, fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
             }}>{translate('q.exitLeave', getLang())}</button>
           </div>
@@ -336,7 +336,7 @@ function ReportBtn({ qid }: { qid: string }) {
                 <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)', margin: '2px 4px 12px' }}>{cfg.title}</div>
                 {cfg.opts.map((o) => (
                   <button key={o.key} type="button" onClick={() => submit(o.key)} style={{
-                    width: '100%', textAlign: 'left', padding: '13px 14px', marginBottom: 8, borderRadius: 12,
+                    width: '100%', textAlign: 'left', padding: '13px 14px', marginBottom: 8, borderRadius: 'var(--t-radius-md)',
                     border: '2px solid var(--t-border-card)', background: '#fff', color: 'var(--t-text)',
                     fontSize: 15, fontWeight: 700, fontFamily: 'inherit', cursor: 'pointer',
                     WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -449,7 +449,7 @@ function MuteToggleBtn() {
         border: muted ? '2px solid var(--t-text-muted)' : '2px solid transparent',
         cursor: 'pointer', width: 44, height: 44, padding: 0,
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        borderRadius: 12, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+        borderRadius: 'var(--t-radius-md)', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         position: 'relative',
       }}
     >
@@ -478,7 +478,7 @@ function Hearts() {
     <span aria-label={`體力 ${hp}/${MAX_HP}`} title={`體力 ${hp}/${MAX_HP}`}
       style={{
         flex: '0 0 auto', display: 'inline-flex', alignItems: 'center', gap: 4,
-        height: 28, padding: '0 4px 0 8px', borderRadius: 999,
+        height: 28, padding: '0 4px 0 8px', borderRadius: 'var(--t-radius-pill)',
         background: 'var(--t-tint-warn)', border: `1.5px solid ${accent}`,
         lineHeight: 1, whiteSpace: 'nowrap',
       }}>
@@ -630,7 +630,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
       {legendary && (
-        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 999, fontSize: 13, fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
+        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 'var(--t-radius-pill)', fontSize: 13, fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
       )}
       <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
@@ -642,7 +642,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       {isLastLessonOfChapter && chapterReward && (chapterReward.words > 0 || chapterReward.phrases > 0) && (
         <div style={{
           background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)',
-          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14,
+          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)',
           padding: '14px 16px', marginBottom: 24,
         }}>
           <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>🏆 這個單元你學會了</div>
@@ -699,7 +699,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           style={{
             padding: '14px 20px', background: 'var(--t-surface-alt)', color: '#7a5e25',
             border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)',
-            borderRadius: 14, fontSize: 15, fontWeight: 800,
+            borderRadius: 'var(--t-radius-card)', fontSize: 15, fontWeight: 800,
             cursor: 'pointer', fontFamily: 'inherit',
             width: '100%', maxWidth: 420, marginBottom: 10,
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -716,14 +716,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       {isLastLessonOfChapter ? (
         <button onClick={() => setShowNextStoryPicker(true)} style={{
           padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-          borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
       ) : (
         <button onClick={onBack} style={{
           padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-          borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="完成 Continue">→</button>
@@ -780,7 +780,7 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
       background: 'var(--t-surface-alt)',
       border: `2px solid ${accent}`,
       borderBottom: `4px solid ${accent}`,
-      borderRadius: 12,
+      borderRadius: 'var(--t-radius-md)',
       display: 'flex', alignItems: 'center', gap: 12,
       maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
     }}>
@@ -802,7 +802,7 @@ function NewCardsBanner({ count }: { count: number }) {
       background: 'var(--t-tint-warn)',
       border: '2px solid var(--t-brand)',
       borderBottom: '4px solid var(--t-brand-dark)',
-      borderRadius: 12,
+      borderRadius: 'var(--t-radius-md)',
       display: 'flex', alignItems: 'center', gap: 12,
       maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
     }}>
@@ -836,7 +836,7 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
       background: 'var(--t-surface-alt)',
       border: '2px solid var(--t-border-card)',
       borderBottom: '4px solid var(--t-text-muted)',
-      borderRadius: 12,
+      borderRadius: 'var(--t-radius-md)',
       display: 'flex', alignItems: 'center', gap: 12,
       maxWidth: 420, marginLeft: 'auto', marginRight: 'auto',
     }}>
@@ -857,7 +857,7 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
 
 function Stat({ label, value, color, bg }: { label: string; value: number | string; color: string; bg: string }) {
   return (
-    <div style={{ flex: 1, padding: '12px 8px', background: bg, border: `2px solid ${color}`, borderBottom: `4px solid ${color}`, borderRadius: 14, opacity: 0.95 }}>
+    <div style={{ flex: 1, padding: '12px 8px', background: bg, border: `2px solid ${color}`, borderBottom: `4px solid ${color}`, borderRadius: 'var(--t-radius-card)', opacity: 0.95 }}>
       <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', letterSpacing: 1, marginBottom: 4 }}>{label}</div>
       <div style={{ fontSize: 22, fontWeight: 900, color }}>{value}</div>
     </div>

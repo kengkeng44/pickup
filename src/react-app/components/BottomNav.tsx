@@ -40,7 +40,7 @@ export default function BottomNav() {
               margin: '0 3px', padding: '4px 0',
               background: active ? 'rgba(231,164,74,0.14)' : 'transparent',
               border: active ? '2.5px solid #d68a52' : '2.5px solid transparent',
-              borderRadius: 12,
+              borderRadius: 'var(--t-radius-md)',
               transition: 'background 0.2s ease, border-color 0.2s ease',
               fontFamily: 'inherit',
             }}

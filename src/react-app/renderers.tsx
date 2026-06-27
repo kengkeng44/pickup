@@ -197,7 +197,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
       width: '100%', padding: '14px 16px', marginBottom: 8,
       background: bg, color: fg,
       border: `2px solid ${border}`, borderBottom: `4px solid ${state === 'selected' ? 'var(--t-accent)' : 'var(--t-brand-dark)'}`,
-      borderRadius: 14, fontSize: 15, fontWeight: 800,
+      borderRadius: 'var(--t-radius-card)', fontSize: 15, fontWeight: 800,
       cursor: disabled ? 'default' : 'pointer', fontFamily: 'inherit',
       textAlign: 'left',
     }}>
@@ -210,7 +210,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
 // 共用檢查鈕 — 未選 = 灰不可按; 已選 = 綠可按。
 const CheckBtn = ({ active, onCheck }: { active: boolean; onCheck: () => void }) => (
   <button type="button" onClick={onCheck} disabled={!active} style={{
-    width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 14,
+    width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 'var(--t-radius-card)',
     background: active ? 'var(--t-success)' : 'var(--t-border-card)', color: '#fff',
     borderBottom: active ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
     fontSize: 16, fontWeight: 900, fontFamily: 'inherit',
@@ -240,7 +240,7 @@ const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
   return (
     <div style={{
       display: 'inline-flex', alignItems: 'center', gap: 4,
-      padding: '3px 9px', borderRadius: 999,
+      padding: '3px 9px', borderRadius: 'var(--t-radius-pill)',
       background: meta.bg, color: meta.fg,
       fontSize: 11, fontWeight: 800, letterSpacing: 0.3,
       marginBottom: 8,
@@ -272,7 +272,7 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
         onClick={() => onAdvance(text)}
         className="pickup-answer-sticky"
         style={{
-          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+          width: '100%', minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
           background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
           fontFamily: 'inherit', cursor: 'pointer',
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -337,7 +337,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     return (
       <div ref={ref} className="pickup-lesson-words">
         <SpeakerBadge speaker={q.speaker} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text-muted)', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
@@ -353,7 +353,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div ref={ref} className="pickup-lesson-words" style={{ padding: '14px 6px 8px' }}>
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', borderRadius: 12, border: '1px solid var(--t-border-soft)', marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', borderRadius: 'var(--t-radius-md)', border: '1px solid var(--t-border-soft)', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={36} />
         <span dangerouslySetInnerHTML={{ __html: wrapWords(en) }} style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7 }} />
       </div>
@@ -507,7 +507,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             <button key={i} onClick={() => { if (!revealed) { sfxCardPress(); setSel(i); } }} disabled={revealed}
               style={{ width: '100%', padding: '14px 16px', background: bg, color: 'var(--t-text)',
                 border: `2px solid ${border}`, borderBottom: `4px solid ${isSel || (revealed && isCorrect) ? border : 'var(--t-brand-dark)'}`,
-                borderRadius: 14, fontSize: 16, fontWeight: 800, cursor: revealed ? 'default' : 'pointer',
+                borderRadius: 'var(--t-radius-card)', fontSize: 16, fontWeight: 800, cursor: revealed ? 'default' : 'pointer',
                 fontFamily: 'inherit', textAlign: 'left', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
               {o}{revealed && optsZh[i] ? <span style={{ color: 'var(--t-text-muted)', fontWeight: 600, marginLeft: 8 }}>· <SpeakZh text={optsZh[i]} /></span> : ''}
             </button>
@@ -516,7 +516,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       </div>
       {!revealed ? (
         <button type="button" onClick={check} disabled={sel == null}
-          style={{ width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 14,
+          style={{ width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 'var(--t-radius-card)',
             background: sel == null ? 'var(--t-border-card)' : 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
             fontFamily: 'inherit', cursor: sel == null ? 'default' : 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
           {tq('q.check')}
@@ -577,7 +577,7 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <SpeakerBadge speaker={q.speaker} />
       <RevealSentence en={en} zh={q.sentenceZh} answered={revealed} />
       {qPrompt && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 14 }}>
           <SpeakerBtn onClick={() => speak(qPrompt, 'en-US', { force: true })} size={36} />
           <span dangerouslySetInnerHTML={{ __html: wrapWords(qPrompt) }} style={{ flex: 1, fontSize: 16, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.5 }} />
         </div>
@@ -666,7 +666,7 @@ const ReadComprehensionRenderer = ({ q, onAdvance, onAnswer }: RendererProps) =>
             onClick={() => onAdvance(passage)}
             className="pickup-answer-sticky"
             style={{
-              width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+              width: '100%', minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
               background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
               fontFamily: 'inherit', cursor: 'pointer',
               WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -730,7 +730,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>{tq('q.typeWhatYouHear')}</div>
       </div>
@@ -747,7 +747,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       />
       <button onClick={submit} disabled={revealed || !text.trim()} style={{
         width: '100%', padding: '12px 0', background: revealed || !text.trim() ? 'var(--t-border-card)' : 'var(--t-success)',
-        color: '#fff', border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 14, fontSize: 15, fontWeight: 900,
+        color: '#fff', border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 15, fontWeight: 900,
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
       }}>{tq('q.submit')}</button>
       {revealed && (
@@ -867,7 +867,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* 底部列: 鍵盤鈕 + 檢查鈕 (照第一張圖) */}
       <div style={{ marginTop: 'auto', paddingTop: 16, display: 'flex', gap: 12 }}>
         <button type="button" aria-label="keyboard" onClick={() => inputRef.current?.focus()} disabled={!!result} style={{
-          flexShrink: 0, width: 60, minHeight: 52, borderRadius: 14, border: '2px solid var(--t-border-card)',
+          flexShrink: 0, width: 60, minHeight: 52, borderRadius: 'var(--t-radius-card)', border: '2px solid var(--t-border-card)',
           background: '#fff', fontSize: 22, cursor: result ? 'default' : 'pointer', fontFamily: 'inherit',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>⌨️</button>
@@ -876,7 +876,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           background: canSubmit ? 'var(--t-success)' : 'var(--t-border-card)',
           color: '#fff', border: 'none',
           borderBottom: canSubmit ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
-          borderRadius: 14, fontSize: 16, fontWeight: 900,
+          borderRadius: 'var(--t-radius-card)', fontSize: 16, fontWeight: 900,
           cursor: canSubmit ? 'pointer' : 'default', fontFamily: 'inherit',
         }}>{tq('q.check')}</button>
       </div>
@@ -980,7 +980,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>
           {tq('q.tapToBuild')}
@@ -989,7 +989,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* ordered slots (one per word) — tap to place */}
       <div style={{
         minHeight: 60, padding: '12px 10px',
-        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
         marginBottom: 12,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
@@ -1218,7 +1218,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* v2.0.B.461 (格式照第二張圖片): 底部檢查鈕 — 配對題全配對自動推進, 此鈕維持灰 (視覺一致) */}
       <div style={{ paddingTop: 16 }}>
         <button type="button" disabled style={{
-          width: '100%', minHeight: 52, border: 'none', borderRadius: 14,
+          width: '100%', minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
           background: 'var(--t-border-card)', color: '#fff', fontSize: 16, fontWeight: 900,
           fontFamily: 'inherit', cursor: 'default',
         }}>{tq('q.check')}</button>
@@ -1296,7 +1296,7 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     padding: '12px 12px',
     background: state === 'matched' ? 'var(--t-success-tint)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
     border: `2px solid ${state === 'matched' ? 'var(--t-success)' : state === 'selected' ? 'var(--t-brand-dark)' : 'var(--t-border-card)'}`,
-    borderRadius: 14, cursor: state === 'matched' ? 'default' : 'pointer', fontFamily: 'inherit',
+    borderRadius: 'var(--t-radius-card)', cursor: state === 'matched' ? 'default' : 'pointer', fontFamily: 'inherit',
     minHeight: 56, display: 'flex', alignItems: 'center', gap: 8,
     touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
     transition: 'background 160ms ease, border-color 160ms ease',
@@ -1308,7 +1308,7 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     color: 'var(--t-text)',
     border: `2px solid ${state === 'matched' ? 'var(--t-success)' : 'var(--t-border-card)'}`,
     borderBottom: state === 'matched' ? '3px solid var(--t-success)' : '3px solid var(--t-brand-dark)',
-    borderRadius: 14, fontSize: 16, fontWeight: 800, cursor: state === 'matched' ? 'default' : 'pointer',
+    borderRadius: 'var(--t-radius-card)', fontSize: 16, fontWeight: 800, cursor: state === 'matched' ? 'default' : 'pointer',
     fontFamily: 'inherit', minHeight: 56, display: 'flex', alignItems: 'center', justifyContent: 'center',
     touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
     transition: 'background 160ms ease, border-color 160ms ease',
@@ -1401,7 +1401,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7, marginBottom: 24 }}>{afterText}</p>
         <button onClick={() => onAdvance(prompt)} style={{
           padding: '16px 24px', background: 'var(--t-brand)', color: 'var(--t-surface)', border: 'none',
-          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, fontSize: 17, fontWeight: 900,
+          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }} aria-label="聽 Mochi 的故事">→</button>
@@ -1422,7 +1422,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           return (
             <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : ''} aria-label={`${label} ${optsZh[i] || ''}`} style={{
               padding: '14px 8px', background: 'var(--t-surface)', border: '2px solid var(--t-border-soft)',
-              borderBottom: '4px solid var(--t-border-card)', borderRadius: 14,
+              borderBottom: '4px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)',
               cursor: 'pointer', fontFamily: 'inherit',
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
               WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -1495,7 +1495,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words" style={{ textAlign: 'center', padding: '12px 4px' }}>
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 18 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 18 }}>
         <SpeakerBtn onClick={() => speak(word, 'en-US', { force: true })} size={56} />
         <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--t-text-muted)' }}>{tq('q.listenThenPick')}</div>
       </div>
@@ -1526,7 +1526,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 background: bg,
                 border: `2px solid ${border}`,
                 borderBottom: `4px solid ${revealed && isCorrect ? 'var(--t-success)' : 'var(--t-border-card)'}`,
-                borderRadius: 14,
+                borderRadius: 'var(--t-radius-card)',
                 cursor: revealed ? 'default' : 'pointer',
                 fontFamily: 'inherit',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
@@ -1599,7 +1599,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <span style={{ fontSize: 'clamp(48px, 16vh, 96px)', lineHeight: 1 }}>{q.imageEmoji ?? '🖼️'}</span>
         )}
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={32} />
         <span style={{ flex: 1, fontSize: 14, fontWeight: 800, color: 'var(--t-text)' }}>{prompt}</span>
       </div>
@@ -1671,14 +1671,14 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
       <SpeakerBadge speaker={q.speaker} />
       {/* prompt */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(prompt, 'en-US', { force: true })} size={36} />
         <span style={{ flex: 1, fontSize: 16, fontWeight: 800, color: 'var(--t-text)' }}>{prompt}</span>
       </div>
       {/* sentence with tappable words */}
       <div style={{
         padding: '16px 14px', background: 'var(--t-surface)',
-        border: '2px solid var(--t-border-card)', borderRadius: 14, marginBottom: 10,
+        border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', marginBottom: 10,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
         {words.map((w, i) => {
@@ -1821,7 +1821,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   return (
     <div className="pickup-lesson-words">
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'), 'en-US', { force: true })} size={36} />
         <div style={{ flex: 1, fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>
           點字填空 · Tap to fill the blank
@@ -1830,7 +1830,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* sentence with slots */}
       <div style={{
         minHeight: 60, padding: '14px 12px',
-        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
         marginBottom: 14, fontSize: 15, fontWeight: 700, color: 'var(--t-text)',
         lineHeight: 1.9,
       }}>
@@ -1974,7 +1974,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         display: 'flex', alignItems: 'center', gap: 10,
         padding: '14px 16px',
         background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)',
-        borderRadius: 12, marginBottom: 12,
+        borderRadius: 'var(--t-radius-md)', marginBottom: 12,
       }}>
         <SpeakerBtn onClick={() => speak(sentence, 'en-US', { force: true })} size={52} />
         <button
@@ -2002,7 +2002,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* ordered slots — fully blind, no sentence template shown */}
       <div style={{
         minHeight: 60, padding: '14px 12px',
-        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 12,
+        background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
         marginBottom: 12,
         display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center',
       }}>
@@ -2177,7 +2177,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     <div className="pickup-lesson-words" style={{ padding: '4px 0' }}>
       <SpeakerBadge speaker={q.speaker} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 12, marginBottom: 14 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'var(--t-surface-alt)', border: '1px solid var(--t-border-soft)', borderRadius: 'var(--t-radius-md)', marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <span style={{ flex: 1, fontSize: 15, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.6 }}>{en}</span>
       </div>
@@ -2210,7 +2210,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             style={{
               padding: '14px 20px', background: 'var(--t-border-card)',
               color: '#fff', border: 'none', borderBottom: '4px solid var(--t-text-muted)',
-              borderRadius: 12, fontSize: 14, fontWeight: 800,
+              borderRadius: 'var(--t-radius-md)', fontSize: 14, fontWeight: 800,
               cursor: revealed ? 'default' : 'pointer', fontFamily: 'inherit',
               maxWidth: 320,
             }}

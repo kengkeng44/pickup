@@ -108,7 +108,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
               style={{
                 background: 'var(--t-surface)',
                 border: '2px solid var(--t-border)',
-                borderRadius: 14,
+                borderRadius: 'var(--t-radius-card)',
                 padding: '12px 14px',
                 display: 'flex',
                 alignItems: 'flex-start',

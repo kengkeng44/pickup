@@ -24,7 +24,7 @@ export default function AlertsPage() {
           <div key={a.id} style={{
             background: a.earned ? 'var(--t-surface)' : '#f1ebe1',
             border: `2px solid ${a.earned ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
-            borderRadius: 12,
+            borderRadius: 'var(--t-radius-md)',
             padding: 12,
             textAlign: 'center',
             opacity: a.earned ? 1 : 0.6,

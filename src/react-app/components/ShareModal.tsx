@@ -160,7 +160,7 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         <div style={{
           background: '#fff7e8',
           border: '2px solid #e7a44a',
-          borderRadius: 12,
+          borderRadius: 'var(--t-radius-md)',
           padding: 6,
           marginBottom: 14,
         }}>
@@ -251,7 +251,7 @@ function ShareButton({ label, emoji, bg, borderDark, onClick, disabled }: {
         color: '#fff',
         border: 'none',
         borderBottom: `4px solid ${borderDark}`,
-        borderRadius: 12,
+        borderRadius: 'var(--t-radius-md)',
         fontSize: 14,
         fontWeight: 900,
         cursor: disabled ? 'not-allowed' : 'pointer',

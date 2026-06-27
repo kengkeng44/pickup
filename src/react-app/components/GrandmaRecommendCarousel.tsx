@@ -109,7 +109,7 @@ function RecCard({ rec, onTap }: RecCardProps) {
         width: 220,
         scrollSnapAlign: 'start',
         border: 'none',
-        borderRadius: 14,
+        borderRadius: 'var(--t-radius-card)',
         background: accent,
         color: '#ffffff',
         padding: '12px 14px',
@@ -139,7 +139,7 @@ function RecCard({ rec, onTap }: RecCardProps) {
       <div style={{ display: 'flex', gap: 4, marginTop: 2, flexWrap: 'wrap' }}>
         {chips.map((c, i) => (
           <span key={i} style={{
-            fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 999,
+            fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 'var(--t-radius-pill)',
             background: 'rgba(255,255,255,0.22)', color: 'var(--t-surface)', letterSpacing: 0.3,
           }}>{c}</span>
         ))}

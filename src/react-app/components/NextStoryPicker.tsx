@@ -303,7 +303,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
       style={{
         position: 'relative',
         border: isSelected ? '2px solid #d68a52' : '2px solid #e7e3d0',
-        borderRadius: 14,
+        borderRadius: 'var(--t-radius-card)',
         background: isSelected ? 'var(--t-surface-alt)' : 'var(--t-bg)',
         padding: '12px 10px',
         textAlign: 'left',
@@ -334,7 +334,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
             fontSize: 10,
             fontWeight: 900,
             padding: '3px 8px',
-            borderRadius: 999,
+            borderRadius: 'var(--t-radius-pill)',
             boxShadow: '0 2px 0 rgba(60,42,28,0.20)',
             letterSpacing: 0.3,
           }}
@@ -357,7 +357,7 @@ function StoryCard({ rec, isSelected, dimmed, recommended, onTap }: CardProps) {
       </div>
       <span style={{
         alignSelf: 'flex-start',
-        fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 999,
+        fontSize: 10, fontWeight: 800, padding: '2px 8px', borderRadius: 'var(--t-radius-pill)',
         background: 'var(--t-tint-warn)', color: '#7a5e25', letterSpacing: 0.3,
       }}>{culture}</span>
     </button>
@@ -431,7 +431,7 @@ const actionsRow: React.CSSProperties = {
 const actionBtnBase: React.CSSProperties = {
   flex: 1,
   border: 'none',
-  borderRadius: 14,
+  borderRadius: 'var(--t-radius-card)',
   color: '#ffffff',
   fontFamily: 'inherit',
   fontSize: 14,

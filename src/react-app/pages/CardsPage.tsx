@@ -141,7 +141,7 @@ function VocabSection() {
           {sorted.map((c) => (
             <div key={c.word} style={{
               display: 'flex', alignItems: 'center', gap: 10,
-              background: '#fff', borderRadius: 12, padding: '10px 12px',
+              background: '#fff', borderRadius: 'var(--t-radius-md)', padding: '10px 12px',
               border: '1px solid var(--t-border-soft, #eadfca)',
             }}>
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -161,7 +161,7 @@ function VocabSection() {
 
       {!premium && count >= FREE_CARD_CAP && (
         <div style={{
-          marginTop: 12, padding: '10px 12px', borderRadius: 12,
+          marginTop: 12, padding: '10px 12px', borderRadius: 'var(--t-radius-md)',
           background: 'var(--t-tint-warn, #fef3c7)', color: '#7a5e25',
           fontSize: 13, fontWeight: 800, textAlign: 'center',
         }}>
@@ -183,7 +183,7 @@ function CardTile({ card, unlocked, onClick }: {
         background: unlocked ? 'var(--t-surface)' : '#f1ebe1',
         border: `2px solid ${unlocked ? 'var(--t-brand)' : '#c4b89c'}`,
         borderBottom: `4px solid ${unlocked ? 'var(--t-brand-dark)' : '#a89c80'}`,
-        borderRadius: 14,
+        borderRadius: 'var(--t-radius-card)',
         padding: '14px 8px',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
         cursor: 'pointer',
@@ -320,7 +320,7 @@ function CardDetail({ card, unlocked, onClose }: {
           style={{
             marginTop: 18, width: '100%', padding: '12px 18px',
             background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-            borderBottom: '4px solid var(--t-success)', borderRadius: 12,
+            borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-md)',
             fontSize: 15, fontWeight: 900, cursor: 'pointer',
             fontFamily: 'inherit',
             touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',

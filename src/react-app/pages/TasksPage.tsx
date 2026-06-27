@@ -23,7 +23,7 @@ export default function TasksPage() {
     <div style={{ padding: '16px 14px 24px' }}>
       <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('tasks.title')}</h1>
 
-      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)', padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
           <div style={{ flex: 1 }}>
@@ -34,7 +34,7 @@ export default function TasksPage() {
       </div>
 
       {/* v2.0.B.232 招 1: freeze 🧊 hero card. Mochi 隊友 framing, not threat. */}
-      <div style={{ background: 'var(--t-surface)', border: '2px solid #5a8cc4', borderBottom: '4px solid #3e6da3', borderRadius: 14, padding: 18, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid #5a8cc4', borderBottom: '4px solid #3e6da3', borderRadius: 'var(--t-radius-card)', padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🧊</span>
           <div style={{ flex: 1 }}>

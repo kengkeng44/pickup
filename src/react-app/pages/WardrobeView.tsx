@@ -154,7 +154,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   ? (isPreviewCurrent ? 'var(--t-text-muted)' : 'var(--t-success)')
                   : '#a89c80'
               }`,
-              borderRadius: 12,
+              borderRadius: 'var(--t-radius-md)',
               fontSize: 15, fontWeight: 900,
               cursor: isPreviewUnlocked && !isPreviewCurrent ? 'pointer' : 'not-allowed',
               fontFamily: 'inherit',
@@ -188,7 +188,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                     background: isSelected ? 'var(--t-surface-alt)' : 'var(--t-surface)',
                     border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? 'var(--t-border-card)' : '#c4b89c'}`,
                     borderBottom: `4px solid ${isSelected ? 'var(--t-brand-dark)' : isUnlocked ? 'var(--t-text-muted)' : '#a89c80'}`,
-                    borderRadius: 12,
+                    borderRadius: 'var(--t-radius-md)',
                     padding: '10px 6px 8px',
                     display: 'flex', flexDirection: 'column',
                     alignItems: 'center', gap: 4,
@@ -213,7 +213,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                       top: 4, right: 4,
                       background: 'var(--t-success)', color: 'var(--t-surface)',
                       fontSize: 9, fontWeight: 900,
-                      padding: '2px 6px', borderRadius: 999,
+                      padding: '2px 6px', borderRadius: 'var(--t-radius-pill)',
                       letterSpacing: 0.5,
                     }}>
                       WORN

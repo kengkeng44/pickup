@@ -72,7 +72,7 @@ export default function ProfilePage() {
     <div style={{ padding: '16px 14px 24px' }}>
       <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('profile.title')}</h1>
 
-      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 64, height: 64, flex: '0 0 auto' }}>
           <img src="/mascots/calico-anchor.webp" width={64} height={64} alt={catName} style={{ display: 'block' }} />
           {outfitBadge && (
@@ -133,7 +133,7 @@ export default function ProfilePage() {
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 14,
           background: 'var(--t-surface-alt)', border: '2px solid var(--t-brand)',
-          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 14,
+          borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)',
           padding: '14px 16px', marginBottom: 14,
           cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
           touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
@@ -152,7 +152,7 @@ export default function ProfilePage() {
       </button>
 
       {/* v2.0.B.329: 統計 (拿掉「統計」標題, 直接呈現 4 格 — 更簡潔) */}
-      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 16, marginBottom: 14 }}>
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Stat label={t('profile.stat.streak')} value={`${streak} 🔥`} />
           <Stat label={t('profile.stat.xp')} value={String(xp)} />
@@ -168,7 +168,7 @@ export default function ProfilePage() {
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 14,
           background: 'var(--t-surface)', border: '2px solid var(--t-border-card)',
-          borderBottom: '4px solid var(--t-border-card)', borderRadius: 14,
+          borderBottom: '4px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)',
           padding: '14px 16px', marginBottom: 14,
           cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left',
           touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
@@ -222,14 +222,14 @@ function PlayerSwitcher() {
   };
 
   return (
-    <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14, padding: 14, marginBottom: 14 }}>
+    <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 14, marginBottom: 14 }}>
       <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>👥 帳號 · Players</div>
       {players.map((p) => {
         const isActive = p.id === activeId;
         return (
           <button key={p.id} type="button" onClick={() => doSwitch(p.id)} disabled={isActive} style={{
             width: '100%', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8,
-            padding: '11px 14px', borderRadius: 12, fontFamily: 'inherit', textAlign: 'left',
+            padding: '11px 14px', borderRadius: 'var(--t-radius-md)', fontFamily: 'inherit', textAlign: 'left',
             border: `2px solid ${isActive ? 'var(--t-success)' : 'var(--t-border-card)'}`,
             background: isActive ? 'var(--t-success-tint)' : '#fff',
             cursor: isActive ? 'default' : 'pointer',
@@ -254,7 +254,7 @@ function PlayerSwitcher() {
         </div>
       ) : (
         <button type="button" onClick={() => setAdding(true)} style={{
-          width: '100%', padding: '10px 0', marginTop: 2, border: '2px dashed var(--t-border-card)', borderRadius: 12,
+          width: '100%', padding: '10px 0', marginTop: 2, border: '2px dashed var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
           background: 'transparent', color: 'var(--t-text-muted)', fontFamily: 'inherit', fontSize: 14, fontWeight: 800,
           cursor: 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }}>＋ 新增帳號</button>

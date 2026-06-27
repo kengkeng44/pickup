@@ -17,7 +17,7 @@ function Toggle({ on, onChange, ariaLabel }: { on: boolean; onChange: () => void
   return (
     <button type="button" role="switch" aria-checked={on} aria-label={ariaLabel} onClick={onChange}
       style={{
-        width: 52, height: 30, borderRadius: 999, border: 'none', padding: 3, flex: '0 0 auto',
+        width: 52, height: 30, borderRadius: 'var(--t-radius-pill)', border: 'none', padding: 3, flex: '0 0 auto',
         background: on ? 'var(--t-success)' : '#d8c9b3', cursor: 'pointer',
         position: 'relative', transition: 'background 160ms ease-out',
         WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -32,7 +32,7 @@ function Toggle({ on, onChange, ariaLabel }: { on: boolean; onChange: () => void
 }
 
 const cardStyle: React.CSSProperties = {
-  background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 14,
+  background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)',
   padding: 16, marginBottom: 14,
 };
 const rowStyle: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: 12 };
