@@ -177,9 +177,9 @@
 - **自由練習**：130 題大池（80 cloze + 50 scenario 題），有 HP，傳統 cloze 體驗
 - 還有 5 個情境模式（餐廳 / 機場 / 醫院 / 辦公室 / 飯店），每個 10 題
 
-### 5. DEV_UNLOCK_ALL flag
-- `src/data/storyKitten.ts` 內常數，true 時所有章節解鎖（dev 用）
-- **production ship 前要切回 `false`**
+### 5. 解鎖機制（v2.0.B.475 更新）
+- **章節層**：在 `ChaptersPage` 層 gate（前章完成才開下一章）。舊 `DEV_UNLOCK_ALL`（在已刪的 `storyKitten.ts`）一併移除。
+- **章內 lesson 層**：`isLessonUnlocked()`（`runStore.ts`）循序解鎖 — 完成第 k 關才開第 k+1 關，未解鎖 = 灰色不可點（B.473）。
 
 ---
 
@@ -273,23 +273,20 @@
 
 | 層 | 選擇 | 理由 |
 |----|------|------|
-| 遊戲引擎 | Phaser 3.90 | 內建 Arcade 物理 / 場景管理；但**只當狀態機用**，不負責畫面 |
+| UI 框架 | React 18 + react-router | **唯一 entry = `src/main.tsx`**。所有畫面 = React 元件 (`src/react-app/`) |
 | 語言 / 打包 | TypeScript + Vite | strict mode、tsc + vite build |
-| 狀態管理 | Zustand 4.5 | 比 Redux 輕，比 Context 結構化 |
-| 資料驗證 | Zod 3.25 | scenarios / vocab JSON 進來都過 schema |
+| 狀態管理 | Zustand 4.5 | 目前僅 `vocabStore` (WordHint 用)；lesson 進度走純 localStorage helper |
+| 資料驗證 | Zod 3.25 | lessons JSON 進來都過 schema |
 | 部署 | Cloudflare Pages（Wrangler 4.94） | `pickupwords.pages.dev` |
 | Repo | `github.com/kengkeng44/pickup`（public） | portfolio 可見；舊 `wordwar` 自動 redirect 1 年 |
 
-### ⚠️ Phaser 重大架構決策（v0.6）
+### ⚠️ 架構：純 React DOM（v2.0.B.474 — Phaser 已整層刪除）
 
-**所有畫面渲染搬到 DOM，Phaser canvas 設 `display:none`。**
+**歷史**：v0.6-v2.0 早期是 Phaser 當狀態機 + DOM 渲染的混合架構（理由：手機 DPR 模糊 / layout overlap / 觸控穩定性 → 全畫面搬 DOM，Phaser canvas `display:none`）。
 
-理由：
-1. **題目模糊**（v0.4 之前）：Phaser canvas 是 bitmap，手機 DPR 2-3x 放大會糊。DOM 用瀏覽器原生抗鋸齒，絕對清晰
-2. **layout overlap**（v0.5）：Phaser canvas + DOM 混用會 absolute position 打架。改成純 DOM flex column 就一勞永逸
-3. **觸控穩定性**（v0.2）：Phaser tap event 在某些手機 browser 失靈，DOM `button` 元素絕對穩
+**現況（B.474）**：React migration 完成後，整個 Phaser 層（`main.ts` / `bootGame.ts` / `scenes/×9` / 舊 `ui/*.ts` DOM renderers ×14）早已是死碼（從 `main.tsx` 完全到不了），於 B.474 全數刪除，並移除 `phaser` npm 依賴。**現在沒有 Phaser，也沒有 `src/scenes/`。** 三個審查 agent 獨立確認 + build gate（tsc/madge/vitest/vite）全綠驗證。
 
-Phaser 現在只負責：背景色 / 螢幕閃 / 鏡頭抖（CSS keyframe 也能做這些，未來可能完全移除 Phaser）。
+**B.475 後續**：舊 v1.x cloze 引擎（`useRunStore` Zustand 跑題狀態機 + `sentences`/`scenarios`/`storyKitten`/`achievements`/`catGender`）也一併刪除（live UI 早已不用）。`runStore.ts` 現在只剩 lesson-progress 三個 helper。詳見 `docs/audits/` 死碼審查 + B.474/475 commit。
 
 ---
 
@@ -297,40 +294,29 @@ Phaser 現在只負責：背景色 / 螢幕閃 / 鏡頭抖（CSS keyframe 也能
 
 ```
 src/
-├── scenes/                  # Phaser scenes (state machine layer)
-│   ├── BootScene.ts        # 啟動 splash + 難度 pill 折疊（v0.13 極簡化）
-│   ├── MenuScene.ts        # 主選單（自由 / 情境 / 故事）
-│   ├── PlayScene.ts        # 主答題場景
-│   ├── LessonScene.ts      # v2.0 — 單 lesson scope (Duolingo-nested,每章 24 lessons)
-│   ├── StoryModeScene.ts   # 章節網格（8 章 chapter pack）
-│   ├── ChapterIntroScene.ts # 每章 NPC 場景卡 + 旁白
-│   ├── ChapterEndScene.ts  # 每章結束狀態變化
-│   ├── StoryEndingScene.ts # Ch8 cinematic
-│   └── EndScene.ts         # 自由 / 情境模式結束（Duolingo 風完成頁）
+├── main.tsx                 # 唯一 entry — React root + router + theme/backend init
+├── react-app/               # ★ 所有 UI 都在這 (pages / components / renderers)
+│   ├── App.tsx             # routes + BottomNav + onboarding gate
+│   ├── pages/              # MapPage / LessonPage / ChaptersPage / ProfilePage / Settings…
+│   ├── components/         # BottomNav / Onboarding…
+│   ├── renderers.tsx       # 題型 renderers (MC / type-translate / tap-pairs…)
+│   ├── i18n.ts             # zh/en/ja/ko dict + translate()/tq()/getLang()
+│   └── ui/components/      # 共用 Button / Card / ProgressBar
 ├── store/
-│   └── runStore.ts         # Zustand：分數 / HP / 章節進度 / SRS 庫 / 難度
-│                           # v2.0.A.6 加 per-lesson progress(lessonId → completed Q count)
-├── ui/                      # DOM rendering layer
-│   ├── ClozeUI.ts          # 4 選 1 + 反饋面板 + blindRetry flow
-│   ├── GameHUD.ts          # Header：streak + progress + HP + timer
-│   ├── Mascot.ts           # 動畫 wrapper
-│   ├── mascots.ts          # SVG inline 定義
-│   ├── ModeMenu.ts         # 自由 / 情境 / 故事 模式切換
-│   ├── EndOverlay.ts       # Duolingo 風完成 overlay
-│   ├── StoryMapView.ts     # v2.0.A.9 — V2_ENABLED flag + NODE_PATH_V2 (24-button) + buildLessonNode
-│   ├── Confetti.ts         # 破紀錄彩帶
-│   └── domUtil.ts          # 共用 DOM helpers
+│   └── runStore.ts         # 只剩 lesson-progress 純 localStorage helper
+│                           # (readCompletedLessons / markLessonCompleted / isLessonUnlocked)
+├── ui/
+│   └── WordHint.ts         # 點詞釋義 (App + renderers 用) — ui/ 其餘 v1.x DOM 層已刪
 ├── data/
-│   ├── vocab.ts            # 基礎詞彙
-│   ├── sentences.ts        # 80 cloze A2 題目
-│   ├── scenarios.ts        # 5 情境 × 10 題 = 50 情境題
-│   ├── storyKitten.ts      # v1.x chapter pack（保留 backwards-compat）
-│   ├── lessons.ts          # v2.0 — LessonSchema discriminatedUnion + LessonsSchema + loadChapterLessons()
-│   ├── catName.ts          # {catName} placeholder, default 'Mochi'
-│   ├── dogName.ts          # v2.0.A.8 — {dogName} placeholder, default 'Hana' (parallel to catName.ts)
-│   └── roundGenerator.ts   # 出題邏輯：池洗牌、SRS 注入、難度 filter
+│   ├── lessons.ts          # v2.0 — LessonSchema discriminatedUnion + loadChapterLessons() + applyContentOverlay()
+│   ├── xp.ts / coins.ts / streak.ts / hp.ts   # 經濟 / 連續 / 體力 (各自 localStorage)
+│   ├── players.ts          # 多帳號 snapshot/restore 進度保留
+│   ├── catName.ts / dogName.ts                # {catName}=Mochi / {dogName}=Hana
+│   ├── lang.ts / zhHans.ts / answerMatch.ts   # i18n / 簡中 / 打字判斷
+│   └── …                   # onboarding / theme / backend / mascotOutfits…
 ├── audio/
-│   └── bgm.ts              # mp3 streaming（v0.13 從程序合成改寫，63 行）
+│   ├── bgm.ts              # mp3 streaming
+│   └── AudioManager.ts / sfx.ts / tts.ts
 └── assets/                  # 共用 assets
 
 public/
@@ -437,7 +423,7 @@ npx wrangler pages deploy dist \
 4. **Hook encoding fix v4.1 (ASCII suffix)**：still untested on next 80% threshold
 5. **SRS 升級**：「答對一次就移出」要不要改「連對 N 次才移出」真 SM-2？
 6. **完成 8 章後解鎖什麼**：B1 等級題庫 / 續集故事 / 寵物收藏 cosmetic？
-7. **DEV_UNLOCK_ALL flip 時機**：v1.0 ship 前要切回 false + 加 paywall gate
+7. **Paywall gate 時機**：v1.0 ship 前加 paywall（章節解鎖已走 ChaptersPage gate，DEV_UNLOCK_ALL 已隨 storyKitten 刪除）
 
 ---
 
@@ -547,14 +533,14 @@ npx wrangler pages deploy dist \
 
 1. ⬜ 讀完這份 CLAUDE.md
 2. ⬜ `git log --oneline -10` 看最新 commit 軌跡
-3. ⬜ 跑 `npm install && npm run dev` 在 localhost 玩過一輪小貓回家路（建議用 DEV_UNLOCK_ALL=true 看完整 Ch1-8）
-4. ⬜ 看 `src/data/storyKitten.ts` 理解 8 章故事題目結構 + 確認 DEV_UNLOCK_ALL 狀態
-5. ⬜ 看 `src/scenes/PlayScene.ts` + `src/ui/ClozeUI.ts` 理解答題核心 + blindRetry flow
-6. ⬜ 看 `src/scenes/BootScene.ts` 理解 v0.13 極簡 splash + 難度 pill
-7. ⬜ 看 `src/audio/bgm.ts` 理解 mp3 streaming 機制
-8. ⬜ 對齊作者偏好（這份的 "Working Style" 一節）
+3. ⬜ 跑 `npm install && npm run dev` 在 localhost 玩過一輪
+4. ⬜ 看 `src/data/lessons.ts` 理解 v2.0 LessonSchema + loadChapterLessons() + applyContentOverlay()
+5. ⬜ 看 `src/react-app/pages/LessonPage.tsx` + `src/react-app/renderers.tsx` 理解答題核心 + 各題型 + blindRetry
+6. ⬜ 看 `src/react-app/pages/MapPage.tsx` 理解地圖 / 節點解鎖 / HUD
+7. ⬜ 看 `src/store/runStore.ts` 理解 lesson 進度 (循序解鎖) + `src/data/players.ts` 多帳號
+8. ⬜ 對齊作者偏好（這份的 "Working Style" 一節）+ 讀 `docs/standards/2026-06-27-recurring-bug-prevention.md` R1-R7 自查
 9. ⬜ 動工前列「會碰哪些檔 + permission 預告」
 
 ---
 
-*Last updated: 2026-05-26 by Claude (Opus 4.7) — synced to v0.13 state*
+*Last updated: 2026-06-27 by Claude — synced to v2.0.B.475: Phaser + v1.x cloze 引擎刪除後的純 React 架構*
