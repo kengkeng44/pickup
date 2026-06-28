@@ -228,18 +228,29 @@ export interface StreakWeek {
 }
 
 /**
- * 連勝戰績頁的 7 天視窗: 今天置中 (today-3 ... today+3), 對齊截圖。
- * 已打卡 = checkedDays 命中; 未來天 = 空; 最後一格 = 完美周寶箱。
+ * 連勝戰績頁的 7 天視窗 (v2.0.B.485, per user「從第一天連勝是星期幾就放第一格」):
+ * 視窗第一格 = 連勝「起始日的星期幾」, 之後每 7 天滾動一輪。
+ * 做法: 算出最近一個「= 起始日星期幾」且 ≤ 今天的日子當視窗起點, 往後 7 天。
+ * 已打卡 = checkedDays 命中; 今天 highlight; 未來天 = 空; 最後一格 = 完美周寶箱。
  */
 export function getStreakWeek(): StreakWeek {
   const checked = readCheckedDays();
-  const todayIso = isoDate();
-  const base = new Date(todayIso + 'T00:00:00');
+  const count = readStreak();
+  const today = new Date(isoDate() + 'T00:00:00');
+  // 連勝起始日 = 今天 - (count-1)。起始日的星期幾 = 視窗錨點。
+  const firstDay = new Date(today);
+  firstDay.setDate(today.getDate() - Math.max(0, count - 1));
+  const anchorWeekday = firstDay.getDay();
+  // 視窗起點 = 最近一個「星期 = anchorWeekday」且 ≤ 今天。
+  const daysSinceAnchor = (today.getDay() - anchorWeekday + 7) % 7;
+  const start = new Date(today);
+  start.setDate(today.getDate() - daysSinceAnchor);
+
   const days: StreakDay[] = [];
   let checkedCount = 0;
-  for (let offset = -3; offset <= 3; offset++) {
-    const d = new Date(base);
-    d.setDate(base.getDate() + offset);
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
     const iso = isoDate(d);
     const isChecked = checked.has(iso);
     if (isChecked) checkedCount++;
@@ -247,8 +258,8 @@ export function getStreakWeek(): StreakWeek {
       iso,
       label: WEEKDAY_ZH[d.getDay()],
       checked: isChecked,
-      isToday: offset === 0,
-      isReward: offset === 3,
+      isToday: i === daysSinceAnchor,
+      isReward: i === 6,
     });
   }
   return { days, remaining: Math.max(0, 7 - checkedCount), perfect: checkedCount >= 7 };
