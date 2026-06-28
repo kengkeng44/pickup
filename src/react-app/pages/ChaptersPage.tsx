@@ -40,6 +40,8 @@ interface ChapterMeta {
 }
 
 const CHAPTERS: ChapterMeta[] = [
+  // v2.0.B.487 (per user): Ch0 入門 加進清單最前 (序章 tab + 全部 都看得到), Ch1 改成需 Ch0 完成才解鎖。
+  { id: 0, titleZh: '入門 · ABC數字顏色', titleEn: 'Ground Floor', emoji: '🔤', category: 'special', subCat: '入門' },
   { id: 1, titleZh: '桃太郎', titleEn: 'Momotaro', emoji: '🍑', category: 'east', subCat: '日本童話' },
   { id: 2, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', emoji: '🦢', category: 'west', subCat: '安徒生' },
   { id: 3, titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', emoji: '🐢', category: 'fable', subCat: '伊索寓言' },
@@ -73,9 +75,16 @@ const CHAPTERS: ChapterMeta[] = [
   { id: 31, titleZh: 'Robin Hood·Sherwood', titleEn: 'Robin Hood', emoji: '🏹', category: 'mid-long', subCat: '英雄傳奇' },
 ];
 
+// v2.0.B.487: 各章關數 (Ch0 入門=5, 其餘=7) — 取代寫死的 7, 跟地圖 gate 一致。
+function chapterTotal(chId: number): number {
+  return chId === 0 ? 5 : 7;
+}
+function isChapterComplete(chId: number): boolean {
+  return readCompletedLessons(chId).size >= chapterTotal(chId);
+}
 function isChapterUnlocked(chId: number): boolean {
-  if (chId === 1) return true;
-  return readCompletedLessons(chId - 1).size >= 7;
+  if (chId <= 0) return true;                 // Ch0 入門永遠開
+  return isChapterComplete(chId - 1);          // ChN 需前章全完成
 }
 
 export default function ChaptersPage() {
@@ -97,7 +106,7 @@ export default function ChaptersPage() {
     return groups;
   }, [filtered]);
 
-  const completedCount = CHAPTERS.filter(ch => readCompletedLessons(ch.id).size >= 7).length;
+  const completedCount = CHAPTERS.filter(ch => isChapterComplete(ch.id)).length;
   const totalPercent = Math.round((completedCount / CHAPTERS.length) * 100);
 
   return (
@@ -184,7 +193,7 @@ export default function ChaptersPage() {
 
       {/* Grouped chapter cards by sub-category */}
       {Object.entries(grouped).map(([subCat, chapters]) => {
-        const subCompleted = chapters.filter(ch => readCompletedLessons(ch.id).size >= 7).length;
+        const subCompleted = chapters.filter(ch => isChapterComplete(ch.id)).length;
         return (
           <div key={subCat} style={{ marginBottom: 20 }}>
             <h2 style={{
@@ -211,15 +220,17 @@ export default function ChaptersPage() {
               {chapters.map(ch => {
                 const unlocked = isChapterUnlocked(ch.id);
                 const completed = readCompletedLessons(ch.id).size;
-                const isComplete = completed >= 7;
-                const pct = Math.round((completed / 7) * 100);
+                const total = chapterTotal(ch.id);
+                const isComplete = completed >= total;
+                const pct = Math.round((completed / total) * 100);
                 return (
                   <button
                     key={ch.id}
                     onClick={() => {
                       if (!unlocked) return;
                       const seen = (() => { try { return localStorage.getItem(`pickup.chapter.${ch.id}.intro.seen`) === '1'; } catch { return false; } })();
-                      navigate(seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
+                      // Ch0 入門無故事序章 → 直接進地圖。
+                      navigate(ch.id === 0 || seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
                     }}
                     disabled={!unlocked}
                     aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : unlocked ? ` ${pct} percent` : ' locked'}`}
@@ -287,7 +298,7 @@ export default function ChaptersPage() {
                         fontWeight: 800,
                         marginTop: 2,
                       }}>
-                        {completed}/7 · {pct}%
+                        {completed}/{total} · {pct}%
                       </div>
                     )}
                   </button>
