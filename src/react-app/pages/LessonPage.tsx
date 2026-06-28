@@ -14,6 +14,7 @@ import { addXp, lessonXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { setRunComprehensionOverride } from '../../data/comprehensionMode';
+import { isReviewableType, mistakeKey, addChapterMistake, readChapterMistakes, clearChapterMistakes, buildReviewRound, type ReviewQuestion } from '../../data/mistakes';
 // v2.0.B.283 Mochi Bond: award +10 per lesson completion.
 // Parent Corner: log learning history for parent-facing stats.
 import { logLesson } from '../../data/learnLog';
@@ -74,6 +75,10 @@ export default function LessonPage() {
   const [showExit, setShowExit] = useState(false); // v2.0.B.465: ✕ 離開確認框 (照圖2)
   const startedAt = useRef(Date.now());
   const answerLog = useRef<Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>>([]);
+  // v2.0.B.488 錯題統整: 收集本節答錯的「可複習題」(單字/文法/時態), 節末 (+章末) 重做一輪。
+  const wrongRef = useRef<Map<string, RawQuestion>>(new Map());
+  // 複習輪「跑完主題目時」一次性算好 (依當下累積的錯題), 之後 render 沿用。null = 尚未算。
+  const reviewRef = useRef<RawQuestion[] | null>(null);
   // v2.0.B.303: ?preview=N — deep-link to a specific question index (used by the
   // UI/UX spec doc's live 1:1 iframes). Read-only: does NOT persist resume state.
   const isPreview = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('preview');
@@ -90,6 +95,9 @@ export default function LessonPage() {
     if (comp === 'read' || comp === 'listen') setRunComprehensionOverride(comp);
     return () => setRunComprehensionOverride(null);
   }, [chapter, lessonId]);
+
+  // v2.0.B.488: 換關卡 → 清掉上一關的錯題收集 + 複習輪快取。
+  useEffect(() => { wrongRef.current = new Map(); reviewRef.current = null; }, [chapter, lessonId]);
 
   useEffect(() => {
     fetch(`/lessons-ch${chapter}.json`)
@@ -159,20 +167,35 @@ export default function LessonPage() {
     return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
   }
 
-  const done = idx >= lesson.questions.length;
+  // v2.0.B.488 錯題統整: 主題目跑完 → 接「錯題複習」一輪 (本節錯題, 章末再含整章)。
+  const isLastLessonOfChapter = maxLessonInChapter > 0 && lesson.lessonInChapter >= maxLessonInChapter;
+  const baseLen = lesson.questions.length;
+  // 跑到主題目尾端時, 一次性算出複習輪 (本節錯題; 最後一節 = 整章累積錯題, 去重)。
+  // 都沒錯 → 空陣列 → 直接完成 (題數自然減少)。preview 模式不複習。
+  if (!isPreview && idx >= baseLen && reviewRef.current === null) {
+    const lessonWrongs = [...wrongRef.current.values()] as ReviewQuestion[];
+    const pool = isLastLessonOfChapter
+      ? (readChapterMistakes(lesson.chapter) as ReviewQuestion[])
+      : lessonWrongs;
+    reviewRef.current = buildReviewRound(pool) as unknown as RawQuestion[];
+  }
+  const reviewQueue = (!isPreview && idx >= baseLen && reviewRef.current) ? reviewRef.current : [];
+  const allQs = reviewQueue.length ? [...lesson.questions, ...reviewQueue] : lesson.questions;
+  const inReview = reviewQueue.length > 0 && idx >= baseLen;
+  const done = idx >= allQs.length;
   if (done) {
     return <CompletePanel
       lesson={lesson}
       log={answerLog.current}
       elapsedMs={Date.now() - startedAt.current}
-      isLastLessonOfChapter={maxLessonInChapter > 0 && lesson.lessonInChapter >= maxLessonInChapter}
+      isLastLessonOfChapter={isLastLessonOfChapter}
       isPreview={isPreview}
       legendary={legendary}
       onBack={() => navigate('/')}
     />;
   }
 
-  const q = lesson.questions[idx];
+  const q = allQs[idx];
   const Renderer = RENDERERS[q.type] ?? FallbackRenderer;
 
   const onAdvance = (snapshot?: string) => {
@@ -183,6 +206,11 @@ export default function LessonPage() {
   const onAnswer = (userIdx: number, isCorrect: boolean) => {
     if (!isCorrect) loseHp(); // v2.0.B.424: 答錯扣體力 (愛心)
     answerLog.current.push({ q, userIdx, isCorrect });
+    // v2.0.B.488 錯題統整: 答錯的「單字/文法/時態」題記下來 (節末 + 章末重做)。
+    if (!isCorrect && !isPreview && isReviewableType(q.type)) {
+      wrongRef.current.set(mistakeKey(q as ReviewQuestion), q);
+      addChapterMistake(lesson.chapter, q as unknown as ReviewQuestion);
+    }
     try {
       track(EVENT.ANSWER_SUBMIT, {
         lesson_id: lesson.id,
@@ -202,7 +230,7 @@ export default function LessonPage() {
           砍 q-counter "q1/11" pill — 進度條本身就 self-evident */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
         {/* v2.0.B.463 fix: ✕ 改扁平鈕, glyph 靠左對齊內容左緣 (14px), 垂直置中 (修「左上角 ❌ 沒對齊」) */}
-        <button onClick={() => { if (idx > 0 && idx < lesson.questions.length) setShowExit(true); else navigate('/'); }} aria-label="Close" style={{
+        <button onClick={() => { if (idx > 0 && idx < allQs.length) setShowExit(true); else navigate('/'); }} aria-label="Close" style={{
           flex: '0 0 auto', width: 40, height: 44, padding: 0, border: 'none', background: 'transparent',
           color: 'var(--t-text-muted)', fontSize: 24, fontWeight: 700, lineHeight: 1, cursor: 'pointer',
           display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', fontFamily: 'inherit',
@@ -211,16 +239,16 @@ export default function LessonPage() {
         {/* Progress bar — fills proportional to (idx+1)/total. olive success bg + inset top highlight (Duolingo flat) */}
         <div
           role="progressbar"
-          aria-label={`進度 ${idx + 1} / ${lesson.questions.length}`}
+          aria-label={`進度 ${idx + 1} / ${allQs.length}`}
           aria-valuenow={idx + 1}
           aria-valuemin={0}
-          aria-valuemax={lesson.questions.length}
+          aria-valuemax={allQs.length}
           style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 'var(--t-radius-pill)', overflow: 'hidden' }}
         >
           <div style={{
             // v2.0.B.424 (per user): 線性進度 idx/total — 不再 pow 前載 (會讓一進來就看起來半滿);
             // 第 1 題 (idx 0) = 空, 答一題 +1/total. 進度條不顯示任何文字/分鐘數。
-            width: `${Math.round((idx / lesson.questions.length) * 100)}%`,
+            width: `${Math.round((idx / allQs.length) * 100)}%`,
             height: '100%',
             background: 'var(--t-success)',
             borderRadius: 'var(--t-radius-pill)',
@@ -239,6 +267,14 @@ export default function LessonPage() {
           整頁永不外溢. 各題型上方自帶內容/圖片槽, 選項不再下沉到畫面外. */}
       {/* v2.0.B.431 (per user「上面原文應該要不見」): 拿掉歷史題堆疊 — 每題只顯示當前題,
           上方不再殘留前一題的句子 (配對/單字題尤其不需要)。 */}
+      {/* v2.0.B.488: 錯題複習階段橫幅 — 來鞏固一下你最薄弱的單字/文法 (照 Duolingo) */}
+      {inReview && (
+        <div style={{
+          flexShrink: 0, margin: '4px 0 8px', padding: '8px 12px', borderRadius: 'var(--t-radius-md)',
+          background: 'var(--t-tint-warn)', color: '#78350f', fontSize: 13, fontWeight: 800,
+          display: 'flex', alignItems: 'center', gap: 6,
+        }}>✏️ {isLastLessonOfChapter ? '章末錯題複習 · 單字 / 文法 / 時態' : '錯題複習 · 鞏固單字 / 文法 / 時態'}</div>
+      )}
       {/* v2.0.B.462: 題型標題移出捲動區 (固定), 跟上面隔開有空間, 避免標題被捲走 / 撐出空白下滑 */}
       {TYPE_TITLE[q.type] && (
         <h2 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '8px 0 0', lineHeight: 1.2, flexShrink: 0 }}>
@@ -586,6 +622,8 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
     // v2.0.B.306: preview (spec-doc iframe) = read-only, 完全不寫任何狀態.
     if (isPreview) return;
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
+    // v2.0.B.488: 章末複習做完 → 清掉整章錯題庫 (下次重玩重新累積)。
+    if (isLastLessonOfChapter) { try { clearChapterMistakes(lesson.chapter); } catch {} }
     // 只在「首次完成」發 XP/coins, 重玩不再發 (economy farming guard)
     if (!alreadyDone) {
       try { addXp(xp); } catch {}
