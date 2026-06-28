@@ -681,9 +681,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       )}
       <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
-        <Stat label="XP" value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
-        <Stat label="ACCURACY" value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
-        <Stat label="TIME" value={timeStr} color="var(--t-text-muted)" bg="var(--t-bg)" />
+        <Stat label={`⚡ ${translate('done.xp', getLang())}`} value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
+        <Stat label={`🎯 ${translate('done.accuracy', getLang())}`} value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
+        <Stat label={`⏱️ ${translate('done.speed', getLang())}`} value={timeStr} color="var(--t-focus)" bg="var(--t-bg)" />
       </div>
       {/* v2.0.B.322 (per user): 大單元完成獎勵 — 本章新單字 + 新片語統整 */}
       {isLastLessonOfChapter && chapterReward && (chapterReward.words > 0 || chapterReward.phrases > 0) && (
