@@ -8,12 +8,15 @@ describe('Intro (ch0) + Ch1 桃太郎 (v2.0.B.205 IDs aligned)', () => {
     const result = LessonsSchema.safeParse(ch0raw);
     if (!result.success) console.error(result.error.issues);
     expect(result.success).toBe(true);
-    // v2.0.B.237: Ch0 expanded 3 → 7 ground-floor lessons.
-    // v2.0.B.415: Ch0「入門就好」中度精簡 → 5 課輕量 intro (砍進階題型/題數減半)。
-    expect(ch0raw).toHaveLength(5);
+    // v2.0.B.489 (per user「ch0 統整成跟其他章節一樣的題目分配」): Ch0 擴回 7 課,
+    // 比照標準章節題型分配 (取代 B.415 的 5 課輕量精簡)。
+    expect(ch0raw).toHaveLength(7);
     expect(ch0raw[0].id).toBe('kt-ch0-l1');
     expect(ch0raw[0].chapter).toBe(0);
     expect(ch0raw[0].segmentType).toBe('outer-prologue');
+    // 1..7 連號無缺 (修舊版缺 l5/l7 的 gap)
+    expect(ch0raw.map((l: { lessonInChapter: number }) => l.lessonInChapter).sort((a: number, b: number) => a - b))
+      .toEqual([1, 2, 3, 4, 5, 6, 7]);
   });
 
   it('lessons-ch1.json (桃太郎) IDs aligned to kt-ch1-*', () => {

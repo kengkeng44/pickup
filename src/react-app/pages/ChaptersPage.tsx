@@ -75,9 +75,9 @@ const CHAPTERS: ChapterMeta[] = [
   { id: 31, titleZh: 'Robin Hood·Sherwood', titleEn: 'Robin Hood', emoji: '🏹', category: 'mid-long', subCat: '英雄傳奇' },
 ];
 
-// v2.0.B.487: 各章關數 (Ch0 入門=5, 其餘=7) — 取代寫死的 7, 跟地圖 gate 一致。
-function chapterTotal(chId: number): number {
-  return chId === 0 ? 5 : 7;
+// v2.0.B.489: Ch0 擴成 7 關後, 全章節一律 7 關 (跟地圖 gate 一致)。
+function chapterTotal(_chId: number): number {
+  return 7;
 }
 function isChapterComplete(chId: number): boolean {
   return readCompletedLessons(chId).size >= chapterTotal(chId);
