@@ -58,8 +58,7 @@ function loadChapterLessons(chapter: number): Promise<Lesson[]> {
 // ─── strict constants from StoryMapView.ts ─────────────────────────────────
 const COLOR_BG = '#f1ebe1';
 // v2.0.B.318: COLOR_NODE / COLOR_NODE_DARK 移除 — 未完成節點改用各章 chMeta.accent
-const COLOR_NODE_DONE = 'var(--t-success)';
-const COLOR_NODE_DONE_DARK = 'var(--t-success-dark)';
+// v2.0.B.486: COLOR_NODE_DONE 移除 — 完成/到達同色 (該章主色), 不再綠色區分。
 const COLOR_NODE_LOCKED = '#c4b89c';
 const COLOR_NODE_LOCKED_DARK = '#a89c80';
 // v2.0.B.473 (per user「還沒解鎖的要是灰色的」): 關掉測試旗標 → 只有解鎖節點能點,
@@ -442,6 +441,22 @@ export default function MapPage() {
     return map;
   }, [lessons, isAggregate, requestedChapter]);
 
+  // v2.0.B.486 (per user「除了 Ch0 其他應該全灰」): 章節層解鎖 —
+  // Ch0 (入門) 永遠開; ChN 需前章「全關完成」才開。未解鎖章節 = 整章灰。
+  // 單章模式 (從 ChaptersPage 點進來) 該章必已解鎖 → 直接視為 unlocked。
+  const chapterTotals = useMemo(() => {
+    const t = new Map<number, number>();
+    lessons.forEach(l => { const c = l.chapter ?? requestedChapter; t.set(c, (t.get(c) ?? 0) + 1); });
+    return t;
+  }, [lessons, requestedChapter]);
+  const isChapterUnlocked = useCallback((ch: number): boolean => {
+    if (!isAggregate) return true;        // 單章視圖 = ChaptersPage 已 gate
+    if (ch <= 0) return true;             // Ch0 入門永遠開
+    const prevTotal = chapterTotals.get(ch - 1) ?? 0;
+    const prevDone = completedByChapter.get(ch - 1)?.size ?? 0;
+    return prevTotal > 0 && prevDone >= prevTotal;
+  }, [isAggregate, chapterTotals, completedByChapter]);
+
   // v2.0.B.286 (cron walk P0-2 P1): in-progress node marking. ONE localStorage
   // walk per mount (not per node — honours B.275 217×→1× perf rule). Recomputes
   // when lessons change (e.g. returning to map after a lesson remounts the page).
@@ -550,6 +565,7 @@ export default function MapPage() {
   const [tapNode, setTapNode] = useState<{ ch: number; id: string } | null>(null);
   // v2.0.B.275: stable callbacks for MapNode React.memo — 不 inline 給 memo 才能 bail-out
   const handleLessonTap = useCallback((ch: number, id: string) => {
+    setPressedId(null); // v2.0.B.486: 開對話框時清掉壓下狀態 (pointerup 被 overlay 吃掉會卡住)
     setTapNode({ ch, id });
   }, []);
   const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
@@ -888,15 +904,17 @@ export default function MapPage() {
             const chMeta = CHAPTER_META[lessonChapter] ?? CHAPTER_META[1];
             const lessonCompletedSet = completedByChapter.get(lessonChapter) ?? new Set<string>();
             const done = lessonCompletedSet.has(l.id);
-            const unlocked = isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
+            // v2.0.B.486: 章節層 gate 疊在 lesson 層上 — 章鎖住 → 整章灰不可點。
+            const chapterUnlocked = isChapterUnlocked(lessonChapter);
+            const unlocked = chapterUnlocked && isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const inProgress = unlocked && !done && inProgressIds.has(l.id);
-            // v2.0.B.471 (per user「進度到的還沒完成也要有顏色」): 三態上色 —
-            // 完成=綠 / 已到達未完成(unlocked && !done)=該章主色 / 還沒到(locked)=灰。
-            const showDone = done && !TEST_ALL_NODES_GREY;
-            const reached = unlocked && !done;
-            const baseColor = showDone ? COLOR_NODE_DONE : reached ? chMeta.accent : COLOR_NODE_LOCKED;
-            const shadowColor = showDone ? COLOR_NODE_DONE_DARK : reached ? darken(chMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
-            const iconSrc = showDone ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
+            // v2.0.B.486 (per user「同一章節顏色一樣」+「除了 Ch0 其他全灰」):
+            // 上色節點 = 章已解鎖 且 (已完成 或 已到達)。顏色一律用「該章主色」(完成/到達同色);
+            // 鎖住 (章鎖 or 還沒到) = 灰。完成 vs 到達靠 icon (星 vs 爪) 區分, 不靠顏色。
+            const colored = !TEST_ALL_NODES_GREY && (done || unlocked);
+            const baseColor = colored ? chMeta.accent : COLOR_NODE_LOCKED;
+            const shadowColor = colored ? darken(chMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
+            const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
             const iconFilter = 'none';
             const iconOpacity = 1;
             const isPressed = pressedId === l.id;
