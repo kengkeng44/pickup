@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-29T0012-content-qa-cron.md",
+      "archRec": "A5 cultural-reference (P1×4 + P2×4)",
+      "what": "6 筆文化橋接 expZh 補強 (純 explanationZh 改寫, 不碰 correctIndex/structure): ch4-l4-x1 Djinn 阿拉伯來源 + ch4-l5-x1 Kipling 旁白口吻+Howling Desert 虛構地名 + ch5-l7-q7 骷髏=護身符 + ch5-l6-x2「奶奶」斯拉夫護身策略 + ch7-l7-x7 天降飛石「天道好還」框架 + ch7-l5-q2 洞節節日說明. 過 build+answer-index. 剩 ARCH-REC #92(schema) + E2/E3 新增 narration = Tier C 留人決定; chicken-legs P2 已由 q7/q8 既有 scaffold 覆蓋.",
+      "version": "v2.0.B.494",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-25T1210-content-qa-cron.md",
       "archRec": "V1 verdict-tail + V2 vocab-gloss + V3 (explanationZh story-voice)",
       "what": "Ch9-14 listen-tf explanationZh 冷公式『所以答案是 Yes/No。』全改溫暖故事語氣 + 輕量『答 X。』結尾 (104條); Ch10 phrase-pairs bare vocab gloss 加故事鉤前句 (2條); Ch14 V3 定義式翻譯改情感 (3條). 純 explanationZh 編輯, correctIndex/options 不動, build+answer-index 綠.",
