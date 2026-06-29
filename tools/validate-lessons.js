@@ -234,6 +234,35 @@ function lintCulturalBridge(lessons, file) {
   return issues;
 }
 
+// X48_NGRAM_VERBATIM_CORRECT (ARCH-REC #93, per user 同意 A 類): 理解類題的正解不該「從句子
+// 原封不動抄 3 個連續實詞」(verbatim copy tell — 不用懂意思, 抄最像的就對)。把 X3 單詞檢查
+// 擴成 3-gram sliding window。picture-mc / 打字 / 重組類天生需 verbatim → 不掃; 只掃理解家族。
+// 來源: arxiv 2404.07720 ROUGE-2 overlap filter。warn-only。
+const X48_TYPES = new Set(['comprehension', 'listen-mc', 'read-comprehension', 'listen-comprehension']);
+function ngram3Overlap(sentence, opt) {
+  const sent = String(sentence).toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter(Boolean).join(' ');
+  const ow = String(opt).toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter(w => w.length > 2);
+  for (let i = 0; i <= ow.length - 3; i++) {
+    const g = ow.slice(i, i + 3).join(' ');
+    if (sent.includes(g)) return g;
+  }
+  return null;
+}
+function lintNgramVerbatim(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (!X48_TYPES.has(q.type) || typeof q.correctIndex !== 'number' || !Array.isArray(q.options)) continue;
+      const correct = q.options[q.correctIndex];
+      const sent = q.sentence || q.questionEn || q.question || '';
+      if (!correct || !sent) continue;
+      const g = ngram3Overlap(sent, correct);
+      if (g) issues.push(`${file} ${q.id}: X48_NGRAM_VERBATIM_CORRECT (正解與句子重疊 3-gram「${g}」— 抄句 tell)`);
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -297,8 +326,9 @@ for (const file of files) {
     const nonWordIssues = lintNonWordVerb(raw, file);       // X44 (WARN)
     const tfPolarityIssues = lintListenTfPolarity(raw, file); // X46 (WARN)
     const cultBridgeIssues = lintCulturalBridge(raw, file);  // X47 (WARN, keyword stopgap)
+    const ngramIssues = lintNgramVerbatim(raw, file);        // X48 (WARN, 3-gram verbatim)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
