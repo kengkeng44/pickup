@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-29T0611-content-qa-cron.md",
+      "archRec": "X48 觀察名單清理 (a)",
+      "what": "(per user a) 把 X48 抓到的 44 筆理解類「正解抄句子 3-gram」改寫成同義 paraphrase (Fable/Sonnet subagent 產, 主session merge+gate): 34 筆改善上線 (正解不再逐字抄句、correctIndex 不變); 9 筆會造成 X8 length-tell 已還原 (留 verbatim WARN, 較長改寫不值得撞長度); ~1 殘留. build/434 tests + check-answer-index 全綠, X8=0.",
+      "version": "v2.0.B.501",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-29T0012-content-qa-cron.md",
       "archRec": "ARCH-REC #92: culturalOrigin schema 正式版",
       "what": "(per user 同意 B 類) LessonSchema 加選填 culturalOrigin {tradition, keyObjects[], bridgeNoteZh} — 不破壞既有內容 (Zod optional). X47 lint 升級: 有此欄的課改精準判定 (bridgeNoteZh 不可空), 未標的課維持 keyword stopgap. 欄位先就位, 內容填充 = 後續 authoring. build/434 tests 綠.",
