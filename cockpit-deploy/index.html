@@ -698,6 +698,34 @@ ch1 桃太郎=春日河邊大桃漂來 / ch2 醜小鴨=蘆葦池塘 / ch3 龜兔
     </div>
     <div class="desc">設定一次永久解決,跟「定時稽核」的急修不同性質的基礎建設任務</div>
 
+    <div class="todo-item" data-todo-id="mp3-ch25-31">
+      <div class="todo-title">🔊 Ch25-31 奶奶語音 MP3 批次 — ARCH-REC #90 (需 OPENAI_API_KEY)</div>
+      <div class="todo-meta">
+        <span>來源: 2026-06-28T1212 content-qa audit P0-1 (最高 ROI)</span>
+        <span>現況: CHAPTERS_WITH_MP3=Set([1]) — Ch25-31 的 229 聽力題全靠 WebSpeech fallback (iOS Safari 不穩)</span>
+        <span>成本: ~$0.5-1 OpenAI TTS · 191 unique MP3</span>
+        <span>風險: 中 (空改 set 會 404, 必須先產真檔)</span>
+      </div>
+      <ul class="todo-checklist">
+        <li>在有 <code>OPENAI_API_KEY</code> 的環境 (本機 .env 或 shell)</li>
+        <li><code>node tools/generate-grandma-audio.js 25</code> … 一路到 <code>31</code> (djb2 dedup, idempotent 可重跑)</li>
+        <li>確認 <code>public/audio/lessons/</code> 多出 ~191 個 MP3</li>
+        <li><strong>產完才</strong>改 <code>src/audio/tts.ts</code> <code>CHAPTERS_WITH_MP3</code> → <code>Set([1,25,26,27,28,29,30,31])</code></li>
+        <li><code>npm run build</code> 綠 → commit + deploy</li>
+      </ul>
+      <div class="todo-actions">
+        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/audits/2026-06-28T1212-content-qa-cron.md" target="_blank">📄 audit</a>
+        <button class="db-copy" type="button" data-prompt="請拉最新 master. 我已在這個環境設好 OPENAI_API_KEY. 實作 2026-06-28T1212 content-qa-cron 的 ARCH-REC #90 (Ch25-31 MP3 批次):
+1. node tools/generate-grandma-audio.js 25 (然後 26,27,28,29,30,31) — 產奶奶語音 MP3 (djb2 dedup, idempotent), 確認 public/audio/lessons/ 多出 ~191 檔
+2. 產完後改 src/audio/tts.ts 的 CHAPTERS_WITH_MP3 從 Set([1]) → Set([1,25,26,27,28,29,30,31])
+3. npm run build 全綠 (tsc+tests+madge+vite)
+4. commit + push + deploy
+絕不: 空改 CHAPTERS_WITH_MP3 而不產真檔 (會 404 比 WebSpeech fallback 更糟)
+Commit: v2.0.B.NEXT: Ch25-31 奶奶語音 MP3 批次 + 擴 CHAPTERS_WITH_MP3 (ARCH-REC #90)" style="margin-top:6px;">📋 複製「MP3 批次」prompt</button>
+        <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
+      </div>
+    </div>
+
     <div class="todo-item" data-todo-id="perm-token">
       <div class="todo-title">🔑 永久 token 設定 — 從此 deploy 不卡 infisical login</div>
       <div class="todo-meta">
