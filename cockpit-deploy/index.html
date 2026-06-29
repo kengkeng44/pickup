@@ -1609,7 +1609,7 @@ async function renderArchRec() {
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;">
           <div style="font-size:12px;font-weight:900;color:#5d9a35;margin-bottom:4px;">⭐ ${rec.title}</div>
           ${rec.name ? `<div style="font-size:13px;font-weight:800;margin-bottom:6px;">${rec.name}</div>` : ''}
-          ${rec.summary ? `<div style="font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.5;">${rec.summary}…</div>` : ''}
+          ${rec.summary ? `<details style="margin-bottom:8px;"><summary style="font-size:12px;font-weight:700;color:var(--accent-dark);cursor:pointer;padding:2px 0;">📖 建議內容 (點開)</summary><div style="font-size:12px;color:var(--text);margin-top:6px;line-height:1.5;">${rec.summary}…</div></details>` : ''}
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">📁 來源: <code>${file}</code>${stamp ? ` · 🕒 ${stamp}` : ''}</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
             <button class="archrec-copy" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:8px 14px;font-weight:800;cursor:pointer;font-family:inherit;font-size:13px;min-height:44px;">📋 一鍵複製這個 prompt</button>
@@ -1656,6 +1656,29 @@ loadDashboard();
 wireDecisionBoardCopy();
 renderArchRec();
 wireTodoDelete();
+
+// v2.0.B.496 (per user「首頁下面太長, 折疊」): 把長的參考區 (待生圖片 / 一次性 Todos)
+// 預設折疊, 點標題展開。純前端包裝, 不動內容 (delete 監聽已先 wire, 移動保留)。
+(function collapseRefSections() {
+  document.querySelectorAll('section.pending-todos').forEach(function (sec) {
+    var h = sec.querySelector('h2'); if (!h) return;
+    var t = h.textContent || '';
+    if (!(t.indexOf('待生圖片') >= 0 || t.indexOf('一次性 Todos') >= 0)) return;
+    var kids = Array.prototype.slice.call(sec.children).filter(function (c) { return c !== h; });
+    var box = document.createElement('div'); box.style.display = 'none';
+    kids.forEach(function (c) { box.appendChild(c); });
+    sec.appendChild(box);
+    h.style.cursor = 'pointer';
+    var caret = document.createElement('span');
+    caret.textContent = ' ▸'; caret.style.color = 'var(--muted)'; caret.style.fontSize = '13px';
+    h.appendChild(caret);
+    h.addEventListener('click', function () {
+      var open = box.style.display !== 'none';
+      box.style.display = open ? 'none' : '';
+      caret.textContent = open ? ' ▸' : ' ▾';
+    });
+  });
+})();
 </script>
 
 </body>
