@@ -54,6 +54,11 @@
   (djinn/baba yaga/洞節…) 但整章無任一題 expZh 含文化橋接 marker → WARN。首掃命中 ch5(baba yaga / chicken leg),
   已補 2 句俄羅斯民間文化註 → 現 0 命中(乾淨 regression guard)。清單 `X47_ENTITIES`/`X47_MARKERS` 可擴。
   > 正式版(`culturalOrigin` schema 欄位 + keyObjects 精準判定 + 「奶奶補充」UI chip)仍是 B 類, 待作者決定;keyword 版先頂著。
+- ✅ **已落地 (B.504, WARN)**:**X49_STIMULUS_REUSE**(ARCH-REC #94, 來源 2026-06-28T1212 content-qa-cron audit P0-2)。規則:同一節內同一句 `sentence`
+  同時當 comprehension/listen-mc/listen-comprehension/read-comprehension 的 stimulus *又* 當 listen-tf 的 stimulus → 第二題退化成「回憶」而非「聽力」
+  (Buck 2001 §5.3)。warn-only。首掃全 corpus 124 命中(audit 估 Ch25-31 就有 109)。content cron 漸修:改寫其中一題為 paraphrase, **不動 correctIndex**。
+  > 同 audit 的 ARCH-REC #90(Ch25-31 MP3 批次生成 + 擴 `CHAPTERS_WITH_MP3`)需 `OPENAI_API_KEY` + 真檔產出, 屬基建/內容批次, **不能只改 set**
+  > (指向不存在的 MP3 會 404 → 比 WebSpeech fallback 更糟)。EM-dash 正規化 / SSML = 內容 + schema, 留 content cron / B 類。
 - ❌ **X45_GRAMMAR_MC_ALL_MORPH — 決定不做 (rejected)**:與 `docs/standards/2026-06-22-question-distribution-standard.md`
   的 grammar-mc 教條衝突——該標準**刻意**要求干擾項是同字根文法變體 (go/goes/going/went),因為 Pickup 的 grammar-mc
   是給 A1/A2 兒童的**文法 drill**(練「這個語境該用哪個變化形」),不是綜合理解 MCQ。ACL2025 的 mixed-foil 建議

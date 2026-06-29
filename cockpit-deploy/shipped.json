@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-28T1212-content-qa-cron.md",
+      "archRec": "ARCH-REC #94: X49_STIMULUS_REUSE lint",
+      "what": "(per user 實作 ARCH-REC, A 類 lint 依 convention 預先同意) 實作 X49_STIMULUS_REUSE (audit P0-2 / ARCH-REC table row 4): validate-lessons.js 加 lint — 同一節內同一句 sentence 同時當理解類(comprehension/listen-mc/listen-comprehension/read-comprehension)stimulus 又當 listen-tf stimulus → 退化成回憶非聽力 (Buck 2001 §5.3). warn-only 不擋 build, 首掃全 corpus 124 命中 (Ch25 10, audit 估 Ch25-31 共109). general-purpose code-review 過 (欄位對映正確 listen-tf stimulus=sentence/crash-safe/嚴格 warn-only). content cron 漸修(改寫一題 paraphrase, 不動 correctIndex). 同 audit 的 ARCH-REC #90 MP3 批次(擴 CHAPTERS_WITH_MP3)需 OPENAI_API_KEY+真檔, 不能空改 set(404 比 WebSpeech 更糟)= 留基建批次; EM-dash/SSML = content/B 類. build/434 tests 綠.",
+      "version": "v2.0.B.504",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-09T0908-ui-ux-cron.md",
       "archRec": "ARCH-REC #9 (Duolingo Stories 左右泡泡) — re-verify 全 obsolete/Tier C",
       "what": "(cron code 全修, re-verify) 此 audit 描述的 NarrationRenderer (renderers.tsx:193 hardcode calico-anchor.webp + flex bubble) 已於 B.369 整段重寫 → 現為 SpeakerBadge + RevealSentence + 手動繼續, 無 portrait/無 bubble/無自動推進. P1 D1 portrait map / P2 左右翻 / P3 移除 SpeakerBadge / P5 narrator 樣式 / P7 dwell 全 OBSOLETE. P6 Ch2-8 narration = 內容(L)非程式. ARCH-REC #9 整個 Duolingo Stories 雙角色泡泡重設計 = Tier C 設計方向 (與 B.369 已 ship 設計衝突, 留作者決定). 0 可自動修. 標記已處理防重複.",

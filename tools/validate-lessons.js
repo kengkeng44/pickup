@@ -271,6 +271,41 @@ function lintNgramVerbatim(lessons, file) {
   return issues;
 }
 
+// X49_STIMULUS_REUSE (ARCH-REC #94, per user 同意 A 類 lint): 同一節內, 同一句 sentence 同時
+// 當 comprehension/listen-mc/listen-comprehension 的考題 stimulus *又* 當 listen-tf 的 stimulus →
+// 學生第一題已聽/讀過, 第二題退化成「回憶」而非「聽力」(Buck 2001 §5.3 stimulus repetition)。
+// warn-only, content cron 漸修 (改寫其中一題為 paraphrase, 不動 correctIndex)。
+const X49_COMP_TYPES = new Set(['comprehension', 'listen-mc', 'listen-comprehension', 'read-comprehension']);
+function normStimulus(s) {
+  return String(s).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean).join(' ');
+}
+function lintStimulusReuse(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    // norm sentence → { comp: bool, tf: bool }
+    const seen = new Map();
+    for (const q of lesson.questions || []) {
+      const sent = q.sentence || q.questionEn || q.text || '';
+      const key = normStimulus(sent);
+      if (!key || key.split(' ').length < 3) continue; // 太短不算 stimulus
+      const isComp = X49_COMP_TYPES.has(q.type);
+      const isTf = q.type === 'listen-tf';
+      if (!isComp && !isTf) continue;
+      const rec = seen.get(key) || { comp: false, tf: false, snippet: sent };
+      if (isComp) rec.comp = true;
+      if (isTf) rec.tf = true;
+      seen.set(key, rec);
+    }
+    for (const [, rec] of seen) {
+      if (rec.comp && rec.tf) {
+        const snip = String(rec.snippet).slice(0, 48);
+        issues.push(`${file} ${lesson.id}: X49_STIMULUS_REUSE (同句「${snip}…」同節既當理解題又當 listen-tf — 退化成回憶)`);
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -335,8 +370,9 @@ for (const file of files) {
     const tfPolarityIssues = lintListenTfPolarity(raw, file); // X46 (WARN)
     const cultBridgeIssues = lintCulturalBridge(raw, file);  // X47 (WARN, keyword stopgap)
     const ngramIssues = lintNgramVerbatim(raw, file);        // X48 (WARN, 3-gram verbatim)
+    const stimulusIssues = lintStimulusReuse(raw, file);     // X49 (WARN, cross-type stimulus reuse)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
