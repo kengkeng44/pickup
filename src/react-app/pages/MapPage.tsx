@@ -260,7 +260,8 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
       aria-modal="true"
       onClick={onClose}
       style={{
-        position: 'fixed', inset: 0, zIndex: 50,
+        // v2.0.B.492: zIndex 50 → 200 (蓋過 BottomNav 的 100, 修「晉升傳奇被底部導覽切掉」)
+        position: 'fixed', inset: 0, zIndex: 200,
         display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
         background: 'rgba(40,28,16,0.45)',
       }}
@@ -269,6 +270,7 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
         onClick={(e) => e.stopPropagation()}
         style={{
           width: '100%', maxWidth: 420,
+          maxHeight: '90dvh', overflowY: 'auto', // v2.0.B.492: 小螢幕也不切按鈕
           background: 'var(--t-surface)',
           borderTopLeftRadius: 22, borderTopRightRadius: 22,
           padding: '22px 20px calc(22px + env(safe-area-inset-bottom))',
@@ -357,6 +359,7 @@ export default function MapPage() {
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [pressedId, setPressedId] = useState<string | null>(null);
+  const [lockedMsg, setLockedMsg] = useState(false); // v2.0.B.492: 「尚未解鎖」toast
   // v2.0.B.272: 整張書封 click toggle 金句集錦 (user: 「書封點進去應該是金句集錦」)
   // 再點書封 = 關 sheet 回地圖 (toggle 而非僅 open)
   const [showKeySheet, setShowKeySheet] = useState(false);
@@ -567,6 +570,12 @@ export default function MapPage() {
   const handleLessonTap = useCallback((ch: number, id: string) => {
     setPressedId(null); // v2.0.B.486: 開對話框時清掉壓下狀態 (pointerup 被 overlay 吃掉會卡住)
     setTapNode({ ch, id });
+  }, []);
+  // v2.0.B.492 (per user「還沒解鎖的要跳出 尚未解鎖」): 點未解鎖節點 → 短暫 toast。
+  const handleLockedTap = useCallback(() => {
+    setPressedId(null);
+    setLockedMsg(true);
+    window.setTimeout(() => setLockedMsg(false), 1600);
   }, []);
   const handlePressDown = useCallback((id: string) => { setPressedId(id); }, []);
   const handlePressEnd = useCallback(() => { setPressedId(null); }, []);
@@ -908,10 +917,10 @@ export default function MapPage() {
             const chapterUnlocked = isChapterUnlocked(lessonChapter);
             const unlocked = chapterUnlocked && isLessonUnlocked(lessonChapter, l.lessonInChapter, lessonCompletedSet.size);
             const inProgress = unlocked && !done && inProgressIds.has(l.id);
-            // v2.0.B.486 (per user「同一章節顏色一樣」+「除了 Ch0 其他全灰」):
-            // 上色節點 = 章已解鎖 且 (已完成 或 已到達)。顏色一律用「該章主色」(完成/到達同色);
-            // 鎖住 (章鎖 or 還沒到) = 灰。完成 vs 到達靠 icon (星 vs 爪) 區分, 不靠顏色。
-            const colored = !TEST_ALL_NODES_GREY && (done || unlocked);
+            // v2.0.B.492 (per user「ch1 第一三小節怎麼會有顏色」): 章鎖住 → 整章灰,
+            // 連舊資料裡「已完成」的關也要灰 (之前 done 不看 chapterUnlocked → 殘留上色)。
+            // 顏色一律用「該章主色」(完成/到達同色); 完成 vs 到達靠 icon (星/爪) 區分。
+            const colored = !TEST_ALL_NODES_GREY && chapterUnlocked && (done || unlocked);
             const baseColor = colored ? chMeta.accent : COLOR_NODE_LOCKED;
             const shadowColor = colored ? darken(chMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
             const iconSrc = done ? '/mascots/node-star.webp' : '/mascots/node-paw.webp';
@@ -966,6 +975,7 @@ export default function MapPage() {
                 restShadow={restShadow}
                 pressShadow={pressShadow}
                 onTap={handleLessonTap}
+                onLockedTap={handleLockedTap}
                 onPressDown={handlePressDown}
                 onPressEnd={handlePressEnd}
                 innerRef={isCurrent ? currentNodeRef : undefined}
@@ -983,6 +993,19 @@ export default function MapPage() {
           titleEn={chTitle(meta)}
           onClose={() => setShowKeySheet(false)}
         />
+      )}
+
+      {/* v2.0.B.492: 點未解鎖節點 → 「尚未解鎖」toast */}
+      {lockedMsg && (
+        <div role="status" style={{
+          position: 'fixed', left: '50%', bottom: 'calc(90px + env(safe-area-inset-bottom))',
+          transform: 'translateX(-50%)', zIndex: 210,
+          background: 'rgba(40,28,16,0.92)', color: '#fff',
+          padding: '12px 20px', borderRadius: 'var(--t-radius-pill)',
+          fontSize: 15, fontWeight: 800, whiteSpace: 'nowrap',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.25)', pointerEvents: 'none',
+          animation: 'pickup-fade-up 180ms ease',
+        }}>🔒 {(lang === 'zh' || lang === 'zh-Hans') ? '尚未解鎖 · 先完成前面的關卡' : 'Locked · finish earlier lessons first'}</div>
       )}
 
       {/* v2.0.B.433: 點節點 → Duolingo 風選單 (繼續/複習 + 晉升傳奇) */}

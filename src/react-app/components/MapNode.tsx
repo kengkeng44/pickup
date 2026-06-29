@@ -34,6 +34,8 @@ interface MapNodeProps {
   restShadow: string;
   pressShadow: string;
   onTap: (chapter: number, lessonId: string) => void;
+  /** v2.0.B.492: 點未解鎖節點 → 彈「尚未解鎖」(節點不再 disabled, 改路由到這)。 */
+  onLockedTap?: () => void;
   onPressDown: (lessonId: string) => void;
   onPressEnd: () => void;
   innerRef?: Ref<HTMLButtonElement>;
@@ -44,9 +46,9 @@ function MapNodeImpl({
   done: _done, inProgress, unlocked, isCurrent, isPressed,
   baseColor, iconSrc, iconFilter, iconOpacity,
   restShadow, pressShadow,
-  onTap, onPressDown, onPressEnd, innerRef,
+  onTap, onLockedTap, onPressDown, onPressEnd, innerRef,
 }: MapNodeProps) {
-  const handleClick = () => { if (unlocked) onTap(chapter, lessonId); };
+  const handleClick = () => { if (unlocked) onTap(chapter, lessonId); else onLockedTap?.(); };
   const handleDown = (_e: ReactPointerEvent<HTMLButtonElement>) => { if (unlocked) onPressDown(lessonId); };
   return (
     <button
@@ -54,7 +56,7 @@ function MapNodeImpl({
       data-lesson-id={lessonId}
       className={isCurrent ? 'pickup-map-node-current' : undefined}
       type="button"
-      disabled={!unlocked}
+      aria-disabled={!unlocked}
       aria-label={ariaLabel}
       onClick={handleClick}
       onPointerDown={handleDown}
@@ -70,7 +72,7 @@ function MapNodeImpl({
         background: baseColor,
         boxShadow: isPressed ? pressShadow : restShadow,
         transform: isPressed ? 'translateY(8px)' : 'none',
-        cursor: unlocked ? 'pointer' : 'not-allowed',
+        cursor: 'pointer', // locked 也可點 (彈「尚未解鎖」)
         opacity: unlocked ? 1 : 0.7,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: 0, fontFamily: 'inherit',
