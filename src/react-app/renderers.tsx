@@ -822,17 +822,34 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   return (
     // v2.0.B.461 (per user 格式照第一張圖片): 吉祥物 + 對話泡(來源句, 虛線底) + 橫線輸入區 + 底部鍵盤鈕+檢查鈕。
     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-      {/* 吉祥物 + 對話泡 */}
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginTop: 8 }}>
-        <img src="/mascots/scene-mochi-talking.webp" width={92} height={92} alt="" style={{ flexShrink: 0, display: 'block' }} />
-        <div style={{
-          position: 'relative', flex: 1, background: '#fff', border: '2px solid #e5e0d6',
-          borderRadius: 16, padding: '14px 16px', marginTop: 10,
-        }}>
-          <span aria-hidden="true" style={{ position: 'absolute', left: -10, top: 18, width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderRight: '10px solid #e5e0d6' }} />
-          <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--t-text)', borderBottom: '2px dashed var(--t-border-card)', paddingBottom: 4, lineHeight: 1.6 }}>{source}</span>
+      {(q.imageEmoji || q.imageUrl) ? (
+        /* v2.0.B.509 重要單字實物圖卡 (照 Duolingo「翻譯此單詞」) — 圖 + 來源詞, 取代對話泡 */
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 8 }}>
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+            background: 'var(--t-surface)', border: '2px solid var(--t-border-soft)',
+            borderRadius: 'var(--t-radius-card)', padding: '22px 30px',
+            boxShadow: 'inset 0 2px 0 rgba(255,255,255,0.5), 0 3px 0 rgba(60,42,28,0.10)',
+          }}>
+            {q.imageUrl
+              ? <img src={q.imageUrl} alt="" style={{ width: 128, height: 128, objectFit: 'contain', display: 'block' }} />
+              : <span style={{ fontSize: 96, lineHeight: 1 }} aria-hidden="true">{q.imageEmoji}</span>}
+            <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--t-text)' }}>{source}</span>
+          </div>
         </div>
-      </div>
+      ) : (
+        /* 吉祥物 + 對話泡 (純文字來源句) */
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginTop: 8 }}>
+          <img src="/mascots/scene-mochi-talking.webp" width={92} height={92} alt="" style={{ flexShrink: 0, display: 'block' }} />
+          <div style={{
+            position: 'relative', flex: 1, background: '#fff', border: '2px solid #e5e0d6',
+            borderRadius: 16, padding: '14px 16px', marginTop: 10,
+          }}>
+            <span aria-hidden="true" style={{ position: 'absolute', left: -10, top: 18, width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderRight: '10px solid #e5e0d6' }} />
+            <span style={{ fontSize: 22, fontWeight: 800, color: 'var(--t-text)', borderBottom: '2px dashed var(--t-border-card)', paddingBottom: 4, lineHeight: 1.6 }}>{source}</span>
+          </div>
+        </div>
+      )}
       {/* 橫線輸入區 (兩條橫線, 照圖) */}
       <div style={{ marginTop: 26 }}>
         <textarea
