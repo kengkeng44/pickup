@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-28T1809-content-qa-cron.md",
+      "archRec": "X46 觀察名單清理 (a) — listen-tf 極性再平衡",
+      "what": "(per user 改) 用 write→verify 雙 agent 修 X46 acquiescence bias: 46 節 listen-tf 同答案≥75% → 翻轉 62 題敘述使每節 ~50/50. rewrite agent 依故事 narration 改寫+翻答案, 第二 verify agent 獨立查真偽 (拒 1 筆 ch30-l4-x8 假翻真), 主session 再人工抽查 12 筆「只翻 correctIndex」全為 narration 逐字真句 (修到真 mislabel bug). 結果 X46 46→1, X8=0, build/434 tests 綠, correctIndex 變動剛好 62 筆=預期 flip 無誤傷.",
+      "version": "v2.0.B.502",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-29T0611-content-qa-cron.md",
       "archRec": "X48 觀察名單清理 (a)",
       "what": "(per user a) 把 X48 抓到的 44 筆理解類「正解抄句子 3-gram」改寫成同義 paraphrase (Fable/Sonnet subagent 產, 主session merge+gate): 34 筆改善上線 (正解不再逐字抄句、correctIndex 不變); 9 筆會造成 X8 length-tell 已還原 (留 verbatim WARN, 較長改寫不值得撞長度); ~1 殘留. build/434 tests + check-answer-index 全綠, X8=0.",
