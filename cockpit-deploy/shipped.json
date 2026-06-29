@@ -3,6 +3,13 @@
   "shipped": [
     {
       "audit": "docs/audits/2026-06-28T1809-content-qa-cron.md",
+      "archRec": "ARCH-REC #91/#92 收尾 — X47 lint + 修3真bug + X45 rejected",
+      "what": "(per user ab) 1) 修 X44 抓到的 3 個非字真 bug: ch0-l6 readed→to read / ch13-l5 puted→to put / ch14-l3 leaded→leads (只換干擾項, correctIndex 不變). 2) 實作 X47_CULTURAL_BRIDGE (keyword stopgap, 不動 schema; 首掃 ch5 baba-yaga/chicken-leg, 補2句俄羅斯民間文化註→0命中). 3) X45_GRAMMAR_MC_ALL_MORPH 決定不做 (與 distribution-standard grammar-mc drill 教條衝突, 詳見 arch-rec-handling-convention.md). build+answer-index 綠.",
+      "version": "v2.0.B.498",
+      "date": "2026-06-29"
+    },
+    {
+      "audit": "docs/audits/2026-06-28T1809-content-qa-cron.md",
       "archRec": "ARCH-REC #91 (X44 + X46; X45 deferred B-class)",
       "what": "validate-lessons.js 加 2 條 WARN lint (per user 同意 A 類, 規範見 2026-06-29-arch-rec-handling-convention.md): X44_NON_WORD_VERB (grammar-mc 非字 goed/puted, 首掃抓到 3 真 bug: ch0-l6 readed/ch13-l5 puted/ch14-l3 leaded) + X46_LISTEN_TF_POLARITY (一節 listen-tf 同答案≥75%, 抓 46 節). warn-only 不擋 build. X45(與 distribution-standard grammar-mc 教條衝突)+ X47/culturalOrigin(需 schema)改判 B 類留人決定.",
       "version": "v2.0.B.497",

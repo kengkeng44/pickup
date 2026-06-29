@@ -208,6 +208,32 @@ function lintListenTfPolarity(lessons, file) {
   return issues;
 }
 
+// X47_CULTURAL_BRIDGE (per user 同意, keyword stopgap — 正式版需 culturalOrigin schema = B 類待批)。
+// 規則: 一「章」出現文化專名 (djinn/baba yaga/洞節…) 但**整章沒有任一題** expZh 含文化橋接
+// marker (阿拉伯/俄羅斯/民間/虛構/節日…) → WARN。只判「整章缺橋接」(非每題), 避免「同一專名
+// 每次出現都 flag」的噪音 (audit 指引: 首次出現給橋接即可)。清單可擴。warn-only。
+const X47_ENTITIES = ['djinn', 'baba yaga', 'vasilisa', 'kipling', 'howling desert', 'chicken leg', 'chicken-leg', '洞節'];
+const X47_MARKERS = ['阿拉伯', '俄羅斯', '斯拉夫', '民間', '傳統', '虛構', '神話', '文化', '節日', '護身', '天道', '吉卜林', '洞節是'];
+function lintCulturalBridge(lessons, file) {
+  const issues = [];
+  for (const ent of X47_ENTITIES) {
+    let appears = false, bridged = false;
+    for (const lesson of lessons) {
+      for (const q of lesson.questions || []) {
+        const en = String(q.sentence || q.questionEn || q.question || q.questionZh || '').toLowerCase();
+        if (!en.includes(ent)) continue;
+        appears = true;
+        const zh = String(q.explanationZh || '');
+        if (X47_MARKERS.some(m => zh.includes(m))) bridged = true;
+      }
+    }
+    if (appears && !bridged) {
+      issues.push(`${file} [${ent}]: X47_CULTURAL_BRIDGE (整章出現文化專名「${ent}」但無任一題 expZh 有文化橋接 marker)`);
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -270,8 +296,9 @@ for (const file of files) {
     const culturalIssues = lintCulturalSchema(raw, file);
     const nonWordIssues = lintNonWordVerb(raw, file);       // X44 (WARN)
     const tfPolarityIssues = lintListenTfPolarity(raw, file); // X46 (WARN)
+    const cultBridgeIssues = lintCulturalBridge(raw, file);  // X47 (WARN, keyword stopgap)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);

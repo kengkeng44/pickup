@@ -50,8 +50,13 @@
 
 - ✅ **已落地 (B.497, WARN)**:**X44_NON_WORD_VERB**(grammar-mc 非字 like goed/puted)+ **X46_LISTEN_TF_POLARITY**(一節 listen-tf 同答案 ≥75%)。在 `tools/validate-lessons.js`,warn-only 不擋 build。
   - 首掃命中:X44 = 3 筆真非字(ch0-l6 `readed` / ch13-l5 `puted` / ch14-l3 `leaded`)→ 是真 bug,待內容修(換成別的合法干擾項,不可直接換成正解避免撞答案)。X46 = 46 節同極性偏置(觀察用)。
-- ⏸️ **改判 B 類,留作者決定**:
-  - **X45_GRAMMAR_MC_ALL_MORPH**:與 `docs/standards/2026-06-22-question-distribution-standard.md` 的 grammar-mc 教條衝突(該標準**要求**干擾項是同字根文法變體;X45 卻 flag 同字根)→ 屬「動既有標準規則」= B 類,需作者拍板哪個教條為準(all-morph vs 2morph+1phon+1sem)。
-  - **X47_CULTURAL_BRIDGE + `culturalOrigin` schema**:需新 schema 欄位(keyObjects)才能準確判斷哪題缺橋接 → B 類。可晚點做,或只做關鍵字版(較弱)。
+- ✅ **已落地 (B.498, WARN)**:**X47_CULTURAL_BRIDGE**(keyword stopgap 版,不動 schema)。規則:一章出現文化專名
+  (djinn/baba yaga/洞節…) 但整章無任一題 expZh 含文化橋接 marker → WARN。首掃命中 ch5(baba yaga / chicken leg),
+  已補 2 句俄羅斯民間文化註 → 現 0 命中(乾淨 regression guard)。清單 `X47_ENTITIES`/`X47_MARKERS` 可擴。
+  > 正式版(`culturalOrigin` schema 欄位 + keyObjects 精準判定 + 「奶奶補充」UI chip)仍是 B 類, 待作者決定;keyword 版先頂著。
+- ❌ **X45_GRAMMAR_MC_ALL_MORPH — 決定不做 (rejected)**:與 `docs/standards/2026-06-22-question-distribution-standard.md`
+  的 grammar-mc 教條衝突——該標準**刻意**要求干擾項是同字根文法變體 (go/goes/going/went),因為 Pickup 的 grammar-mc
+  是給 A1/A2 兒童的**文法 drill**(練「這個語境該用哪個變化形」),不是綜合理解 MCQ。ACL2025 的 mixed-foil 建議
+  針對的是理解題,不適用刻意設計的文法 drill。故 X45 會誤報「按設計做對」的題 → 不實作。
 
 *Last updated: 2026-06-29 by Claude*
