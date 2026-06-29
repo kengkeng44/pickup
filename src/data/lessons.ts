@@ -264,6 +264,10 @@ export const TypeTranslateSchema = z.object({
   type: z.literal('type-translate'),
   answer: z.string().min(1),
   accept: z.array(z.string()).optional(),
+  // v2.0.B.509 (per user, 照 Duolingo「翻譯此單詞」實物圖): 重要單字題可放一張實物圖
+  // (emoji 或 圖 URL) — 有圖時 renderer 改顯示圖卡 + 來源詞, 取代吉祥物對話泡。
+  imageEmoji: z.string().optional(),
+  imageUrl: z.string().optional(),
 });
 
 const QuestionUnion = z.discriminatedUnion('type', [

@@ -262,5 +262,90 @@
         "tags": ["exam", "gept", "ch32", "true-false"]
       }
     ]
+  },
+  {
+    "id": "kt-ch32-l4",
+    "chapter": 32,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "lessonName": "🔤 重要單字 (看圖打字)",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l4-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Look at the picture, then type the English word. Let's learn key words!",
+        "sentenceZh": "看著圖片，把英文單字打出來。我們來學重要單字！",
+        "explanationZh": "奶奶說：看著實物記單字最牢，打出來更記得住。",
+        "tags": ["exam", "gept", "ch32", "vocab", "intro"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l4-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🏢",
+        "sentence": "大樓",
+        "sentenceZh": "大樓",
+        "answer": "building",
+        "accept": ["a building", "the building", "buildings"],
+        "explanationZh": "大樓 = building。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l4-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🏫",
+        "sentence": "學校",
+        "sentenceZh": "學校",
+        "answer": "school",
+        "accept": ["a school", "the school", "schools"],
+        "explanationZh": "學校 = school。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l4-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "📚",
+        "sentence": "書",
+        "sentenceZh": "書",
+        "answer": "book",
+        "accept": ["a book", "the book", "books"],
+        "explanationZh": "書 = book。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l4-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "✏️",
+        "sentence": "鉛筆",
+        "sentenceZh": "鉛筆",
+        "answer": "pencil",
+        "accept": ["a pencil", "the pencil", "pencils"],
+        "explanationZh": "鉛筆 = pencil。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l4-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🐶",
+        "sentence": "狗",
+        "sentenceZh": "狗",
+        "answer": "dog",
+        "accept": ["a dog", "the dog", "dogs"],
+        "explanationZh": "狗 = dog。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      }
+    ]
   }
 ]
