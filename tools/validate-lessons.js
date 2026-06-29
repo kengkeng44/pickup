@@ -216,6 +216,14 @@ const X47_ENTITIES = ['djinn', 'baba yaga', 'vasilisa', 'kipling', 'howling dese
 const X47_MARKERS = ['阿拉伯', '俄羅斯', '斯拉夫', '民間', '傳統', '虛構', '神話', '文化', '節日', '護身', '天道', '吉卜林', '洞節是'];
 function lintCulturalBridge(lessons, file) {
   const issues = [];
+  // 精準版 (ARCH-REC #92): 有 culturalOrigin metadata 的課, bridgeNoteZh 不可空。
+  for (const lesson of lessons) {
+    const co = lesson.culturalOrigin;
+    if (co && (!co.bridgeNoteZh || !String(co.bridgeNoteZh).trim())) {
+      issues.push(`${file} ${lesson.id}: X47_CULTURAL_BRIDGE (culturalOrigin 有標但 bridgeNoteZh 空)`);
+    }
+  }
+  // keyword stopgap: 未標 culturalOrigin 的章節, 用關鍵字掃「整章專名缺文化橋接」。
   for (const ent of X47_ENTITIES) {
     let appears = false, bridged = false;
     for (const lesson of lessons) {

@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-29T0012-content-qa-cron.md",
+      "archRec": "ARCH-REC #92: culturalOrigin schema 正式版",
+      "what": "(per user 同意 B 類) LessonSchema 加選填 culturalOrigin {tradition, keyObjects[], bridgeNoteZh} — 不破壞既有內容 (Zod optional). X47 lint 升級: 有此欄的課改精準判定 (bridgeNoteZh 不可空), 未標的課維持 keyword stopgap. 欄位先就位, 內容填充 = 後續 authoring. build/434 tests 綠.",
+      "version": "v2.0.B.500",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-29T0611-content-qa-cron.md",
       "archRec": "ARCH-REC #93: X48_NGRAM_VERBATIM_CORRECT lint",
       "what": "(per user 繼續, A 類 lint 依 arch-rec-handling-convention 預先同意) 實作 X48_NGRAM_VERBATIM_CORRECT — 理解類題(comprehension/listen-mc)正解與句子重疊 3 連續實詞 = 抄句 tell。擴 X3 單詞→3-gram sliding window, picture-mc/打字/重組類豁免。warn-only, 全章掃出 44 筆(觀察, content cron 漸修)。0611 audit 內容 17 violations 先前已由 cron 修。build/434 tests 綠.",

@@ -487,6 +487,14 @@ export const LessonSchema = z.object({
   // v2.0.B.470 (per user 方案C 混用): 關卡名 — 預習節=學習重點, 故事節=劇情短名, 複習=複習。
   // 顯示在地圖點節點的框框標題。選填 (缺則框框不顯示標題)。
   lessonName: z.string().optional(),
+  // v2.0.B.500 (ARCH-REC #92, per user 同意): 文化背景 metadata (選填, 不破壞既有內容)。
+  // tradition=文化傳統; keyObjects=本課的文化專名 (djinn/skull/洞節…); bridgeNoteZh=一句奶奶語氣
+  // 跨文化橋接註。X47 lint 有此欄時改用精準判定 (要求 bridgeNoteZh 非空) — 見 validate-lessons.js。
+  culturalOrigin: z.object({
+    tradition: z.string(),
+    keyObjects: z.array(z.string()),
+    bridgeNoteZh: z.string(),
+  }).optional(),
   intro: LessonIntroSchema.optional(),
   // v2.0.B.198: max bumped 15→20 to allow Ch1 opening Mochi self-intro
   // (n00 + n01 before Q0 + n1 existing arc). headroom for future hooks.
