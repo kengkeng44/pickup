@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-28T1809-content-qa-cron.md",
+      "archRec": "ARCH-REC #91 (X44 + X46; X45 deferred B-class)",
+      "what": "validate-lessons.js 加 2 條 WARN lint (per user 同意 A 類, 規範見 2026-06-29-arch-rec-handling-convention.md): X44_NON_WORD_VERB (grammar-mc 非字 goed/puted, 首掃抓到 3 真 bug: ch0-l6 readed/ch13-l5 puted/ch14-l3 leaded) + X46_LISTEN_TF_POLARITY (一節 listen-tf 同答案≥75%, 抓 46 節). warn-only 不擋 build. X45(與 distribution-standard grammar-mc 教條衝突)+ X47/culturalOrigin(需 schema)改判 B 類留人決定.",
+      "version": "v2.0.B.497",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-29T0012-content-qa-cron.md",
       "archRec": "A5 cultural-reference (P1×4 + P2×4)",
       "what": "6 筆文化橋接 expZh 補強 (純 explanationZh 改寫, 不碰 correctIndex/structure): ch4-l4-x1 Djinn 阿拉伯來源 + ch4-l5-x1 Kipling 旁白口吻+Howling Desert 虛構地名 + ch5-l7-q7 骷髏=護身符 + ch5-l6-x2「奶奶」斯拉夫護身策略 + ch7-l7-x7 天降飛石「天道好還」框架 + ch7-l5-q2 洞節節日說明. 過 build+answer-index. 剩 ARCH-REC #92(schema) + E2/E3 新增 narration = Tier C 留人決定; chicken-legs P2 已由 q7/q8 既有 scaffold 覆蓋.",

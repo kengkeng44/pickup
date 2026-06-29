@@ -163,6 +163,51 @@ function lintCulturalSchema(lessons, file) {
   return issues;
 }
 
+// v2.0.B.497 (ARCH-REC #91, per user 同意 A 類 lint): X44 + X46 (WARN-only).
+// X45 (all-morph) + X47 (cultural) = B 類 (與 distribution-standard grammar-mc 教條衝突 /
+// 需 culturalOrigin schema), 依 docs/standards/2026-06-29-arch-rec-handling-convention.md 留人決定。
+
+// X44_NON_WORD_VERB: grammar-mc 選項出現不規則動詞硬加 -ed 的非字 (goed/puted/leaded/hitted…)。
+// 來源: ArXiv 2403.02078 / Duolingo distractor pipeline — 所有干擾項必須是真實英文字。
+const X44_IRREG = ['go','come','run','put','lead','hit','cut','set','make','take','give','find',
+  'tell','keep','sit','win','sing','swim','ring','begin','fly','grow','know','throw','eat','see',
+  'say','do','have','get','feel','meet','read','build','send','spend','hold','stand','catch',
+  'teach','buy','bring','think','fight','break','speak','steal','drive','ride','write','fall',
+  'wear','choose','forget','hide','bite','beat','lose'];
+const X44_RE = new RegExp('^(' + X44_IRREG.join('|') + ')ed$', 'i');
+function lintNonWordVerb(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (q.type !== 'grammar-mc' || !Array.isArray(q.options)) continue;
+      for (const o of q.options) {
+        if (X44_RE.test(String(o).trim())) {
+          issues.push(`${file} ${q.id}: X44_NON_WORD_VERB (非字「${o}」— 不規則動詞不能加 ed)`);
+        }
+      }
+    }
+  }
+  return issues;
+}
+
+// X46_LISTEN_TF_POLARITY: 一節內 listen-tf 同一個答案 (Yes/No) 佔比 ≥75% → acquiescence bias。
+// 來源: GESIS 2016 / ETS TOEIC T/F 45-55% 平衡。樣本 <4 題不判 (太小)。correctIndex 1 = No。
+function lintListenTfPolarity(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    const tfs = (lesson.questions || []).filter(q => q.type === 'listen-tf' && typeof q.correctIndex === 'number');
+    if (tfs.length < 4) continue;
+    const noCount = tfs.filter(q => q.correctIndex === 1).length;
+    const yesCount = tfs.length - noCount;
+    const ratio = Math.max(noCount, yesCount) / tfs.length;
+    if (ratio >= 0.75) {
+      const dom = noCount >= yesCount ? 'No' : 'Yes';
+      issues.push(`${file} ${lesson.id}: X46_LISTEN_TF_POLARITY (${dom} 佔 ${Math.round(ratio * 100)}% / ${tfs.length} 題 — acquiescence bias)`);
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -223,8 +268,10 @@ for (const file of files) {
     const extendedIssues = lintExtended(raw, file);
     const r2Issues = lintR2LengthParity(raw, file);
     const culturalIssues = lintCulturalSchema(raw, file);
+    const nonWordIssues = lintNonWordVerb(raw, file);       // X44 (WARN)
+    const tfPolarityIssues = lintListenTfPolarity(raw, file); // X46 (WARN)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);

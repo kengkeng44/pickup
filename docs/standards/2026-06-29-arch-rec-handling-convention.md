@@ -46,9 +46,12 @@
 - 這份管的是 **arch/code cron 把 ARCH-REC 變成 lint/code**。
 - 對應:A 類 ≈ 可自動(Tier A/B 精神,只是落在 validate-lessons.js 而非 lessons JSON);B 類 ≈ Tier C(APPROVE_FIRST)。
 
-## 目前狀態(本次同意）
+## 目前狀態(2026-06-29 更新)
 
-- ✅ **同意**:X44 / X45 / X46 / X47(內容品質 lint)→ 列為 A 類,授權 cron 以 WARN 落地。
-- ⏸️ **待批**:`culturalOrigin` schema 欄位 + 「奶奶補充」UI chip → B 類,等作者另外決定(可晚點做,或永不做只留 X47 lint)。
+- ✅ **已落地 (B.497, WARN)**:**X44_NON_WORD_VERB**(grammar-mc 非字 like goed/puted)+ **X46_LISTEN_TF_POLARITY**(一節 listen-tf 同答案 ≥75%)。在 `tools/validate-lessons.js`,warn-only 不擋 build。
+  - 首掃命中:X44 = 3 筆真非字(ch0-l6 `readed` / ch13-l5 `puted` / ch14-l3 `leaded`)→ 是真 bug,待內容修(換成別的合法干擾項,不可直接換成正解避免撞答案)。X46 = 46 節同極性偏置(觀察用)。
+- ⏸️ **改判 B 類,留作者決定**:
+  - **X45_GRAMMAR_MC_ALL_MORPH**:與 `docs/standards/2026-06-22-question-distribution-standard.md` 的 grammar-mc 教條衝突(該標準**要求**干擾項是同字根文法變體;X45 卻 flag 同字根)→ 屬「動既有標準規則」= B 類,需作者拍板哪個教條為準(all-morph vs 2morph+1phon+1sem)。
+  - **X47_CULTURAL_BRIDGE + `culturalOrigin` schema**:需新 schema 欄位(keyObjects)才能準確判斷哪題缺橋接 → B 類。可晚點做,或只做關鍵字版(較弱)。
 
 *Last updated: 2026-06-29 by Claude*
