@@ -77,17 +77,14 @@ const CHAPTERS: ChapterMeta[] = [
   { id: 29, titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', emoji: '⛵', category: 'mid-long', subCat: '希臘史詩' },
   { id: 30, titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles', emoji: '🦁', category: 'mid-long', subCat: '希臘史詩' },
   { id: 31, titleZh: 'Robin Hood·Sherwood', titleEn: 'Robin Hood', emoji: '🏹', category: 'mid-long', subCat: '英雄傳奇' },
-  // v2.0.B.507: 英檢挑戰 (coming-soon scaffold)。spec: docs/standards/2026-06-29-cambridge-yle-item-spec.md
-  // + 2026-06-29-gept-item-spec.md。內容到位後 (建 lessons-chN.json) 移除 comingSoon 即上線。
-  { id: 32, titleZh: 'YLE Starters 入門', titleEn: 'Cambridge YLE Starters', emoji: '🐣', category: 'exam', subCat: '劍橋兒童英檢 YLE', comingSoon: true },
-  { id: 33, titleZh: 'YLE Movers 進階', titleEn: 'Cambridge YLE Movers', emoji: '🐤', category: 'exam', subCat: '劍橋兒童英檢 YLE', comingSoon: true },
-  { id: 34, titleZh: 'YLE Flyers 高階', titleEn: 'Cambridge YLE Flyers', emoji: '🦅', category: 'exam', subCat: '劍橋兒童英檢 YLE', comingSoon: true },
-  { id: 35, titleZh: 'GEPT Kids 兒童', titleEn: 'GEPT Kids', emoji: '🧒', category: 'exam', subCat: '全民英檢 GEPT', comingSoon: true },
-  { id: 36, titleZh: 'GEPT 初級', titleEn: 'GEPT Elementary', emoji: '📗', category: 'exam', subCat: '全民英檢 GEPT', comingSoon: true },
+  // v2.0.B.508: 英檢挑戰 — 獨立 track, 一開始就解鎖可選 (不鏈到故事進度), 玩家自己選要不要練。
+  // 真內容上線 = lessons-ch32.json (GEPT 初級)。spec: docs/standards/2026-06-29-gept-item-spec.md
+  // + 2026-06-29-cambridge-yle-item-spec.md。其餘級別 (YLE / GEPT Kids) 內容備妥後比照新增。
+  { id: 32, titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', emoji: '📗', category: 'exam', subCat: '全民英檢 GEPT' },
 ];
 
-// 故事圖鑑完成度只算正式章節 (排除英檢 coming-soon scaffold)。
-const STORY_CHAPTERS = CHAPTERS.filter((c) => !c.comingSoon);
+// 故事圖鑑完成度只算故事章節 (英檢是獨立 track, 不計入)。
+const STORY_CHAPTERS = CHAPTERS.filter((c) => !c.comingSoon && c.category !== 'exam');
 
 // v2.0.B.489: Ch0 擴成 7 關後, 全章節一律 7 關 (跟地圖 gate 一致)。
 function chapterTotal(_chId: number): number {
@@ -233,7 +230,8 @@ export default function ChaptersPage() {
             }}>
               {chapters.map(ch => {
                 const comingSoon = !!ch.comingSoon;
-                const unlocked = !comingSoon && isChapterUnlocked(ch.id);
+                const isExam = ch.category === 'exam';        // 英檢 = 獨立 track, 一開始就開
+                const unlocked = isExam ? true : (!comingSoon && isChapterUnlocked(ch.id));
                 const completed = comingSoon ? 0 : readCompletedLessons(ch.id).size;
                 const total = chapterTotal(ch.id);
                 const isComplete = !comingSoon && completed >= total;
@@ -244,8 +242,8 @@ export default function ChaptersPage() {
                     onClick={() => {
                       if (!unlocked) return;
                       const seen = (() => { try { return localStorage.getItem(`pickup.chapter.${ch.id}.intro.seen`) === '1'; } catch { return false; } })();
-                      // Ch0 入門無故事序章 → 直接進地圖。
-                      navigate(ch.id === 0 || seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
+                      // Ch0 入門 + 英檢章無故事序章 → 直接進地圖。
+                      navigate(ch.id === 0 || isExam || seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
                     }}
                     disabled={!unlocked}
                     aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : comingSoon ? ' coming soon' : unlocked ? ` ${pct} percent` : ' locked'}`}

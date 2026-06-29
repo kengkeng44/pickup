@@ -131,6 +131,8 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   // v2.0.B.260: round 2 mid-long ship
   30: { titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', accent: '#b5563a', emoji: '🦁' },
   31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#5a8a4a', emoji: '🏹' },
+  // v2.0.B.508: 英檢挑戰章 (獨立 track, 經 ChaptersPage 🎓 英檢 tab 進入)。
+  32: { titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', accent: '#3a7d8a', emoji: '📗' },
 };
 
 // Color helpers (from StoryMapView.ts)
@@ -349,7 +351,7 @@ export default function MapPage() {
   const [searchParams] = useSearchParams();
   // v2.0.B.266: aggregate mode (user: 「拓展成無限顆」)
   const isAggregate = !searchParams.has('ch');
-  const requestedChapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
+  const requestedChapter = Math.min(36, Math.max(1, Number(searchParams.get('ch') || 1)));
 
   // v2.0.B.267: virtual scrolling (windowing) — 不一次 render 217 顆 button
   // user: 「往下滑再載入就好 不然一個頁面會太大 (這叫什麼技術 你上網查一下照著用)」

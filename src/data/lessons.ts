@@ -464,6 +464,10 @@ export const ChapterIdSchema = z.union([
   z.literal(16), z.literal(17), z.literal(18), z.literal(19),
   z.literal(20), z.literal(21), z.literal(22), z.literal(23),
   z.literal(24), z.literal(25), z.literal(26),
+  // v2.0.B.508: 補上 27-31 (歷史故事章, 之前 schema 漏擴 → loadChapterLessons 對這些章
+  // parse 會丟錯/aggregate 被 .catch 吞成空; 一併修) + 32+ 預留給英檢挑戰章 (ch32 = GEPT 初級)。
+  z.literal(27), z.literal(28), z.literal(29), z.literal(30), z.literal(31),
+  z.literal(32), z.literal(33), z.literal(34), z.literal(35), z.literal(36),
 ]);
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 
