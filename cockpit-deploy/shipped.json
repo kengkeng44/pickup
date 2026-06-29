@@ -2,6 +2,27 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-09T0908-ui-ux-cron.md",
+      "archRec": "ARCH-REC #9 (Duolingo Stories 左右泡泡) — re-verify 全 obsolete/Tier C",
+      "what": "(cron code 全修, re-verify) 此 audit 描述的 NarrationRenderer (renderers.tsx:193 hardcode calico-anchor.webp + flex bubble) 已於 B.369 整段重寫 → 現為 SpeakerBadge + RevealSentence + 手動繼續, 無 portrait/無 bubble/無自動推進. P1 D1 portrait map / P2 左右翻 / P3 移除 SpeakerBadge / P5 narrator 樣式 / P7 dwell 全 OBSOLETE. P6 Ch2-8 narration = 內容(L)非程式. ARCH-REC #9 整個 Duolingo Stories 雙角色泡泡重設計 = Tier C 設計方向 (與 B.369 已 ship 設計衝突, 留作者決定). 0 可自動修. 標記已處理防重複.",
+      "version": "v2.0.B.503",
+      "date": "2026-06-29"
+    },
+    {
+      "audit": "docs/audits/2026-06-09T0037-code-health-cron.md",
+      "archRec": "ARCH-REC #8 (useSyncExternalStore) — re-verify 全 obsolete/already-fixed/Tier C",
+      "what": "(cron code 全修, re-verify) E1 ClozeUI.ts:343 broad-subscribe = 檔已刪 OBSOLETE. E3 MapPage useMemo [lessons.length]→[lessons] = 現碼已是 [lessons] ALREADY-FIXED. E4 completedByChapter dep requestedChapter→chapter = 現碼 chapter 是 frozen useState(無 setter), 改 chapter 反更糟; requestedChapter 僅作 l.chapter 後備且用法一致, 非 bug NOT-A-BUG. E5 ProfilePage streak source = runStore 已重寫(無 s.streak), B.475/B.490 已修 OBSOLETE. E2 ARCH-REC #8 useSyncExternalStore (跨 xp/coins/streak/hp + 3 頁 reactive 層) = Tier C 大重構, 與『保持精簡/絕不亂動無關重構』衝突且 route 重掛載已大幅緩解 stale, 留作者決定. 0 可自動修. 標記已處理防重複.",
+      "version": "v2.0.B.503",
+      "date": "2026-06-29"
+    },
+    {
+      "audit": "docs/audits/2026-06-09T0016-walkthrough-cron.md",
+      "archRec": "ARCH-REC #7 (LevelTest wire + B1 tier) — re-verify 全 obsolete/Tier C",
+      "what": "(cron code 全修, re-verify) B1-P0 LevelTest 未 wired = LevelTest.tsx 已刪, 程度選擇改由 onboarding.ts 寫 pickup.ability.level → ability 現已設置, P0 已解 OBSOLETE. B1-P2 narration auto-advance 7s 無 skip = B.369 改手動繼續鈕(自己控制推進), dead-time 已消 OBSOLETE. B1-P1 AbilityLevel 天花板 A2+ → 加 B1/B2 tier = 新增題目+推薦路由+型別, Tier C 功能/設計. B1-P3 distractor 品質 = 內容(content cron 範疇). B1-P4 skip-to-intermediate 跳章 CTA = 新功能 Tier C. 0 可自動修. 標記已處理防重複.",
+      "version": "v2.0.B.503",
+      "date": "2026-06-29"
+    },
+    {
       "audit": "docs/audits/2026-06-28T1809-content-qa-cron.md",
       "archRec": "X46 觀察名單清理 (a) — listen-tf 極性再平衡",
       "what": "(per user 改) 用 write→verify 雙 agent 修 X46 acquiescence bias: 46 節 listen-tf 同答案≥75% → 翻轉 62 題敘述使每節 ~50/50. rewrite agent 依故事 narration 改寫+翻答案, 第二 verify agent 獨立查真偽 (拒 1 筆 ch30-l4-x8 假翻真), 主session 再人工抽查 12 筆「只翻 correctIndex」全為 narration 逐字真句 (修到真 mislabel bug). 結果 X46 46→1, X8=0, build/434 tests 綠, correctIndex 變動剛好 62 筆=預期 flip 無誤傷.",
