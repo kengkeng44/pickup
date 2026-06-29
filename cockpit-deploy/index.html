@@ -709,6 +709,26 @@ spec: docs/standards/2026-06-29-cambridge-yle-item-spec.md + 2026-06-29-gept-ite
     </div>
     <div class="desc">設定一次永久解決,跟「定時稽核」的急修不同性質的基礎建設任務</div>
 
+    <div class="todo-item" data-todo-id="claude-design-workflow">
+      <div class="todo-title">🎨 Claude Design 工作流 — UI/設計系統迭代 (非插圖)</div>
+      <div class="todo-meta">
+        <span>是什麼: claude.ai/design — AI 畫版面/元件/tokens, 雙向 /design-sync 接 Claude Code</span>
+        <span>需要: Pro/Max 訂閱 + Claude Code v2.1.181+</span>
+        <span>不是: 不生吉祥物/實物插圖 (那走 ChatGPT/Gemini)</span>
+      </div>
+      <ul class="todo-checklist">
+        <li>Claude Code 跑 <code>/design-sync</code> → pull Pickup 設計系統 (tokens + ui/components) 進 Claude Design</li>
+        <li>canvas 上設計新 surface (英檢入口 / 連勝 / 地圖 v2) — 用真元件</li>
+        <li>Export →「Send to Claude Code」→ handoff bundle → 對真元件庫落地</li>
+        <li>實作完 <code>/design-sync</code> push 回 canvas (雙向同步)</li>
+        <li>先挑一個小 surface 試跑整輪, 再決定擴大</li>
+      </ul>
+      <div class="todo-actions">
+        <a href="https://github.com/kengkeng44/pickup/blob/master/docs/standards/2026-06-29-claude-design-workflow.md" target="_blank">📄 完整工作流 doc</a>
+        <a href="https://claude.ai/design" target="_blank" class="secondary">🔗 claude.ai/design</a>
+      </div>
+    </div>
+
     <div class="todo-item" data-todo-id="mp3-ch25-31">
       <div class="todo-title">🔊 Ch25-31 奶奶語音 MP3 批次 — ARCH-REC #90 (需 OPENAI_API_KEY)</div>
       <div class="todo-meta">
