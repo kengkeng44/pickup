@@ -97,7 +97,7 @@ function getNodeSlot(i: number): { dx: number; top: number } {
 // 故事 emoji. accent 套到該章「節點 + 分隔線 + 書封」, 整段路徑跟著故事變色. 色系挑暖中明度,
 // 白字 (書封) + 米色爪 (節點) 都讀得清; 相鄰章不同色.
 const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
-  0: { titleZh: '入門 · ABC 數字顏色', titleEn: 'Ground Floor', accent: '#8a9a6a', emoji: '🔤' },
+  0: { titleZh: '一切的開始', titleEn: 'The Beginning', accent: '#8a9a6a', emoji: '🔤' },
   1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e98a52', emoji: '🍑' },
   2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#5b91a5', emoji: '🦢' },
   3: { titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', accent: '#6e9a4f', emoji: '🐢' },
@@ -259,6 +259,7 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
       role="dialog"
       aria-modal="true"
       onClick={onClose}
+      className="pickup-backdrop-in"
       style={{
         // v2.0.B.492: zIndex 50 → 200 (蓋過 BottomNav 的 100, 修「晉升傳奇被底部導覽切掉」)
         position: 'fixed', inset: 0, zIndex: 200,
@@ -268,6 +269,7 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="pickup-sheet-up"
         style={{
           width: '100%', maxWidth: 420,
           maxHeight: '90dvh', overflowY: 'auto', // v2.0.B.492: 小螢幕也不切按鈕
@@ -275,7 +277,7 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
           borderTopLeftRadius: 22, borderTopRightRadius: 22,
           padding: '22px 20px calc(22px + env(safe-area-inset-bottom))',
           boxShadow: '0 -8px 28px rgba(0,0,0,0.18)',
-          animation: 'pickup-fade-up 200ms ease',
+          // v2.0.B.493: 改用 pickup-sheet-up (className) — 從底部滑上, 較慢滑順 (參考多鄰國)
         }}
       >
         {title && <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)', margin: '0 2px 14px', textAlign: 'center' }}>{title}</div>}

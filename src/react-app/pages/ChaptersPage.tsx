@@ -41,7 +41,7 @@ interface ChapterMeta {
 
 const CHAPTERS: ChapterMeta[] = [
   // v2.0.B.487 (per user): Ch0 入門 加進清單最前 (序章 tab + 全部 都看得到), Ch1 改成需 Ch0 完成才解鎖。
-  { id: 0, titleZh: '入門 · ABC數字顏色', titleEn: 'Ground Floor', emoji: '🔤', category: 'special', subCat: '入門' },
+  { id: 0, titleZh: '一切的開始', titleEn: 'The Beginning', emoji: '🔤', category: 'special', subCat: '入門' },
   { id: 1, titleZh: '桃太郎', titleEn: 'Momotaro', emoji: '🍑', category: 'east', subCat: '日本童話' },
   { id: 2, titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', emoji: '🦢', category: 'west', subCat: '安徒生' },
   { id: 3, titleZh: '龜兔賽跑', titleEn: 'Tortoise and Hare', emoji: '🐢', category: 'fable', subCat: '伊索寓言' },

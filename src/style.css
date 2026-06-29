@@ -1201,8 +1201,22 @@ h1, h2 {
 }
 .pickup-fade-up { animation: pickup-fade-up 0.3s ease-out forwards; }
 
+/* v2.0.B.493 (per user「彈出特效太快, 參考多鄰國」): 節點選單 bottom-sheet 彈出 —
+   從底部滑上 + 緩出 expo, 比原 200ms fade-up 慢且滑順 (Duolingo 風)。backdrop 同步淡入。 */
+@keyframes pickup-sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes pickup-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.pickup-sheet-up { animation: pickup-sheet-up 0.42s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.pickup-backdrop-in { animation: pickup-backdrop-in 0.32s ease-out both; }
+
 @media (prefers-reduced-motion: reduce) {
-  .pickup-paw-next, .pickup-mascot-bob, .pickup-confetti, .pickup-fade-up {
+  .pickup-paw-next, .pickup-mascot-bob, .pickup-confetti, .pickup-fade-up,
+  .pickup-sheet-up, .pickup-backdrop-in {
     animation: none !important;
   }
 }
