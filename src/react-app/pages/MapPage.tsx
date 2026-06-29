@@ -131,6 +131,8 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   // v2.0.B.260: round 2 mid-long ship
   30: { titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles vs Nemean Lion', accent: '#b5563a', emoji: '🦁' },
   31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#5a8a4a', emoji: '🏹' },
+  // v2.0.B.508: 英檢挑戰章 (獨立 track, 經 ChaptersPage 🎓 英檢 tab 進入)。
+  32: { titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', accent: '#3a7d8a', emoji: '📗' },
 };
 
 // Color helpers (from StoryMapView.ts)
@@ -349,7 +351,7 @@ export default function MapPage() {
   const [searchParams] = useSearchParams();
   // v2.0.B.266: aggregate mode (user: 「拓展成無限顆」)
   const isAggregate = !searchParams.has('ch');
-  const requestedChapter = Math.min(31, Math.max(1, Number(searchParams.get('ch') || 1)));
+  const requestedChapter = Math.min(36, Math.max(1, Number(searchParams.get('ch') || 1)));
 
   // v2.0.B.267: virtual scrolling (windowing) — 不一次 render 217 顆 button
   // user: 「往下滑再載入就好 不然一個頁面會太大 (這叫什麼技術 你上網查一下照著用)」
@@ -811,14 +813,18 @@ export default function MapPage() {
                 willChange: 'auto',
               }}
             >
+              {/* v2.0.B.506 融合桿子 2: 暖棕接地陰影 + 糊邊 (取代硬灰橢圓) */}
               <div style={{
-                position: 'absolute', left: 6, bottom: -2,
-                width: 78, height: 10,
-                background: 'rgba(60,42,28,0.30)', borderRadius: '50%', zIndex: 0,
+                position: 'absolute', left: 4, bottom: -3,
+                width: 82, height: 12,
+                background: 'rgba(74,54,38,0.26)', borderRadius: '50%', zIndex: 0,
+                filter: 'blur(3px)',
               }} />
+              {/* v2.0.B.506 融合桿子 4: 左上暖色 rim light + 右下柔接地, 角色「被場景打光」不像貼紙 */}
               <img src="/mascots/iso-grandma.webp" alt="" style={{
                 position: 'absolute', left: 0, bottom: 0,
                 width: 88, height: 'auto', display: 'block', zIndex: 2,
+                filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
               }} />
               {/* v2.0.B.234 招 3: small Mochi mascot next to grandma, shows
                   the player's chosen outfit via emoji badge overlay. Sits at
@@ -839,14 +845,17 @@ export default function MapPage() {
             left: CONTAINER_W / 2 + 60, top: 480,
             width: 80, height: 90, pointerEvents: 'none', zIndex: 4,
           }}>
+            {/* v2.0.B.506 融合桿子 2+4: 暖棕糊邊接地陰影 + rim light */}
             <div style={{
-              position: 'absolute', left: 8, bottom: -2,
-              width: 64, height: 9,
-              background: 'rgba(60,42,28,0.28)', borderRadius: '50%', zIndex: 0,
+              position: 'absolute', left: 6, bottom: -3,
+              width: 68, height: 11,
+              background: 'rgba(74,54,38,0.24)', borderRadius: '50%', zIndex: 0,
+              filter: 'blur(3px)',
             }} />
             <img src="/mascots/iso-shiba.webp" alt="" style={{
               position: 'absolute', left: 0, bottom: 0,
               width: 80, height: 'auto', display: 'block', zIndex: 1,
+              filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
             }} />
           </div>
 

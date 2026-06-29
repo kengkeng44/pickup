@@ -1,0 +1,266 @@
+[
+  {
+    "id": "kt-ch32-l1",
+    "chapter": 32,
+    "lessonInChapter": 1,
+    "segmentType": "main-story",
+    "lessonName": "🎧 聽力·問答",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l1-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Tonight, let's try some English test questions together. Ready?",
+        "sentenceZh": "今晚我們一起來試試英文考試的題目，準備好了嗎？",
+        "explanationZh": "奶奶笑著說：別緊張，這些題目就像玩遊戲，我們一題一題慢慢來。",
+        "tags": ["exam", "gept", "ch32", "intro"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l1-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "What time do you get up?",
+        "question": "Choose the best answer.",
+        "options": ["At seven o'clock.", "I feel hungry now.", "It is a wooden desk.", "She has a red pen."],
+        "correctIndex": 0,
+        "explanationZh": "問 What time（幾點）要回答時間，At seven o'clock（七點）才對。",
+        "tags": ["exam", "gept", "ch32", "listening", "wh-question"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l1-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Where is your school bag?",
+        "question": "Choose the best answer.",
+        "options": ["It is on the chair.", "I like green apples.", "We play after lunch.", "He runs very fast."],
+        "correctIndex": 0,
+        "explanationZh": "問 Where（哪裡）要回答地點，on the chair（在椅子上）。",
+        "tags": ["exam", "gept", "ch32", "listening", "wh-question"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l1-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "How many pencils do you need?",
+        "question": "Choose the best answer.",
+        "options": ["I need just two.", "By the blue bus.", "In the small box.", "She feels happy."],
+        "correctIndex": 0,
+        "explanationZh": "問 How many（多少）要回答數量，just two（只要兩支）。",
+        "tags": ["exam", "gept", "ch32", "listening", "wh-question"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l1-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Sam has two cats and one dog at home.",
+        "questionEn": "Does Sam have three pets in total?",
+        "options": ["Yes", "No"],
+        "correctIndex": 0,
+        "explanationZh": "兩隻貓加一隻狗，總共三隻寵物，所以答 Yes。",
+        "tags": ["exam", "gept", "ch32", "listening", "true-false"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l1-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "The store opens at nine in the morning.",
+        "questionEn": "Does the store open at ten o'clock?",
+        "options": ["Yes", "No"],
+        "correctIndex": 1,
+        "explanationZh": "故事說九點開門，不是十點，所以答 No。",
+        "tags": ["exam", "gept", "ch32", "listening", "true-false"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch32-l2",
+    "chapter": 32,
+    "lessonInChapter": 2,
+    "segmentType": "main-story",
+    "lessonName": "📝 詞彙與結構",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l2-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Now let's look at some sentences. Pick the word that fits best.",
+        "sentenceZh": "現在我們來看一些句子，選出最合適的字。",
+        "explanationZh": "奶奶說：文法就像拼圖，選對那一塊，句子就完整了。",
+        "tags": ["exam", "gept", "ch32", "intro"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l2-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She ___ to the market every Sunday.",
+        "question": "Choose the correct word.",
+        "options": ["goes", "going", "go", "gone"],
+        "correctIndex": 0,
+        "explanationZh": "主詞 She 是第三人稱單數，現在式動詞要加 s，所以是 goes。",
+        "tags": ["exam", "gept", "ch32", "grammar", "tense"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l2-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "There ___ many apples on the table.",
+        "question": "Choose the correct word.",
+        "options": ["are", "being", "is", "am"],
+        "correctIndex": 0,
+        "explanationZh": "many apples 是複數，be 動詞用 are。",
+        "tags": ["exam", "gept", "ch32", "grammar", "be-verb"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l2-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "I am good ___ playing the piano.",
+        "question": "Choose the correct word.",
+        "options": ["at", "in", "on", "of"],
+        "correctIndex": 0,
+        "explanationZh": "be good at（擅長）是固定用法，介系詞用 at。",
+        "tags": ["exam", "gept", "ch32", "grammar", "preposition"]
+      },
+      {
+        "type": "drag-blank",
+        "id": "kt-ch32-l2-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "My brother and I are twins. We look the same.",
+        "sentenceTemplate": "My brother and I __ twins. We __ the same.",
+        "sentenceZh": "我哥哥和我是雙胞胎，我們長得一樣。",
+        "tiles": ["are", "is", "look", "see", "run"],
+        "correctTiles": ["are", "look"],
+        "explanationZh": "主詞是複數 We，be 動詞用 are；「看起來」用 look。",
+        "tags": ["exam", "gept", "ch32", "cloze"]
+      },
+      {
+        "type": "drag-blank",
+        "id": "kt-ch32-l2-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Yesterday it rained, so we stayed inside.",
+        "sentenceTemplate": "Yesterday it __, so we __ inside.",
+        "sentenceZh": "昨天下雨了，所以我們待在室內。",
+        "tiles": ["rained", "rain", "stayed", "stay", "played"],
+        "correctTiles": ["rained", "stayed"],
+        "explanationZh": "Yesterday（昨天）用過去式：rain→rained、stay→stayed。",
+        "tags": ["exam", "gept", "ch32", "cloze", "tense"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch32-l3",
+    "chapter": 32,
+    "lessonInChapter": 3,
+    "segmentType": "review",
+    "lessonName": "📖 閱讀理解",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l3-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Last part: read a short story, then answer the question.",
+        "sentenceZh": "最後一段：讀一個小故事，再回答問題。",
+        "explanationZh": "奶奶說：讀的時候找重點，答案常常藏在句子裡換個說法。",
+        "tags": ["exam", "gept", "ch32", "intro"]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch32-l3-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Lily has a small garden. She grows tomatoes and carrots. Every morning she gives them water.",
+        "question": "What does Lily do every morning?",
+        "options": ["She waters them daily.", "The carrots taste sweet.", "Tomatoes are on sale.", "She likes to sleep in."],
+        "correctIndex": 0,
+        "explanationZh": "故事說她每天早上給植物澆水，換句話說就是 waters them daily。",
+        "tags": ["exam", "gept", "ch32", "reading", "detail"]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch32-l3-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Ben missed the school bus. He ran very fast and got to class just in time.",
+        "question": "How did Ben get to class on time?",
+        "options": ["He ran quickly.", "By taking a taxi.", "His mother drove.", "By staying home."],
+        "correctIndex": 0,
+        "explanationZh": "Ben 沒搭到公車，是用跑的趕到，所以是 ran quickly。",
+        "tags": ["exam", "gept", "ch32", "reading", "detail"]
+      },
+      {
+        "type": "comprehension",
+        "id": "kt-ch32-l3-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The shop sells fruit. Apples cost ten dollars. Bananas cost five dollars.",
+        "question": "Which fruit is cheaper?",
+        "options": ["The bananas are.", "The apples are.", "They cost the same.", "Neither is sold."],
+        "correctIndex": 0,
+        "explanationZh": "香蕉五元，蘋果十元，香蕉比較便宜。",
+        "tags": ["exam", "gept", "ch32", "reading", "inference"]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch32-l3-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Match the jobs to the words.",
+        "pairs": [
+          { "left": "醫生", "right": "doctor" },
+          { "left": "老師", "right": "teacher" },
+          { "left": "農夫", "right": "farmer" },
+          { "left": "護士", "right": "nurse" }
+        ],
+        "explanationZh": "職業字彙配對：醫生 doctor、老師 teacher、農夫 farmer、護士 nurse。",
+        "tags": ["exam", "gept", "ch32", "vocab"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l3-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "A week has seven days.",
+        "questionEn": "Does a week have ten days?",
+        "options": ["Yes", "No"],
+        "correctIndex": 1,
+        "explanationZh": "一個星期有七天，不是十天，所以答 No。",
+        "tags": ["exam", "gept", "ch32", "true-false"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l3-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Spring comes before summer.",
+        "questionEn": "Does spring come earlier than summer?",
+        "options": ["Yes", "No"],
+        "correctIndex": 0,
+        "explanationZh": "春天在夏天之前，所以 spring 比 summer 早，答 Yes。",
+        "tags": ["exam", "gept", "ch32", "true-false"]
+      }
+    ]
+  }
+]

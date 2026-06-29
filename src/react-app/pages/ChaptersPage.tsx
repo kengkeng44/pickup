@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 import { readCompletedLessons } from '../../store/runStore';
 import { useT } from '../i18n';
 
-type Category = 'all' | 'east' | 'west' | 'fable' | 'mid-long' | 'special';
+type Category = 'all' | 'east' | 'west' | 'fable' | 'mid-long' | 'special' | 'exam';
 
 const TABS: Array<{ id: Category; label: string }> = [
   { id: 'all', label: '📚 全部' },
@@ -28,6 +28,7 @@ const TABS: Array<{ id: Category; label: string }> = [
   { id: 'fable', label: '🦊 寓言' },
   { id: 'mid-long', label: '🌟 大故事' },
   { id: 'special', label: '📖 序章' },
+  { id: 'exam', label: '🎓 英檢' },
 ];
 
 interface ChapterMeta {
@@ -37,6 +38,9 @@ interface ChapterMeta {
   emoji: string;
   category: Category;
   subCat: string;
+  // v2.0.B.507: 英檢挑戰 entry scaffold — 內容未上前標 coming-soon:
+  // 不可點 (無 lessons-chN.json → 不會 404)、不計入故事圖鑑完成度。
+  comingSoon?: boolean;
 }
 
 const CHAPTERS: ChapterMeta[] = [
@@ -73,7 +77,14 @@ const CHAPTERS: ChapterMeta[] = [
   { id: 29, titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', emoji: '⛵', category: 'mid-long', subCat: '希臘史詩' },
   { id: 30, titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles', emoji: '🦁', category: 'mid-long', subCat: '希臘史詩' },
   { id: 31, titleZh: 'Robin Hood·Sherwood', titleEn: 'Robin Hood', emoji: '🏹', category: 'mid-long', subCat: '英雄傳奇' },
+  // v2.0.B.508: 英檢挑戰 — 獨立 track, 一開始就解鎖可選 (不鏈到故事進度), 玩家自己選要不要練。
+  // 真內容上線 = lessons-ch32.json (GEPT 初級)。spec: docs/standards/2026-06-29-gept-item-spec.md
+  // + 2026-06-29-cambridge-yle-item-spec.md。其餘級別 (YLE / GEPT Kids) 內容備妥後比照新增。
+  { id: 32, titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', emoji: '📗', category: 'exam', subCat: '全民英檢 GEPT' },
 ];
+
+// 故事圖鑑完成度只算故事章節 (英檢是獨立 track, 不計入)。
+const STORY_CHAPTERS = CHAPTERS.filter((c) => !c.comingSoon && c.category !== 'exam');
 
 // v2.0.B.489: Ch0 擴成 7 關後, 全章節一律 7 關 (跟地圖 gate 一致)。
 function chapterTotal(_chId: number): number {
@@ -106,8 +117,8 @@ export default function ChaptersPage() {
     return groups;
   }, [filtered]);
 
-  const completedCount = CHAPTERS.filter(ch => isChapterComplete(ch.id)).length;
-  const totalPercent = Math.round((completedCount / CHAPTERS.length) * 100);
+  const completedCount = STORY_CHAPTERS.filter(ch => isChapterComplete(ch.id)).length;
+  const totalPercent = Math.round((completedCount / STORY_CHAPTERS.length) * 100);
 
   return (
     <div style={{ padding: '14px 14px 24px', maxWidth: 640, margin: '0 auto' }}>
@@ -133,7 +144,7 @@ export default function ChaptersPage() {
       }}>
         <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>{t('chapters.collected')}</div>
         <div style={{ fontSize: 38, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
-          {completedCount}<span style={{ fontSize: 18, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {CHAPTERS.length}</span>
+          {completedCount}<span style={{ fontSize: 18, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {STORY_CHAPTERS.length}</span>
         </div>
         <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
           {totalPercent}{t('chapters.pct')}
@@ -146,7 +157,7 @@ export default function ChaptersPage() {
             transition: 'width 0.6s ease',
           }} />
         </div>
-        {completedCount === CHAPTERS.length && (
+        {completedCount === STORY_CHAPTERS.length && (
           <div style={{ marginTop: 10, fontSize: 14, fontWeight: 900, color: 'var(--t-success)' }}>
             {t('chapters.allDone')}
           </div>
@@ -218,10 +229,12 @@ export default function ChaptersPage() {
               gap: 10,
             }}>
               {chapters.map(ch => {
-                const unlocked = isChapterUnlocked(ch.id);
-                const completed = readCompletedLessons(ch.id).size;
+                const comingSoon = !!ch.comingSoon;
+                const isExam = ch.category === 'exam';        // 英檢 = 獨立 track, 一開始就開
+                const unlocked = isExam ? true : (!comingSoon && isChapterUnlocked(ch.id));
+                const completed = comingSoon ? 0 : readCompletedLessons(ch.id).size;
                 const total = chapterTotal(ch.id);
-                const isComplete = completed >= total;
+                const isComplete = !comingSoon && completed >= total;
                 const pct = Math.round((completed / total) * 100);
                 return (
                   <button
@@ -229,11 +242,11 @@ export default function ChaptersPage() {
                     onClick={() => {
                       if (!unlocked) return;
                       const seen = (() => { try { return localStorage.getItem(`pickup.chapter.${ch.id}.intro.seen`) === '1'; } catch { return false; } })();
-                      // Ch0 入門無故事序章 → 直接進地圖。
-                      navigate(ch.id === 0 || seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
+                      // Ch0 入門 + 英檢章無故事序章 → 直接進地圖。
+                      navigate(ch.id === 0 || isExam || seen ? `/map?ch=${ch.id}` : `/chapter/${ch.id}/intro`);
                     }}
                     disabled={!unlocked}
-                    aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : unlocked ? ` ${pct} percent` : ' locked'}`}
+                    aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : comingSoon ? ' coming soon' : unlocked ? ` ${pct} percent` : ' locked'}`}
                     style={{
                       minHeight: 160,
                       background: isComplete ? 'var(--t-success-tint)' : unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
@@ -264,8 +277,18 @@ export default function ChaptersPage() {
                       #{ch.id.toString().padStart(2, '0')}
                     </div>
                     <div style={{ fontSize: 42, lineHeight: 1, margin: '6px 0' }}>
-                      {unlocked ? ch.emoji : '🔒'}
+                      {comingSoon || unlocked ? ch.emoji : '🔒'}
                     </div>
+                    {comingSoon && (
+                      <div style={{
+                        position: 'absolute', top: 6, right: 6,
+                        background: 'var(--t-accent)', color: '#fff',
+                        fontSize: 9, fontWeight: 900, padding: '2px 6px',
+                        borderRadius: 'var(--t-radius-pill)', letterSpacing: 0.3,
+                      }}>
+                        即將推出
+                      </div>
+                    )}
                     <div style={{
                       fontSize: 11,
                       fontWeight: 900,
