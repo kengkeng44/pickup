@@ -1225,6 +1225,23 @@ Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron ${type} 全修)`;
   copyText(text);
 }
 
+// v2.0.B.495 (per user): 程式碼/架構 findings 的複製指令 — 會動 src/ (非 lessons), 需自審/review。
+function copyForCode() {
+  const text = `請拉最新 master, 開 docs/audits/ 找最新的 arch-cron / ui-ux-cron / code-health-cron / walkthrough-cron audit。反重複: 讀 cockpit-deploy/shipped.json + git log, 已接過的條目跳過。
+
+這些是「程式碼/架構」findings (會動 src/ 程式碼, 不是 lessons), 依 P0>P1>P2 處理:
+每筆: Read 受影響檔 → 改 → npm run build (tsc + tests + madge + vite 全綠) → 過才留, 不綠 git checkout 還原該筆。
+
+大/跨檔改動: 改完跑 code-review 自審 (或 dispatch reviewer agent) 再上。小改動: 重點自審即可。
+
+剩下要你決定的 (Tier C 結構/大重構/動標準/動 schema): 不自動改, 列清單給我, 各附一句原因 + 建議方向。
+
+過關的: 合理分組 commit + push + merge master。
+絕不亂動: correctIndex / 刪內容 / 無關重構。
+Commit msg pattern: v2.0.B.NEXT: <fix desc> (cron code 全修)`;
+  copyText(text);
+}
+
 function copyPrompt(kind) {
   let text = '';
   if (kind === 'p0') {
@@ -1350,10 +1367,12 @@ function renderConsolidated(dataByType, shippedByFile = {}) {
     </div>`;
   };
   const autoBtn = auto.length ? '<button class="db-copy" style="margin:2px 0 6px;" onclick="copyForCron(\'content\', null)">📋 複製指令 → 開 Claude 一次清掉題目改善</button>' : '';
+  // v2.0.B.495 (per user): 程式碼/架構 區也給一顆複製指令鈕 (走 code 版 prompt, 會動 src/ 非 lessons)。
+  const codeBtn = manual.length ? '<button class="db-copy" style="margin:2px 0 6px;" onclick="copyForCode()">📋 複製指令 → 開 Claude 處理程式碼/架構</button>' : '';
   el.innerHTML = `
     <h2 style="font-size:16px;font-weight:900;margin:0 0 8px;">📋 統整:${total} 條待改 <span style="font-size:12px;color:var(--muted);font-weight:700;">— 先看類型,點開看細節</span></h2>
     ${section('🛠 題目品質 — 可自動修', auto, autoBtn)}
-    ${section('🔧 程式碼/架構 — 要你決定後再動', manual, '')}`;
+    ${section('🔧 程式碼/架構 — 要你決定後再動', manual, codeBtn)}`;
 }
 
 function updateNextActionBanner(dataByType, shippedByFile = {}) {
