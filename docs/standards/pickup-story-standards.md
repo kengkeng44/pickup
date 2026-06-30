@@ -147,7 +147,7 @@ A2 不出現 'all EXCEPT' / 'NOT mentioned' / 'LEAST likely'.
 
 - 每 lesson: 11 Q × 4-5 min (5 min budget)
 - 每 chapter: 7 lessons × 11 Q = 77 Q (現有), 但可彈性 5-10 lessons
-- 每 Q time estimate per type:
+- 每 Q time estimate per type — ⚠️ **已被 `src/data/lessons.ts` `estimateLessonSeconds()` 的 `Q_SECONDS` 表取代 (B.522 重估)**,以 code 為單一真實來源;下表為舊估,僅留參考:
   - tap-pairs: 30s
   - narration: 15s
   - listen-tf: 20s

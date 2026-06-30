@@ -514,20 +514,29 @@ export const LessonsSchema = z.array(LessonSchema);
 
 export type Lesson = z.infer<typeof LessonSchema>;
 
-// v2.0.B.379 (per user): 依題型加權的單節時間估算 — 取代舊「每 entry 22s」高估
-// (舊版連旁白也算 22s, 顯示 ~5m 但實玩 ~2m). 旁白 tap-through ~7s;
-// 配對/拼字/產出題 ~26s; 其餘 4 選 1 (含 3s 自動推進) ~16s.
-const SLOW_TYPES = new Set([
-  'tap-pairs', 'phrase-pairs', 'listen-pairs',
-  'tap-tiles', 'listen-build', 'drag-blank', 'type-what-you-hear', 'speak-back',
-]);
+// v2.0.B.522 (per user 重估, 上網查): 每題秒數改成「逐題型」而非 3 桶。
+// 基準參考 Duolingo English Test 公布的逐題型作答時間 (fill-in-blank ~20s / listen-and-type ~60s /
+// matching ~30s) — DET 是成人認證測驗, 故按本 app 客群 (8-12 兒童, tap-through, force-correct,
+// 答對 ~3s 自動推進) 往下調 + 字較短。單一數字 = 讀題+思考+作答+回饋的中位數。
+// 來源: detpractice.com / goarno.io (DET 逐題型時間) + 內部 tap-through 觀察。
+// 這是「單一真實來源」— docs 的時間表以本函式為準 (見 question-distribution-standard)。
+const Q_SECONDS: Record<string, number> = {
+  narration: 8,            // 點開揭示 + 繼續
+  'listen-tf': 13,         // 2 選 (Yes/No), 比 4 選快
+  'listen-tf-zh': 13,
+  'type-translate': 38,    // 自由打字 (DET ~60s 成人, 兒童短字下調)
+  'type-what-you-hear': 38,
+  'tap-pairs': 28, 'phrase-pairs': 28, 'listen-pairs': 28,  // 4 對配對 (DET matching ~30s)
+  'tap-tiles': 26, 'drag-blank': 26, 'listen-build': 28,    // 排句/克漏字
+  comprehension: 24, 'listen-comprehension': 26, 'read-comprehension': 24,  // 含段落閱讀
+  'speak-back': 18,
+};
+// 其餘 4 選 1 (listen-mc / picture-mc / grammar-mc / scroll-pick / emoji-pick / listen-emoji /
+// read-mc-with-audio): 預設 17s (含 3s 自動推進)。
+const DEFAULT_Q_SECONDS = 17;
 export function estimateLessonSeconds(questions: { type: string }[]): number {
   let s = 0;
-  for (const q of questions) {
-    if (q.type === 'narration') s += 7;
-    else if (SLOW_TYPES.has(q.type)) s += 26;
-    else s += 16;
-  }
+  for (const q of questions) s += Q_SECONDS[q.type] ?? DEFAULT_Q_SECONDS;
   return s;
 }
 export function estimateLessonMinutes(questions: { type: string }[]): number {
