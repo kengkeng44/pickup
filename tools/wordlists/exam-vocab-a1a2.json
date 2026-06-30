@@ -1,0 +1,866 @@
+[
+  {
+    "en": "dog",
+    "zh": "狗",
+    "ja": "犬",
+    "ko": "개",
+    "emoji": "🐶",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "cat",
+    "zh": "貓",
+    "ja": "猫",
+    "ko": "고양이",
+    "emoji": "🐱",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "fish",
+    "zh": "魚",
+    "ja": "魚",
+    "ko": "물고기",
+    "emoji": "🐟",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "bird",
+    "zh": "鳥",
+    "ja": "鳥",
+    "ko": "새",
+    "emoji": "🐦",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "rabbit",
+    "zh": "兔子",
+    "ja": "うさぎ",
+    "ko": "토끼",
+    "emoji": "🐰",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "horse",
+    "zh": "馬",
+    "ja": "馬",
+    "ko": "말",
+    "emoji": "🐴",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "monkey",
+    "zh": "猴子",
+    "ja": "猿",
+    "ko": "원숭이",
+    "emoji": "🐒",
+    "cefr": "A1",
+    "theme": "animals"
+  },
+  {
+    "en": "elephant",
+    "zh": "大象",
+    "ja": "象",
+    "ko": "코끼리",
+    "emoji": "🐘",
+    "cefr": "A2",
+    "theme": "animals"
+  },
+  {
+    "en": "red",
+    "zh": "紅色",
+    "ja": "赤",
+    "ko": "빨강",
+    "emoji": "🔴",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "blue",
+    "zh": "藍色",
+    "ja": "青",
+    "ko": "파랑",
+    "emoji": "🔵",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "green",
+    "zh": "綠色",
+    "ja": "緑",
+    "ko": "초록",
+    "emoji": "🟢",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "yellow",
+    "zh": "黃色",
+    "ja": "黄色",
+    "ko": "노랑",
+    "emoji": "🟡",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "black",
+    "zh": "黑色",
+    "ja": "黒",
+    "ko": "검정",
+    "emoji": "⚫",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "white",
+    "zh": "白色",
+    "ja": "白",
+    "ko": "하양",
+    "emoji": "⚪",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "pink",
+    "zh": "粉紅色",
+    "ja": "ピンク",
+    "ko": "분홍",
+    "emoji": "🩷",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "orange",
+    "zh": "橘色",
+    "ja": "オレンジ",
+    "ko": "주황",
+    "emoji": "🟠",
+    "cefr": "A1",
+    "theme": "colours"
+  },
+  {
+    "en": "one",
+    "zh": "一",
+    "ja": "一",
+    "ko": "일",
+    "emoji": "1️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "two",
+    "zh": "二",
+    "ja": "二",
+    "ko": "이",
+    "emoji": "2️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "three",
+    "zh": "三",
+    "ja": "三",
+    "ko": "삼",
+    "emoji": "3️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "four",
+    "zh": "四",
+    "ja": "四",
+    "ko": "사",
+    "emoji": "4️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "five",
+    "zh": "五",
+    "ja": "五",
+    "ko": "오",
+    "emoji": "5️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "six",
+    "zh": "六",
+    "ja": "六",
+    "ko": "육",
+    "emoji": "6️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "seven",
+    "zh": "七",
+    "ja": "七",
+    "ko": "칠",
+    "emoji": "7️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "eight",
+    "zh": "八",
+    "ja": "八",
+    "ko": "팔",
+    "emoji": "8️⃣",
+    "cefr": "A1",
+    "theme": "numbers"
+  },
+  {
+    "en": "mother",
+    "zh": "媽媽",
+    "ja": "お母さん",
+    "ko": "엄마",
+    "emoji": "👩",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "father",
+    "zh": "爸爸",
+    "ja": "お父さん",
+    "ko": "아빠",
+    "emoji": "👨",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "sister",
+    "zh": "姊妹",
+    "ja": "姉妹",
+    "ko": "언니",
+    "emoji": "👧",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "brother",
+    "zh": "兄弟",
+    "ja": "兄弟",
+    "ko": "오빠",
+    "emoji": "👦",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "grandmother",
+    "zh": "奶奶",
+    "ja": "おばあさん",
+    "ko": "할머니",
+    "emoji": "👵",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "grandfather",
+    "zh": "爺爺",
+    "ja": "おじいさん",
+    "ko": "할아버지",
+    "emoji": "👴",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "baby",
+    "zh": "寶寶",
+    "ja": "赤ちゃん",
+    "ko": "아기",
+    "emoji": "👶",
+    "cefr": "A1",
+    "theme": "family"
+  },
+  {
+    "en": "aunt",
+    "zh": "阿姨",
+    "ja": "おばさん",
+    "ko": "이모",
+    "emoji": "👩‍🦱",
+    "cefr": "A2",
+    "theme": "family"
+  },
+  {
+    "en": "hand",
+    "zh": "手",
+    "ja": "手",
+    "ko": "손",
+    "emoji": "✋",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "eye",
+    "zh": "眼睛",
+    "ja": "目",
+    "ko": "눈",
+    "emoji": "👁️",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "nose",
+    "zh": "鼻子",
+    "ja": "鼻",
+    "ko": "코",
+    "emoji": "👃",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "mouth",
+    "zh": "嘴巴",
+    "ja": "口",
+    "ko": "입",
+    "emoji": "👄",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "ear",
+    "zh": "耳朵",
+    "ja": "耳",
+    "ko": "귀",
+    "emoji": "👂",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "foot",
+    "zh": "腳",
+    "ja": "足",
+    "ko": "발",
+    "emoji": "🦶",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "leg",
+    "zh": "腿",
+    "ja": "脚",
+    "ko": "다리",
+    "emoji": "🦵",
+    "cefr": "A1",
+    "theme": "body"
+  },
+  {
+    "en": "tooth",
+    "zh": "牙齒",
+    "ja": "歯",
+    "ko": "이",
+    "emoji": "🦷",
+    "cefr": "A2",
+    "theme": "body"
+  },
+  {
+    "en": "apple",
+    "zh": "蘋果",
+    "ja": "りんご",
+    "ko": "사과",
+    "emoji": "🍎",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "banana",
+    "zh": "香蕉",
+    "ja": "バナナ",
+    "ko": "바나나",
+    "emoji": "🍌",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "bread",
+    "zh": "麵包",
+    "ja": "パン",
+    "ko": "빵",
+    "emoji": "🍞",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "egg",
+    "zh": "雞蛋",
+    "ja": "卵",
+    "ko": "달걀",
+    "emoji": "🥚",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "rice",
+    "zh": "飯",
+    "ja": "ご飯",
+    "ko": "밥",
+    "emoji": "🍚",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "cake",
+    "zh": "蛋糕",
+    "ja": "ケーキ",
+    "ko": "케이크",
+    "emoji": "🎂",
+    "cefr": "A1",
+    "theme": "food"
+  },
+  {
+    "en": "pizza",
+    "zh": "披薩",
+    "ja": "ピザ",
+    "ko": "피자",
+    "emoji": "🍕",
+    "cefr": "A2",
+    "theme": "food"
+  },
+  {
+    "en": "strawberry",
+    "zh": "草莓",
+    "ja": "いちご",
+    "ko": "딸기",
+    "emoji": "🍓",
+    "cefr": "A2",
+    "theme": "food"
+  },
+  {
+    "en": "milk",
+    "zh": "牛奶",
+    "ja": "牛乳",
+    "ko": "우유",
+    "emoji": "🥛",
+    "cefr": "A1",
+    "theme": "drink"
+  },
+  {
+    "en": "water",
+    "zh": "水",
+    "ja": "水",
+    "ko": "물",
+    "emoji": "💧",
+    "cefr": "A1",
+    "theme": "drink"
+  },
+  {
+    "en": "juice",
+    "zh": "果汁",
+    "ja": "ジュース",
+    "ko": "주스",
+    "emoji": "🧃",
+    "cefr": "A1",
+    "theme": "drink"
+  },
+  {
+    "en": "tea",
+    "zh": "茶",
+    "ja": "お茶",
+    "ko": "차",
+    "emoji": "🍵",
+    "cefr": "A1",
+    "theme": "drink"
+  },
+  {
+    "en": "coffee",
+    "zh": "咖啡",
+    "ja": "コーヒー",
+    "ko": "커피",
+    "emoji": "☕",
+    "cefr": "A2",
+    "theme": "drink"
+  },
+  {
+    "en": "soup",
+    "zh": "湯",
+    "ja": "スープ",
+    "ko": "수프",
+    "emoji": "🍜",
+    "cefr": "A1",
+    "theme": "drink"
+  },
+  {
+    "en": "lemonade",
+    "zh": "檸檬水",
+    "ja": "レモネード",
+    "ko": "레모네이드",
+    "emoji": "🍋",
+    "cefr": "A2",
+    "theme": "drink"
+  },
+  {
+    "en": "cola",
+    "zh": "可樂",
+    "ja": "コーラ",
+    "ko": "콜라",
+    "emoji": "🥤",
+    "cefr": "A2",
+    "theme": "drink"
+  },
+  {
+    "en": "shirt",
+    "zh": "襯衫",
+    "ja": "シャツ",
+    "ko": "셔츠",
+    "emoji": "👕",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "dress",
+    "zh": "洋裝",
+    "ja": "ドレス",
+    "ko": "드레스",
+    "emoji": "👗",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "hat",
+    "zh": "帽子",
+    "ja": "帽子",
+    "ko": "모자",
+    "emoji": "🧢",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "shoe",
+    "zh": "鞋子",
+    "ja": "靴",
+    "ko": "신발",
+    "emoji": "👟",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "sock",
+    "zh": "襪子",
+    "ja": "靴下",
+    "ko": "양말",
+    "emoji": "🧦",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "jacket",
+    "zh": "外套",
+    "ja": "ジャケット",
+    "ko": "재킷",
+    "emoji": "🧥",
+    "cefr": "A1",
+    "theme": "clothes"
+  },
+  {
+    "en": "glove",
+    "zh": "手套",
+    "ja": "手袋",
+    "ko": "장갑",
+    "emoji": "🧤",
+    "cefr": "A2",
+    "theme": "clothes"
+  },
+  {
+    "en": "scarf",
+    "zh": "圍巾",
+    "ja": "マフラー",
+    "ko": "목도리",
+    "emoji": "🧣",
+    "cefr": "A2",
+    "theme": "clothes"
+  },
+  {
+    "en": "ball",
+    "zh": "球",
+    "ja": "ボール",
+    "ko": "공",
+    "emoji": "⚽",
+    "cefr": "A1",
+    "theme": "toys"
+  },
+  {
+    "en": "doll",
+    "zh": "娃娃",
+    "ja": "人形",
+    "ko": "인형",
+    "emoji": "🪆",
+    "cefr": "A1",
+    "theme": "toys"
+  },
+  {
+    "en": "kite",
+    "zh": "風箏",
+    "ja": "たこ",
+    "ko": "연",
+    "emoji": "🪁",
+    "cefr": "A2",
+    "theme": "toys"
+  },
+  {
+    "en": "robot",
+    "zh": "機器人",
+    "ja": "ロボット",
+    "ko": "로봇",
+    "emoji": "🤖",
+    "cefr": "A2",
+    "theme": "toys"
+  },
+  {
+    "en": "puzzle",
+    "zh": "拼圖",
+    "ja": "パズル",
+    "ko": "퍼즐",
+    "emoji": "🧩",
+    "cefr": "A2",
+    "theme": "toys"
+  },
+  {
+    "en": "teddy",
+    "zh": "玩具熊",
+    "ja": "テディベア",
+    "ko": "곰 인형",
+    "emoji": "🧸",
+    "cefr": "A1",
+    "theme": "toys"
+  },
+  {
+    "en": "balloon",
+    "zh": "氣球",
+    "ja": "風船",
+    "ko": "풍선",
+    "emoji": "🎈",
+    "cefr": "A1",
+    "theme": "toys"
+  },
+  {
+    "en": "drum",
+    "zh": "鼓",
+    "ja": "太鼓",
+    "ko": "북",
+    "emoji": "🥁",
+    "cefr": "A2",
+    "theme": "toys"
+  },
+  {
+    "en": "book",
+    "zh": "書",
+    "ja": "本",
+    "ko": "책",
+    "emoji": "📗",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "pencil",
+    "zh": "鉛筆",
+    "ja": "えんぴつ",
+    "ko": "연필",
+    "emoji": "✏️",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "ruler",
+    "zh": "尺",
+    "ja": "定規",
+    "ko": "자",
+    "emoji": "📏",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "bag",
+    "zh": "書包",
+    "ja": "かばん",
+    "ko": "가방",
+    "emoji": "🎒",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "pen",
+    "zh": "筆",
+    "ja": "ペン",
+    "ko": "펜",
+    "emoji": "🖊️",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "scissors",
+    "zh": "剪刀",
+    "ja": "はさみ",
+    "ko": "가위",
+    "emoji": "✂️",
+    "cefr": "A1",
+    "theme": "classroom"
+  },
+  {
+    "en": "eraser",
+    "zh": "橡皮擦",
+    "ja": "消しゴム",
+    "ko": "지우개",
+    "emoji": "🩹",
+    "cefr": "A2",
+    "theme": "classroom"
+  },
+  {
+    "en": "globe",
+    "zh": "地球儀",
+    "ja": "地球儀",
+    "ko": "지구본",
+    "emoji": "🌍",
+    "cefr": "A2",
+    "theme": "classroom"
+  },
+  {
+    "en": "house",
+    "zh": "房子",
+    "ja": "家",
+    "ko": "집",
+    "emoji": "🏠",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "bed",
+    "zh": "床",
+    "ja": "ベッド",
+    "ko": "침대",
+    "emoji": "🛏️",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "chair",
+    "zh": "椅子",
+    "ja": "椅子",
+    "ko": "의자",
+    "emoji": "🪑",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "table",
+    "zh": "桌子",
+    "ja": "テーブル",
+    "ko": "탁자",
+    "emoji": "🍽️",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "door",
+    "zh": "門",
+    "ja": "ドア",
+    "ko": "문",
+    "emoji": "🚪",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "window",
+    "zh": "窗戶",
+    "ja": "窓",
+    "ko": "창문",
+    "emoji": "🪟",
+    "cefr": "A1",
+    "theme": "home"
+  },
+  {
+    "en": "bath",
+    "zh": "浴缸",
+    "ja": "お風呂",
+    "ko": "욕조",
+    "emoji": "🛁",
+    "cefr": "A2",
+    "theme": "home"
+  },
+  {
+    "en": "sofa",
+    "zh": "沙發",
+    "ja": "ソファ",
+    "ko": "소파",
+    "emoji": "🛋️",
+    "cefr": "A2",
+    "theme": "home"
+  },
+  {
+    "en": "sun",
+    "zh": "太陽",
+    "ja": "太陽",
+    "ko": "태양",
+    "emoji": "☀️",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "moon",
+    "zh": "月亮",
+    "ja": "月",
+    "ko": "달",
+    "emoji": "🌙",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "star",
+    "zh": "星星",
+    "ja": "星",
+    "ko": "별",
+    "emoji": "⭐",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "flower",
+    "zh": "花",
+    "ja": "花",
+    "ko": "꽃",
+    "emoji": "🌸",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "tree",
+    "zh": "樹",
+    "ja": "木",
+    "ko": "나무",
+    "emoji": "🌳",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "rain",
+    "zh": "雨",
+    "ja": "雨",
+    "ko": "비",
+    "emoji": "🌧️",
+    "cefr": "A1",
+    "theme": "nature"
+  },
+  {
+    "en": "snow",
+    "zh": "雪",
+    "ja": "雪",
+    "ko": "눈",
+    "emoji": "❄️",
+    "cefr": "A2",
+    "theme": "nature"
+  },
+  {
+    "en": "cloud",
+    "zh": "雲",
+    "ja": "雲",
+    "ko": "구름",
+    "emoji": "☁️",
+    "cefr": "A1",
+    "theme": "nature"
+  }
+]

@@ -134,6 +134,8 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   // v2.0.B.508: 英檢挑戰章 (獨立 track, 經 ChaptersPage 🎓 英檢 tab 進入)。
   32: { titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', accent: '#3a7d8a', emoji: '📗' },
   33: { titleZh: 'YLE Starters 英檢', titleEn: 'Cambridge YLE Starters', accent: '#5a9a6a', emoji: '🐣' },
+  // v2.0.B.519: 字表驅動生成章 (tools/gen-exam-lessons.mjs)。
+  34: { titleZh: '字表挑戰 A1', titleEn: 'Vocabulary A1', accent: '#6a8a9a', emoji: '🔤' },
 };
 
 // v2.0.B.515 (per user): 章末按鈕目的地「可設定」。預設 = 複習該章錯題;
