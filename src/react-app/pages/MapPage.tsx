@@ -383,6 +383,8 @@ export default function MapPage() {
   // v2.0.B.272: 整張書封 click toggle 金句集錦 (user: 「書封點進去應該是金句集錦」)
   // 再點書封 = 關 sheet 回地圖 (toggle 而非僅 open)
   const [showKeySheet, setShowKeySheet] = useState(false);
+  // v2.0.B.520: 英檢人物對話框 (點 Mochi 學士帽 → 選英檢章開始)
+  const [showExamDialog, setShowExamDialog] = useState(false);
   // v2.0.B.274: 寶箱開啟 state (取代原本 localStorage.reload nuclear path)
   // 初始化 lazy 一次掃 localStorage 取已開 chest indices, 之後 state-only
   const [openedChests, setOpenedChests] = useState<Set<number>>(() => {
@@ -748,30 +750,33 @@ export default function MapPage() {
           + iOS safe-area-inset-top. 動態 ResizeObserver 已砍 (jitter 源) */}
       <div style={{ height: 'calc(140px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
-      {/* v2.0.B.515 (per user): 首頁聚合地圖上的英檢挑戰入口 (獨立 track 捷徑) */}
+      {/* v2.0.B.520 (per user): 英檢挑戰改成一個「人物」(Mochi 戴學士帽), 點他跳對話框 → 選英檢章開始 */}
       {isAggregate && (
-        <button
-          type="button"
-          aria-label="English exam challenge"
-          onClick={() => navigate('/map?ch=32')}
-          style={{
-            display: 'flex', alignItems: 'center', gap: 10,
-            width: 'calc(100% - 28px)', margin: '0 14px 12px',
-            background: 'var(--t-surface)', color: CHAPTER_META[32].accent,
-            border: `2px solid ${CHAPTER_META[32].accent}`,
-            borderBottom: `4px solid ${darken(CHAPTER_META[32].accent, 0.28)}`,
-            borderRadius: 'var(--t-radius-card)', padding: '12px 16px',
-            textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
-            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-          }}
-        >
-          <span aria-hidden="true" style={{ fontSize: 26, lineHeight: 1 }}>🎓</span>
-          <span style={{ flex: 1, minWidth: 0 }}>
-            <span style={{ display: 'block', fontSize: 15, fontWeight: 900, lineHeight: 1.2 }}>{t('map.examEntry')}</span>
-            <span style={{ display: 'block', fontSize: 12, fontWeight: 700, opacity: 0.8, marginTop: 2 }}>GEPT 初級 · YLE</span>
-          </span>
-          <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>›</span>
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 6 }}>
+          <button
+            type="button"
+            aria-label="English exam challenge"
+            onClick={() => setShowExamDialog(true)}
+            style={{
+              background: 'transparent', border: 'none', cursor: 'pointer', padding: 6,
+              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
+              fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+            }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <img src="/mascots/calico-anchor.webp" width={84} height={84} alt="" style={{
+                display: 'block', borderRadius: '50%',
+                filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
+              }} />
+              <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -8, fontSize: 30, lineHeight: 1, transform: 'rotate(12deg)' }}>🎓</span>
+            </span>
+            <span style={{
+              fontSize: 12, fontWeight: 900, color: CHAPTER_META[32].accent,
+              background: 'var(--t-surface)', border: `2px solid ${CHAPTER_META[32].accent}`,
+              borderRadius: 'var(--t-radius-pill)', padding: '2px 12px',
+            }}>{t('map.examEntry')}</span>
+          </button>
+        </div>
       )}
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
@@ -972,25 +977,27 @@ export default function MapPage() {
               const rMeta = CHAPTER_META[rCh] ?? CHAPTER_META[1];
               const rUnlocked = isChapterUnlocked(rCh);
               const rLink = chapterEndLink(rCh); // v2.0.B.515: 可設定目的地 (預設複習, 部分章→英檢)
+              // v2.0.B.520 (per user): 改成跟其他節點一樣的橢圓 puck (不要長得不一樣)。
+              const rBase = rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED;
+              const rShadowC = rUnlocked ? darken(rMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
               return (
                 <button
                   key={`review-${rCh}-${i}`}
                   type="button"
-                  disabled={!rUnlocked}
+                  aria-disabled={!rUnlocked}
                   aria-label={`${t(rLink.labelKey)} chapter ${rCh}${rUnlocked ? '' : ' (locked)'}`}
                   onClick={() => { if (rUnlocked) navigate(rLink.to); }}
                   style={{
                     position: 'absolute',
-                    top: nodeTop, left: CONTAINER_W / 2 - 50 + slot.dx,
-                    width: 100, minHeight: 46,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-                    background: 'var(--t-surface)',
-                    color: rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED_DARK,
-                    border: `2px solid ${rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED}`,
-                    borderBottom: `4px solid ${rUnlocked ? darken(rMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK}`,
-                    borderRadius: 'var(--t-radius-card)',
-                    fontSize: 14, fontWeight: 900, letterSpacing: 0.5, fontFamily: 'inherit',
-                    cursor: rUnlocked ? 'pointer' : 'not-allowed', opacity: rUnlocked ? 1 : 0.5,
+                    top: nodeTop, left: CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx,
+                    width: NODE_SIZE, height: NODE_HEIGHT,
+                    borderRadius: '50% / 60%', border: 'none',
+                    background: rBase,
+                    boxShadow: `inset 0 8px 0 ${lighten(rBase, 0.20)}, 0 10px 0 ${rShadowC}`,
+                    color: '#fff', fontSize: 13, fontWeight: 900, fontFamily: 'inherit',
+                    lineHeight: 1.1, textAlign: 'center',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0,
+                    cursor: rUnlocked ? 'pointer' : 'not-allowed', opacity: rUnlocked ? 1 : 0.7,
                     zIndex: 2, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}
                 >
@@ -1086,6 +1093,54 @@ export default function MapPage() {
           titleEn={chTitle(meta)}
           onClose={() => setShowKeySheet(false)}
         />
+      )}
+
+      {/* v2.0.B.520 (per user): 英檢人物對話框 — Mochi 邀你選一個英檢章開始 */}
+      {showExamDialog && (
+        <div role="dialog" aria-modal="true" aria-label="English exam challenge"
+          onClick={() => setShowExamDialog(false)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(40,28,16,0.55)', zIndex: 200,
+            display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+          <div className="pickup-sheet-up" onClick={(e) => e.stopPropagation()}
+            style={{ background: 'var(--t-bg)', borderRadius: '20px 20px 0 0', width: '100%', maxWidth: 440,
+              padding: '20px 18px calc(24px + env(safe-area-inset-bottom))',
+              boxShadow: '0 -8px 28px rgba(0,0,0,0.18)', maxHeight: '90dvh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+              <span style={{ position: 'relative', flexShrink: 0 }}>
+                <img src="/mascots/calico-anchor.webp" width={64} height={64} alt="" style={{ display: 'block', borderRadius: '50%' }} />
+                <span aria-hidden="true" style={{ position: 'absolute', top: -4, right: -6, fontSize: 22, transform: 'rotate(12deg)' }}>🎓</span>
+              </span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)' }}>{t('map.examEntry')}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: '#7a6850', marginTop: 2 }}>{t('map.examDialogHint')}</div>
+              </div>
+            </div>
+            {Object.keys(CHAPTER_META).map(Number).filter((c) => c >= 32).sort((a, b) => a - b).map((c) => {
+              const m = CHAPTER_META[c];
+              return (
+                <button key={c} type="button"
+                  onClick={() => { setShowExamDialog(false); navigate(`/map?ch=${c}`); }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', marginBottom: 10,
+                    background: 'var(--t-surface)', color: m.accent, border: `2px solid ${m.accent}`,
+                    borderBottom: `4px solid ${darken(m.accent, 0.28)}`, borderRadius: 'var(--t-radius-card)',
+                    padding: '12px 16px', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
+                    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}>
+                  <span aria-hidden="true" style={{ fontSize: 24, lineHeight: 1 }}>{m.emoji}</span>
+                  <span style={{ flex: 1, minWidth: 0 }}>
+                    <span style={{ display: 'block', fontSize: 15, fontWeight: 900, lineHeight: 1.2 }}>{chTitle(m)}</span>
+                    <span style={{ display: 'block', fontSize: 11, fontWeight: 700, opacity: 0.75 }}>{m.titleEn}</span>
+                  </span>
+                  <span aria-hidden="true" style={{ fontSize: 20 }}>›</span>
+                </button>
+              );
+            })}
+            <button type="button" onClick={() => setShowExamDialog(false)}
+              style={{ width: '100%', marginTop: 4, padding: '12px', border: 'none', background: 'transparent',
+                color: 'var(--t-text-muted)', fontWeight: 800, fontSize: 14, fontFamily: 'inherit', cursor: 'pointer' }}>
+              {t('map.examDialogClose')}
+            </button>
+          </div>
+        </div>
       )}
 
       {/* v2.0.B.492: 點未解鎖節點 → 「尚未解鎖」toast */}
