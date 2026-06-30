@@ -389,7 +389,7 @@ export default function MapPage() {
   // → 寶箱永不貼章首/章尾, 不會撞到章節分隔線.
   const CHEST_EVERY = 5;
   const stream = useMemo(() => {
-    const out: Array<{ kind: 'lesson' | 'chest'; lessonIdx?: number }> = [];
+    const out: Array<{ kind: 'lesson' | 'chest' | 'review'; lessonIdx?: number; chapter?: number }> = [];
     let sinceChest = 0;
     lessons.forEach((l, i) => {
       out.push({ kind: 'lesson', lessonIdx: i });
@@ -400,6 +400,12 @@ export default function MapPage() {
       if (sinceChest >= CHEST_EVERY && curMid && nextNotStart) {
         out.push({ kind: 'chest' });
         sinceChest = 0;
+      }
+      // v2.0.B.514 (per user): 每章最後一顆節點之後多放一顆「複習」按鈕 (該章換章 or 結尾)。
+      const isChapterLast = !next || next.chapter !== l.chapter;
+      if (isChapterLast) {
+        out.push({ kind: 'review', chapter: l.chapter });
+        sinceChest = 0; // 複習鈕後重置寶箱計數, 不貼章首
       }
     });
     return out;
@@ -917,6 +923,39 @@ export default function MapPage() {
               );
             }
 
+            // v2.0.B.514 (per user): 章末「複習」按鈕 — 佔一個 path slot (最後一顆節點之後),
+            // 跟著 zigzag 走 (照中間節點形狀規則)。已解鎖才可點; 鎖住章灰掉。
+            if (item.kind === 'review') {
+              const rCh = item.chapter ?? 1;
+              const rMeta = CHAPTER_META[rCh] ?? CHAPTER_META[1];
+              const rUnlocked = isChapterUnlocked(rCh);
+              return (
+                <button
+                  key={`review-${rCh}-${i}`}
+                  type="button"
+                  disabled={!rUnlocked}
+                  aria-label={`Review chapter ${rCh}${rUnlocked ? '' : ' (locked)'}`}
+                  onClick={() => { if (rUnlocked) navigate(`/lesson/${rCh}/review`); }}
+                  style={{
+                    position: 'absolute',
+                    top: nodeTop, left: CONTAINER_W / 2 - 46 + slot.dx,
+                    width: 92, minHeight: 46,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                    background: 'var(--t-surface)',
+                    color: rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED_DARK,
+                    border: `2px solid ${rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED}`,
+                    borderBottom: `4px solid ${rUnlocked ? darken(rMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK}`,
+                    borderRadius: 'var(--t-radius-card)',
+                    fontSize: 14, fontWeight: 900, letterSpacing: 0.5, fontFamily: 'inherit',
+                    cursor: rUnlocked ? 'pointer' : 'not-allowed', opacity: rUnlocked ? 1 : 0.5,
+                    zIndex: 2, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+                  }}
+                >
+                  {t('map.review')}
+                </button>
+              );
+            }
+
             // v2.0.B.275: Lesson 節點 — primitive props 給 <MapNode> React.memo bail-out
             // 用 completedByChapter map 不再 per-lesson localStorage read (217× → 1× per render)
             const l = lessons[item.lessonIdx!];
@@ -948,37 +987,8 @@ export default function MapPage() {
             // v2.0.B.379 (per user): 依題型加權估時 (旁白7s/配對·產出26s/其他16s), 取代舊高估 22s×entry
             const estMin = estimateLessonMinutes(l.questions as { type: string }[]);
             const ariaLabel = `${l.storyBeat ?? `Lesson ${l.lessonInChapter}`} · ~${estMin}min${unlocked ? '' : ' (locked)'}${inProgress ? ' (in progress)' : ''}${isCurrent ? ' (current)' : ''}`;
-            // v2.0.B.512 (per user): 每章第一關旁放一顆側邊按鈕 → 跳該章「複習錯題」。
-            // 位置照中間節點形狀規則: 節點偏右(dx≥0) → 側鈕貼左, 反之貼右 (呼應角色站位 v4)。
-            // 只在聚合地圖 + 章節已解鎖時出現。
-            const showSideBtn = isAggregate && l.lessonInChapter === 1 && chapterUnlocked;
-            const sideOnLeft = slot.dx >= 0;
             return (
               <Fragment key={l.id}>
-              {showSideBtn && (
-                <button
-                  type="button"
-                  aria-label={`Review chapter ${lessonChapter} mistakes`}
-                  onClick={() => navigate(`/lesson/${lessonChapter}/review`)}
-                  style={{
-                    position: 'absolute',
-                    top: nodeTop + (NODE_HEIGHT - 56) / 2,
-                    left: sideOnLeft ? 6 : undefined,
-                    right: sideOnLeft ? undefined : 6,
-                    width: 54, minHeight: 56,
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2,
-                    background: 'var(--t-surface)', color: chMeta.accent,
-                    border: `2px solid ${chMeta.accent}`,
-                    borderBottom: `4px solid ${darken(chMeta.accent, 0.28)}`,
-                    borderRadius: 'var(--t-radius-card)',
-                    fontFamily: 'inherit', cursor: 'pointer', zIndex: 3,
-                    WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-                  }}
-                >
-                  <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">🔁</span>
-                  <span style={{ fontSize: 10, fontWeight: 900, letterSpacing: 0.3 }}>{t('map.review')}</span>
-                </button>
-              )}
               {showChapterLabel && (
                 // v2.0.B.317 (per user): 分隔線延伸到螢幕邊緣 (100vw 突破 320 容器) + 更粗更透明 + 英文章名.
                 <div style={{

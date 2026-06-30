@@ -152,15 +152,15 @@
   <!-- 1. Three-stat ribbon -->
   <div class="ribbon">
     <div class="stat">
-      <div class="n">32</div>
+      <div class="n" id="statCh">…</div>
       <div class="lbl">📚 章節 chapters</div>
     </div>
     <div class="stat">
-      <div class="n">224</div>
+      <div class="n" id="statLessons">…</div>
       <div class="lbl">📝 單元 lessons</div>
     </div>
     <div class="stat">
-      <div class="n">2,472</div>
+      <div class="n" id="statQ">…</div>
       <div class="lbl">❓ 題目 questions</div>
     </div>
   </div>
@@ -171,171 +171,132 @@
     <p class="desc">旁白(narration)佔 48% 是刻意的 — Pickup 走「親子一起聽英文」路線,不是「小孩自己一直答題」路線。後續 5 個方向(題型優先序 / 怎麼評分 / 語音速度 / 文章長度 / 對外賣點)都跟著這條走。</p>
   </div>
 
-  <!-- 3. ⚠️ 差異面板 (規格與實際對不上之處) -->
-  <div class="discrepancy">
-    <h2>🚨 規格 ↔ 實際 剩餘差異</h2>
-    <p class="desc">旁白那條已對齊(上方綠卡)。下面 4 個「對不上」的地方還要處理 — 更新文件 或 補上線內容。</p>
-    <ul>
-      <li><b>單元數差距</b> — 規格寫每章 24 小節,實際全 32 章都是 <b>7 小節</b>(ch28 例外)</li>
-      <li><b>4 種「章節段落」0 出現</b> — 規格寫 5 種段落(開場序幕 outer-prologue / 主線 main-story / <s>伊索支線 aesop-side</s> / <s>結尾 outer-outro</s> / <s>複習 review</s>),實際只有 主線(96.9%)+ 入門章開場(3.1%)</li>
-      <li><b>3 個「規格寫了的題型」目前 0 題</b> — <s>type-what-you-hear</s> / <s>tap-tiles</s> / <s>read-mc-with-audio</s> 全部 0 題</li>
-      <li><b>2 個「規格沒寫到的題型」卻出現了</b> — <code>emoji-pick</code> (9.1%) + <code>picture-mc</code> (0.3%) — 「題目對照表」的顏色還沒對應</li>
-    </ul>
-  </div>
-
-  <!-- 3. Type distribution -->
+  <!-- 3. Type distribution (auto-computed) -->
   <div class="section">
     <h2>📋 題型分布 Question Type</h2>
-    <p class="desc">正式上線的真實數據 · 共 8 種題型 · 點題型可跳到「題目對照表」篩選</p>
-
-    <a class="row t-narration" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">narration · 旁白(故事敘述) <span class="tag ok">刻意設計 · 親子一起聽的主軸</span></span>
-        <span class="count"><span class="pct">48.0%</span>1,186</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:48.0%"></div></div>
-    </a>
-
-    <a class="row t-listen-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-mc · 聽選(聽聲音 4 選 1) <span class="tag ok">比例剛好</span></span>
-        <span class="count"><span class="pct">21.2%</span>525</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:21.2%"></div></div>
-    </a>
-
-    <a class="row t-emoji-pick" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">emoji-pick · 看圖選(看圖案選) <span class="tag warn">規格沒寫到</span></span>
-        <span class="count"><span class="pct">9.1%</span>224</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:9.1%"></div></div>
-    </a>
-
-    <a class="row t-listen-tf" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-tf · 聽是非(對/錯)</span>
-        <span class="count"><span class="pct">8.8%</span>218</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:8.8%"></div></div>
-    </a>
-
-    <a class="row t-tap-pairs" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">tap-pairs · 中英配對</span>
-        <span class="count"><span class="pct">8.8%</span>217</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:8.8%"></div></div>
-    </a>
-
-    <a class="row t-listen-comprehension" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-comprehension · 聽力理解 <span class="tag warn">比例偏少</span></span>
-        <span class="count"><span class="pct">2.3%</span>56</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:2.3%"></div></div>
-    </a>
-
-    <a class="row t-listen-emoji" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">listen-emoji · 聽音選圖 <span class="tag warn">只出現在入門章</span></span>
-        <span class="count"><span class="pct">1.6%</span>39</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:1.6%"></div></div>
-    </a>
-
-    <a class="row t-picture-mc" href="https://pickupwords.pages.dev/qa-dashboard.html" style="display:block; text-decoration:none; color:inherit;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="label">picture-mc · 看圖選句 <span class="tag bad">只 7 題,全在入門章</span></span>
-        <span class="count"><span class="pct">0.3%</span>7</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:0.3%"></div></div>
-    </a>
+    <p class="desc">即時從 <code>lessons-ch*.json</code> 計算 · 點題型跳「題目對照表」</p>
+    <div id="typeDist"><p class="desc">計算中…</p></div>
   </div>
 
-  <!-- 4. Segment distribution -->
+  <!-- 4. Segment distribution (auto-computed) -->
   <div class="section">
     <h2>🎬 章節段落分布 Segment</h2>
-    <p class="desc">規格設計 5 種段落,實際上線只有 2 種有資料</p>
-
-    <div class="row s-main">
-      <span class="label">main-story · 主線故事</span>
-      <span class="count"><span class="pct">96.9%</span>217 lesson</span>
-      <div class="bar"><div class="fill" style="width:96.9%"></div></div>
-    </div>
-    <div class="row s-prologue">
-      <span class="label">outer-prologue · 開場序幕 <span class="tag warn">只在入門章</span></span>
-      <span class="count"><span class="pct">3.1%</span>7 lesson</span>
-      <div class="bar"><div class="fill" style="width:3.1%"></div></div>
-    </div>
-    <div class="row" style="opacity:0.4">
-      <span class="label">aesop-side · 伊索寓言支線 <span class="tag bad">規格有寫但目前 0 題</span></span>
-      <span class="count"><span class="pct">0%</span>0</span>
-      <div class="bar"><div class="fill" style="width:0%"></div></div>
-    </div>
-    <div class="row" style="opacity:0.4">
-      <span class="label">outer-outro · 結尾收場 <span class="tag bad">規格有寫但目前 0 題</span></span>
-      <span class="count"><span class="pct">0%</span>0</span>
-      <div class="bar"><div class="fill" style="width:0%"></div></div>
-    </div>
-    <div class="row" style="opacity:0.4">
-      <span class="label">review · 複習 <span class="tag bad">規格有寫但目前 0 題</span></span>
-      <span class="count"><span class="pct">0%</span>0</span>
-      <div class="bar"><div class="fill" style="width:0%"></div></div>
-    </div>
+    <p class="desc">即時計算 · segmentType 分布</p>
+    <div id="segDist"></div>
   </div>
 
-  <!-- 5. Per-chapter table -->
+  <!-- 5. Per-chapter table (auto-computed) -->
   <div class="section">
     <h2>📚 章節 Breakdown</h2>
-    <p class="desc">32 章 · 每章 7 lesson 77 Q (ch28 例外 84 Q)</p>
+    <p class="desc" id="chapterDesc">即時計算每章 lesson 數 / 題數 / 主導題型</p>
     <table>
       <thead>
         <tr><th>Ch</th><th>標題</th><th class="r">L</th><th class="r">Q</th><th>主導題型</th></tr>
       </thead>
-      <tbody>
-        <tr><td class="ch">0</td><td class="title">入門:ABC・數字</td><td class="r">7</td><td class="r">78</td><td class="dom">listen-emoji</td></tr>
-        <tr><td class="ch">1</td><td class="title">桃太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">2</td><td class="title">醜小鴨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">3</td><td class="title">龜兔賽跑</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">4</td><td class="title">駱駝駝峰</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">5</td><td class="title">Baba Yaga</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">6</td><td class="title">六隻天鵝</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">7</td><td class="title">葉限</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">8</td><td class="title">三隻小豬</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">9</td><td class="title">灰姑娘</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">10</td><td class="title">嫦娥奔月</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">11</td><td class="title">后羿射日</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">12</td><td class="title">牛郎織女</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">13</td><td class="title">小紅帽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">14</td><td class="title">浦島太郎</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">15</td><td class="title">國王的新衣</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">16</td><td class="title">一寸法師</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">17</td><td class="title">鶴的報恩</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">18</td><td class="title">興夫和孬夫</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">19</td><td class="title">Sang Kancil</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">20</td><td class="title">蘿蔔大冒險</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">21</td><td class="title">Anansi 蜘蛛</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">22</td><td class="title">孟母三遷</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">23</td><td class="title">司馬光砸缸</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">24</td><td class="title">孔融讓梨</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">25</td><td class="title">愚公移山</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">26</td><td class="title">Archimedes</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">27</td><td class="title">西遊記</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr style="background:rgba(214,139,58,0.10)"><td class="ch">28</td><td class="title">三國諸葛亮 ⚠️</td><td class="r">7</td><td class="r"><b>84</b></td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">29</td><td class="title">奧德賽</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">30</td><td class="title">赫拉克勒斯</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-        <tr><td class="ch">31</td><td class="title">Robin Hood</td><td class="r">7</td><td class="r">77</td><td class="dom">narration 旁白</td></tr>
-      </tbody>
+      <tbody id="chapterRows"></tbody>
     </table>
 
     <a class="drill-link" href="https://pickupwords.pages.dev/qa-dashboard.html">→ 跳 qa-dashboard 看完整題目</a>
   </div>
 
   <div class="footer-meta">
-    v2.0.B.263 · 2026-06-09 · Source: <code>public/lessons-ch{0..31}.json</code><br>
-    更新內容後請手動 regen (subagent 跑 32 JSON 平行統計)
+    v2.0.B.514 · 即時計算 · Source: <code>public/lessons-ch*.json</code> (前端 fetch 自動統計, 加章/加題自動出現, 不用手動 regen)
   </div>
 </main>
+
+<script>
+(function(){
+  var TYPE_LABEL = {
+    'narration':'narration · 旁白(故事敘述)',
+    'listen-mc':'listen-mc · 聽選(聽聲音 4 選 1)',
+    'listen-tf':'listen-tf · 聽是非(對/錯)',
+    'comprehension':'comprehension · 理解(讀/聽)',
+    'listen-comprehension':'listen-comprehension · 聽力理解',
+    'read-comprehension':'read-comprehension · 閱讀理解',
+    'grammar-mc':'grammar-mc · 文法選擇',
+    'tap-pairs':'tap-pairs · 中英配對',
+    'phrase-pairs':'phrase-pairs · 片語配對',
+    'listen-pairs':'listen-pairs · 聽力配對',
+    'type-translate':'type-translate · 外文打字',
+    'type-what-you-hear':'type-what-you-hear · 聽打',
+    'tap-tiles':'tap-tiles · 排句',
+    'drag-blank':'drag-blank · 克漏字',
+    'emoji-pick':'emoji-pick · 看圖選',
+    'listen-emoji':'listen-emoji · 聽音選圖',
+    'picture-mc':'picture-mc · 看圖選句',
+    'scroll-pick':'scroll-pick · 滑選填空',
+    'read-and-tap':'read-and-tap · 點詞',
+    'listen-build':'listen-build · 聽力排句',
+    'speak-back':'speak-back · 跟讀'
+  };
+  var SEG_LABEL = { 'main-story':'main-story · 主線故事','outer-prologue':'outer-prologue · 開場序幕','aesop-side':'aesop-side · 伊索支線','outer-outro':'outer-outro · 結尾收場','review':'review · 複習' };
+  var DASH = 'https://pickupwords.pages.dev/qa-dashboard.html';
+  function esc(x){ return String(x).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+  function fmt(n){ return n.toLocaleString('en-US'); }
+
+  async function load(ch){
+    try { var r = await fetch('/lessons-ch'+ch+'.json'); if(!r.ok) return null; var a = await r.json(); return Array.isArray(a)?a:null; }
+    catch(e){ return null; }
+  }
+  (async function(){
+    var chapters=[], typeCount={}, segCount={}, totalLessons=0, totalQ=0;
+    for (var ch=0; ch<=40; ch++){
+      var arr = await load(ch);
+      if(!arr || !arr.length) continue;
+      var cLessons=arr.length, cQ=0, cType={};
+      for (var i=0;i<arr.length;i++){
+        var l=arr[i];
+        segCount[l.segmentType] = (segCount[l.segmentType]||0)+1;
+        var qs=l.questions||[];
+        for (var j=0;j<qs.length;j++){
+          var t=qs[j].type;
+          typeCount[t]=(typeCount[t]||0)+1; cType[t]=(cType[t]||0)+1; cQ++;
+        }
+      }
+      totalLessons+=cLessons; totalQ+=cQ;
+      var title=(arr[0]&&arr[0].lessonName)?arr[0].lessonName:('Ch '+ch);
+      var dom=Object.keys(cType).sort(function(x,y){return cType[y]-cType[x];})[0]||'-';
+      chapters.push({ch:ch,title:title,lessons:cLessons,q:cQ,dom:dom});
+    }
+    // ribbon
+    document.getElementById('statCh').textContent = fmt(chapters.length);
+    document.getElementById('statLessons').textContent = fmt(totalLessons);
+    document.getElementById('statQ').textContent = fmt(totalQ);
+    // type dist
+    var types=Object.keys(typeCount).sort(function(x,y){return typeCount[y]-typeCount[x];});
+    var th='';
+    types.forEach(function(t){
+      var n=typeCount[t], pct=totalQ?(n/totalQ*100):0;
+      th += '<a class="row t-'+esc(t)+'" href="'+DASH+'" style="display:block;text-decoration:none;color:inherit;">'+
+        '<div style="display:flex;justify-content:space-between;align-items:center;">'+
+        '<span class="label">'+esc(TYPE_LABEL[t]||t)+'</span>'+
+        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+'</span></div>'+
+        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></a>';
+    });
+    document.getElementById('typeDist').innerHTML=th;
+    // seg dist
+    var segs=Object.keys(segCount).sort(function(x,y){return segCount[y]-segCount[x];});
+    var sh='';
+    segs.forEach(function(sg){
+      var n=segCount[sg], pct=totalLessons?(n/totalLessons*100):0;
+      sh += '<div class="row"><span class="label">'+esc(SEG_LABEL[sg]||sg)+'</span>'+
+        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+' lesson</span>'+
+        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></div>';
+    });
+    document.getElementById('segDist').innerHTML=sh;
+    // chapter table
+    var rows='';
+    chapters.forEach(function(c){
+      rows += '<tr><td class="ch">'+c.ch+'</td><td class="title">'+esc(c.title)+'</td>'+
+        '<td class="r">'+c.lessons+'</td><td class="r">'+c.q+'</td>'+
+        '<td class="dom">'+esc(TYPE_LABEL[c.dom]?c.dom:c.dom)+'</td></tr>';
+    });
+    document.getElementById('chapterRows').innerHTML=rows;
+    document.getElementById('chapterDesc').textContent = chapters.length+' 章 · '+totalLessons+' 單元 · '+fmt(totalQ)+' 題 (即時計算)';
+    document.getElementById('meta').textContent = 'v2.0.B.514 · 即時計算';
+  })();
+})();
+</script>
+
 </body>
 </html>

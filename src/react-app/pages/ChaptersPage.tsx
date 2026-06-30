@@ -87,8 +87,9 @@ const CHAPTERS: ChapterMeta[] = [
 const STORY_CHAPTERS = CHAPTERS.filter((c) => !c.comingSoon && c.category !== 'exam');
 
 // v2.0.B.489: Ch0 擴成 7 關後, 全章節一律 7 關 (跟地圖 gate 一致)。
-function chapterTotal(_chId: number): number {
-  return 7;
+function chapterTotal(chId: number): number {
+  // v2.0.B.514: 英檢 ch32 = 10 關 (其餘故事章固定 7)。
+  return chId === 32 ? 10 : 7;
 }
 function isChapterComplete(chId: number): boolean {
   return readCompletedLessons(chId).size >= chapterTotal(chId);
