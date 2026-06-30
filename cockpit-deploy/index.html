@@ -730,29 +730,29 @@ spec: docs/standards/2026-06-29-cambridge-yle-item-spec.md + 2026-06-29-gept-ite
     </div>
 
     <div class="todo-item" data-todo-id="mp3-ch25-31">
-      <div class="todo-title">🔊 Ch25-31 奶奶語音 MP3 批次 — ARCH-REC #90 (需 OPENAI_API_KEY)</div>
+      <div class="todo-title">🔊 Ch25-33 奶奶語音 MP3 批次 — ARCH-REC #90 (需 OPENAI_API_KEY)</div>
       <div class="todo-meta">
         <span>來源: 2026-06-28T1212 content-qa audit P0-1 (最高 ROI)</span>
-        <span>現況: CHAPTERS_WITH_MP3=Set([1]) — Ch25-31 的 229 聽力題全靠 WebSpeech fallback (iOS Safari 不穩)</span>
-        <span>成本: ~$0.5-1 OpenAI TTS · 191 unique MP3</span>
+        <span>現況: CHAPTERS_WITH_MP3=Set([1]) — Ch25-33 (含英檢) 的聽力題全靠 WebSpeech fallback (iOS Safari 不穩)</span>
+        <span>成本: ~$1 OpenAI TTS · 各章 unique 句子 (djb2 dedup)</span>
         <span>風險: 中 (空改 set 會 404, 必須先產真檔)</span>
       </div>
       <ul class="todo-checklist">
         <li>在有 <code>OPENAI_API_KEY</code> 的環境 (本機 .env 或 shell)</li>
-        <li><code>node tools/generate-grandma-audio.js 25</code> … 一路到 <code>31</code> (djb2 dedup, idempotent 可重跑)</li>
-        <li>確認 <code>public/audio/lessons/</code> 多出 ~191 個 MP3</li>
-        <li><strong>產完才</strong>改 <code>src/audio/tts.ts</code> <code>CHAPTERS_WITH_MP3</code> → <code>Set([1,25,26,27,28,29,30,31])</code></li>
+        <li><code>node tools/generate-grandma-audio.js 25</code> … 一路到 <code>33</code> (djb2 dedup, idempotent 可重跑)</li>
+        <li>確認 <code>public/audio/lessons/</code> 多出該批 MP3</li>
+        <li><strong>產完才</strong>改 <code>src/audio/tts.ts</code> <code>CHAPTERS_WITH_MP3</code> → <code>Set([1,25,26,27,28,29,30,31,32,33])</code></li>
         <li><code>npm run build</code> 綠 → commit + deploy</li>
       </ul>
       <div class="todo-actions">
         <a href="https://github.com/kengkeng44/pickup/blob/master/docs/audits/2026-06-28T1212-content-qa-cron.md" target="_blank">📄 audit</a>
-        <button class="db-copy" type="button" data-prompt="請拉最新 master. 我已在這個環境設好 OPENAI_API_KEY. 實作 2026-06-28T1212 content-qa-cron 的 ARCH-REC #90 (Ch25-31 MP3 批次):
-1. node tools/generate-grandma-audio.js 25 (然後 26,27,28,29,30,31) — 產奶奶語音 MP3 (djb2 dedup, idempotent), 確認 public/audio/lessons/ 多出 ~191 檔
-2. 產完後改 src/audio/tts.ts 的 CHAPTERS_WITH_MP3 從 Set([1]) → Set([1,25,26,27,28,29,30,31])
+        <button class="db-copy" type="button" data-prompt="請拉最新 master. 我已在這個環境設好 OPENAI_API_KEY. 實作 2026-06-28T1212 content-qa-cron 的 ARCH-REC #90 (Ch25-33 MP3 批次, 含英檢章):
+1. node tools/generate-grandma-audio.js 25 (然後 26,27,28,29,30,31,32,33) — 產奶奶語音 MP3 (djb2 dedup, idempotent), 確認 public/audio/lessons/ 多出該批檔
+2. 產完後改 src/audio/tts.ts 的 CHAPTERS_WITH_MP3 從 Set([1]) → Set([1,25,26,27,28,29,30,31,32,33])
 3. npm run build 全綠 (tsc+tests+madge+vite)
 4. commit + push + deploy
 絕不: 空改 CHAPTERS_WITH_MP3 而不產真檔 (會 404 比 WebSpeech fallback 更糟)
-Commit: v2.0.B.NEXT: Ch25-31 奶奶語音 MP3 批次 + 擴 CHAPTERS_WITH_MP3 (ARCH-REC #90)" style="margin-top:6px;">📋 複製「MP3 批次」prompt</button>
+Commit: v2.0.B.NEXT: Ch25-33 奶奶語音 MP3 批次 + 擴 CHAPTERS_WITH_MP3 (ARCH-REC #90)" style="margin-top:6px;">📋 複製「MP3 批次」prompt</button>
         <button class="todo-del" type="button" aria-label="刪除這個 todo">🗑 做完了 · 刪除</button>
       </div>
     </div>
@@ -823,8 +823,8 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
         <li>✅ <strong>統一語言 (B.393):</strong> 題目畫面 prompt 全進 i18n,跟著語言走</li>
         <li>✅ <strong>初始流程 (B.394):</strong> 初始畫面 → 登入/註冊 (本地) → 語言 → 程度 → 完成;品牌化載入畫面</li>
         <li>✅ <strong>5 語言 UI (B.395):</strong> 繁中/簡中/英/日/韓 — 介面字典全到位 (日韓真人翻譯),onboarding + 設定可選</li>
-        <li>✅ <strong>簡中完整 (B.395):</strong> opencc 執行時繁→簡,UI + 全 3136 題內容 (句/解說/選項/單字卡) 自動轉簡,永遠同步、零內容檔。t2cn lazy-load (只簡中用戶抓 38KB)</li>
-        <li>✅ <strong>日/韓題目內容 (B.396-410):</strong> 全 32 章 × 日韓 = 64 overlay (4324 條/語) 翻完上線;sentenceZh/explanationZh/questionZh/optionsZh/pairs + 單字卡全該語言。overlay 架構 (lessons-i18n/) 母檔不動、漸進可擴</li>
+        <li>✅ <strong>簡中完整 (B.395):</strong> opencc 執行時繁→簡,UI + 全部題目內容 (句/解說/選項/單字卡) opencc 執行時自動轉簡 — 含新增的英檢章也自動涵蓋,永遠同步、零內容檔。t2cn lazy-load (只簡中用戶抓 38KB)</li>
+        <li>✅ <strong>日/韓題目內容 (B.396-410):</strong> 故事章 (ch0-31) × 日韓 = 64 overlay 翻完 (真人);英檢章 ch32-33 日韓 overlay 已補 (<strong>native 語氣潤飾</strong>, 對齊真人範本)。overlay 架構 (lessons-i18n/) 母檔不動、漸進可擴</li>
         <li>⬜ <strong>App Store 上架:</strong> 一個 app + 商店頁分語言在地化 (非多 app)。5 語言商店文案範本已備 → <code>docs/marketing/app-store-listings.md</code>,App Store Connect 直接貼</li>
         <li>⬜ <strong>日/韓 TTS:</strong> 題目解說語音 (現只英文句 + 中文 WebSpeech)</li>
         <li>⬜ <strong>真帳號接後端:</strong> onboarding 本地帳號 → 接 B.308 anon-account/sync (待 D1 provision 後)</li>
@@ -935,7 +935,7 @@ Commit: v2.0.B.NEXT: 後端 P2 hard server-authoritative economy" style="margin-
 </main>
 
 <footer>
-  v1.6 · React Pickup v2.0.B.cron · 1-tap Copy · ARCH-REC ×98 ·<a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
+  v1.6 · React Pickup <span id="footVersion">…</span> · 1-tap Copy · ARCH-REC ×<span id="footArchRec">…</span> ·<a href="https://github.com/kengkeng44/pickup" target="_blank" style="color: var(--accent-dark);">repo</a>
 </footer>
 
 <div id="toast" role="status" aria-live="polite"></div>
@@ -1715,6 +1715,33 @@ loadDashboard();
 wireDecisionBoardCopy();
 renderArchRec();
 wireTodoDelete();
+updateFooterMeta();
+
+// v2.0.B.516 (per user「全部改自動, 不要寫死」): footer 版本 + ARCH-REC 編號自動填。
+// 版本 ← GitHub master 最新 commit (準確), fallback shipped.json 最新; ARCH-REC ← shipped.json 最高 #編號。
+async function updateFooterMeta() {
+  var vEl = document.getElementById('footVersion');
+  var arEl = document.getElementById('footArchRec');
+  try {
+    var sh = await loadShipped();
+    var maxN = 0;
+    sh.list.forEach(function (s) {
+      var m = String(s.archRec || '').match(/#(\d+)/);
+      if (m) maxN = Math.max(maxN, parseInt(m[1], 10));
+    });
+    if (arEl && maxN) arEl.textContent = maxN;
+    if (vEl && sh.list[0] && sh.list[0].version) vEl.textContent = sh.list[0].version;
+  } catch (e) { /* ignore */ }
+  try {
+    var r = await fetch('https://api.github.com/repos/' + REPO + '/commits?per_page=1');
+    if (r.ok) {
+      var j = await r.json();
+      var msg = (j[0] && j[0].commit && j[0].commit.message) || '';
+      var m = msg.match(/v\d+\.\d+\.B\.\d+/);
+      if (m && vEl) vEl.textContent = m[0];
+    }
+  } catch (e) { /* ignore */ }
+}
 
 // v2.0.B.496 (per user「首頁下面太長, 折疊」): 把長的參考區 (待生圖片 / 一次性 Todos)
 // 預設折疊, 點標題展開。純前端包裝, 不動內容 (delete 監聽已先 wire, 移動保留)。
