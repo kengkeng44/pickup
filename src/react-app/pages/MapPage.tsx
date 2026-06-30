@@ -133,7 +133,21 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
   31: { titleZh: 'Robin Hood·Sherwood 森林', titleEn: 'Robin Hood', accent: '#5a8a4a', emoji: '🏹' },
   // v2.0.B.508: 英檢挑戰章 (獨立 track, 經 ChaptersPage 🎓 英檢 tab 進入)。
   32: { titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', accent: '#3a7d8a', emoji: '📗' },
+  33: { titleZh: 'YLE Starters 英檢', titleEn: 'Cambridge YLE Starters', accent: '#5a9a6a', emoji: '🐣' },
 };
+
+// v2.0.B.515 (per user): 章末按鈕目的地「可設定」。預設 = 複習該章錯題;
+// 想讓某章末改連英檢 / 自由練習, 在這張表加一筆即可 (key = 章號)。
+// 範例: 核心里程碑章 (8/16/24/31) 結束 → 引導去英檢 GEPT 初級。
+const CHAPTER_END_LINK: Record<number, { to: string; labelKey: string }> = {
+  8:  { to: '/map?ch=32', labelKey: 'map.tryExam' },
+  16: { to: '/map?ch=32', labelKey: 'map.tryExam' },
+  24: { to: '/map?ch=32', labelKey: 'map.tryExam' },
+  31: { to: '/map?ch=32', labelKey: 'map.tryExam' },
+};
+function chapterEndLink(ch: number): { to: string; labelKey: string } {
+  return CHAPTER_END_LINK[ch] ?? { to: `/lesson/${ch}/review`, labelKey: 'map.review' };
+}
 
 // Color helpers (from StoryMapView.ts)
 function lighten(hex: string, amount = 0.22): string {
@@ -732,6 +746,32 @@ export default function MapPage() {
           + iOS safe-area-inset-top. 動態 ResizeObserver 已砍 (jitter 源) */}
       <div style={{ height: 'calc(140px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
+      {/* v2.0.B.515 (per user): 首頁聚合地圖上的英檢挑戰入口 (獨立 track 捷徑) */}
+      {isAggregate && (
+        <button
+          type="button"
+          aria-label="English exam challenge"
+          onClick={() => navigate('/map?ch=32')}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            width: 'calc(100% - 28px)', margin: '0 14px 12px',
+            background: 'var(--t-surface)', color: CHAPTER_META[32].accent,
+            border: `2px solid ${CHAPTER_META[32].accent}`,
+            borderBottom: `4px solid ${darken(CHAPTER_META[32].accent, 0.28)}`,
+            borderRadius: 'var(--t-radius-card)', padding: '12px 16px',
+            textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
+            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: 26, lineHeight: 1 }}>🎓</span>
+          <span style={{ flex: 1, minWidth: 0 }}>
+            <span style={{ display: 'block', fontSize: 15, fontWeight: 900, lineHeight: 1.2 }}>{t('map.examEntry')}</span>
+            <span style={{ display: 'block', fontSize: 12, fontWeight: 700, opacity: 0.8, marginTop: 2 }}>GEPT 初級 · YLE</span>
+          </span>
+          <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>›</span>
+        </button>
+      )}
+
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
 
@@ -929,17 +969,18 @@ export default function MapPage() {
               const rCh = item.chapter ?? 1;
               const rMeta = CHAPTER_META[rCh] ?? CHAPTER_META[1];
               const rUnlocked = isChapterUnlocked(rCh);
+              const rLink = chapterEndLink(rCh); // v2.0.B.515: 可設定目的地 (預設複習, 部分章→英檢)
               return (
                 <button
                   key={`review-${rCh}-${i}`}
                   type="button"
                   disabled={!rUnlocked}
-                  aria-label={`Review chapter ${rCh}${rUnlocked ? '' : ' (locked)'}`}
-                  onClick={() => { if (rUnlocked) navigate(`/lesson/${rCh}/review`); }}
+                  aria-label={`${t(rLink.labelKey)} chapter ${rCh}${rUnlocked ? '' : ' (locked)'}`}
+                  onClick={() => { if (rUnlocked) navigate(rLink.to); }}
                   style={{
                     position: 'absolute',
-                    top: nodeTop, left: CONTAINER_W / 2 - 46 + slot.dx,
-                    width: 92, minHeight: 46,
+                    top: nodeTop, left: CONTAINER_W / 2 - 50 + slot.dx,
+                    width: 100, minHeight: 46,
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
                     background: 'var(--t-surface)',
                     color: rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED_DARK,
@@ -951,7 +992,7 @@ export default function MapPage() {
                     zIndex: 2, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}
                 >
-                  {t('map.review')}
+                  {t(rLink.labelKey)}
                 </button>
               );
             }
