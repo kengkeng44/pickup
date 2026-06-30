@@ -1745,6 +1745,39 @@ async function updateFooterMeta() {
 
 // v2.0.B.496 (per user「首頁下面太長, 折疊」): 把長的參考區 (待生圖片 / 一次性 Todos)
 // 預設折疊, 點標題展開。純前端包裝, 不動內容 (delete 監聽已先 wire, 移動保留)。
+// v2.0.B.523 (per user「簡化, 詳細版之前都要有一句話濃縮」): 每個 todo 預設只顯示「一句話標題」,
+// 點標題才展開詳細 (meta/checklist/prompt/desc)。cron 卡片已是 plainVerdict 一句話 + 點開看 audit。
+(function collapseTodoItems() {
+  document.querySelectorAll('.todo-item[data-todo-id]').forEach(function (item) {
+    if (item.dataset.collapsed) return;
+    var titleEl = item.querySelector('.todo-title') || item.querySelector('strong');
+    if (!titleEl) return;
+    var kids = Array.prototype.slice.call(item.children);
+    var summaryChild = kids.filter(function (c) { return c === titleEl || c.contains(titleEl); })[0];
+    if (!summaryChild) return;
+    var detailKids = kids.filter(function (c) { return c !== summaryChild; });
+    if (!detailKids.length) return;
+    var box = document.createElement('div');
+    box.style.display = 'none';
+    box.style.marginTop = '8px';
+    detailKids.forEach(function (c) { box.appendChild(c); });
+    item.appendChild(box);
+    summaryChild.style.cursor = 'pointer';
+    var caret = document.createElement('span');
+    caret.textContent = ' ▸';
+    caret.style.color = 'var(--muted)';
+    caret.style.fontSize = '12px';
+    summaryChild.appendChild(caret);
+    summaryChild.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a,button')) return; // 別擋連結/按鈕
+      var open = box.style.display !== 'none';
+      box.style.display = open ? 'none' : '';
+      caret.textContent = open ? ' ▸' : ' ▾';
+    });
+    item.dataset.collapsed = '1';
+  });
+})();
+
 (function collapseRefSections() {
   document.querySelectorAll('section.pending-todos').forEach(function (sec) {
     var h = sec.querySelector('h2'); if (!h) return;
