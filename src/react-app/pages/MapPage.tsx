@@ -518,6 +518,9 @@ export default function MapPage() {
     return -1;
   }, [lessons, chapter, isAggregate, completedByChapter]);
   const catPos = useMemo(() => computeCatPosition(currentNodeIdx), [currentNodeIdx]);
+  // v2.0.B.521 (per user): 旁邊角色也遵守進度 — 還沒到牠旁邊的節點 → 灰掉 (像 Duolingo 鎖區的灰角色)。
+  // 柴犬固定在 top:480 ≈ 第 6 顆節點;玩家進度沒到就灰。
+  const shibaLocked = currentNodeIdx < 6;
   // v2.0.B.316: 貓也要跟著章界位移下移 (current node 的 stream index = lesson idx + 前面 chest 數)
   const catOffsetY = currentNodeIdx >= 0
     ? (chapterOffsets[currentNodeIdx + Math.floor(currentNodeIdx / 5)] ?? 0)
@@ -529,13 +532,8 @@ export default function MapPage() {
     ? (lessons[currentNodeIdx >= 0 ? currentNodeIdx : 0]?.chapter ?? requestedChapter)
     : chapter;
   const meta = CHAPTER_META[displayChapter] ?? CHAPTER_META[1];
-  // v2.0.B.466 (per user「書封要顯示現在在第幾關」): 當前章的關卡進度 = 完成數+1 / 總關數。
-  const chTotalGuan = lessons.filter((l) => l.chapter === displayChapter).length;
-  const chDoneGuan = completedByChapter.get(displayChapter)?.size ?? 0;
-  const curGuan = chTotalGuan > 0 ? Math.min(chDoneGuan + 1, chTotalGuan) : 0;
-  const guanLabel = (lang === 'zh' || lang === 'zh-Hans')
-    ? `第 ${curGuan} / ${chTotalGuan} 關`
-    : `${curGuan} / ${chTotalGuan}`;
+  // v2.0.B.521 (per user): 兩個地圖都不顯示「第 X / Y 關」counter (對齊 Don't-Do #5: 數字增加焦慮)。
+  // 進度只靠節點顏色 + 書封, 不放數字。
 
   // v2.0.B.189 P0 fix (UI/UX cron audit): wire HUD to real XP/Coins/Level
   // 從硬編 xp=0/level=1/coins=0 改成讀 localStorage 實際資料。
@@ -621,7 +619,6 @@ export default function MapPage() {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const coverChRef = useRef<HTMLDivElement>(null);
   const coverTitleRef = useRef<HTMLDivElement>(null);
-  const coverGuanRef = useRef<HTMLDivElement>(null); // v2.0.B.471: 第幾關 (跟著捲動章節更新, 修「每章都顯示第2關」bug)
   useEffect(() => {
     if (!isAggregate || lessons.length === 0) return;
     let lastCh = -999;
@@ -631,14 +628,6 @@ export default function MapPage() {
       const m = CHAPTER_META[ch] ?? CHAPTER_META[1];
       if (coverChRef.current) coverChRef.current.textContent = `CH ${ch}`;
       if (coverTitleRef.current) coverTitleRef.current.textContent = `${m.emoji} ${chTitle(m)}`;
-      // v2.0.B.471: 第幾關跟著捲動章節走 (用 readCompletedLessons 讀即時完成數, 不會 stale)
-      if (coverGuanRef.current) {
-        const total = lessons.filter((x) => x.chapter === ch).length;
-        const cur = total > 0 ? Math.min(readCompletedLessons(ch).size + 1, total) : 0;
-        coverGuanRef.current.textContent = total > 0
-          ? ((lang === 'zh' || lang === 'zh-Hans') ? `第 ${cur} / ${total} 關` : `${cur} / ${total}`)
-          : '';
-      }
       if (coverBtnRef.current) {
         coverBtnRef.current.style.background = m.accent;
         coverBtnRef.current.style.boxShadow = `inset 0 4px 0 rgba(255,255,255,0.22), 0 5px 0 ${darken(m.accent, 0.28)}`;
@@ -728,15 +717,13 @@ export default function MapPage() {
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
-            {/* v2.0.B.283: 加位置 ch{N} 標 (user「要有位置 ch1」), 仍保留英文 title 為主 */}
+            {/* v2.0.B.521 (per user): 英檢章 (ch≥32) 不顯示「CH N」, 改「🎓 英檢」與故事章隔開; 不再放「第X關」counter。 */}
             <div ref={coverChRef} style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
-              CH {displayChapter}
+              {displayChapter >= 32 ? '🎓 英檢' : `CH ${displayChapter}`}
             </div>
             <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{chTitle(meta)}
             </div>
-            {/* v2.0.B.466/471: 現在在第幾關 (初始用 displayChapter, 捲動由 coverGuanRef 更新) */}
-            <div ref={coverGuanRef} style={{ fontSize: 12, fontWeight: 800, color: 'rgba(255,255,255,0.85)', marginTop: 3 }}>{chTotalGuan > 0 ? guanLabel : ''}</div>
           </div>
           <span aria-hidden="true" style={{
             fontSize: 20, lineHeight: 1, color: '#fff',
@@ -750,34 +737,6 @@ export default function MapPage() {
           + iOS safe-area-inset-top. 動態 ResizeObserver 已砍 (jitter 源) */}
       <div style={{ height: 'calc(140px + env(safe-area-inset-top))' }} aria-hidden="true" />
 
-      {/* v2.0.B.520 (per user): 英檢挑戰改成一個「人物」(Mochi 戴學士帽), 點他跳對話框 → 選英檢章開始 */}
-      {isAggregate && (
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 6 }}>
-          <button
-            type="button"
-            aria-label="English exam challenge"
-            onClick={() => setShowExamDialog(true)}
-            style={{
-              background: 'transparent', border: 'none', cursor: 'pointer', padding: 6,
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
-              fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-            }}
-          >
-            <span style={{ position: 'relative', display: 'inline-block' }}>
-              <img src="/mascots/calico-anchor.webp" width={84} height={84} alt="" style={{
-                display: 'block', borderRadius: '50%',
-                filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
-              }} />
-              <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -8, fontSize: 30, lineHeight: 1, transform: 'rotate(12deg)' }}>🎓</span>
-            </span>
-            <span style={{
-              fontSize: 12, fontWeight: 900, color: CHAPTER_META[32].accent,
-              background: 'var(--t-surface)', border: `2px solid ${CHAPTER_META[32].accent}`,
-              borderRadius: 'var(--t-radius-pill)', padding: '2px 12px',
-            }}>{t('map.examEntry')}</span>
-          </button>
-        </div>
-      )}
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
       <GrandmaRecommendCarousel />
@@ -908,9 +867,49 @@ export default function MapPage() {
             <img src="/mascots/iso-shiba.webp" alt="" style={{
               position: 'absolute', left: 0, bottom: 0,
               width: 80, height: 'auto', display: 'block', zIndex: 1,
-              filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
+              // v2.0.B.521: 還沒到柴犬旁的進度 → 灰 (進度規則)。
+              filter: shibaLocked
+                ? 'grayscale(0.9) opacity(0.55) drop-shadow(1px 3px 3px rgba(74,54,38,0.15))'
+                : 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))',
             }} />
           </div>
+
+          {/* v2.0.B.521 (per user): 英檢挑戰「人物」放右側空白 margin (不擋中間節點), 點他跳對話框。
+              英檢是獨立 track 永遠可挑戰 → 不灰。 */}
+          {isAggregate && (
+            <button type="button" aria-label="English exam challenge"
+              onClick={() => setShowExamDialog(true)}
+              style={{ position: 'absolute', top: 8, right: 2, zIndex: 4, width: 74, padding: 0,
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+                fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <img src="/mascots/calico-anchor.webp" width={62} height={62} alt="" style={{ display: 'block', borderRadius: '50%',
+                  filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
+                <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: 24, lineHeight: 1, transform: 'rotate(12deg)' }}>🎓</span>
+              </span>
+              <span style={{ fontSize: 11, fontWeight: 900, color: CHAPTER_META[32].accent, background: 'var(--t-surface)',
+                border: `2px solid ${CHAPTER_META[32].accent}`, borderRadius: 'var(--t-radius-pill)', padding: '1px 8px' }}>{t('map.examEntry')}</span>
+            </button>
+          )}
+
+          {/* v2.0.B.521 (per user): 英檢章單章視圖 → 右側放「回主地圖」人物。 */}
+          {!isAggregate && chapter >= 32 && (
+            <button type="button" aria-label="Back to main map"
+              onClick={() => navigate('/')}
+              style={{ position: 'absolute', top: 8, right: 2, zIndex: 4, width: 74, padding: 0,
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+                fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <img src="/mascots/calico-anchor.webp" width={62} height={62} alt="" style={{ display: 'block', borderRadius: '50%',
+                  filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
+                <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: 22, lineHeight: 1 }}>🏠</span>
+              </span>
+              <span style={{ fontSize: 11, fontWeight: 900, color: 'var(--t-brand-dark)', background: 'var(--t-surface)',
+                border: '2px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-pill)', padding: '1px 8px' }}>{t('map.backToMap')}</span>
+            </button>
+          )}
 
           {/* v2.0.B.270 virtualization + chest interleave: 每 5 lesson 一個 🎁 寶箱 */}
           {/* v2.0.B.292 NUCLEAR TEST: 砍虛擬化, render 全部 stream nodes.
@@ -975,18 +974,22 @@ export default function MapPage() {
             if (item.kind === 'review') {
               const rCh = item.chapter ?? 1;
               const rMeta = CHAPTER_META[rCh] ?? CHAPTER_META[1];
-              const rUnlocked = isChapterUnlocked(rCh);
               const rLink = chapterEndLink(rCh); // v2.0.B.515: 可設定目的地 (預設複習, 部分章→英檢)
-              // v2.0.B.520 (per user): 改成跟其他節點一樣的橢圓 puck (不要長得不一樣)。
-              const rBase = rUnlocked ? rMeta.accent : COLOR_NODE_LOCKED;
-              const rShadowC = rUnlocked ? darken(rMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
+              // v2.0.B.521 (per user「為什麼複習會亮著還能點」): 章末鈕只在「整章完成」後才亮+可點,
+              // 否則跟未解鎖節點一樣灰掉。(複習要先做完整章才有意義。)
+              const rDone = completedByChapter.get(rCh)?.size ?? 0;
+              const rTotal = chapterTotals.get(rCh) ?? 7;
+              const rActive = rTotal > 0 && rDone >= rTotal;
+              // v2.0.B.520: 跟其他節點一樣的橢圓 puck (不要長得不一樣)。
+              const rBase = rActive ? rMeta.accent : COLOR_NODE_LOCKED;
+              const rShadowC = rActive ? darken(rMeta.accent, 0.28) : COLOR_NODE_LOCKED_DARK;
               return (
                 <button
                   key={`review-${rCh}-${i}`}
                   type="button"
-                  aria-disabled={!rUnlocked}
-                  aria-label={`${t(rLink.labelKey)} chapter ${rCh}${rUnlocked ? '' : ' (locked)'}`}
-                  onClick={() => { if (rUnlocked) navigate(rLink.to); }}
+                  aria-disabled={!rActive}
+                  aria-label={`${t(rLink.labelKey)} chapter ${rCh}${rActive ? '' : ' (locked)'}`}
+                  onClick={() => { if (rActive) navigate(rLink.to); }}
                   style={{
                     position: 'absolute',
                     top: nodeTop, left: CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx,
@@ -997,7 +1000,7 @@ export default function MapPage() {
                     color: '#fff', fontSize: 13, fontWeight: 900, fontFamily: 'inherit',
                     lineHeight: 1.1, textAlign: 'center',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0,
-                    cursor: rUnlocked ? 'pointer' : 'not-allowed', opacity: rUnlocked ? 1 : 0.7,
+                    cursor: rActive ? 'pointer' : 'not-allowed', opacity: rActive ? 1 : 0.7,
                     zIndex: 2, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}
                 >
@@ -1084,6 +1087,28 @@ export default function MapPage() {
             );
           })}
         </div>
+      )}
+
+      {/* v2.0.B.521 (per user): 往上箭頭 — 捲到下面後一鍵回到目前進度 (current node)。 */}
+      {!loading && lessons.length > 0 && (
+        <button
+          type="button"
+          aria-label="Scroll to current progress"
+          onClick={() => currentNodeRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+          style={{
+            position: 'fixed', right: 'calc(14px + env(safe-area-inset-right))',
+            bottom: 'calc(78px + env(safe-area-inset-bottom))', zIndex: 60,
+            width: 48, height: 48, borderRadius: 14,
+            background: 'var(--t-surface)', border: '2px solid var(--t-border-card)',
+            borderBottom: '4px solid var(--t-text-muted)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', fontFamily: 'inherit',
+            boxShadow: '0 4px 14px rgba(60,42,28,0.18)',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: 22, lineHeight: 1, color: 'var(--t-brand-dark)', fontWeight: 900 }}>↑</span>
+        </button>
       )}
 
       {/* Key Sentences overlay */}
