@@ -81,6 +81,7 @@ const CHAPTERS: ChapterMeta[] = [
   // 真內容上線 = lessons-ch32.json (GEPT 初級)。spec: docs/standards/2026-06-29-gept-item-spec.md
   // + 2026-06-29-cambridge-yle-item-spec.md。其餘級別 (YLE / GEPT Kids) 內容備妥後比照新增。
   { id: 32, titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', emoji: '📗', category: 'exam', subCat: '全民英檢 GEPT' },
+  { id: 33, titleZh: 'YLE Starters 入門', titleEn: 'Cambridge YLE Starters', emoji: '🐣', category: 'exam', subCat: '劍橋兒童英檢 YLE' },
 ];
 
 // 故事圖鑑完成度只算故事章節 (英檢是獨立 track, 不計入)。
