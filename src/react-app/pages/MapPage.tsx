@@ -975,8 +975,7 @@ export default function MapPage() {
                     WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}
                 >
-                  <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">🔁</span>
-                  <span style={{ fontSize: 10, fontWeight: 900, letterSpacing: 0.3 }}>{t('map.review')}</span>
+                  <span style={{ fontSize: 13, fontWeight: 900, letterSpacing: 0.5 }}>{t('map.review')}</span>
                 </button>
               )}
               {showChapterLabel && (
