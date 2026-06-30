@@ -347,5 +347,259 @@
         "tags": ["exam", "gept", "ch32", "vocab", "type"]
       }
     ]
+  },
+  {
+    "id": "kt-ch32-l5",
+    "chapter": 32,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "lessonName": "🎧 聽力·對話",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l5-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Now let's listen to short talks between two people.",
+        "sentenceZh": "現在我們來聽兩個人的簡短對話。",
+        "explanationZh": "奶奶說：聽對話時，注意他們在說什麼、想做什麼。",
+        "tags": ["exam", "gept", "ch32", "intro"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l5-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "A: Are you hungry? B: Yes, let's eat lunch.",
+        "question": "What do they want to do?",
+        "options": ["Have lunch.", "Go to sleep.", "Read a book.", "Play outside."],
+        "correctIndex": 0,
+        "explanationZh": "B 說 let's eat lunch（一起吃午餐），所以他們想吃午餐。",
+        "tags": ["exam", "gept", "ch32", "listening", "dialogue"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l5-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "A: Where are you going? B: To the library.",
+        "question": "What place does B go to?",
+        "options": ["Visit the library.", "A big market.", "His friend's house.", "The train station."],
+        "correctIndex": 0,
+        "explanationZh": "B 回答 To the library（去圖書館）。",
+        "tags": ["exam", "gept", "ch32", "listening", "dialogue"]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch32-l5-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "A: What time is the movie? B: At eight.",
+        "question": "When is the movie?",
+        "options": ["Eight o'clock.", "Around noon.", "Before dawn.", "Maybe ten."],
+        "correctIndex": 0,
+        "explanationZh": "B 說 At eight（八點）。",
+        "tags": ["exam", "gept", "ch32", "listening", "dialogue"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l5-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "Tom has a red bike and a blue kite.",
+        "questionEn": "Is Tom's kite blue?",
+        "options": ["Yes", "No"],
+        "correctIndex": 0,
+        "explanationZh": "故事說風箏是藍色的，所以答 Yes。",
+        "tags": ["exam", "gept", "ch32", "true-false"]
+      },
+      {
+        "type": "listen-tf",
+        "id": "kt-ch32-l5-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "speaker": "grandma",
+        "sentence": "The cat sleeps on the soft sofa.",
+        "questionEn": "Does the cat sleep on the floor?",
+        "options": ["Yes", "No"],
+        "correctIndex": 1,
+        "explanationZh": "貓睡在沙發上，不是地板，所以答 No。",
+        "tags": ["exam", "gept", "ch32", "true-false"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch32-l6",
+    "chapter": 32,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "lessonName": "📝 詞彙與結構 2",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l6-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "A few more sentences. Choose the word that fits best.",
+        "sentenceZh": "再來幾個句子，選出最合適的字。",
+        "explanationZh": "奶奶說：多練幾題，文法就會越來越熟。",
+        "tags": ["exam", "gept", "ch32", "intro"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l6-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "My sister ___ her homework now.",
+        "question": "Choose the correct word.",
+        "options": ["is doing", "was doing it", "does", "did"],
+        "correctIndex": 0,
+        "explanationZh": "句尾 now（現在）配現在進行式 is doing。",
+        "tags": ["exam", "gept", "ch32", "grammar", "tense"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l6-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "There are some books, but ___ pen on the desk.",
+        "question": "Choose the correct word.",
+        "options": ["no", "not", "none", "any"],
+        "correctIndex": 0,
+        "explanationZh": "「沒有筆」用 there is no pen，所以填 no。",
+        "tags": ["exam", "gept", "ch32", "grammar", "quantifier"]
+      },
+      {
+        "type": "grammar-mc",
+        "id": "kt-ch32-l6-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She likes apples, ___ she doesn't like pears.",
+        "question": "Choose the correct word.",
+        "options": ["but", "and", "so", "or"],
+        "correctIndex": 0,
+        "explanationZh": "前後語意相反（喜歡蘋果、不喜歡梨子）用 but。",
+        "tags": ["exam", "gept", "ch32", "grammar", "conjunction"]
+      },
+      {
+        "type": "drag-blank",
+        "id": "kt-ch32-l6-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "We had a picnic. The weather was sunny and warm.",
+        "sentenceTemplate": "We had a picnic. The weather __ sunny __ warm.",
+        "sentenceZh": "我們去野餐。天氣晴朗又溫暖。",
+        "tiles": ["was", "were", "and", "but", "or"],
+        "correctTiles": ["was", "and"],
+        "explanationZh": "weather 是單數用 was；「又…又…」用 and。",
+        "tags": ["exam", "gept", "ch32", "cloze"]
+      },
+      {
+        "type": "drag-blank",
+        "id": "kt-ch32-l6-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He gets up early and brushes his teeth.",
+        "sentenceTemplate": "He __ up early and __ his teeth.",
+        "sentenceZh": "他很早起床，然後刷牙。",
+        "tiles": ["gets", "get", "brushes", "brush", "washes"],
+        "correctTiles": ["gets", "brushes"],
+        "explanationZh": "主詞 He 第三人稱單數，動詞加 s：gets、brushes。",
+        "tags": ["exam", "gept", "ch32", "cloze", "tense"]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch32-l7",
+    "chapter": 32,
+    "lessonInChapter": 7,
+    "segmentType": "review",
+    "lessonName": "🔤 複習·看圖單字",
+    "questions": [
+      {
+        "type": "narration",
+        "id": "kt-ch32-l7-intro",
+        "level": "A2",
+        "difficulty": "easy",
+        "speaker": "grandma",
+        "sentence": "Last lesson! Let's review some words with pictures.",
+        "sentenceZh": "最後一關了！我們用圖片複習幾個單字。",
+        "explanationZh": "奶奶說：複習一遍，這些單字就會牢牢記住。",
+        "tags": ["exam", "gept", "ch32", "review", "intro"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l7-q1",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🍎",
+        "sentence": "蘋果",
+        "sentenceZh": "蘋果",
+        "answer": "apple",
+        "accept": ["an apple", "the apple", "apples"],
+        "explanationZh": "蘋果 = apple。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l7-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🚌",
+        "sentence": "公車",
+        "sentenceZh": "公車",
+        "answer": "bus",
+        "accept": ["a bus", "the bus", "buses"],
+        "explanationZh": "公車 = bus。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l7-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "🐱",
+        "sentence": "貓",
+        "sentenceZh": "貓",
+        "answer": "cat",
+        "accept": ["a cat", "the cat", "cats"],
+        "explanationZh": "貓 = cat。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "type-translate",
+        "id": "kt-ch32-l7-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "imageEmoji": "☀️",
+        "sentence": "太陽",
+        "sentenceZh": "太陽",
+        "answer": "sun",
+        "accept": ["the sun", "a sun"],
+        "explanationZh": "太陽 = sun。",
+        "tags": ["exam", "gept", "ch32", "vocab", "type"]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch32-l7-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Match the animals.",
+        "pairs": [
+          { "left": "鳥", "right": "bird" },
+          { "left": "魚", "right": "fish" },
+          { "left": "兔子", "right": "rabbit" },
+          { "left": "馬", "right": "horse" }
+        ],
+        "explanationZh": "動物字彙配對：鳥 bird、魚 fish、兔子 rabbit、馬 horse。",
+        "tags": ["exam", "gept", "ch32", "vocab"]
+      }
+    ]
   }
 ]

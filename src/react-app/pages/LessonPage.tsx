@@ -84,6 +84,9 @@ export default function LessonPage() {
   const isPreview = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('preview');
   // v2.0.B.433: 晉升傳奇模式 (?mode=legendary) — 更高 XP + 傳奇 framing。
   const legendary = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('mode') === 'legendary';
+  // v2.0.B.512 (per user 地圖側邊按鈕): 複習模式 — lessonId === 'review' → 跑「整章累積錯題」一輪,
+  // 不是某一關。沒有錯題 = 空 round → 顯示「全對了」空狀態。不發 XP/不標完成/不接 NextStoryPicker。
+  const isReview = lessonId === 'review';
 
   // v2.0.B.424: 每進一個 lesson 把體力補滿 (每節重新開始, 不跨節懲罰)
   useEffect(() => { refillHp(); }, [chapter, lessonId]);
@@ -100,6 +103,15 @@ export default function LessonPage() {
   useEffect(() => { wrongRef.current = new Map(); reviewRef.current = null; }, [chapter, lessonId]);
 
   useEffect(() => {
+    // v2.0.B.512: 複習模式 — 用整章累積錯題組一輪, 不抓單一 lesson。空池 = 0 題 → 空狀態。
+    if (isReview) {
+      const pool = readChapterMistakes(Number(chapter)) as unknown as RawQuestion[];
+      const round = buildReviewRound(pool as unknown as ReviewQuestion[]) as unknown as RawQuestion[];
+      setLesson({ id: 'review', chapter: Number(chapter), lessonInChapter: 0, questions: round });
+      setMaxLessonInChapter(0);
+      setIdx(0); setHistory([]); answerLog.current = []; startedAt.current = Date.now();
+      return;
+    }
     fetch(`/lessons-ch${chapter}.json`)
       .then(r => r.json())
       .then(async (arr: Lesson[]) => {
@@ -172,7 +184,7 @@ export default function LessonPage() {
   const baseLen = lesson.questions.length;
   // 跑到主題目尾端時, 一次性算出複習輪 (本節錯題; 最後一節 = 整章累積錯題, 去重)。
   // 都沒錯 → 空陣列 → 直接完成 (題數自然減少)。preview 模式不複習。
-  if (!isPreview && idx >= baseLen && reviewRef.current === null) {
+  if (!isPreview && !isReview && idx >= baseLen && reviewRef.current === null) {
     const lessonWrongs = [...wrongRef.current.values()] as ReviewQuestion[];
     const pool = isLastLessonOfChapter
       ? (readChapterMistakes(lesson.chapter) as ReviewQuestion[])
@@ -183,6 +195,11 @@ export default function LessonPage() {
   const allQs = reviewQueue.length ? [...lesson.questions, ...reviewQueue] : lesson.questions;
   const inReview = reviewQueue.length > 0 && idx >= baseLen;
   const done = idx >= allQs.length;
+  // v2.0.B.512: 複習模式專屬完成/空狀態 — 不走 CompletePanel (不發 XP/不標完成/不接 picker)。
+  if (isReview && done) {
+    const rc = answerLog.current.filter(a => a.isCorrect).length;
+    return <ReviewDonePanel correct={rc} total={answerLog.current.length} onBack={() => navigate('/')} />;
+  }
   if (done) {
     return <CompletePanel
       lesson={lesson}
@@ -207,7 +224,7 @@ export default function LessonPage() {
     if (!isCorrect) loseHp(); // v2.0.B.424: 答錯扣體力 (愛心)
     answerLog.current.push({ q, userIdx, isCorrect });
     // v2.0.B.488 錯題統整: 答錯的「單字/文法/時態」題記下來 (節末 + 章末重做)。
-    if (!isCorrect && !isPreview && isReviewableType(q.type)) {
+    if (!isCorrect && !isPreview && !isReview && isReviewableType(q.type)) {
       wrongRef.current.set(mistakeKey(q as ReviewQuestion), q);
       addChapterMistake(lesson.chapter, q as unknown as ReviewQuestion);
     }
@@ -545,6 +562,28 @@ function Hearts() {
         }}
       >+</button>
     </span>
+  );
+}
+
+// v2.0.B.512: 複習模式完成面板 — 空池(全對)= 鼓勵; 有複習 = 顯示答對數。無 XP/economy 副作用。
+function ReviewDonePanel({ correct, total, onBack }: { correct: number; total: number; onBack: () => void }) {
+  const empty = total === 0;
+  return (
+    <div className="pickup-fade-up" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flexGrow: 1, padding: '40px 24px', textAlign: 'center', gap: 16 }}>
+      <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" className="pickup-bounce" style={{ borderRadius: '50%' }} />
+      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>
+        {empty ? '本章全對了！' : '複習完成！'}
+      </div>
+      <div style={{ fontSize: 15, fontWeight: 700, color: '#7a6850', lineHeight: 1.6 }}>
+        {empty ? '這一章沒有錯題要複習 🎉 太厲害了！' : `這次複習答對 ${correct} / ${total} 題`}
+      </div>
+      <button onClick={onBack} style={{
+        marginTop: 8, minWidth: 200, minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
+        background: 'var(--t-brand)', color: '#fff', fontSize: 16, fontWeight: 900, fontFamily: 'inherit',
+        borderBottom: '4px solid var(--t-brand-dark)', cursor: 'pointer',
+        WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+      }}>回地圖 →</button>
+    </div>
   );
 }
 

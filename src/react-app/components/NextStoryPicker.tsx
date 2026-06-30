@@ -269,6 +269,17 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
           </button>
         </div>
 
+        {/* v2.0.B.510: 英檢挑戰 — 獨立 track 入口, 章末也能直接選跳去考英檢 (玩家自己選) */}
+        <button
+          type="button"
+          onClick={() => { onClose(); navigate('/map?ch=32'); }}
+          aria-label="Try the English exam challenge: GEPT Elementary"
+          style={examBtnStyle}
+        >
+          <span style={{ fontSize: 18, marginRight: 6 }} aria-hidden="true">🎓</span>
+          也想挑戰英檢? GEPT 初級 →
+        </button>
+
         {/* Soft framing — Mochi 也想睡了 */}
         <div style={hintStyle}>
           Mochi 也想睡了 · 不急,慢慢來
@@ -472,6 +483,26 @@ const hintStyle: React.CSSProperties = {
   textAlign: 'center',
   fontWeight: 600,
   fontStyle: 'italic',
+};
+
+// v2.0.B.510: 英檢挑戰 章末入口 — 次要 outline 鈕, 跟主故事流區隔 (獨立 track)。
+const examBtnStyle: React.CSSProperties = {
+  marginTop: 2,
+  width: '100%',
+  border: '2px solid var(--t-accent)',
+  borderRadius: 'var(--t-radius-card)',
+  background: 'transparent',
+  color: '#7a5e25',
+  fontFamily: 'inherit',
+  fontSize: 13,
+  fontWeight: 900,
+  padding: '11px 12px',
+  cursor: 'pointer',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  touchAction: 'manipulation',
+  WebkitTapHighlightColor: 'transparent',
 };
 
 const toastStyle: React.CSSProperties = {
