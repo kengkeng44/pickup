@@ -274,7 +274,9 @@ function lintNgramVerbatim(lessons, file) {
 // X49_STIMULUS_REUSE (ARCH-REC #94, per user 同意 A 類 lint): 同一節內, 同一句 sentence 同時
 // 當 comprehension/listen-mc/listen-comprehension 的考題 stimulus *又* 當 listen-tf 的 stimulus →
 // 學生第一題已聽/讀過, 第二題退化成「回憶」而非「聽力」(Buck 2001 §5.3 stimulus repetition)。
-// warn-only, content cron 漸修 (改寫其中一題為 paraphrase, 不動 correctIndex)。
+// X49B_STIMULUS_REUSE_COMP (per user 2026-07-01「立規則不要重複」): 同一句被 ≥2 個理解/聽力題
+// 重複當 stimulus (即使沒 listen-tf) 也退化成回憶 → 一併掃出。兩者皆 warn-only, content cron 漸修
+// (改寫其中一題為 paraphrase 或換 stimulus, 不動 correctIndex)。build gate = cron gate, 自動生效。
 const X49_COMP_TYPES = new Set(['comprehension', 'listen-mc', 'listen-comprehension', 'read-comprehension']);
 function normStimulus(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean).join(' ');
@@ -291,15 +293,19 @@ function lintStimulusReuse(lessons, file) {
       const isComp = X49_COMP_TYPES.has(q.type);
       const isTf = q.type === 'listen-tf';
       if (!isComp && !isTf) continue;
-      const rec = seen.get(key) || { comp: false, tf: false, snippet: sent };
-      if (isComp) rec.comp = true;
+      const rec = seen.get(key) || { comp: false, compCount: 0, tf: false, snippet: sent };
+      if (isComp) { rec.comp = true; rec.compCount += 1; }
       if (isTf) rec.tf = true;
       seen.set(key, rec);
     }
     for (const [, rec] of seen) {
+      const snip = String(rec.snippet).slice(0, 48);
       if (rec.comp && rec.tf) {
-        const snip = String(rec.snippet).slice(0, 48);
         issues.push(`${file} ${lesson.id}: X49_STIMULUS_REUSE (同句「${snip}…」同節既當理解題又當 listen-tf — 退化成回憶)`);
+      } else if (rec.compCount >= 2) {
+        // X49B (per user「立規則不要重複」): 同一句被 ≥2 個理解/聽力題當 stimulus →
+        // 第二題退化成回憶而非理解 (Buck 2001 §5.3)。warn-only, content cron 漸修。
+        issues.push(`${file} ${lesson.id}: X49B_STIMULUS_REUSE_COMP (同句「${snip}…」同節被 ${rec.compCount} 個理解/聽力題重複當 stimulus — 退化成回憶)`);
       }
     }
   }

@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-07-01T0006-content-qa-cron.md (Tier C 跟進, per user 核准)",
+      "archRec": "X49B 反重複 stimulus lint + narration 語氣/節奏 (E 節) + Ch17 同句去重",
+      "what": "(per user 2026-07-01 核准 audit 的 Tier C 跟進) 三塊: (1) 立新規則 X49B_STIMULUS_REUSE_COMP — 擴充 validate-lessons.js X49, 除了原本『理解題+listen-tf 同句』外, 再抓『同一句被 ≥2 個理解/聽力題重複當 stimulus』(即使沒 listen-tf) → 退化成回憶 (Buck 2001 §5.3). warn-only, 自動在 build gate = cron gate 生效, 首掃全 corpus 132 命中 (review-lesson 通病, 交 content cron 漸修). (2) 修 audit top-5 #3 Ch17-l7 同句 q9(listen-mc)+x7(comprehension) 都問『鶴飛去哪』重複 → 把 x7 改成不同 stimulus 的推論題『鶴為什麼必須離開』(correctIndex 不變 0). (3) audit E 節 narration voice/pacing 全修: E1 Ch17-24 八章開場模板疲勞 → l1/l2 intro 各改成引用該章故事的變體 (16 句, EN+ZH); E3 Ch22-l6 高潮缺拍 → 拿刀(q5)與剪布(q6)之間插一句旁白『The whole room went very quiet.』留呼吸. 過 gate: npm run build (434 tests + tsc + vite 綠, 無 R2 FAIL) + check-answer-index (correctIndex 全不變). E2 (全域 narration explanationZh 暖化) = 主觀大掃, 留下一輪 (可 dispatch 並行). ARCH-REC #100 (X56 picture-mc) 仍待作者定.",
+      "version": "v2.0.B.525",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-07-01T0006-content-qa-cron.md",
       "archRec": "R1 Paraphrase-not-echo (Buck 2001) content 全修 — 38 題",
       "what": "(cron content 全修, Tier B paraphrase, 依 P0>P1>P2) 修 audit R1 verbatim-echo 全部 38 題 Ch17-24, 只動 public/lessons-ch*.json: R1a/R1b 正解選項改寫成真 paraphrase (picture-mc caption + listen-mc/comprehension 正解, EN+optionsZh 同步, 絕不動 correctIndex) ×22; R1c 干擾項去 verbatim cue ×6; R1d explanationZh 不再逐字引用正解、改講故事/文法邏輯 ×10. 每筆過 gate: npm run build (validate-lessons 無新 X8/R2 FAIL + 434 tests + tsc + vite 全綠) + check-answer-index.cjs (8 檔 correctIndex 全不變). 為避免正解改寫觸發 X8 length-tell, 少數過短干擾項同步加長 (ch19-l7-q9 shouting→loud shouting; ch24-l5-x2 wasn't hungry→not hungry at all). Tier C 分隔未動: ARCH-REC #100 (X56 picture-mc subject-NP lint, 動 validate-lessons.js=非 lessons 檔) + E 節 narration voice/pacing 3 建議 (加旁白 entry=結構) + X49 同句 stimulus reuse 多樣化 (改 sentence stimulus=非 paraphrase). ja/ko overlay 未同步 (只動 lessons 規定內), auto-fallback 不影響.",
