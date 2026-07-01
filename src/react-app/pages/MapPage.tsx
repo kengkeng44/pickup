@@ -334,11 +334,10 @@ function SideCharButton({ variant, label, accent, onClick, style }: {
   );
 }
 
-function NodeStartDialog({ anchor, done, lang, title, defaultMode, onPick, onClose }: {
+function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
   anchor: DOMRect;
   done: boolean;
   lang: string;
-  title?: string;
   defaultMode: 'read' | 'listen';
   onPick: (legendary: boolean, mode: 'read' | 'listen') => void;
   onClose: () => void;
@@ -355,7 +354,7 @@ function NodeStartDialog({ anchor, done, lang, title, defaultMode, onPick, onClo
   return (
     <AnchoredPopover anchor={anchor} onClose={onClose} maxWidth={340}>
       <div>
-        {title && <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)', margin: '0 2px 14px', textAlign: 'center' }}>{title}</div>}
+        {/* v2.0.B.535 (per user「標題刪掉只留選項」): 移除關卡名標題。 */}
         {/* v2.0.B.484: 閱讀 / 聽力 測驗切換 — 閱讀=字顯示, 聽力=盲聽。重現挑戰沿用當初選的。 */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
           {([['read', readLabel], ['listen', listenLabel]] as const).map(([m, label]) => (
@@ -400,17 +399,7 @@ function NodeStartDialog({ anchor, done, lang, title, defaultMode, onPick, onClo
           <span>👑 {legLabel}</span>
           <span style={{ fontSize: 14, fontWeight: 800, opacity: 0.95 }}>+{legXp} {xpWord}</span>
         </button>
-        <button
-          type="button"
-          onClick={onClose}
-          style={{
-            width: '100%', border: 'none', background: 'transparent',
-            color: 'var(--t-text-muted)', fontFamily: 'inherit', fontWeight: 700,
-            fontSize: 14, padding: '14px 0 2px', marginTop: 4, cursor: 'pointer',
-          }}
-        >
-          {zh ? '取消' : 'Cancel'}
-        </button>
+        {/* v2.0.B.535 (per user「取消也刪, 點旁邊就取消」): 移除取消鈕, 點背景即關閉。 */}
       </div>
     </AnchoredPopover>
   );
@@ -504,6 +493,30 @@ export default function MapPage() {
     return offs;
   }, [stream, lessons, isAggregate]);
   const totalChapterGap = chapterOffsets.length ? chapterOffsets[chapterOffsets.length - 1] : 0;
+
+  // v2.0.B.535 (per user「英檢人物放中間, 左右左右每章間隔放」): 每章的英檢入口人物放在該章
+  // 節點群的「垂直中段」, 並依章序左右交替 (L/R/L/R)。取代 B.528 放每章第一關頂端。
+  const examMarkers = useMemo(() => {
+    const byChapter = new Map<number, { min: number; max: number; order: number }>();
+    let order = 0;
+    for (let i = 0; i < stream.length; i++) {
+      const item = stream[i];
+      if (item.kind !== 'lesson') continue;
+      const l = lessons[item.lessonIdx!];
+      if (!l) continue;
+      const ch = l.chapter; // 單章視圖 lessons 只含該章, aggregate 含全部 → l.chapter 皆正確
+      if (ch >= 32) continue; // 英檢章本身不放英檢入口 (改放回主地圖人物)
+      const top = getNodeSlot(i).top + (chapterOffsets[i] ?? 0);
+      const rec = byChapter.get(ch);
+      if (!rec) byChapter.set(ch, { min: top, max: top, order: order++ });
+      else { rec.min = Math.min(rec.min, top); rec.max = Math.max(rec.max, top); }
+    }
+    return Array.from(byChapter.entries()).map(([ch, r]) => ({
+      chapter: ch,
+      top: (r.min + r.max) / 2 + (NODE_HEIGHT - CAT_H) / 2, // 垂直置中對齊節點群中段
+      side: (r.order % 2 === 0 ? 'L' : 'R') as 'L' | 'R',
+    }));
+  }, [stream, lessons, chapterOffsets]);
 
   // v2.0.B.267: virtual scroll 視窗計算 + 動態 chapter header (跟著 visible node 走)
   // v2.0.B.296: 砍 visStart 計算 (已不需要 — chapter detection 改 IO, 虛擬化已砍).
@@ -933,16 +946,17 @@ export default function MapPage() {
             }} />
           </div>
 
-          {/* v2.0.B.528 (per user「英檢人物每個章節都要放」): 主地圖 → 每章旁都放 (在下方 stream 迴圈裡);
-              單章故事視圖 (ch<32) → 右上放一顆英檢入口; 英檢章 (ch≥32) → 放「回主地圖」。 */}
-          {!isAggregate && chapter < 32 && (
-            <SideCharButton variant="exam" label={t('map.examEntry')} accent={CHAPTER_META[32].accent}
-              onClick={(rect) => setExamAnchor(rect)} style={{ top: 8, right: 2 }} />
-          )}
+          {/* v2.0.B.535 (per user「放中間, 左右左右每章間隔」): 英檢人物改由 examMarkers 放在
+              每章節點群垂直中段, 左右交替 (見下方)。英檢章 (ch≥32) → 右上放「回主地圖」人物。 */}
           {!isAggregate && chapter >= 32 && (
             <SideCharButton variant="home" label={t('map.backToMap')} accent="var(--t-brand-dark)"
               onClick={() => navigate('/')} style={{ top: 8, right: 2 }} />
           )}
+          {examMarkers.map((m) => (
+            <SideCharButton key={`exam-${m.chapter}`} variant="exam" label={t('map.examEntry')}
+              accent={CHAPTER_META[32].accent} onClick={(rect) => setExamAnchor(rect)}
+              style={m.side === 'L' ? { left: CAT_EDGE_MARGIN, top: m.top } : { right: CAT_EDGE_MARGIN, top: m.top }} />
+          ))}
 
           {/* v2.0.B.270 virtualization + chest interleave: 每 5 lesson 一個 🎁 寶箱 */}
           {/* v2.0.B.292 NUCLEAR TEST: 砍虛擬化, render 全部 stream nodes.
@@ -1091,15 +1105,6 @@ export default function MapPage() {
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
-              {/* v2.0.B.528 (per user「英檢人物每個章節都要放」): 主地圖每章第一關旁的空白側邊
-                  (依節點傾向放對側, 不擋節點) 放一顆英檢入口, 點它從該處彈出英檢 popover。 */}
-              {isAggregate && l.lessonInChapter === 1 && lessonChapter < 32 && (
-                <SideCharButton variant="exam" label={t('map.examEntry')} accent={CHAPTER_META[32].accent}
-                  onClick={(rect) => setExamAnchor(rect)}
-                  style={slot.dx >= 0
-                    ? { left: CAT_EDGE_MARGIN, top: nodeTop - 2 }
-                    : { right: CAT_EDGE_MARGIN, top: nodeTop - 2 }} />
-              )}
               <MapNode
                 lessonId={l.id}
                 chapter={lessonChapter}
@@ -1165,16 +1170,7 @@ export default function MapPage() {
       {/* v2.0.B.528 (per user): 英檢對話框改「錨定式 popover」— 從被點的英檢人物彈出, 帶指向尾巴。 */}
       {examAnchor && (
         <AnchoredPopover anchor={examAnchor} onClose={() => setExamAnchor(null)} maxWidth={360}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-            <span style={{ position: 'relative', flexShrink: 0 }}>
-              <img src="/mascots/calico-anchor.webp" width={52} height={52} alt="" style={{ display: 'block', borderRadius: '50%' }} />
-              <span aria-hidden="true" style={{ position: 'absolute', top: -4, right: -6, fontSize: 20, transform: 'rotate(12deg)' }}>🎓</span>
-            </span>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)' }}>{t('map.examEntry')}</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#7a6850', marginTop: 2 }}>{t('map.examDialogHint')}</div>
-            </div>
-          </div>
+          {/* v2.0.B.535 (per user「標題跟描述刪掉只留選項」): 移除頭像+標題+提示, 直接列英檢章。 */}
           {Object.keys(CHAPTER_META).map(Number).filter((c) => c >= 32).sort((a, b) => a - b).map((c) => {
             const m = CHAPTER_META[c];
             return (
@@ -1194,11 +1190,7 @@ export default function MapPage() {
               </button>
             );
           })}
-          <button type="button" onClick={() => setExamAnchor(null)}
-            style={{ width: '100%', marginTop: 4, padding: '12px', border: 'none', background: 'transparent',
-              color: 'var(--t-text-muted)', fontWeight: 800, fontSize: 14, fontFamily: 'inherit', cursor: 'pointer' }}>
-            {t('map.examDialogClose')}
-          </button>
+          {/* v2.0.B.535 (per user「取消也刪, 點旁邊就取消」): 移除「先不要」鈕, 點背景即關閉。 */}
         </AnchoredPopover>
       )}
 
@@ -1221,7 +1213,6 @@ export default function MapPage() {
           anchor={tapNode.rect}
           done={completedByChapter.get(tapNode.ch)?.has(tapNode.id) ?? false}
           lang={lang}
-          title={lessons.find((l) => l.id === tapNode.id)?.lessonName}
           defaultMode={readLessonCompMode(tapNode.id) ?? 'read'}
           onPick={(legendary, mode) => {
             const { ch, id } = tapNode;
