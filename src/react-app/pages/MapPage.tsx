@@ -3,7 +3,7 @@
  * Constants from src/ui/StoryMapView.ts. User: '嚴格遵守原版設計 不要有
  * 任何的不一樣'.
  */
-import { useEffect, useState, useMemo, useRef, useCallback, Fragment } from 'react';
+import { useEffect, useState, useMemo, useRef, useCallback, Fragment, type ReactNode, type CSSProperties } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { readCompletedLessons, isLessonUnlocked } from '../../store/runStore';
 import { estimateLessonMinutes } from '../../data/lessons';
@@ -255,7 +255,86 @@ function HpHudIcon({ hp, onClick }: { hp: number; onClick: () => void }) {
 
 // v2.0.B.433: Duolingo 風「點節點 → 跳框」對話框。
 // 第一次: 繼續 +30 / 晉升傳奇 +45。已完成過: 開始複習 +5 / 晉升傳奇 +40。
-function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
+// v2.0.B.528 (per user「對話框要從按的人物/按鈕彈出來, 不要固定從底部」):
+// 錨定式 popover — 從被點的元素 (node / 英檢人物) 位置彈出, 帶指向來源的小尾巴 +
+// 從來源縮放浮現的動畫。取代原本一律從底部滑上的 sheet。
+function AnchoredPopover({ anchor, onClose, children, maxWidth = 320 }: {
+  anchor: DOMRect; onClose: () => void; children: ReactNode; maxWidth?: number;
+}) {
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setShown(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 400;
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 800;
+  const width = Math.min(maxWidth, vw - 24);
+  const ax = anchor.left + anchor.width / 2;                 // 來源中心 x (viewport)
+  const below = anchor.top < vh * 0.45;                      // 來源在上半 → popover 往下開; 否則往上
+  const GAP = 12;
+  const left = Math.max(12, Math.min(ax - width / 2, vw - 12 - width));
+  const tailX = Math.max(18, Math.min(ax - left, width - 18)); // 尾巴對準來源中心
+  const maxH = below ? vh - anchor.bottom - GAP - 12 : anchor.top - GAP - 12;
+  return (
+    <div role="dialog" aria-modal="true" onClick={onClose}
+      className="pickup-backdrop-in"
+      style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(40,28,16,0.28)' }}>
+      <div onClick={(e) => e.stopPropagation()}
+        style={{
+          position: 'fixed', left, width,
+          top: below ? anchor.bottom + GAP : undefined,
+          bottom: below ? undefined : vh - anchor.top + GAP,
+          transformOrigin: `${tailX}px ${below ? '0%' : '100%'}`,
+          transform: shown ? 'scale(1)' : 'scale(0.82)',
+          opacity: shown ? 1 : 0,
+          transition: 'transform 170ms cubic-bezier(0.2,0.8,0.3,1), opacity 140ms ease',
+        }}>
+        {/* 指向來源的小尾巴 (菱形, 藏在內容框後只露三角) */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', left: tailX - 8, width: 16, height: 16,
+          top: below ? -7 : undefined, bottom: below ? undefined : -7,
+          background: 'var(--t-surface)', transform: 'rotate(45deg)', zIndex: 0,
+        }} />
+        <div style={{
+          position: 'relative', zIndex: 1,
+          background: 'var(--t-surface)', borderRadius: 18,
+          maxHeight: maxH > 180 ? maxH : undefined, overflowY: 'auto',
+          boxShadow: '0 10px 30px rgba(40,28,16,0.22)',
+          padding: '16px',
+        }}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// v2.0.B.528 (per user「英檢人物每個章節都要放」): 側邊角色按鈕 (英檢入口 🎓 / 回主地圖 🏠),
+// 可重用 → 主地圖每章旁 + 單章視圖都放同一顆。onClick 回傳自身 rect 給 popover 定位。
+function SideCharButton({ variant, label, accent, onClick, style }: {
+  variant: 'exam' | 'home'; label: string; accent: string;
+  onClick: (rect: DOMRect) => void; style: CSSProperties;
+}) {
+  return (
+    <button type="button" aria-label={variant === 'exam' ? 'English exam challenge' : 'Back to main map'}
+      onClick={(e) => onClick(e.currentTarget.getBoundingClientRect())}
+      style={{ position: 'absolute', zIndex: 4, width: 74, padding: 0, background: 'transparent', border: 'none',
+        cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
+        fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', ...style }}>
+      <span style={{ position: 'relative', display: 'inline-block' }}>
+        <img src="/mascots/calico-anchor.webp" width={56} height={56} alt="" style={{ display: 'block', borderRadius: '50%',
+          filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
+        <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: variant === 'exam' ? 22 : 20,
+          lineHeight: 1, transform: variant === 'exam' ? 'rotate(12deg)' : 'none' }}>{variant === 'exam' ? '🎓' : '🏠'}</span>
+      </span>
+      <span style={{ fontSize: 10, fontWeight: 900, color: accent, background: 'var(--t-surface)',
+        border: `2px solid ${accent}`, borderRadius: 'var(--t-radius-pill)', padding: '1px 7px', whiteSpace: 'nowrap' }}>{label}</span>
+    </button>
+  );
+}
+
+function NodeStartDialog({ anchor, done, lang, title, defaultMode, onPick, onClose }: {
+  anchor: DOMRect;
   done: boolean;
   lang: string;
   title?: string;
@@ -273,31 +352,8 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
   const readLabel = zh ? '📖 閱讀測驗' : '📖 Reading';
   const listenLabel = zh ? '🎧 聽力測驗' : '🎧 Listening';
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      onClick={onClose}
-      className="pickup-backdrop-in"
-      style={{
-        // v2.0.B.492: zIndex 50 → 200 (蓋過 BottomNav 的 100, 修「晉升傳奇被底部導覽切掉」)
-        position: 'fixed', inset: 0, zIndex: 200,
-        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-        background: 'rgba(40,28,16,0.45)',
-      }}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className="pickup-sheet-up"
-        style={{
-          width: '100%', maxWidth: 420,
-          maxHeight: '90dvh', overflowY: 'auto', // v2.0.B.492: 小螢幕也不切按鈕
-          background: 'var(--t-surface)',
-          borderTopLeftRadius: 22, borderTopRightRadius: 22,
-          padding: '22px 20px calc(22px + env(safe-area-inset-bottom))',
-          boxShadow: '0 -8px 28px rgba(0,0,0,0.18)',
-          // v2.0.B.493: 改用 pickup-sheet-up (className) — 從底部滑上, 較慢滑順 (參考多鄰國)
-        }}
-      >
+    <AnchoredPopover anchor={anchor} onClose={onClose} maxWidth={340}>
+      <div>
         {title && <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-text)', margin: '0 2px 14px', textAlign: 'center' }}>{title}</div>}
         {/* v2.0.B.484: 閱讀 / 聽力 測驗切換 — 閱讀=字顯示, 聽力=盲聽。重現挑戰沿用當初選的。 */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
@@ -355,7 +411,7 @@ function NodeStartDialog({ done, lang, title, defaultMode, onPick, onClose }: {
           {zh ? '取消' : 'Cancel'}
         </button>
       </div>
-    </div>
+    </AnchoredPopover>
   );
 }
 
@@ -384,7 +440,8 @@ export default function MapPage() {
   // 再點書封 = 關 sheet 回地圖 (toggle 而非僅 open)
   const [showKeySheet, setShowKeySheet] = useState(false);
   // v2.0.B.520: 英檢人物對話框 (點 Mochi 學士帽 → 選英檢章開始)
-  const [showExamDialog, setShowExamDialog] = useState(false);
+  // v2.0.B.528: 英檢對話框改「錨定式 popover」→ 存被點人物的 rect (null = 關閉)
+  const [examAnchor, setExamAnchor] = useState<DOMRect | null>(null);
   // v2.0.B.274: 寶箱開啟 state (取代原本 localStorage.reload nuclear path)
   // 初始化 lazy 一次掃 localStorage 取已開 chest indices, 之後 state-only
   const [openedChests, setOpenedChests] = useState<Set<number>>(() => {
@@ -591,11 +648,12 @@ export default function MapPage() {
   }, []);
 
   // v2.0.B.433: 點節點先跳框 (跟 Duolingo 一樣) — 選一般/複習 or 晉升傳奇。
-  const [tapNode, setTapNode] = useState<{ ch: number; id: string } | null>(null);
+  const [tapNode, setTapNode] = useState<{ ch: number; id: string; rect: DOMRect } | null>(null);
   // v2.0.B.275: stable callbacks for MapNode React.memo — 不 inline 給 memo 才能 bail-out
-  const handleLessonTap = useCallback((ch: number, id: string) => {
+  // v2.0.B.528: 收下被點節點的 rect → NodeStartDialog popover 從該節點彈出。
+  const handleLessonTap = useCallback((ch: number, id: string, rect: DOMRect) => {
     setPressedId(null); // v2.0.B.486: 開對話框時清掉壓下狀態 (pointerup 被 overlay 吃掉會卡住)
-    setTapNode({ ch, id });
+    setTapNode({ ch, id, rect });
   }, []);
   // v2.0.B.492 (per user「還沒解鎖的要跳出 尚未解鎖」): 點未解鎖節點 → 短暫 toast。
   const handleLockedTap = useCallback(() => {
@@ -874,41 +932,15 @@ export default function MapPage() {
             }} />
           </div>
 
-          {/* v2.0.B.521 (per user): 英檢挑戰「人物」放右側空白 margin (不擋中間節點), 點他跳對話框。
-              英檢是獨立 track 永遠可挑戰 → 不灰。 */}
-          {isAggregate && (
-            <button type="button" aria-label="English exam challenge"
-              onClick={() => setShowExamDialog(true)}
-              style={{ position: 'absolute', top: 8, right: 2, zIndex: 4, width: 74, padding: 0,
-                background: 'transparent', border: 'none', cursor: 'pointer',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
-                fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <img src="/mascots/calico-anchor.webp" width={62} height={62} alt="" style={{ display: 'block', borderRadius: '50%',
-                  filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
-                <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: 24, lineHeight: 1, transform: 'rotate(12deg)' }}>🎓</span>
-              </span>
-              <span style={{ fontSize: 11, fontWeight: 900, color: CHAPTER_META[32].accent, background: 'var(--t-surface)',
-                border: `2px solid ${CHAPTER_META[32].accent}`, borderRadius: 'var(--t-radius-pill)', padding: '1px 8px' }}>{t('map.examEntry')}</span>
-            </button>
+          {/* v2.0.B.528 (per user「英檢人物每個章節都要放」): 主地圖 → 每章旁都放 (在下方 stream 迴圈裡);
+              單章故事視圖 (ch<32) → 右上放一顆英檢入口; 英檢章 (ch≥32) → 放「回主地圖」。 */}
+          {!isAggregate && chapter < 32 && (
+            <SideCharButton variant="exam" label={t('map.examEntry')} accent={CHAPTER_META[32].accent}
+              onClick={(rect) => setExamAnchor(rect)} style={{ top: 8, right: 2 }} />
           )}
-
-          {/* v2.0.B.521 (per user): 英檢章單章視圖 → 右側放「回主地圖」人物。 */}
           {!isAggregate && chapter >= 32 && (
-            <button type="button" aria-label="Back to main map"
-              onClick={() => navigate('/')}
-              style={{ position: 'absolute', top: 8, right: 2, zIndex: 4, width: 74, padding: 0,
-                background: 'transparent', border: 'none', cursor: 'pointer',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
-                fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <img src="/mascots/calico-anchor.webp" width={62} height={62} alt="" style={{ display: 'block', borderRadius: '50%',
-                  filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
-                <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: 22, lineHeight: 1 }}>🏠</span>
-              </span>
-              <span style={{ fontSize: 11, fontWeight: 900, color: 'var(--t-brand-dark)', background: 'var(--t-surface)',
-                border: '2px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-pill)', padding: '1px 8px' }}>{t('map.backToMap')}</span>
-            </button>
+            <SideCharButton variant="home" label={t('map.backToMap')} accent="var(--t-brand-dark)"
+              onClick={() => navigate('/')} style={{ top: 8, right: 2 }} />
           )}
 
           {/* v2.0.B.270 virtualization + chest interleave: 每 5 lesson 一個 🎁 寶箱 */}
@@ -1058,6 +1090,15 @@ export default function MapPage() {
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
+              {/* v2.0.B.528 (per user「英檢人物每個章節都要放」): 主地圖每章第一關旁的空白側邊
+                  (依節點傾向放對側, 不擋節點) 放一顆英檢入口, 點它從該處彈出英檢 popover。 */}
+              {isAggregate && l.lessonInChapter === 1 && lessonChapter < 32 && (
+                <SideCharButton variant="exam" label={t('map.examEntry')} accent={CHAPTER_META[32].accent}
+                  onClick={(rect) => setExamAnchor(rect)}
+                  style={slot.dx >= 0
+                    ? { left: CAT_EDGE_MARGIN, top: nodeTop - 2 }
+                    : { right: CAT_EDGE_MARGIN, top: nodeTop - 2 }} />
+              )}
               <MapNode
                 lessonId={l.id}
                 chapter={lessonChapter}
@@ -1120,52 +1161,44 @@ export default function MapPage() {
         />
       )}
 
-      {/* v2.0.B.520 (per user): 英檢人物對話框 — Mochi 邀你選一個英檢章開始 */}
-      {showExamDialog && (
-        <div role="dialog" aria-modal="true" aria-label="English exam challenge"
-          onClick={() => setShowExamDialog(false)}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(40,28,16,0.55)', zIndex: 200,
-            display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-          <div className="pickup-sheet-up" onClick={(e) => e.stopPropagation()}
-            style={{ background: 'var(--t-bg)', borderRadius: '20px 20px 0 0', width: '100%', maxWidth: 440,
-              padding: '20px 18px calc(24px + env(safe-area-inset-bottom))',
-              boxShadow: '0 -8px 28px rgba(0,0,0,0.18)', maxHeight: '90dvh', overflowY: 'auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-              <span style={{ position: 'relative', flexShrink: 0 }}>
-                <img src="/mascots/calico-anchor.webp" width={64} height={64} alt="" style={{ display: 'block', borderRadius: '50%' }} />
-                <span aria-hidden="true" style={{ position: 'absolute', top: -4, right: -6, fontSize: 22, transform: 'rotate(12deg)' }}>🎓</span>
-              </span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)' }}>{t('map.examEntry')}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: '#7a6850', marginTop: 2 }}>{t('map.examDialogHint')}</div>
-              </div>
+      {/* v2.0.B.528 (per user): 英檢對話框改「錨定式 popover」— 從被點的英檢人物彈出, 帶指向尾巴。 */}
+      {examAnchor && (
+        <AnchoredPopover anchor={examAnchor} onClose={() => setExamAnchor(null)} maxWidth={360}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
+            <span style={{ position: 'relative', flexShrink: 0 }}>
+              <img src="/mascots/calico-anchor.webp" width={52} height={52} alt="" style={{ display: 'block', borderRadius: '50%' }} />
+              <span aria-hidden="true" style={{ position: 'absolute', top: -4, right: -6, fontSize: 20, transform: 'rotate(12deg)' }}>🎓</span>
+            </span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)' }}>{t('map.examEntry')}</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#7a6850', marginTop: 2 }}>{t('map.examDialogHint')}</div>
             </div>
-            {Object.keys(CHAPTER_META).map(Number).filter((c) => c >= 32).sort((a, b) => a - b).map((c) => {
-              const m = CHAPTER_META[c];
-              return (
-                <button key={c} type="button"
-                  onClick={() => { setShowExamDialog(false); navigate(`/map?ch=${c}`); }}
-                  style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', marginBottom: 10,
-                    background: 'var(--t-surface)', color: m.accent, border: `2px solid ${m.accent}`,
-                    borderBottom: `4px solid ${darken(m.accent, 0.28)}`, borderRadius: 'var(--t-radius-card)',
-                    padding: '12px 16px', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
-                    touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}>
-                  <span aria-hidden="true" style={{ fontSize: 24, lineHeight: 1 }}>{m.emoji}</span>
-                  <span style={{ flex: 1, minWidth: 0 }}>
-                    <span style={{ display: 'block', fontSize: 15, fontWeight: 900, lineHeight: 1.2 }}>{chTitle(m)}</span>
-                    <span style={{ display: 'block', fontSize: 11, fontWeight: 700, opacity: 0.75 }}>{m.titleEn}</span>
-                  </span>
-                  <span aria-hidden="true" style={{ fontSize: 20 }}>›</span>
-                </button>
-              );
-            })}
-            <button type="button" onClick={() => setShowExamDialog(false)}
-              style={{ width: '100%', marginTop: 4, padding: '12px', border: 'none', background: 'transparent',
-                color: 'var(--t-text-muted)', fontWeight: 800, fontSize: 14, fontFamily: 'inherit', cursor: 'pointer' }}>
-              {t('map.examDialogClose')}
-            </button>
           </div>
-        </div>
+          {Object.keys(CHAPTER_META).map(Number).filter((c) => c >= 32).sort((a, b) => a - b).map((c) => {
+            const m = CHAPTER_META[c];
+            return (
+              <button key={c} type="button"
+                onClick={() => { setExamAnchor(null); navigate(`/map?ch=${c}`); }}
+                style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', marginBottom: 10,
+                  background: 'var(--t-surface)', color: m.accent, border: `2px solid ${m.accent}`,
+                  borderBottom: `4px solid ${darken(m.accent, 0.28)}`, borderRadius: 'var(--t-radius-card)',
+                  padding: '12px 16px', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
+                  touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}>
+                <span aria-hidden="true" style={{ fontSize: 24, lineHeight: 1 }}>{m.emoji}</span>
+                <span style={{ flex: 1, minWidth: 0 }}>
+                  <span style={{ display: 'block', fontSize: 15, fontWeight: 900, lineHeight: 1.2 }}>{chTitle(m)}</span>
+                  <span style={{ display: 'block', fontSize: 11, fontWeight: 700, opacity: 0.75 }}>{m.titleEn}</span>
+                </span>
+                <span aria-hidden="true" style={{ fontSize: 20 }}>›</span>
+              </button>
+            );
+          })}
+          <button type="button" onClick={() => setExamAnchor(null)}
+            style={{ width: '100%', marginTop: 4, padding: '12px', border: 'none', background: 'transparent',
+              color: 'var(--t-text-muted)', fontWeight: 800, fontSize: 14, fontFamily: 'inherit', cursor: 'pointer' }}>
+            {t('map.examDialogClose')}
+          </button>
+        </AnchoredPopover>
       )}
 
       {/* v2.0.B.492: 點未解鎖節點 → 「尚未解鎖」toast */}
@@ -1184,6 +1217,7 @@ export default function MapPage() {
       {/* v2.0.B.433: 點節點 → Duolingo 風選單 (繼續/複習 + 晉升傳奇) */}
       {tapNode && (
         <NodeStartDialog
+          anchor={tapNode.rect}
           done={completedByChapter.get(tapNode.ch)?.has(tapNode.id) ?? false}
           lang={lang}
           title={lessons.find((l) => l.id === tapNode.id)?.lessonName}
