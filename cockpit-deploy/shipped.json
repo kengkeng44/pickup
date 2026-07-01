@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-07-01T0607-content-qa-cron.md",
+      "archRec": "A4 Mirror patterns (antonym-pair) content 全修 — 19 題",
+      "what": "(cron content 全修, Tier B, 只動 public/lessons-ch*.json) 修 audit A4c/A4d 反鏡像 (antonym-pair mirror) Ch1-8 全部 19 題: 每題把「與正解成反義對」的那個干擾項改寫成非對立、valence 打散的選項 (EN+optionsZh 同步, 絕不動 correctIndex — 改的都是干擾項不是正解, resolver 有 assert 擋). 涵蓋 listen-mc/comprehension/emoji-pick/picture-mc. 每筆過 gate: npm run build (無新 X8/R2 FAIL + 434 tests + tsc + vite 綠) + check-answer-index (8 檔 correctIndex 全不變). 分隔未動 (見報告): P0-1 kt-ch3-l5-x4 答案鍵錯誤 (correctIndex 應 1→0) = HARD_STOP 本 run 禁碰 correctIndex, 交作者一鍵改; ARCH-REC #101 X57_ANTONYM_PAIR_MIRROR lint = 動 validate-lessons.js 非 lessons 檔; E 節 NV-1/2/3 語氣 = 部分涉及 correctIndex 重排或結構. ja/ko overlay 這 19 題待另輪同步 (本 run 只動 lessons).",
+      "version": "v2.0.B.531",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "X56 corpus 收尾 (per user「繼續」)",
       "archRec": "X56 首掃 5 命中全清 — picture-mc 正解 caption paraphrase",
       "what": "(接 B.527 X56 上線後「繼續」) 把 X56_PICTURE_MC_SUBJECT_NP_VERBATIM 首掃全 corpus 的 5 命中 (ch1/3/4/6/25 各 l1-pm1) 正解 caption 全改 paraphrase: 讓開頭主詞不再照抄句子開頭 (grey-haired grandma / speedy rabbit / one lonely camel / white swans / white-haired grandpa), EN+optionsZh 同步, correctIndex 不動. 每筆自查: first-3 content-token 與句子重疊 <2 + 無 X8 length-tell. 過 gate: npm run build (X56 現 0 命中, 434 tests+tsc+vite 綠) + check-answer-index (5 檔 correctIndex 全不變). 全 corpus X56 = 0.",
