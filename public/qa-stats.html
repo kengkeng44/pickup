@@ -238,62 +238,88 @@
     try { var r = await fetch('/lessons-ch'+ch+'.json'); if(!r.ok) return null; var a = await r.json(); return Array.isArray(a)?a:null; }
     catch(e){ return null; }
   }
-  (async function(){
-    var chapters=[], typeCount={}, segCount={}, totalLessons=0, totalQ=0;
-    for (var ch=0; ch<=40; ch++){
-      var arr = await load(ch);
-      if(!arr || !arr.length) continue;
-      var cLessons=arr.length, cQ=0, cType={};
-      for (var i=0;i<arr.length;i++){
-        var l=arr[i];
-        segCount[l.segmentType] = (segCount[l.segmentType]||0)+1;
-        var qs=l.questions||[];
-        for (var j=0;j<qs.length;j++){
-          var t=qs[j].type;
-          typeCount[t]=(typeCount[t]||0)+1; cType[t]=(cType[t]||0)+1; cQ++;
-        }
-      }
-      totalLessons+=cLessons; totalQ+=cQ;
-      var title=(arr[0]&&arr[0].lessonName)?arr[0].lessonName:('Ch '+ch);
-      var dom=Object.keys(cType).sort(function(x,y){return cType[y]-cType[x];})[0]||'-';
-      chapters.push({ch:ch,title:title,lessons:cLessons,q:cQ,dom:dom});
-    }
-    // ribbon
-    document.getElementById('statCh').textContent = fmt(chapters.length);
-    document.getElementById('statLessons').textContent = fmt(totalLessons);
-    document.getElementById('statQ').textContent = fmt(totalQ);
-    // type dist
-    var types=Object.keys(typeCount).sort(function(x,y){return typeCount[y]-typeCount[x];});
-    var th='';
-    types.forEach(function(t){
-      var n=typeCount[t], pct=totalQ?(n/totalQ*100):0;
-      th += '<a class="row t-'+esc(t)+'" href="'+DASH+'" style="display:block;text-decoration:none;color:inherit;">'+
+  // v2.0.B.542 (per user「英檢題目跟主線分開來看, 全部內容都是」): 內容統計拆兩組 —
+  // 📖 主線 (Ch0-31 故事) vs 🎓 英檢 (Ch32+ 考試)。決策板不拆 (同一套標準)。
+  var EXAM_FROM = 32;
+  function newBucket(){ return { chapters:[], typeCount:{}, segCount:{}, lessons:0, q:0 }; }
+  function subhead(txt){ return '<div style="font-size:13px;font-weight:900;color:var(--muted,#7a6850);margin:14px 0 8px;letter-spacing:.3px;">'+txt+'</div>'; }
+  function renderType(b){
+    if(!b.q) return '<p class="desc">—</p>';
+    var types=Object.keys(b.typeCount).sort(function(x,y){return b.typeCount[y]-b.typeCount[x];});
+    return types.map(function(t){
+      var n=b.typeCount[t], pct=b.q?(n/b.q*100):0;
+      return '<a class="row t-'+esc(t)+'" href="'+DASH+'" style="display:block;text-decoration:none;color:inherit;">'+
         '<div style="display:flex;justify-content:space-between;align-items:center;">'+
         '<span class="label">'+esc(TYPE_LABEL[t]||t)+'</span>'+
         '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+'</span></div>'+
         '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></a>';
-    });
-    document.getElementById('typeDist').innerHTML=th;
-    // seg dist
-    var segs=Object.keys(segCount).sort(function(x,y){return segCount[y]-segCount[x];});
-    var sh='';
-    segs.forEach(function(sg){
-      var n=segCount[sg], pct=totalLessons?(n/totalLessons*100):0;
-      sh += '<div class="row"><span class="label">'+esc(SEG_LABEL[sg]||sg)+'</span>'+
+    }).join('');
+  }
+  function renderSeg(b){
+    if(!b.lessons) return '<p class="desc">—</p>';
+    var segs=Object.keys(b.segCount).sort(function(x,y){return b.segCount[y]-b.segCount[x];});
+    return segs.map(function(sg){
+      var n=b.segCount[sg], pct=b.lessons?(n/b.lessons*100):0;
+      return '<div class="row"><span class="label">'+esc(SEG_LABEL[sg]||sg)+'</span>'+
         '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+' lesson</span>'+
         '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></div>';
-    });
-    document.getElementById('segDist').innerHTML=sh;
-    // chapter table
-    var rows='';
-    chapters.forEach(function(c){
-      rows += '<tr><td class="ch">'+c.ch+'</td><td class="title">'+esc(c.title)+'</td>'+
+    }).join('');
+  }
+  function chapterRowsHtml(list){
+    return list.map(function(c){
+      return '<tr><td class="ch">'+c.ch+'</td><td class="title">'+esc(c.title)+'</td>'+
         '<td class="r">'+c.lessons+'</td><td class="r">'+c.q+'</td>'+
-        '<td class="dom">'+esc(TYPE_LABEL[c.dom]?c.dom:c.dom)+'</td></tr>';
-    });
+        '<td class="dom">'+esc(c.dom)+'</td></tr>';
+    }).join('');
+  }
+  (async function(){
+    var main=newBucket(), exam=newBucket();
+    for (var ch=0; ch<=40; ch++){
+      var arr = await load(ch);
+      if(!arr || !arr.length) continue;
+      var b = ch>=EXAM_FROM ? exam : main;
+      var cLessons=arr.length, cQ=0, cType={};
+      for (var i=0;i<arr.length;i++){
+        var l=arr[i];
+        b.segCount[l.segmentType] = (b.segCount[l.segmentType]||0)+1;
+        var qs=l.questions||[];
+        for (var j=0;j<qs.length;j++){
+          var t=qs[j].type;
+          b.typeCount[t]=(b.typeCount[t]||0)+1; cType[t]=(cType[t]||0)+1; cQ++;
+        }
+      }
+      b.lessons+=cLessons; b.q+=cQ;
+      var title=(arr[0]&&arr[0].lessonName)?arr[0].lessonName:('Ch '+ch);
+      var dom=Object.keys(cType).sort(function(x,y){return cType[y]-cType[x];})[0]||'-';
+      b.chapters.push({ch:ch,title:title,lessons:cLessons,q:cQ,dom:dom});
+    }
+    // ribbon = 主線; 英檢另列一行
+    document.getElementById('statCh').textContent = fmt(main.chapters.length);
+    document.getElementById('statLessons').textContent = fmt(main.lessons);
+    document.getElementById('statQ').textContent = fmt(main.q);
+    var ribbon = document.querySelector('.ribbon');
+    if (ribbon && exam.q) {
+      ribbon.insertAdjacentHTML('afterend',
+        '<div style="text-align:center;font-size:13px;font-weight:800;color:var(--muted,#7a6850);margin:-6px 0 10px;">'+
+        '🎓 英檢 English Exam · '+fmt(exam.chapters.length)+' 章 · '+fmt(exam.lessons)+' 單元 · '+fmt(exam.q)+' 題 (與主線分開統計)</div>');
+    }
+    // type dist — 主線 / 英檢 分開
+    document.getElementById('typeDist').innerHTML =
+      subhead('📖 主線 Main Story (Ch0-'+(EXAM_FROM-1)+')') + renderType(main) +
+      (exam.q ? subhead('🎓 英檢 Exam (Ch'+EXAM_FROM+'+)') + renderType(exam) : '');
+    // seg dist — 主線 / 英檢 分開
+    document.getElementById('segDist').innerHTML =
+      subhead('📖 主線 Main Story') + renderSeg(main) +
+      (exam.lessons ? subhead('🎓 英檢 Exam') + renderSeg(exam) : '');
+    // chapter table — 主線 rows + 英檢 分隔 + exam rows
+    var rows = chapterRowsHtml(main.chapters);
+    if (exam.chapters.length) {
+      rows += '<tr><td colspan="5" style="background:var(--tint-warn,#fdf2dd);font-weight:900;color:#7a5e25;padding:8px 10px;">🎓 英檢 English Exam</td></tr>' + chapterRowsHtml(exam.chapters);
+    }
     document.getElementById('chapterRows').innerHTML=rows;
-    document.getElementById('chapterDesc').textContent = chapters.length+' 章 · '+totalLessons+' 單元 · '+fmt(totalQ)+' 題 (即時計算)';
-    document.getElementById('meta').textContent = 'v2.0.B.514 · 即時計算';
+    document.getElementById('chapterDesc').textContent =
+      '主線 '+main.chapters.length+' 章 · '+main.lessons+' 單元 · '+fmt(main.q)+' 題　|　英檢 '+exam.chapters.length+' 章 · '+fmt(exam.q)+' 題 (即時計算)';
+    document.getElementById('meta').textContent = 'v2.0.B.542 · 主線/英檢分開 · 即時計算';
   })();
 })();
 </script>
