@@ -340,6 +340,57 @@ function lintPictureMcSubjectNp(lessons, file) {
   return issues;
 }
 
+// X57_ANTONYM_PAIR_MIRROR (ARCH-REC #101, per user 2026-07-01 核准): 若正解與「剛好一個」干擾項
+// 成反義對 (fast/slow, warm/cold, proud/shy…), 其餘干擾項不含正解的反義詞 → 小孩不用理解、挑對立
+// 那個就中, 4 選 1 退化成 2 選 1 (Tarrant 2009 / Rodriguez 2005 / ETS 2024「contrast tell」禁用)。
+// warn-only, build gate = cron gate 自動生效, content cron 漸修 (改該干擾項成非對立, 不動 correctIndex)。
+const X57_ANTONYM_MAP = {
+  happy: ['sad', 'unhappy'], sad: ['happy'], fast: ['slow'], slow: ['fast'],
+  big: ['small', 'tiny', 'little'], small: ['big', 'large'], large: ['small', 'tiny'],
+  warm: ['cold', 'cool'], cold: ['warm', 'hot'], hot: ['cold'],
+  strong: ['weak'], weak: ['strong'], old: ['young', 'new'], young: ['old'],
+  loud: ['quiet', 'silent', 'soft'], quiet: ['loud', 'noisy'], noisy: ['quiet'],
+  full: ['empty'], empty: ['full'], found: ['lost'], lost: ['found'],
+  gave: ['took'], took: ['gave'], won: ['lost'], brave: ['afraid', 'scared'],
+  afraid: ['brave'], scared: ['brave', 'proud'], proud: ['shy', 'scared', 'ashamed'],
+  shy: ['proud', 'bold'], kind: ['cruel', 'unkind', 'mean'], cruel: ['kind'], unkind: ['kind'],
+  easy: ['hard', 'difficult'], hard: ['easy'], difficult: ['easy'],
+  always: ['never'], never: ['always'], first: ['last'], last: ['first'],
+  best: ['worst'], worst: ['best'], alive: ['dead'], dead: ['alive'],
+  opened: ['closed'], closed: ['opened'], open: ['closed', 'shut'],
+  helped: ['hurt'], hurt: ['helped'], high: ['low'], low: ['high'],
+  fresh: ['tired'], tired: ['fresh'], light: ['heavy'], heavy: ['light'],
+  bigger: ['smaller'], smaller: ['bigger'], longer: ['shorter'], shorter: ['longer'],
+  short: ['long'], long: ['short'], rich: ['poor'], poor: ['rich'],
+};
+const X57_STOP = new Set(['the', 'a', 'an', 'is', 'was', 'were', 'to', 'of', 'in', 'and', 'or', 'it',
+  'on', 'at', 'with', 'he', 'she', 'they', 'him', 'her', 'his', 'them', 'not', 'no', 'but', 'so', 'as', 'too', 'very']);
+function contentWordSet(s) {
+  return new Set((String(s).toLowerCase().match(/\b[a-z]+\b/g) || []).filter(w => !X57_STOP.has(w)));
+}
+function lintAntonymPairMirror(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (typeof q.correctIndex !== 'number' || !Array.isArray(q.options) || q.options.length < 3) continue;
+      const correct = contentWordSet(q.options[q.correctIndex]);
+      const correctAntonyms = new Set();
+      for (const w of correct) for (const a of (X57_ANTONYM_MAP[w] || [])) correctAntonyms.add(a);
+      if (correctAntonyms.size === 0) continue;
+      let hits = 0, hitWord = '';
+      q.options.forEach((opt, i) => {
+        if (i === q.correctIndex) return;
+        const dw = contentWordSet(opt);
+        for (const a of correctAntonyms) if (dw.has(a)) { hits++; hitWord = a; break; }
+      });
+      if (hits === 1) {
+        issues.push(`${file} ${q.id}: X57_ANTONYM_PAIR_MIRROR (正解與「剛好一個」干擾項成反義對「${hitWord}」— 4選1 退化成 2選1)`);
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -406,8 +457,9 @@ for (const file of files) {
     const ngramIssues = lintNgramVerbatim(raw, file);        // X48 (WARN, 3-gram verbatim)
     const stimulusIssues = lintStimulusReuse(raw, file);     // X49 (WARN, cross-type stimulus reuse)
     const pictureNpIssues = lintPictureMcSubjectNp(raw, file); // X56 (WARN, picture-mc subject-NP verbatim)
+    const antonymMirrorIssues = lintAntonymPairMirror(raw, file); // X57 (WARN, antonym-pair mirror)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);

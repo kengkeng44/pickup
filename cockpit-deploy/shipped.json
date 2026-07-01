@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-07-01T0607-content-qa-cron.md (P0 + ARCH-REC #101, per user「繼續」)",
+      "archRec": "ARCH-REC #101: X57_ANTONYM_PAIR_MIRROR lint + P0 答案鍵修正",
+      "what": "(per user 核准) 兩塊: (1) 修 audit P0-1 答案鍵 bug kt-ch3-l5-x4 — 句子/sentenceZh/explanationZh 都指 opts[0]『烏龜超過兔子』正確, 但 correctIndex=1 (獎勵錯答案、答對的小孩被判錯). 先驗證 opts[0] 確為正解再改 correctIndex 1→0 (此為 user 明確授權的答案鍵修正, 是動 correctIndex 唯一正當情境; check-answer-index 會如實報告此變動). (2) 實作 ARCH-REC #101 X57_ANTONYM_PAIR_MIRROR — validate-lessons.js 加 lint + ANTONYM_MAP: 正解與『剛好一個』干擾項成反義對、其餘不含反義詞 → 4選1 退化成 2選1 (Tarrant 2009/ETS 2024 contrast tell). warn-only, build gate=cron gate 自動生效, 首掃全 corpus 80 命中 (Ch1-8 這輪手修的 18 已清, 其餘交 content cron 漸修). build 434 tests+tsc+vite 綠.",
+      "version": "v2.0.B.532",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-07-01T0607-content-qa-cron.md",
       "archRec": "A4 Mirror patterns (antonym-pair) content 全修 — 19 題",
       "what": "(cron content 全修, Tier B, 只動 public/lessons-ch*.json) 修 audit A4c/A4d 反鏡像 (antonym-pair mirror) Ch1-8 全部 19 題: 每題把「與正解成反義對」的那個干擾項改寫成非對立、valence 打散的選項 (EN+optionsZh 同步, 絕不動 correctIndex — 改的都是干擾項不是正解, resolver 有 assert 擋). 涵蓋 listen-mc/comprehension/emoji-pick/picture-mc. 每筆過 gate: npm run build (無新 X8/R2 FAIL + 434 tests + tsc + vite 綠) + check-answer-index (8 檔 correctIndex 全不變). 分隔未動 (見報告): P0-1 kt-ch3-l5-x4 答案鍵錯誤 (correctIndex 應 1→0) = HARD_STOP 本 run 禁碰 correctIndex, 交作者一鍵改; ARCH-REC #101 X57_ANTONYM_PAIR_MIRROR lint = 動 validate-lessons.js 非 lessons 檔; E 節 NV-1/2/3 語氣 = 部分涉及 correctIndex 重排或結構. ja/ko overlay 這 19 題待另輪同步 (本 run 只動 lessons).",
