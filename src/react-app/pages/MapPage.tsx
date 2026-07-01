@@ -13,6 +13,7 @@ import { MapNode } from '../components/MapNode';
 import { useT } from '../i18n';
 import { readXp, levelForXp, levelProgress, lessonXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
+import { canPlay, spendEnergy, getEnergy } from '../../data/energy';
 import { getHp, MAX_HP } from '../../data/hp';
 import { isBackendLive, serverOpenChest } from '../../data/backend';
 import { readStreak } from '../../data/streak';
@@ -355,6 +356,12 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
     <AnchoredPopover anchor={anchor} onClose={onClose} maxWidth={340}>
       <div>
         {/* v2.0.B.535 (per user「標題刪掉只留選項」): 移除關卡名標題。 */}
+        {/* v2.0.B.539 (per user 每日體力): 只在有限額時顯示剩餘關數 (極簡, 不限日不顯示)。 */}
+        {(() => { const e = getEnergy(); return e.unlimited ? null : (
+          <div style={{ fontSize: 12, fontWeight: 800, color: '#7a6850', textAlign: 'center', marginBottom: 10 }}>
+            {zh ? `今天還可以玩 ${e.count} 關` : `${e.count} plays left today`}
+          </div>
+        ); })()}
         {/* v2.0.B.484: 閱讀 / 聽力 測驗切換 — 閱讀=字顯示, 聽力=盲聽。重現挑戰沿用當初選的。 */}
         <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
           {([['read', readLabel], ['listen', listenLabel]] as const).map(([m, label]) => (
@@ -432,6 +439,8 @@ export default function MapPage() {
   // v2.0.B.520: 英檢人物對話框 (點 Mochi 學士帽 → 選英檢章開始)
   // v2.0.B.528: 英檢對話框改「錨定式 popover」→ 存被點人物的 rect (null = 關閉)
   const [examAnchor, setExamAnchor] = useState<DOMRect | null>(null);
+  // v2.0.B.539 (per user 每日體力): 體力用完 → 溫柔的「今天先到這」牆 (非焦慮)
+  const [showEnergyWall, setShowEnergyWall] = useState(false);
   // v2.0.B.274: 寶箱開啟 state (取代原本 localStorage.reload nuclear path)
   // 初始化 lazy 一次掃 localStorage 取已開 chest indices, 之後 state-only
   const [openedChests, setOpenedChests] = useState<Set<number>>(() => {
@@ -1216,6 +1225,9 @@ export default function MapPage() {
           defaultMode={readLessonCompMode(tapNode.id) ?? 'read'}
           onPick={(legendary, mode) => {
             const { ch, id } = tapNode;
+            // v2.0.B.539 (per user 每日體力): 沒體力 → 關對話框、彈溫柔的牆; 有體力 → 扣 1 再進。
+            if (!canPlay()) { setTapNode(null); setShowEnergyWall(true); return; }
+            spendEnergy();
             writeLessonCompMode(id, mode); // 記住 → 重現挑戰沿用
             setTapNode(null);
             const params = new URLSearchParams();
@@ -1225,6 +1237,34 @@ export default function MapPage() {
           }}
           onClose={() => setTapNode(null)}
         />
+      )}
+
+      {/* v2.0.B.539 (per user 每日體力): 體力用完的溫柔牆 — 不焦慮、不紅色, 點背景即關閉。 */}
+      {showEnergyWall && (
+        <div role="dialog" aria-modal="true" aria-label="Out of energy"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowEnergyWall(false); }}
+          className="pickup-backdrop-in"
+          style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(40,28,16,0.4)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+          <div style={{ width: 'min(360px, 100%)', background: 'var(--t-surface)', borderRadius: 20,
+            padding: '26px 22px calc(22px + env(safe-area-inset-bottom))', textAlign: 'center',
+            boxShadow: '0 12px 34px rgba(40,28,16,0.24)' }}>
+            <div style={{ fontSize: 46, lineHeight: 1, marginBottom: 8 }} aria-hidden="true">🌙</div>
+            <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', marginBottom: 6 }}>
+              {lang === 'en' ? 'That’s enough for today' : '今天先到這裡'}
+            </div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: '#7a6850', lineHeight: 1.6, marginBottom: 20 }}>
+              {lang === 'en' ? 'Grandma will tell more stories tomorrow. Rest well!' : '奶奶明天再說更多故事,好好休息喔 🐾'}
+            </div>
+            <button type="button"
+              onClick={() => { setShowEnergyWall(false); navigate('/profile'); }}
+              style={{ width: '100%', border: 'none', borderRadius: 16, background: 'var(--t-brand)', color: '#fff',
+                fontFamily: 'inherit', fontWeight: 900, fontSize: 16, padding: '14px 16px', cursor: 'pointer',
+                boxShadow: '0 4px 0 var(--t-brand-dark)', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
+              {lang === 'en' ? '\u{1F468}‍\u{1F469}‍\u{1F467} Parent unlock' : '👨‍👩‍👧 家長解鎖更多'}
+            </button>
+          </div>
+        </div>
       )}
 
     </div>
