@@ -391,6 +391,30 @@ function lintAntonymPairMirror(lessons, file) {
   return issues;
 }
 
+// X55_BLANK_POS_BALANCE (ARCH-REC #99, per user 2026-07-01 核准): grammar-mc 克漏字的空格位置
+// 決定右側 context 洩漏多少。全在 start/mid → 學生永遠有右側 context 可推時態, 到不了 B1 診斷高度
+// (Schwanenflugel & Shoben 1991; Duolingo DET 2026 設計指南)。掃每章: grammar-mc(含 ___) ≥5 但
+// end-position (空格詞 index / 詞數 > 0.75) = 0 → warn。warn-only, cron 漸修: 每章補 ≥1 句尾空格題。
+function lintBlankPosBalance(lessons, file) {
+  const gm = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (q.type === 'grammar-mc' && typeof q.sentence === 'string' && q.sentence.includes('___')) gm.push(q);
+    }
+  }
+  if (gm.length < 5) return [];
+  const endPos = gm.filter((q) => {
+    const words = q.sentence.split(/\s+/).filter(Boolean);
+    const idx = words.findIndex((w) => w.includes('___'));
+    if (idx < 0) return false;
+    return idx / Math.max(words.length - 1, 1) > 0.75;
+  });
+  if (endPos.length === 0) {
+    return [`${file}: X55_BLANK_POS_BALANCE (${gm.length} 個 grammar-mc 全在 start/mid, 0 個句尾空格 — 缺 full-left-context 難度天花板)`];
+  }
+  return [];
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -458,8 +482,9 @@ for (const file of files) {
     const stimulusIssues = lintStimulusReuse(raw, file);     // X49 (WARN, cross-type stimulus reuse)
     const pictureNpIssues = lintPictureMcSubjectNp(raw, file); // X56 (WARN, picture-mc subject-NP verbatim)
     const antonymMirrorIssues = lintAntonymPairMirror(raw, file); // X57 (WARN, antonym-pair mirror)
+    const blankPosIssues = lintBlankPosBalance(raw, file);    // X55 (WARN, grammar-mc blank position balance)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
