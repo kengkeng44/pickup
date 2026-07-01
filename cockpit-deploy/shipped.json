@@ -2,6 +2,20 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-09T1221-walkthrough-cron.md (code 全修 + re-verify)",
+      "archRec": "TRAUMA-02 開機 loader 修; 其餘 obsolete/Tier C",
+      "what": "(cron code 全修, 3週前 audit 逐項 re-verify) 唯一可自動修且與客群無關的: TRAUMA-02 慢網白屏 — index.html #app 原本全空, 首載無任何 indicator → 加極簡開機爪印 (React createRoot 掛載即取代, prefers-reduced-motion 尊重). build 434 tests 綠。其餘皆 obsolete 或 Tier C: TRAUMA-01 (listen-mc 紅框+揭示正解) = Ship5 檢查鈕改版後 reveal 分支只顯示句子+解說、無紅框揭示 → OBSOLETE; TRAUMA-03 (ACCURACY % 像成績單) = 產品文案決策且 persona 為成人-trauma(B.231 已 pivot 兒童為主)→ 交作者; TRAUMA-04 (OnboardingPicker motivation 問題) = 已有 language/ability onboarding, 加動機/創傷史問題屬 feature + pivot 後 framing 要重想 = Tier C; TRAUMA-05 (tap-pairs 無說明) 與新訂『極簡少字』原則衝突 = 交作者; TRAUMA-06/E2 (首訪『答錯不扣分』文案) = 產品文案決策。",
+      "version": "v2.0.B.537",
+      "date": "2026-07-01"
+    },
+    {
+      "audit": "docs/audits/2026-06-09T1237-code-health-cron.md (re-verify 全 obsolete/Tier C)",
+      "archRec": "ARCH-REC #12 storageKeys registry — 全 obsolete/Tier C",
+      "what": "(cron code 全修, re-verify) 0 可自動修. P0-1 chest coin key ('pickup.coins') 已於 B.306 改 addCoins OBSOLETE; P0-2 catName key mismatch = catName.ts/dogName.ts 已刪(B.481), placeholder 系統 B.148 退役(內容寫死 Mochi/Hana), ProfilePage+backend 一致用 'pickup.catName' → 無 mismatch bug OBSOLETE; P1-2 wordwar.* orphans = storyKitten/scenarios/ModeMenu 檔已刪, 僅剩 AudioManager 2 個 self-consistent mute pref key(非 bug, 遷移會重置反而糟)= 不動; P1-1 ANSWER_STATS dead read = 餵推薦引擎 ability 訊號(非 crash), 修法需決策(加答題正確率追蹤=feature vs 改用 XP 推導)= Tier C; P2 chest 43-key scan / safeSetItem wrapper / ARCH-REC #12 storageKeys.ts registry = 跨 15 檔重構 + 儲存格式遷移風險 = Tier C 需作者核准. 標記已處理防重複。",
+      "version": "v2.0.B.537",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-06-30T1806-content-qa-cron.md",
       "archRec": "ARCH-REC #99: X55_BLANK_POS_BALANCE lint",
       "what": "(per user 實作 ARCH-REC #99) validate-lessons.js 加 lint X55_BLANK_POS_BALANCE — 掃每章 grammar-mc 克漏字空格位置: 若一章 grammar-mc(含 ___) ≥5 但 0 個 end-position(空格詞 index / 詞數 > 0.75)→ warn。全在 start/mid = 學生永遠有右側 context 可推時態, 到不了 full-left-context 難度天花板 (Schwanenflugel & Shoben 1991; Duolingo DET 2026). warn-only, build gate=cron gate 自動生效, 首掃命中 ch12/ch13/ch32 (各 ≥5 grammar-mc 全 start/mid), 交 content cron 漸修 (每章補 ≥1 句尾空格題). 過 5-agent R11 audit (ratio math/edge-case/false-pos/整合/符合 ARCH-REC). build 434 tests+tsc+vite 綠。內容補題(每章加句尾空格)非本 ARCH-REC 範疇, 交後續。",
