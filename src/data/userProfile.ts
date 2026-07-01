@@ -174,6 +174,16 @@ export function readExplicitAbilityLevel(): AbilityLevel | null {
  *
  * Pure-read. Tests stub localStorage + override args.
  */
+// v2.0.B.538: XP-derived accuracy proxy (see inferAbilityLevel note). force-correct 完成 ⇒ 答對。
+function deriveAccuracyFromProgress(): { correct: number; total: number; rate: number } {
+  if (!isLocalStorageAvailable()) return { correct: 0, total: 0, rate: 0 };
+  try {
+    const xp = Number(localStorage.getItem('pickup.xp.total') ?? '0');
+    if (Number.isFinite(xp) && xp > 0) return { correct: 1, total: 1, rate: 0.9 };
+  } catch { /* ignore */ }
+  return { correct: 0, total: 0, rate: 0 };
+}
+
 export function inferAbilityLevel(
   completedChapters?: Set<number>,
   accuracy?: { correct: number; total: number; rate: number },
@@ -182,7 +192,11 @@ export function inferAbilityLevel(
   if (explicit) return explicit;
 
   const completed = completedChapters ?? readCompletedChapters();
-  const acc = accuracy ?? readAnswerAccuracy();
+  // v2.0.B.538 (code-health P1-1, per user 改用 XP 推導): answer-accuracy 從未被寫入
+  // (readAnswerAccuracy 恆回 0/0) → 靠準確率的 A2/A2+ 升級在正式環境永不觸發。故事模式是
+  // force-correct + blindRetry (答對才能推進), 完成關卡即代表答對 → 用 XP 當「已在正確作答」
+  // 的代理訊號 (取代死 key)。tests 仍傳 explicit accuracy → 不受影響。
+  const acc = accuracy ?? deriveAccuracyFromProgress();
 
   const mainChapterCount = [...completed].filter((ch) => ch >= 1 && ch <= 8).length;
   const hasCh0 = completed.has(0);

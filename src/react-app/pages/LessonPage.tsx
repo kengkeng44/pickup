@@ -721,7 +721,11 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
       <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
         <Stat label={`⚡ ${translate('done.xp', getLang())}`} value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
-        <Stat label={`🎯 ${translate('done.accuracy', getLang())}`} value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />
+        {/* v2.0.B.538 (walkthrough TRAUMA-03, per user): 入門前 3 關不顯示「%」(像成績單/不及格暗示),
+            改顯示「答對 N/M」正向計數; 第 4 關起才回到準確率百分比。 */}
+        {lesson.lessonInChapter <= 3
+          ? <Stat label={`✅ ${translate('done.correct', getLang())}`} value={`${correct}/${total}`} color="var(--t-success)" bg="var(--t-success-tint)" />
+          : <Stat label={`🎯 ${translate('done.accuracy', getLang())}`} value={`${accuracy}%`} color="var(--t-success)" bg="var(--t-success-tint)" />}
         <Stat label={`⏱️ ${translate('done.speed', getLang())}`} value={timeStr} color="var(--t-focus)" bg="var(--t-bg)" />
       </div>
       {/* v2.0.B.322 (per user): 大單元完成獎勵 — 本章新單字 + 新片語統整 */}

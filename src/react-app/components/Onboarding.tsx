@@ -56,6 +56,9 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
             <div style={{ fontSize: 72, lineHeight: 1 }}>👵🐱</div>
             <div style={S.brand}>拾光</div>
             <div style={S.tag}>{t('ob.welcome.tag')}</div>
+            {/* v2.0.B.538 (walkthrough ARCH-REC, 兒童/家長版 framing per user): 開場先安心 —
+                「不是考試」降低焦慮 (原 audit 是成人-trauma, pivot 後改溫柔陪伴語氣)。 */}
+            <div style={{ ...S.tag, fontSize: 13, opacity: 0.85, marginTop: -4 }}>🐾 {t('ob.welcome.reassure')}</div>
             <button style={S.primary} onClick={() => setStep('auth')}>{t('ob.welcome.start')}</button>
             <button style={S.link} onClick={() => setStep('login')}>{t('ob.welcome.haveAccount')}</button>
           </div>
