@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-07-01T0006-content-qa-cron.md",
+      "archRec": "R1 Paraphrase-not-echo (Buck 2001) content 全修 — 38 題",
+      "what": "(cron content 全修, Tier B paraphrase, 依 P0>P1>P2) 修 audit R1 verbatim-echo 全部 38 題 Ch17-24, 只動 public/lessons-ch*.json: R1a/R1b 正解選項改寫成真 paraphrase (picture-mc caption + listen-mc/comprehension 正解, EN+optionsZh 同步, 絕不動 correctIndex) ×22; R1c 干擾項去 verbatim cue ×6; R1d explanationZh 不再逐字引用正解、改講故事/文法邏輯 ×10. 每筆過 gate: npm run build (validate-lessons 無新 X8/R2 FAIL + 434 tests + tsc + vite 全綠) + check-answer-index.cjs (8 檔 correctIndex 全不變). 為避免正解改寫觸發 X8 length-tell, 少數過短干擾項同步加長 (ch19-l7-q9 shouting→loud shouting; ch24-l5-x2 wasn't hungry→not hungry at all). Tier C 分隔未動: ARCH-REC #100 (X56 picture-mc subject-NP lint, 動 validate-lessons.js=非 lessons 檔) + E 節 narration voice/pacing 3 建議 (加旁白 entry=結構) + X49 同句 stimulus reuse 多樣化 (改 sentence stimulus=非 paraphrase). ja/ko overlay 未同步 (只動 lessons 規定內), auto-fallback 不影響.",
+      "version": "v2.0.B.524",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-06-28T1212-content-qa-cron.md",
       "archRec": "ARCH-REC #94: X49_STIMULUS_REUSE lint",
       "what": "(per user 實作 ARCH-REC, A 類 lint 依 convention 預先同意) 實作 X49_STIMULUS_REUSE (audit P0-2 / ARCH-REC table row 4): validate-lessons.js 加 lint — 同一節內同一句 sentence 同時當理解類(comprehension/listen-mc/listen-comprehension/read-comprehension)stimulus 又當 listen-tf stimulus → 退化成回憶非聽力 (Buck 2001 §5.3). warn-only 不擋 build, 首掃全 corpus 124 命中 (Ch25 10, audit 估 Ch25-31 共109). general-purpose code-review 過 (欄位對映正確 listen-tf stimulus=sentence/crash-safe/嚴格 warn-only). content cron 漸修(改寫一題 paraphrase, 不動 correctIndex). 同 audit 的 ARCH-REC #90 MP3 批次(擴 CHAPTERS_WITH_MP3)需 OPENAI_API_KEY+真檔, 不能空改 set(404 比 WebSpeech 更糟)= 留基建批次; EM-dash/SSML = content/B 類. build/434 tests 綠.",
