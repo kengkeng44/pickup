@@ -48,11 +48,29 @@
       }
 
       /* v2.0.B.165: tear-intro removed. React mounts immediately. */
+
+      /* v2.0.B.537 (walkthrough-cron TRAUMA-02): 慢網首載時 #app 是空白, 使用者(尤其焦慮型)
+         會把白屏誤解成「壞了 / 我的問題」→ 流失。放一個極簡開機爪印, React 掛載即取代。 */
+      .pickup-boot {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: #f1ebe1;
+      }
+      .pickup-boot img {
+        width: 56px; height: 56px; display: block;
+        animation: pickup-boot-pulse 1.1s ease-in-out infinite;
+      }
+      @keyframes pickup-boot-pulse {
+        0%, 100% { transform: scale(0.86); opacity: 0.55; }
+        50%      { transform: scale(1.04); opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .pickup-boot img { animation: none; opacity: 0.8; }
+      }
     </style>
   </head>
   <body>
     <a href="#app" class="skip-link">Skip to main content</a>
-    <main id="app"></main>
+    <main id="app"><div class="pickup-boot"><img src="/mascots/icon-paw.webp" alt="Loading" width="56" height="56" /></div></main>
     <!-- v2.0.B.165: removed pickup-tear-intro 2s splash animation + PERF
          banner (Phaser-era). React shell mounts immediately on JS parse,
          no need for cover animation. -->
