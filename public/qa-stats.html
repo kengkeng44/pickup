@@ -165,6 +165,13 @@
     </div>
   </div>
 
+  <!-- 1.5 KPI (auto-computed content metrics + business model) -->
+  <div class="section">
+    <h2>📈 營運指標 KPI</h2>
+    <p class="desc">預計完成時間從內容量即時推算 · LTV 用透明商業假設(標在卡片上, 可調) × 內容跑道</p>
+    <div id="kpiCards"><p class="desc">計算中…</p></div>
+  </div>
+
   <!-- 2. ✅ Anchor confirmed (2026-06-09 user decision) -->
   <div class="section" style="background:linear-gradient(135deg,#e8f4dd 0%,#f4f9e8 100%); border:2px solid var(--ok); border-bottom:4px solid #3d7a23;">
     <h2 style="color:var(--ok);">✅ 定位主軸確認 (2026-06-09)</h2>
@@ -183,6 +190,18 @@
     <h2>🎬 章節段落分布 Segment</h2>
     <p class="desc">即時計算 · segmentType 分布</p>
     <div id="segDist"></div>
+  </div>
+
+  <!-- 4.5 Level + Difficulty distribution (auto-computed, finer breakdown) -->
+  <div class="section">
+    <h2>🎯 程度分布 CEFR Level</h2>
+    <p class="desc">即時計算 · 每題 level 欄 (A1/A2…)</p>
+    <div id="levelDist"></div>
+  </div>
+  <div class="section">
+    <h2>🔥 難度分布 Difficulty</h2>
+    <p class="desc">即時計算 · 每題 difficulty 欄 (easy/medium/hard)</p>
+    <div id="diffDist"></div>
   </div>
 
   <!-- 5. Per-chapter table (auto-computed) -->
@@ -241,7 +260,43 @@
   // v2.0.B.542 (per user「英檢題目跟主線分開來看, 全部內容都是」): 內容統計拆兩組 —
   // 📖 主線 (Ch0-31 故事) vs 🎓 英檢 (Ch32+ 考試)。決策板不拆 (同一套標準)。
   var EXAM_FROM = 32;
-  function newBucket(){ return { chapters:[], typeCount:{}, segCount:{}, lessons:0, q:0 }; }
+  // v2.0.B.543: 逐題型秒數 — 鏡像 src/data/lessons.ts estimateLessonSeconds 的 Q_SECONDS (B.522).
+  // 改內容時題數自動變, 這裡是「模型」不是寫死結果。
+  var Q_SECONDS = { narration:8, 'listen-tf':13, 'listen-tf-zh':13, 'type-translate':38, 'type-what-you-hear':38,
+    'tap-pairs':28, 'phrase-pairs':28, 'listen-pairs':28, 'tap-tiles':26, 'drag-blank':26, 'listen-build':28,
+    comprehension:24, 'listen-comprehension':26, 'read-comprehension':24, 'speak-back':18 };
+  var DEFAULT_Q_SECONDS = 17;
+  // ── 商業假設 (可調, 非從資料推導 — LTV 本質需這些輸入; 明確標出不埋進公式) ──
+  var ASSUME = {
+    energyPerDay: 5,     // 免費每日配額 (對齊 src/data/energy.ts DAILY_QUOTA)
+    monthlyPrice: 149,   // NT$/月 訂閱價 (假設)
+    convRate: 0.05,      // 免費→付費轉換率 (freemium benchmark 2-5%)
+    avgSubMonths: 6,     // 平均訂閱月數 (≈ 月流失 ~16%; LTV = 月費 × 月數)
+  };
+  var LEVEL_LABEL = { A1:'A1 · 入門', A2:'A2 · 基礎', 'A2+':'A2+ · 基礎進階', B1:'B1 · 進階', B2:'B2 · 高階' };
+  var DIFF_LABEL = { easy:'easy · 簡單', medium:'medium · 中等', hard:'hard · 困難' };
+  function newBucket(){ return { chapters:[], typeCount:{}, segCount:{}, levelCount:{}, diffCount:{}, seconds:0, lessons:0, q:0 }; }
+  function fmtDur(sec){ var h=Math.floor(sec/3600), m=Math.round((sec%3600)/60); return h>0 ? (h+' 小時 '+m+' 分') : (m+' 分'); }
+  function renderDist(countObj, total, labelMap){
+    var keys=Object.keys(countObj).sort(function(x,y){return countObj[y]-countObj[x];});
+    if(!keys.length) return '<p class="desc">—</p>';
+    return keys.map(function(k){
+      var n=countObj[k], pct=total?(n/total*100):0;
+      return '<div class="row"><span class="label">'+esc(labelMap[k]||k)+'</span>'+
+        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+'</span>'+
+        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></div>';
+    }).join('');
+  }
+  function kpiCard(icon, title, big, sub, chips, note){
+    var chipHtml=(chips||[]).map(function(c){ return '<span style="display:inline-block;background:var(--tint-warn,#fdf2dd);color:#7a5e25;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;margin:2px 4px 2px 0;">'+esc(c)+'</span>'; }).join('');
+    return '<div style="flex:1;min-width:230px;background:#fff;border:2px solid #e5e0d6;border-bottom:4px solid #e0dacf;border-radius:16px;padding:16px 16px 14px;">'+
+      '<div style="font-size:13px;font-weight:900;color:var(--muted,#7a6850);">'+icon+' '+esc(title)+'</div>'+
+      '<div style="font-size:30px;font-weight:900;color:var(--text,#3c2a1c);line-height:1.1;margin:6px 0 2px;">'+big+'</div>'+
+      (sub?'<div style="font-size:13px;font-weight:700;color:var(--muted,#7a6850);">'+sub+'</div>':'')+
+      (chipHtml?'<div style="margin:8px 0 4px;">'+chipHtml+'</div>':'')+
+      (note?'<div style="font-size:12px;color:var(--muted,#7a6850);line-height:1.5;margin-top:4px;">'+note+'</div>':'')+
+      '</div>';
+  }
   function subhead(txt){ return '<div style="font-size:13px;font-weight:900;color:var(--muted,#7a6850);margin:14px 0 8px;letter-spacing:.3px;">'+txt+'</div>'; }
   function renderType(b){
     if(!b.q) return '<p class="desc">—</p>';
@@ -284,8 +339,12 @@
         b.segCount[l.segmentType] = (b.segCount[l.segmentType]||0)+1;
         var qs=l.questions||[];
         for (var j=0;j<qs.length;j++){
-          var t=qs[j].type;
+          var qq=qs[j], t=qq.type;
           b.typeCount[t]=(b.typeCount[t]||0)+1; cType[t]=(cType[t]||0)+1; cQ++;
+          b.seconds += (Q_SECONDS[t] != null ? Q_SECONDS[t] : DEFAULT_Q_SECONDS);
+          // v2.0.B.543: 更細分 — 程度 / 難度 (narration 無 level/diff → 略過空值)
+          if (qq.level) b.levelCount[qq.level]=(b.levelCount[qq.level]||0)+1;
+          if (qq.difficulty) b.diffCount[qq.difficulty]=(b.diffCount[qq.difficulty]||0)+1;
         }
       }
       b.lessons+=cLessons; b.q+=cQ;
@@ -311,6 +370,29 @@
     document.getElementById('segDist').innerHTML =
       subhead('📖 主線 Main Story') + renderSeg(main) +
       (exam.lessons ? subhead('🎓 英檢 Exam') + renderSeg(exam) : '');
+    // level dist — 主線 / 英檢 分開
+    document.getElementById('levelDist').innerHTML =
+      subhead('📖 主線 Main Story') + renderDist(main.levelCount, main.q, LEVEL_LABEL) +
+      (exam.q ? subhead('🎓 英檢 Exam') + renderDist(exam.levelCount, exam.q, LEVEL_LABEL) : '');
+    // difficulty dist — 主線 / 英檢 分開
+    document.getElementById('diffDist').innerHTML =
+      subhead('📖 主線 Main Story') + renderDist(main.diffCount, main.q, DIFF_LABEL) +
+      (exam.q ? subhead('🎓 英檢 Exam') + renderDist(exam.diffCount, exam.q, DIFF_LABEL) : '');
+    // KPI cards — 預計完成時間 + 客戶終生價值 (LTV)
+    var daysMain = Math.ceil(main.lessons / ASSUME.energyPerDay);
+    var monthsMain = daysMain / 30;
+    var ltvPaying = ASSUME.monthlyPrice * ASSUME.avgSubMonths;
+    var ltvBlended = ltvPaying * ASSUME.convRate;
+    var timeCard = kpiCard('⏳', '預計完成時間 (主線)', fmtDur(main.seconds),
+      exam.seconds ? '英檢另 +'+fmtDur(exam.seconds) : '',
+      ['每題型加權估時', '每天 '+ASSUME.energyPerDay+' 關'],
+      '照免費配額每天 '+ASSUME.energyPerDay+' 關 → 約 <b>'+fmt(daysMain)+' 天</b> (~'+monthsMain.toFixed(1)+' 個月) 走完主線。內容越多, 玩家留得越久。');
+    var ltvCard = kpiCard('💰', '客戶終生價值 LTV', 'NT$ '+fmt(Math.round(ltvPaying)),
+      '每付費用戶 · 分攤到每用戶 ≈ NT$ '+ltvBlended.toFixed(0),
+      ['月費 NT$'+ASSUME.monthlyPrice, '轉換 '+(ASSUME.convRate*100).toFixed(0)+'%', '留存 '+ASSUME.avgSubMonths+' 月'],
+      'LTV = 月費 × 訂閱月數。內容跑道 ~<b>'+monthsMain.toFixed(1)+' 個月</b> = 留存天花板 (內容越多 → 訂閱越久 → LTV 越高)。目標 LTV:CAC ≥ 3。');
+    document.getElementById('kpiCards').innerHTML =
+      '<div style="display:flex;gap:12px;flex-wrap:wrap;">'+timeCard+ltvCard+'</div>';
     // chapter table — 主線 rows + 英檢 分隔 + exam rows
     var rows = chapterRowsHtml(main.chapters);
     if (exam.chapters.length) {
