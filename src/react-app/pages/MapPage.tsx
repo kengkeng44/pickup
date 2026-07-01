@@ -271,10 +271,11 @@ function AnchoredPopover({ anchor, onClose, children, maxWidth = 320 }: {
   const width = Math.min(maxWidth, vw - 24);
   const ax = anchor.left + anchor.width / 2;                 // 來源中心 x (viewport)
   const below = anchor.top < vh * 0.45;                      // 來源在上半 → popover 往下開; 否則往上
-  const GAP = 12;
+  // v2.0.B.530: 保留上方 HUD / 下方導覽的安全邊界, popover 內容再長也不會被 chrome 切掉 (可捲)。
+  const GAP = 12, HEADER = 64, FOOTER = 74;
   const left = Math.max(12, Math.min(ax - width / 2, vw - 12 - width));
   const tailX = Math.max(18, Math.min(ax - left, width - 18)); // 尾巴對準來源中心
-  const maxH = below ? vh - anchor.bottom - GAP - 12 : anchor.top - GAP - 12;
+  const maxH = below ? vh - anchor.bottom - GAP - FOOTER : anchor.top - GAP - HEADER;
   return (
     <div role="dialog" aria-modal="true" onClick={onClose}
       className="pickup-backdrop-in"
