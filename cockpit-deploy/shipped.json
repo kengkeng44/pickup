@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "X56 corpus 收尾 (per user「繼續」)",
+      "archRec": "X56 首掃 5 命中全清 — picture-mc 正解 caption paraphrase",
+      "what": "(接 B.527 X56 上線後「繼續」) 把 X56_PICTURE_MC_SUBJECT_NP_VERBATIM 首掃全 corpus 的 5 命中 (ch1/3/4/6/25 各 l1-pm1) 正解 caption 全改 paraphrase: 讓開頭主詞不再照抄句子開頭 (grey-haired grandma / speedy rabbit / one lonely camel / white swans / white-haired grandpa), EN+optionsZh 同步, correctIndex 不動. 每筆自查: first-3 content-token 與句子重疊 <2 + 無 X8 length-tell. 過 gate: npm run build (X56 現 0 命中, 434 tests+tsc+vite 綠) + check-answer-index (5 檔 correctIndex 全不變). 全 corpus X56 = 0.",
+      "version": "v2.0.B.529",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-07-01T0006-content-qa-cron.md (ARCH-REC #100, per user「X56 做」)",
       "archRec": "ARCH-REC #100: X56_PICTURE_MC_SUBJECT_NP_VERBATIM lint",
       "what": "(per user 2026-07-01 核准實作 ARCH-REC #100) validate-lessons.js 加 lint X56 — X48 天生放過 picture-mc (caption 需描述畫面難免與句子重疊), 但若正解 caption 開頭 3 個實詞 (主詞名詞片語) 跟句子開頭 3 個實詞有 ≥2 重疊 → 小孩用文字比對就選中、繞過看圖 (Buck 2001 §5.3 + Cambridge YL item spec). warn-only, build gate=cron gate 自動生效. 首掃全 corpus 5 命中 (ch1/3/4/6/25 各 l1-pm1; ch17-24 已於 B.524 R1 全修清乾淨故 0 命中), 交 content cron 漸修 (改 caption 描述畫面, 不動 correctIndex). 這條 audit 的 ARCH-REC #100 至此完成. 註: 剩 5 命中屬 audit scope (ch17-24) 外, 非本 audit 產生, 由 cron 漸修.",
