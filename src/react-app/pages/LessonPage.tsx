@@ -12,6 +12,7 @@ import { markLessonCompleted, readCompletedLessons } from '../../store/runStore'
 import { isBackendLive, serverCompleteLesson } from '../../data/backend';
 import { addXp, lessonXp } from '../../data/xp';
 import { addCoins } from '../../data/coins';
+import { onLessonResult } from '../../data/energy';
 import { updateStreak, type StreakUpdateResult } from '../../data/streak';
 import { setRunComprehensionOverride } from '../../data/comprehensionMode';
 import { isReviewableType, mistakeKey, addChapterMistake, readChapterMistakes, clearChapterMistakes, buildReviewRound, type ReviewQuestion } from '../../data/mistakes';
@@ -661,6 +662,15 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
     // v2.0.B.306: preview (spec-doc iframe) = read-only, 完全不寫任何狀態.
     if (isPreview) return;
     try { markLessonCompleted(lesson.chapter, lesson.id); } catch {}
+    // v2.0.B.539 (per user 每日體力): 用 first-try 正確率 (每題第一次作答, 非 blindRetry 到最後)
+    // 決定體力加碼 — 達標 +1, 連續達標 → 當日不限。
+    try {
+      const firstTry = new Map<string, boolean>();
+      for (const a of log) { const id = a?.q?.id; if (id != null && !firstTry.has(id)) firstTry.set(id, a.isCorrect); }
+      const ftTotal = firstTry.size;
+      const ftRate = ftTotal > 0 ? [...firstTry.values()].filter(Boolean).length / ftTotal : 1;
+      onLessonResult(ftRate);
+    } catch {}
     // v2.0.B.488: 章末複習做完 → 清掉整章錯題庫 (下次重玩重新累積)。
     if (isLastLessonOfChapter) { try { clearChapterMistakes(lesson.chapter); } catch {} }
     // 只在「首次完成」發 XP/coins, 重玩不再發 (economy farming guard)
