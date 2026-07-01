@@ -312,6 +312,34 @@ function lintStimulusReuse(lessons, file) {
   return issues;
 }
 
+// X56_PICTURE_MC_SUBJECT_NP_VERBATIM (ARCH-REC #100, per user 2026-07-01 核准): X48 天生放過
+// picture-mc (caption 需描述畫面 → 難免與句子有字重疊), 但若正解 caption 的「主詞名詞片語」
+// (開頭 3 個實詞) 跟句子開頭 3 個實詞照抄 → 小孩用文字比對就選中, 繞過看圖理解 (Buck 2001 §5.3;
+// Cambridge YL item spec: caption 應描述構圖/動作/位置, 不是複述句子主角)。warn-only, cron 漸修:
+// 把 caption 改成描述畫面的說法 (不動 correctIndex)。
+const X56_STOP = new Set(['the', 'a', 'an', 'is', 'was', 'to', 'of', 'in', 'and', 'or', 'it', 'on', 'at', 'with']);
+function firstContentTokens(s, n) {
+  return String(s).toLowerCase().match(/\b[a-z]+\b/g)?.filter(w => !X56_STOP.has(w)).slice(0, n) || [];
+}
+function lintPictureMcSubjectNp(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      if (q.type !== 'picture-mc' || typeof q.correctIndex !== 'number' || !Array.isArray(q.options)) continue;
+      const correct = q.options[q.correctIndex] || '';
+      const sent = q.sentence || '';
+      if (!correct || !sent) continue;
+      const sentTok = firstContentTokens(sent, 3);
+      const capTok = firstContentTokens(correct, 3);
+      const shared = sentTok.filter(t => capTok.includes(t));
+      if (shared.length >= 2) {
+        issues.push(`${file} ${q.id}: X56_PICTURE_MC_SUBJECT_NP_VERBATIM (caption 主詞「${shared.join(' ')}」照抄句子開頭 — 繞過看圖)`);
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -377,8 +405,9 @@ for (const file of files) {
     const cultBridgeIssues = lintCulturalBridge(raw, file);  // X47 (WARN, keyword stopgap)
     const ngramIssues = lintNgramVerbatim(raw, file);        // X48 (WARN, 3-gram verbatim)
     const stimulusIssues = lintStimulusReuse(raw, file);     // X49 (WARN, cross-type stimulus reuse)
+    const pictureNpIssues = lintPictureMcSubjectNp(raw, file); // X56 (WARN, picture-mc subject-NP verbatim)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
