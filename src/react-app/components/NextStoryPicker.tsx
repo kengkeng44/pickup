@@ -205,9 +205,7 @@ export default function NextStoryPicker({ completedChapter, onClose }: Props) {
           <div id="next-story-picker-title" style={titleStyle}>
             今晚故事說完了 — 明晚想聽什麼?
           </div>
-          <div style={subtitleStyle}>
-            Story ended — what should we hear tomorrow?
-          </div>
+          {/* v2.0.B.536 (per user 極簡): 移除英文副標, 標題已清楚 */}
         </div>
 
         {/* Story cards grid (2x2 on mobile, single row on wider) */}
@@ -417,14 +415,6 @@ const titleStyle: React.CSSProperties = {
   textAlign: 'center',
   lineHeight: 1.3,
   marginTop: 4,
-};
-
-const subtitleStyle: React.CSSProperties = {
-  fontSize: 12,
-  fontWeight: 700,
-  color: '#7a6850',
-  textAlign: 'center',
-  fontStyle: 'italic',
 };
 
 const gridStyle: React.CSSProperties = {

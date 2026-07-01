@@ -51,39 +51,24 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
       style={{
         position: 'fixed', inset: 0,
-        background: 'var(--t-bg)', zIndex: 80,
-        paddingTop: 'max(28px, env(safe-area-inset-top))',
-        paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
-        overflowY: 'auto',
+        background: 'rgba(60,42,28,0.55)', zIndex: 80,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: 16,
         fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
         color: 'var(--t-text)',
         opacity: visible ? 1 : 0,
         transition: 'opacity 240ms ease-out',
-        WebkitOverflowScrolling: 'touch' as const,
       }}
     >
-      <div style={{ width: 'min(420px, calc(100vw - 32px))', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 14 }}>
-        {/* Close X at top */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <button
-            type="button"
-            aria-label="Close"
-            onClick={onClose}
-            style={{
-              width: 36, height: 36, borderRadius: '50%',
-              background: '#fffbf2',
-              border: '2px solid var(--t-border)',
-              borderBottom: '3px solid var(--t-border-strong)',
-              color: '#7a6850', fontSize: 22, fontWeight: 900,
-              lineHeight: 1, cursor: 'pointer', padding: 0,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: 'inherit',
-            }}
-          >
-            ×
-          </button>
-        </div>
-
+      {/* v2.0.B.536 (per user 極簡): 改置中面板 + 遮罩, 移除 ×, 點背景即關閉 */}
+      <div style={{
+        width: 'min(420px, calc(100vw - 32px))', maxHeight: '88dvh', overflowY: 'auto',
+        background: 'var(--t-bg)', borderRadius: 18,
+        border: '2px solid var(--t-border)', borderBottom: '4px solid var(--t-border-strong)',
+        padding: '20px 18px calc(18px + env(safe-area-inset-bottom))',
+        display: 'flex', flexDirection: 'column', gap: 14,
+        WebkitOverflowScrolling: 'touch' as const,
+      }}>
         {/* Title */}
         <div>
           <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: 1.5, color: '#7a6850', textTransform: 'uppercase', textAlign: 'center' }}>

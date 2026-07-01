@@ -228,7 +228,6 @@ function CardTile({ card, unlocked, onClick }: {
 function CardDetail({ card, unlocked, onClose }: {
   card: CharacterCard; unlocked: boolean; onClose: () => void;
 }) {
-  const { t } = useT();
   return (
     <div
       onClick={onClose}
@@ -314,20 +313,7 @@ function CardDetail({ card, unlocked, onClose }: {
             </div>
           </div>
         )}
-
-        <button
-          onClick={onClose}
-          style={{
-            marginTop: 18, width: '100%', padding: '12px 18px',
-            background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-            borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-md)',
-            fontSize: 15, fontWeight: 900, cursor: 'pointer',
-            fontFamily: 'inherit',
-            touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
-          }}
-        >
-          {t('common.close')}
-        </button>
+        {/* v2.0.B.536 (per user 極簡): 移除關閉鈕, 點背景即關閉 */}
       </div>
     </div>
   );

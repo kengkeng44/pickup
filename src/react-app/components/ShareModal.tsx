@@ -141,20 +141,8 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
         color: '#3c2a1c',
       }}>
-        {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <div style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c' }}>分享金句 · Share</div>
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            style={{
-              background: 'transparent', border: 'none', fontSize: 22, color: '#8b6f4a',
-              cursor: 'pointer', width: 44, height: 44, padding: 0,
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              borderRadius: 8, WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-            }}
-          >✕</button>
-        </div>
+        {/* v2.0.B.536 (per user 極簡): 移除 ✕, 點背景即關閉 */}
+        <div style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c', marginBottom: 12 }}>分享金句</div>
 
         {/* Preview card */}
         <div style={{
