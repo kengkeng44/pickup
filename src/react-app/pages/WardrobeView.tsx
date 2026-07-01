@@ -86,26 +86,13 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         }}>
           <div style={{ flex: 1 }}>
             <h2 style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>
-              衣櫥 · Wardrobe
+              衣櫥
             </h2>
             <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
-              {unlockedCount} / {total} 套裝扮 · {unlockedCount} / {total} outfits
+              {unlockedCount} / {total} 套裝扮
             </div>
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            style={{
-              background: 'transparent', border: 'none',
-              fontSize: 22, color: 'var(--t-text-muted)', cursor: 'pointer',
-              width: 44, height: 44, padding: 0,
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              borderRadius: 8,
-              WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-            }}
-          >
-            ✕
-          </button>
+          {/* v2.0.B.536 (per user 極簡): 移除 ✕, 點背景即關閉 */}
         </div>
 
         {/* Preview pane */}
