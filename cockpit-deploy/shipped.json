@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-06-30T1806-content-qa-cron.md",
+      "archRec": "ARCH-REC #99: X55_BLANK_POS_BALANCE lint",
+      "what": "(per user 實作 ARCH-REC #99) validate-lessons.js 加 lint X55_BLANK_POS_BALANCE — 掃每章 grammar-mc 克漏字空格位置: 若一章 grammar-mc(含 ___) ≥5 但 0 個 end-position(空格詞 index / 詞數 > 0.75)→ warn。全在 start/mid = 學生永遠有右側 context 可推時態, 到不了 full-left-context 難度天花板 (Schwanenflugel & Shoben 1991; Duolingo DET 2026). warn-only, build gate=cron gate 自動生效, 首掃命中 ch12/ch13/ch32 (各 ≥5 grammar-mc 全 start/mid), 交 content cron 漸修 (每章補 ≥1 句尾空格題). 過 5-agent R11 audit (ratio math/edge-case/false-pos/整合/符合 ARCH-REC). build 434 tests+tsc+vite 綠。內容補題(每章加句尾空格)非本 ARCH-REC 範疇, 交後續。",
+      "version": "v2.0.B.533",
+      "date": "2026-07-01"
+    },
+    {
       "audit": "docs/audits/2026-07-01T0607-content-qa-cron.md (P0 + ARCH-REC #101, per user「繼續」)",
       "archRec": "ARCH-REC #101: X57_ANTONYM_PAIR_MIRROR lint + P0 答案鍵修正",
       "what": "(per user 核准) 兩塊: (1) 修 audit P0-1 答案鍵 bug kt-ch3-l5-x4 — 句子/sentenceZh/explanationZh 都指 opts[0]『烏龜超過兔子』正確, 但 correctIndex=1 (獎勵錯答案、答對的小孩被判錯). 先驗證 opts[0] 確為正解再改 correctIndex 1→0 (此為 user 明確授權的答案鍵修正, 是動 correctIndex 唯一正當情境; check-answer-index 會如實報告此變動). (2) 實作 ARCH-REC #101 X57_ANTONYM_PAIR_MIRROR — validate-lessons.js 加 lint + ANTONYM_MAP: 正解與『剛好一個』干擾項成反義對、其餘不含反義詞 → 4選1 退化成 2選1 (Tarrant 2009/ETS 2024 contrast tell). warn-only, build gate=cron gate 自動生效, 首掃全 corpus 80 命中 (Ch1-8 這輪手修的 18 已清, 其餘交 content cron 漸修). build 434 tests+tsc+vite 綠.",
