@@ -323,10 +323,13 @@ function SideCharButton({ variant, label, accent, onClick, style }: {
       style={{ position: 'absolute', zIndex: 4, width: 74, padding: 0, background: 'transparent', border: 'none',
         cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2,
         fontFamily: 'inherit', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', ...style }}>
-      <span style={{ position: 'relative', display: 'inline-block' }}>
-        <img src="/mascots/calico-anchor.webp" width={56} height={56} alt="" style={{ display: 'block', borderRadius: '50%',
-          filter: 'drop-shadow(-1px -1px 1px rgba(255,243,214,0.5)) drop-shadow(1px 3px 3px rgba(74,54,38,0.18))' }} />
-        <span aria-hidden="true" style={{ position: 'absolute', top: -6, right: -6, fontSize: variant === 'exam' ? 22 : 20,
+      {/* v2.0.B.540 (per user 新規則): 人物主色框跟該章節點顏色相近 — 三花貓不變, 外圈+底色用章色呼應。 */}
+      <span style={{ position: 'relative', display: 'inline-block', borderRadius: '50%',
+        padding: 3, background: accent.startsWith('#') ? lighten(accent, 0.62) : 'transparent',
+        boxShadow: accent.startsWith('#') ? `0 0 0 2.5px ${accent}` : 'none' }}>
+        <img src="/mascots/calico-anchor.webp" width={54} height={54} alt="" style={{ display: 'block', borderRadius: '50%',
+          filter: 'drop-shadow(1px 2px 2px rgba(74,54,38,0.18))' }} />
+        <span aria-hidden="true" style={{ position: 'absolute', top: -8, right: -8, fontSize: variant === 'exam' ? 22 : 20,
           lineHeight: 1, transform: variant === 'exam' ? 'rotate(12deg)' : 'none' }}>{variant === 'exam' ? '🎓' : '🏠'}</span>
       </span>
       <span style={{ fontSize: 10, fontWeight: 900, color: accent, background: 'var(--t-surface)',
@@ -962,8 +965,9 @@ export default function MapPage() {
               onClick={() => navigate('/')} style={{ top: 8, right: 2 }} />
           )}
           {examMarkers.map((m) => (
+            // v2.0.B.540 (per user 新規則): 人物用「該章」節點主色, 跟旁邊按鈕顏色相近。
             <SideCharButton key={`exam-${m.chapter}`} variant="exam" label={t('map.examEntry')}
-              accent={CHAPTER_META[32].accent} onClick={(rect) => setExamAnchor(rect)}
+              accent={(CHAPTER_META[m.chapter] ?? CHAPTER_META[1]).accent} onClick={(rect) => setExamAnchor(rect)}
               style={m.side === 'L' ? { left: CAT_EDGE_MARGIN, top: m.top } : { right: CAT_EDGE_MARGIN, top: m.top }} />
           ))}
 
