@@ -11,7 +11,7 @@
  * component is fine — memo compares INCOMING props, not internal style
  * literals. As long as primitive props are equal, React skips the render.
  */
-import { memo, type Ref, type PointerEvent as ReactPointerEvent } from 'react';
+import { memo, type Ref, type PointerEvent as ReactPointerEvent, type MouseEvent as ReactMouseEvent } from 'react';
 
 interface MapNodeProps {
   lessonId: string;
@@ -33,7 +33,7 @@ interface MapNodeProps {
   iconOpacity: number;
   restShadow: string;
   pressShadow: string;
-  onTap: (chapter: number, lessonId: string) => void;
+  onTap: (chapter: number, lessonId: string, rect: DOMRect) => void;
   /** v2.0.B.492: 點未解鎖節點 → 彈「尚未解鎖」(節點不再 disabled, 改路由到這)。 */
   onLockedTap?: () => void;
   onPressDown: (lessonId: string) => void;
@@ -48,7 +48,10 @@ function MapNodeImpl({
   restShadow, pressShadow,
   onTap, onLockedTap, onPressDown, onPressEnd, innerRef,
 }: MapNodeProps) {
-  const handleClick = () => { if (unlocked) onTap(chapter, lessonId); else onLockedTap?.(); };
+  const handleClick = (e: ReactMouseEvent<HTMLButtonElement>) => {
+    if (unlocked) onTap(chapter, lessonId, e.currentTarget.getBoundingClientRect());
+    else onLockedTap?.();
+  };
   const handleDown = (_e: ReactPointerEvent<HTMLButtonElement>) => { if (unlocked) onPressDown(lessonId); };
   return (
     <button
