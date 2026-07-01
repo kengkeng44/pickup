@@ -1196,13 +1196,16 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             const isShaking = shakeIds.left === i;
             const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
             const className = isJustMatched ? 'pickup-pair-success' : isShaking ? 'pickup-pair-wrong' : undefined;
+            // v2.0.B.541 (per user「配對題答對之後隱形」): 配對成功 → 播完 success 脈動即淡成隱形
+            // (保留原位不重排, 避免其他卡跳動/誤點), 只剩未配對的卡。
+            const gone = isMatched && !isJustMatched;
             return (
               <button
                 key={`L${i}`}
                 onClick={() => tap('left', i)}
                 disabled={isMatched}
                 className={className}
-                style={cardStyle(state)}
+                style={{ ...cardStyle(state), ...(gone ? { opacity: 0, pointerEvents: 'none', boxShadow: 'none' } : {}) }}
               >
                 {/* v2.0.B.281: 砍 ✓ — user「不要打勾」. 色變 + disabled 已表明 matched */}
                 <span>{p[0]}</span>
@@ -1219,13 +1222,14 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             const isShaking = shakeIds.right === sIdx;
             const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
             const className = isJustMatched ? 'pickup-pair-success' : isShaking ? 'pickup-pair-wrong' : undefined;
+            const gone = isMatched && !isJustMatched; // v2.0.B.541: 答對後隱形 (保留原位)
             return (
               <button
                 key={`R${sIdx}`}
                 onClick={() => tap('right', sIdx)}
                 disabled={isMatched}
                 className={className}
-                style={cardStyle(state)}
+                style={{ ...cardStyle(state), ...(gone ? { opacity: 0, pointerEvents: 'none', boxShadow: 'none' } : {}) }}
               >
                 <span>{pairs[origIdx]?.[1]}</span>
               </button>
@@ -1353,8 +1357,9 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             const isSelected = selected?.side === 'audio' && selected.idx === i;
             const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
             const className = justMatched === i ? 'pickup-pair-success' : shakeIds.audio === i ? 'pickup-pair-wrong' : undefined;
+            const gone = isMatched && justMatched !== i; // v2.0.B.541: 答對後隱形 (保留原位)
             return (
-              <button key={`A${i}`} onClick={() => tap('audio', i)} disabled={isMatched} className={className} style={audioCell(state)} aria-label={tq('q.playAudio')}>
+              <button key={`A${i}`} onClick={() => tap('audio', i)} disabled={isMatched} className={className} style={{ ...audioCell(state), ...(gone ? { opacity: 0, pointerEvents: 'none', boxShadow: 'none' } : {}) }} aria-label={tq('q.playAudio')}>
                 <img src="/mascots/icon-speaker.webp" width={22} height={22} alt="" style={{ flex: '0 0 auto', opacity: isMatched ? 0.45 : 0.85 }} />
                 <Waveform active={isSelected} seed={i} />
               </button>
@@ -1368,8 +1373,9 @@ const ListenPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             const isSelected = selected?.side === 'zh' && selected.idx === sIdx;
             const state: 'matched' | 'selected' | 'default' = isMatched ? 'matched' : isSelected ? 'selected' : 'default';
             const className = justMatched === origIdx ? 'pickup-pair-success' : shakeIds.zh === sIdx ? 'pickup-pair-wrong' : undefined;
+            const gone = isMatched && justMatched !== origIdx; // v2.0.B.541: 答對後隱形 (保留原位)
             return (
-              <button key={`Z${sIdx}`} onClick={() => tap('zh', sIdx)} disabled={isMatched} className={className} style={zhCell(state)}>
+              <button key={`Z${sIdx}`} onClick={() => tap('zh', sIdx)} disabled={isMatched} className={className} style={{ ...zhCell(state), ...(gone ? { opacity: 0, pointerEvents: 'none', boxShadow: 'none' } : {}) }}>
                 <span>{pairs[origIdx]?.[0]}</span>
               </button>
             );
