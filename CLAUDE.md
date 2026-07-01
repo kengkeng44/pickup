@@ -195,6 +195,7 @@
 - **人類直覺**:預設行為安全(點外 = 不破壞進度)、目標夠大、不需說明就會用;避免 metalinguistic / 成人 register 文案。
 - **安全邊界**:popover 保留上方 HUD / 下方導覽的留白,內容再長也不被 chrome 切(超出就內部捲)。
 - 已落地範例(B.528/535/536):地圖 node / 英檢 popover、ShareModal、角色卡、衣櫥、KeySentences 都已改成此模式,可當樣板。
+- **配色呼應(v2.0.B.540 per user)**:章節旁的人物「視覺主色」要跟該章節點按鈕顏色相近才好看。人物不用只有一種色(三花貓照舊),但主色框 / 標籤 / 光暈用該章 `CHAPTER_META[ch].accent`(見 `SideCharButton`)。新增任何「靠在某章旁」的角色 / 徽章都照此:主色 = 該章 accent。
 
 ### Semantic Color Tokens (v0.11 Duolingo-tier overhaul)
 
