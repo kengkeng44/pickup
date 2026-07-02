@@ -456,6 +456,10 @@ export default function MapPage() {
   const [, setChestTick] = useState(0);
   // v2.0.B.193 (Walkthrough P1-B): ref to current-node button for auto-scroll
   const currentNodeRef = useRef<HTMLButtonElement | null>(null);
+  // v2.0.B.548 (per user): 往上箭頭只在「目前進度節點捲出畫面」時出現 —
+  // 回到中段 / 已在最上面 (current node 可見) 就隱藏, 免得指向沒東西可捲。
+  // 用 IntersectionObserver (非 scroll listener) 避開 B.296/B.313 setState-in-scroll 跳頂雷。
+  const [currentNodeVisible, setCurrentNodeVisible] = useState(true);
   // v2.0.B.232 招 1: read persistent daily streak + freeze count from
   // localStorage (was in-session runStore.streak — wrong on cold start).
   const streak = readStreak();
@@ -716,6 +720,19 @@ export default function MapPage() {
     document.querySelectorAll('[data-lesson-id]').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, [lessons, isAggregate, lang]);
+
+  // v2.0.B.548 (per user): 觀察目前進度節點是否在畫面內 → 控制往上箭頭顯隱。
+  // current node 進入 viewport = 已回到進度 (或在最上面) → 隱藏箭頭; 捲離 = 顯示。
+  useEffect(() => {
+    const el = currentNodeRef.current;
+    if (loading || lessons.length === 0 || !el) return;
+    const io = new IntersectionObserver(
+      (entries) => { setCurrentNodeVisible(entries[0]?.isIntersecting ?? true); },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [loading, lessons]);
 
   return (
     <div className="pickup-full-bleed" style={{
@@ -1120,8 +1137,9 @@ export default function MapPage() {
         </div>
       )}
 
-      {/* v2.0.B.521 (per user): 往上箭頭 — 捲到下面後一鍵回到目前進度 (current node)。 */}
-      {!loading && lessons.length > 0 && (
+      {/* v2.0.B.521 (per user): 往上箭頭 — 捲到下面後一鍵回到目前進度 (current node)。
+          B.548: current node 已在畫面內 (回到中段 / 最上面) 就隱藏 — 沒東西可捲。 */}
+      {!loading && lessons.length > 0 && !currentNodeVisible && (
         <button
           type="button"
           aria-label="Scroll to current progress"
