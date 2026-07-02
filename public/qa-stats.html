@@ -6,405 +6,118 @@
 <title>Pickup Q&A 數據總覽 — Stats Dashboard</title>
 <style>
   :root {
-    --bg: #f1ebe1;
-    --card: #ffffff;
-    --border: #e0d0b8;
-    --accent: #c8a878;
-    --accent-dark: #8b6f4a;
-    --text: #3c2a1c;
-    --muted: #7a6850;
-    --ok: #5d9a35;
-    --warn: #d68b3a;
-    --bad: #c84a3a;
-    --type-narration: #a78bfa;
-    --type-listen-mc: #f59e0b;
-    --type-emoji-pick: #ec4899;
-    --type-listen-tf: #60a5fa;
-    --type-tap-pairs: #3d8aae;
-    --type-listen-comprehension: #ef6b3d;
-    --type-listen-emoji: #14b8a6;
-    --type-picture-mc: #84cc16;
-    --seg-main: #c8a878;
-    --seg-prologue: #a78bfa;
-    --seg-aesop: #94a3b8;
-    --seg-outro: #94a3b8;
-    --seg-review: #94a3b8;
+    --bg: #f1ebe1; --card: #ffffff; --border: #e0d0b8; --accent: #c8a878; --accent-dark: #8b6f4a;
+    --text: #3c2a1c; --muted: #7a6850; --ok: #5d9a35; --warn: #d68b3a; --bad: #c84a3a;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
     font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
     font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-
   header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
     backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
     padding: max(8px, env(safe-area-inset-top)) 12px 8px;
     display: flex; align-items: center; gap: 10px; min-height: 44px; }
-  .back-btn { width: 32px; height: 32px; padding: 0; background: transparent;
-    border: none; cursor: pointer; font-family: inherit;
-    display: inline-flex; align-items: center; justify-content: center;
-    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-    flex: 0 0 auto; color: var(--text); text-decoration: none;
-    border-radius: 8px; transition: background 120ms ease-out; }
-  .back-btn:hover, .back-btn:active { background: rgba(60,42,28,0.08); }
+  .back-btn { width: 32px; height: 32px; padding: 0; background: transparent; border: none; cursor: pointer;
+    font-family: inherit; display: inline-flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; flex: 0 0 auto; color: var(--text);
+    text-decoration: none; border-radius: 8px; }
   .back-btn svg { width: 22px; height: 22px; display: block; }
   h1 { margin: 0; font-size: 15px; font-weight: 900; color: var(--text);
     display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   h1 .emoji { font-size: 17px; }
-  h1 .sub { font-size: 10px; color: var(--muted); font-weight: 700;
-    letter-spacing: 0.3px; white-space: nowrap; }
-
+  h1 .sub { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: 0.3px; white-space: nowrap; }
   main { padding: 14px 12px 30px; max-width: 920px; margin: 0 auto; }
-
-  /* Ribbon: 三大關鍵數字 */
-  .ribbon { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-    margin-bottom: 16px; }
-  .ribbon .stat { background: var(--card); border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 12px 8px; text-align: center;
-    box-shadow: 0 2px 6px rgba(60,42,28,0.04); }
-  .ribbon .stat .n { font-size: 26px; font-weight: 900; color: var(--text);
-    line-height: 1; }
-  .ribbon .stat .lbl { font-size: 11px; color: var(--muted);
-    font-weight: 700; margin-top: 4px; letter-spacing: 0.3px; }
-
-  /* Section card */
-  .section { background: var(--card); border: 1.5px solid var(--border);
-    border-radius: 14px; padding: 14px; margin-bottom: 14px; }
-  .section h2 { margin: 0 0 6px; font-size: 14px; font-weight: 900;
-    display: flex; align-items: center; gap: 6px; }
-  .section .desc { font-size: 11px; color: var(--muted);
-    margin: 0 0 12px; line-height: 1.4; }
-
-  /* Type / segment row */
-  .row { display: grid; grid-template-columns: 1fr auto;
-    align-items: center; gap: 8px; padding: 6px 0; }
-  .row .label { font-size: 13px; font-weight: 700; min-width: 0;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .row .count { font-size: 12px; color: var(--muted); font-weight: 700;
-    white-space: nowrap; flex-shrink: 0; }
-  .row .count .pct { color: var(--text); font-weight: 900; margin-right: 4px; }
-  .bar { grid-column: 1 / -1; height: 10px; background: rgba(60,42,28,0.05);
-    border-radius: 5px; overflow: hidden; margin-top: 2px; }
-  .bar .fill { height: 100%; border-radius: 5px; transition: width 200ms; }
-  .row.t-narration .fill { background: var(--type-narration); }
-  .row.t-listen-mc .fill { background: var(--type-listen-mc); }
-  .row.t-emoji-pick .fill { background: var(--type-emoji-pick); }
-  .row.t-listen-tf .fill { background: var(--type-listen-tf); }
-  .row.t-tap-pairs .fill { background: var(--type-tap-pairs); }
-  .row.t-listen-comprehension .fill { background: var(--type-listen-comprehension); }
-  .row.t-listen-emoji .fill { background: var(--type-listen-emoji); }
-  .row.t-picture-mc .fill { background: var(--type-picture-mc); }
-  .row.s-main .fill { background: var(--seg-main); }
-  .row.s-prologue .fill { background: var(--seg-prologue); }
-
-  .row .tag { font-size: 10px; padding: 1px 6px; border-radius: 999px;
-    font-weight: 700; margin-left: 4px; }
-  .tag.ok { background: rgba(93,154,53,0.15); color: var(--ok); }
-  .tag.warn { background: rgba(214,139,58,0.15); color: var(--warn); }
-  .tag.bad { background: rgba(200,74,58,0.15); color: var(--bad); }
-
-  /* Spec-vs-reality discrepancy panel */
-  .discrepancy { background: linear-gradient(135deg, #fde0d2 0%, #fef2f0 100%);
-    border: 2px solid var(--bad); border-bottom: 4px solid #a8341f;
-    border-radius: 14px; padding: 14px; margin-bottom: 14px; }
-  .discrepancy h2 { color: var(--bad); margin: 0 0 6px; }
-  .discrepancy ul { margin: 8px 0 0; padding-left: 18px; font-size: 12px;
-    line-height: 1.6; }
-  .discrepancy ul li b { color: var(--bad); }
-
-  /* Chapter table */
-  table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  th, td { padding: 6px 4px; text-align: left; border-bottom: 1px dotted var(--border); }
-  th { font-size: 10px; color: var(--muted); font-weight: 700;
-    letter-spacing: 0.3px; text-transform: uppercase;
-    position: sticky; top: 44px; background: var(--card); z-index: 5; }
-  th.r, td.r { text-align: right; }
-  td.ch { font-weight: 900; }
-  td.title { color: var(--muted); }
-  td.dom { font-weight: 700; }
-  tr:hover { background: rgba(200,168,120,0.08); }
-
-  .drill-link { display: inline-block; padding: 6px 10px;
-    background: var(--accent); color: white; border-radius: 8px;
-    text-decoration: none; font-size: 11px; font-weight: 800;
-    margin-top: 6px; }
-  .drill-link:hover { background: var(--accent-dark); }
-
-  .footer-meta { text-align: center; color: var(--muted);
-    font-size: 11px; margin-top: 20px; line-height: 1.6; }
+  .ribbon { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+  .ribbon .stat { background: var(--card); border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 12px 8px; text-align: center; box-shadow: 0 2px 6px rgba(60,42,28,0.04); }
+  .ribbon .stat .n { font-size: 26px; font-weight: 900; color: var(--text); line-height: 1; }
+  .ribbon .stat .lbl { font-size: 11px; color: var(--muted); font-weight: 700; margin-top: 4px; letter-spacing: 0.3px; }
+  .section { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+  .section h2 { margin: 0 0 6px; font-size: 14px; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+  .section .desc { font-size: 11px; color: var(--muted); margin: 0 0 12px; line-height: 1.4; }
+  .detail-link { display: flex; align-items: center; gap: 12px; background: var(--card);
+    border: 2px solid var(--accent); border-bottom: 4px solid var(--accent-dark); border-radius: 14px;
+    padding: 16px; margin-bottom: 14px; text-decoration: none; color: var(--text); }
+  .detail-link .t { flex: 1; }
+  .detail-link .t b { font-size: 15px; font-weight: 900; }
+  .detail-link .t span { display: block; font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 2px; }
+  .detail-link .arrow { font-size: 22px; color: var(--accent-dark); }
+  .footer-meta { text-align: center; color: var(--muted); font-size: 11px; margin-top: 20px; line-height: 1.6; }
 </style>
 </head>
 <body>
 <header>
   <a class="back-btn" href="https://pickup-cockpit.pages.dev/" aria-label="回控制中心 Back to Dashboard">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
-    </svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
   </a>
   <h1>
     <span class="emoji">📊</span>
-    <span>Q&A 數據總覽</span>
-    <span class="sub" id="meta">v2.0.B.263 · 2026-06-09</span>
+    <span>數據總覽</span>
+    <span class="sub" id="meta">…</span>
   </h1>
 </header>
 
 <main>
-  <!-- 1. Three-stat ribbon -->
+  <!-- 關鍵數字 (主線) -->
   <div class="ribbon">
-    <div class="stat">
-      <div class="n" id="statCh">…</div>
-      <div class="lbl">📚 章節 chapters</div>
-    </div>
-    <div class="stat">
-      <div class="n" id="statLessons">…</div>
-      <div class="lbl">📝 單元 lessons</div>
-    </div>
-    <div class="stat">
-      <div class="n" id="statQ">…</div>
-      <div class="lbl">❓ 題目 questions</div>
-    </div>
+    <div class="stat"><div class="n" id="statCh">…</div><div class="lbl">📚 章節</div></div>
+    <div class="stat"><div class="n" id="statLessons">…</div><div class="lbl">📝 單元</div></div>
+    <div class="stat"><div class="n" id="statQ">…</div><div class="lbl">❓ 題目</div></div>
   </div>
+  <div id="examLine"></div>
 
-  <!-- 1.5 KPI (auto-computed content metrics + business model) -->
+  <!-- KPI headline -->
   <div class="section">
     <h2>📈 營運指標 KPI</h2>
-    <p class="desc">預計完成時間從內容量即時推算 · LTV 用透明商業假設(標在卡片上, 可調) × 內容跑道</p>
+    <p class="desc">預計完成時間 + 客戶終生價值 · 即時從內容量推算 (商業假設標於卡片, 可調)</p>
     <div id="kpiCards"><p class="desc">計算中…</p></div>
   </div>
 
-  <!-- 2. ✅ Anchor confirmed (2026-06-09 user decision) -->
-  <div class="section" style="background:linear-gradient(135deg,#e8f4dd 0%,#f4f9e8 100%); border:2px solid var(--ok); border-bottom:4px solid #3d7a23;">
-    <h2 style="color:var(--ok);">✅ 定位主軸確認 (2026-06-09)</h2>
-    <p class="desc">旁白(narration)佔 48% 是刻意的 — Pickup 走「親子一起聽英文」路線,不是「小孩自己一直答題」路線。後續 5 個方向(題型優先序 / 怎麼評分 / 語音速度 / 文章長度 / 對外賣點)都跟著這條走。</p>
+  <!-- 細節 → 子頁面 -->
+  <a class="detail-link" href="/qa-details.html">
+    <span style="font-size:26px;">🔍</span>
+    <span class="t"><b>看完整細節</b><span>題型 / 程度 / 難度 / 章節分布 (主線 vs 英檢 各自拆)</span></span>
+    <span class="arrow" aria-hidden="true">›</span>
+  </a>
+
+  <!-- 定位主軸 (context) -->
+  <div class="section" style="background:linear-gradient(135deg,#e8f4dd 0%,#f4f9e8 100%); border:2px solid var(--ok);">
+    <h2 style="color:var(--ok);">✅ 定位主軸</h2>
+    <p class="desc" style="margin:0;">旁白(narration)佔比高是刻意的 — Pickup 走「親子一起聽英文」路線, 不是「小孩自己一直答題」。題型優先序 / 評分 / 語音速度都跟著這條走。</p>
   </div>
 
-  <!-- 3. Type distribution (auto-computed) -->
-  <div class="section">
-    <h2>📋 題型分布 Question Type</h2>
-    <p class="desc">即時從 <code>lessons-ch*.json</code> 計算 · 點題型跳「題目對照表」</p>
-    <div id="typeDist"><p class="desc">計算中…</p></div>
-  </div>
-
-  <!-- 4. Segment distribution (auto-computed) -->
-  <div class="section">
-    <h2>🎬 章節段落分布 Segment</h2>
-    <p class="desc">即時計算 · segmentType 分布</p>
-    <div id="segDist"></div>
-  </div>
-
-  <!-- 4.5 Level + Difficulty distribution (auto-computed, finer breakdown) -->
-  <div class="section">
-    <h2>🎯 程度分布 CEFR Level</h2>
-    <p class="desc">即時計算 · 每題 level 欄 (A1/A2…)</p>
-    <div id="levelDist"></div>
-  </div>
-  <div class="section">
-    <h2>🔥 難度分布 Difficulty</h2>
-    <p class="desc">即時計算 · 每題 difficulty 欄 (easy/medium/hard)</p>
-    <div id="diffDist"></div>
-  </div>
-
-  <!-- 5. Per-chapter table (auto-computed) -->
-  <div class="section">
-    <h2>📚 章節 Breakdown</h2>
-    <p class="desc" id="chapterDesc">即時計算每章 lesson 數 / 題數 / 主導題型</p>
-    <table>
-      <thead>
-        <tr><th>Ch</th><th>標題</th><th class="r">L</th><th class="r">Q</th><th>主導題型</th></tr>
-      </thead>
-      <tbody id="chapterRows"></tbody>
-    </table>
-
-    <a class="drill-link" href="https://pickupwords.pages.dev/qa-dashboard.html">→ 跳 qa-dashboard 看完整題目</a>
-  </div>
-
-  <div class="footer-meta">
-    v2.0.B.514 · 即時計算 · Source: <code>public/lessons-ch*.json</code> (前端 fetch 自動統計, 加章/加題自動出現, 不用手動 regen)
-  </div>
+  <div class="footer-meta" id="footer">即時計算 · Source: <code>public/lessons-ch*.json</code></div>
 </main>
 
+<script src="/qa-compute.js"></script>
 <script>
 (function(){
-  var TYPE_LABEL = {
-    'narration':'narration · 旁白(故事敘述)',
-    'listen-mc':'listen-mc · 聽選(聽聲音 4 選 1)',
-    'listen-tf':'listen-tf · 聽是非(對/錯)',
-    'comprehension':'comprehension · 理解(讀/聽)',
-    'listen-comprehension':'listen-comprehension · 聽力理解',
-    'read-comprehension':'read-comprehension · 閱讀理解',
-    'grammar-mc':'grammar-mc · 文法選擇',
-    'tap-pairs':'tap-pairs · 中英配對',
-    'phrase-pairs':'phrase-pairs · 片語配對',
-    'listen-pairs':'listen-pairs · 聽力配對',
-    'type-translate':'type-translate · 外文打字',
-    'type-what-you-hear':'type-what-you-hear · 聽打',
-    'tap-tiles':'tap-tiles · 排句',
-    'drag-blank':'drag-blank · 克漏字',
-    'emoji-pick':'emoji-pick · 看圖選',
-    'listen-emoji':'listen-emoji · 聽音選圖',
-    'picture-mc':'picture-mc · 看圖選句',
-    'scroll-pick':'scroll-pick · 滑選填空',
-    'read-and-tap':'read-and-tap · 點詞',
-    'listen-build':'listen-build · 聽力排句',
-    'speak-back':'speak-back · 跟讀'
-  };
-  var SEG_LABEL = { 'main-story':'main-story · 主線故事','outer-prologue':'outer-prologue · 開場序幕','aesop-side':'aesop-side · 伊索支線','outer-outro':'outer-outro · 結尾收場','review':'review · 複習' };
-  var DASH = 'https://pickupwords.pages.dev/qa-dashboard.html';
-  function esc(x){ return String(x).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
-  function fmt(n){ return n.toLocaleString('en-US'); }
-
-  async function load(ch){
-    try { var r = await fetch('/lessons-ch'+ch+'.json'); if(!r.ok) return null; var a = await r.json(); return Array.isArray(a)?a:null; }
-    catch(e){ return null; }
-  }
-  // v2.0.B.542 (per user「英檢題目跟主線分開來看, 全部內容都是」): 內容統計拆兩組 —
-  // 📖 主線 (Ch0-31 故事) vs 🎓 英檢 (Ch32+ 考試)。決策板不拆 (同一套標準)。
-  var EXAM_FROM = 32;
-  // v2.0.B.543: 逐題型秒數 — 鏡像 src/data/lessons.ts estimateLessonSeconds 的 Q_SECONDS (B.522).
-  // 改內容時題數自動變, 這裡是「模型」不是寫死結果。
-  var Q_SECONDS = { narration:8, 'listen-tf':13, 'listen-tf-zh':13, 'type-translate':38, 'type-what-you-hear':38,
-    'tap-pairs':28, 'phrase-pairs':28, 'listen-pairs':28, 'tap-tiles':26, 'drag-blank':26, 'listen-build':28,
-    comprehension:24, 'listen-comprehension':26, 'read-comprehension':24, 'speak-back':18 };
-  var DEFAULT_Q_SECONDS = 17;
-  // ── 商業假設 (可調, 非從資料推導 — LTV 本質需這些輸入; 明確標出不埋進公式) ──
-  var ASSUME = {
-    energyPerDay: 5,     // 免費每日配額 (對齊 src/data/energy.ts DAILY_QUOTA)
-    monthlyPrice: 149,   // NT$/月 訂閱價 (假設)
-    convRate: 0.05,      // 免費→付費轉換率 (freemium benchmark 2-5%)
-    avgSubMonths: 6,     // 平均訂閱月數 (≈ 月流失 ~16%; LTV = 月費 × 月數)
-  };
-  var LEVEL_LABEL = { A1:'A1 · 入門', A2:'A2 · 基礎', 'A2+':'A2+ · 基礎進階', B1:'B1 · 進階', B2:'B2 · 高階' };
-  var DIFF_LABEL = { easy:'easy · 簡單', medium:'medium · 中等', hard:'hard · 困難' };
-  function newBucket(){ return { chapters:[], typeCount:{}, segCount:{}, levelCount:{}, diffCount:{}, seconds:0, lessons:0, q:0 }; }
-  function fmtDur(sec){ var h=Math.floor(sec/3600), m=Math.round((sec%3600)/60); return h>0 ? (h+' 小時 '+m+' 分') : (m+' 分'); }
-  function renderDist(countObj, total, labelMap){
-    var keys=Object.keys(countObj).sort(function(x,y){return countObj[y]-countObj[x];});
-    if(!keys.length) return '<p class="desc">—</p>';
-    return keys.map(function(k){
-      var n=countObj[k], pct=total?(n/total*100):0;
-      return '<div class="row"><span class="label">'+esc(labelMap[k]||k)+'</span>'+
-        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+'</span>'+
-        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></div>';
-    }).join('');
-  }
-  function kpiCard(icon, title, big, sub, chips, note){
-    var chipHtml=(chips||[]).map(function(c){ return '<span style="display:inline-block;background:var(--tint-warn,#fdf2dd);color:#7a5e25;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;margin:2px 4px 2px 0;">'+esc(c)+'</span>'; }).join('');
-    return '<div style="flex:1;min-width:230px;background:#fff;border:2px solid #e5e0d6;border-bottom:4px solid #e0dacf;border-radius:16px;padding:16px 16px 14px;">'+
-      '<div style="font-size:13px;font-weight:900;color:var(--muted,#7a6850);">'+icon+' '+esc(title)+'</div>'+
-      '<div style="font-size:30px;font-weight:900;color:var(--text,#3c2a1c);line-height:1.1;margin:6px 0 2px;">'+big+'</div>'+
-      (sub?'<div style="font-size:13px;font-weight:700;color:var(--muted,#7a6850);">'+sub+'</div>':'')+
-      (chipHtml?'<div style="margin:8px 0 4px;">'+chipHtml+'</div>':'')+
-      (note?'<div style="font-size:12px;color:var(--muted,#7a6850);line-height:1.5;margin-top:4px;">'+note+'</div>':'')+
-      '</div>';
-  }
-  function subhead(txt){ return '<div style="font-size:13px;font-weight:900;color:var(--muted,#7a6850);margin:14px 0 8px;letter-spacing:.3px;">'+txt+'</div>'; }
-  function renderType(b){
-    if(!b.q) return '<p class="desc">—</p>';
-    var types=Object.keys(b.typeCount).sort(function(x,y){return b.typeCount[y]-b.typeCount[x];});
-    return types.map(function(t){
-      var n=b.typeCount[t], pct=b.q?(n/b.q*100):0;
-      return '<a class="row t-'+esc(t)+'" href="'+DASH+'" style="display:block;text-decoration:none;color:inherit;">'+
-        '<div style="display:flex;justify-content:space-between;align-items:center;">'+
-        '<span class="label">'+esc(TYPE_LABEL[t]||t)+'</span>'+
-        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+'</span></div>'+
-        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></a>';
-    }).join('');
-  }
-  function renderSeg(b){
-    if(!b.lessons) return '<p class="desc">—</p>';
-    var segs=Object.keys(b.segCount).sort(function(x,y){return b.segCount[y]-b.segCount[x];});
-    return segs.map(function(sg){
-      var n=b.segCount[sg], pct=b.lessons?(n/b.lessons*100):0;
-      return '<div class="row"><span class="label">'+esc(SEG_LABEL[sg]||sg)+'</span>'+
-        '<span class="count"><span class="pct">'+pct.toFixed(1)+'%</span>'+fmt(n)+' lesson</span>'+
-        '<div class="bar"><div class="fill" style="width:'+pct.toFixed(1)+'%"></div></div></div>';
-    }).join('');
-  }
-  function chapterRowsHtml(list){
-    return list.map(function(c){
-      return '<tr><td class="ch">'+c.ch+'</td><td class="title">'+esc(c.title)+'</td>'+
-        '<td class="r">'+c.lessons+'</td><td class="r">'+c.q+'</td>'+
-        '<td class="dom">'+esc(c.dom)+'</td></tr>';
-    }).join('');
-  }
-  (async function(){
-    var main=newBucket(), exam=newBucket();
-    for (var ch=0; ch<=40; ch++){
-      var arr = await load(ch);
-      if(!arr || !arr.length) continue;
-      var b = ch>=EXAM_FROM ? exam : main;
-      var cLessons=arr.length, cQ=0, cType={};
-      for (var i=0;i<arr.length;i++){
-        var l=arr[i];
-        b.segCount[l.segmentType] = (b.segCount[l.segmentType]||0)+1;
-        var qs=l.questions||[];
-        for (var j=0;j<qs.length;j++){
-          var qq=qs[j], t=qq.type;
-          b.typeCount[t]=(b.typeCount[t]||0)+1; cType[t]=(cType[t]||0)+1; cQ++;
-          b.seconds += (Q_SECONDS[t] != null ? Q_SECONDS[t] : DEFAULT_Q_SECONDS);
-          // v2.0.B.543: 更細分 — 程度 / 難度 (narration 無 level/diff → 略過空值)
-          if (qq.level) b.levelCount[qq.level]=(b.levelCount[qq.level]||0)+1;
-          if (qq.difficulty) b.diffCount[qq.difficulty]=(b.diffCount[qq.difficulty]||0)+1;
-        }
-      }
-      b.lessons+=cLessons; b.q+=cQ;
-      var title=(arr[0]&&arr[0].lessonName)?arr[0].lessonName:('Ch '+ch);
-      var dom=Object.keys(cType).sort(function(x,y){return cType[y]-cType[x];})[0]||'-';
-      b.chapters.push({ch:ch,title:title,lessons:cLessons,q:cQ,dom:dom});
+  QA.computeBuckets().then(function(d){
+    var main=d.main, exam=d.exam;
+    document.getElementById('statCh').textContent = QA.fmt(main.chapters.length);
+    document.getElementById('statLessons').textContent = QA.fmt(main.lessons);
+    document.getElementById('statQ').textContent = QA.fmt(main.q);
+    if (exam.q) {
+      document.getElementById('examLine').innerHTML =
+        '<div style="text-align:center;font-size:13px;font-weight:800;color:var(--muted);margin:0 0 12px;">'+
+        '🎓 英檢 English Exam · '+QA.fmt(exam.chapters.length)+' 章 · '+QA.fmt(exam.lessons)+' 單元 · '+QA.fmt(exam.q)+' 題 (與主線分開)</div>';
     }
-    // ribbon = 主線; 英檢另列一行
-    document.getElementById('statCh').textContent = fmt(main.chapters.length);
-    document.getElementById('statLessons').textContent = fmt(main.lessons);
-    document.getElementById('statQ').textContent = fmt(main.q);
-    var ribbon = document.querySelector('.ribbon');
-    if (ribbon && exam.q) {
-      ribbon.insertAdjacentHTML('afterend',
-        '<div style="text-align:center;font-size:13px;font-weight:800;color:var(--muted,#7a6850);margin:-6px 0 10px;">'+
-        '🎓 英檢 English Exam · '+fmt(exam.chapters.length)+' 章 · '+fmt(exam.lessons)+' 單元 · '+fmt(exam.q)+' 題 (與主線分開統計)</div>');
-    }
-    // type dist — 主線 / 英檢 分開
-    document.getElementById('typeDist').innerHTML =
-      subhead('📖 主線 Main Story (Ch0-'+(EXAM_FROM-1)+')') + renderType(main) +
-      (exam.q ? subhead('🎓 英檢 Exam (Ch'+EXAM_FROM+'+)') + renderType(exam) : '');
-    // seg dist — 主線 / 英檢 分開
-    document.getElementById('segDist').innerHTML =
-      subhead('📖 主線 Main Story') + renderSeg(main) +
-      (exam.lessons ? subhead('🎓 英檢 Exam') + renderSeg(exam) : '');
-    // level dist — 主線 / 英檢 分開
-    document.getElementById('levelDist').innerHTML =
-      subhead('📖 主線 Main Story') + renderDist(main.levelCount, main.q, LEVEL_LABEL) +
-      (exam.q ? subhead('🎓 英檢 Exam') + renderDist(exam.levelCount, exam.q, LEVEL_LABEL) : '');
-    // difficulty dist — 主線 / 英檢 分開
-    document.getElementById('diffDist').innerHTML =
-      subhead('📖 主線 Main Story') + renderDist(main.diffCount, main.q, DIFF_LABEL) +
-      (exam.q ? subhead('🎓 英檢 Exam') + renderDist(exam.diffCount, exam.q, DIFF_LABEL) : '');
-    // KPI cards — 預計完成時間 + 客戶終生價值 (LTV)
-    var daysMain = Math.ceil(main.lessons / ASSUME.energyPerDay);
-    var monthsMain = daysMain / 30;
-    var ltvPaying = ASSUME.monthlyPrice * ASSUME.avgSubMonths;
-    var ltvBlended = ltvPaying * ASSUME.convRate;
-    var timeCard = kpiCard('⏳', '預計完成時間 (主線)', fmtDur(main.seconds),
-      exam.seconds ? '英檢另 +'+fmtDur(exam.seconds) : '',
-      ['每題型加權估時', '每天 '+ASSUME.energyPerDay+' 關'],
-      '照免費配額每天 '+ASSUME.energyPerDay+' 關 → 約 <b>'+fmt(daysMain)+' 天</b> (~'+monthsMain.toFixed(1)+' 個月) 走完主線。內容越多, 玩家留得越久。');
-    var ltvCard = kpiCard('💰', '客戶終生價值 LTV', 'NT$ '+fmt(Math.round(ltvPaying)),
+    var A=QA.ASSUME;
+    var daysMain=Math.ceil(main.lessons/A.energyPerDay), monthsMain=daysMain/30;
+    var ltvPaying=A.monthlyPrice*A.avgSubMonths, ltvBlended=ltvPaying*A.convRate;
+    var timeCard=QA.kpiCard('⏳','預計完成時間 (主線)', QA.fmtDur(main.seconds),
+      exam.seconds ? '英檢另 +'+QA.fmtDur(exam.seconds) : '',
+      ['每題型加權估時','每天 '+A.energyPerDay+' 關'],
+      '每天 '+A.energyPerDay+' 關 → 約 <b>'+QA.fmt(daysMain)+' 天</b> (~'+monthsMain.toFixed(1)+' 個月) 走完主線。');
+    var ltvCard=QA.kpiCard('💰','客戶終生價值 LTV', 'NT$ '+QA.fmt(Math.round(ltvPaying)),
       '每付費用戶 · 分攤到每用戶 ≈ NT$ '+ltvBlended.toFixed(0),
-      ['月費 NT$'+ASSUME.monthlyPrice, '轉換 '+(ASSUME.convRate*100).toFixed(0)+'%', '留存 '+ASSUME.avgSubMonths+' 月'],
-      'LTV = 月費 × 訂閱月數。內容跑道 ~<b>'+monthsMain.toFixed(1)+' 個月</b> = 留存天花板 (內容越多 → 訂閱越久 → LTV 越高)。目標 LTV:CAC ≥ 3。');
-    document.getElementById('kpiCards').innerHTML =
-      '<div style="display:flex;gap:12px;flex-wrap:wrap;">'+timeCard+ltvCard+'</div>';
-    // chapter table — 主線 rows + 英檢 分隔 + exam rows
-    var rows = chapterRowsHtml(main.chapters);
-    if (exam.chapters.length) {
-      rows += '<tr><td colspan="5" style="background:var(--tint-warn,#fdf2dd);font-weight:900;color:#7a5e25;padding:8px 10px;">🎓 英檢 English Exam</td></tr>' + chapterRowsHtml(exam.chapters);
-    }
-    document.getElementById('chapterRows').innerHTML=rows;
-    document.getElementById('chapterDesc').textContent =
-      '主線 '+main.chapters.length+' 章 · '+main.lessons+' 單元 · '+fmt(main.q)+' 題　|　英檢 '+exam.chapters.length+' 章 · '+fmt(exam.q)+' 題 (即時計算)';
-    document.getElementById('meta').textContent = 'v2.0.B.542 · 主線/英檢分開 · 即時計算';
-  })();
+      ['月費 NT$'+A.monthlyPrice,'轉換 '+(A.convRate*100).toFixed(0)+'%','留存 '+A.avgSubMonths+' 月'],
+      'LTV = 月費 × 訂閱月數。內容跑道 ~<b>'+monthsMain.toFixed(1)+' 個月</b> = 留存天花板 (內容越多 → LTV 越高)。目標 LTV:CAC ≥ 3。');
+    document.getElementById('kpiCards').innerHTML='<div style="display:flex;gap:12px;flex-wrap:wrap;">'+timeCard+ltvCard+'</div>';
+    document.getElementById('meta').textContent='v2.0.B.545 · 即時計算';
+  });
 })();
 </script>
-
 </body>
 </html>

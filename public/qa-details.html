@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pickup 數據細節 — Detailed Breakdown</title>
+<style>
+  :root {
+    --bg: #f1ebe1; --card: #ffffff; --border: #e0d0b8; --accent: #c8a878; --accent-dark: #8b6f4a;
+    --text: #3c2a1c; --muted: #7a6850; --ok: #5d9a35; --warn: #d68b3a; --bad: #c84a3a; --tint-warn: #fdf2dd;
+    --type-narration:#a78bfa; --type-listen-mc:#f59e0b; --type-emoji-pick:#ec4899; --type-listen-tf:#60a5fa;
+    --type-tap-pairs:#3d8aae; --type-listen-comprehension:#ef6b3d; --type-listen-emoji:#14b8a6; --type-picture-mc:#84cc16;
+    --seg-main:#c8a878; --seg-prologue:#a78bfa;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+    font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(241,235,225,0.96);
+    backdrop-filter: blur(10px); border-bottom: 1.5px solid var(--border);
+    padding: max(8px, env(safe-area-inset-top)) 12px 8px;
+    display: flex; align-items: center; gap: 10px; min-height: 44px; }
+  .back-btn { width: 32px; height: 32px; padding: 0; background: transparent; border: none; cursor: pointer;
+    font-family: inherit; display: inline-flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; flex: 0 0 auto; color: var(--text);
+    text-decoration: none; border-radius: 8px; }
+  .back-btn svg { width: 22px; height: 22px; display: block; }
+  h1 { margin: 0; font-size: 15px; font-weight: 900; color: var(--text); display: flex; align-items: baseline; gap: 6px;
+    flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  h1 .emoji { font-size: 17px; }
+  h1 .sub { font-size: 10px; color: var(--muted); font-weight: 700; }
+  main { padding: 14px 12px 30px; max-width: 920px; margin: 0 auto; }
+  .section { background: var(--card); border: 1.5px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+  .section h2 { margin: 0 0 6px; font-size: 14px; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+  .section .desc { font-size: 11px; color: var(--muted); margin: 0 0 12px; line-height: 1.4; }
+  .row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; padding: 6px 0; }
+  .row .label { font-size: 13px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .count { font-size: 12px; color: var(--muted); font-weight: 700; white-space: nowrap; }
+  .row .count .pct { color: var(--text); font-weight: 900; margin-right: 4px; }
+  .bar { grid-column: 1 / -1; height: 10px; background: rgba(60,42,28,0.05); border-radius: 5px; overflow: hidden; margin-top: 2px; }
+  .bar .fill { height: 100%; border-radius: 5px; background: var(--accent); transition: width 200ms; }
+  .row.t-narration .fill{background:var(--type-narration);} .row.t-listen-mc .fill{background:var(--type-listen-mc);}
+  .row.t-emoji-pick .fill{background:var(--type-emoji-pick);} .row.t-listen-tf .fill{background:var(--type-listen-tf);}
+  .row.t-tap-pairs .fill{background:var(--type-tap-pairs);} .row.t-picture-mc .fill{background:var(--type-picture-mc);}
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { padding: 6px 4px; text-align: left; border-bottom: 1px dotted var(--border); }
+  th { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+    position: sticky; top: 44px; background: var(--card); z-index: 5; }
+  th.r, td.r { text-align: right; }
+  td.ch { font-weight: 900; } td.title { color: var(--muted); } td.dom { font-weight: 700; }
+  .drill-link { display: inline-block; padding: 6px 10px; background: var(--accent); color: white; border-radius: 8px;
+    text-decoration: none; font-size: 11px; font-weight: 800; margin-top: 6px; }
+  .footer-meta { text-align: center; color: var(--muted); font-size: 11px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back-btn" href="/qa-stats.html" aria-label="回數據總覽 Back to Overview">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+  </a>
+  <h1><span class="emoji">🔍</span><span>數據細節</span><span class="sub">主線 vs 英檢 各自拆</span></h1>
+</header>
+
+<main>
+  <div class="section">
+    <h2>📋 題型分布 Question Type</h2>
+    <p class="desc">即時從 <code>lessons-ch*.json</code> 計算 · 點題型跳「題目對照表」</p>
+    <div id="typeDist"><p class="desc">計算中…</p></div>
+  </div>
+  <div class="section">
+    <h2>🎬 章節段落分布 Segment</h2>
+    <div id="segDist"></div>
+  </div>
+  <div class="section">
+    <h2>🎯 程度分布 CEFR Level</h2>
+    <div id="levelDist"></div>
+  </div>
+  <div class="section">
+    <h2>🔥 難度分布 Difficulty</h2>
+    <div id="diffDist"></div>
+  </div>
+  <div class="section">
+    <h2>📚 章節 Breakdown</h2>
+    <p class="desc" id="chapterDesc">即時計算每章 lesson 數 / 題數 / 主導題型</p>
+    <table>
+      <thead><tr><th>Ch</th><th>標題</th><th class="r">L</th><th class="r">Q</th><th>主導題型</th></tr></thead>
+      <tbody id="chapterRows"></tbody>
+    </table>
+    <a class="drill-link" href="https://pickupwords.pages.dev/qa-dashboard.html">→ 跳 qa-dashboard 看完整題目</a>
+  </div>
+  <div class="footer-meta">v2.0.B.545 · 即時計算 · Source: <code>public/lessons-ch*.json</code></div>
+</main>
+
+<script src="/qa-compute.js"></script>
+<script>
+(function(){
+  QA.computeBuckets().then(function(d){
+    var main=d.main, exam=d.exam;
+    document.getElementById('typeDist').innerHTML =
+      QA.subhead('📖 主線 Main Story (Ch0-'+(QA.EXAM_FROM-1)+')') + QA.renderType(main) +
+      (exam.q ? QA.subhead('🎓 英檢 Exam (Ch'+QA.EXAM_FROM+'+)') + QA.renderType(exam) : '');
+    document.getElementById('segDist').innerHTML =
+      QA.subhead('📖 主線 Main Story') + QA.renderSeg(main) +
+      (exam.lessons ? QA.subhead('🎓 英檢 Exam') + QA.renderSeg(exam) : '');
+    document.getElementById('levelDist').innerHTML =
+      QA.subhead('📖 主線 Main Story') + QA.renderDist(main.levelCount, main.q, QA.LEVEL_LABEL) +
+      (exam.q ? QA.subhead('🎓 英檢 Exam') + QA.renderDist(exam.levelCount, exam.q, QA.LEVEL_LABEL) : '');
+    document.getElementById('diffDist').innerHTML =
+      QA.subhead('📖 主線 Main Story') + QA.renderDist(main.diffCount, main.q, QA.DIFF_LABEL) +
+      (exam.q ? QA.subhead('🎓 英檢 Exam') + QA.renderDist(exam.diffCount, exam.q, QA.DIFF_LABEL) : '');
+    var rows = QA.chapterRowsHtml(main.chapters);
+    if (exam.chapters.length) {
+      rows += '<tr><td colspan="5" style="background:var(--tint-warn);font-weight:900;color:#7a5e25;padding:8px 10px;">🎓 英檢 English Exam</td></tr>' + QA.chapterRowsHtml(exam.chapters);
+    }
+    document.getElementById('chapterRows').innerHTML=rows;
+    document.getElementById('chapterDesc').textContent =
+      '主線 '+main.chapters.length+' 章 · '+main.lessons+' 單元 · '+QA.fmt(main.q)+' 題　|　英檢 '+exam.chapters.length+' 章 · '+QA.fmt(exam.q)+' 題';
+  });
+})();
+</script>
+</body>
+</html>
