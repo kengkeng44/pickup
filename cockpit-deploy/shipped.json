@@ -2,6 +2,13 @@
   "_note": "ARCH-REC 已完成帳本。實作完一筆 ARCH-REC 就在此登記 → 儀表板自動跳過(不再顯示為待辦)+ 列入『已完成紀錄』。最新在前。",
   "shipped": [
     {
+      "audit": "docs/audits/2026-07-01T1530-content-qa-cron.md",
+      "archRec": "ARCH-REC #103: X59_OPTION_IN_STEM_LINT — Tier C (交作者, 未建)",
+      "what": "(cron content 全修) A6 Option-in-Question — 正解選項照抄題幹內容字 → test-wise 兒童可跳過音檔用視覺配對。全修 24 題 (Ch25-31; listen-mc 8 + comprehension 16), 手法 = 改寫『正解選項』成 paraphrase 拿掉被抄字, 語意不變 (correctIndex 值不動, ja/ko overlay 因語意保留免改)。副作用防護: 24 題中 17 題改寫後正解變最長字 → 觸 R2/X8 length-tell FAIL, 故同步把該題最短干擾項擴寫到 1.5× 內 (仍明顯錯), ratio 全 ≤1.48。check-answer-index ✓ correctIndex 全不變; validate-lessons exit 0 (無 R2 FAIL); npm run build 綠 (434 tests)。Tier C 分出交作者: ARCH-REC #103 X59 lint (動 validate-lessons.js); picture-mc P2 ×4 (看圖選句概念字重疊屬預期, 無需修); emoji-pick ×22 (設計預期); E 段 narrative distractor 品質建議 (l6 storm / l4 night / l5 Heracles 密度)。",
+      "version": "v2.0.B.547",
+      "date": "2026-07-02"
+    },
+    {
       "audit": "docs/audits/2026-06-09T1221-walkthrough-cron.md (code 全修 + re-verify)",
       "archRec": "TRAUMA-02 開機 loader 修; 其餘 obsolete/Tier C",
       "what": "(cron code 全修, 3週前 audit 逐項 re-verify) 唯一可自動修且與客群無關的: TRAUMA-02 慢網白屏 — index.html #app 原本全空, 首載無任何 indicator → 加極簡開機爪印 (React createRoot 掛載即取代, prefers-reduced-motion 尊重). build 434 tests 綠。其餘皆 obsolete 或 Tier C: TRAUMA-01 (listen-mc 紅框+揭示正解) = Ship5 檢查鈕改版後 reveal 分支只顯示句子+解說、無紅框揭示 → OBSOLETE; TRAUMA-03 (ACCURACY % 像成績單) = 產品文案決策且 persona 為成人-trauma(B.231 已 pivot 兒童為主)→ 交作者; TRAUMA-04 (OnboardingPicker motivation 問題) = 已有 language/ability onboarding, 加動機/創傷史問題屬 feature + pivot 後 framing 要重想 = Tier C; TRAUMA-05 (tap-pairs 無說明) 與新訂『極簡少字』原則衝突 = 交作者; TRAUMA-06/E2 (首訪『答錯不扣分』文案) = 產品文案決策。",
