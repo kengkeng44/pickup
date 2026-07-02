@@ -196,6 +196,7 @@
 - **安全邊界**:popover 保留上方 HUD / 下方導覽的留白,內容再長也不被 chrome 切(超出就內部捲)。
 - 已落地範例(B.528/535/536):地圖 node / 英檢 popover、ShareModal、角色卡、衣櫥、KeySentences 都已改成此模式,可當樣板。
 - **配色呼應(v2.0.B.540 per user)**:章節旁的人物「視覺主色」要跟該章節點按鈕顏色相近才好看。人物不用只有一種色(三花貓照舊),但主色框 / 標籤 / 光暈用該章 `CHAPTER_META[ch].accent`(見 `SideCharButton`)。新增任何「靠在某章旁」的角色 / 徽章都照此:主色 = 該章 accent。
+- **語言一致(v2.0.B.550 per user)**:玩家設什麼語言,**解釋 / 選項 / 例句 / 配對中文側**就用那個語言 —— 韓語就要韓語、日語就要日語,**不能 fallback 到中文**。機制 = `public/lessons-i18n/ch{N}-{ja,ko}.json` overlay(qid → `{s,e,q,o,p}`),loader `applyContentOverlay()` 換 `sentenceZh/explanationZh/questionZh/optionsZh/pairs.left`。**新增或改任何 lessons 題 → 同步補該題的 ja/ko overlay,缺翻譯視為 bug**(B.550 補完 ch0 49 題 + ch12/13/32 漏題,現達 100% 逐題覆蓋)。查漏:掃每個 base qid 是否都在 ja+ko overlay。**已知例外**:scroll-pick 的中文指令 stem(`question` 欄)全 app 都沒走 `q` overlay → ja/ko 仍中文,要修需 app-wide 加 `q` render 路徑(待作者決定)。
 
 ### Semantic Color Tokens (v0.11 Duolingo-tier overhaul)
 
