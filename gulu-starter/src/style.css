@@ -1,0 +1,54 @@
+/* 咕嚕 Gulu — Phase 0 極簡樣式 (沿用拾光 Ghibli 暖色調)。正式版改抽 tokens。 */
+:root {
+  --bg: #fef8ed; --surface: #fff; --border: #e0d0b8; --accent: #e7a44a;
+  --text: #3c2a1c; --muted: #8a7860; --success: #7d9a4f; --error: #c84a3a;
+}
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Nunito', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+}
+.wrap {
+  max-width: 440px; margin: 0 auto; min-height: 100dvh;
+  padding: calc(16px + env(safe-area-inset-top)) 18px calc(16px + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: 14px;
+}
+.muted { color: var(--muted); }
+.center { text-align: center; }
+.topbar { display: flex; justify-content: space-between; align-items: center; }
+.link { border: none; background: none; color: var(--muted); font: inherit; cursor: pointer; padding: 4px; }
+
+/* 寵物房 */
+.room { align-items: stretch; }
+.stage {
+  border-radius: 22px; background: #f2ead9; padding: 28px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;
+}
+.hero { font-size: 88px; line-height: 1; animation: bob 2.4s ease-in-out infinite; }
+.hero.sleep { animation: none; filter: grayscale(0.3) brightness(0.96); }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.name { font-size: 18px; font-weight: 900; }
+.lvrow { display: flex; justify-content: space-between; font-weight: 800; }
+.bar { height: 12px; background: #ead8c4; border-radius: 99px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--success); border-radius: 99px; transition: width .4s; }
+.sleepbox { background: var(--surface); border: 2px solid var(--border); border-radius: 16px; padding: 16px; text-align: center; }
+.sleepbox p { margin: 4px 0; }
+.foot { text-align: center; font-size: 13px; margin-top: auto; }
+
+/* 按鈕 */
+.btn { border: none; border-radius: 14px; padding: 14px 16px; font: inherit; font-weight: 900;
+  cursor: pointer; background: var(--surface); border: 2px solid var(--border); color: var(--text); }
+.btn.primary { background: var(--accent); color: #fff; border: none; border-bottom: 4px solid #c98a2f; font-size: 17px; }
+
+/* 答題 */
+.speak { border: none; background: #f2ead9; border-radius: 12px; padding: 12px 14px; font: inherit;
+  text-align: left; cursor: pointer; color: var(--text); font-weight: 700; }
+.q { font-size: 20px; font-weight: 900; margin: 4px 0; }
+.opts { display: flex; flex-direction: column; gap: 10px; }
+.opt { text-align: left; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; font-weight: 700; cursor: pointer; }
+.opt.correct { border-color: var(--success); background: #eef4e2; color: var(--success); }
+.opt.wrong { border-color: var(--error); background: #fbe4dd; color: var(--error); }
+.opt:disabled { cursor: default; }
+.explain { background: #f2ead9; border-radius: 12px; padding: 12px 14px; font-weight: 700; }
