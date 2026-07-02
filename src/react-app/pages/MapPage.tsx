@@ -140,14 +140,10 @@ const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: s
 };
 
 // v2.0.B.515 (per user): 章末按鈕目的地「可設定」。預設 = 複習該章錯題;
-// 想讓某章末改連英檢 / 自由練習, 在這張表加一筆即可 (key = 章號)。
-// 範例: 核心里程碑章 (8/16/24/31) 結束 → 引導去英檢 GEPT 初級。
-const CHAPTER_END_LINK: Record<number, { to: string; labelKey: string }> = {
-  8:  { to: '/map?ch=32', labelKey: 'map.tryExam' },
-  16: { to: '/map?ch=32', labelKey: 'map.tryExam' },
-  24: { to: '/map?ch=32', labelKey: 'map.tryExam' },
-  31: { to: '/map?ch=32', labelKey: 'map.tryExam' },
-};
+// 想讓某章末改連自由練習等, 在這張表加一筆即可 (key = 章號)。
+// v2.0.B.551 (per user 策略「英檢拆成獨立 app」): 原 8/16/24/31 章末「試試英檢」引導移除,
+// 全數 fallback 回該章錯題複習。英檢改走獨立 app。
+const CHAPTER_END_LINK: Record<number, { to: string; labelKey: string }> = {};
 function chapterEndLink(ch: number): { to: string; labelKey: string } {
   return CHAPTER_END_LINK[ch] ?? { to: `/lesson/${ch}/review`, labelKey: 'map.review' };
 }
