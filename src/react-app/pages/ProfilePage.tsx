@@ -11,6 +11,14 @@ import { useT } from '../i18n';
 // v2.0.B.234 招 3: lazy-load WardrobeView (modal opens on tap, not on mount).
 const WardrobeView = lazy(() => import('./WardrobeView'));
 
+// v2.0.B.544 (per user 策略「英檢=家長向支線」): 英檢入口從主地圖移到 Profile 家長區。
+// 主線是小孩的門面, 英檢是家長選的考試軌道。新增英檢章在此加一列即可。
+const EXAM_CHAPTERS = [
+  { ch: 32, emoji: '📗', zh: 'GEPT 初級', en: 'GEPT Elementary' },
+  { ch: 33, emoji: '🐣', zh: 'YLE Starters', en: 'Cambridge YLE Starters' },
+  { ch: 34, emoji: '🔤', zh: '字表挑戰 A1', en: 'Vocabulary A1' },
+];
+
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { t, lang } = useT();
@@ -159,6 +167,33 @@ export default function ProfilePage() {
           <Stat label={t('profile.stat.coins')} value={String(coins)} />
           <Stat label={t('profile.stat.crown')} value={`L${level}`} />
         </div>
+      </div>
+
+      {/* v2.0.B.544 (per user 策略「英檢=家長向支線」): 英檢挑戰入口 (家長區) — 從主地圖移來, 主地圖回歸純故事。 */}
+      <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+          <span style={{ fontSize: 20, lineHeight: 1 }} aria-hidden="true">🎓</span>
+          <div>
+            <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>{lang === 'en' ? 'English Exam' : '英檢挑戰'}</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 1 }}>{lang === 'en' ? 'Exam prep track — pick one to start' : '考試準備軌道 · 家長選一個開始'}</div>
+          </div>
+        </div>
+        {EXAM_CHAPTERS.map((e) => (
+          <button key={e.ch} type="button"
+            onClick={() => navigate(`/map?ch=${e.ch}`)}
+            style={{ display: 'flex', alignItems: 'center', gap: 12, width: '100%', marginTop: 8,
+              background: 'var(--t-bg)', color: 'var(--t-text)', border: '2px solid var(--t-border-card)',
+              borderBottom: '4px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
+              padding: '11px 14px', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit',
+              touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent' }}>
+            <span aria-hidden="true" style={{ fontSize: 22, lineHeight: 1 }}>{e.emoji}</span>
+            <span style={{ flex: 1, minWidth: 0 }}>
+              <span style={{ display: 'block', fontSize: 14, fontWeight: 900, lineHeight: 1.2 }}>{lang === 'en' ? e.en : e.zh}</span>
+              <span style={{ display: 'block', fontSize: 11, fontWeight: 700, color: 'var(--t-text-muted)' }}>{e.en}</span>
+            </span>
+            <span aria-hidden="true" style={{ fontSize: 18, color: 'var(--t-text-muted)' }}>›</span>
+          </button>
+        ))}
       </div>
 
       {/* v2.0.B.329: 「給家長」→「設定」入口 (夜間/音訊/難度/狗名/家長紀錄/重置 都在設定裡) */}
