@@ -28,7 +28,7 @@ const TABS: Array<{ id: Category; label: string }> = [
   { id: 'fable', label: '🦊 寓言' },
   { id: 'mid-long', label: '🌟 大故事' },
   { id: 'special', label: '📖 序章' },
-  { id: 'exam', label: '🎓 英檢' },
+  // v2.0.B.551 (per user 策略「英檢拆成獨立 app」): 🎓 英檢 tab 移除 — 英檢改走獨立養成系 app。
 ];
 
 interface ChapterMeta {
@@ -77,12 +77,8 @@ const CHAPTERS: ChapterMeta[] = [
   { id: 29, titleZh: '奧德賽·出航回家', titleEn: 'The Odyssey', emoji: '⛵', category: 'mid-long', subCat: '希臘史詩' },
   { id: 30, titleZh: '赫拉克勒斯·尼米亞獅子', titleEn: 'Heracles', emoji: '🦁', category: 'mid-long', subCat: '希臘史詩' },
   { id: 31, titleZh: 'Robin Hood·Sherwood', titleEn: 'Robin Hood', emoji: '🏹', category: 'mid-long', subCat: '英雄傳奇' },
-  // v2.0.B.508: 英檢挑戰 — 獨立 track, 一開始就解鎖可選 (不鏈到故事進度), 玩家自己選要不要練。
-  // 真內容上線 = lessons-ch32.json (GEPT 初級)。spec: docs/standards/2026-06-29-gept-item-spec.md
-  // + 2026-06-29-cambridge-yle-item-spec.md。其餘級別 (YLE / GEPT Kids) 內容備妥後比照新增。
-  { id: 32, titleZh: 'GEPT 初級 英檢', titleEn: 'GEPT Elementary', emoji: '📗', category: 'exam', subCat: '全民英檢 GEPT' },
-  { id: 33, titleZh: 'YLE Starters 入門', titleEn: 'Cambridge YLE Starters', emoji: '🐣', category: 'exam', subCat: '劍橋兒童英檢 YLE' },
-  { id: 34, titleZh: '字表挑戰 A1', titleEn: 'Vocabulary A1', emoji: '🔤', category: 'exam', subCat: '字表挑戰 (字表驅動)' },
+  // v2.0.B.551 (per user 策略「英檢拆成獨立 app」): 英檢章 (ch32-34) 從主線 app 清單移除。
+  // 內容檔 lessons-ch32-34.json + i18n overlay 暫留 repo 不動, 之後搬去獨立英檢養成系 app。
 ];
 
 // 故事圖鑑完成度只算故事章節 (英檢是獨立 track, 不計入)。
