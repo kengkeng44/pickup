@@ -51,6 +51,11 @@
   .drill-link { display: inline-block; padding: 6px 10px; background: var(--accent); color: white; border-radius: 8px;
     text-decoration: none; font-size: 11px; font-weight: 800; margin-top: 6px; }
   .footer-meta { text-align: center; color: var(--muted); font-size: 11px; margin-top: 20px; }
+  .seg { display: flex; gap: 6px; margin-bottom: 12px; }
+  .seg button { flex: 1; padding: 10px 0; border-radius: 10px; font-family: inherit; font-weight: 900;
+    font-size: 13px; cursor: pointer; border: 2px solid var(--border); background: var(--card); color: var(--muted);
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .seg button.active { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
 </style>
 </head>
 <body>
@@ -62,6 +67,12 @@
 </header>
 
 <main>
+  <!-- v2.0.B.546 (per user「分開來看, 不放一起比較」): 一次只看一軌 -->
+  <div class="seg" id="trackToggle">
+    <button data-track="main" class="active">📖 主線</button>
+    <button data-track="exam">🎓 英檢</button>
+  </div>
+
   <div class="section">
     <h2>📋 題型分布 Question Type</h2>
     <p class="desc">即時從 <code>lessons-ch*.json</code> 計算 · 點題型跳「題目對照表」</p>
@@ -94,27 +105,29 @@
 <script src="/qa-compute.js"></script>
 <script>
 (function(){
+  var TRACK_LABEL={main:'主線', exam:'英檢'};
   QA.computeBuckets().then(function(d){
-    var main=d.main, exam=d.exam;
-    document.getElementById('typeDist').innerHTML =
-      QA.subhead('📖 主線 Main Story (Ch0-'+(QA.EXAM_FROM-1)+')') + QA.renderType(main) +
-      (exam.q ? QA.subhead('🎓 英檢 Exam (Ch'+QA.EXAM_FROM+'+)') + QA.renderType(exam) : '');
-    document.getElementById('segDist').innerHTML =
-      QA.subhead('📖 主線 Main Story') + QA.renderSeg(main) +
-      (exam.lessons ? QA.subhead('🎓 英檢 Exam') + QA.renderSeg(exam) : '');
-    document.getElementById('levelDist').innerHTML =
-      QA.subhead('📖 主線 Main Story') + QA.renderDist(main.levelCount, main.q, QA.LEVEL_LABEL) +
-      (exam.q ? QA.subhead('🎓 英檢 Exam') + QA.renderDist(exam.levelCount, exam.q, QA.LEVEL_LABEL) : '');
-    document.getElementById('diffDist').innerHTML =
-      QA.subhead('📖 主線 Main Story') + QA.renderDist(main.diffCount, main.q, QA.DIFF_LABEL) +
-      (exam.q ? QA.subhead('🎓 英檢 Exam') + QA.renderDist(exam.diffCount, exam.q, QA.DIFF_LABEL) : '');
-    var rows = QA.chapterRowsHtml(main.chapters);
-    if (exam.chapters.length) {
-      rows += '<tr><td colspan="5" style="background:var(--tint-warn);font-weight:900;color:#7a5e25;padding:8px 10px;">🎓 英檢 English Exam</td></tr>' + QA.chapterRowsHtml(exam.chapters);
+    function renderTrack(track){
+      var b = track==='exam' ? d.exam : d.main;
+      var name = TRACK_LABEL[track];
+      document.getElementById('typeDist').innerHTML = QA.renderType(b);
+      document.getElementById('segDist').innerHTML = QA.renderSeg(b);
+      document.getElementById('levelDist').innerHTML = QA.renderDist(b.levelCount, b.q, QA.LEVEL_LABEL);
+      document.getElementById('diffDist').innerHTML = QA.renderDist(b.diffCount, b.q, QA.DIFF_LABEL);
+      document.getElementById('chapterRows').innerHTML = QA.chapterRowsHtml(b.chapters);
+      document.getElementById('chapterDesc').textContent =
+        name+' · '+b.chapters.length+' 章 · '+b.lessons+' 單元 · '+QA.fmt(b.q)+' 題 (即時計算)';
     }
-    document.getElementById('chapterRows').innerHTML=rows;
-    document.getElementById('chapterDesc').textContent =
-      '主線 '+main.chapters.length+' 章 · '+main.lessons+' 單元 · '+QA.fmt(main.q)+' 題　|　英檢 '+exam.chapters.length+' 章 · '+QA.fmt(exam.q)+' 題';
+    var toggle=document.getElementById('trackToggle');
+    toggle.addEventListener('click', function(e){
+      var btn=e.target.closest('button[data-track]'); if(!btn) return;
+      toggle.querySelectorAll('button').forEach(function(x){ x.classList.toggle('active', x===btn); });
+      renderTrack(btn.getAttribute('data-track'));
+    });
+    // 開頁時依 ?track (從總覽帶過來) 選預設軌
+    var init = (new URLSearchParams(location.search).get('track')==='exam') ? 'exam' : 'main';
+    toggle.querySelectorAll('button').forEach(function(x){ x.classList.toggle('active', x.getAttribute('data-track')===init); });
+    renderTrack(init);
   });
 })();
 </script>

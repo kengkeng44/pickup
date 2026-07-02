@@ -44,6 +44,11 @@
   .detail-link .t span { display: block; font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 2px; }
   .detail-link .arrow { font-size: 22px; color: var(--accent-dark); }
   .footer-meta { text-align: center; color: var(--muted); font-size: 11px; margin-top: 20px; line-height: 1.6; }
+  .seg { display: flex; gap: 6px; margin-bottom: 12px; }
+  .seg button { flex: 1; padding: 10px 0; border-radius: 10px; font-family: inherit; font-weight: 900;
+    font-size: 13px; cursor: pointer; border: 2px solid var(--border); background: var(--card); color: var(--muted);
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .seg button.active { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
 </style>
 </head>
 <body>
@@ -59,25 +64,30 @@
 </header>
 
 <main>
-  <!-- 關鍵數字 (主線) -->
+  <!-- v2.0.B.546 (per user「英檢跟主線分開來看, 不要放一起比較」): 切換一次只看一軌 -->
+  <div class="seg" id="trackToggle">
+    <button data-track="main" class="active">📖 主線</button>
+    <button data-track="exam">🎓 英檢</button>
+  </div>
+
+  <!-- 關鍵數字 (當前選的軌道) -->
   <div class="ribbon">
     <div class="stat"><div class="n" id="statCh">…</div><div class="lbl">📚 章節</div></div>
     <div class="stat"><div class="n" id="statLessons">…</div><div class="lbl">📝 單元</div></div>
     <div class="stat"><div class="n" id="statQ">…</div><div class="lbl">❓ 題目</div></div>
   </div>
-  <div id="examLine"></div>
 
-  <!-- KPI headline -->
+  <!-- KPI (當前軌道) -->
   <div class="section">
     <h2>📈 營運指標 KPI</h2>
     <p class="desc">預計完成時間 + 客戶終生價值 · 即時從內容量推算 (商業假設標於卡片, 可調)</p>
     <div id="kpiCards"><p class="desc">計算中…</p></div>
   </div>
 
-  <!-- 細節 → 子頁面 -->
-  <a class="detail-link" href="/qa-details.html">
+  <!-- 細節 → 子頁面 (帶當前軌道) -->
+  <a class="detail-link" id="detailLink" href="/qa-details.html?track=main">
     <span style="font-size:26px;">🔍</span>
-    <span class="t"><b>看完整細節</b><span>題型 / 程度 / 難度 / 章節分布 (主線 vs 英檢 各自拆)</span></span>
+    <span class="t"><b>看完整細節</b><span>題型 / 程度 / 難度 / 章節分布</span></span>
     <span class="arrow" aria-hidden="true">›</span>
   </a>
 
@@ -93,29 +103,34 @@
 <script src="/qa-compute.js"></script>
 <script>
 (function(){
+  var A=QA.ASSUME, TRACK_LABEL={main:'主線', exam:'英檢'};
   QA.computeBuckets().then(function(d){
-    var main=d.main, exam=d.exam;
-    document.getElementById('statCh').textContent = QA.fmt(main.chapters.length);
-    document.getElementById('statLessons').textContent = QA.fmt(main.lessons);
-    document.getElementById('statQ').textContent = QA.fmt(main.q);
-    if (exam.q) {
-      document.getElementById('examLine').innerHTML =
-        '<div style="text-align:center;font-size:13px;font-weight:800;color:var(--muted);margin:0 0 12px;">'+
-        '🎓 英檢 English Exam · '+QA.fmt(exam.chapters.length)+' 章 · '+QA.fmt(exam.lessons)+' 單元 · '+QA.fmt(exam.q)+' 題 (與主線分開)</div>';
+    function renderTrack(track){
+      var b = track==='exam' ? d.exam : d.main;
+      var name = TRACK_LABEL[track];
+      document.getElementById('statCh').textContent = QA.fmt(b.chapters.length);
+      document.getElementById('statLessons').textContent = QA.fmt(b.lessons);
+      document.getElementById('statQ').textContent = QA.fmt(b.q);
+      var days=Math.ceil(b.lessons/A.energyPerDay), months=days/30;
+      var ltvPaying=A.monthlyPrice*A.avgSubMonths, ltvBlended=ltvPaying*A.convRate;
+      var timeCard=QA.kpiCard('⏳','預計完成時間 ('+name+')', QA.fmtDur(b.seconds), '',
+        ['每題型加權估時','每天 '+A.energyPerDay+' 關'],
+        '每天 '+A.energyPerDay+' 關 → 約 <b>'+QA.fmt(days)+' 天</b> (~'+months.toFixed(1)+' 個月) 走完'+name+'。');
+      var ltvCard=QA.kpiCard('💰','客戶終生價值 LTV', 'NT$ '+QA.fmt(Math.round(ltvPaying)),
+        '每付費用戶 · 分攤到每用戶 ≈ NT$ '+ltvBlended.toFixed(0),
+        ['月費 NT$'+A.monthlyPrice,'轉換 '+(A.convRate*100).toFixed(0)+'%','留存 '+A.avgSubMonths+' 月'],
+        'LTV = 月費 × 訂閱月數。'+name+'內容跑道 ~<b>'+months.toFixed(1)+' 個月</b> = 留存天花板 (內容越多 → LTV 越高)。目標 LTV:CAC ≥ 3。');
+      document.getElementById('kpiCards').innerHTML='<div style="display:flex;gap:12px;flex-wrap:wrap;">'+timeCard+ltvCard+'</div>';
+      document.getElementById('detailLink').setAttribute('href','/qa-details.html?track='+track);
     }
-    var A=QA.ASSUME;
-    var daysMain=Math.ceil(main.lessons/A.energyPerDay), monthsMain=daysMain/30;
-    var ltvPaying=A.monthlyPrice*A.avgSubMonths, ltvBlended=ltvPaying*A.convRate;
-    var timeCard=QA.kpiCard('⏳','預計完成時間 (主線)', QA.fmtDur(main.seconds),
-      exam.seconds ? '英檢另 +'+QA.fmtDur(exam.seconds) : '',
-      ['每題型加權估時','每天 '+A.energyPerDay+' 關'],
-      '每天 '+A.energyPerDay+' 關 → 約 <b>'+QA.fmt(daysMain)+' 天</b> (~'+monthsMain.toFixed(1)+' 個月) 走完主線。');
-    var ltvCard=QA.kpiCard('💰','客戶終生價值 LTV', 'NT$ '+QA.fmt(Math.round(ltvPaying)),
-      '每付費用戶 · 分攤到每用戶 ≈ NT$ '+ltvBlended.toFixed(0),
-      ['月費 NT$'+A.monthlyPrice,'轉換 '+(A.convRate*100).toFixed(0)+'%','留存 '+A.avgSubMonths+' 月'],
-      'LTV = 月費 × 訂閱月數。內容跑道 ~<b>'+monthsMain.toFixed(1)+' 個月</b> = 留存天花板 (內容越多 → LTV 越高)。目標 LTV:CAC ≥ 3。');
-    document.getElementById('kpiCards').innerHTML='<div style="display:flex;gap:12px;flex-wrap:wrap;">'+timeCard+ltvCard+'</div>';
-    document.getElementById('meta').textContent='v2.0.B.545 · 即時計算';
+    var toggle=document.getElementById('trackToggle');
+    toggle.addEventListener('click', function(e){
+      var btn=e.target.closest('button[data-track]'); if(!btn) return;
+      toggle.querySelectorAll('button').forEach(function(x){ x.classList.toggle('active', x===btn); });
+      renderTrack(btn.getAttribute('data-track'));
+    });
+    renderTrack('main');
+    document.getElementById('meta').textContent='v2.0.B.546 · 一次一軌';
   });
 })();
 </script>
