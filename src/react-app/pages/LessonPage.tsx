@@ -74,6 +74,9 @@ export default function LessonPage() {
   const [idx, setIdx] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
   const [showExit, setShowExit] = useState(false); // v2.0.B.465: ✕ 離開確認框 (照圖2)
+  // v2.0.B.549 (per user): 分享📤 / 回報🚩 只在「答完該題」後才出現 (移出頂欄, 進答題後底部區),
+  // 答題中不干擾。每換一題 (idx 變) 重置。
+  const [answered, setAnswered] = useState(false);
   const startedAt = useRef(Date.now());
   const answerLog = useRef<Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>>([]);
   // v2.0.B.488 錯題統整: 收集本節答錯的「可複習題」(單字/文法/時態), 節末 (+章末) 重做一輪。
@@ -91,6 +94,9 @@ export default function LessonPage() {
 
   // v2.0.B.424: 每進一個 lesson 把體力補滿 (每節重新開始, 不跨節懲罰)
   useEffect(() => { refillHp(); }, [chapter, lessonId]);
+
+  // v2.0.B.549: 換一題就重置「已答」→ 分享/回報鈕重新隱藏, 直到玩家答完新題。
+  useEffect(() => { setAnswered(false); }, [idx]);
 
   // v2.0.B.484: 套用玩家在節點選的 閱讀/聽力 模式 (?comp=read|listen) — 覆寫全域開關,
   // 只在這個 run 生效, 離開關卡清掉。理解題 renderer 會讀這個 override。
@@ -222,6 +228,7 @@ export default function LessonPage() {
   };
 
   const onAnswer = (userIdx: number, isCorrect: boolean) => {
+    setAnswered(true); // v2.0.B.549: 答完 (對或錯) → 底部顯示分享/回報鈕
     if (!isCorrect) loseHp(); // v2.0.B.424: 答錯扣體力 (愛心)
     answerLog.current.push({ q, userIdx, isCorrect });
     // v2.0.B.488 錯題統整: 答錯的「單字/文法/時態」題記下來 (節末 + 章末重做)。
@@ -275,8 +282,6 @@ export default function LessonPage() {
           }} />
         </div>
         <Hearts />
-        <ShareBtn en={q.sentence ?? q.answer ?? ''} zh={q.sentenceZh ?? ''} />
-        <ReportBtn qid={q.id} />
         <MuteToggleBtn />
       </div>
 
@@ -303,6 +308,17 @@ export default function LessonPage() {
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
         <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
+
+      {/* v2.0.B.549 (per user): 分享 / 回報 只在答完後於底部出現 — 答題中不干擾, 對齊繼續按鈕區域。 */}
+      {answered && (
+        <div style={{
+          flexShrink: 0, display: 'flex', justifyContent: 'center', gap: 18,
+          paddingTop: 6, animation: 'pickup-fade-up 200ms ease',
+        }}>
+          <ShareBtn en={q.sentence ?? q.answer ?? ''} zh={q.sentenceZh ?? ''} />
+          <ReportBtn qid={q.id} />
+        </div>
+      )}
 
       {/* v2.0.B.465 (per user 照圖2): ✕ 中途離開確認框 — 別走, 快完成了 */}
       {showExit && (
