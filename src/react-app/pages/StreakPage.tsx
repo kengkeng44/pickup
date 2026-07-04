@@ -1,10 +1,17 @@
 // v2.0.B.483 (per user「還要有連勝機制」+ 截圖): 連勝戰績頁 — Duolingo 風。
 // 大火焰 + 連勝數 + 本週打卡週曆 (今天置中) + 完美連勝周獎勵提示 + 分享 + CTA。
 // 入口: 地圖上排火焰 🔥 點下去 (MapPage HudIcon → navigate('/streak'))。
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { readStreak, getStreakWeek } from '../../data/streak';
+import { readStreak, getStreakWeek, readFreezes, addFreezes } from '../../data/streak';
+import { readCoins, addCoins } from '../../data/coins';
 import { getActivePlayer } from '../../data/players';
 import { useT } from '../i18n';
+
+// v2.0.B.554: Streak Freeze slot UI (邏輯 B.232 就有, 介面首度露出)。
+// 定價對標 Duolingo (200 gems ≈ 13 課) 但對兒童客群放軟: 150 金幣 ≈ 5 課。
+const FREEZE_SLOTS = 2;
+const FREEZE_PRICE = 150;
 
 export default function StreakPage() {
   const navigate = useNavigate();
@@ -12,6 +19,15 @@ export default function StreakPage() {
   const streak = readStreak();
   const week = getStreakWeek();
   const name = getActivePlayer()?.name ?? '';
+  const [freezes, setFreezes] = useState(() => readFreezes());
+  const [coins, setCoins] = useState(() => readCoins());
+  const buyFreeze = () => {
+    if (freezes >= FREEZE_SLOTS || coins < FREEZE_PRICE) return;
+    addCoins(-FREEZE_PRICE);
+    addFreezes(1);
+    setFreezes(readFreezes());
+    setCoins(readCoins());
+  };
 
   const FLAME = '#ff7a3a';
   const FLAME_DEEP = '#ff5a1f';
@@ -68,6 +84,45 @@ export default function StreakPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* v2.0.B.554: 連勝冰凍 slot — 2 格, 缺了可用金幣補 */}
+        <div style={{
+          width: '100%', maxWidth: 360, marginTop: 12, background: 'var(--t-surface)',
+          border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)',
+          padding: 14, display: 'flex', alignItems: 'center', gap: 12,
+        }}>
+          <div style={{ display: 'flex', gap: 6, flexShrink: 0 }}>
+            {Array.from({ length: FREEZE_SLOTS }, (_, i) => (
+              <div key={i} aria-hidden="true" style={{
+                width: 44, height: 44, borderRadius: 12, fontSize: 24,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: i < freezes ? '#dbeefe' : 'var(--t-border-soft)',
+                border: `2px solid ${i < freezes ? '#7cc0ee' : 'transparent'}`,
+                opacity: i < freezes ? 1 : 0.55,
+              }}>{i < freezes ? '🧊' : ''}</div>
+            ))}
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
+              {t('streak.freezeTitle')}{freezes > FREEZE_SLOTS ? ` ×${freezes}` : ''}
+            </div>
+            <div style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.4 }}>
+              {t('streak.freezeDesc')}
+            </div>
+            {freezes < FREEZE_SLOTS && (
+              <button type="button" onClick={buyFreeze} disabled={coins < FREEZE_PRICE} className="pickup-press" style={{
+                marginTop: 8, padding: '8px 14px', border: 'none', borderRadius: 'var(--t-radius-md)',
+                background: coins >= FREEZE_PRICE ? 'var(--t-focus)' : 'var(--t-border-card)', color: '#fff',
+                borderBottom: `4px solid ${coins >= FREEZE_PRICE ? '#1690c9' : 'var(--t-border-strong)'}`,
+                fontSize: 13.5, fontWeight: 900, fontFamily: 'inherit',
+                cursor: coins >= FREEZE_PRICE ? 'pointer' : 'default',
+                WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+              }}>
+                {t('streak.freezeBuy').replace('{c}', String(FREEZE_PRICE))}
+              </button>
+            )}
           </div>
         </div>
 
