@@ -1702,7 +1702,9 @@
         ifr.title = label;
         ifr.loading = 'lazy';
         ifr.setAttribute('scrolling', 'no');
-        ifr.src = APP_BASE + route;
+        // v2.0.B.557: embed=1 → app 跳過 onboarding gate (iframe 第三方 storage 被隔離,
+        // pickup.onboarded 讀不到, 否則每格都變成選語言初始頁)
+        ifr.src = APP_BASE + route + (route.indexOf('?') >= 0 ? '&' : '?') + 'embed=1';
         ifr.addEventListener('load', function () { loading.style.display = 'none'; });
         stage.appendChild(ifr);
         stage.appendChild(loading);
