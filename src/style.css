@@ -254,6 +254,20 @@ button:focus-visible {
   transform: none;
 }
 
+/* ─── Press-only utility (v2.0.B.552) ───────────────────────────────────
+ * .pickup-press adds the Duolingo press-down feel WITHOUT touching colors,
+ * padding, or layout — safe to combine with inline-styled buttons that
+ * already draw their own 4px bottom border. border-bottom-width needs
+ * !important to beat the inline shorthand on press. */
+.pickup-press:not(:disabled) {
+  transition: transform 90ms var(--pickup-snap),
+    border-bottom-width 90ms var(--pickup-snap);
+}
+.pickup-press:active:not(:disabled) {
+  transform: translateY(2px);
+  border-bottom-width: 2px !important;
+}
+
 /* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */
 @keyframes pickup-shake {
   0%, 100% { transform: translate(0, 0); }

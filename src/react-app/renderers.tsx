@@ -212,7 +212,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
   const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? '#a23829' : 'var(--t-text)';
   const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : state === 'selected' ? 'var(--t-accent)' : 'var(--t-border-card)';
   return (
-    <button onClick={onClick} disabled={disabled} className={state === 'correct' ? 'pickup-correct-pop' : undefined} style={{
+    <button onClick={onClick} disabled={disabled} className={state === 'correct' ? 'pickup-press pickup-correct-pop' : 'pickup-press'} style={{
       width: '100%', padding: '14px 16px', marginBottom: 8,
       background: bg, color: fg,
       border: `2px solid ${border}`, borderBottom: `4px solid ${state === 'selected' ? 'var(--t-accent)' : 'var(--t-brand-dark)'}`,
@@ -228,7 +228,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
 // v2.0.B.435 (per user 「答題前下面要有個檢查按鈕, 只有選完答案才會變綠色可按」):
 // 共用檢查鈕 — 未選 = 灰不可按; 已選 = 綠可按。
 const CheckBtn = ({ active, onCheck }: { active: boolean; onCheck: () => void }) => (
-  <button type="button" onClick={onCheck} disabled={!active} style={{
+  <button type="button" onClick={onCheck} disabled={!active} className="pickup-press" style={{
     width: '100%', minHeight: 52, marginTop: 16, border: 'none', borderRadius: 'var(--t-radius-card)',
     background: active ? 'var(--t-success)' : 'var(--t-border-card)', color: '#fff',
     borderBottom: active ? '4px solid var(--t-brand-dark)' : '4px solid var(--t-border-card)',
@@ -289,10 +289,11 @@ const NarrationRenderer = ({ q, onAdvance }: RendererProps) => {
       <button
         type="button"
         onClick={() => onAdvance(text)}
-        className="pickup-answer-sticky"
+        className="pickup-answer-sticky pickup-press"
         style={{
           width: '100%', minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
           background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+          borderBottom: '4px solid rgba(0,0,0,0.25)',
           fontFamily: 'inherit', cursor: 'pointer',
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }}
@@ -517,6 +518,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           const border = revealed ? (isCorrect ? 'var(--t-success)' : isSel ? 'var(--t-danger)' : 'var(--t-border-card)') : isSel ? 'var(--t-brand-dark)' : 'var(--t-border-card)';
           return (
             <button key={i} onClick={() => { if (!revealed) { sfxCardPress(); setSel(i); } }} disabled={revealed}
+              className="pickup-press"
               style={{ width: '100%', padding: '14px 16px', background: bg, color: 'var(--t-text)',
                 border: `2px solid ${border}`, borderBottom: `4px solid ${isSel || (revealed && isCorrect) ? border : 'var(--t-brand-dark)'}`,
                 borderRadius: 'var(--t-radius-card)', fontSize: 16, fontWeight: 800, cursor: revealed ? 'default' : 'pointer',
@@ -750,7 +752,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           border: '2px solid var(--t-border-card)', borderRadius: 10, background: 'var(--t-surface)', color: 'var(--t-text)', marginBottom: 10, resize: 'none',
         }}
       />
-      <button onClick={submit} disabled={revealed || !text.trim()} style={{
+      <button onClick={submit} disabled={revealed || !text.trim()} className="pickup-press" style={{
         width: '100%', padding: '12px 0', background: revealed || !text.trim() ? 'var(--t-border-card)' : 'var(--t-success)',
         color: '#fff', border: 'none', borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 15, fontWeight: 900,
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
@@ -1427,7 +1429,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div className="pickup-fade-up" style={{ textAlign: 'center', padding: '30px 20px' }}>
         <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" className="pickup-bounce" style={{ borderRadius: '50%', marginBottom: 18 }} />
         <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.7, marginBottom: 24 }}>{afterText}</p>
-        <button onClick={() => onAdvance(prompt)} style={{
+        <button onClick={() => onAdvance(prompt)} className="pickup-press" style={{
           padding: '16px 24px', background: 'var(--t-brand)', color: 'var(--t-surface)', border: 'none',
           borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
@@ -1448,7 +1450,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           const label = labelParts.join(' ');
           const isShaking = shakeIdx === i;
           return (
-            <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : ''} aria-label={`${label} ${optsZh[i] || ''}`} style={{
+            <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : 'pickup-press'} aria-label={`${label} ${optsZh[i] || ''}`} style={{
               padding: '14px 8px', background: 'var(--t-surface)', border: '2px solid var(--t-border-soft)',
               borderBottom: '4px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)',
               cursor: 'pointer', fontFamily: 'inherit',
@@ -1541,7 +1543,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               onClick={() => click(i)}
               disabled={revealed}
               aria-label={`${label} ${optsZh[i] || ''}`}
-              className={isShaking ? 'pickup-wobble' : ''}
+              className={isShaking ? 'pickup-wobble' : 'pickup-press'}
               style={{
                 padding: '20px 8px',
                 background: bg,
@@ -2221,6 +2223,7 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <button
             onClick={skip}
             disabled={revealed}
+            className="pickup-press"
             style={{
               padding: '14px 20px', background: 'var(--t-border-card)',
               color: '#fff', border: 'none', borderBottom: '4px solid var(--t-text-muted)',
