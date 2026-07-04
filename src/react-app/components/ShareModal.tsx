@@ -52,13 +52,13 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
 
   // The text that goes into share sheets / deep links.
   const shareText = useMemo(() => {
-    return `📖 拾光 Pickup · 第 ${chapter} 章金句\n\n"${sentence.en}"\n${sentence.zh}\n— ${sentence.source}\n\n${SITE_URL}`;
+    return `📖 故事燈 StoryLamp · 第 ${chapter} 章金句\n\n"${sentence.en}"\n${sentence.zh}\n— ${sentence.source}\n\n${SITE_URL}`;
   }, [sentence, chapter]);
 
   const onSystemShare = async () => {
     try {
       await navigator.share({
-        title: '拾光 Pickup · 金句',
+        title: '故事燈 StoryLamp · 金句',
         text: shareText,
         url: SITE_URL,
       });

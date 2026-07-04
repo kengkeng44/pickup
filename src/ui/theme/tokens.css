@@ -66,8 +66,11 @@
   --t-z-sticky: 10; --t-z-overlay: 100; --t-z-toast: 1000;
 }
 
-/* ── Dark theme: bedtime palette (v1, tune later). Colors only. ── */
-[data-theme="dark"] {
+/* ── Dark theme: bedtime palette (v1, tune later). Colors only.
+ * v2.0.B.555: `.t-scope-dark` 讓「單一子樹」永遠用暗色 token(故事燈地圖夜景用)—
+ * 不管全域主題亮暗, 掛這個 class 的容器內所有 var(--t-*) 消費者都翻夜色。 ── */
+[data-theme="dark"],
+.t-scope-dark {
   --t-bg: #1a1410;
   --t-surface: #241c15;
   --t-surface-alt: #2e241a;

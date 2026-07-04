@@ -492,7 +492,7 @@ async function buildShareCard(en: string, zh: string): Promise<Blob | null> {
   ctx.fillStyle = '#7a6a55'; ctx.font = '46px sans-serif';
   for (const ln of wrapCanvasText(ctx, zh, W - 280)) { ctx.fillText(ln, 130, y); y += 64; }
   try { const im = await loadImg('/mascots/calico-anchor.webp'); ctx.drawImage(im, W - 300, H - 360, 220, 220); } catch { /* ignore */ }
-  ctx.fillStyle = '#e0892f'; ctx.font = 'bold 44px sans-serif'; ctx.fillText('拾光 Pickup', 80, H - 160);
+  ctx.fillStyle = '#e0892f'; ctx.font = 'bold 44px sans-serif'; ctx.fillText('故事燈 StoryLamp', 80, H - 160);
   ctx.fillStyle = '#a89c80'; ctx.font = '32px sans-serif'; ctx.fillText('pickupwords.pages.dev', 80, H - 100);
   return await new Promise((res) => c.toBlob((b) => res(b), 'image/png'));
 }
@@ -507,7 +507,7 @@ function ShareBtn({ en, zh }: { en: string; zh: string }) {
         const file = new File([blob], 'pickup-sentence.png', { type: 'image/png' });
         const nav = navigator as Navigator & { canShare?: (d: unknown) => boolean; share?: (d: unknown) => Promise<void> };
         if (nav.canShare && nav.canShare({ files: [file] }) && nav.share) {
-          await nav.share({ files: [file], title: '拾光 Pickup', text: en });
+          await nav.share({ files: [file], title: '故事燈 StoryLamp', text: en });
         } else {
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a'); a.href = url; a.download = 'pickup-sentence.png'; a.click();
