@@ -268,6 +268,33 @@ button:focus-visible {
   border-bottom-width: 2px !important;
 }
 
+/* ─── 地圖晝夜天空 (v2.0.B.553 — 咕嚕 v0.22 同款做法, 配拾光奶油色) ────────
+ * 依真實時間切 day / dusk / night 三檔: 頂部暖光 radial + 直向漸層。
+ * 淺色主題的 night 只做「柔和暮色」(地圖文字是深色, 必須保持可讀);
+ * 真正的夜空只在 dark theme 出現 (bedtime palette, 文字已翻淺色)。 */
+.pickup-map-sky-day {
+  background:
+    radial-gradient(120% 70% at 50% -10%, #ffedc9 0%, rgba(255, 237, 201, 0) 55%),
+    linear-gradient(180deg, #fdf3e0 0%, #f1ebe1 100%);
+}
+.pickup-map-sky-dusk {
+  background:
+    radial-gradient(120% 70% at 50% -10%, #ffd9a8 0%, rgba(255, 217, 168, 0) 55%),
+    linear-gradient(180deg, #fbe8cc 0%, #efdec4 100%);
+}
+.pickup-map-sky-night {
+  background:
+    radial-gradient(120% 70% at 50% -10%, #e6dcee 0%, rgba(230, 220, 238, 0) 55%),
+    linear-gradient(180deg, #f0e8de 0%, #e5dbce 100%);
+}
+[data-theme="dark"] .pickup-map-sky-day,
+[data-theme="dark"] .pickup-map-sky-dusk,
+[data-theme="dark"] .pickup-map-sky-night {
+  background:
+    radial-gradient(120% 70% at 50% -10%, #3a3550 0%, rgba(58, 53, 80, 0) 60%),
+    linear-gradient(180deg, #241c2e 0%, #1a1410 100%);
+}
+
 /* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */
 @keyframes pickup-shake {
   0%, 100% { transform: translate(0, 0); }

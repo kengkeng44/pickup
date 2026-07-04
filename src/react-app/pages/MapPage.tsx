@@ -57,7 +57,11 @@ function loadChapterLessons(chapter: number): Promise<Lesson[]> {
 }
 
 // ─── strict constants from StoryMapView.ts ─────────────────────────────────
-const COLOR_BG = '#f1ebe1';
+// v2.0.B.553: 地圖晝夜天空 (咕嚕 v0.22 同款時段切分): 6-16 day / 17-18 dusk / 19-5 night
+const skyPhase = (): 'day' | 'dusk' | 'night' => {
+  const h = new Date().getHours();
+  return h >= 19 || h < 6 ? 'night' : h >= 17 ? 'dusk' : 'day';
+};
 // v2.0.B.318: COLOR_NODE / COLOR_NODE_DARK 移除 — 未完成節點改用各章 chMeta.accent
 // v2.0.B.486: COLOR_NODE_DONE 移除 — 完成/到達同色 (該章主色), 不再綠色區分。
 const COLOR_NODE_LOCKED = '#c4b89c';
@@ -731,8 +735,8 @@ export default function MapPage() {
   }, [loading, lessons]);
 
   return (
-    <div className="pickup-full-bleed" style={{
-      background: COLOR_BG, color: COLOR_TEXT_DARK, minHeight: '100dvh',
+    <div className={`pickup-full-bleed pickup-map-sky-${skyPhase()}`} style={{
+      color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
       {/* v2.0.B.277 一勞永逸 chrome: HUD + 書封 合併單一 fixed wrapper, 自然 flow 不靠
@@ -748,7 +752,7 @@ export default function MapPage() {
       >
         {/* HUD icons row */}
         <div style={{
-          background: COLOR_BG,
+          background: 'var(--t-bg)',
           padding: '6px 12px 4px',
           paddingTop: 'calc(6px + env(safe-area-inset-top))',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2,
