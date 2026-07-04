@@ -279,7 +279,7 @@ export default function LessonPage() {
           aria-valuenow={idx + 1}
           aria-valuemin={0}
           aria-valuemax={allQs.length}
-          style={{ flex: 1, height: 14, background: '#ead8c4', borderRadius: 'var(--t-radius-pill)', overflow: 'hidden' }}
+          style={{ flex: 1, height: 14, background: 'var(--t-border-soft)', borderRadius: 'var(--t-radius-pill)', overflow: 'hidden' }}
         >
           <div style={{
             // v2.0.B.424 (per user): 線性進度 idx/total — 不再 pow 前載 (會讓一進來就看起來半滿);
@@ -432,7 +432,7 @@ function ReportBtn({ qid }: { qid: string }) {
                 {cfg.opts.map((o) => (
                   <button key={o.key} type="button" onClick={() => submit(o.key)} style={{
                     width: '100%', textAlign: 'left', padding: '13px 14px', marginBottom: 8, borderRadius: 'var(--t-radius-md)',
-                    border: '2px solid var(--t-border-card)', background: '#fff', color: 'var(--t-text)',
+                    border: '2px solid var(--t-border-card)', background: 'var(--t-surface)', color: 'var(--t-text)',
                     fontSize: 15, fontWeight: 700, fontFamily: 'inherit', cursor: 'pointer',
                     WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}>{o.label}</button>
