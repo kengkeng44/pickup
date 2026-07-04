@@ -125,6 +125,28 @@ body {
   font-family: var(--font-body);
 }
 
+/* ─── 故事燈夜色 = 預設主題 (v2.0.B.558 per user「其他全部都要改」) ────────
+ * data-theme 掛在 <html>; --t-* token 元件自己會翻, 這裡補「app 外殼」:
+ * body / #app 底色 + 基礎文字色 + color-scheme (原生控件跟著暗)。 */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  color: #f0e6d8;
+}
+:root[data-theme='dark'] body {
+  background: #14100b;
+}
+:root[data-theme='dark'] #app {
+  background: #1a1410;
+}
+@media (min-width: 520px) {
+  :root[data-theme='dark'] body {
+    background: #0f0c08;
+  }
+  :root[data-theme='dark'] #app {
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
+  }
+}
+
 /* Skip link — visible only on keyboard focus, lets SR / keyboard users
  * jump past nav directly to main content. */
 .skip-link {
@@ -1445,6 +1467,16 @@ h1, h2 {
   z-index: 5;
   border-top: 1px solid rgba(200,168,120,0.20);
   box-shadow: 0 -2px 12px rgba(60,42,28,0.06);
+}
+/* v2.0.B.558: 夜色下 sticky 答題區跟著翻 (原本奶油漸層 = 夜裡一塊白板) */
+:root[data-theme='dark'] .pickup-answer-sticky {
+  background: linear-gradient(180deg,
+    rgba(26, 20, 16, 0) 0%,
+    rgba(26, 20, 16, 0.92) 14px,
+    var(--t-bg) 30px,
+    var(--t-bg) 100%);
+  border-top: 1px solid rgba(74, 60, 44, 0.5);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.3);
 }
 @supports (backdrop-filter: blur(6px)) {
   .pickup-answer-sticky { backdrop-filter: blur(6px); }

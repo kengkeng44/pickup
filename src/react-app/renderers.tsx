@@ -208,8 +208,8 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
   onClick: () => void; disabled?: boolean;
 }) => {
   // v2.0.B.435 (per user): 'selected' = 已選未檢查 (琥珀高亮), 跟 idle / 答後狀態區隔。
-  const bg = state === 'correct' ? 'var(--t-success-tint)' : state === 'wrong' ? '#fde0d2' : state === 'shown' ? 'var(--t-bg)' : state === 'selected' ? 'var(--t-tint-warn)' : '#fff';
-  const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? '#a23829' : 'var(--t-text)';
+  const bg = state === 'correct' ? 'var(--t-success-tint)' : state === 'wrong' ? 'var(--t-danger-tint)' : state === 'shown' ? 'var(--t-bg)' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)';
+  const fg = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : 'var(--t-text)';
   const border = state === 'correct' ? 'var(--t-success)' : state === 'wrong' ? 'var(--t-danger)' : state === 'selected' ? 'var(--t-accent)' : 'var(--t-border-card)';
   return (
     <button onClick={onClick} disabled={disabled} className={state === 'correct' ? 'pickup-press pickup-correct-pop' : 'pickup-press'} style={{
@@ -238,7 +238,7 @@ const CheckBtn = ({ active, onCheck }: { active: boolean; onCheck: () => void })
 );
 
 const Explanation = ({ text }: { text: string }) => text ? (
-  <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
+  <div style={{ marginTop: 12, fontSize: 14, color: 'var(--t-text)', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
     <SpeakZh text={text} />
   </div>
 ) : null;
@@ -249,7 +249,7 @@ const SPEAKER_META: Record<string, { emoji: string; label: string; bg: string; f
   mochi:    { emoji: '🐱', label: 'Mochi',   bg: '#fed7aa', fg: '#9a3412' },
   grandma:  { emoji: '👵', label: 'Grandma', bg: 'var(--t-tint-warn)', fg: '#78350f' },
   hana:     { emoji: '🐕', label: 'Hana',    bg: '#f5e6d3', fg: '#6b4226' },
-  narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
+  narrator: { emoji: '📖', label: '背景',    bg: 'var(--t-surface-alt)', fg: 'var(--t-text-muted)' },
 };
 const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
   const t = useTq();
@@ -514,7 +514,7 @@ const ScrollPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         {opts.map((o, i) => {
           const isSel = i === sel;
           const isCorrect = i === correctIdx;
-          const bg = revealed ? (isCorrect ? 'var(--t-success-tint)' : isSel ? '#fde0d2' : '#fff') : isSel ? 'var(--t-tint-warn)' : '#fff';
+          const bg = revealed ? (isCorrect ? 'var(--t-success-tint)' : isSel ? 'var(--t-danger-tint)' : 'var(--t-surface)') : isSel ? 'var(--t-tint-warn)' : 'var(--t-surface)';
           const border = revealed ? (isCorrect ? 'var(--t-success)' : isSel ? 'var(--t-danger)' : 'var(--t-border-card)') : isSel ? 'var(--t-brand-dark)' : 'var(--t-border-card)';
           return (
             <button key={i} onClick={() => { if (!revealed) { sfxCardPress(); setSel(i); } }} disabled={revealed}
@@ -758,7 +758,7 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
       }}>{tq('q.submit')}</button>
       {revealed && (
-        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
+        <div style={{ marginTop: 12, fontSize: 14, color: 'var(--t-text)', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           正解: <strong>{en}</strong>
           {q.explanationZh && <div style={{ marginTop: 6 }}><SpeakZh text={q.explanationZh} /></div>}
         </div>
@@ -844,7 +844,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginTop: 8 }}>
           <img src="/mascots/scene-mochi-talking.webp" width={92} height={92} alt="" style={{ flexShrink: 0, display: 'block' }} />
           <div style={{
-            position: 'relative', flex: 1, background: '#fff', border: '2px solid #e5e0d6',
+            position: 'relative', flex: 1, background: 'var(--t-surface)', border: '2px solid var(--t-border-soft)',
             borderRadius: 16, padding: '14px 16px', marginTop: 10,
           }}>
             <span aria-hidden="true" style={{ position: 'absolute', left: -10, top: 18, width: 0, height: 0, borderTop: '8px solid transparent', borderBottom: '8px solid transparent', borderRight: '10px solid #e5e0d6' }} />
@@ -875,7 +875,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {wrong && <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-error)', marginTop: 10 }}>再試一次 · Try again</div>}
       {result && (
         <div style={{
-          marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)',
+          marginTop: 12, fontSize: 14, color: 'var(--t-text)', padding: '10px 12px', background: 'var(--t-bg)',
           borderLeft: `3px solid ${result === 'near' ? 'var(--t-accent)' : 'var(--t-success)'}`, borderRadius: '0 8px 8px 0',
         }}>
           {result === 'near' && <div style={{ fontWeight: 900, color: 'var(--t-accent)', marginBottom: 6 }}>✏️ {tq('q.typo')}</div>}
@@ -892,7 +892,7 @@ const TypeTranslateRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ marginTop: 'auto', paddingTop: 16, display: 'flex', gap: 12 }}>
         <button type="button" aria-label="keyboard" onClick={() => inputRef.current?.focus()} disabled={!!result} style={{
           flexShrink: 0, width: 60, minHeight: 52, borderRadius: 'var(--t-radius-card)', border: '2px solid var(--t-border-card)',
-          background: '#fff', fontSize: 22, cursor: result ? 'default' : 'pointer', fontFamily: 'inherit',
+          background: 'var(--t-surface)', fontSize: 22, cursor: result ? 'default' : 'pointer', fontFamily: 'inherit',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>⌨️</button>
         <button onClick={submit} disabled={!canSubmit} style={{
@@ -1171,7 +1171,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const cardStyle = (state: 'matched' | 'selected' | 'default'): React.CSSProperties => ({
     width: '100%', minHeight: 78, padding: '0 12px',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    background: state === 'matched' ? '#f6f3ee' : state === 'selected' ? 'var(--t-tint-warn)' : '#fff',
+    background: state === 'matched' ? '#f6f3ee' : state === 'selected' ? 'var(--t-tint-warn)' : 'var(--t-surface)',
     color: state === 'matched' ? '#cfc8bb' : 'var(--t-text)',
     border: `2px solid ${state === 'selected' ? 'var(--t-accent)' : state === 'matched' ? '#ece7df' : '#e5e0d6'}`,
     boxShadow: state === 'matched' ? 'none' : '0 2px 0 #e0dacf',
@@ -1530,9 +1530,9 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           const isCorrect = i === correctIdx;
           const isSel = i === selected;
           const bg = !revealed
-            ? '#fff'
+            ? 'var(--t-surface)'
             : isCorrect ? 'var(--t-success-tint)'
-            : isSel ? '#fde0d2' : '#fff';
+            : isSel ? 'var(--t-danger-tint)' : 'var(--t-surface)';
           const border = !revealed
             ? 'var(--t-border-soft)'
             : isCorrect ? 'var(--t-success)'
@@ -1701,8 +1701,8 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           const isTapped = tapped === i;
           const isCorrect = i === correctIdx;
           const bg = !revealed
-            ? isTapped ? '#fde0d2' : '#fff'
-            : isCorrect ? 'var(--t-success-tint)' : isTapped && !isCorrect ? '#fde0d2' : '#fff';
+            ? isTapped ? 'var(--t-danger-tint)' : 'var(--t-surface)'
+            : isCorrect ? 'var(--t-success-tint)' : isTapped && !isCorrect ? 'var(--t-danger-tint)' : 'var(--t-surface)';
           const border = !revealed
             ? isTapped ? 'var(--t-danger)' : 'var(--t-border-card)'
             : isCorrect ? 'var(--t-success)' : isTapped && !isCorrect ? 'var(--t-danger)' : 'var(--t-border-card)';
@@ -2240,9 +2240,9 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         </div>
       </div>
       {revealed && transcript && (
-        <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
+        <div style={{ marginTop: 12, fontSize: 14, color: 'var(--t-text)', padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
           <div>{tq('q.heard')}: <strong>{transcript}</strong></div>
-          <div style={{ marginTop: 4, color: matched ? 'var(--t-success)' : '#a23829', fontWeight: 800 }}>
+          <div style={{ marginTop: 4, color: matched ? 'var(--t-success)' : 'var(--t-danger)', fontWeight: 800 }}>
             {matched ? `✓ ${tq('q.greatShort')}` : `× ${tq('q.tryAgainShort')}`}
           </div>
         </div>

@@ -152,7 +152,7 @@ const S: Record<string, React.CSSProperties> = {
   label: { display: 'block', fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700, margin: '14px 0 6px' },
   input: {
     width: '100%', boxSizing: 'border-box', padding: '13px 14px', fontSize: 16,
-    border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)', background: '#fff',
+    border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)', background: 'var(--t-surface)',
     color: 'var(--t-text)', fontFamily: 'inherit', outline: 'none',
   },
   primary: {
@@ -166,7 +166,7 @@ const S: Record<string, React.CSSProperties> = {
   },
   grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '16px 0' },
   langCard: {
-    minHeight: 64, border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', background: '#fff',
+    minHeight: 64, border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', background: 'var(--t-surface)',
     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3,
     fontFamily: 'inherit', color: 'var(--t-text)',
   },
@@ -174,7 +174,7 @@ const S: Record<string, React.CSSProperties> = {
   levelCard: {
     display: 'flex', alignItems: 'center', gap: 12, padding: '14px 16px',
     border: '2px solid var(--t-border-card)', borderBottom: '4px solid var(--t-brand-dark)',
-    borderRadius: 'var(--t-radius-card)', background: '#fff', cursor: 'pointer', fontFamily: 'inherit',
+    borderRadius: 'var(--t-radius-card)', background: 'var(--t-surface)', cursor: 'pointer', fontFamily: 'inherit',
     WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
   },
 };
