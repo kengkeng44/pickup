@@ -1,22 +1,28 @@
 {
   "name": "故事燈 StoryLamp · 奶奶的睡前英文童話",
   "short_name": "故事燈",
-  "description": "A cozy after-work English game. Listen to Grandma's bedtime stories, learn A2 vocab with Mochi the stray cat.",
+  "description": "A cozy bedtime English story game for kids and families. Listen to Grandma's fairy tales, learn A2 vocab with Mochi the stray cat.",
   "id": "/?source=pwa",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#ed5a2e",
+  "theme_color": "#2b2118",
   "background_color": "#fef8ed",
   "lang": "en-US",
   "categories": ["education", "games"],
   "icons": [
     {
-      "src": "/mascots/calico-anchor.webp",
-      "sizes": "any",
-      "type": "image/webp",
-      "purpose": "any"
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/favicon.svg",
