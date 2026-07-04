@@ -90,8 +90,18 @@ export default function App() {
 
   // v2.0.B.394 — 首次啟動 gate: 沒 onboard 過 → 全屏 onboarding 流程, 完成才進主畫面。
   const [onboarded, setOnboardedState] = useState(() => isOnboarded());
+  // v2.0.B.557 — cockpit UI/UX 標準頁的 live iframe 是第三方 context, 瀏覽器隔離
+  // storage → pickup.onboarded 永遠讀不到, 每格預覽都被 onboarding 選語言頁擋住。
+  // ?embed=1 (或既有 ?preview) = 展示用嵌入, 跳過 gate。useState 初始化一次 —
+  // iframe 內部導頁後 query 消失也不會彈回 onboarding。
+  const [isEmbed] = useState(() => {
+    try {
+      const q = new URLSearchParams(window.location.search);
+      return q.has('embed') || q.has('preview');
+    } catch { return false; }
+  });
   if (!i18nReady) return <LoadingShell />;
-  if (!onboarded) return <Onboarding onDone={() => setOnboardedState(true)} />;
+  if (!onboarded && !isEmbed) return <Onboarding onDone={() => setOnboardedState(true)} />;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%', background: 'var(--t-bg)' }}>
