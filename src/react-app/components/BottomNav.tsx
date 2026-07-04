@@ -7,7 +7,7 @@ const TABS = [
   { path: '/', i18nKey: 'nav.map', icon: '/mascots/node-paw.webp', emoji: null as string | null },
   { path: '/tasks', i18nKey: 'nav.tasks', icon: '/mascots/icon-star.webp', emoji: null as string | null },
   { path: '/cards', i18nKey: 'nav.cards', icon: '/mascots/icon-star.webp', emoji: '📒' as string | null },
-  { path: '/alerts', i18nKey: 'nav.alerts', icon: '/mascots/flame.webp', emoji: null as string | null },
+  { path: '/alerts', i18nKey: 'nav.alerts', icon: '/mascots/icon-flame.webp', emoji: null as string | null },
   { path: '/profile', i18nKey: 'nav.me', icon: '/mascots/calico-anchor.webp', emoji: null as string | null },
 ] as const;
 
