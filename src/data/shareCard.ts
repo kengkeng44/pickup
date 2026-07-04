@@ -68,7 +68,7 @@ export function genShareCardSVG(sentence: KeySentence): string {
   const lines: string[] = [];
   lines.push('<?xml version="1.0" encoding="UTF-8"?>');
   lines.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`);
-  lines.push(`  <!-- Pickup 拾光 Share Card -->`);
+  lines.push(`  <!-- StoryLamp 故事燈 Share Card -->`);
 
   // Background.
   lines.push(`  <rect width="${W}" height="${H}" fill="${BG}"/>`);
@@ -82,7 +82,7 @@ export function genShareCardSVG(sentence: KeySentence): string {
   }
 
   // Top-left brand wordmark.
-  lines.push(`  <text x="80" y="92" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="38" font-weight="800" fill="${TEXT_DARK}">拾光 · Pickup</text>`);
+  lines.push(`  <text x="80" y="92" font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" font-size="38" font-weight="800" fill="${TEXT_DARK}">故事燈 · StoryLamp</text>`);
 
   // Top-right "金句" badge.
   const badgeW = 160, badgeH = 56;

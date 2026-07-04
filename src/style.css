@@ -268,31 +268,40 @@ button:focus-visible {
   border-bottom-width: 2px !important;
 }
 
-/* ─── 地圖晝夜天空 (v2.0.B.553 — 咕嚕 v0.22 同款做法, 配拾光奶油色) ────────
- * 依真實時間切 day / dusk / night 三檔: 頂部暖光 radial + 直向漸層。
- * 淺色主題的 night 只做「柔和暮色」(地圖文字是深色, 必須保持可讀);
- * 真正的夜空只在 dark theme 出現 (bedtime palette, 文字已翻淺色)。 */
-.pickup-map-sky-day {
+/* ─── 故事燈地圖夜景 (v2.0.B.555 — StoryLamp 品牌招牌畫面) ─────────────────
+ * 地圖 = 奶奶說故事的夜晚: 暗暖褐夜色, 一盞掛燈自上方灑暖光。
+ * 搭配 .t-scope-dark (tokens.css) — 地圖子樹全部翻夜色 token, 文字自動變淺。
+ * (取代 B.553 的 day/dusk/night 三檔天空 — per user「背景改成暗暗的有一盞燈」) */
+.pickup-lamp-sky {
   background:
-    radial-gradient(120% 70% at 50% -10%, #ffedc9 0%, rgba(255, 237, 201, 0) 55%),
-    linear-gradient(180deg, #fdf3e0 0%, #f1ebe1 100%);
+    radial-gradient(95% 55% at 72% -6%, rgba(255, 200, 120, 0.34) 0%, rgba(255, 200, 120, 0.12) 42%, rgba(255, 200, 120, 0) 68%),
+    linear-gradient(180deg, #3a2d21 0%, #2b2118 52%, #221a12 100%);
 }
-.pickup-map-sky-dusk {
-  background:
-    radial-gradient(120% 70% at 50% -10%, #ffd9a8 0%, rgba(255, 217, 168, 0) 55%),
-    linear-gradient(180deg, #fbe8cc 0%, #efdec4 100%);
+/* 掛燈本體 — 純 CSS: 吊繩 + 燈罩 + 燈泡光點。glow 是內容美術, 不算 UI blur halo。 */
+.pickup-lamp-cord {
+  position: fixed; top: 0; right: 104px; width: 3px; height: 158px;
+  background: #6b543c; z-index: 1; pointer-events: none;
 }
-.pickup-map-sky-night {
-  background:
-    radial-gradient(120% 70% at 50% -10%, #e6dcee 0%, rgba(230, 220, 238, 0) 55%),
-    linear-gradient(180deg, #f0e8de 0%, #e5dbce 100%);
+.pickup-lamp-shade {
+  position: fixed; top: 156px; right: 84px; width: 44px; height: 30px;
+  background: linear-gradient(180deg, #d99a4e, #b87830);
+  border-radius: 22px 22px 6px 6px; z-index: 1; pointer-events: none;
 }
-[data-theme="dark"] .pickup-map-sky-day,
-[data-theme="dark"] .pickup-map-sky-dusk,
-[data-theme="dark"] .pickup-map-sky-night {
-  background:
-    radial-gradient(120% 70% at 50% -10%, #3a3550 0%, rgba(58, 53, 80, 0) 60%),
-    linear-gradient(180deg, #241c2e 0%, #1a1410 100%);
+.pickup-lamp-bulb {
+  position: fixed; top: 182px; right: 98px; width: 16px; height: 16px;
+  border-radius: 50%; background: #ffd98e;
+  box-shadow: 0 0 26px 12px rgba(255, 214, 140, 0.5);
+  z-index: 1; pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pickup-lamp-bulb { animation: pickup-lamp-flicker 5.5s ease-in-out infinite; }
+  @keyframes pickup-lamp-flicker {
+    0%, 100% { opacity: 1; }
+    46% { opacity: 1; }
+    50% { opacity: 0.86; }
+    54% { opacity: 1; }
+    78% { opacity: 0.93; }
+  }
 }
 
 /* ─── PlayScene shake + screen flash (replaces Phaser camera FX) ───────── */

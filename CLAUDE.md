@@ -1,7 +1,9 @@
-# 拾光 (Pickup) — Project Context for Claude
+# 故事燈 (StoryLamp) — Project Context for Claude
 
-> **Brand: 拾光 (Pickup)** — 原名 WordWar，v0.9 完成 rebrand。資料夾仍保留 `Desktop\wordwar` 路徑（避免打斷工作目錄）。
-> 這份文件是給「下次來接手拾光的 Claude session」看的 onboarding。讀完應該能無縫繼續開發、做出符合作者意圖的決定。
+> **Brand: 故事燈 (StoryLamp)** — v2.0.B.555 (2026-07-04) 自「拾光 (Pickup)」rebrand,user 從 10 組撞名查證候選中選定(奶奶燈下說故事的意象;英文 SEO 幾乎空白、撞名風險全場最低)。更早以前叫 WordWar(v0.9 改拾光)。
+> **rebrand 範圍**:只動 user-facing 表面(index.html title/meta、manifest、Onboarding 品牌字、分享文案、share card)。**程式內部識別子不動**:`pickup.*` localStorage keys(動了會清空玩家進度)、`pickup-*` CSS class、repo 名 `kengkeng44/pickup`、CF project `pickupwords`。網域改名(storylamp pages.dev 新 project)是獨立 infra 決策,尚未做。
+> **品牌招牌畫面**:地圖 = 「奶奶說故事的夜晚」— 暗暖夜色 + 一盞掛燈(`.pickup-lamp-sky` + `.t-scope-dark` token 作用域,per user 2026-07-04「背景改成暗暗的有一盞燈」)。
+> 這份文件是給「下次來接手的 Claude session」看的 onboarding。讀完應該能無縫繼續開發、做出符合作者意圖的決定。文內歷史段落仍大量寫「拾光 (Pickup)」,指的是同一個 app。
 
 ---
 

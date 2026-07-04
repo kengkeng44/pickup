@@ -57,11 +57,7 @@ function loadChapterLessons(chapter: number): Promise<Lesson[]> {
 }
 
 // ─── strict constants from StoryMapView.ts ─────────────────────────────────
-// v2.0.B.553: 地圖晝夜天空 (咕嚕 v0.22 同款時段切分): 6-16 day / 17-18 dusk / 19-5 night
-const skyPhase = (): 'day' | 'dusk' | 'night' => {
-  const h = new Date().getHours();
-  return h >= 19 || h < 6 ? 'night' : h >= 17 ? 'dusk' : 'day';
-};
+// v2.0.B.555: 故事燈夜景 — 地圖永遠是「奶奶說故事的夜晚」(取代 B.553 晝夜三檔)。
 // v2.0.B.318: COLOR_NODE / COLOR_NODE_DARK 移除 — 未完成節點改用各章 chMeta.accent
 // v2.0.B.486: COLOR_NODE_DONE 移除 — 完成/到達同色 (該章主色), 不再綠色區分。
 const COLOR_NODE_LOCKED = '#c4b89c';
@@ -735,10 +731,14 @@ export default function MapPage() {
   }, [loading, lessons]);
 
   return (
-    <div className={`pickup-full-bleed pickup-map-sky-${skyPhase()}`} style={{
+    <div className="pickup-full-bleed t-scope-dark pickup-lamp-sky" style={{
       color: COLOR_TEXT_DARK, minHeight: '100dvh',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
+      {/* v2.0.B.555 故事燈: 掛燈 (吊繩 + 燈罩 + 燈泡光點) — 純裝飾 */}
+      <div aria-hidden="true" className="pickup-lamp-cord" />
+      <div aria-hidden="true" className="pickup-lamp-shade" />
+      <div aria-hidden="true" className="pickup-lamp-bulb" />
       {/* v2.0.B.277 一勞永逸 chrome: HUD + 書封 合併單一 fixed wrapper, 自然 flow 不靠
           hardcoded offset. ResizeObserver 量真實高度 → spacer 自動跟. user 改 HUD 高 /
           iOS URL bar 收合 / 加 banner row 都自動 work, 不會再切書封 */}
