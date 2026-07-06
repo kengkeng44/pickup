@@ -415,6 +415,35 @@ function lintBlankPosBalance(lessons, file) {
   return [];
 }
 
+// X59_EXPLAINZH_VOICE (ARCH-REC #122, per 2026-07-06T1205 content-qa cron): explanationZh 是
+// 奶奶故事語氣 surface — 考試宣判 (「答案是…」)、metalinguistic 題型標籤 (「這是推論題」)、
+// 文法術語 (主詞/過去式/最高級…)、「課文」register 都破壞 brand voice (Duolingo Voice Guide;
+// de Gruyter IRAL 2025: A2 兒童 metalinguistic 解說 = cognitive overload)。B.562/563 已清完
+// ch17-24 ×164, 此 lint 從源頭擋 regression。warn-only, 其他章存量 cron 漸修。
+const X59_PATTERNS = [
+  [/答案(當然)?是/, '答案宣判'],
+  [/這是[^。]{0,6}題/, '題型標籤'],
+  [/主詞|過去式|最高級|不規則動詞|第三人稱|時態|原形動詞/, '文法術語'],
+  [/課文/, '課文 register'],
+];
+function lintExplainZhVoice(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      const zh = q.explanationZh;
+      if (typeof zh !== 'string' || zh.length === 0) continue;
+      for (const [re, label] of X59_PATTERNS) {
+        const m = zh.match(re);
+        if (m) {
+          issues.push(`${file} ${q.id}: X59_EXPLAINZH_VOICE (${label}「${m[0]}」— 非奶奶故事語氣)`);
+          break; // 一題最多報一次
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -483,8 +512,9 @@ for (const file of files) {
     const pictureNpIssues = lintPictureMcSubjectNp(raw, file); // X56 (WARN, picture-mc subject-NP verbatim)
     const antonymMirrorIssues = lintAntonymPairMirror(raw, file); // X57 (WARN, antonym-pair mirror)
     const blankPosIssues = lintBlankPosBalance(raw, file);    // X55 (WARN, grammar-mc blank position balance)
+    const explainVoiceIssues = lintExplainZhVoice(raw, file); // X59 (WARN, explanationZh 故事語氣)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues, ...explainVoiceIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
