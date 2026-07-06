@@ -18,6 +18,7 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { readCompletedLessons } from '../../store/runStore';
 import { useT } from '../i18n';
+import { isChapterPlayable } from '../../data/mainline';
 
 type Category = 'all' | 'east' | 'west' | 'fable' | 'mid-long' | 'special' | 'exam';
 
@@ -93,8 +94,8 @@ function isChapterComplete(chId: number): boolean {
   return readCompletedLessons(chId).size >= chapterTotal(chId);
 }
 function isChapterUnlocked(chId: number): boolean {
-  if (chId <= 0) return true;                 // Ch0 入門永遠開
-  return isChapterComplete(chId - 1);          // ChN 需前章全完成
+  // v2.0.B.559: 主線循序 (固定順序不能選) / 支線看書櫃上架批次 (對應主線章完成)。
+  return isChapterPlayable(chId, isChapterComplete);
 }
 
 export default function ChaptersPage() {

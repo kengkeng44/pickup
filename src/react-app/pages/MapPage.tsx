@@ -22,6 +22,7 @@ import { readLessonCompMode, writeLessonCompMode } from '../../data/comprehensio
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
 import GrandmaRecommendCarousel from '../components/GrandmaRecommendCarousel';
+import { MAINLINE, mainlineIndex } from '../../data/mainline';
 // v2.0.B.239: tomorrow-queue read so MapPage can surface the
 // "Mochi 記得了 — 今晚講 X" banner when user queued a story last session.
 import {
@@ -541,10 +542,13 @@ export default function MapPage() {
     return t;
   }, [lessons, requestedChapter]);
   const isChapterUnlocked = useCallback((ch: number): boolean => {
-    if (!isAggregate) return true;        // 單章視圖 = ChaptersPage 已 gate
-    if (ch <= 0) return true;             // Ch0 入門永遠開
-    const prevTotal = chapterTotals.get(ch - 1) ?? 0;
-    const prevDone = completedByChapter.get(ch - 1)?.size ?? 0;
+    if (!isAggregate) return true;        // 單章視圖 = ChaptersPage/書櫃 已 gate
+    // v2.0.B.559: 主線循序 — 前一個「主線」章全完成才開 (不再是數字 ch-1)。
+    const mi = mainlineIndex(ch);
+    if (mi <= 0) return true;             // 序章永遠開; 非主線章不會出現在大地圖
+    const prev = MAINLINE[mi - 1];
+    const prevTotal = chapterTotals.get(prev) ?? 0;
+    const prevDone = completedByChapter.get(prev)?.size ?? 0;
     return prevTotal > 0 && prevDone >= prevTotal;
   }, [isAggregate, chapterTotals, completedByChapter]);
 
@@ -620,7 +624,7 @@ export default function MapPage() {
   useEffect(() => {
     setLoading(true);
     if (isAggregate) {
-      const chapters = Array.from({ length: 32 }, (_, i) => i); // v2.0.B.326: 含 ch0 (入門 ABC)
+      const chapters = [...MAINLINE]; // v2.0.B.559: 大地圖只排主線 (固定順序); 支線走書櫃 → 單章視圖
       Promise.all(chapters.map(c => loadChapterLessons(c).catch(() => [] as Lesson[])))
         .then(arrs => {
           setLessons(arrs.flat());
@@ -1102,7 +1106,7 @@ export default function MapPage() {
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
                     fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
-                  }}>CH {lessonChapter} · {chMeta.titleEn}</div>
+                  }}>Night {mainlineIndex(lessonChapter) + 1} · {chMeta.titleEn}</div>
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
