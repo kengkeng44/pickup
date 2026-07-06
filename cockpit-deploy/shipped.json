@@ -224,6 +224,13 @@
       "what": "13 筆 A7 內容重複 P0/P1 修正 (Ch18-24 listen-mc/comprehension 正解 paraphrase, 不碰 correctIndex) — 全過 build+answer-index gate",
       "version": "v2.0.B.448",
       "date": "2026-06-26"
+    },
+    {
+      "audit": "docs/audits/2026-07-06T1205-content-qa-cron.md",
+      "archRec": "#12 explanationZh story-voice",
+      "what": "118 筆 explanationZh 故事語氣改寫 Ch17-24 (86 筆 listen-tf 答案是 Yes/No 去除 + 7 筆理解/聽力/emoji 題 answer-reveal + 19 筆文法術語改故事情境 + 2 筆 DRY_TONE + 3 筆敘事暖化 + 1 筆課文 register) — 全過 build+answer-index gate",
+      "version": "v2.0.B.562",
+      "date": "2026-07-06"
     }
   ]
 }
