@@ -1619,6 +1619,7 @@
     <h2 class="qt-h2"><span class="icon">⚙️</span> Lesson 跨題型共同規則</h2>
     <div class="section-card top"><span class="badge top">頂</span><strong>Header 50px sticky</strong>: 所有題型一致 = ✕ + olive progress + 喇叭 mute (icon-speaker.webp) · <span class="var-tag">progress 依 idx/total derived</span></div>
     <div class="section-card bot"><span class="badge bot">底</span><strong>CTA footer 60px fixed</strong>: 答對 → 綠 (#7d9a4f) → Continue · 答錯 2 次 → 紅 (#c84a3a) 知道了 reveal</div>
+    <div class="section-card"><span class="badge">字</span><strong>字級兩級制 (v2.0.B.566, per user「所有題目答案同一個標準」)</strong>: 題幹 (要讀/要翻的句子、提示) = <code>--t-text-stem</code> 18px w800 · 答案元件 (選項/tile/配對卡/輸入) = <code>--t-text-option</code> 16px · <strong>所有 renderer 一律用 token, 不得自訂字級</strong> (歷史 22px 題句 / 23px 配對卡已收編)</div>
     <div class="fx" style="margin-top:6px;">
       <strong style="color:var(--olive-dark);">所有題型共享:</strong>
       auto-speak <em class="zh">自動發音</em> on Q mount + onUnmount cleanup <em class="zh">解除時清掉</em> ·
