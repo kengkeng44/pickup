@@ -50,6 +50,10 @@
   /* ── Type sizes ── */
   --t-text-micro: 12px; --t-text-body: 16px; --t-text-button: 16px;
   --t-text-title: 20px; --t-text-stat: 24px; --t-text-display: 28px;
+  /* v2.0.B.566 (per user「所有題目答案同一個標準」): 答題畫面兩級制 —
+   * 題幹 (要讀/要翻的句子、提示) = 18px w800; 答案元件 (選項/tile/配對卡/輸入) = 16px。
+   * 所有 renderer 一律用這兩個 token, 不得自訂字級。 */
+  --t-text-stem: 18px; --t-text-option: 16px;
 
   /* ── Elevation: FLAT only (零 blur, per brand rule). depth = solid offset ── */
   --t-elev-1: 0 2px 0 var(--t-border-strong);
