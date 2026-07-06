@@ -10,6 +10,7 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import ChaptersPage from './pages/ChaptersPage';
+import ShelfPage from './pages/ShelfPage';
 import ProfilePage from './pages/ProfilePage';
 import TasksPage from './pages/TasksPage';
 import AlertsPage from './pages/AlertsPage';
@@ -123,6 +124,7 @@ export default function App() {
             <Route path="/" element={<MapPage />} />
             <Route path="/map" element={<MapPage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
+            <Route path="/shelf" element={<ShelfPage />} />
             <Route path="/chapter/:chapter/intro" element={<ChapterIntroPage />} />
             <Route path="/lesson/:chapter/:lessonId" element={<LessonPage />} />
             <Route path="/profile" element={<ProfilePage />} />

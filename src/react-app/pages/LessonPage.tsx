@@ -48,8 +48,6 @@ import { getLessonHook } from '../../data/lessonHooks';
 import { getKeySentenceForLesson, type KeySentence } from '../../data/keySentences';
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 import ShareModal from '../components/ShareModal';
-// v2.0.B.239: chapter-final "明晚聽 / 繼續聽" picker (NextStoryPicker).
-import NextStoryPicker from '../components/NextStoryPicker';
 // v2.0.B.283: Mochi Bond stage-up celebration overlay.
 
 interface Lesson {
@@ -665,9 +663,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
   // the share button. KeySentence resolved lazily from chapter + lessonId.
   const [showShare, setShowShare] = useState(false);
   const keySentence: KeySentence | null = getKeySentenceForLesson(lesson.chapter, lesson.id);
-  // v2.0.B.239: NextStoryPicker visibility — opens on chapter-final lesson
-  // complete (replaces the Continue button on the final lesson).
-  const [showNextStoryPicker, setShowNextStoryPicker] = useState(false);
   // v2.0.B.322 (per user): 大單元 (章節) 完成獎勵 — 統計本章新單字 (tap-pairs) + 新片語 (phrase-pairs).
   const [chapterReward, setChapterReward] = useState<{ words: number; phrases: number } | null>(null);
   useEffect(() => {
@@ -842,24 +837,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           <span>分享金句 · Share</span>
         </button>
       )}
-      {/* v2.0.B.239: chapter-final lesson → swap Continue with NextStoryPicker
-          CTA so 「明晚聽 / 繼續聽」picker takes over the end-of-chapter slot.
-          Middle lessons keep the classic Continue button (no flow change). */}
-      {isLastLessonOfChapter ? (
-        <button onClick={() => setShowNextStoryPicker(true)} style={{
-          padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-          borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
-          cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
-          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
-      ) : (
-        <button onClick={onBack} style={{
-          padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-          borderBottom: '4px solid var(--t-success)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
-          cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
-          WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }} aria-label="完成 Continue">→</button>
-      )}
+      {/* v2.0.B.559: 主線固定順序 — 章末不再跳「選下一個故事」卡 (NextStoryPicker 已移除),
+          一律回地圖, 下一個主線章由 gate 自然亮起。 */}
+      <button onClick={onBack} className="pickup-press" style={{
+        padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
+        borderBottom: '4px solid rgba(0,0,0,0.25)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
+        cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
+        WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+      }} aria-label="完成 Continue">→</button>
 
       {/* v2.0.B.235 招 4: 分享金句 modal — only mounts when explicitly opened. */}
       {showShare && keySentence && (
@@ -867,15 +852,6 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           sentence={keySentence}
           chapter={lesson.chapter}
           onClose={() => setShowShare(false)}
-        />
-      )}
-
-      {/* v2.0.B.239: NextStoryPicker — chapter-final picker. Mounts on demand
-          (button tap) so middle lessons never pay the carousel/registry cost. */}
-      {showNextStoryPicker && (
-        <NextStoryPicker
-          completedChapter={lesson.chapter}
-          onClose={() => setShowNextStoryPicker(false)}
         />
       )}
 

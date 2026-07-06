@@ -21,7 +21,7 @@ import { readLessonCompMode, writeLessonCompMode } from '../../data/comprehensio
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
-import GrandmaRecommendCarousel from '../components/GrandmaRecommendCarousel';
+import { MAINLINE, mainlineIndex } from '../../data/mainline';
 // v2.0.B.239: tomorrow-queue read so MapPage can surface the
 // "Mochi 記得了 — 今晚講 X" banner when user queued a story last session.
 import {
@@ -97,7 +97,7 @@ function getNodeSlot(i: number): { dx: number; top: number } {
 // v2.0.B.318 (per user): 每章專屬配色 (全 hex, 不再 var() — 讓 lighten/darken 陰影生效) +
 // 故事 emoji. accent 套到該章「節點 + 分隔線 + 書封」, 整段路徑跟著故事變色. 色系挑暖中明度,
 // 白字 (書封) + 米色爪 (節點) 都讀得清; 相鄰章不同色.
-const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
+export const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
   0: { titleZh: '一切的開始', titleEn: 'The Beginning', accent: '#8a9a6a', emoji: '🔤' },
   1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e98a52', emoji: '🍑' },
   2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#5b91a5', emoji: '🦢' },
@@ -541,10 +541,13 @@ export default function MapPage() {
     return t;
   }, [lessons, requestedChapter]);
   const isChapterUnlocked = useCallback((ch: number): boolean => {
-    if (!isAggregate) return true;        // 單章視圖 = ChaptersPage 已 gate
-    if (ch <= 0) return true;             // Ch0 入門永遠開
-    const prevTotal = chapterTotals.get(ch - 1) ?? 0;
-    const prevDone = completedByChapter.get(ch - 1)?.size ?? 0;
+    if (!isAggregate) return true;        // 單章視圖 = ChaptersPage/書櫃 已 gate
+    // v2.0.B.559: 主線循序 — 前一個「主線」章全完成才開 (不再是數字 ch-1)。
+    const mi = mainlineIndex(ch);
+    if (mi <= 0) return true;             // 序章永遠開; 非主線章不會出現在大地圖
+    const prev = MAINLINE[mi - 1];
+    const prevTotal = chapterTotals.get(prev) ?? 0;
+    const prevDone = completedByChapter.get(prev)?.size ?? 0;
     return prevTotal > 0 && prevDone >= prevTotal;
   }, [isAggregate, chapterTotals, completedByChapter]);
 
@@ -620,7 +623,7 @@ export default function MapPage() {
   useEffect(() => {
     setLoading(true);
     if (isAggregate) {
-      const chapters = Array.from({ length: 32 }, (_, i) => i); // v2.0.B.326: 含 ch0 (入門 ABC)
+      const chapters = [...MAINLINE]; // v2.0.B.559: 大地圖只排主線 (固定順序); 支線走書櫃 → 單章視圖
       Promise.all(chapters.map(c => loadChapterLessons(c).catch(() => [] as Lesson[])))
         .then(arrs => {
           setLessons(arrs.flat());
@@ -817,7 +820,6 @@ export default function MapPage() {
 
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
-      <GrandmaRecommendCarousel />
 
       {/* v2.0.B.239: tomorrow-queue banner — surfaces when user picked
           "明晚聽 X" last session AND it's now past 18:00 local. Tap → consume
@@ -1102,7 +1104,7 @@ export default function MapPage() {
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
                     fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
-                  }}>CH {lessonChapter} · {chMeta.titleEn}</div>
+                  }}>Night {mainlineIndex(lessonChapter) + 1} · {chMeta.titleEn}</div>
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
               )}
@@ -1135,6 +1137,30 @@ export default function MapPage() {
             );
           })}
         </div>
+      )}
+
+      {/* v2.0.B.560 (per user 書櫃式): 奶奶的書櫃入口 — 主線地圖旁固定 📚 鈕。
+          支線故事都在書櫃裡, 隨主線進度上架。只在大地圖顯示 (單章視圖不放)。 */}
+      {isAggregate && !loading && (
+        <button
+          type="button"
+          aria-label={t('shelf.title')}
+          onClick={() => navigate('/shelf')}
+          className="pickup-press"
+          style={{
+            position: 'fixed', right: 'calc(14px + env(safe-area-inset-right))',
+            bottom: 'calc(136px + env(safe-area-inset-bottom))', zIndex: 60,
+            width: 48, height: 48, borderRadius: 14,
+            background: 'var(--t-surface)', border: '2px solid var(--t-brand)',
+            borderBottom: '4px solid var(--t-brand-dark)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', fontFamily: 'inherit',
+            boxShadow: '0 4px 14px rgba(0,0,0,0.22)',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: 24, lineHeight: 1 }}>📚</span>
+        </button>
       )}
 
       {/* v2.0.B.521 (per user): 往上箭頭 — 捲到下面後一鍵回到目前進度 (current node)。

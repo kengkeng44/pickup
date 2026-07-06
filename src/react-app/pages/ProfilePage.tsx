@@ -2,8 +2,7 @@ import { useState, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { readStreak } from '../../data/streak';
 import { readXp, levelForXp } from '../../data/xp';
-import { readCoins, addCoins } from '../../data/coins';
-import { isBackendLive, serverRename } from '../../data/backend';
+import { readCoins } from '../../data/coins';
 import { readOutfit, getOutfitById } from '../../data/mascotOutfits';
 import { listPlayers, getActivePlayer, createPlayer, switchPlayer } from '../../data/players';
 import { useT } from '../i18n';
@@ -24,52 +23,15 @@ export default function ProfilePage() {
   const xp = readXp();
   const coins = readCoins();
   const level = levelForXp(xp);
-  const [catName, setCatName] = useState(() => {
-    try { return localStorage.getItem('pickup.catName') ?? 'Mochi'; } catch { return 'Mochi'; }
-  });
-  // v2.0.B.305: rename limit — 3 免費改名, 之後每次扣 coins (per user)
-  const FREE_RENAMES = 3;
-  const RENAME_COST = 100;
-  const [draft, setDraft] = useState(catName);
-  const [renameCount, setRenameCount] = useState(() => {
-    try { return Math.max(0, Number(localStorage.getItem('pickup.catName.changes') || '0') || 0); } catch { return 0; }
-  });
-  const [coinBal, setCoinBal] = useState(coins);
-  const [renameFlash, setRenameFlash] = useState('');
-  const [renameErr, setRenameErr] = useState(false);
+  // v2.0.B.559 (per user「角色設定固定」): 改名功能移除, Mochi/Hana 寫死 —
+  // 內容層 B.148 早已 hardcode, 這裡把最後一個自由度 (Profile 改名 UI) 收掉。
+  const catName = 'Mochi';
   // v2.0.B.234 招 3: wardrobe state + current outfit display.
   const [wardrobeOpen, setWardrobeOpen] = useState(false);
   const [outfitId, setOutfitId] = useState<string>(() => readOutfit());
   const outfit = getOutfitById(outfitId);
   const outfitLabel = outfit ? (lang === 'zh' ? outfit.name.zh : outfit.name.en) : t('profile.outfitDefault');
   const outfitBadge = outfit?.emojiBadge ?? '';
-
-  const willCost = renameCount >= FREE_RENAMES;
-  const trimmed = draft.trim();
-  const canSave = trimmed.length > 0 && trimmed !== catName;
-  const remaining = Math.max(0, FREE_RENAMES - renameCount);
-
-  const saveCat = () => {
-    const v = draft.trim();
-    if (!v || v === catName) return;
-    if (renameCount >= FREE_RENAMES) {
-      if (coinBal < RENAME_COST) {
-        setRenameErr(true);
-        setRenameFlash(t('profile.notEnough').replace('{cost}', String(RENAME_COST)).replace('{bal}', String(coinBal)));
-        return;
-      }
-      setCoinBal(addCoins(-RENAME_COST));
-    }
-    setCatName(v);
-    try { localStorage.setItem('pickup.catName', v); } catch {}
-    // v2.0.B.308 (P2): 鏡像給 server (server 自有 3-free / 100-coin 檢查; 開機 pull 為準)
-    try { if (isBackendLive()) void serverRename(v); } catch {}
-    const nextCount = renameCount + 1;
-    setRenameCount(nextCount);
-    try { localStorage.setItem('pickup.catName.changes', String(nextCount)); } catch {}
-    setRenameErr(false);
-    setRenameFlash(t('profile.renamed'));
-  };
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
@@ -87,41 +49,9 @@ export default function ProfilePage() {
           )}
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <input
-              value={draft}
-              onChange={(e) => { setDraft(e.target.value); if (renameFlash) { setRenameFlash(''); setRenameErr(false); } }}
-              placeholder={t('profile.catName')}
-              maxLength={12}
-              aria-label={t('profile.catName')}
-              style={{
-                flex: '1 1 auto', width: '100%', maxWidth: 150, minWidth: 0,
-                padding: 8, fontSize: 16, fontWeight: 700,
-                border: '2px solid var(--t-border-card)', borderRadius: 8, color: 'var(--t-text)',
-                fontFamily: 'inherit', background: 'var(--t-bg)',
-              }}
-            />
-            <button
-              type="button"
-              onClick={saveCat}
-              disabled={!canSave}
-              style={{
-                flex: '0 0 auto', padding: '8px 12px', fontSize: 13, fontWeight: 800,
-                border: 'none', borderRadius: 8, fontFamily: 'inherit',
-                color: '#fff', background: canSave ? 'var(--t-brand-dark)' : '#cdbfa8',
-                cursor: canSave ? 'pointer' : 'default',
-                WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-              }}
-            >
-              {willCost ? t('profile.saveCost').replace('{cost}', String(RENAME_COST)) : t('profile.save')}
-            </button>
-          </div>
-          <div style={{ fontSize: 11, color: renameErr ? 'var(--t-error, #c84a3a)' : 'var(--t-text-muted)', marginTop: 4 }}>
-            {renameFlash
-              ? renameFlash
-              : remaining > 0
-                ? t('profile.renameRemaining').replace('{n}', String(remaining))
-                : t('profile.renameUsedUp').replace('{cost}', String(RENAME_COST)).replace('{bal}', String(coinBal))}
+          <div style={{ fontSize: 20, fontWeight: 900, color: 'var(--t-text)' }}>{catName}</div>
+          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2, fontWeight: 700 }}>
+            {outfitLabel}
           </div>
         </div>
       </div>
