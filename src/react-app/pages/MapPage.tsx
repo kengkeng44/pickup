@@ -21,7 +21,6 @@ import { readLessonCompMode, writeLessonCompMode } from '../../data/comprehensio
 // v2.0.B.234 招 3: Mochi outfit avatar (small badge overlay).
 import MochiOutfitAvatar from '../components/MochiOutfitAvatar';
 // v2.0.B.235 Phase 1: 今天奶奶的推薦 carousel (AI recommendation engine).
-import GrandmaRecommendCarousel from '../components/GrandmaRecommendCarousel';
 import { MAINLINE, mainlineIndex } from '../../data/mainline';
 // v2.0.B.239: tomorrow-queue read so MapPage can surface the
 // "Mochi 記得了 — 今晚講 X" banner when user queued a story last session.
@@ -98,7 +97,7 @@ function getNodeSlot(i: number): { dx: number; top: number } {
 // v2.0.B.318 (per user): 每章專屬配色 (全 hex, 不再 var() — 讓 lighten/darken 陰影生效) +
 // 故事 emoji. accent 套到該章「節點 + 分隔線 + 書封」, 整段路徑跟著故事變色. 色系挑暖中明度,
 // 白字 (書封) + 米色爪 (節點) 都讀得清; 相鄰章不同色.
-const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
+export const CHAPTER_META: Record<number, { titleZh: string; titleEn: string; accent: string; emoji: string }> = {
   0: { titleZh: '一切的開始', titleEn: 'The Beginning', accent: '#8a9a6a', emoji: '🔤' },
   1: { titleZh: '桃太郎', titleEn: 'Momotaro', accent: '#e98a52', emoji: '🍑' },
   2: { titleZh: '醜小鴨', titleEn: 'The Ugly Duckling', accent: '#5b91a5', emoji: '🦢' },
@@ -821,7 +820,6 @@ export default function MapPage() {
 
 
       {/* v2.0.B.235 — 今天奶奶的推薦 carousel (Phase 1 rule engine) */}
-      <GrandmaRecommendCarousel />
 
       {/* v2.0.B.239: tomorrow-queue banner — surfaces when user picked
           "明晚聽 X" last session AND it's now past 18:00 local. Tap → consume
@@ -1139,6 +1137,30 @@ export default function MapPage() {
             );
           })}
         </div>
+      )}
+
+      {/* v2.0.B.560 (per user 書櫃式): 奶奶的書櫃入口 — 主線地圖旁固定 📚 鈕。
+          支線故事都在書櫃裡, 隨主線進度上架。只在大地圖顯示 (單章視圖不放)。 */}
+      {isAggregate && !loading && (
+        <button
+          type="button"
+          aria-label={t('shelf.title')}
+          onClick={() => navigate('/shelf')}
+          className="pickup-press"
+          style={{
+            position: 'fixed', right: 'calc(14px + env(safe-area-inset-right))',
+            bottom: 'calc(136px + env(safe-area-inset-bottom))', zIndex: 60,
+            width: 48, height: 48, borderRadius: 14,
+            background: 'var(--t-surface)', border: '2px solid var(--t-brand)',
+            borderBottom: '4px solid var(--t-brand-dark)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', fontFamily: 'inherit',
+            boxShadow: '0 4px 14px rgba(0,0,0,0.22)',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: 24, lineHeight: 1 }}>📚</span>
+        </button>
       )}
 
       {/* v2.0.B.521 (per user): 往上箭頭 — 捲到下面後一鍵回到目前進度 (current node)。
