@@ -5,6 +5,14 @@
 
 ---
 
+## 📓 My Vault (AI 知識庫, 2026-07-06 建置 — 跨專案事項暫放這)
+
+- [ ] **推上 GitHub**:鄭董把 `my-vault` private repo 加進 Claude session 授權 → 跟 session 說「推 vault」。vault 本體在雲端工作區 `/home/user/vault`(3 commits),**session 結束會消失** — zip 備份已傳到對話裡,遺失就用 zip 重建 + git init
+- [ ] **小助手人設驗收**:性格(冷靜軍師)+ 範圍(App 事業為主)是用推薦預設寫的,鄭董確認或調整 `agent-persona.md`
+- [ ] **context/products.md 驗收**:兩產品現況是 AI 從開發紀錄整理的,鄭董過目
+
+---
+
 ## 🏗️ 5 個補洞 (per docs/strategy + competitor 架構研究)
 
 詳細成果 + 成本 → 上次對話完整 table 已給。
