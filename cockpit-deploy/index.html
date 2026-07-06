@@ -1037,11 +1037,35 @@ function parseAuditMd(md) {
 function parseFindings(md) {
   const lines = md.split('\n');
   const out = [];
+  // v2.0.B.561: audit 檔常有兩張表 — A 表 = 每章 lint 代號統計 (X49×3…), B 表 = 逐題
+  // violation+修法。舊版「取第一張」會吃到 A 表, 細節全變代號。改: B 表當主細節,
+  // A 表翻成人話統計列附在後面。
+  const lintRows = [];
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line.startsWith('|')) continue;
     const cols = line.split('|').map((s) => s.trim().toLowerCase());
     const find = (re) => cols.findIndex((h) => re.test(h));
+    const isLintSummary = cols.some((h) => /lint/.test(h)) && find(/^ch$|chapter|章/) >= 0;
+    if (isLintSummary) {
+      const chIdx = find(/^ch$|chapter|章/);
+      const cellIdx = cols.findIndex((h) => /lint/.test(h));
+      let j = i + 1;
+      if (lines[j] && /^\s*\|[\s:|-]+\|\s*$/.test(lines[j])) j++;
+      for (; j < lines.length; j++) {
+        const row = lines[j].trim();
+        if (!row.startsWith('|')) break;
+        const c = row.split('|').map((s) => s.trim());
+        const ch = (c[chIdx] || '').replace(/\*/g, '').trim();
+        const cell = c[cellIdx] || '';
+        if (!ch || /total|合計/i.test(ch)) continue;
+        const human = humanizeLintCell(cell);
+        const n = (cell.match(/^\s*(\d+)/) || [])[1] || '';
+        if (human) lintRows.push({ id: `ch${ch}`, sev: 'P2', viol: `LINT — ${human}`, fix: `${n ? n + ' 個 lint 警告:' : ''}${human}`, codes: (cell.match(/\(([^)]+)\)/) || [])[1] || '' });
+      }
+      i = j - 1;
+      continue;   // lint 摘要表不當主 findings
+    }
     const idx = {
       id: find(/q ?id|題號|\bid\b/),
       sev: find(/sever|嚴重|tier|rank/),
@@ -1060,8 +1084,9 @@ function parseFindings(md) {
       if (!viol && !fix) continue;
       out.push({ id: get(idx.id), sev: get(idx.sev), viol, fix });
     }
-    if (out.length) break;   // 取第一張 findings 表 (通常就是主表)
+    if (out.length) break;   // 取第一張「真正的」findings 表
   }
+  out.push(...lintRows);
   // 無表格的 audit (架構 / ui-ux 常見) → 抓「### Finding N / P0-N / P1-N」標題段落,
   // 問題=標題, 修法=段落內第一句 Fix:/Cheapest fix/修法/建議。避免退回「看看就好」廢話。
   if (!out.length) {
@@ -1352,6 +1377,28 @@ Markdown 表 + dense, < 500 字`;
 // 攤成一張具體待辦清單 — 分「可自動修(題庫)」vs「要你決定(程式碼/架構)」, 每條一句 + 修法。
 // 取代過去「多是架構,看看就好」這種無意義標註。
 // v2.0.B.423 (per user): 把 finding 的英文代碼變中文「類型」+ 該類型「改的方向」。
+// v2.0.B.561 (per user「X49×3 人看不懂」): validate-lessons.js lint 代號 → 人話。
+// 這些代號在 validator 裡是穩定的 (跟 audit 內文自編的 A1_* 不同), 可以放心對照。
+const X_LINT_ZH = {
+  X1: '句子本身就是問句', X2: '選項排列偏誤', X3: '正解字直接出現在句子裡',
+  X4: '選項與原句重疊過高', X5: '反義詞鏡像干擾', X8: '選項長度洩題',
+  X12: '關鍵字重複/術語', X44: '動詞形態錯誤', X46: '是非題極性偏斜',
+  X47: '文化梗沒搭橋', X48: '正解照抄原句字串', X49: '同一句重複出題',
+  X49B: '同句被多個理解題重用', X55: '挖空位置不平衡', X56: '看圖題主詞照抄',
+  X57: '反義詞鏡像干擾',
+};
+const zhForLintCode = (code) => X_LINT_ZH[code] || code;
+// lint 摘要儲存格「8 (X49×3, X57×3, X2×2)」→「同一句重複出題×3、反義詞鏡像干擾×3、選項排列偏誤×2」
+function humanizeLintCell(cell) {
+  const m = String(cell || '').match(/\(([^)]+)\)/);
+  if (!m) return null;
+  const parts = m[1].split(/[,，]\s*/).map((t) => {
+    const mm = t.trim().match(/^(X\d+B?)\s*[×x]\s*([\d?]+)$/i);
+    return mm ? `${zhForLintCode(mm[1].toUpperCase())}×${mm[2]}` : t.trim();
+  });
+  return parts.join('、');
+}
+
 const FINDING_CATS = [
   [/SPOILER/i,                         { zh: '劇情爆雷',   dir: '把提前爆雷的字眼移到劇情後面或改中性' }],
   [/DISTRACTOR/i,                      { zh: '干擾項給提示', dir: '改成合理但錯的選項,不暗示正解' }],
@@ -1366,6 +1413,13 @@ const FINDING_CATS = [
   [/VOICE|STORY|EMOTION/i,             { zh: '故事語氣',   dir: '加一句情感或故事鉤' }],
   [/TDZ|CIRCULAR|IMPORT|DEP/i,         { zh: '依賴/架構',  dir: '斷開循環/抽共用型別' }],
   [/GOD ?CLASS|HUB|CONCENTRAT/i,       { zh: '巨型元件',   dir: '拆分職責' }],
+  [/WRONG_CORRECT|CORRECT_?INDEX|CORRIDX/i, { zh: '正解標錯', dir: '修 correctIndex 對齊解說' }],
+  [/JUNK/i,                            { zh: '干擾項太離譜', dir: '換成合理但錯的選項' }],
+  [/SURFACE|STIMULUS|REUSE/i,          { zh: '答案照抄原句', dir: '換句話說 / 換一句出題' }],
+  [/READABILITY/i,                     { zh: '中文可讀性',  dir: '改白話、斷句' }],
+  [/PARITY/i,                          { zh: '中英選項不對等', dir: '補齊/對齊翻譯' }],
+  [/HOMOGENEITY/i,                     { zh: '干擾項同質',  dir: '讓錯誤選項各代表不同誤解' }],
+  [/TENSE/i,                           { zh: '時態錯位',    dir: '對齊題幹時態' }],
 ];
 function categorize(viol) {
   const code = String(viol || '').replace(/\*\*|`/g, '').split(/[:：]/)[0].trim();
@@ -1403,8 +1457,16 @@ function renderConsolidated(dataByType, shippedByFile = {}) {
     if (/P1/.test(t)) return `<span style="${st}background:var(--soft);color:var(--accent-dark);">次要</span>`;
     return `<span style="${st}background:#eaf6d5;color:var(--success);">小改</span>`;
   };
-  const rowHtml = (f) => `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;">
-    ${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span></div>`;
+  // v2.0.B.561: 行格式 = 章節 + 人話修法, 代號/題號縮到行尾小字 (tooltip 看全文)
+  const chOf = (id) => { const m = String(id || '').match(/ch(\d+)/i); return m ? `ch${m[1]}` : ''; };
+  const codeOf = (viol) => { const m = String(viol || '').replace(/\*\*|`/g, '').match(/^[A-Z][A-Z0-9_]{2,40}/); return m ? m[0] : ''; };
+  const rowHtml = (f) => {
+    const ch = chOf(f.id);
+    const code = f.codes || codeOf(f.viol);
+    const tail = [ch ? '' : md2(f.id), code ? md2(code) : ''].filter(Boolean).join(' · ');
+    return `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;" title="${md2(f.viol)}">
+    ${badge(f.sev)}${ch ? `<b>${ch}</b>:` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span>${tail ? ` <span style="color:var(--muted);font-family:monospace;font-size:10px;">${tail}</span>` : ''}</div>`;
+  };
   const groupBy = (items) => { const g = {}; for (const it of items) (g[it.cat.zh] = g[it.cat.zh] || { dir: it.cat.dir, items: [] }).items.push(it); return g; };
   const chip = (zh, n) => `<span style="display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:2px 9px;margin:2px 4px 2px 0;font-size:11px;font-weight:800;">${md2(zh)} ×${n}</span>`;
   const section = (title, items, topBtn) => {
@@ -1536,7 +1598,7 @@ async function openAuditModal(file, type, sha, meta) {
         const detail = order.map((z) => `
           <div style="margin-top:10px;">
             <div style="font-weight:800;font-size:12.5px;">${md2(z)} <span style="color:var(--muted);font-weight:600;">· ${groups[z].items.length} 條 · 方向:${md2(groups[z].dir)}</span></div>
-            ${groups[z].items.sort((a, b) => rank(a.sev) - rank(b.sev)).map((f) => `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;">${badge(f.sev)}${f.id ? `<b style="font-family:monospace;font-size:11px;">${md2(f.id)}</b> ` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span></div>`).join('')}
+            ${groups[z].items.sort((a, b) => rank(a.sev) - rank(b.sev)).map((f) => { const chm = String(f.id || '').match(/ch(\d+)/i); const ch = chm ? `ch${chm[1]}` : ''; const cm = String(f.viol || '').replace(/\*\*|`/g, '').match(/^[A-Z][A-Z0-9_]{2,40}/); const code = f.codes || (cm ? cm[0] : ''); const tail = [ch ? '' : md2(f.id), code ? md2(code) : ''].filter(Boolean).join(' · '); return `<div style="padding:6px 0;border-top:1px solid var(--border);font-size:12.5px;line-height:1.5;" title="${md2(f.viol)}">${badge(f.sev)}${ch ? `<b>${ch}</b>:` : ''}<span style="color:var(--accent-dark);font-weight:700;">${f.fix ? oneLine(f.fix).replace(/^→\s*/, '') : oneLine(f.viol)}</span>${tail ? ` <span style="color:var(--muted);font-family:monospace;font-size:10px;">${tail}</span>` : ''}</div>`; }).join('')}
           </div>`).join('');
         return `<div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:10px;">
           <div style="font-weight:900;font-size:13px;margin-bottom:4px;">📋 這輪 ${real.length} 條改善 — 分 ${order.length} 類</div>
