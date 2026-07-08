@@ -121,7 +121,7 @@ export default function ChaptersPage() {
   const totalPercent = Math.round((completedCount / STORY_CHAPTERS.length) * 100);
 
   return (
-    <div style={{ padding: '14px 14px 24px', maxWidth: 640, margin: '0 auto' }}>
+    <div style={{ padding: '16px 14px 24px', maxWidth: 640, margin: '0 auto' }}>
       {/* Back nav */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
         <button
@@ -129,7 +129,7 @@ export default function ChaptersPage() {
           aria-label={t('chapters.back')}
           style={{ background: 'transparent', border: 'none', fontSize: 22, color: 'var(--t-text-muted)', cursor: 'pointer', padding: 4 }}
         >‹</button>
-        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('chapters.title')}</h1>
+        <h1 style={{ margin: 0, fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)' }}>{t('chapters.title')}</h1>
       </div>
 
       {/* Collection stats hero */}
@@ -142,11 +142,11 @@ export default function ChaptersPage() {
         marginBottom: 14,
         textAlign: 'center',
       }}>
-        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>{t('chapters.collected')}</div>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700, marginBottom: 6 }}>{t('chapters.collected')}</div>
         <div style={{ fontSize: 38, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1 }}>
-          {completedCount}<span style={{ fontSize: 18, color: 'var(--t-text-muted)', fontWeight: 700 }}> / {STORY_CHAPTERS.length}</span>
+          {completedCount}<span style={{ fontSize: 'var(--t-text-stem)', color: 'var(--t-text-muted)', fontWeight: 700 }}> / {STORY_CHAPTERS.length}</span>
         </div>
-        <div style={{ fontSize: 12, color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
+        <div style={{ fontSize: 'var(--t-text-label)', color: '#7a5e25', marginTop: 6, fontWeight: 700 }}>
           {totalPercent}{t('chapters.pct')}
         </div>
         <div style={{ marginTop: 10, height: 8, background: 'var(--t-tint-warn)', borderRadius: 4, overflow: 'hidden' }}>
@@ -158,7 +158,7 @@ export default function ChaptersPage() {
           }} />
         </div>
         {completedCount === STORY_CHAPTERS.length && (
-          <div style={{ marginTop: 10, fontSize: 14, fontWeight: 900, color: 'var(--t-success)' }}>
+          <div style={{ marginTop: 10, fontSize: 'var(--t-text-label)', fontWeight: 900, color: 'var(--t-success)' }}>
             {t('chapters.allDone')}
           </div>
         )}
@@ -189,7 +189,7 @@ export default function ChaptersPage() {
                 border: tab === tabItem.id ? 'none' : '1px solid var(--t-border-card)',
                 borderBottom: tab === tabItem.id ? '3px solid var(--t-brand-dark)' : '1px solid var(--t-border-card)',
                 borderRadius: 'var(--t-radius-pill)',
-                fontSize: 13,
+                fontSize: 'var(--t-text-label)',
                 fontWeight: 800,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
@@ -209,7 +209,7 @@ export default function ChaptersPage() {
           <div key={subCat} style={{ marginBottom: 20 }}>
             <h2 style={{
               margin: '0 0 10px',
-              fontSize: 14,
+              fontSize: 'var(--t-text-label)',
               fontWeight: 900,
               color: '#7a5e25',
               paddingLeft: 8,
@@ -219,7 +219,7 @@ export default function ChaptersPage() {
               alignItems: 'center',
             }}>
               <span>{subCat}</span>
-              <span style={{ fontSize: 11, fontWeight: 700, opacity: 0.75 }}>
+              <span style={{ fontSize: 'var(--t-text-micro)', fontWeight: 700, opacity: 0.75 }}>
                 {subCompleted} / {chapters.length}
               </span>
             </h2>
@@ -269,7 +269,7 @@ export default function ChaptersPage() {
                     }}
                   >
                     <div style={{
-                      fontSize: 10,
+                      fontSize: 'var(--t-text-micro)',
                       fontWeight: 800,
                       color: isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)',
                       letterSpacing: 0.5,
@@ -283,14 +283,14 @@ export default function ChaptersPage() {
                       <div style={{
                         position: 'absolute', top: 6, right: 6,
                         background: 'var(--t-accent)', color: '#fff',
-                        fontSize: 9, fontWeight: 900, padding: '2px 6px',
+                        fontSize: 'var(--t-text-micro)', fontWeight: 900, padding: '2px 6px',
                         borderRadius: 'var(--t-radius-pill)', letterSpacing: 0.3,
                       }}>
                         即將推出
                       </div>
                     )}
                     <div style={{
-                      fontSize: 11,
+                      fontSize: 'var(--t-text-micro)',
                       fontWeight: 900,
                       lineHeight: 1.3,
                       textAlign: 'center',
@@ -305,7 +305,7 @@ export default function ChaptersPage() {
                         right: 6,
                         background: 'var(--t-success)',
                         color: '#fff',
-                        fontSize: 9,
+                        fontSize: 'var(--t-text-micro)',
                         fontWeight: 900,
                         padding: '2px 6px',
                         borderRadius: 'var(--t-radius-pill)',
@@ -316,7 +316,7 @@ export default function ChaptersPage() {
                     )}
                     {unlocked && !isComplete && completed > 0 && (
                       <div style={{
-                        fontSize: 10,
+                        fontSize: 'var(--t-text-micro)',
                         color: 'var(--t-brand-dark)',
                         fontWeight: 800,
                         marginTop: 2,

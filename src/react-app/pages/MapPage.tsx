@@ -357,7 +357,7 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
         {/* v2.0.B.535 (per user「標題刪掉只留選項」): 移除關卡名標題。 */}
         {/* v2.0.B.539 (per user 每日體力): 只在有限額時顯示剩餘關數 (極簡, 不限日不顯示)。 */}
         {(() => { const e = getEnergy(); return e.unlimited ? null : (
-          <div style={{ fontSize: 12, fontWeight: 800, color: '#7a6850', textAlign: 'center', marginBottom: 10 }}>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: '#7a6850', textAlign: 'center', marginBottom: 10 }}>
             {zh ? `今天還可以玩 ${e.count} 關` : `${e.count} plays left today`}
           </div>
         ); })()}
@@ -365,7 +365,7 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
         <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
           {([['read', readLabel], ['listen', listenLabel]] as const).map(([m, label]) => (
             <button key={m} type="button" onClick={() => setMode(m)} style={{
-              flex: 1, padding: '11px 0', borderRadius: 12, fontFamily: 'inherit', fontWeight: 800, fontSize: 14,
+              flex: 1, padding: '11px 0', borderRadius: 12, fontFamily: 'inherit', fontWeight: 800, fontSize: 'var(--t-text-option)',
               cursor: 'pointer', minHeight: 44,
               border: mode === m ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
               background: mode === m ? 'var(--t-brand-dark)' : 'var(--t-bg)',
@@ -380,14 +380,14 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
           style={{
             width: '100%', border: 'none', borderRadius: 16,
             background: 'var(--t-brand)', color: '#fff',
-            fontFamily: 'inherit', fontWeight: 900, fontSize: 17,
+            fontFamily: 'inherit', fontWeight: 900, fontSize: 'var(--t-text-button)',
             padding: '15px 16px', cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             boxShadow: '0 4px 0 var(--t-brand-dark)',
           }}
         >
           <span>{normalLabel}</span>
-          <span style={{ fontSize: 14, fontWeight: 800, opacity: 0.95 }}>+{normalXp} {xpWord}</span>
+          <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, opacity: 0.95 }}>+{normalXp} {xpWord}</span>
         </button>
         {/* 晉升傳奇 — 紫金 Duolingo legendary 配色 */}
         <button
@@ -396,14 +396,14 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
           style={{
             width: '100%', border: 'none', borderRadius: 16,
             background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', color: '#fff',
-            fontFamily: 'inherit', fontWeight: 900, fontSize: 17,
+            fontFamily: 'inherit', fontWeight: 900, fontSize: 'var(--t-text-button)',
             padding: '15px 16px', marginTop: 12, cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             boxShadow: '0 4px 0 #4c1d95',
           }}
         >
           <span>👑 {legLabel}</span>
-          <span style={{ fontSize: 14, fontWeight: 800, opacity: 0.95 }}>+{legXp} {xpWord}</span>
+          <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, opacity: 0.95 }}>+{legXp} {xpWord}</span>
         </button>
         {/* v2.0.B.535 (per user「取消也刪, 點旁邊就取消」): 移除取消鈕, 點背景即關閉。 */}
       </div>
@@ -799,10 +799,10 @@ export default function MapPage() {
         >
           <div style={{ flex: 1, minWidth: 0 }}>
             {/* v2.0.B.521 (per user): 英檢章 (ch≥32) 不顯示「CH N」, 改「🎓 英檢」與故事章隔開; 不再放「第X關」counter。 */}
-            <div ref={coverChRef} style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
+            <div ref={coverChRef} style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, letterSpacing: 1.5, color: 'rgba(255,255,255,0.78)', marginBottom: 2 }}>
               {displayChapter >= 32 ? '🎓 英檢' : `CH ${displayChapter}`}
             </div>
-            <div ref={coverTitleRef} style={{ fontSize: 19, fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div ref={coverTitleRef} style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, lineHeight: 1.2, color: '#fff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               <span aria-hidden="true" style={{ marginRight: 6 }}>{meta.emoji}</span>{chTitle(meta)}
             </div>
           </div>
@@ -853,10 +853,10 @@ export default function MapPage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <span style={{ fontSize: 24, lineHeight: 1 }} aria-hidden="true">🌙</span>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
+              <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
                 {t('map.tonight').replace('{title}', CHAPTER_META[tomorrowQueue.chapter] ? chTitle(CHAPTER_META[tomorrowQueue.chapter]) : t('map.story'))}
               </div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#7a6850', marginTop: 2, fontStyle: 'italic' }}>
+              <div style={{ fontSize: 'var(--t-text-micro)', fontWeight: 700, color: '#7a6850', marginTop: 2, fontStyle: 'italic' }}>
                 {t('map.tonightSub').replace('{title}', CHAPTER_META[tomorrowQueue.chapter] ? chTitle(CHAPTER_META[tomorrowQueue.chapter]) : t('map.story'))}
               </div>
             </div>
@@ -1103,7 +1103,7 @@ export default function MapPage() {
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                   <div style={{
                     flex: '0 0 auto', color: chMeta.accent,
-                    fontSize: 13, fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
+                    fontSize: 'var(--t-text-label)', fontWeight: 900, letterSpacing: 0.3, whiteSpace: 'nowrap',
                   }}>Night {mainlineIndex(lessonChapter) + 1} · {chMeta.titleEn}</div>
                   <div style={{ flex: 1, height: 3, background: chMeta.accent, opacity: 0.38, borderRadius: 3 }} />
                 </div>
@@ -1204,7 +1204,7 @@ export default function MapPage() {
           transform: 'translateX(-50%)', zIndex: 210,
           background: 'rgba(40,28,16,0.92)', color: '#fff',
           padding: '12px 20px', borderRadius: 'var(--t-radius-pill)',
-          fontSize: 15, fontWeight: 800, whiteSpace: 'nowrap',
+          fontSize: 'var(--t-text-body)', fontWeight: 800, whiteSpace: 'nowrap',
           boxShadow: '0 4px 16px rgba(0,0,0,0.25)', pointerEvents: 'none',
           animation: 'pickup-fade-up 180ms ease',
         }}>🔒 {(lang === 'zh' || lang === 'zh-Hans') ? '尚未解鎖 · 先完成前面的關卡' : 'Locked · finish earlier lessons first'}</div>
@@ -1244,16 +1244,16 @@ export default function MapPage() {
             padding: '26px 22px calc(22px + env(safe-area-inset-bottom))', textAlign: 'center',
             boxShadow: '0 12px 34px rgba(40,28,16,0.24)' }}>
             <div style={{ fontSize: 46, lineHeight: 1, marginBottom: 8 }} aria-hidden="true">🌙</div>
-            <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', marginBottom: 6 }}>
+            <div style={{ fontSize: 'var(--t-text-stem)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 6 }}>
               {lang === 'en' ? 'That’s enough for today' : '今天先到這裡'}
             </div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: '#7a6850', lineHeight: 1.6, marginBottom: 20 }}>
+            <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: '#7a6850', lineHeight: 1.6, marginBottom: 20 }}>
               {lang === 'en' ? 'Grandma will tell more stories tomorrow. Rest well!' : '奶奶明天再說更多故事,好好休息喔 🐾'}
             </div>
             <button type="button"
               onClick={() => { setShowEnergyWall(false); navigate('/profile'); }}
               style={{ width: '100%', border: 'none', borderRadius: 16, background: 'var(--t-brand)', color: '#fff',
-                fontFamily: 'inherit', fontWeight: 900, fontSize: 16, padding: '14px 16px', cursor: 'pointer',
+                fontFamily: 'inherit', fontWeight: 900, fontSize: 'var(--t-text-button)', padding: '14px 16px', cursor: 'pointer',
                 boxShadow: '0 4px 0 var(--t-brand-dark)', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation' }}>
               {lang === 'en' ? '\u{1F468}‍\u{1F469}‍\u{1F467} Parent unlock' : '👨‍👩‍👧 家長解鎖更多'}
             </button>

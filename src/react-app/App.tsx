@@ -42,7 +42,7 @@ function LoadingShell() {
   return (
     <div style={{ padding: 48, textAlign: 'center', color: 'var(--t-text-muted)' }}>
       <div className="pickup-pulse" style={{ fontSize: 48, lineHeight: 1 }}>👵🐱</div>
-      <div style={{ marginTop: 14, fontSize: 14, fontWeight: 700 }}>{translate('ob.loading', getLang())}</div>
+      <div style={{ marginTop: 14, fontSize: 'var(--t-text-body)', fontWeight: 700 }}>{translate('ob.loading', getLang())}</div>
     </div>
   );
 }

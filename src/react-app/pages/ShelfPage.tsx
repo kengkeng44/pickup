@@ -33,10 +33,10 @@ export default function ShelfPage() {
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 2px' }}>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 2px' }}>
         📚 {t('shelf.title')}
       </h1>
-      <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--t-text-muted)', marginBottom: 16 }}>
+      <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginBottom: 14 }}>
         {t('shelf.sub')}
       </div>
 
@@ -68,11 +68,11 @@ export default function ShelfPage() {
               <span style={{ fontSize: 34, lineHeight: 1, filter: unlocked ? 'none' : 'grayscale(1)' }} aria-hidden="true">
                 {unlocked ? meta.emoji : '🔒'}
               </span>
-              <span style={{ fontSize: 13.5, fontWeight: 900, color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)', lineHeight: 1.3 }}>
+              <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)', lineHeight: 1.3 }}>
                 {zh ? meta.titleZh : meta.titleEn}
               </span>
               {!unlocked && (
-                <span style={{ fontSize: 10.5, fontWeight: 700, color: 'var(--t-text-muted)' }}>
+                <span style={{ fontSize: 'var(--t-text-micro)', fontWeight: 700, color: 'var(--t-text-muted)' }}>
                   {t('shelf.lockHint').replace('{n}', String(afterNight))}
                 </span>
               )}

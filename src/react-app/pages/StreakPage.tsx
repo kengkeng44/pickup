@@ -41,7 +41,7 @@ export default function StreakPage() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
         <img src="/mascots/icon-flame.webp" width={150} height={150} alt="" style={{ display: 'block', filter: 'drop-shadow(0 8px 16px rgba(255,122,58,0.28))' }} />
         <div style={{ fontSize: 80, fontWeight: 900, color: FLAME, lineHeight: 1.05, letterSpacing: '-0.02em' }}>{streak}</div>
-        <div style={{ fontSize: 26, fontWeight: 900, color: FLAME, marginBottom: 22 }}>{t('streak.title')}</div>
+        <div style={{ fontSize: 'var(--t-text-display)', fontWeight: 900, color: FLAME, marginBottom: 22 }}>{t('streak.title')}</div>
 
         {/* 週曆 */}
         <div style={{
@@ -51,7 +51,7 @@ export default function StreakPage() {
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             {week.days.map((d) => (
-              <div key={d.iso} style={{ flex: 1, textAlign: 'center', fontSize: 15, fontWeight: 800, color: d.isToday ? FLAME : 'var(--t-text-muted)', marginBottom: 8 }}>{d.label}</div>
+              <div key={d.iso} style={{ flex: 1, textAlign: 'center', fontSize: 'var(--t-text-label)', fontWeight: 800, color: d.isToday ? FLAME : 'var(--t-text-muted)', marginBottom: 8 }}>{d.label}</div>
             ))}
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: 4 }}>
@@ -105,10 +105,10 @@ export default function StreakPage() {
             ))}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
+            <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
               {t('streak.freezeTitle')}{freezes > FREEZE_SLOTS ? ` ×${freezes}` : ''}
             </div>
-            <div style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.4 }}>
+            <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.4 }}>
               {t('streak.freezeDesc')}
             </div>
             {freezes < FREEZE_SLOTS && (
@@ -116,7 +116,7 @@ export default function StreakPage() {
                 marginTop: 8, padding: '8px 14px', border: 'none', borderRadius: 'var(--t-radius-md)',
                 background: coins >= FREEZE_PRICE ? 'var(--t-focus)' : 'var(--t-border-card)', color: '#fff',
                 borderBottom: `4px solid ${coins >= FREEZE_PRICE ? '#1690c9' : 'var(--t-border-strong)'}`,
-                fontSize: 13.5, fontWeight: 900, fontFamily: 'inherit',
+                fontSize: 'var(--t-text-label)', fontWeight: 900, fontFamily: 'inherit',
                 cursor: coins >= FREEZE_PRICE ? 'pointer' : 'default',
                 WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
               }}>
@@ -126,7 +126,7 @@ export default function StreakPage() {
           </div>
         </div>
 
-        <div style={{ marginTop: 20, fontSize: 16, fontWeight: 700, color: 'var(--t-text-muted)', textAlign: 'center', lineHeight: 1.6, maxWidth: 320 }}>
+        <div style={{ marginTop: 20, fontSize: 'var(--t-text-body)', fontWeight: 700, color: 'var(--t-text-muted)', textAlign: 'center', lineHeight: 1.6, maxWidth: 320 }}>
           {week.perfect
             ? t('streak.perfect')
             : t('streak.more').replace('{n}', String(week.remaining))}
@@ -144,7 +144,7 @@ export default function StreakPage() {
         <button type="button" onClick={() => navigate(-1)}
           style={{
             flex: 1, minHeight: 56, borderRadius: 'var(--t-radius-card)', border: 'none',
-            background: 'var(--t-focus)', color: '#fff', fontSize: 18, fontWeight: 900, fontFamily: 'inherit',
+            background: 'var(--t-focus)', color: '#fff', fontSize: 'var(--t-text-button)', fontWeight: 900, fontFamily: 'inherit',
             borderBottom: '4px solid #1690c9', cursor: 'pointer',
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
           }}>

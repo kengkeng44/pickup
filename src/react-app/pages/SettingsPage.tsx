@@ -41,8 +41,8 @@ function Row({ title, sub, children }: { title: string; sub?: string; children: 
   return (
     <div style={{ ...rowStyle, marginTop: 0 }}>
       <div style={{ flex: 1 }}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>{title}</div>
-        {sub && <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2 }}>{sub}</div>}
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)' }}>{title}</div>
+        {sub && <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginTop: 2 }}>{sub}</div>}
       </div>
       {children}
     </div>
@@ -58,7 +58,7 @@ function SegRow<T extends string>({ value, options, onPick }: {
       {options.map(([v, label]) => (
         <button key={v} type="button" onClick={() => onPick(v)}
           style={{
-            flex: '1 1 28%', padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 13,
+            flex: '1 1 28%', padding: '10px 0', borderRadius: 10, fontFamily: 'inherit', fontWeight: 800, fontSize: 'var(--t-text-label)',
             cursor: 'pointer', minHeight: 44,
             border: value === v ? '2px solid var(--t-brand-dark)' : '2px solid var(--t-border-card)',
             background: value === v ? 'var(--t-brand-dark)' : 'var(--t-bg)',
@@ -92,17 +92,17 @@ export default function SettingsPage() {
   };
 
   return (
-    <div style={{ padding: '16px 14px 32px' }}>
+    <div style={{ padding: '16px 14px 24px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
         <button type="button" onClick={() => navigate('/profile')} aria-label={t('settings.back')}
           style={{ background: 'transparent', border: 'none', fontSize: 26, color: 'var(--t-text-muted)', cursor: 'pointer', lineHeight: 1 }}>‹</button>
-        <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>{t('settings.title')}</h1>
+        <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>{t('settings.title')}</h1>
       </div>
 
       {/* 語言 — 中 / 英 (v2.0.B.cron) */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.lang')}</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.lang.sub')}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.lang')}</div>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.lang.sub')}</div>
         <SegRow<UiLang> value={lang} onPick={applyLang} options={[['zh', '中文'], ['zh-Hans', '简体'], ['en', 'English'], ['ja', '日本語'], ['ko', '한국어']]} />
       </div>
 
@@ -126,8 +126,8 @@ export default function SettingsPage() {
 
       {/* 難度 — 初級 / 中級(預設) / 高級 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.difficulty')}</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.difficulty.sub')}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.difficulty')}</div>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.difficulty.sub')}</div>
         <SegRow<Diff> value={diff} onPick={applyDiff} options={[
           ['easy', t('diff.easy')],
           ['medium', `${t('diff.medium')} · ${t('diff.default')}`],
@@ -137,8 +137,8 @@ export default function SettingsPage() {
 
       {/* 理解題模式 — 跟著難度 / 聽 / 讀 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.comp')}</div>
-        <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.comp.sub')}<br />{t('settings.comp.autoHint')}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.comp')}</div>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.comp.sub')}<br />{t('settings.comp.autoHint')}</div>
         <SegRow<ComprehensionMode> value={compMode} onPick={applyCompMode} options={[
           ['auto', t('comp.auto')],
           ['listen', t('comp.listen')],
@@ -151,8 +151,8 @@ export default function SettingsPage() {
         style={{ ...cardStyle, width: '100%', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', borderBottom: '4px solid var(--t-border-card)' }}>
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">👨‍👩‍👧</span>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>{t('settings.parent')}</div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>{t('settings.parent.sub')}</div>
+          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>{t('settings.parent')}</div>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>{t('settings.parent.sub')}</div>
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>

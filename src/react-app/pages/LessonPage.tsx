@@ -303,13 +303,13 @@ export default function LessonPage() {
       {inReview && (
         <div style={{
           flexShrink: 0, margin: '4px 0 8px', padding: '8px 12px', borderRadius: 'var(--t-radius-md)',
-          background: 'var(--t-tint-warn)', color: '#78350f', fontSize: 13, fontWeight: 800,
+          background: 'var(--t-tint-warn)', color: '#78350f', fontSize: 'var(--t-text-label)', fontWeight: 800,
           display: 'flex', alignItems: 'center', gap: 6,
         }}>✏️ {isLastLessonOfChapter ? '章末錯題複習 · 單字 / 文法 / 時態' : '錯題複習 · 鞏固單字 / 文法 / 時態'}</div>
       )}
       {/* v2.0.B.462: 題型標題移出捲動區 (固定), 跟上面隔開有空間, 避免標題被捲走 / 撐出空白下滑 */}
       {TYPE_TITLE[q.type] && (
-        <h2 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '8px 0 0', lineHeight: 1.2, flexShrink: 0 }}>
+        <h2 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '8px 0 0', lineHeight: 1.2, flexShrink: 0 }}>
           {translate(TYPE_TITLE[q.type], getLang())}
         </h2>
       )}
@@ -324,7 +324,7 @@ export default function LessonPage() {
           {/* v2.0.B.552: 答對讚語 — pop 進場, 一次答對/重試成功兩套輪替 */}
           {praise && (
             <div key={praise + idx} className="pickup-streak-pop" style={{
-              textAlign: 'center', fontSize: 15, fontWeight: 900, color: 'var(--t-success)', marginBottom: 4,
+              textAlign: 'center', fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-success)', marginBottom: 4,
             }}>{praise}</div>
           )}
           <div style={{ display: 'flex', justifyContent: 'center', gap: 18 }}>
@@ -347,17 +347,17 @@ export default function LessonPage() {
             boxShadow: '0 -8px 28px rgba(0,0,0,0.18)', animation: 'pickup-fade-up 200ms ease',
           }}>
             <img src="/mascots/calico-anchor.webp" width={84} height={84} alt="" style={{ display: 'block', margin: '0 auto 12px' }} />
-            <div style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', marginBottom: 18, lineHeight: 1.4 }}>
+            <div style={{ fontSize: 'var(--t-text-stem)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 18, lineHeight: 1.4 }}>
               {translate('q.exitTitle', getLang())}
             </div>
             <button type="button" onClick={() => setShowExit(false)} style={{
               width: '100%', minHeight: 50, border: 'none', borderRadius: 'var(--t-radius-card)', background: 'var(--t-success)',
-              color: '#fff', fontSize: 16, fontWeight: 900, fontFamily: 'inherit', cursor: 'pointer',
+              color: '#fff', fontSize: 'var(--t-text-button)', fontWeight: 900, fontFamily: 'inherit', cursor: 'pointer',
               borderBottom: '4px solid var(--t-brand-dark)',
             }}>{translate('q.exitStay', getLang())}</button>
             <button type="button" onClick={() => navigate('/')} style={{
               width: '100%', minHeight: 46, marginTop: 10, border: 'none', borderRadius: 'var(--t-radius-card)', background: 'transparent',
-              color: 'var(--t-error)', fontSize: 15, fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
+              color: 'var(--t-error)', fontSize: 'var(--t-text-button)', fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
             }}>{translate('q.exitLeave', getLang())}</button>
           </div>
         </div>
@@ -423,15 +423,15 @@ function ReportBtn({ qid }: { qid: string }) {
             animation: 'pickup-fade-up 200ms ease',
           }}>
             {done ? (
-              <div style={{ textAlign: 'center', fontSize: 16, fontWeight: 900, color: 'var(--t-success)', padding: '20px 0' }}>{cfg.thanks}</div>
+              <div style={{ textAlign: 'center', fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-success)', padding: '20px 0' }}>{cfg.thanks}</div>
             ) : (
               <>
-                <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)', margin: '2px 4px 12px' }}>{cfg.title}</div>
+                <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)', margin: '2px 4px 12px' }}>{cfg.title}</div>
                 {cfg.opts.map((o) => (
                   <button key={o.key} type="button" onClick={() => submit(o.key)} style={{
                     width: '100%', textAlign: 'left', padding: '13px 14px', marginBottom: 8, borderRadius: 'var(--t-radius-md)',
                     border: '2px solid var(--t-border-card)', background: 'var(--t-surface)', color: 'var(--t-text)',
-                    fontSize: 15, fontWeight: 700, fontFamily: 'inherit', cursor: 'pointer',
+                    fontSize: 'var(--t-text-body)', fontWeight: 700, fontFamily: 'inherit', cursor: 'pointer',
                     WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
                   }}>{o.label}</button>
                 ))}
@@ -602,15 +602,15 @@ function ReviewDonePanel({ correct, total, onBack }: { correct: number; total: n
   return (
     <div className="pickup-fade-up" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flexGrow: 1, padding: '40px 24px', textAlign: 'center', gap: 16 }}>
       <img src="/mascots/calico-anchor.webp" width={120} height={120} alt="Mochi" className="pickup-bounce" style={{ borderRadius: '50%' }} />
-      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>
+      <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)' }}>
         {empty ? '本章全對了！' : '複習完成！'}
       </div>
-      <div style={{ fontSize: 15, fontWeight: 700, color: '#7a6850', lineHeight: 1.6 }}>
+      <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: '#7a6850', lineHeight: 1.6 }}>
         {empty ? '這一章沒有錯題要複習 🎉 太厲害了！' : `這次複習答對 ${correct} / ${total} 題`}
       </div>
       <button onClick={onBack} style={{
         marginTop: 8, minWidth: 200, minHeight: 52, border: 'none', borderRadius: 'var(--t-radius-card)',
-        background: 'var(--t-brand)', color: '#fff', fontSize: 16, fontWeight: 900, fontFamily: 'inherit',
+        background: 'var(--t-brand)', color: '#fff', fontSize: 'var(--t-text-button)', fontWeight: 900, fontFamily: 'inherit',
         borderBottom: '4px solid var(--t-brand-dark)', cursor: 'pointer',
         WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
       }}>回地圖 →</button>
@@ -753,9 +753,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
       {legendary && (
-        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 'var(--t-radius-pill)', fontSize: 13, fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
+        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 'var(--t-radius-pill)', fontSize: 'var(--t-text-label)', fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
       )}
-      <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
+      <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
         <Stat label={`⚡ ${translate('done.xp', getLang())}`} value={xp} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
         {/* v2.0.B.538 (walkthrough TRAUMA-03, per user): 入門前 3 關不顯示「%」(像成績單/不及格暗示),
@@ -772,7 +772,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)',
           padding: '14px 16px', marginBottom: 24,
         }}>
-          <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>🏆 這個單元你學會了</div>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>🏆 這個單元你學會了</div>
           <div style={{ display: 'flex', gap: 10 }}>
             <Stat label="新單字 Words" value={chapterReward.words} color="var(--t-brand-dark)" bg="var(--t-tint-warn)" />
             <Stat label="新片語 Phrases" value={chapterReward.phrases} color="var(--t-success)" bg="var(--t-success-tint)" />
@@ -804,7 +804,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           border: '1.5px dashed var(--t-border-card)',
           borderRadius: 10,
           color: 'var(--t-text-muted)',
-          fontSize: 14,
+          fontSize: 'var(--t-text-label)',
           fontWeight: 700,
           textAlign: 'center',
           letterSpacing: '0.3px',
@@ -826,7 +826,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           style={{
             padding: '14px 20px', background: 'var(--t-surface-alt)', color: '#7a5e25',
             border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)',
-            borderRadius: 'var(--t-radius-card)', fontSize: 15, fontWeight: 800,
+            borderRadius: 'var(--t-radius-card)', fontSize: 'var(--t-text-button)', fontWeight: 800,
             cursor: 'pointer', fontFamily: 'inherit',
             width: '100%', maxWidth: 420, marginBottom: 10,
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
@@ -841,7 +841,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
           一律回地圖, 下一個主線章由 gate 自然亮起。 */}
       <button onClick={onBack} className="pickup-press" style={{
         padding: '16px 24px', background: 'var(--t-success)', color: 'var(--t-surface)', border: 'none',
-        borderBottom: '4px solid rgba(0,0,0,0.25)', borderRadius: 'var(--t-radius-card)', fontSize: 17, fontWeight: 900,
+        borderBottom: '4px solid rgba(0,0,0,0.25)', borderRadius: 'var(--t-radius-card)', fontSize: 'var(--t-text-button)', fontWeight: 900,
         cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
         WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
       }} aria-label="完成 Continue">→</button>
@@ -894,8 +894,8 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
     }}>
       <span style={{ fontSize: 28 }}>{icon}</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>{zh}</div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>{en}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>{zh}</div>
+        <div style={{ fontSize: 'var(--t-text-micro)', fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>{en}</div>
       </div>
     </div>
   );
@@ -916,10 +916,10 @@ function NewCardsBanner({ count }: { count: number }) {
     }}>
       <span style={{ fontSize: 28 }}>📒</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
           你解鎖了 {count} 張新卡片!
         </div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
+        <div style={{ fontSize: 'var(--t-text-micro)', fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
           You unlocked {count} new card{count > 1 ? 's' : ''}. Check 圖鑑 tab.
         </div>
       </div>
@@ -950,12 +950,12 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
     }}>
       <span style={{ fontSize: 28 }} aria-hidden="true">{firstBadge}</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
-        <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', lineHeight: 1.3 }}>
           {outfits.length === 1
             ? `新裝扮:${namesZh}`
             : `${outfits.length} 套新裝扮:${namesZh}`}
         </div>
-        <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
+        <div style={{ fontSize: 'var(--t-text-micro)', fontWeight: 600, color: 'var(--t-text-muted)', marginTop: 2 }}>
           New outfit{outfits.length > 1 ? 's' : ''}: {namesEn} · 我的 → 衣櫥 試穿
         </div>
       </div>
@@ -966,8 +966,8 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
 function Stat({ label, value, color, bg }: { label: string; value: number | string; color: string; bg: string }) {
   return (
     <div style={{ flex: 1, padding: '12px 8px', background: bg, border: `2px solid ${color}`, borderBottom: `4px solid ${color}`, borderRadius: 'var(--t-radius-card)', opacity: 0.95 }}>
-      <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--t-text-muted)', letterSpacing: 1, marginBottom: 4 }}>{label}</div>
-      <div style={{ fontSize: 22, fontWeight: 900, color }}>{value}</div>
+      <div style={{ fontSize: 'var(--t-text-micro)', fontWeight: 800, color: 'var(--t-text-muted)', letterSpacing: 1, marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color }}>{value}</div>
     </div>
   );
 }

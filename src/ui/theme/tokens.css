@@ -47,13 +47,24 @@
   /* ── Radius ── */
   --t-radius-sm: 6px; --t-radius-md: 12px; --t-radius-card: 14px; --t-radius-lg: 20px; --t-radius-pill: 999px;
 
-  /* ── Type sizes ── */
-  --t-text-micro: 12px; --t-text-body: 16px; --t-text-button: 16px;
-  --t-text-title: 20px; --t-text-stat: 24px; --t-text-display: 28px;
-  /* v2.0.B.566 (per user「所有題目答案同一個標準」): 答題畫面兩級制 —
-   * 題幹 (要讀/要翻的句子、提示) = 18px w800; 答案元件 (選項/tile/配對卡/輸入) = 16px。
-   * 所有 renderer 一律用這兩個 token, 不得自訂字級。 */
-  --t-text-stem: 18px; --t-text-option: 16px;
+  /* ── Typography ramp (v2.0.B.567 — 研究自 Duolingo design system) ──
+   * 全 app 唯一字級標準, 7 級 + 對應字重/行高。inline style 一律引 token。
+   * Duolingo 手感三要素 (照抄): 圓體字 (Nunito ≈ Feather/DIN Round 免費近親)、
+   * 微字距 (latin 0.02em)、字重大膽 (標題 900 / 內文 600 / 互動 800)。
+   *   display 28/900  splash·慶祝    title 22/900  頁面大標
+   *   stem    18/800  題幹·重點句    body  16/600  一般內文
+   *   option  16/800  選項·互動元件  label 13/700  輔助說明
+   *   micro   11/700  徽章·計數
+   * 行高: 中文內文 1.6 / 標題 1.25 / 互動元件 1.3。 */
+  --t-text-display: 28px; --t-text-title: 22px;
+  --t-text-stem: 18px;    --t-text-body: 16px;
+  --t-text-option: 16px;  --t-text-button: 16px;
+  --t-text-label: 13px;   --t-text-micro: 11px;
+  --t-text-stat: 24px;
+  --t-w-display: 900; --t-w-title: 900; --t-w-stem: 800;
+  --t-w-body: 600; --t-w-option: 800; --t-w-label: 700;
+  --t-lh-title: 1.25; --t-lh-body: 1.6; --t-lh-ui: 1.3;
+  --t-ls-latin: 0.02em;
 
   /* ── Elevation: FLAT only (零 blur, per brand rule). depth = solid offset ── */
   --t-elev-1: 0 2px 0 var(--t-border-strong);
