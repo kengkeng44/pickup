@@ -86,11 +86,12 @@ export default function ProfilePage() {
 
       {/* v2.0.B.329: 統計 (拿掉「統計」標題, 直接呈現 4 格 — 更簡潔) */}
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14 }}>
+        {/* v2.0.B.573: stat 磚上色 (Duolingo stat tile) — icon/數字語意色 + 12% tint 底 */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          <Stat label={t('profile.stat.streak')} value={`${streak} 🔥`} />
-          <Stat label={t('profile.stat.xp')} value={String(xp)} />
-          <Stat label={t('profile.stat.coins')} value={String(coins)} />
-          <Stat label={t('profile.stat.crown')} value={`L${level}`} />
+          <Stat label={t('profile.stat.streak')} value={String(streak)} icon="🔥" color="#ff7a3a" />
+          <Stat label={t('profile.stat.xp')} value={String(xp)} icon="⚡" color="var(--t-focus)" />
+          <Stat label={t('profile.stat.coins')} value={String(coins)} icon="🪙" color="var(--t-brand)" />
+          <Stat label={t('profile.stat.crown')} value={`L${level}`} icon="👑" color="#8b5cf6" />
         </div>
       </div>
 
@@ -164,7 +165,7 @@ function PlayerSwitcher() {
             width: '100%', display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8,
             padding: '11px 14px', borderRadius: 'var(--t-radius-md)', fontFamily: 'inherit', textAlign: 'left',
             border: `2px solid ${isActive ? 'var(--t-success)' : 'var(--t-border-card)'}`,
-            background: isActive ? 'var(--t-success-tint)' : '#fff',
+            background: isActive ? 'var(--t-success-tint)' : 'var(--t-surface)',
             cursor: isActive ? 'default' : 'pointer',
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
           }}>
@@ -196,11 +197,19 @@ function PlayerSwitcher() {
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+// v2.0.B.573: Duolingo stat tile — 語意色 icon+數字 + 低飽和 tint 底 (color-mix 跟著亮/暗 token 走, 夜色不亮底)
+function Stat({ label, value, icon, color }: { label: string; value: string; icon: string; color: string }) {
   return (
-    <div style={{ padding: 10, background: 'var(--t-bg)', borderRadius: 10, textAlign: 'center', border: '1px solid var(--t-border-soft)' }}>
+    <div style={{
+      padding: 10, borderRadius: 10, textAlign: 'center',
+      background: `color-mix(in srgb, ${color} 12%, transparent)`,
+      border: `1px solid color-mix(in srgb, ${color} 35%, transparent)`,
+    }}>
       <div style={{ fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)', marginBottom: 4, fontWeight: 700 }}>{label}</div>
-      <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: 'var(--t-brand-dark)' }}>{value}</div>
+      <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+        <span aria-hidden="true" style={{ fontSize: 18, lineHeight: 1 }}>{icon}</span>
+        <span>{value}</span>
+      </div>
     </div>
   );
 }

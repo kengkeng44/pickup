@@ -128,10 +128,10 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
       }}
     >
       <div style={{
-        background: '#fef8ed',
+        background: 'var(--t-surface-raised)',
         borderRadius: 18,
-        border: '2px solid #c8a878',
-        borderBottom: '5px solid #8b6f4a',
+        border: '2px solid var(--t-border-card)',
+        borderBottom: '5px solid var(--t-border-strong)',
         padding: 18,
         width: '100%',
         maxWidth: 420,
@@ -139,15 +139,15 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         overflowY: 'auto',
         boxSizing: 'border-box',
         fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
-        color: '#3c2a1c',
+        color: 'var(--t-text)',
       }}>
         {/* v2.0.B.536 (per user 極簡): 移除 ✕, 點背景即關閉 */}
-        <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: '#3c2a1c', marginBottom: 12 }}>分享金句</div>
+        <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 12 }}>分享金句</div>
 
         {/* Preview card */}
         <div style={{
-          background: '#fff7e8',
-          border: '2px solid #e7a44a',
+          background: 'var(--t-surface-alt)',
+          border: '2px solid var(--t-brand)',
           borderRadius: 'var(--t-radius-md)',
           padding: 6,
           marginBottom: 14,
@@ -162,7 +162,7 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         </div>
 
         {/* Source attribution (text — accessible fallback) */}
-        <div style={{ fontSize: 'var(--t-text-label)', color: '#8b6f4a', textAlign: 'center', marginBottom: 14, lineHeight: 1.5 }}>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', textAlign: 'center', marginBottom: 14, lineHeight: 1.5 }}>
           {sentence.source}
         </div>
 
@@ -211,8 +211,8 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         {savedHint && (
           <div style={{
             marginTop: 8, padding: '10px 12px',
-            background: '#fef3c7', border: '1.5px solid #c8a878',
-            borderRadius: 10, color: '#7a5e25',
+            background: 'var(--t-tint-warn)', border: '1.5px solid var(--t-border-card)',
+            borderRadius: 10, color: 'var(--t-text)',
             fontSize: 'var(--t-text-label)', fontWeight: 700, textAlign: 'center',
           }}>{savedHint}</div>
         )}

@@ -291,11 +291,11 @@ function AnchoredPopover({ anchor, onClose, children, maxWidth = 320 }: {
         <div aria-hidden="true" style={{
           position: 'absolute', left: tailX - 8, width: 16, height: 16,
           top: below ? -7 : undefined, bottom: below ? undefined : -7,
-          background: 'var(--t-surface)', transform: 'rotate(45deg)', zIndex: 0,
+          background: 'var(--t-surface-raised)', transform: 'rotate(45deg)', zIndex: 0,
         }} />
         <div style={{
           position: 'relative', zIndex: 1,
-          background: 'var(--t-surface)', borderRadius: 18,
+          background: 'var(--t-surface-raised)', borderRadius: 18,
           maxHeight: maxH > 180 ? maxH : undefined, overflowY: 'auto',
           boxShadow: '0 10px 30px rgba(40,28,16,0.22)',
           padding: '16px',

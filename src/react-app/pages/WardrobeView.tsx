@@ -67,7 +67,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         onClick={(e) => e.stopPropagation()}
         className="pickup-fade-up"
         style={{
-          background: 'var(--t-bg)',
+          background: 'var(--t-surface-raised)',
           width: '100%', maxWidth: 460,
           margin: 'auto', borderRadius: 18,
           maxHeight: '92dvh',
@@ -111,7 +111,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
               {preview.name.en}
             </div>
             <div style={{
-              marginTop: 8, fontSize: 'var(--t-text-label)', color: '#5a4530',
+              marginTop: 8, fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)',
               fontWeight: 600, lineHeight: 1.45,
             }}>
               {isPreviewUnlocked ? preview.bio.zh : preview.unlockHint.zh}
@@ -134,12 +134,12 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
               width: '100%', padding: '12px 18px',
               background: isPreviewUnlocked
                 ? (isPreviewCurrent ? 'var(--t-border-card)' : 'var(--t-success)')
-                : '#c4b89c',
-              color: '#fff', border: 'none',
+                : 'var(--t-border-strong)',
+              color: 'var(--t-text-inverse)', border: 'none',
               borderBottom: `4px solid ${
                 isPreviewUnlocked
                   ? (isPreviewCurrent ? 'var(--t-text-muted)' : 'var(--t-success)')
-                  : '#a89c80'
+                  : 'var(--t-border-card)'
               }`,
               borderRadius: 'var(--t-radius-md)',
               fontSize: 'var(--t-text-button)', fontWeight: 900,
@@ -173,8 +173,9 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   aria-label={`${o.name.zh} · ${o.name.en}${isUnlocked ? '' : ' (locked)'}`}
                   style={{
                     background: isSelected ? 'var(--t-surface-alt)' : 'var(--t-surface)',
-                    border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? 'var(--t-border-card)' : '#c4b89c'}`,
-                    borderBottom: `4px solid ${isSelected ? 'var(--t-brand-dark)' : isUnlocked ? 'var(--t-text-muted)' : '#a89c80'}`,
+                    // v2.0.B.573: 鎖定樣式統一 (對齊 ShelfPage) — border-soft, 不再亮灰
+                    border: `2px solid ${isSelected ? 'var(--t-brand)' : isUnlocked ? 'var(--t-border-card)' : 'var(--t-border-soft)'}`,
+                    borderBottom: `4px solid ${isSelected ? 'var(--t-brand-dark)' : isUnlocked ? 'var(--t-text-muted)' : 'var(--t-border-soft)'}`,
                     borderRadius: 'var(--t-radius-md)',
                     padding: '10px 6px 8px',
                     display: 'flex', flexDirection: 'column',

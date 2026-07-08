@@ -180,11 +180,13 @@ function CardTile({ card, unlocked, onClick }: {
       onClick={onClick}
       aria-label={`${card.nameZh} · ${card.nameEn}${unlocked ? '' : ' (locked)'}`}
       style={{
-        background: unlocked ? 'var(--t-surface)' : '#f1ebe1',
-        border: `2px solid ${unlocked ? 'var(--t-brand)' : '#c4b89c'}`,
-        borderBottom: `4px solid ${unlocked ? 'var(--t-brand-dark)' : '#a89c80'}`,
+        // v2.0.B.573: 鎖卡夜色化 — 亮灰底改 surface + border-soft + opacity 0.55 (對齊 ShelfPage 鎖書卡)
+        background: 'var(--t-surface)',
+        border: `2px solid ${unlocked ? 'var(--t-brand)' : 'var(--t-border-soft)'}`,
+        borderBottom: `4px solid ${unlocked ? 'var(--t-brand-dark)' : 'var(--t-border-soft)'}`,
         borderRadius: 'var(--t-radius-card)',
         padding: '14px 8px',
+        opacity: unlocked ? 1 : 0.55,
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
         cursor: 'pointer',
         fontFamily: 'inherit',
@@ -216,7 +218,7 @@ function CardTile({ card, unlocked, onClick }: {
         {unlocked ? card.nameZh : '???'}
       </div>
       <div style={{
-        fontSize: 'var(--t-text-micro)', fontWeight: 700, color: unlocked ? 'var(--t-text-muted)' : '#a89c80',
+        fontSize: 'var(--t-text-micro)', fontWeight: 700, color: 'var(--t-text-muted)',
         textAlign: 'center', lineHeight: 1.2,
       }}>
         {unlocked ? card.nameEn : '???'}
@@ -243,7 +245,7 @@ function CardDetail({ card, unlocked, onClose }: {
         onClick={(e) => e.stopPropagation()}
         className="pickup-fade-up"
         style={{
-          background: 'var(--t-surface)', borderRadius: 18,
+          background: 'var(--t-surface-raised)', borderRadius: 18,
           maxWidth: 380, width: '100%',
           padding: '24px 22px',
           border: '2px solid var(--t-brand)',
@@ -295,7 +297,7 @@ function CardDetail({ card, unlocked, onClose }: {
             <div style={{
               marginTop: 8, padding: '12px 14px',
               background: 'var(--t-bg)', borderRadius: 10,
-              fontSize: 'var(--t-text-label)', fontWeight: 600, color: '#5a4530', lineHeight: 1.5,
+              fontSize: 'var(--t-text-label)', fontWeight: 600, color: 'var(--t-text-muted)', lineHeight: 1.5,
               textAlign: 'left', fontStyle: 'italic',
             }}>
               {card.bioEn}
