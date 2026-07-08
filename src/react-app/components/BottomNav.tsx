@@ -21,8 +21,10 @@ export default function BottomNav() {
 
   return (
     <nav style={{
+      // v2.0.B.573 夜色化: bar 跟主題走 (原 surface-alt 奶油條在夜色 app 下超突兀)。
+      // 底 = --t-bg 融入頁面, 頂邊 1px --t-border 分隔, active 琥珀框走 --t-brand token。
       position: 'fixed', bottom: 0, left: 0, right: 0,
-      background: 'var(--t-surface-alt)', borderTop: '3px solid var(--t-border-card)',
+      background: 'var(--t-bg)', borderTop: '1px solid var(--t-border)',
       display: 'flex', justifyContent: 'space-around', padding: '8px 0 calc(8px + env(safe-area-inset-bottom))',
       zIndex: 100,
     }}>
@@ -38,8 +40,8 @@ export default function BottomNav() {
               // 從原本的 borderTop line 改成 2.5px 完整框 + 淡 amber tint
               flex: 1, cursor: 'pointer',
               margin: '0 3px', padding: '4px 0',
-              background: active ? 'rgba(231,164,74,0.14)' : 'transparent',
-              border: active ? '2.5px solid #d68a52' : '2.5px solid transparent',
+              background: active ? 'color-mix(in srgb, var(--t-brand) 14%, transparent)' : 'transparent',
+              border: active ? '2.5px solid var(--t-brand)' : '2.5px solid transparent',
               borderRadius: 'var(--t-radius-md)',
               transition: 'background 0.2s ease, border-color 0.2s ease',
               fontFamily: 'inherit',

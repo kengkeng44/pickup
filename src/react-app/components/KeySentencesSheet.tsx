@@ -63,7 +63,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
       {/* v2.0.B.536 (per user 極簡): 改置中面板 + 遮罩, 移除 ×, 點背景即關閉 */}
       <div style={{
         width: 'min(420px, calc(100vw - 32px))', maxHeight: '88dvh', overflowY: 'auto',
-        background: 'var(--t-bg)', borderRadius: 18,
+        background: 'var(--t-surface-raised)', borderRadius: 18,
         border: '2px solid var(--t-border)', borderBottom: '4px solid var(--t-border-strong)',
         padding: '20px 18px calc(18px + env(safe-area-inset-bottom))',
         display: 'flex', flexDirection: 'column', gap: 14,
@@ -71,7 +71,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
       }}>
         {/* Title */}
         <div>
-          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, letterSpacing: 1.5, color: '#7a6850', textTransform: 'uppercase', textAlign: 'center' }}>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, letterSpacing: 1.5, color: 'var(--t-text-muted)', textTransform: 'uppercase', textAlign: 'center' }}>
             {titleEn}
           </div>
           <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', textAlign: 'center', marginTop: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
@@ -86,7 +86,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
         {/* Sentence bubbles */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {narrations.length === 0 ? (
-            <div style={{ padding: 20, textAlign: 'center', color: '#7a6850', fontSize: 'var(--t-text-label)' }}>No key sentences yet</div>
+            <div style={{ padding: 20, textAlign: 'center', color: 'var(--t-text-muted)', fontSize: 'var(--t-text-label)' }}>No key sentences yet</div>
           ) : narrations.map(q => (
             <div
               key={q.id}
@@ -118,7 +118,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
                   {q.sentence}
                 </div>
                 {q.explanationZh && (
-                  <div style={{ fontSize: 'var(--t-text-label)', color: '#7a6850', marginTop: 4, lineHeight: 1.4 }}>
+                  <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginTop: 4, lineHeight: 1.4 }}>
                     {q.explanationZh}
                   </div>
                 )}

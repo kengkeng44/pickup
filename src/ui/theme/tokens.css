@@ -15,6 +15,9 @@
   /* ── Color: surfaces ── */
   --t-bg: #fef8ed;            /* app cream */
   --t-surface: #ffffff;       /* card */
+  /* v2.0.B.573 dark elevation (Material 暗色規範: 表面越高越亮, 不是投影):
+   * raised = 彈窗/popover/modal/sheet 底。亮色不需要層次 → 同 surface。 */
+  --t-surface-raised: #ffffff;
   --t-surface-alt: #fff7e8;   /* tinted card / banner */
   --t-border: #ead9bb;
   --t-border-strong: #d4c098;
@@ -88,6 +91,7 @@
 .t-scope-dark {
   --t-bg: #1a1410;
   --t-surface: #241c15;
+  --t-surface-raised: #322619; /* 彈窗浮起來: 比 surface 亮一階的暖棕 */
   --t-surface-alt: #2e241a;
   --t-border: #3a2e22;
   --t-border-strong: #4a3c2c;

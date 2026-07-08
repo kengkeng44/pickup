@@ -341,7 +341,7 @@ export default function LessonPage() {
           background: 'rgba(40,28,16,0.45)',
         }}>
           <div onClick={(e) => e.stopPropagation()} style={{
-            width: '100%', maxWidth: 420, background: 'var(--t-surface)',
+            width: '100%', maxWidth: 420, background: 'var(--t-surface-raised)',
             borderTopLeftRadius: 22, borderTopRightRadius: 22,
             padding: '24px 20px calc(20px + env(safe-area-inset-bottom))', textAlign: 'center',
             boxShadow: '0 -8px 28px rgba(0,0,0,0.18)', animation: 'pickup-fade-up 200ms ease',
@@ -357,7 +357,7 @@ export default function LessonPage() {
             }}>{translate('q.exitStay', getLang())}</button>
             <button type="button" onClick={() => navigate('/')} style={{
               width: '100%', minHeight: 46, marginTop: 10, border: 'none', borderRadius: 'var(--t-radius-card)', background: 'transparent',
-              color: 'var(--t-error)', fontSize: 'var(--t-text-button)', fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
+              color: 'var(--t-danger)', fontSize: 'var(--t-text-button)', fontWeight: 800, fontFamily: 'inherit', cursor: 'pointer',
             }}>{translate('q.exitLeave', getLang())}</button>
           </div>
         </div>
@@ -418,7 +418,7 @@ function ReportBtn({ qid }: { qid: string }) {
           background: 'rgba(40,28,16,0.45)',
         }}>
           <div onClick={(e) => e.stopPropagation()} style={{
-            width: '100%', maxWidth: 420, background: 'var(--t-surface)', borderTopLeftRadius: 22, borderTopRightRadius: 22,
+            width: '100%', maxWidth: 420, background: 'var(--t-surface-raised)', borderTopLeftRadius: 22, borderTopRightRadius: 22,
             padding: '18px 16px calc(16px + env(safe-area-inset-bottom))', boxShadow: '0 -8px 28px rgba(0,0,0,0.18)',
             animation: 'pickup-fade-up 200ms ease',
           }}>

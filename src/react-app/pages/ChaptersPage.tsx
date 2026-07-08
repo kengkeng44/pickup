@@ -249,9 +249,10 @@ export default function ChaptersPage() {
                     aria-label={`Section ${ch.id} ${ch.titleZh}${isComplete ? ' completed' : comingSoon ? ' coming soon' : unlocked ? ` ${pct} percent` : ' locked'}`}
                     style={{
                       minHeight: 160,
-                      background: isComplete ? 'var(--t-success-tint)' : unlocked ? 'var(--t-surface-alt)' : '#e8dec8',
-                      border: `2px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
-                      borderBottom: `4px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-text-muted)'}`,
+                      // v2.0.B.573: 鎖卡夜色化 — 亮灰底改 surface + border-soft (對齊 ShelfPage 鎖書卡), 夜裡不再一格格發光
+                      background: isComplete ? 'var(--t-success-tint)' : unlocked ? 'var(--t-surface-alt)' : 'var(--t-surface)',
+                      border: `2px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand)' : 'var(--t-border-soft)'}`,
+                      borderBottom: `4px solid ${isComplete ? 'var(--t-success)' : unlocked ? 'var(--t-brand-dark)' : 'var(--t-border-soft)'}`,
                       borderRadius: 'var(--t-radius-card)',
                       padding: '12px 8px 10px',
                       color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',

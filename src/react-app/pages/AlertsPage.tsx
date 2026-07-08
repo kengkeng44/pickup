@@ -22,14 +22,15 @@ export default function AlertsPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         {ACHIEVEMENTS.map(a => (
           <div key={a.id} style={{
-            background: a.earned ? 'var(--t-surface)' : '#f1ebe1',
-            border: `2px solid ${a.earned ? 'var(--t-brand)' : 'var(--t-border-card)'}`,
+            // v2.0.B.573: 未解鎖夜色化 — 亮灰底改 surface + border-soft + grayscale (對齊 ShelfPage 鎖書卡)
+            background: 'var(--t-surface)',
+            border: `2px solid ${a.earned ? 'var(--t-brand)' : 'var(--t-border-soft)'}`,
             borderRadius: 'var(--t-radius-md)',
             padding: 12,
             textAlign: 'center',
-            opacity: a.earned ? 1 : 0.6,
+            opacity: a.earned ? 1 : 0.55,
           }}>
-            <div style={{ fontSize: 32, marginBottom: 6 }}>{a.icon}</div>
+            <div style={{ fontSize: 32, marginBottom: 6, filter: a.earned ? 'none' : 'grayscale(1)' }}>{a.icon}</div>
             <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 2 }}>{t(`ach.${a.id}.name`)}</div>
             <div style={{ fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)', lineHeight: 1.4 }}>{t(`ach.${a.id}.desc`)}</div>
           </div>
