@@ -238,8 +238,9 @@ function showTooltipFor(anchor: HTMLElement, word: string, gloss: string): void 
       add.textContent = '✓ 已收藏';
       add.style.background = '#9bbf7a';
     } else if (r.reason === 'cap') {
-      add.textContent = '🔒 已滿 100';
-      add.title = '免費單字卡上限 100 張,升級解鎖更多';
+      // v2.0.B.576 (per user): 付費提示只在「收第 101 張」的動作點跳, 圖鑑不再常駐橫幅
+      add.textContent = '🔒 滿 100 張 · 升級解鎖';
+      add.title = '免費單字卡上限 100 張 · 升級可無限收藏 (即將推出)';
     } else if (r.reason === 'exists') {
       add.textContent = '✓ 已收藏';
       add.style.background = '#9bbf7a';

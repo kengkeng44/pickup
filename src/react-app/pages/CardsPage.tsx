@@ -133,8 +133,7 @@ function VocabSection() {
 
       {count === 0 ? (
         <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700, lineHeight: 1.7, padding: '6px 0' }}>
-          還沒有單字卡。<br />
-          玩課程時,點句子裡的任何英文字 → 跳出中文 → 點「＋ 單字卡」就會收進這裡。
+          玩課程時點英文字 → 點「＋ 單字卡」
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -159,15 +158,6 @@ function VocabSection() {
         </div>
       )}
 
-      {!premium && count >= FREE_CARD_CAP && (
-        <div style={{
-          marginTop: 12, padding: '10px 12px', borderRadius: 'var(--t-radius-md)',
-          background: 'var(--t-tint-warn, #fef3c7)', color: '#7a5e25',
-          fontSize: 'var(--t-text-label)', fontWeight: 800, textAlign: 'center',
-        }}>
-          🔒 免費單字卡已滿 100 張 · 升級可無限收藏(付費功能,即將推出)
-        </div>
-      )}
     </section>
   );
 }
