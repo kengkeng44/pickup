@@ -1207,7 +1207,7 @@ export default function MapPage() {
           fontSize: 'var(--t-text-body)', fontWeight: 800, whiteSpace: 'nowrap',
           boxShadow: '0 4px 16px rgba(0,0,0,0.25)', pointerEvents: 'none',
           animation: 'pickup-fade-up 180ms ease',
-        }}>🔒 {(lang === 'zh' || lang === 'zh-Hans') ? '尚未解鎖 · 先完成前面的關卡' : 'Locked · finish earlier lessons first'}</div>
+        }}>🔒 {(lang === 'zh' || lang === 'zh-Hans') ? '先完成前面的關卡' : 'Finish earlier lessons first'}</div>
       )}
 
       {/* v2.0.B.433: 點節點 → Duolingo 風選單 (繼續/複習 + 晉升傳奇) */}

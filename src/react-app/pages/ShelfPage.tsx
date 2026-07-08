@@ -33,12 +33,10 @@ export default function ShelfPage() {
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 2px' }}>
+      {/* v2.0.B.575 去描述化: 副標砍 — 鎖卡上的「第 N 夜後上架」已自解釋。 */}
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 14px' }}>
         📚 {t('shelf.title')}
       </h1>
-      <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginBottom: 14 }}>
-        {t('shelf.sub')}
-      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         {batches.flatMap(({ afterNight, unlocked, chapters }) => chapters.map((ch) => {

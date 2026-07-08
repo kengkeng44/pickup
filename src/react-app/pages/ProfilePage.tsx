@@ -109,13 +109,9 @@ export default function ProfilePage() {
         }}
       >
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">⚙️</span>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
-            {t('settings.title')}
-          </div>
-          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
-            {t('profile.settings.sub')}
-          </div>
+        {/* v2.0.B.575 去描述化: ⚙️+「設定」自解釋, 內容清單 sub 砍。 */}
+        <div style={{ flex: 1, fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
+          {t('settings.title')}
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>

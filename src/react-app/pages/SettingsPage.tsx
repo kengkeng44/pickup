@@ -99,35 +99,33 @@ export default function SettingsPage() {
         <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>{t('settings.title')}</h1>
       </div>
 
-      {/* 語言 — 中 / 英 (v2.0.B.cron) */}
+      {/* 語言 — 中 / 英 (v2.0.B.cron)。B.575 去描述化: 選項本身就是語言名, sub 砍。 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.lang')}</div>
-        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.lang.sub')}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 10 }}>{t('settings.lang')}</div>
         <SegRow<UiLang> value={lang} onPick={applyLang} options={[['zh', '中文'], ['zh-Hans', '简体'], ['en', 'English'], ['ja', '日本語'], ['ko', '한국어']]} />
       </div>
 
       {/* 顯示 */}
       <div style={cardStyle}>
-        <Row title={t('settings.night')} sub={t('settings.night.sub')}>
+        <Row title={t('settings.night')}>
           <Toggle on={dark} onChange={() => setDark(toggleTheme() === 'dark')} ariaLabel={t('settings.night')} />
         </Row>
       </div>
 
       {/* 音訊 */}
       <div style={cardStyle}>
-        <Row title={t('settings.bgm')} sub={t('settings.bgm.sub')}>
+        <Row title={t('settings.bgm')}>
           <Toggle on={bgm} onChange={onBgm} ariaLabel={t('settings.bgm')} />
         </Row>
         <div style={{ height: 1, background: 'var(--t-border-soft)', margin: '12px 0' }} />
-        <Row title={t('settings.sfx')} sub={t('settings.sfx.sub')}>
+        <Row title={t('settings.sfx')}>
           <Toggle on={sfx} onChange={() => { const n = !sfx; setSfx(n); setSfxEnabled(n); }} ariaLabel={t('settings.sfx')} />
         </Row>
       </div>
 
-      {/* 難度 — 初級 / 中級(預設) / 高級 */}
+      {/* 難度 — 初級 / 中級(預設) / 高級。B.575 去描述化: 選項自解釋, sub 砍。 */}
       <div style={cardStyle}>
-        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.difficulty')}</div>
-        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.difficulty.sub')}</div>
+        <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 10 }}>{t('settings.difficulty')}</div>
         <SegRow<Diff> value={diff} onPick={applyDiff} options={[
           ['easy', t('diff.easy')],
           ['medium', `${t('diff.medium')} · ${t('diff.default')}`],
@@ -135,10 +133,10 @@ export default function SettingsPage() {
         ]} />
       </div>
 
-      {/* 理解題模式 — 跟著難度 / 聽 / 讀 */}
+      {/* 理解題模式 — 跟著難度 / 聽 / 讀。B.575 去描述化: sub 砍, autoHint 縮成符號式短句。 */}
       <div style={cardStyle}>
         <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 4 }}>{t('settings.comp')}</div>
-        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.comp.sub')}<br />{t('settings.comp.autoHint')}</div>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 10 }}>{t('settings.comp.autoHint')}</div>
         <SegRow<ComprehensionMode> value={compMode} onPick={applyCompMode} options={[
           ['auto', t('comp.auto')],
           ['listen', t('comp.listen')],
@@ -150,10 +148,7 @@ export default function SettingsPage() {
       <button type="button" onClick={() => navigate('/parent')}
         style={{ ...cardStyle, width: '100%', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left', borderBottom: '4px solid var(--t-border-card)' }}>
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">👨‍👩‍👧</span>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>{t('settings.parent')}</div>
-          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>{t('settings.parent.sub')}</div>
-        </div>
+        <div style={{ flex: 1, fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>{t('settings.parent')}</div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>
     </div>
