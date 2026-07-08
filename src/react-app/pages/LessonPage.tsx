@@ -753,7 +753,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         <MochiOutfitAvatar size={96} className="pickup-bounce" ariaLabel="Mochi celebrating" />
       </div>
       {legendary && (
-        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 'var(--t-radius-pill)', fontSize: 'var(--t-text-label)', fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
+        <div style={{ display: 'inline-block', marginTop: 10, padding: '4px 14px', borderRadius: 'var(--t-radius-pill)', fontSize: 'var(--t-text-label)', fontWeight: 900, color: '#fff', background: 'linear-gradient(135deg, var(--t-legend), #6d28d9)', letterSpacing: 1 }}>👑 傳奇通關 · LEGENDARY</div>
       )}
       <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', marginTop: 12, marginBottom: 18 }}>{isLastLessonOfChapter ? '章節完成! · Chapter complete!' : 'Lesson complete!'}</div>
       <div style={{ display: 'flex', gap: 10, marginBottom: 24 }}>
@@ -879,7 +879,7 @@ function StreakBanner({ result }: { result: StreakUpdateResult }) {
     icon = '🔥';
     zh = `連續學習 ${result.count} 天!`;
     en = `${result.count}-day streak!`;
-    accent = '#ff7a3a';
+    accent = 'var(--t-streak)';
   }
   return (
     <div className="pickup-fade-up" style={{

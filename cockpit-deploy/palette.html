@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>故事燈色卡 · StoryLamp Palette</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Nunito", "Noto Sans TC", system-ui, sans-serif; background: #1a1410; color: #f0e6d8; padding: 20px 16px 40px; letter-spacing: 0.01em; }
+  h1 { font-size: 24px; font-weight: 900; margin-bottom: 2px; }
+  .sub { font-size: 12px; color: #b09a7e; font-weight: 700; margin-bottom: 20px; }
+  h2 { font-size: 15px; font-weight: 900; margin: 22px 0 10px; color: #f0b25e; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sw { border-radius: 14px; overflow: hidden; border: 1px solid #3a2e22; background: #241c15; }
+  .chip { height: 64px; display: flex; align-items: flex-end; padding: 8px 10px; }
+  .chip.dual { padding: 0; }
+  .chip.dual > div { flex: 1; height: 100%; }
+  .meta { padding: 8px 10px 10px; }
+  .name { font-size: 14px; font-weight: 900; }
+  .en { font-size: 10px; color: #b09a7e; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .hex { font-family: ui-monospace, monospace; font-size: 11px; color: #b09a7e; }
+  .use { font-size: 11px; color: #d8c8b0; margin-top: 3px; font-weight: 600; line-height: 1.45; }
+  .rules { background: #241c15; border: 1px solid #3a2e22; border-radius: 14px; padding: 14px; margin-top: 24px; font-size: 13px; line-height: 1.9; font-weight: 700; }
+  .rules b { color: #f0b25e; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 900; padding: 1px 8px; border-radius: 999px; background: #322619; color: #f0b25e; margin-left: 6px; vertical-align: 2px; }
+</style>
+</head>
+<body>
+  <h1>🏮 故事燈色卡</h1>
+  <div class="sub">StoryLamp Palette v1 · 照 Duolingo named-palette 方法 · single source = src/ui/theme/tokens.css</div>
+
+  <h2>核心色 CORE — 遲疑就用燈火</h2>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#e7a44a"></div><div class="meta"><div class="name">燈火 <span class="en">Lantern</span></div><div class="hex">#e7a44a · --t-brand</div><div class="use">品牌主色 · CTA · active 態</div></div></div>
+    <div class="sw"><div class="chip" style="background:#b07a2a"></div><div class="meta"><div class="name">燈影 <span class="en">Ember</span></div><div class="hex">#b07a2a · --t-brand-dark</div><div class="use">按鈕底邊 · 深色強調</div></div></div>
+    <div class="sw"><div class="chip dual"><div style="background:#1a1410"></div><div style="background:#241c15"></div><div style="background:#322619"></div></div><div class="meta"><div class="name">夜幕 · 爐火 · 月暈</div><div class="hex">#1a1410 / #241c15 / #322619</div><div class="use">夜色三層:底 → 卡片 → 浮層(越高越亮)</div></div></div>
+    <div class="sw"><div class="chip dual"><div style="background:#fef8ed"></div><div style="background:#ffffff"></div></div><div class="meta"><div class="name">奶油 · 雪頁</div><div class="hex">#fef8ed / #ffffff</div><div class="use">亮色主題:底 → 卡片</div></div></div>
+    <div class="sw"><div class="chip dual"><div style="background:#3c2a1c"></div><div style="background:#8b6f4a"></div></div><div class="meta"><div class="name">墨褐 · 沙褐 <span class="en">Ink · Sand</span></div><div class="hex">#3c2a1c / #8b6f4a</div><div class="use">主文字 · 次要文字(夜色自動翻淺)</div></div></div>
+  </div>
+
+  <h2>語意色 SEMANTIC — 用途固定,不得挪用</h2>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#7d9a4f"></div><div class="meta"><div class="name">苔綠 <span class="en">Moss</span></div><div class="hex">#7d9a4f · --t-success</div><div class="use">答對 · 完成 · 檢查鈕</div></div></div>
+    <div class="sw"><div class="chip" style="background:#c84a3a"></div><div class="meta"><div class="name">陶土 <span class="en">Clay</span></div><div class="hex">#c84a3a · --t-danger</div><div class="use">答錯 · 危險動作</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1cb0f6"></div><div class="meta"><div class="name">晨空 <span class="en">Sky</span></div><div class="hex">#1cb0f6 · --t-focus</div><div class="use">焦點框 · XP · 資訊 CTA</div></div></div>
+    <div class="sw"><div class="chip" style="background:#ff7a3a"></div><div class="meta"><div class="name">柿橘 <span class="en">Persimmon</span></div><div class="hex">#ff7a3a · --t-streak</div><div class="use">連勝 · 火焰</div></div></div>
+    <div class="sw"><div class="chip" style="background:#8b5cf6"></div><div class="meta"><div class="name">星紫 <span class="en">Wisteria</span></div><div class="hex">#8b5cf6 · --t-legend</div><div class="use">傳奇模式 · 皇冠等級</div></div></div>
+    <div class="sw"><div class="chip" style="background:#c4a040"></div><div class="meta"><div class="name">麥金 <span class="en">Wheat</span></div><div class="hex">#c4a040 · --t-warn</div><div class="use">警示 · 提醒</div></div></div>
+  </div>
+
+  <h2>插畫色 ILLUSTRATION <span class="tag">32 章 accent</span></h2>
+  <div class="rules" style="margin-top:0">
+    每個章節一個 accent(<span class="hex">CHAPTER_META</span>)— 只用於該章的節點、角色框、分隔線。不進全域 UI。
+  </div>
+
+  <div class="rules">
+    <b>鐵則</b><br>
+    ① 每個畫面最多一個 accent 出鋒頭<br>
+    ② 語意色用途固定 — 綠只給答對、紅只給答錯<br>
+    ③ 中性色永不搶戲<br>
+    ④ 遲疑就用<b>燈火琥珀</b><br>
+    ⑤ 新色先進色卡命名,禁散裝 hex
+  </div>
+</body>
+</html>

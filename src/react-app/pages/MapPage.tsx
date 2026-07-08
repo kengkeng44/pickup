@@ -395,7 +395,7 @@ function NodeStartDialog({ anchor, done, lang, defaultMode, onPick, onClose }: {
           onClick={() => onPick(true, mode)}
           style={{
             width: '100%', border: 'none', borderRadius: 16,
-            background: 'linear-gradient(135deg, #8b5cf6, #6d28d9)', color: '#fff',
+            background: 'linear-gradient(135deg, var(--t-legend), #6d28d9)', color: '#fff',
             fontFamily: 'inherit', fontWeight: 900, fontSize: 'var(--t-text-button)',
             padding: '15px 16px', marginTop: 12, cursor: 'pointer',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -763,7 +763,7 @@ export default function MapPage() {
           {/* v2.0.B.471 (per user): 上排留 4 個 — 砍金幣🐾, 冰塊🧊→體力★ */}
           <HudIcon src="/mascots/flag-en.webp" value="" valueColor="var(--t-text)" ariaLabel="Language: English" onClick={() => navigate('/profile')} />
           <HudIcon src="/mascots/crown-gold.webp" value={tierLabel} valueColor={tierStroke} filter={tierFilter} ariaLabel={`Crown level ${level} ${Math.round(progress.fraction * 100)}%`} onClick={() => navigate('/profile')} progress={progress.fraction} />
-          <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="#ff7a3a" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/streak')} />
+          <HudIcon src="/mascots/icon-flame.webp" value={firstTime ? '' : String(streak)} valueColor="var(--t-streak)" width={26} ariaLabel={`Streak ${streak} days`} onClick={() => navigate('/streak')} />
           <HpHudIcon hp={hp} onClick={() => navigate('/profile')} />
         </div>
         {/* Chapter book cover — flow 在 HUD 下方, 不再 position:fixed */}

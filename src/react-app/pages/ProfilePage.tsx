@@ -88,10 +88,10 @@ export default function ProfilePage() {
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14 }}>
         {/* v2.0.B.573: stat 磚上色 (Duolingo stat tile) — icon/數字語意色 + 12% tint 底 */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          <Stat label={t('profile.stat.streak')} value={String(streak)} icon="🔥" color="#ff7a3a" />
+          <Stat label={t('profile.stat.streak')} value={String(streak)} icon="🔥" color="var(--t-streak)" />
           <Stat label={t('profile.stat.xp')} value={String(xp)} icon="⚡" color="var(--t-focus)" />
           <Stat label={t('profile.stat.coins')} value={String(coins)} icon="🪙" color="var(--t-brand)" />
-          <Stat label={t('profile.stat.crown')} value={`L${level}`} icon="👑" color="#8b5cf6" />
+          <Stat label={t('profile.stat.crown')} value={`L${level}`} icon="👑" color="var(--t-legend)" />
         </div>
       </div>
 
