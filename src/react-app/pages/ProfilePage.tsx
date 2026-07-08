@@ -88,10 +88,10 @@ export default function ProfilePage() {
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14 }}>
         {/* v2.0.B.573: stat 磚上色 (Duolingo stat tile) — icon/數字語意色 + 12% tint 底 */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-          <Stat label={t('profile.stat.streak')} value={String(streak)} icon="🔥" color="#ff7a3a" />
+          <Stat label={t('profile.stat.streak')} value={String(streak)} icon="🔥" color="var(--t-streak)" />
           <Stat label={t('profile.stat.xp')} value={String(xp)} icon="⚡" color="var(--t-focus)" />
           <Stat label={t('profile.stat.coins')} value={String(coins)} icon="🪙" color="var(--t-brand)" />
-          <Stat label={t('profile.stat.crown')} value={`L${level}`} icon="👑" color="#8b5cf6" />
+          <Stat label={t('profile.stat.crown')} value={`L${level}`} icon="👑" color="var(--t-legend)" />
         </div>
       </div>
 
@@ -109,13 +109,9 @@ export default function ProfilePage() {
         }}
       >
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">⚙️</span>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
-            {t('settings.title')}
-          </div>
-          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
-            {t('profile.settings.sub')}
-          </div>
+        {/* v2.0.B.575 去描述化: ⚙️+「設定」自解釋, 內容清單 sub 砍。 */}
+        <div style={{ flex: 1, fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
+          {t('settings.title')}
         </div>
         <span style={{ fontSize: 20, color: 'var(--t-brand-dark)', fontWeight: 900 }} aria-hidden="true">›</span>
       </button>

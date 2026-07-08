@@ -29,7 +29,7 @@ export default function StreakPage() {
     setCoins(readCoins());
   };
 
-  const FLAME = '#ff7a3a';
+  const FLAME = 'var(--t-streak)';
   const FLAME_DEEP = '#ff5a1f';
 
   return (

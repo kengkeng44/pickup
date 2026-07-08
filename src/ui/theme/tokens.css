@@ -11,6 +11,25 @@
  * Consumed by both inline styles (via src/ui/theme/index.ts → var(--t-*))
  * and component CSS classes (.t-btn etc.). */
 
+/* ═══ 故事燈色卡 (v2.0.B.574 — 照 Duolingo named-palette 方法, 故事世界命名) ═══
+ *
+ * 核心色 CORE(遲疑就用燈火琥珀):
+ *   燈火 Lantern   #e7a44a  品牌主色(--t-brand)     燈影 Ember    #b07a2a(--t-brand-dark)
+ *   夜幕 Night     #1a1410  夜色底(--t-bg dark)     爐火 Hearth   #241c15  夜卡(--t-surface dark)
+ *   月暈 Halo      #322619  夜浮層(--t-surface-raised dark)
+ *   奶油 Cream     #fef8ed  亮色底(--t-bg light)    雪頁 Page     #ffffff  亮卡(--t-surface light)
+ *   墨褐 Ink       #3c2a1c  文字(--t-text)          沙褐 Sand     #8b6f4a  次要字(--t-text-muted)
+ *
+ * 語意色 SEMANTIC(固定用途, 不得挪用):
+ *   苔綠 Moss      #7d9a4f  答對/成功(--t-success)  陶土 Clay     #c84a3a  答錯/危險(--t-danger)
+ *   晨空 Sky       #1cb0f6  焦點/資訊(--t-focus)    柿橘 Persimmon #ff7a3a 連勝(--t-streak)
+ *   星紫 Wisteria  #8b5cf6  傳奇/皇冠(--t-legend)   麥金 Wheat    #c4a040  警示(--t-warn)
+ *
+ * 插畫色 ILLUSTRATION:CHAPTER_META 32 章 accent — 只用於該章節點/角色框/分隔線。
+ *
+ * 鐵則:① 每個畫面最多一個 accent 出鋒頭 ② 語意色用途固定 ③ 中性色永不搶戲
+ *       ④ 遲疑就用燈火琥珀 ⑤ 新色先進色卡命名再用, 禁散裝 hex。 */
+
 :root {
   /* ── Color: surfaces ── */
   --t-bg: #fef8ed;            /* app cream */
@@ -42,6 +61,8 @@
   --t-info: #4a6678;
   --t-warn: #c4a040;
   --t-focus: #1cb0f6;         /* focus ring (high-contrast, intentional) */
+  --t-streak: #ff7a3a;        /* 柿橘 Persimmon — 連勝/火焰 */
+  --t-legend: #8b5cf6;        /* 星紫 Wisteria — 傳奇/皇冠 */
 
   /* ── Space: 4pt scale ── */
   --t-space-1: 4px;  --t-space-2: 8px;  --t-space-3: 12px; --t-space-4: 16px;

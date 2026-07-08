@@ -100,7 +100,7 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
         {step === 'lang' && (
           <div>
             <div style={S.h}>{t('ob.lang.title')}</div>
-            <div style={S.sub}>{t('ob.lang.sub')}</div>
+            {/* v2.0.B.575 去描述化: 選項就是語言名, sub 砍。 */}
             <div style={S.grid}>
               {LANGS.map((l, i) => (
                 <button key={i} disabled={!l.ready}
