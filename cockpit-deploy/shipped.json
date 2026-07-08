@@ -238,6 +238,13 @@
       "what": "12 筆 A4 鏡像干擾修正 Ch17-24 (10 筆 A4a 反義極性坍塌干擾項改同 valence 錯誤選項 + 2 筆 A4e 同主詞模板打散結構, emoji-pick×2/listen-mc×5/comprehension×5, EN+Zh+ja/ko overlay o 欄同步, 不碰 correctIndex) — 全過 build+answer-index gate; #1 kt-ch17-l5-q3 需重生 TTS 進 Tier C",
       "version": "v2.0.B.571",
       "date": "2026-07-08"
+    },
+    {
+      "audit": "docs/audits/2026-07-08T1804-content-qa-cron.md",
+      "archRec": "#12 explanationZh story-voice Ch9-16",
+      "what": "8 筆 explanationZh 考試腔清理 Ch10/12/13/15/16 (推理:前綴×3 + (paraphrase)標籤×3 + 考試指導語×1 + 動詞加-s 術語×2 + 動詞片語×1 + 慣用語標籤×1, 改奶奶故事口吻; ja/ko overlay e 欄同步×16) — build + answer-index gate 全綠; X68 lint 進 Tier C",
+      "version": "v2.0.B.577",
+      "date": "2026-07-08"
     }
   ]
 }
