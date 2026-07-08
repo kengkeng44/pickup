@@ -69,6 +69,10 @@
   --pickup-border-dark: #c2b08c;
 
   /* ─── Typography scale (Layer 1) ───────────────────────────────────
+   * ⚠️ DEPRECATED (v2.0.B.567): --font-*-size/weight 舊 token 只讀不新增,
+   * 字級一律改用 src/ui/theme/tokens.css 的 --t-text-* ramp
+   * (見 docs/standards/2026-07-06-design-standard.md)。
+   * font-family 系列 (--font-family/--font-display/--font-body) 仍是現役。
    * Use as `font: var(--font-display);` shorthand OR pull pieces. */
   --font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
     'PingFang TC', 'Microsoft JhengHei', sans-serif;
@@ -176,6 +180,8 @@ body {
   margin: 0 auto;
   background: var(--pickup-bg);
   position: relative;
+  /* v2.0.B.567: 全域微字距 — Duolingo 手感 (DIN Round 按鈕 0.053em 的溫和版) */
+  letter-spacing: 0.01em;
 
   display: flex;
   flex-direction: column;

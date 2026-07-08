@@ -58,7 +58,7 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
             <div style={S.tag}>{t('ob.welcome.tag')}</div>
             {/* v2.0.B.538 (walkthrough ARCH-REC, 兒童/家長版 framing per user): 開場先安心 —
                 「不是考試」降低焦慮 (原 audit 是成人-trauma, pivot 後改溫柔陪伴語氣)。 */}
-            <div style={{ ...S.tag, fontSize: 13, opacity: 0.85, marginTop: -4 }}>🐾 {t('ob.welcome.reassure')}</div>
+            <div style={{ ...S.tag, fontSize: 'var(--t-text-label)', opacity: 0.85, marginTop: -4 }}>🐾 {t('ob.welcome.reassure')}</div>
             <button style={S.primary} onClick={() => setStep('auth')}>{t('ob.welcome.start')}</button>
             <button style={S.link} onClick={() => setStep('login')}>{t('ob.welcome.haveAccount')}</button>
           </div>
@@ -106,7 +106,7 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
                 <button key={i} disabled={!l.ready}
                   onClick={() => { if (l.ready) { setLang(l.id); setStep('welcome'); } }}
                   style={{ ...S.langCard, opacity: l.ready ? 1 : 0.45, cursor: l.ready ? 'pointer' : 'default' }}>
-                  <span style={{ fontSize: 18, fontWeight: 800 }}>{l.native}</span>
+                  <span style={{ fontSize: 'var(--t-text-option)', fontWeight: 800 }}>{l.native}</span>
                   {!l.ready && <span style={S.soon}>{t('ob.lang.soon')}</span>}
                 </button>
               ))}
@@ -123,8 +123,8 @@ export default function Onboarding({ onDone }: { onDone: () => void }) {
                 <button key={lv.id} style={S.levelCard} onClick={() => finish(lv.id)}>
                   <span style={{ fontSize: 28 }}>{lv.emoji}</span>
                   <span style={{ flex: 1, textAlign: 'left' }}>
-                    <span style={{ display: 'block', fontSize: 16, fontWeight: 800, color: 'var(--t-text)' }}>{t(lv.key)}</span>
-                    <span style={{ display: 'block', fontSize: 12, color: 'var(--t-text-muted)' }}>{t(lv.subKey)}</span>
+                    <span style={{ display: 'block', fontSize: 'var(--t-text-option)', fontWeight: 800, color: 'var(--t-text)' }}>{t(lv.key)}</span>
+                    <span style={{ display: 'block', fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)' }}>{t(lv.subKey)}</span>
                   </span>
                   <span style={{ fontSize: 18, color: 'var(--t-brand-dark)' }}>→</span>
                 </button>
@@ -146,23 +146,23 @@ const S: Record<string, React.CSSProperties> = {
   card: { width: '100%', maxWidth: 380 },
   center: { textAlign: 'center' },
   brand: { fontSize: 40, fontWeight: 900, color: 'var(--t-brand-dark)', marginTop: 12, letterSpacing: 2, fontFamily: 'var(--font-display, inherit)' },
-  tag: { fontSize: 15, color: 'var(--t-text-muted)', marginTop: 8, marginBottom: 32, fontWeight: 600 },
-  h: { fontSize: 22, fontWeight: 900, color: 'var(--t-text)', marginBottom: 6 },
-  sub: { fontSize: 13, color: 'var(--t-text-muted)', marginBottom: 18, fontWeight: 600 },
-  label: { display: 'block', fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700, margin: '14px 0 6px' },
+  tag: { fontSize: 'var(--t-text-body)', color: 'var(--t-text-muted)', marginTop: 8, marginBottom: 32, fontWeight: 600 },
+  h: { fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 6 },
+  sub: { fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginBottom: 18, fontWeight: 600 },
+  label: { display: 'block', fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700, margin: '14px 0 6px' },
   input: {
-    width: '100%', boxSizing: 'border-box', padding: '13px 14px', fontSize: 16,
+    width: '100%', boxSizing: 'border-box', padding: '13px 14px', fontSize: 'var(--t-text-body)',
     border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-md)', background: 'var(--t-surface)',
     color: 'var(--t-text)', fontFamily: 'inherit', outline: 'none',
   },
   primary: {
     width: '100%', minHeight: 52, marginTop: 22, border: 'none', borderRadius: 'var(--t-radius-card)',
-    background: 'var(--t-brand-dark)', color: '#fff', fontSize: 16, fontWeight: 900,
+    background: 'var(--t-brand-dark)', color: '#fff', fontSize: 'var(--t-text-button)', fontWeight: 900,
     fontFamily: 'inherit', cursor: 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
   },
   link: {
     width: '100%', marginTop: 12, border: 'none', background: 'transparent',
-    color: 'var(--t-text-muted)', fontSize: 14, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
+    color: 'var(--t-text-muted)', fontSize: 'var(--t-text-label)', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
   },
   grid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, margin: '16px 0' },
   langCard: {
@@ -170,7 +170,7 @@ const S: Record<string, React.CSSProperties> = {
     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3,
     fontFamily: 'inherit', color: 'var(--t-text)',
   },
-  soon: { fontSize: 10, color: 'var(--t-text-muted)', fontWeight: 700 },
+  soon: { fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)', fontWeight: 700 },
   levelCard: {
     display: 'flex', alignItems: 'center', gap: 12, padding: '14px 16px',
     border: '2px solid var(--t-border-card)', borderBottom: '4px solid var(--t-brand-dark)',

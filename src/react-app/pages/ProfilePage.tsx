@@ -35,7 +35,7 @@ export default function ProfilePage() {
 
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('profile.title')}</h1>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 14px' }}>{t('profile.title')}</h1>
 
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 16, marginBottom: 14, display: 'flex', gap: 14, alignItems: 'center' }}>
         <div style={{ position: 'relative', width: 64, height: 64, flex: '0 0 auto' }}>
@@ -49,8 +49,8 @@ export default function ProfilePage() {
           )}
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 20, fontWeight: 900, color: 'var(--t-text)' }}>{catName}</div>
-          <div style={{ fontSize: 12, color: 'var(--t-text-muted)', marginTop: 2, fontWeight: 700 }}>
+          <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)' }}>{catName}</div>
+          <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', marginTop: 2, fontWeight: 700 }}>
             {outfitLabel}
           </div>
         </div>
@@ -74,10 +74,10 @@ export default function ProfilePage() {
       >
         <span style={{ fontSize: 32, lineHeight: 1 }} aria-hidden="true">👕</span>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
+          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
             {t('profile.wardrobe')}
           </div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
             {t('profile.wardrobe.current')}: {outfitLabel}
           </div>
         </div>
@@ -109,10 +109,10 @@ export default function ProfilePage() {
       >
         <span style={{ fontSize: 28, lineHeight: 1 }} aria-hidden="true">⚙️</span>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 15, fontWeight: 900, color: 'var(--t-text)' }}>
+          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)' }}>
             {t('settings.title')}
           </div>
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
             {t('profile.settings.sub')}
           </div>
         </div>
@@ -156,7 +156,7 @@ function PlayerSwitcher() {
 
   return (
     <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-border-card)', borderRadius: 'var(--t-radius-card)', padding: 14, marginBottom: 14 }}>
-      <div style={{ fontSize: 14, fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>👥 帳號 · Players</div>
+      <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, color: 'var(--t-text)', marginBottom: 10 }}>👥 帳號 · Players</div>
       {players.map((p) => {
         const isActive = p.id === activeId;
         return (
@@ -169,26 +169,26 @@ function PlayerSwitcher() {
             WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
           }}>
             <span style={{ fontSize: 20 }} aria-hidden="true">{isActive ? '✅' : '🐱'}</span>
-            <span style={{ flex: 1, fontSize: 15, fontWeight: 800, color: 'var(--t-text)' }}>{p.name}</span>
-            {isActive && <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--t-success)' }}>使用中</span>}
+            <span style={{ flex: 1, fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)' }}>{p.name}</span>
+            {isActive && <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-success)' }}>使用中</span>}
           </button>
         );
       })}
       {adding ? (
         <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
           <input value={name} onChange={(e) => setName(e.target.value)} placeholder="新帳號名字" maxLength={12} autoFocus style={{
-            flex: 1, padding: 9, fontSize: 15, fontWeight: 700, border: '2px solid var(--t-border-card)', borderRadius: 8,
+            flex: 1, padding: 9, fontSize: 'var(--t-text-body)', fontWeight: 700, border: '2px solid var(--t-border-card)', borderRadius: 8,
             color: 'var(--t-text)', background: 'var(--t-bg)', fontFamily: 'inherit',
           }} />
           <button type="button" onClick={doAdd} style={{
-            padding: '9px 14px', border: 'none', borderRadius: 8, fontFamily: 'inherit', fontSize: 14, fontWeight: 800,
+            padding: '9px 14px', border: 'none', borderRadius: 8, fontFamily: 'inherit', fontSize: 'var(--t-text-button)', fontWeight: 800,
             color: '#fff', background: 'var(--t-brand-dark)', cursor: 'pointer',
           }}>建立</button>
         </div>
       ) : (
         <button type="button" onClick={() => setAdding(true)} style={{
           width: '100%', padding: '10px 0', marginTop: 2, border: '2px dashed var(--t-border-card)', borderRadius: 'var(--t-radius-md)',
-          background: 'transparent', color: 'var(--t-text-muted)', fontFamily: 'inherit', fontSize: 14, fontWeight: 800,
+          background: 'transparent', color: 'var(--t-text-muted)', fontFamily: 'inherit', fontSize: 'var(--t-text-button)', fontWeight: 800,
           cursor: 'pointer', WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
         }}>＋ 新增帳號</button>
       )}
@@ -199,8 +199,8 @@ function PlayerSwitcher() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div style={{ padding: 10, background: 'var(--t-bg)', borderRadius: 10, textAlign: 'center', border: '1px solid var(--t-border-soft)' }}>
-      <div style={{ fontSize: 11, color: 'var(--t-text-muted)', marginBottom: 4, fontWeight: 700 }}>{label}</div>
-      <div style={{ fontSize: 17, fontWeight: 900, color: 'var(--t-brand-dark)' }}>{value}</div>
+      <div style={{ fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)', marginBottom: 4, fontWeight: 700 }}>{label}</div>
+      <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: 'var(--t-brand-dark)' }}>{value}</div>
     </div>
   );
 }

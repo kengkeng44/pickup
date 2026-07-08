@@ -59,10 +59,10 @@ function ParentGate({ onPass }: ParentGateProps) {
       background: t.color.bg,
     }}>
       <div style={{ fontSize: 48, marginBottom: 16 }} aria-hidden="true">👨‍👩‍👧</div>
-      <h1 style={{ fontSize: 20, fontWeight: 900, color: t.color.text, marginBottom: 8, textAlign: 'center' }}>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: t.color.text, marginBottom: 8, textAlign: 'center' }}>
         給家長 · Parent Corner
       </h1>
-      <p style={{ fontSize: 14, color: t.color.textMuted, marginBottom: 24, textAlign: 'center', lineHeight: 1.6 }}>
+      <p style={{ fontSize: 'var(--t-text-body)', color: t.color.textMuted, marginBottom: 24, textAlign: 'center', lineHeight: 1.6 }}>
         為了確認你是大人<br />
         請回答這道算術題：
       </p>
@@ -96,7 +96,7 @@ function ParentGate({ onPass }: ParentGateProps) {
           }}
         />
         {wrong && (
-          <p style={{ fontSize: 13, color: t.color.danger, marginBottom: 10, fontWeight: 700 }}>
+          <p style={{ fontSize: 'var(--t-text-label)', color: t.color.danger, marginBottom: 10, fontWeight: 700 }}>
             再想想看 · Try again
           </p>
         )}
@@ -145,9 +145,9 @@ function StatTile({ label, value, sub }: { label: string; value: string | number
       padding: '10px 8px',
       textAlign: 'center',
     }}>
-      <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>{label}</div>
-      <div style={{ fontSize: 22, fontWeight: 900, color: t.color.brandDark, lineHeight: 1 }}>{value}</div>
-      {sub && <div style={{ fontSize: 10, color: t.color.textMuted, marginTop: 3, fontWeight: 600 }}>{sub}</div>}
+      <div style={{ fontSize: 'var(--t-text-micro)', color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: t.color.brandDark, lineHeight: 1 }}>{value}</div>
+      {sub && <div style={{ fontSize: 'var(--t-text-micro)', color: t.color.textMuted, marginTop: 3, fontWeight: 600 }}>{sub}</div>}
     </div>
   );
 }
@@ -173,7 +173,7 @@ function ParentContent() {
   const hasAnyData = weekStats.lessons > 0;
 
   return (
-    <div style={{ padding: '16px 14px 32px', maxWidth: 480, margin: '0 auto' }}>
+    <div style={{ padding: '16px 14px 24px', maxWidth: 480, margin: '0 auto' }}>
       {/* Back button */}
       <div style={{ marginBottom: 16 }}>
         <Button variant="ghost" size="sm" onClick={() => navigate('/')}>
@@ -181,10 +181,10 @@ function ParentContent() {
         </Button>
       </div>
 
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: t.color.text, margin: '0 0 4px' }}>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: t.color.text, margin: '0 0 2px' }}>
         給家長 · Parent Corner
       </h1>
-      <p style={{ fontSize: 13, color: t.color.textMuted, margin: '0 0 20px', lineHeight: 1.5 }}>
+      <p style={{ fontSize: 'var(--t-text-label)', color: t.color.textMuted, margin: '0 0 20px', lineHeight: 1.5 }}>
         孩子的學習紀錄 · Your child's learning history
       </p>
 
@@ -192,10 +192,10 @@ function ParentContent() {
       {!hasAnyData && (
         <Card variant="flat" style={{ padding: '28px 20px', textAlign: 'center' }}>
           <div style={{ fontSize: 36, marginBottom: 12 }} aria-hidden="true">📖</div>
-          <div style={{ fontSize: 15, fontWeight: 700, color: t.color.text, marginBottom: 8 }}>
+          <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: t.color.text, marginBottom: 8 }}>
             孩子完成第一課後，這裡會出現學習紀錄
           </div>
-          <div style={{ fontSize: 13, color: t.color.textMuted, lineHeight: 1.6 }}>
+          <div style={{ fontSize: 'var(--t-text-label)', color: t.color.textMuted, lineHeight: 1.6 }}>
             After the first lesson, you'll see stats here.<br />
             每晚一個小故事就很好 🌙
           </div>
@@ -206,11 +206,11 @@ function ParentContent() {
         <>
           {/* 今晚 · Tonight */}
           <Card variant="raised" topStripe style={{ padding: '16px', marginBottom: 14 }}>
-            <h2 style={{ fontSize: 14, fontWeight: 900, color: t.color.text, margin: '0 0 12px', textTransform: 'uppercase', letterSpacing: 1 }}>
+            <h2 style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, color: t.color.text, margin: '0 0 12px', textTransform: 'uppercase', letterSpacing: 1 }}>
               今晚 · Tonight
             </h2>
             {todayStats.lessons === 0 ? (
-              <div style={{ fontSize: 14, color: t.color.textMuted, fontWeight: 600, padding: '4px 0' }}>
+              <div style={{ fontSize: 'var(--t-text-label)', color: t.color.textMuted, fontWeight: 600, padding: '4px 0' }}>
                 今天還沒有練習紀錄 · No lessons yet today
               </div>
             ) : (
@@ -227,13 +227,13 @@ function ParentContent() {
                     borderRadius: 10,
                     padding: '10px 12px',
                   }}>
-                    <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 800, marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.8 }}>
+                    <div style={{ fontSize: 'var(--t-text-micro)', color: t.color.textMuted, fontWeight: 800, marginBottom: 4, textTransform: 'uppercase', letterSpacing: 0.8 }}>
                       今晚學的金句
                     </div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: t.color.text, marginBottom: 2, fontStyle: 'italic' }}>
+                    <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: t.color.text, marginBottom: 2, fontStyle: 'italic' }}>
                       "{keySentence.en}"
                     </div>
-                    <div style={{ fontSize: 12, color: t.color.textMuted, fontWeight: 600 }}>
+                    <div style={{ fontSize: 'var(--t-text-label)', color: t.color.textMuted, fontWeight: 600 }}>
                       {keySentence.zh}
                     </div>
                   </div>
@@ -244,7 +244,7 @@ function ParentContent() {
 
           {/* 本週 · This Week */}
           <Card variant="raised" topStripe style={{ padding: '16px', marginBottom: 14 }}>
-            <h2 style={{ fontSize: 14, fontWeight: 900, color: t.color.text, margin: '0 0 12px', textTransform: 'uppercase', letterSpacing: 1 }}>
+            <h2 style={{ fontSize: 'var(--t-text-label)', fontWeight: 900, color: t.color.text, margin: '0 0 12px', textTransform: 'uppercase', letterSpacing: 1 }}>
               本週 · This Week
             </h2>
             <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
@@ -255,7 +255,7 @@ function ParentContent() {
 
             {/* Active days progress bar */}
             <div style={{ marginBottom: 12 }}>
-              <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>
+              <div style={{ fontSize: 'var(--t-text-micro)', color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>
                 本週練習天數 · Days practiced this week
               </div>
               <ProgressBar
@@ -274,8 +274,8 @@ function ParentContent() {
               padding: '10px 8px',
               textAlign: 'center',
             }}>
-              <div style={{ fontSize: 11, color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>連勝 Streak</div>
-              <div style={{ fontSize: 20, fontWeight: 900, color: t.color.brandDark }}>
+              <div style={{ fontSize: 'var(--t-text-micro)', color: t.color.textMuted, fontWeight: 700, marginBottom: 4 }}>連勝 Streak</div>
+              <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: t.color.brandDark }}>
                 {streak} 🔥
               </div>
             </div>
@@ -283,7 +283,7 @@ function ParentContent() {
 
           {/* 鼓勵語 */}
           <Card variant="flat" style={{ padding: '14px 16px', marginBottom: 14, borderStyle: 'dashed' }}>
-            <div style={{ fontSize: 14, fontWeight: 700, color: t.color.text, lineHeight: 1.7 }}>
+            <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: t.color.text, lineHeight: 1.7 }}>
               {weekEncouragement}
             </div>
           </Card>

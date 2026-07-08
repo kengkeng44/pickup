@@ -39,10 +39,10 @@ export default function CardsPage() {
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     }}>
       <header style={{ marginBottom: 16 }}>
-        <h1 style={{ fontSize: 24, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 6px' }}>
+        <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 2px' }}>
           {t('cards.title')}
         </h1>
-        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700 }}>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700 }}>
           {t('cards.count').replace('{u}', String(unlockedCount)).replace('{t}', String(total))}
         </div>
         {/* progress bar */}
@@ -66,7 +66,7 @@ export default function CardsPage() {
         return (
           <section key={ch} style={{ marginBottom: 22 }}>
             <h2 style={{
-              fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)',
+              fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-text-muted)',
               letterSpacing: 0.5, margin: '0 0 10px',
               textTransform: 'uppercase',
             }}>
@@ -119,8 +119,8 @@ function VocabSection() {
       border: '2px solid var(--t-brand, #e7a44a)',
     }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 4 }}>
-        <h2 style={{ fontSize: 19, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>📒 我的單字卡</h2>
-        <span style={{ fontSize: 13, fontWeight: 800, color: premium ? 'var(--t-success,#5d9a35)' : 'var(--t-text-muted)' }}>
+        <h2 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>📒 我的單字卡</h2>
+        <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: premium ? 'var(--t-success,#5d9a35)' : 'var(--t-text-muted)' }}>
           {premium ? `${count} 張 · 無上限` : `${count} / ${FREE_CARD_CAP}`}
         </span>
       </div>
@@ -132,7 +132,7 @@ function VocabSection() {
       )}
 
       {count === 0 ? (
-        <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 700, lineHeight: 1.7, padding: '6px 0' }}>
+        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700, lineHeight: 1.7, padding: '6px 0' }}>
           還沒有單字卡。<br />
           玩課程時,點句子裡的任何英文字 → 跳出中文 → 點「＋ 單字卡」就會收進這裡。
         </div>
@@ -145,8 +145,8 @@ function VocabSection() {
               border: '1px solid var(--t-border-soft, #eadfca)',
             }}>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--t-text)' }}>{c.display}</div>
-                <div style={{ fontSize: 13, color: 'var(--t-text-muted)', fontWeight: 600 }}>{c.zh}</div>
+                <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 800, color: 'var(--t-text)' }}>{c.display}</div>
+                <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 600 }}>{c.zh}</div>
               </div>
               <button
                 type="button"
@@ -163,7 +163,7 @@ function VocabSection() {
         <div style={{
           marginTop: 12, padding: '10px 12px', borderRadius: 'var(--t-radius-md)',
           background: 'var(--t-tint-warn, #fef3c7)', color: '#7a5e25',
-          fontSize: 13, fontWeight: 800, textAlign: 'center',
+          fontSize: 'var(--t-text-label)', fontWeight: 800, textAlign: 'center',
         }}>
           🔒 免費單字卡已滿 100 張 · 升級可無限收藏(付費功能,即將推出)
         </div>
@@ -210,13 +210,13 @@ function CardTile({ card, unlocked, onClick }: {
         }}>{card.emoji}</span>
       )}
       <div style={{
-        fontSize: 14, fontWeight: 900, color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
+        fontSize: 'var(--t-text-label)', fontWeight: 900, color: unlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
         textAlign: 'center', lineHeight: 1.2,
       }}>
         {unlocked ? card.nameZh : '???'}
       </div>
       <div style={{
-        fontSize: 11, fontWeight: 700, color: unlocked ? 'var(--t-text-muted)' : '#a89c80',
+        fontSize: 'var(--t-text-micro)', fontWeight: 700, color: unlocked ? 'var(--t-text-muted)' : '#a89c80',
         textAlign: 'center', lineHeight: 1.2,
       }}>
         {unlocked ? card.nameEn : '???'}
@@ -268,14 +268,14 @@ function CardDetail({ card, unlocked, onClose }: {
             filter: unlocked ? 'none' : 'grayscale(1) opacity(0.45)',
           }}>{card.emoji}</div>
         )}
-        <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>
+        <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)' }}>
           {unlocked ? card.nameZh : '???'}
         </div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+        <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
           {unlocked ? card.nameEn : 'Locked'}
         </div>
         <div style={{
-          fontSize: 11, fontWeight: 800, color: 'var(--t-brand-dark)',
+          fontSize: 'var(--t-text-micro)', fontWeight: 800, color: 'var(--t-brand-dark)',
           letterSpacing: 1, marginTop: 12,
           textTransform: 'uppercase',
         }}>
@@ -287,7 +287,7 @@ function CardDetail({ card, unlocked, onClose }: {
             <div style={{
               marginTop: 14, padding: '12px 14px',
               background: 'var(--t-surface-alt)', borderRadius: 10,
-              fontSize: 14, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.5,
+              fontSize: 'var(--t-text-body)', fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.5,
               textAlign: 'left',
             }}>
               {card.bioZh}
@@ -295,7 +295,7 @@ function CardDetail({ card, unlocked, onClose }: {
             <div style={{
               marginTop: 8, padding: '12px 14px',
               background: 'var(--t-bg)', borderRadius: 10,
-              fontSize: 13, fontWeight: 600, color: '#5a4530', lineHeight: 1.5,
+              fontSize: 'var(--t-text-label)', fontWeight: 600, color: '#5a4530', lineHeight: 1.5,
               textAlign: 'left', fontStyle: 'italic',
             }}>
               {card.bioEn}
@@ -305,10 +305,10 @@ function CardDetail({ card, unlocked, onClose }: {
           <div style={{
             marginTop: 14, padding: '12px 14px',
             background: 'var(--t-bg)', borderRadius: 10,
-            fontSize: 13, fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.5,
+            fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', lineHeight: 1.5,
           }}>
             <div>{card.unlockHintZh}</div>
-            <div style={{ marginTop: 4, fontSize: 12, fontWeight: 600, fontStyle: 'italic' }}>
+            <div style={{ marginTop: 4, fontSize: 'var(--t-text-label)', fontWeight: 600, fontStyle: 'italic' }}>
               {card.unlockHintEn}
             </div>
           </div>

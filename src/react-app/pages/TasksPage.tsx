@@ -21,14 +21,14 @@ export default function TasksPage() {
   ];
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('tasks.title')}</h1>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 14px' }}>{t('tasks.title')}</h1>
 
       <div style={{ background: 'var(--t-surface)', border: '2px solid var(--t-brand)', borderBottom: '4px solid var(--t-brand-dark)', borderRadius: 'var(--t-radius-card)', padding: 18, marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🔥</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.streakDays').replace('{n}', String(streak))}</div>
-            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>{t('tasks.streakLabel')}</div>
+            <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.streakDays').replace('{n}', String(streak))}</div>
+            <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700 }}>{t('tasks.streakLabel')}</div>
           </div>
         </div>
       </div>
@@ -38,20 +38,20 @@ export default function TasksPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 36 }}>🧊</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.freezeCount').replace('{n}', String(freezes))}</div>
-            <div style={{ fontSize: 12, color: 'var(--t-text-muted)', fontWeight: 700 }}>
+            <div style={{ fontSize: 'var(--t-text-stat)', fontWeight: 900, color: 'var(--t-text)' }}>{t('tasks.freezeCount').replace('{n}', String(freezes))}</div>
+            <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700 }}>
               {t('tasks.freezeLabel')}
             </div>
           </div>
         </div>
       </div>
 
-      <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--t-text-muted)', margin: '18px 0 8px' }}>{t('tasks.goals')}</h2>
+      <h2 style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-text-muted)', margin: '20px 0 8px' }}>{t('tasks.goals')}</h2>
       {goals.map((g, i) => (
         <div key={i} style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border-soft)', borderRadius: 10, padding: 12, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 22 }}>{g.icon}</span>
-          <span style={{ flex: 1, fontSize: 14, color: 'var(--t-text)', fontWeight: 600 }}>{g.text}</span>
-          <span style={{ fontSize: 14, color: g.done ? 'var(--t-success)' : 'var(--t-border-card)', fontWeight: 800 }}>{g.done ? '✓' : '○'}</span>
+          <span style={{ flex: 1, fontSize: 'var(--t-text-body)', color: 'var(--t-text)', fontWeight: 600 }}>{g.text}</span>
+          <span style={{ fontSize: 'var(--t-text-body)', color: g.done ? 'var(--t-success)' : 'var(--t-border-card)', fontWeight: 800 }}>{g.done ? '✓' : '○'}</span>
         </div>
       ))}
     </div>

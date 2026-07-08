@@ -71,10 +71,10 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
       }}>
         {/* Title */}
         <div>
-          <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: 1.5, color: '#7a6850', textTransform: 'uppercase', textAlign: 'center' }}>
+          <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, letterSpacing: 1.5, color: '#7a6850', textTransform: 'uppercase', textAlign: 'center' }}>
             {titleEn}
           </div>
-          <div style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', textAlign: 'center', marginTop: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+          <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', textAlign: 'center', marginTop: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
             <img src="/mascots/icon-paw.webp" alt="" aria-hidden="true" width={28} height={28} style={{ display: 'inline-block' }} />
             Key Sentences
           </div>
@@ -86,7 +86,7 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
         {/* Sentence bubbles */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {narrations.length === 0 ? (
-            <div style={{ padding: 20, textAlign: 'center', color: '#7a6850', fontSize: 13 }}>No key sentences yet</div>
+            <div style={{ padding: 20, textAlign: 'center', color: '#7a6850', fontSize: 'var(--t-text-label)' }}>No key sentences yet</div>
           ) : narrations.map(q => (
             <div
               key={q.id}
@@ -114,11 +114,11 @@ export default function KeySentencesSheet({ chapter, titleEn, onClose }: Props) 
                 <img src="/mascots/icon-speaker.webp" width={26} height={26} alt="" style={{ display: 'block' }} />
               </button>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.5 }}>
+                <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 700, color: 'var(--t-text)', lineHeight: 1.5 }}>
                   {q.sentence}
                 </div>
                 {q.explanationZh && (
-                  <div style={{ fontSize: 12, color: '#7a6850', marginTop: 4, lineHeight: 1.4 }}>
+                  <div style={{ fontSize: 'var(--t-text-label)', color: '#7a6850', marginTop: 4, lineHeight: 1.4 }}>
                     {q.explanationZh}
                   </div>
                 )}

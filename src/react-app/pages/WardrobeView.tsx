@@ -85,10 +85,10 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
           display: 'flex', alignItems: 'center', gap: 10,
         }}>
           <div style={{ flex: 1 }}>
-            <h2 style={{ fontSize: 18, fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>
+            <h2 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: 0 }}>
               衣櫥
             </h2>
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+            <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
               {unlockedCount} / {total} 套裝扮
             </div>
           </div>
@@ -104,20 +104,20 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
         }}>
           <OutfitPreview outfit={preview} unlocked={isPreviewUnlocked} large />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: 16, fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.2 }}>
+            <div style={{ fontSize: 'var(--t-text-body)', fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.2 }}>
               {preview.name.zh}
             </div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
+            <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text-muted)', marginTop: 2 }}>
               {preview.name.en}
             </div>
             <div style={{
-              marginTop: 8, fontSize: 12, color: '#5a4530',
+              marginTop: 8, fontSize: 'var(--t-text-label)', color: '#5a4530',
               fontWeight: 600, lineHeight: 1.45,
             }}>
               {isPreviewUnlocked ? preview.bio.zh : preview.unlockHint.zh}
             </div>
             <div style={{
-              marginTop: 3, fontSize: 11, color: 'var(--t-text-muted)',
+              marginTop: 3, fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)',
               fontWeight: 600, fontStyle: 'italic', lineHeight: 1.4,
             }}>
               {isPreviewUnlocked ? preview.bio.en : preview.unlockHint.en}
@@ -142,7 +142,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                   : '#a89c80'
               }`,
               borderRadius: 'var(--t-radius-md)',
-              fontSize: 15, fontWeight: 900,
+              fontSize: 'var(--t-text-button)', fontWeight: 900,
               cursor: isPreviewUnlocked && !isPreviewCurrent ? 'pointer' : 'not-allowed',
               fontFamily: 'inherit',
               touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
@@ -188,7 +188,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                 >
                   <OutfitPreview outfit={o} unlocked={isUnlocked} />
                   <div style={{
-                    fontSize: 11, fontWeight: 900,
+                    fontSize: 'var(--t-text-micro)', fontWeight: 900,
                     color: isUnlocked ? 'var(--t-text)' : 'var(--t-text-muted)',
                     textAlign: 'center', lineHeight: 1.2, marginTop: 2,
                   }}>
@@ -199,7 +199,7 @@ export default function WardrobeView({ onClose, onApplied }: Props) {
                       position: 'absolute',
                       top: 4, right: 4,
                       background: 'var(--t-success)', color: 'var(--t-surface)',
-                      fontSize: 9, fontWeight: 900,
+                      fontSize: 'var(--t-text-micro)', fontWeight: 900,
                       padding: '2px 6px', borderRadius: 'var(--t-radius-pill)',
                       letterSpacing: 0.5,
                     }}>

@@ -142,7 +142,7 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         color: '#3c2a1c',
       }}>
         {/* v2.0.B.536 (per user 極簡): 移除 ✕, 點背景即關閉 */}
-        <div style={{ fontSize: 18, fontWeight: 900, color: '#3c2a1c', marginBottom: 12 }}>分享金句</div>
+        <div style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: '#3c2a1c', marginBottom: 12 }}>分享金句</div>
 
         {/* Preview card */}
         <div style={{
@@ -162,7 +162,7 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
         </div>
 
         {/* Source attribution (text — accessible fallback) */}
-        <div style={{ fontSize: 12, color: '#8b6f4a', textAlign: 'center', marginBottom: 14, lineHeight: 1.5 }}>
+        <div style={{ fontSize: 'var(--t-text-label)', color: '#8b6f4a', textAlign: 'center', marginBottom: 14, lineHeight: 1.5 }}>
           {sentence.source}
         </div>
 
@@ -213,7 +213,7 @@ export default function ShareModal({ sentence, chapter, onClose }: Props) {
             marginTop: 8, padding: '10px 12px',
             background: '#fef3c7', border: '1.5px solid #c8a878',
             borderRadius: 10, color: '#7a5e25',
-            fontSize: 13, fontWeight: 700, textAlign: 'center',
+            fontSize: 'var(--t-text-label)', fontWeight: 700, textAlign: 'center',
           }}>{savedHint}</div>
         )}
       </div>
@@ -240,7 +240,7 @@ function ShareButton({ label, emoji, bg, borderDark, onClick, disabled }: {
         border: 'none',
         borderBottom: `4px solid ${borderDark}`,
         borderRadius: 'var(--t-radius-md)',
-        fontSize: 14,
+        fontSize: 'var(--t-text-button)',
         fontWeight: 900,
         cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.6 : 1,

@@ -17,7 +17,7 @@ export default function AlertsPage() {
   const { t } = useT();
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: 'var(--t-text)', margin: '0 0 16px' }}>{t('alerts.title')}</h1>
+      <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 14px' }}>{t('alerts.title')}</h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
         {ACHIEVEMENTS.map(a => (
@@ -30,8 +30,8 @@ export default function AlertsPage() {
             opacity: a.earned ? 1 : 0.6,
           }}>
             <div style={{ fontSize: 32, marginBottom: 6 }}>{a.icon}</div>
-            <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--t-text)', marginBottom: 2 }}>{t(`ach.${a.id}.name`)}</div>
-            <div style={{ fontSize: 10, color: 'var(--t-text-muted)', lineHeight: 1.4 }}>{t(`ach.${a.id}.desc`)}</div>
+            <div style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-text)', marginBottom: 2 }}>{t(`ach.${a.id}.name`)}</div>
+            <div style={{ fontSize: 'var(--t-text-micro)', color: 'var(--t-text-muted)', lineHeight: 1.4 }}>{t(`ach.${a.id}.desc`)}</div>
           </div>
         ))}
       </div>
