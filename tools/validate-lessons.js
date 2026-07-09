@@ -444,6 +444,37 @@ function lintExplainZhVoice(lessons, file) {
   return issues;
 }
 
+// X68_EXPZH_REGISTER (ARCH-REC #131, per 2026-07-08T1804 content-qa cron): 出題用的
+// authoring notation 外洩成玩家可見文案 — 「推理:」前綴、"(paraphrase)" 英文 ELT 標籤、
+// 考試指導語、教科書文法句式 (Cambridge ELT Feedback minipaper; Duolingo kids 2026:
+// 兒童流程不給文法標籤)。B.577 已清 ch9-16 ×8, 此 lint 從源頭擋同款 notation 再進 JSON。
+// warn-only (跟 X59 同模式)。
+const X68_PATTERNS = [
+  [/推理[:：]/, 'TESTPREP_RATIOCINATE', '「推理:」authoring shorthand 外洩'],
+  [/\(paraphrase\)/i, 'TESTPREP_PARAPHRASE', '英文 ELT 術語 "(paraphrase)"'],
+  [/這題要你.{0,10}推理/, 'TESTPREP_META_PROMPT', '考試指導語「這題要你…推理」'],
+  [/動詞後面要加/, 'GRAMMAR_TEXTBOOK_RULE', '教科書句式「動詞後面要加」'],
+  [/分開的動詞片語/, 'GRAMMAR_TEXTBOOK_PARSING', '句法剖析 jargon「分開的動詞片語」'],
+  [/慣用語/, 'TERM_IDIOM_LABEL', '「慣用語」術語標籤'],
+];
+function lintExpZhRegister(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      const zh = q.explanationZh;
+      if (typeof zh !== 'string' || zh.length === 0) continue;
+      for (const [re, code, msg] of X68_PATTERNS) {
+        const m = zh.match(re);
+        if (m) {
+          issues.push(`${file} ${q.id}: X68_EXPZH_REGISTER/${code} (${msg}「${m[0]}」)`);
+          break; // 一題最多報一次
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 function lintMirror(lessons, file) {
   const issues = [];
   for (const lesson of lessons) {
@@ -513,8 +544,9 @@ for (const file of files) {
     const antonymMirrorIssues = lintAntonymPairMirror(raw, file); // X57 (WARN, antonym-pair mirror)
     const blankPosIssues = lintBlankPosBalance(raw, file);    // X55 (WARN, grammar-mc blank position balance)
     const explainVoiceIssues = lintExplainZhVoice(raw, file); // X59 (WARN, explanationZh 故事語氣)
+    const expRegisterIssues = lintExpZhRegister(raw, file); // X68 (WARN, authoring notation 外洩)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues, ...explainVoiceIssues];
+    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues, ...explainVoiceIssues, ...expRegisterIssues];
     totalIssues += allIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
