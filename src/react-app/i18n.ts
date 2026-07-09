@@ -84,6 +84,7 @@ const ZH: Dict = {
   // 圖鑑頁
   'cards.title': '圖鑑',
   'cards.count': '{u} / {t} 張卡片',
+  'cards.tip': '玩課程時點英文字,再點「＋ 單字卡」收進來!',
   // 每日任務頁
   'tasks.title': '每日任務',
   'tasks.streakDays': '{n} 天',
@@ -260,6 +261,7 @@ const EN: Dict = {
   'ach.8.name': 'Graduate', 'ach.8.desc': 'Complete every chapter',
   'cards.title': 'Collection',
   'cards.count': '{u} / {t} cards',
+  'cards.tip': 'Tap any English word in a lesson, then tap “＋” to collect it!',
   'tasks.title': 'Daily Tasks',
   'tasks.streakDays': '{n} days',
   'tasks.streakLabel': 'Daily streak',
@@ -433,6 +435,7 @@ const JA: Dict = {
   'ach.8.name': 'そつぎょうせい', 'ach.8.desc': '全部の章をクリアしたよ',
   'cards.title': 'ずかん',
   'cards.count': '{u} / {t} まいのカード',
+  'cards.tip': 'レッスンで英語の文字をタップ → 「＋」で集められるよ!',
   'tasks.title': '今日のにちじょう',
   'tasks.streakDays': '{n} 日',
   'tasks.streakLabel': 'れんぞく学習',
@@ -603,6 +606,7 @@ const KO: Dict = {
   'ach.8.name': '졸업생', 'ach.8.desc': '모든 장을 완료해요',
   'cards.title': '카드 모음',
   'cards.count': '{u} / {t} 장',
+  'cards.tip': '수업에서 영어 단어를 눌러 「＋」로 모아 보세요!',
   'tasks.title': '매일 임무',
   'tasks.streakDays': '{n}일',
   'tasks.streakLabel': '연속 학습',

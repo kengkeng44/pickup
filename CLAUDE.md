@@ -501,6 +501,8 @@ npx wrangler pages deploy dist \
 
 ### 研究優先（v2.0.B.546 per user — 所有指令都先做）
 
+> **v2.0.B.579 追加(per user 2026-07-09)**:①上網查資料、回頭審視自家標準文件時,**reasoning effort 調到最高**(不淺查、不跳讀,把標準完整讀完再動手)。②**修改頁面/介面一律 Fable 優先**,Fable 額度不可用才退 Sonnet;美感判斷不下放。
+
 > 作者 2026-07-01 定調:「以後遇到指令,都先上網查有沒有人做過了、適不適合我的要求,適合就直接照抄」。
 
 - **動手前先查**:每個功能 / 設計 / 演算法指令,先 WebSearch 有沒有現成的業界做法 / library / 公式 / pattern(這份 session 已多次這樣做:LTV 公式、blank-position lint、cloze 難度、onboarding、Claude Design)。

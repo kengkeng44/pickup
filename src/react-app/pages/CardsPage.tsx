@@ -10,6 +10,7 @@
 import { useState, useMemo } from 'react';
 import { getAllCards, readUnlockedCardIds, type CharacterCard } from '../../data/cards';
 import { useVocabStore, FREE_CARD_CAP } from '../../store/vocabStore';
+import FirstVisitTip from '../components/FirstVisitTip';
 import { useT } from '../i18n';
 
 export default function CardsPage() {
@@ -36,8 +37,10 @@ export default function CardsPage() {
       padding: '16px 14px 24px',
       background: 'var(--t-bg)',
       minHeight: '100dvh',
-      fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
+      fontFamily: '"Nunito", "jf-openhuninn", "Noto Sans TC", system-ui, sans-serif',
     }}>
+      {/* v2.0.B.579: 一次性教學 = 首次進頁彈窗 (per user), 不在頁面上加字 */}
+      <FirstVisitTip id="cards" emoji="📒" text={t('cards.tip')} />
       <header style={{ marginBottom: 16 }}>
         <h1 style={{ fontSize: 'var(--t-text-title)', fontWeight: 900, color: 'var(--t-text)', margin: '0 0 2px' }}>
           {t('cards.title')}
@@ -131,11 +134,7 @@ function VocabSection() {
         </div>
       )}
 
-      {count === 0 ? (
-        <div style={{ fontSize: 'var(--t-text-label)', color: 'var(--t-text-muted)', fontWeight: 700, lineHeight: 1.7, padding: '6px 0' }}>
-          玩課程時點英文字 → 點「＋ 單字卡」
-        </div>
-      ) : (
+      {count > 0 && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {sorted.map((c) => (
             <div key={c.word} style={{
