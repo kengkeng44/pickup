@@ -146,14 +146,14 @@ body {
   color: #f0e6d8;
 }
 :root[data-theme='dark'] body {
-  background: #14100b;
+  background: #14112a;
 }
 :root[data-theme='dark'] #app {
-  background: #1a1410;
+  background: #1b1833;
 }
 @media (min-width: 520px) {
   :root[data-theme='dark'] body {
-    background: #0f0c08;
+    background: #0e0c20;
   }
   :root[data-theme='dark'] #app {
     box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
@@ -310,9 +310,12 @@ button:focus-visible {
  * 搭配 .t-scope-dark (tokens.css) — 地圖子樹全部翻夜色 token, 文字自動變淺。
  * (取代 B.553 的 day/dusk/night 三檔天空 — per user「背景改成暗暗的有一盞燈」) */
 .pickup-lamp-sky {
+  /* v2.0.B.580 靛藍夜空 (冷) + 琥珀燈暈 (暖) + 細噪點蓋 banding。
+   * 暗部漸層在手機會出現色帶 → 頂層鋪 SVG feTurbulence 微噪點 (grainy-gradient 手法)。 */
   background:
-    radial-gradient(95% 55% at 72% -6%, rgba(255, 200, 120, 0.34) 0%, rgba(255, 200, 120, 0.12) 42%, rgba(255, 200, 120, 0) 68%),
-    linear-gradient(180deg, #3a2d21 0%, #2b2118 52%, #221a12 100%);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"),
+    radial-gradient(95% 55% at 72% -6%, rgba(255, 196, 110, 0.4) 0%, rgba(255, 190, 105, 0.14) 44%, rgba(255, 190, 105, 0) 70%),
+    linear-gradient(180deg, #3b346e 0%, #272254 52%, #1b1833 100%);
 }
 /* 掛燈本體 — 純 CSS: 吊繩 + 燈罩 + 燈泡光點。glow 是內容美術, 不算 UI blur halo。 */
 .pickup-lamp-cord {

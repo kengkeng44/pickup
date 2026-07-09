@@ -15,8 +15,10 @@
  *
  * 核心色 CORE(遲疑就用燈火琥珀):
  *   燈火 Lantern   #e7a44a  品牌主色(--t-brand)     燈影 Ember    #b07a2a(--t-brand-dark)
- *   夜幕 Night     #1a1410  夜色底(--t-bg dark)     爐火 Hearth   #241c15  夜卡(--t-surface dark)
- *   月暈 Halo      #322619  夜浮層(--t-surface-raised dark)
+ *   夜幕 Night     #1b1833  夜色底(--t-bg dark)     靛夜 Indigo   #252148  夜卡(--t-surface dark)
+ *   月暈 Halo      #322c5e  夜浮層(--t-surface-raised dark)
+ *   (v2.0.B.580 夜色棕黑→靛藍: 低飽和暖棕在暗部人眼讀成髒灰; 插畫夜景公式 =
+ *    冷靛夜 + 暖燈火互補對比, 琥珀燈才會「亮」— per user「髒髒灰灰」)
  *   奶油 Cream     #fef8ed  亮色底(--t-bg light)    雪頁 Page     #ffffff  亮卡(--t-surface light)
  *   墨褐 Ink       #3c2a1c  文字(--t-text)          沙褐 Sand     #8b6f4a  次要字(--t-text-muted)
  *
@@ -110,27 +112,29 @@
  * 不管全域主題亮暗, 掛這個 class 的容器內所有 var(--t-*) 消費者都翻夜色。 ── */
 [data-theme="dark"],
 .t-scope-dark {
-  --t-bg: #1a1410;
-  --t-surface: #241c15;
-  --t-surface-raised: #322619; /* 彈窗浮起來: 比 surface 亮一階的暖棕 */
-  --t-surface-alt: #2e241a;
-  --t-border: #3a2e22;
-  --t-border-strong: #4a3c2c;
-  --t-border-card: #4a3c2c;
-  --t-border-soft: #3a2e22;
-  --t-tint-warn: #3a3220;
+  /* v2.0.B.580 靛藍夜 — 夜色帶明確藍紫 chroma 才不顯髒;
+   * 文字維持暖奶油、品牌維持琥珀 → 冷夜暖燈的 Ghibli 夜景對比。 */
+  --t-bg: #1b1833;
+  --t-surface: #252148;
+  --t-surface-raised: #322c5e; /* 彈窗浮起來: 比 surface 亮一階的靛藍 */
+  --t-surface-alt: #2a2452;
+  --t-border: #3a3466;
+  --t-border-strong: #4c4584;
+  --t-border-card: #4c4584;
+  --t-border-soft: #3a3466;
+  --t-tint-warn: #3b3452;
   --t-text: #f0e6d8;
-  --t-text-muted: #b09a7e;
-  --t-text-inverse: #1a1410;
+  --t-text-muted: #a89ec8;
+  --t-text-inverse: #1b1833;
   --t-brand: #f0b25e;
   --t-brand-dark: #b07a2a;
   --t-success: #8fae5e;
   --t-success-dark: #5e7a36;
-  --t-success-tint: #2f3a22;
+  --t-success-tint: #263c2e;
   --t-danger: #d96a58;
   --t-danger-dark: #7a2a20;
-  --t-danger-tint: #3a221d;
-  --t-info: #6a8a9e;
+  --t-danger-tint: #402433;
+  --t-info: #8aa8c8;
   --t-warn: #d4b45e;
   --t-top-stripe: inset 0 4px 0 rgba(255, 255, 255, 0.08);
 }
