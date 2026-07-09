@@ -736,7 +736,7 @@ export default function MapPage() {
   return (
     <div className="pickup-full-bleed t-scope-dark pickup-lamp-sky" style={{
       color: COLOR_TEXT_DARK, minHeight: '100dvh',
-      fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
+      fontFamily: '"Nunito", "jf-openhuninn", "Noto Sans TC", system-ui, sans-serif',
     }}>
       {/* v2.0.B.555 故事燈: 掛燈 (吊繩 + 燈罩 + 燈泡光點) — 純裝飾 */}
       <div aria-hidden="true" className="pickup-lamp-cord" />

@@ -1,3 +1,11 @@
+/* jf 粉圓 open-huninn (justfont, SIL OFL 1.1) — subset 至 app 實際字集 (tools/subset-huninn.js) */
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('/fonts/jf-openhuninn-sub.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 /* 拾光 (Pickup) — global styles + animations (v0.10 Duolingo polish).
  *
  * v0.10: introduced a full design token system. Semantic color names
@@ -10,11 +18,12 @@
  * working while we migrate. New code SHOULD use --pickup-* tokens. */
 
 :root {
-  /* Font stack — Noto Sans TC for body CJK (clean readable), Nunito
-   * for display Latin (Duolingo Feather Bold's closest free alternative
-   * — rounded geometric sans). Both loaded via index.html.
-   * See --font-display / --font-body tokens below. */
-  font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+  /* Font stack (v2.0.B.579 字型升級 per user「字體字型不好看」):
+   * latin → Nunito (Duolingo Feather/DIN Round 免費近親);
+   * CJK → jf 粉圓 open-huninn (justfont, OFL) — 圓潤兒童感, Noto 的公文感 out;
+   * 後備 Noto Sans TC (subset 外新字自動 fallback)。
+   * subset 588KB woff2 涵蓋 app 全部 4,611 字, 工具: tools/subset-huninn.js */
+  font-family: 'Nunito', 'jf-openhuninn', 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
     'PingFang TC', 'Microsoft JhengHei', sans-serif;
   color: #3d2817;
   background: #fef8ed;
@@ -74,10 +83,10 @@
    * (見 docs/standards/2026-07-06-design-standard.md)。
    * font-family 系列 (--font-family/--font-display/--font-body) 仍是現役。
    * Use as `font: var(--font-display);` shorthand OR pull pieces. */
-  --font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+  --font-family: 'Nunito', 'jf-openhuninn', 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
     'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-display: 'Nunito', 'Noto Sans TC', system-ui, sans-serif;
-  --font-body: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
+  --font-display: 'Nunito', 'jf-openhuninn', 'Noto Sans TC', system-ui, sans-serif;
+  --font-body: 'Nunito', 'jf-openhuninn', 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', Roboto,
     'PingFang TC', 'Microsoft JhengHei', sans-serif;
   --font-display-size: 36px;
   --font-display-weight: 900;
