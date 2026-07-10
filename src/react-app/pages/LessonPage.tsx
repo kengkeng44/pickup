@@ -51,12 +51,20 @@ export default function LessonPage() {
   const [maxLessonInChapter, setMaxLessonInChapter] = useState(0);
   const [idx, setIdx] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
+  // P13a: fetch error state + retry counter. A 404/offline used to leave the
+  // user on an eternal "loading" screen (no .catch / no r.ok guard).
+  const [loadError, setLoadError] = useState(false);
+  const [retryTick, setRetryTick] = useState(0);
   const startedAt = useRef(Date.now());
   const answerLog = useRef<Array<{ q: RawQuestion; userIdx: number; isCorrect: boolean }>>([]);
 
   useEffect(() => {
+    setLoadError(false);
     fetch(`/lessons-ch${chapter}.json`)
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status} loading lessons-ch${chapter}.json`);
+        return r.json();
+      })
       .then((arr: Lesson[]) => {
         const found = arr.find(l => l.id === lessonId);
         setLesson(found ?? null);
@@ -69,11 +77,31 @@ export default function LessonPage() {
         if (found) {
           try { track(EVENT.LESSON_START, { lesson_id: found.id, chapter: found.chapter, question_count: found.questions.length }); } catch {}
         }
+      })
+      .catch(() => {
+        setLoadError(true);
       });
-  }, [chapter, lessonId]);
+  }, [chapter, lessonId, retryTick]);
+
+  if (loadError) {
+    return (
+      <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>
+        <div style={{ marginBottom: 16, fontWeight: 700 }}>Could not load this lesson. Please check your connection.</div>
+        <button
+          onClick={() => setRetryTick(t => t + 1)}
+          style={{
+            padding: '12px 28px', background: '#7ac74a', color: '#fff', border: 'none',
+            borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 16, fontWeight: 900,
+            cursor: 'pointer', fontFamily: 'inherit',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >Retry</button>
+      </div>
+    );
+  }
 
   if (!lesson) {
-    return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>載入中…</div>;
+    return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>Loading…</div>;
   }
 
   const done = idx >= lesson.questions.length;
@@ -119,7 +147,7 @@ export default function LessonPage() {
         {/* Progress bar — fills proportional to (idx+1)/total. olive success bg + inset top highlight (Duolingo flat) */}
         <div
           role="progressbar"
-          aria-label={`進度 ${idx + 1} / ${lesson.questions.length}`}
+          aria-label={`Progress ${idx + 1} of ${lesson.questions.length}`}
           aria-valuenow={idx + 1}
           aria-valuemin={0}
           aria-valuemax={lesson.questions.length}
@@ -161,7 +189,7 @@ function MuteToggleBtn() {
   return (
     <button
       onClick={() => setMuted(toggleMuted())}
-      aria-label={muted ? '取消靜音 / Unmute' : '靜音 / Mute (適合哄睡場景)'}
+      aria-label={muted ? 'Unmute' : 'Mute'}
       title={muted ? 'Unmute' : 'Mute'}
       style={{
         // v2.0.B.286: 統一用 icon-speaker.webp (user-generated, 跟 KeySentencesSheet 同 icon)
@@ -309,7 +337,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
       {Array.from({ length: 12 }).map((_, i) => {
         const emojis = ['🎉', '⭐', '✨', '🌟', '🎊'];
         return (
-          <span key={i} className="pickup-confetti" style={{
+          <span key={i} className="pickup-confetti" aria-hidden="true" style={{
             left: `${5 + (i * 8)}%`,
             animationDelay: `${(i % 6) * 0.15}s`,
           }}>{emojis[i % emojis.length]}</span>
@@ -358,7 +386,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           maxWidth: 420,
           marginLeft: 'auto',
           marginRight: 'auto',
-        }}>想知道:{hook.inquiry}</div>
+        }}>Want to know? {hook.inquiry}</div>
       )}
       {/* v2.0.B.235 招 4: 分享金句 button. Surfaces ABOVE Continue per design
           (Duolingo's "share result" pattern). Hidden if chapter has no
@@ -366,8 +394,10 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
       {keySentence && (
         <button
           onClick={() => {
+            // P13b: removed duplicate EVENT.LESSON_COMPLETE emit here — it
+            // double-counted lesson completions in PostHog. No share event
+            // exists in the taxonomy (posthog.ts), so no replacement emitted.
             setShowShare(true);
-            try { track(EVENT.LESSON_COMPLETE, { share_modal_opened: true, lesson_id: lesson.id, chapter: lesson.chapter }); } catch {}
           }}
           aria-label="Share key sentence"
           style={{
@@ -381,7 +411,7 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           }}
         >
           <span aria-hidden="true">📤</span>
-          <span>分享金句 · Share</span>
+          <span>Share</span>
         </button>
       )}
       {/* v2.0.B.239: chapter-final lesson → swap Continue with NextStoryPicker
@@ -393,14 +423,14 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, onBack }
           borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }} aria-label="章節完成 明晚聽什麼 Pick next story">→</button>
+        }} aria-label="Chapter complete — pick the next story">→</button>
       ) : (
         <button onClick={onBack} style={{
           padding: '16px 24px', background: '#7ac74a', color: '#fff', border: 'none',
           borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 420,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }} aria-label="完成 Continue">→</button>
+        }} aria-label="Continue">→</button>
       )}
 
       {/* v2.0.B.234 wiring: soft notification consent prompt — only renders
@@ -486,9 +516,14 @@ function buildTriggerContext(opts: {
     }
   } catch {}
 
-  // chapter completion state
+  // chapter completion state.
+  // P13c: was `isLast ? opts.lesson.lessonInChapter : opts.lesson.lessonInChapter`
+  // (identical branches, dead ternary). The value itself is correct in both
+  // cases — completing lesson N (1-indexed) means N lessons finished this
+  // chapter (TriggerContext doc: "lessons finished this chapter, 0..24") —
+  // so collapsed to the plain expression; behavior unchanged.
   const isLast = opts.isLastLessonOfChapter;
-  const completedLessonsThisChapter = isLast ? opts.lesson.lessonInChapter : opts.lesson.lessonInChapter;
+  const completedLessonsThisChapter = opts.lesson.lessonInChapter;
 
   return {
     now,
@@ -562,10 +597,10 @@ function NewCardsBanner({ count }: { count: number }) {
       <span style={{ fontSize: 28 }}>📒</span>
       <div style={{ flex: 1, textAlign: 'left' }}>
         <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
-          你解鎖了 {count} 張新卡片!
+          You unlocked {count} new card{count > 1 ? 's' : ''}!
         </div>
         <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
-          You unlocked {count} new card{count > 1 ? 's' : ''}. Check 圖鑑 tab.
+          Check the Collection tab.
         </div>
       </div>
     </div>
@@ -580,7 +615,6 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
     .filter((o): o is NonNullable<typeof o> => o != null);
   if (outfits.length === 0) return null;
   const firstBadge = outfits[0].emojiBadge || '👕';
-  const namesZh = outfits.map(o => o.name.zh).join(' / ');
   const namesEn = outfits.map(o => o.name.en).join(' / ');
   return (
     <div className="pickup-fade-up" style={{
@@ -597,11 +631,11 @@ function NewOutfitsBanner({ outfitIds }: { outfitIds: OutfitId[] }) {
       <div style={{ flex: 1, textAlign: 'left' }}>
         <div style={{ fontSize: 14, fontWeight: 800, color: '#3c2a1c', lineHeight: 1.3 }}>
           {outfits.length === 1
-            ? `新裝扮:${namesZh}`
-            : `${outfits.length} 套新裝扮:${namesZh}`}
+            ? `New outfit: ${namesEn}`
+            : `${outfits.length} new outfits: ${namesEn}`}
         </div>
         <div style={{ fontSize: 11, fontWeight: 600, color: '#8b6f4a', marginTop: 2 }}>
-          New outfit{outfits.length > 1 ? 's' : ''}: {namesEn} · 我的 → 衣櫥 試穿
+          Try {outfits.length > 1 ? 'them' : 'it'} on: Profile → Wardrobe
         </div>
       </div>
     </div>
