@@ -1,15 +1,32 @@
 /**
- * Achievements — v1.9.7.
+ * Achievements — revived as the shared source of truth (was v1.9.7).
  *
  * Read-only definitions. Each achievement has an unlock predicate that
- * checks current state (streak / xp / chapter progress). UI calls
- * `evaluateAchievements()` to get { unlocked: [], locked: [] }.
+ * checks current state (lessons / streak / xp). UI (AlertsPage) calls
+ * `evaluateAchievements()` and renders the result.
  *
  * No persistence needed — unlock state is derived from existing data.
+ * IMPORTANT: this module must never WRITE to localStorage.
+ *
+ * Live localStorage keys (written by the React app, see LessonPage.tsx):
+ *   - pickup.chapter.{N}.lessons.completed  → readCompletedLessons() (runStore)
+ *   - pickup.streak.count                   → readStreak() (streak.ts)
+ *   - pickup.xp.total                       → readXp() (xp.ts)
+ *
+ * (The old v1.9.7 predicates read `wordwar.story.chapterProgress` via
+ * storyKitten.readChapterProgress — that key is only written by the dead
+ * Phaser layer, so React users would never unlock anything. Chapter
+ * completion is now derived the same way ChaptersPage does it:
+ * a chapter counts as complete when >= 7 of its lessons are done.)
  */
 import { readXp, levelForXp } from './xp';
 import { readStreak } from './streak';
-import { readChapterProgress } from './storyKitten';
+import { readCompletedLessons } from '../store/runStore';
+
+/** Mirrors ChaptersPage CHAPTERS list (31 stories in the pokedex). */
+const TOTAL_CHAPTERS = 31;
+/** ChaptersPage convention: a chapter is complete at >= 7 lessons done. */
+const LESSONS_PER_CHAPTER = 7;
 
 export interface Achievement {
   id: string;
@@ -35,23 +52,29 @@ interface AppState {
   xp: number;
   level: number;
   streak: number;
+  /** Total lessons completed across all chapters. */
+  lessonsCompleted: number;
+  /** Chapters with >= LESSONS_PER_CHAPTER lessons done (ChaptersPage rule). */
   chaptersCompleted: number;
 }
 
 const ACHIEVEMENTS: AchievementDef[] = [
   {
-    id: 'first-question',
+    id: 'first-lesson',
     emoji: '🐾',
     iconSrc: '/mascots/icon-paw.webp',
     title: 'First Paw',
-    description: 'Earn your first XP',
-    check: (s) => ({ unlocked: s.xp >= 1, progressLabel: s.xp >= 1 ? undefined : '0 XP' }),
+    description: 'Complete your first lesson',
+    check: (s) => ({
+      unlocked: s.lessonsCompleted >= 1,
+      progressLabel: s.lessonsCompleted >= 1 ? undefined : '0/1 lessons',
+    }),
   },
   {
     id: 'ch1-complete',
-    emoji: '☂️',  // no umbrella WebP yet — emoji stays as fallback
-    title: 'Rainy Night Survived',
-    description: 'Complete Chapter 1',
+    emoji: '📚',
+    title: 'Storyteller',
+    description: 'Finish all of Chapter 1',
     check: (s) => ({
       unlocked: s.chaptersCompleted >= 1,
       progressLabel: s.chaptersCompleted >= 1 ? undefined : 'Ch1 in progress',
@@ -62,7 +85,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
     emoji: '🔥',
     iconSrc: '/mascots/icon-flame.webp',
     title: 'Three-Day Spark',
-    description: 'Hit a 3-day streak',
+    description: 'Learn 3 days in a row',
     check: (s) => ({
       unlocked: s.streak >= 3,
       progressLabel: s.streak >= 3 ? undefined : `${s.streak}/3 days`,
@@ -72,8 +95,8 @@ const ACHIEVEMENTS: AchievementDef[] = [
     id: 'streak-7',
     emoji: '⚡',
     iconSrc: '/mascots/icon-lightning.webp',
-    title: 'Weekly Resilience',
-    description: 'Hit a 7-day streak',
+    title: 'One-Week Wonder',
+    description: 'Learn 7 days in a row',
     check: (s) => ({
       unlocked: s.streak >= 7,
       progressLabel: s.streak >= 7 ? undefined : `${s.streak}/7 days`,
@@ -84,7 +107,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
     emoji: '🌟',
     iconSrc: '/mascots/icon-star.webp',
     title: 'Monthly Master',
-    description: 'Hit a 30-day streak',
+    description: 'Learn 30 days in a row',
     check: (s) => ({
       unlocked: s.streak >= 30,
       progressLabel: s.streak >= 30 ? undefined : `${s.streak}/30 days`,
@@ -94,7 +117,7 @@ const ACHIEVEMENTS: AchievementDef[] = [
     id: 'xp-50',
     emoji: '⭐',
     iconSrc: '/mascots/node-star.webp',
-    title: 'Level 2 Hatchling',
+    title: 'Rising Star',
     description: 'Reach Level 2 (50 XP)',
     check: (s) => ({
       unlocked: s.level >= 2,
@@ -103,8 +126,8 @@ const ACHIEVEMENTS: AchievementDef[] = [
   },
   {
     id: 'xp-200',
-    emoji: '🎯',  // no target WebP yet — emoji stays as fallback
-    title: 'Level 3 Climb',
+    emoji: '🎯',
+    title: 'Sharpshooter',
     description: 'Reach Level 3 (200 XP)',
     check: (s) => ({
       unlocked: s.level >= 3,
@@ -115,23 +138,39 @@ const ACHIEVEMENTS: AchievementDef[] = [
     id: 'all-chapters',
     emoji: '🏆',
     iconSrc: '/mascots/icon-trophy.webp',
-    title: 'Way Home',
-    description: 'Complete all 8 chapters',
+    title: 'Story Collector',
+    description: `Finish all ${TOTAL_CHAPTERS} stories`,
     check: (s) => ({
-      unlocked: s.chaptersCompleted >= 8,
-      progressLabel: s.chaptersCompleted >= 8 ? undefined : `${s.chaptersCompleted}/8 chapters`,
+      unlocked: s.chaptersCompleted >= TOTAL_CHAPTERS,
+      progressLabel:
+        s.chaptersCompleted >= TOTAL_CHAPTERS
+          ? undefined
+          : `${s.chaptersCompleted}/${TOTAL_CHAPTERS} stories`,
     }),
   },
 ];
 
-export function evaluateAchievements(): Achievement[] {
+/** Read-only derivation of current app state from live localStorage keys. */
+function readAppState(): AppState {
   const xp = readXp();
-  const state: AppState = {
+  let lessonsCompleted = 0;
+  let chaptersCompleted = 0;
+  for (let ch = 1; ch <= TOTAL_CHAPTERS; ch++) {
+    const done = readCompletedLessons(ch).size;
+    lessonsCompleted += done;
+    if (done >= LESSONS_PER_CHAPTER) chaptersCompleted += 1;
+  }
+  return {
     xp,
     level: levelForXp(xp),
     streak: readStreak(),
-    chaptersCompleted: readChapterProgress().highestCompleted,
+    lessonsCompleted,
+    chaptersCompleted,
   };
+}
+
+export function evaluateAchievements(): Achievement[] {
+  const state = readAppState();
   return ACHIEVEMENTS.map(def => {
     const { unlocked, progressLabel } = def.check(state);
     return {

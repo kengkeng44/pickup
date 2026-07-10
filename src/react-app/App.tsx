@@ -25,7 +25,7 @@ const LessonPage = lazy(() => import('./pages/LessonPage'));
 const ChapterIntroPage = lazy(() => import('./pages/ChapterIntroPage'));
 
 function LoadingShell() {
-  return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>載入中…</div>;
+  return <div style={{ padding: 40, textAlign: 'center', color: '#8b6f4a' }}>Loading…</div>;
 }
 
 export default function App() {
@@ -140,7 +140,7 @@ export default function App() {
             textAlign: 'center',
           }}
         >
-          🐾 今天 Mochi 看到你了 · Day {visitToast.count}
+          🐾 Mochi saw you today · Day {visitToast.count}
         </div>
       )}
     </div>

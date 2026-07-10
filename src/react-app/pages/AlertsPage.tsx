@@ -1,32 +1,56 @@
-const ACHIEVEMENTS = [
-  { id: 1, icon: '🐾', name: '第一步', desc: '完成第一個 lesson', earned: false },
-  { id: 2, icon: '🔥', name: '三日連擊', desc: '連續 3 天學習', earned: false },
-  { id: 3, icon: '⚡', name: '七日狂熱', desc: '連續 7 天學習', earned: false },
-  { id: 4, icon: '⭐', name: '完美主義', desc: '滿分完成 1 個 lesson', earned: false },
-  { id: 5, icon: '👣', name: '探索者', desc: '解鎖 Ch2', earned: false },
-  { id: 6, icon: '📚', name: '說書人', desc: '完成 Ch1 全章', earned: false },
-  { id: 7, icon: '🎯', name: '神射手', desc: 'XP 達 1000', earned: false },
-  { id: 8, icon: '🏆', name: '畢業生', desc: '完成所有章節', earned: false },
-];
+/**
+ * Achievements tab — badges derived from real progress.
+ *
+ * Was a hardcoded stub (every badge earned:false forever). Now renders
+ * `evaluateAchievements()` from src/data/achievements.ts, which derives
+ * unlock state read-only from live localStorage:
+ *   - lessons completed  (pickup.chapter.{N}.lessons.completed)
+ *   - daily streak       (pickup.streak.count)
+ *   - XP / level         (pickup.xp.total)
+ */
+import { useMemo } from 'react';
+import { evaluateAchievements } from '../../data/achievements';
 
 export default function AlertsPage() {
+  // Read-only localStorage derivation — compute once per mount.
+  const achievements = useMemo(() => evaluateAchievements(), []);
+
   return (
     <div style={{ padding: '16px 14px 24px' }}>
-      <h1 style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', margin: '0 0 16px' }}>成就</h1>
+      <h1 style={{ fontSize: 22, fontWeight: 900, color: '#3c2a1c', margin: '0 0 16px' }}>Achievements</h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-        {ACHIEVEMENTS.map(a => (
+        {achievements.map(a => (
           <div key={a.id} style={{
-            background: a.earned ? '#fff' : '#f1ebe1',
-            border: `2px solid ${a.earned ? '#e7a44a' : '#c8a878'}`,
+            background: a.unlocked ? '#fff' : '#f1ebe1',
+            border: `2px solid ${a.unlocked ? '#e7a44a' : '#c8a878'}`,
             borderRadius: 12,
             padding: 12,
             textAlign: 'center',
-            opacity: a.earned ? 1 : 0.6,
+            opacity: a.unlocked ? 1 : 0.6,
           }}>
-            <div style={{ fontSize: 32, marginBottom: 6 }}>{a.icon}</div>
-            <div style={{ fontSize: 12, fontWeight: 800, color: '#3c2a1c', marginBottom: 2 }}>{a.name}</div>
-            <div style={{ fontSize: 10, color: '#8b6f4a', lineHeight: 1.4 }}>{a.desc}</div>
+            <div style={{ fontSize: 32, marginBottom: 6, lineHeight: 1 }}>
+              {a.iconSrc ? (
+                <img
+                  src={a.iconSrc}
+                  alt=""
+                  width={32}
+                  height={32}
+                  style={{
+                    display: 'inline-block',
+                    verticalAlign: 'bottom',
+                    filter: a.unlocked ? 'none' : 'grayscale(1)',
+                  }}
+                />
+              ) : a.emoji}
+            </div>
+            <div style={{ fontSize: 12, fontWeight: 800, color: '#3c2a1c', marginBottom: 2 }}>{a.title}</div>
+            <div style={{ fontSize: 10, color: '#8b6f4a', lineHeight: 1.4 }}>{a.description}</div>
+            {!a.unlocked && a.progressLabel && (
+              <div style={{ fontSize: 10, color: '#b07a2a', fontWeight: 800, marginTop: 4 }}>
+                {a.progressLabel}
+              </div>
+            )}
           </div>
         ))}
       </div>
