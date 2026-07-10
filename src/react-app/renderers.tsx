@@ -127,7 +127,7 @@ const OptionBtn = ({ label, labelZh, state, onClick, disabled }: {
 };
 
 const Explanation = ({ text }: { text: string }) => text ? (
-  <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: '#fef8ed', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
+  <div role="status" style={{ marginTop: 12, fontSize: 14, color: '#5a4530', lineHeight: 1.6, padding: '10px 12px', background: '#fef8ed', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
     {text}
   </div>
 ) : null;
@@ -138,7 +138,7 @@ const SPEAKER_META: Record<string, { emoji: string; label: string; bg: string; f
   mochi:    { emoji: '🐱', label: 'Mochi',   bg: '#fed7aa', fg: '#9a3412' },
   grandma:  { emoji: '👵', label: 'Grandma', bg: '#fef3c7', fg: '#78350f' },
   hana:     { emoji: '🐕', label: 'Hana',    bg: '#f5e6d3', fg: '#6b4226' },
-  narrator: { emoji: '📖', label: '背景',    bg: '#e5e7eb', fg: '#4b5563' },
+  narrator: { emoji: '📖', label: 'Narrator', bg: '#e5e7eb', fg: '#4b5563' },
 };
 const SpeakerBadge = ({ speaker }: { speaker?: string }) => {
   const meta = SPEAKER_META[speaker || 'narrator'] ?? SPEAKER_META.narrator;
@@ -255,7 +255,7 @@ const ListenTfRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
           <div style={{ flex: 1, fontSize: 15, fontWeight: 700, color: '#8b6f4a', letterSpacing: '0.1em', lineHeight: 1.8 }}>{blanks(en)}</div>
         </div>
-        <div style={{ fontSize: 14, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 點喇叭聽完聲音再選答案</div>
+        <div style={{ fontSize: 14, color: '#8b6f4a', textAlign: 'center', marginBottom: 16, fontWeight: 700 }}>🎧 Listen first, then choose your answer</div>
         <div className="pickup-answer-sticky">
           {opts.map((o, i) => <OptionBtn key={i} label={o} state="idle" onClick={() => click(i)} />)}
         </div>
@@ -290,13 +290,20 @@ const ListenMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   useEffect(() => {
     setRevealed(false); setSelected(null);
     // v2.0.B.176: chain sentence + question audio (sentence MP3 onEnd → 400ms gap → question WebSpeech)
+    // Unmount cleanup mirrors ListenTfRenderer — hoist innerTimer so the chained
+    // setTimeout(speak qPrompt, 400) can't fire against a dead scene (audio leak).
+    let innerTimer: number | undefined;
     try {
       speak(en, 'en-US', {
         onEnd: () => {
-          if (qPrompt) window.setTimeout(() => { try { speak(qPrompt); } catch {} }, 400);
+          if (qPrompt) innerTimer = window.setTimeout(() => { try { speak(qPrompt); } catch {} }, 400);
         }
       });
     } catch {}
+    return () => {
+      stopSpeaking();
+      if (innerTimer !== undefined) window.clearTimeout(innerTimer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -350,10 +357,16 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const en = q.sentence ?? '';
   const [text, setText] = useState('');
   const [revealed, setRevealed] = useState(false);
+  // Hoisted so the post-submit advance timer is clearable on unmount.
+  const advanceTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     setText(''); setRevealed(false);
     try { speak(en); } catch {}
+    return () => {
+      stopSpeaking();
+      if (advanceTimer.current !== undefined) window.clearTimeout(advanceTimer.current);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -374,14 +387,14 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     setRevealed(true);
     onAnswer(correct ? 0 : 1, correct);
     // v2.0.B.185 dwell bump: 3s correct / 6s wrong (was 5s) — senior 需要看正解
-    window.setTimeout(() => onAdvance(en), correct ? 3000 : 6000);
+    advanceTimer.current = window.setTimeout(() => onAdvance(en), correct ? 3000 : 6000);
   };
 
   return (
     <div className="pickup-lesson-words">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={48} />
-        <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>聽聲音, 打出你聽到的句子</div>
+        <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>Listen and type the sentence you hear</div>
       </div>
       <textarea
         value={text}
@@ -398,10 +411,10 @@ const TypeWhatYouHearRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
         width: '100%', padding: '12px 0', background: revealed || !text.trim() ? '#c8a878' : '#7ac74a',
         color: '#fff', border: 'none', borderBottom: '4px solid #5d9a35', borderRadius: 14, fontSize: 15, fontWeight: 900,
         cursor: revealed || !text.trim() ? 'default' : 'pointer', fontFamily: 'inherit',
-      }}>送出 · Submit</button>
+      }}>Submit</button>
       {revealed && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: '#fef8ed', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
-          正解: <strong>{en}</strong>
+          Answer: <strong>{en}</strong>
           {q.explanationZh && <div style={{ marginTop: 6 }}>{q.explanationZh}</div>}
         </div>
       )}
@@ -508,7 +521,7 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 14 }}>
         <SpeakerBtn onClick={() => speak(en, 'en-US', { force: true })} size={44} />
         <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 600 }}>
-          聽聲音, 點字排出句子 · Tap words to fill the blanks
+          Listen, then tap the words in order
         </div>
       </div>
       {/* ordered slots (one per word) — tap to place */}
@@ -580,15 +593,15 @@ const TapTilesRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* status microcopy — 2-strike hint or encouragement */}
       {!revealed && wrongCount === 1 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
-          再試一次 · Try again
+          Try again
         </div>
       )}
       {!revealed && wrongCount >= 2 && hintTileIdx >= 0 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
-          🐱 Mochi 提示: 試試亮亮的那個 · Try the highlighted one
+          🐱 Mochi's hint: try the highlighted one
         </div>
       )}
-      {revealed && <Explanation text={q.explanationZh ?? `正解: ${en}`} />}
+      {revealed && <Explanation text={q.explanationZh ?? `Answer: ${en}`} />}
     </div>
   );
 };
@@ -665,7 +678,7 @@ const TapPairsRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   };
 
   if (pairs.length === 0) {
-    return <div style={{ padding: 20, color: '#8b6f4a', textAlign: 'center' }}>(本題沒有配對資料)</div>;
+    return <div style={{ padding: 20, color: '#8b6f4a', textAlign: 'center' }}>(No matching pairs for this question)</div>;
   }
 
   // Shared card style — green when matched, amber when selected, white default
@@ -765,13 +778,23 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const [phase, setPhase] = useState<'pick' | 'reveal'>('pick');
   const [wrongCount, setWrongCount] = useState(0);
   const [shakeIdx, setShakeIdx] = useState<number | null>(null);
+  // Hoisted so the reveal timer is clearable on unmount (parity with ListenTfRenderer cleanup).
+  const revealTimer = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    return () => {
+      stopSpeaking();
+      if (revealTimer.current !== undefined) window.clearTimeout(revealTimer.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id]);
 
   const onTap = (i: number) => {
     if (phase === 'reveal') return;
     if (i === correctIdx) {
       try { sfxCorrect(); } catch {}
       onAnswer(i, true);
-      window.setTimeout(() => setPhase('reveal'), 800);
+      revealTimer.current = window.setTimeout(() => setPhase('reveal'), 800);
     } else {
       try { sfxWrong(); } catch {}
       setShakeIdx(i);
@@ -790,7 +813,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
           borderBottom: '4px solid #b07a2a', borderRadius: 14, fontSize: 17, fontWeight: 900,
           cursor: 'pointer', fontFamily: 'inherit', width: '100%', maxWidth: 360,
           WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
-        }} aria-label="聽 Mochi 的故事">→</button>
+        }} aria-label="Continue to Mochi's story">→</button>
       </div>
     );
   }
@@ -844,10 +867,12 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
   const [revealed, setRevealed] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
   const [shakeIdx, setShakeIdx] = useState<number | null>(null);
+  const [wrongCount, setWrongCount] = useState(0);
 
   useEffect(() => {
-    setRevealed(false); setSelected(null); setShakeIdx(null);
+    setRevealed(false); setSelected(null); setShakeIdx(null); setWrongCount(0);
     try { speak(word, 'en-US'); } catch {}
+    return () => { stopSpeaking(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -868,13 +893,20 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       setRevealed(true);
       onAnswer(i, true);
     } else {
-      try { sfxWrong(); } catch {}
       setShakeIdx(i);
       window.setTimeout(() => setShakeIdx(null), 380);
-      // first wrong logs as answer (parity with TapTilesRenderer)
       setSelected(i);
-      onAnswer(i, false);
-      // 2-strike reveal: show correct after 2 wrong attempts
+      // first wrong logs as answer once (parity with TapTilesRenderer)
+      if (wrongCount === 0) {
+        try { sfxWrong(); } catch {}
+        onAnswer(i, false);
+      }
+      // 2-strike reveal: reveal the correct answer on the 2nd wrong tap
+      // (the revealed-effect above plays sfxWrong + auto-advances)
+      if (wrongCount >= 1) {
+        setRevealed(true);
+      }
+      setWrongCount(c => c + 1);
     }
   };
 
@@ -883,7 +915,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ textAlign: 'left' }}><SpeakerBadge speaker={q.speaker} /></div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, padding: '14px 16px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 18 }}>
         <SpeakerBtn onClick={() => speak(word, 'en-US', { force: true })} size={56} />
-        <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a' }}>聽聲音 · 選對應的圖</div>
+        <div style={{ fontSize: 14, fontWeight: 700, color: '#8b6f4a' }}>Listen and pick the matching picture</div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, maxWidth: 360, margin: '0 auto' }}>
         {opts.map((o, i) => {
@@ -946,6 +978,7 @@ const PictureMcRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     setRevealed(false); setSelected(null);
     // Auto-read prompt for accessibility / A2 reading-only learners
     try { speak(prompt, 'en-US'); } catch {}
+    return () => { stopSpeaking(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -1015,9 +1048,16 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
 
   useEffect(() => {
     setTapped(null); setRevealed(false); setWrongCount(0);
+    // Unmount cleanup mirrors ListenTfRenderer — hoist innerTimer so the chained
+    // setTimeout(speak prompt, 400) can't fire against a dead scene (audio leak).
+    let innerTimer: number | undefined;
     try { speak(en, 'en-US', { onEnd: () => {
-      if (prompt) window.setTimeout(() => { try { speak(prompt); } catch {} }, 400);
+      if (prompt) innerTimer = window.setTimeout(() => { try { speak(prompt); } catch {} }, 400);
     }}); } catch {}
+    return () => {
+      stopSpeaking();
+      if (innerTimer !== undefined) window.clearTimeout(innerTimer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -1103,7 +1143,7 @@ const ReadAndTapRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       )}
       {!revealed && wrongCount === 1 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
-          再試一次 · Try again
+          Try again
         </div>
       )}
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
@@ -1137,6 +1177,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     setPlacements(Array(blanksCount).fill(null));
     setWrongFlash(null); setWrongCount(0); setRevealed(false);
     try { speak((q.sentence || template.replace(/__/g, '...')), 'en-US'); } catch {}
+    return () => { stopSpeaking(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -1206,7 +1247,7 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: '#fff7e8', border: '1px solid #e0d0b8', borderRadius: 12, marginBottom: 12 }}>
         <SpeakerBtn onClick={() => speak(q.sentence || template.replace(/__/g, '...'), 'en-US', { force: true })} size={36} />
         <div style={{ flex: 1, fontSize: 13, color: '#8b6f4a', fontWeight: 700 }}>
-          點字填空 · Tap to fill the blank
+          Tap a word to fill the blank
         </div>
       </div>
       {/* sentence with slots */}
@@ -1257,12 +1298,12 @@ const DragBlankRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       )}
       {!revealed && wrongCount === 1 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
-          再試一次 · Try again
+          Try again
         </div>
       )}
       {!revealed && wrongCount >= 2 && hintIdx >= 0 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
-          🐱 試試亮亮的那個 · Try the highlighted one
+          🐱 Try the highlighted one
         </div>
       )}
       {revealed && <Explanation text={q.explanationZh ?? ''} />}
@@ -1306,6 +1347,7 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
     setRevealed(false);
     // Auto-play sentence on mount (盲聽 prompt).
     try { speak(sentence, 'en-US'); } catch {}
+    return () => { stopSpeaking(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
 
@@ -1375,10 +1417,10 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
             WebkitTapHighlightColor: 'transparent',
           }}
         >
-          🐢 慢速 · Slow
+          🐢 Slow
         </button>
         <div style={{ flex: 1, fontSize: 12, color: '#8b6f4a', fontWeight: 700, textAlign: 'right' }}>
-          聽聲音排句子
+          Listen and build the sentence
         </div>
       </div>
       {/* ordered slots — fully blind, no sentence template shown */}
@@ -1446,12 +1488,12 @@ const ListenBuildRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       {/* 2-strike hint microcopy */}
       {!revealed && wrongCount === 1 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#8b6f4a', textAlign: 'center', fontWeight: 700, marginTop: 6 }}>
-          再聽一次 · Listen again
+          Listen again
         </div>
       )}
       {!revealed && wrongCount >= 2 && hintIdx >= 0 && (
         <div className="pickup-fade-up" style={{ fontSize: 13, color: '#b07a2a', textAlign: 'center', fontWeight: 800, marginTop: 6 }}>
-          🐱 Mochi 提示: 試試亮亮的那個 · Try the highlighted one
+          🐱 Mochi's hint: try the highlighted one
         </div>
       )}
       {revealed && zh && (
@@ -1597,18 +1639,18 @@ const SpeakBackRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               maxWidth: 320,
             }}
           >
-            此裝置不支援錄音 · Tap to skip
+            Recording not supported on this device — Tap to skip
           </button>
         )}
         <div style={{ fontSize: 12, color: '#8b6f4a', marginTop: 10, fontWeight: 700 }}>
-          {recording ? '錄音中… · Listening…' : supported && !revealed ? '點麥克風開始 · Tap mic to start' : ''}
+          {recording ? 'Listening…' : supported && !revealed ? 'Tap the mic to start' : ''}
         </div>
       </div>
       {revealed && transcript && (
         <div style={{ marginTop: 12, fontSize: 14, color: '#5a4530', padding: '10px 12px', background: '#fef8ed', borderLeft: '3px solid #c8a878', borderRadius: '0 8px 8px 0' }}>
-          <div>聽到 · Heard: <strong>{transcript}</strong></div>
+          <div>Heard: <strong>{transcript}</strong></div>
           <div style={{ marginTop: 4, color: matched ? '#5d9a35' : '#a23829', fontWeight: 800 }}>
-            {matched ? '✓ 太棒了!' : '× 再練習一次'}
+            {matched ? 'Great!' : 'Try once more'}
           </div>
         </div>
       )}
@@ -1647,5 +1689,5 @@ export const FallbackRenderer: React.FC<RendererProps> = ({ q, onAdvance }) => {
     return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id]);
-  return <div style={{ padding: 20, textAlign: 'center', color: '#8b6f4a' }}>未知題型: {q.type} (跳過中…)</div>;
+  return <div style={{ padding: 20, textAlign: 'center', color: '#8b6f4a' }}>Unknown question type: {q.type} (skipping…)</div>;
 };
