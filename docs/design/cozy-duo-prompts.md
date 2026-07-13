@@ -34,7 +34,11 @@
 
 ## 📐 造型語言規則(Duolingo 官方,照抄)
 
-1. **一切從基本形長出**:圓形、圓角矩形、三角形的整 / 半 / 四分之一拼出角色,不徒手亂畫。
+> 🔢 **形狀數量鐵律(官方風格書明載)**:一個角色用大約 **15 個形狀**。
+> **< 6 個 → 太抽象(認不出);> 30 個 → 太雜亂;15 個 = 剛剛好。**
+> 覺得醜,通常是形狀太多、太細。**用「剛好夠表達的最少形狀」。**
+
+1. **一切從基本形長出**:圓形、圓角矩形、圓角三角形的整 / 半 / 四分之一拼出角色(3 種基本形),不徒手亂畫。
 2. **全部圓角,沒有尖角。**
 3. **誇張到接近漫畫**:抓一兩個關鍵特徵放大(貓 → 大眼、圓臉頰)。
 4. **節奏感 (rhythm)**:形狀大小要錯落,不要一堆同樣大小的形硬排,那會呆。
@@ -45,25 +49,23 @@
 
 ## 🖼️ 生圖 Prompt 樣板
 
-### 通用「風格 token」段(★ 每次原封不動貼,只換主體與場景)
+### 通用「風格 token」段(★ 每次原封不動貼,只換主體與場景;正負已合一塊)
 
 ```
-Built from simple geometric rounded shapes (circles + rounded rectangles),
-bold flat 2D vector style, thick clean chunky forms, absolutely NO pointy
-edges. Oversized glossy expressive eyes with big highlights, goofy playful
-charm, exaggerated proportions with rhythmic variety of shape sizes.
-Minimal flat cel-shading. Cozy warm storybook palette:
+Constructed from about 15 simple geometric shapes only (circles, rounded
+rectangles, rounded triangles; wholes/halves/quarters), all rounded corners,
+NO pointy edges, simplified to as few shapes as necessary, varied shape sizes
+for rhythm. Bold flat 2D vector style, thick clean chunky forms.
+Oversized glossy expressive eyes with big highlights, goofy playful charm,
+exaggerated proportions. Minimal flat cel-shading. Cozy warm storybook palette:
 cream #fef8ed, amber #e7a44a, soft olive #7d9a4f, terracotta #c84a3a.
 Children's language-learning app mascot, friendly and huggable.
+Avoid: 3D render, glossy plastic, photorealism, thin or pointy lines,
+heavy black outlines, bright neon green #58cc02, cluttered background,
+too many small details, extra limbs, distorted face, text, watermark.
 ```
 
-### 通用「負面 prompt」(★ 每次一起下)
-
-```
-3D render, glossy plastic, photorealistic, thin lines, pointy sharp edges,
-heavy black outlines, Duolingo bright green #58cc02, neon, cluttered
-background, extra limbs, distorted face, yellow goggle henchman, text, watermark
-```
+> 📌 上面已把「負面」用 `Avoid:` 併進同一塊 —— **整段一次複製即可**,不用再分兩次貼。
 
 ---
 
@@ -79,7 +81,7 @@ Calico patches (white + amber + dark brown), rosy cheeks.
 4 views (front / side / back / 3-quarter) + 3 expressions
 (happy, curious, brave). Plain off-white background, centered, 2048x2048.
 ```
-負面:[貼通用負面段]
+(負面已含在通用風格 token 段的 `Avoid:` 裡,無需另貼)
 
 ### Hana(柴犬 / 奶奶養的)
 ```
@@ -88,7 +90,7 @@ Character reference sheet of a plump shiba inu dog mascot named Hana.
 Warm cream-tan fur, curled tail, gentle sleepy eyes.
 4 views + 3 expressions (calm, happy, wagging). Plain off-white bg, 2048x2048.
 ```
-負面:[貼通用負面段]
+(負面已含在通用風格 token 段的 `Avoid:` 裡,無需另貼)
 
 ### 奶奶(說故事的人)
 ```
@@ -97,7 +99,7 @@ Character reference sheet of a warm kind elderly grandma storyteller.
 Round glasses, silver bun hair, cozy cardigan, holding a storybook.
 4 views + 3 expressions (smiling, reading aloud, tender). Plain off-white bg, 2048x2048.
 ```
-負面:[貼通用負面段]
+(負面已含在通用風格 token 段的 `Avoid:` 裡,無需另貼)
 
 ### 場景圖(角色設定表定稿後才做)
 上傳該角色設定表當參考圖 → 只寫變化:
@@ -138,11 +140,12 @@ wall at night with a warm hanging lamp / listening to a bedtime story].
 
 ---
 
-## 📚 研究來源
+## 📚 研究來源(官方設計書,可自己讀)
 
-- Duolingo 官方 — [Shape language: Duolingo's art style](https://blog.duolingo.com/shape-language-duolingos-art-style/)
-- Duolingo 官方 — [Brand Guidelines: Characters](https://design.duolingo.com/illustration/characters)
-- [Duolingo Illustration Style Guide](https://www.scribd.com/document/583545694/Duolingo-Illustration-Guidelines)
+- ⭐ Duolingo 官方設計系統 — [Shape Language](https://design.duolingo.com/illustration/shape-language)(造型語言那頁,15 形狀規則出處)
+- Duolingo 官方設計系統 — [Brand Guidelines: Characters](https://design.duolingo.com/illustration/characters)
+- Duolingo 官方部落格 — [Shape language: Duolingo's art style](https://blog.duolingo.com/shape-language-duolingos-art-style/)(圖解)
+- [Duolingo Illustration Style Guide 完整 PDF](https://www.scribd.com/document/583545694/Duolingo-Illustration-Guidelines)(可下載,6 太抽象 / 30 太多 / 15 剛好)
 - 角色一致性 — [Creating Consistent Characters in AI Art (2026)](https://prompting.systems/blog/creating-consistent-characters-in-ai-art)
 - 資產一致管線 — [Consistent AI Game Assets Workflow](https://www.seeles.ai/resources/blogs/consistent-ai-game-assets-workflow)
 
