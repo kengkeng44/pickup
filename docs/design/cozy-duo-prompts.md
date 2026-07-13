@@ -47,6 +47,30 @@
 
 ---
 
+## 📖 官方設計書逐頁分析(嚴格參考,不抄襲)
+
+> 來源:`docs/design/refs/duolingo-shape-language.pdf`(官方 21 頁 brand guidelines,user 提供)。
+> **原則:抄「構成方法 / 規則」,不抄「Duolingo 的角色造型與命名色卡」。** 我們的角色是 Mochi、色卡是自家暖色。
+
+**逐頁重點(尤其看圖得到的):**
+
+| 頁 | 規則 | 生圖要怎麼下 |
+|----|------|-------------|
+| p3 | 只用 **3 種基本形**:圓角矩形(最常用)、圓形、圓角三角形;**每個形都圓角,尖角 off-brand** | `built from rounded rectangles, circles, rounded triangles; all rounded corners` |
+| p5 | **節奏**:形狀大小要錯落(像旋律長短音),同大小 = 呆 | `vary shape sizes for rhythm — large head, medium body, small limbs` |
+| p6 ⭐ | **貓範例!** 6 形太抽象 / **15 形剛好** / 30 形太多。**「剛好」那隻:無描邊、扁平色塊、簡單半瞇眼、小粉鼻、白肚、捲尾 —— 比直覺更簡** | 見下方 v2 prompt |
+| p6 | 30 形「太多」那隻 = 有**描邊 + 條紋 + 鬍鬚 + 細節內耳** → **這些全部不要** | `no outlines, no whiskers, no fur stripes, no detailed markings` |
+| p8 | **扁平透視**,不畫 3D;深度只在同一視線高度 | `flat front perspective, no 3D depth` |
+| p10 | 陰影是角色正下方的 **pill 藥丸形**,**絕不橢圓**(橢圓 = 透視);陰影色要比底色深 | `soft pill-shaped shadow directly beneath, never an oval` |
+| p14 | 相鄰形塊給**不同顏色**比同色更好讀("this is better") | `distinct flat color per region so shapes read clearly` |
+| p17 | 背景一律白 → **不能拿白當角色底色**;改用淺**粉彩**;**絕不用灰**(灰死氣沉沉) | 底色用暖粉彩,禁灰 |
+| p18 | **少數幾色**;顏色太多縮小會糊 | `limited palette, only 3-4 colors` |
+| p20-21 | 可有**浮動小元素**(靈感來自 Duo 飄動的腳),但只在有助畫面時才加 | 選配 |
+
+**一句總結**:官方「剛好」的貓比你想像的**更扁、更少細節、無描邊**。你之前覺得醜,多半是加了描邊 / 鬍鬚 / 陰影 / 太多色。
+
+---
+
 ## 🖼️ 生圖 Prompt 樣板
 
 ### 通用「風格 token」段(★ 每次原封不動貼,只換主體與場景;正負已合一塊)
@@ -110,40 +134,52 @@ wall at night with a warm hanging lamp / listening to a bedtime story].
 
 ---
 
-## 🍌 Gemini (Nano Banana) 即用完整 Prompt — Mochi
+## 🍌 Gemini (Nano Banana) 即用完整 Prompt — Mochi v2(嚴格照官方構成規則)
 
-> Gemini 吃**自然語言**,不要用 Midjourney 的 `--` 參數。整段複製即可。
+> Gemini 吃**自然語言**,不用 `--` 參數。**整段複製**。此版依 PDF 逐頁分析寫成:15 形、無描邊、pill 陰影、扁平透視、少色、禁灰。
 
 ```
-Create a mascot logo of a chubby calico cat named Mochi for a children's
-English-learning app. Flat 2D vector illustration style, like a clean modern
-mascot logo. Build the whole character from about 15 simple geometric shapes
-only — circles, rounded rectangles, and rounded triangles — with all corners
-rounded and absolutely no pointy edges. Keep it simple: use as few shapes as
-possible, varied in size for a pleasing rhythm.
+Create a flat 2D vector mascot illustration of a chubby calico cat named
+Mochi, for a children's English-learning app.
 
-IMPORTANT: use flat solid color fills only — no shading, no gradients, no
-shadows, no texture, no detail lines. This flat look is what makes it feel
-clean and well-designed.
+CONSTRUCTION (follow strictly):
+- Build the entire cat from about 15 simple geometric shapes only: rounded
+  rectangles, circles, and rounded triangles. Every shape has fully rounded
+  corners — no pointy edges anywhere.
+- Vary the shape sizes for rhythm: a large rounded head, a medium body, small
+  short limbs, a curled tail. Use as few shapes as possible; each shape matters.
+- Absolutely NO outlines or stroke lines — the character is made of solid flat
+  color shapes only. No gradients, no shading, no highlights sculpting, no
+  texture. Flat solid fills only.
+- Flat front-facing perspective, no 3D depth.
 
-The cat is round and huggable with big oversized glossy eyes with bright
-highlights, tiny short limbs, small rosy cheeks, and a friendly playful
-expression. Calico fur pattern in warm colors: cream white, soft amber, and
-gentle dark-brown patches.
+FACE (keep it minimal, like the official "just right" example):
+- Two simple calm eyes (small ovals or gentle half-lidded), a tiny triangular
+  pink nose, a small mouth. Optional soft rosy cheek dots.
+- Do NOT add whiskers, fur stripes, detailed inner-ear lines, or extra markings.
 
-Color palette (warm and cozy, limited): cream #fef8ed background, amber
-#e7a44a, soft olive #7d9a4f, terracotta #c84a3a. Do NOT use bright neon green.
+CAT DESIGN:
+- Calico patches: warm cream white body, soft amber patches, a few gentle
+  brown patches, and one white belly patch. Friendly, huggable, gently happy.
 
-Center the cat on a plain solid cream background. Square 1:1 image, high
-resolution.
+COLOR (limited, warm — do not copy Duolingo's palette):
+- Use only 3-4 colors from: cream #fef8ed, amber #e7a44a, soft olive #7d9a4f,
+  terracotta #c84a3a. Give adjacent shapes distinct fills so they read clearly.
+- Background: solid light cream #fef8ed. Never use gray. Never bright neon green.
 
-Avoid: 3D render, plastic look, realism, shading, gradients, thin or pointy
-lines, heavy black outlines, cluttered background, too many small details,
-extra limbs, text, watermark.
+SHADOW:
+- A soft flat pill-shaped shadow directly beneath the cat (a horizontal rounded
+  bar), slightly darker than the background. Never an oval.
+
+OUTPUT: square 1:1, centered, high resolution, clean and simple.
+
+Avoid: outlines, black lines, 3D render, plastic look, realism, shading,
+gradients, whiskers, fur stripes, busy details, many colors, gray, oval shadow,
+cluttered background, extra limbs, text, watermark.
 ```
 
-- **要設定表**:結尾加 `Show 4 views in one image: front, side, back, and 3-quarter, plus 3 expressions (happy, curious, brave).`
-- **生更多動作**:上傳滿意的那張 + `same cat, same flat vector style, now [場景]`
+- **要設定表**:結尾加 `Show 4 views in one image: front, side, back, and 3-quarter, plus 3 simple expressions (calm, curious, happy). Keep every view in the exact same flat 15-shape style.`
+- **生更多動作**:上傳滿意的那張 + `same cat, same flat no-outline 15-shape vector style, now [場景]`
 
 ---
 
