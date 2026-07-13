@@ -110,6 +110,66 @@ wall at night with a warm hanging lamp / listening to a bedtime story].
 
 ---
 
+## 🍌 Gemini (Nano Banana) 即用完整 Prompt — Mochi
+
+> Gemini 吃**自然語言**,不要用 Midjourney 的 `--` 參數。整段複製即可。
+
+```
+Create a mascot logo of a chubby calico cat named Mochi for a children's
+English-learning app. Flat 2D vector illustration style, like a clean modern
+mascot logo. Build the whole character from about 15 simple geometric shapes
+only — circles, rounded rectangles, and rounded triangles — with all corners
+rounded and absolutely no pointy edges. Keep it simple: use as few shapes as
+possible, varied in size for a pleasing rhythm.
+
+IMPORTANT: use flat solid color fills only — no shading, no gradients, no
+shadows, no texture, no detail lines. This flat look is what makes it feel
+clean and well-designed.
+
+The cat is round and huggable with big oversized glossy eyes with bright
+highlights, tiny short limbs, small rosy cheeks, and a friendly playful
+expression. Calico fur pattern in warm colors: cream white, soft amber, and
+gentle dark-brown patches.
+
+Color palette (warm and cozy, limited): cream #fef8ed background, amber
+#e7a44a, soft olive #7d9a4f, terracotta #c84a3a. Do NOT use bright neon green.
+
+Center the cat on a plain solid cream background. Square 1:1 image, high
+resolution.
+
+Avoid: 3D render, plastic look, realism, shading, gradients, thin or pointy
+lines, heavy black outlines, cluttered background, too many small details,
+extra limbs, text, watermark.
+```
+
+- **要設定表**:結尾加 `Show 4 views in one image: front, side, back, and 3-quarter, plus 3 expressions (happy, curious, brave).`
+- **生更多動作**:上傳滿意的那張 + `same cat, same flat vector style, now [場景]`
+
+---
+
+## 🎨 「有設計感」的減法秘訣(mascot logo 公式)
+
+> 「線條簡單但很有設計感」= 業界叫 **mascot logo / flat vector mascot**。搜參考圖用**這個詞**,不是 "cute character"。
+
+**核心一句:有設計感不是加東西,是減東西。** 把陰影 / 材質 / 細節砍光,只留幾個乾淨粗形塊,自然高級。
+
+三招通用公式(任何工具):
+```
+mascot logo of [角色], flat vector, simple bold shapes, minimal,
+limited color palette, no shading detail
+```
+⭐ `no shading detail` 是關鍵字 —— 少了它就會醜。
+
+**Midjourney 專業級參數**(若改用 MJ):`--cref [圖]` 鎖臉、`--sref [圖]` 鎖畫風、`--niji` 可愛日系、`--no shading,details,texture`、`--ar 1:1`。
+
+**手把手教學來源**:
+- [Aituts — 50+ Midjourney Logo/Mascot Prompts](https://aituts.com/how-to-create-actual-ai-generated-logos/)
+- [ebaqdesign — Midjourney Logo Design 2026(職業設計師)](https://www.ebaqdesign.com/blog/midjourney-logo-design)
+- [Midjourney 官方 — Character Reference (--cref)](https://docs.midjourney.com/hc/en-us/articles/32162917505293-Character-Reference)
+- Reddit:r/midjourney、r/StableDiffusion 搜 `mascot logo` / `flat vector`
+
+---
+
 ## 🔁 工作流(照抄研究結論)
 
 1. **先設定表,後場景** — 沒有設定表就生場景 = 每張都不一樣。
