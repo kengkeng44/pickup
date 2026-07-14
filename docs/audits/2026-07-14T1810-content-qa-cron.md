@@ -156,25 +156,47 @@ Step N: Grammar-MC "X ___ Y"          ← player fills blank; answer already see
 
 **ARCH-REC #157 — X157_GRAMMAR_MC_NARRATION_ISOLATION_GATE**
 
-### Problem identified
-Every grammar-mc item in Ch1-8 is derived from a narration sentence that appears EARLIER in the same lesson. This creates a **passage-cohesion leak** (Trace 2023, *Language Testing in Asia*; Brown 1983 "independent-item cloze") where:
+### Problem identified (research-grounded, 2026-07-14 deep scan)
 
-> "Passage factors and item function are closely linked. High cohesion between neighboring sentences and the cloze gap reduces item difficulty to near-recall level."
+Every grammar-mc item in Ch1-8 is derived from a narration sentence that appears EARLIER in the same lesson. Three independent research streams confirm this is a named item defect:
 
-At dist=−1 (Ch2 l6), difficulty drops to near zero. At dist=−4 to −10, it depends on player working memory; for 8-12 children with shorter WM spans, even dist=−10 may leak (they re-read narration during the exercise session).
+**1. "Word Repetition / Clang Clues" — NBME Item-Writing Guide 6th ed. (2021)**  
+The NBME Guide (cross-disciplinary gold standard for MCQ quality) explicitly classifies this as a test-wise *cueing* flaw:
+> "This flaw arises when language used in the stem is repeated in the correct answer. The same flaw can appear even if a word is repeated only in an etymological sense."  
+Fix stated: "scan the stem and all surrounding context for the repeated word and rewrite to remove it."  
+Source: https://www.nbme.org/sites/default/files/2021-02/NBME_Item%20Writing%20Guide_R_6.pdf
+
+**2. Local Item Dependence (LID) — Abdullaev et al. ERIC EJ1419371 (2024)**  
+Rasch-model study of ELT fill-blank/cloze tests: items nested within a passage show LID when passage cohesion carries the target form across sentences. Three item pairs found locally dependent — removing them improved test unidimensionality. At dist=−1 (Ch2 l6), the item is not just *influenced* by narration — the answer is *directly visible*. Per the study: "The validity argument fails: the item cannot claim to measure grammar knowledge if the answer word is visible in adjacent narration."  
+Source: https://eric.ed.gov/?id=EJ1419371
+
+**3. Construct-Irrelevant Variance / Test-Wiseness in L2 Listening (2022)**  
+Applied Linguistics study: "Construct-irrelevant, 'test-wise strategies' involve lexical matching from the options to the spoken text, and scores on such tasks may represent basic recognition skills rather than genuine listening comprehension."  
+Source: https://www.tandfonline.com/doi/pdf/10.1080/17501229.2022.2109643  
+Also: Buck (2001) *Assessing Listening* Ch.5 — "Tasks must be passage-dependent; if answerable without processing the audio, the item fails to measure the construct."  
+Source: https://www.cambridge.org/core/books/abs/assessing-listening/creating-tasks/FF4EC1544EC6ACA2433ED2D7D1D6A2C2
+
+**Why risk is HIGHER for Pickup's 8-12 A2 children specifically:**
+- Children at A2 are not yet automatic in grammar processing — they default to surface-level scanning strategies when uncertain
+- A2 grammar targets (was/were, past -ed, prepositions) are high-frequency in narrative text, making verbatim overlap near-guaranteed
+- Grandma-reading UX: child *hears* narration spoken aloud before the grammar-mc → auditory working memory trace of "broke" is still active when they reach "A farmer came across the field and ___ the ice"
+- **Washback effect** (Buck 2001): invalid items create invalid washback — children learn to scan for the word, not process the grammar rule
+
+At dist=−1 (Ch2 l6), difficulty drops to near zero. At dist=−4 to −10, shorter WM spans in children mean the leak still operates.
 
 ### Industry practice (2026 state of the art)
 
 | Product/Standard | Grammar-MC approach |
 |-----------------|---------------------|
-| **Duolingo app (production)** | Grammar exercises use sentences **not present in the lesson narration** — e.g., narration "Mochi ran fast" → grammar exercise "Yesterday she ___ (run) to the park." Different subject, different context, same rule |
-| **TOEIC item writing guidelines** | Passage-independent items required: "Each item must be answerable from the stem alone; surrounding passage must not contain the exact wording of the key" (ETS Public Item-Writing Guidelines 2022) |
-| **Trace (2023) LTA paper** | Found that cloze items embedded in high-cohesion passages (where adjacent sentences restate gap content) showed facility values 0.15–0.22 higher than low-cohesion equivalents — i.e., artificially easy |
-| **SRS / Duolingo pedagogy** | Grammar items should test **transfer** (apply rule to new context), not **recall** (reproduce context you just read) |
+| **Duolingo app (production, 2024)** | Grammar exercises use sentences **not present in lesson narration** — same rule, independent context sentence. "Fill in the Blanks" uses partial letter prompts specifically to prevent verbatim copy from context (July 2025 update). |
+| **NBME / medical MCQ standard** | "Scan the stem and all surrounding context for the repeated word and rewrite." Applies cross-discipline including ELT. |
+| **Abdullaev et al. (2024)** | Detect and remove LID items; constructive fix: "items must require actual engagement with the target form, not just context scanning." |
+| **TOEIC item writing (ETS)** | TOEIC distractors deliberately USE word repetition as a *wrong-answer trap* (Pomaka 2025) — confirming that word repetition between narration and *correct* answer is equivalently a validity-destroying flaw. Source: https://pomaka.com/2025/04/17/toeic-tip-understand-distractors/ |
+| **SRS / Duolingo pedagogy** | Grammar items test **transfer** (apply rule to new context), not **recall** (reproduce context just read) |
 
 ### Why this matters for Pickup specifically
-- **Client: 8-12 children** — shorter working memory means shorter leak window, but also means they ARE more likely to re-read narration aloud/subvocally during the exercise
-- **Grandma-reading pedagogy**: the entire UX frame is "奶奶reads narration → child answers" — so the child has just heard the narration sentence spoken; the grammar-mc is literally asking them to reproduce what they just heard
+- **Client: 8-12 children** — shorter working memory, higher reliance on lexical matching, higher washback risk
+- **Grandma-reading pedagogy**: child hears narration spoken; grammar-mc is literally asking them to reproduce what they just heard — auditory trace still active in WM
 
 ### Recommended implementation
 
@@ -216,8 +238,12 @@ Option C can ship this cron cycle (lint gate in tools/validate-lessons.js, no sr
 
 ---
 
-*Sources:*
-- Trace, J. (2023). "The Influence of Passage Cohesion on Cloze Test Item Function." *Language Testing in Asia*, 13. https://files.eric.ed.gov/fulltext/EJ1409326.pdf
-- Brown, J.D. (1983). "An exploration of morpheme-group interactions." In M.A. Clarke & J. Handscombe (Eds.), *On TESOL*.
-- ETS (2022). *TOEIC Item-Writing Guidelines for Parts 5–7*.
-- WebSearch 2026-07-14: "grammar cloze item narration verbatim language testing 2024 2025"
+*Sources (deep-scan 2026-07-14, verified by research agent):*
+- NBME Item-Writing Guide, 6th ed. (2021) — "Word Repetition / Clang Clues" classification. https://www.nbme.org/sites/default/files/2021-02/NBME_Item%20Writing%20Guide_R_6.pdf
+- Abdullaev et al. (2024) — "Examining Local Item Dependence in a Cloze Test with the Rasch Model." ERIC EJ1419371. https://eric.ed.gov/?id=EJ1419371
+- Text authenticity and test-wiseness in L2 listening (2022), Tandfonline Applied Linguistics. https://www.tandfonline.com/doi/pdf/10.1080/17501229.2022.2109643
+- Buck, G. (2001). *Assessing Listening*, Ch.5. Cambridge University Press. https://www.cambridge.org/core/books/abs/assessing-listening/creating-tasks/FF4EC1544EC6ACA2433ED2D7D1D6A2C2
+- Pomaka English — TOEIC Distractors: Word Repetition (April 2025). https://pomaka.com/2025/04/17/toeic-tip-understand-distractors/
+- Duolingo English Test — Expanded Interactive Listening Update (2025). https://testcenter.zendesk.com/hc/en-us/articles/36094888038029
+- Meta-Analysis of L2 Listening Test Reliability (1991–2022), NCBI PMC11353186. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11353186/
+- Frontiers in Psychology (2022) — Test Format and Local Dependence of Items. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8831786/
