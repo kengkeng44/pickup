@@ -12,7 +12,7 @@
  *     updated deliberately (that's the point of a frozen contract).
  */
 import { describe, it, expect } from 'vitest';
-import { levelForXp, xpForLevel, levelProgress } from '../../src/data/xp';
+import { levelForXp, xpForLevel, levelProgress, lessonXp } from '../../src/data/xp';
 
 // Read LessonPage source as raw text via Vite glob (no node:fs; keeps tsc
 // green under types:["vite/client"]).
@@ -63,13 +63,31 @@ describe('XP level curve (src/data/xp.ts) — frozen contract', () => {
   });
 });
 
-describe('lesson-complete award formula (LessonPage.tsx) — source-text contract', () => {
-  // v2.0.B.192: correct×10 XP + correct×3 coins. Inline in CompletePanel;
-  // see header comment for why this is a text-level lock.
+describe('lesson-complete award formula (LessonPage.tsx) — frozen contract', () => {
   const src = Object.values(LESSONPAGE_SRC)[0] ?? '';
 
-  it('XP award is still correct * 10', () => {
-    expect(src).toMatch(/const\s+xp\s*=\s*correct\s*\*\s*10\b/);
+  // 2026-08-16: XP 這側從 correct×10 改成 lessonXp({ legendary, alreadyDone })
+  // 的分級獎勵（B.192 之後的產品改動）。原本的 source-text regex 因此失效。
+  // 既然 lessonXp 是可 import 的純函式，就直接鎖它的行為 —— 比對原始碼
+  // 文字做 regex 穩固得多，重構換個變數名不會誤報。
+  it('XP award 走 lessonXp 分級表，不是自己乘', () => {
+    expect(src).toMatch(/const\s+xp\s*=\s*lessonXp\(/);
+    expect(src).not.toMatch(/const\s+xp\s*=\s*correct\s*\*/);
+  });
+
+  it('lessonXp 四種情境的值是凍結的', () => {
+    expect(lessonXp({ legendary: false, alreadyDone: false })).toBe(30);
+    expect(lessonXp({ legendary: false, alreadyDone: true })).toBe(5);
+    expect(lessonXp({ legendary: true, alreadyDone: false })).toBe(45);
+    expect(lessonXp({ legendary: true, alreadyDone: true })).toBe(40);
+  });
+
+  it('複習給的 XP 一定少於首次通關', () => {
+    // 這條防的是「改數值時不小心讓複習比首刷還香」——那會讓小孩一直重刷舊關
+    expect(lessonXp({ legendary: false, alreadyDone: true }))
+      .toBeLessThan(lessonXp({ legendary: false, alreadyDone: false }));
+    expect(lessonXp({ legendary: true, alreadyDone: true }))
+      .toBeLessThan(lessonXp({ legendary: true, alreadyDone: false }));
   });
 
   it('coin award is still correct * 3', () => {

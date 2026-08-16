@@ -50,28 +50,57 @@ const SCHEMA_TYPES_HARDCODED = [
   'drag-blank',
   'speak-back',
   'listen-build',
+  // 2026-08-16: 補上 B.321-B.434 期間新增的 7 種。這份清單原本停在 7/09，
+  // 導致 cross-check 一直紅 —— 它只是 introspection 壞掉時的後備，
+  // 真正的來源是 QuestionSchema 本身。
+  'comprehension',
+  'read-comprehension',
+  'listen-pairs',
+  'phrase-pairs',
+  'grammar-mc',
+  'scroll-pick',
+  'type-translate',
 ] as const;
 
-// ⚠️ Hardcoded mirror of RENDERERS keys in src/react-app/renderers.tsx
-// (cannot import a .tsx React module in node-env vitest). Keep in sync.
-const RENDERER_TYPES = new Set<string>([
-  'narration',
-  'listen-tf',
-  'listen-tf-zh',
-  'listen-mc',
-  'listen-comprehension',
-  'listen-emoji',
-  'read-mc-with-audio',
-  'type-what-you-hear',
-  'tap-tiles',
-  'tap-pairs',
-  'emoji-pick',
-  'picture-mc',
-  'read-and-tap',
-  'drag-blank',
-  'speak-back',
-  'listen-build',
-]);
+// RENDERERS 的 key 從 renderers.tsx 原始碼直接解析。
+//
+// 原本這裡是一份手抄清單，靠註解要求「MUST STAY IN SYNC」—— 結果它從
+// 7/09 起就沒跟上，master 新增 7 個 renderer 後這個測試連紅 3 項，報的
+// 卻是「這些題型沒有 renderer」這種會讓人去查錯地方的假警報。
+//
+// 不能 import .tsx（node-env vitest 會拖進 React/window 相依），但可以用
+// Vite 的 ?raw 讀原始碼文字，跟 xp-coins-contract 同一招。
+const RENDERERS_SRC = import.meta.glob(
+  '../../src/react-app/renderers.tsx',
+  { query: '?raw', import: 'default', eager: true }
+) as Record<string, string>;
+
+function parseRendererTypes(): Set<string> {
+  const src = Object.values(RENDERERS_SRC)[0] || '';
+  const start = src.indexOf('export const RENDERERS');
+  if (start === -1) {
+    throw new Error('找不到 export const RENDERERS — renderers.tsx 結構改了，請更新這個 parser');
+  }
+  // 從 map 的 { 開始做括號配對，取出 map body（值都是識別字，無巢狀物件）
+  const open = src.indexOf('{', start);
+  let depth = 0;
+  let end = -1;
+  for (let i = open; i < src.length; i += 1) {
+    if (src[i] === '{') depth += 1;
+    else if (src[i] === '}') {
+      depth -= 1;
+      if (depth === 0) { end = i; break; }
+    }
+  }
+  if (end === -1) throw new Error('RENDERERS map 的括號沒有配對成功');
+  const body = src.slice(open, end);
+  // 只抓行首的 'key': ——註解行（//）不會匹配
+  const keys = [...body.matchAll(/^\s*'([a-z0-9-]+)'\s*:/gim)].map((m) => m[1]);
+  if (keys.length === 0) throw new Error('RENDERERS map 解析出 0 個 key');
+  return new Set(keys);
+}
+
+const RENDERER_TYPES = parseRendererTypes();
 
 /** Introspect the discriminated union inside QuestionSchema (ZodEffects). */
 function introspectSchemaTypes(): Set<string> | null {
