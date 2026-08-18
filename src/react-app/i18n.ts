@@ -195,6 +195,8 @@ const ZH: Dict = {
   'ob.back': '← 上一步',
   'ob.done': '開始學習 →',
   'ob.loading': '載入中…',
+  'q.loadFailed': '載不到這個故事，看看網路連線好嗎？',
+  'q.retry': '再試一次',
 };
 
 const EN: Dict = {
@@ -368,6 +370,8 @@ const EN: Dict = {
   'ob.back': '← Back',
   'ob.done': 'Start learning →',
   'ob.loading': 'Loading…',
+  'q.loadFailed': "Couldn't load this story. Please check your connection.",
+  'q.retry': 'Try again',
 };
 
 const JA: Dict = {
@@ -540,6 +544,8 @@ const JA: Dict = {
   'ob.back': '← もどる',
   'ob.done': '学習スタート →',
   'ob.loading': '読み込み中…',
+  'q.loadFailed': 'このお話を読み込めませんでした。接続を確認してください。',
+  'q.retry': 'もう一度',
 };
 
 const KO: Dict = {
@@ -711,6 +717,8 @@ const KO: Dict = {
   'ob.back': '← 이전',
   'ob.done': '학습 시작 →',
   'ob.loading': '불러오는 중…',
+  'q.loadFailed': '이야기를 불러올 수 없어요. 연결을 확인해 주세요.',
+  'q.retry': '다시 시도',
 };
 
 const DICTS: Record<UiLang, Dict> = { zh: ZH, en: EN, ja: JA, ko: KO, 'zh-Hans': ZH };

@@ -69,6 +69,9 @@ export default function LessonPage() {
   // know if this completion is the chapter-final one (drives cross-chapter-hook
   // trigger in evaluateTriggers).
   const [maxLessonInChapter, setMaxLessonInChapter] = useState(0);
+  // 載入失敗狀態 + 重試計數（retryTick 進 effect deps，遞增就重跑 fetch）
+  const [loadError, setLoadError] = useState(false);
+  const [retryTick, setRetryTick] = useState(0);
   const [idx, setIdx] = useState(0);
   const [history, setHistory] = useState<string[]>([]);
   const [showExit, setShowExit] = useState(false); // v2.0.B.465: ✕ 離開確認框 (照圖2)
@@ -121,8 +124,14 @@ export default function LessonPage() {
       setIdx(0); setHistory([]); answerLog.current = []; startedAt.current = Date.now();
       return;
     }
+    setLoadError(false);
     fetch(`/lessons-ch${chapter}.json`)
-      .then(r => r.json())
+      .then(r => {
+        // 沒有這個 guard 的話，404 會把 HTML 錯誤頁餵給 r.json()，
+        // reject 後又沒人接 —— 畫面就永遠停在「載入中…」。
+        if (!r.ok) throw new Error(`HTTP ${r.status} loading lessons-ch${chapter}.json`);
+        return r.json();
+      })
       .then(async (arr: Lesson[]) => {
         // v2.0.B.457: 套用 ja/ko 內容 overlay (之前只在 Phaser path 套, React LessonPage 漏了 →
         // 日韓使用者課內看到的全是繁中)。現在 fetch 後套 overlay, sentenceZh/options/pairs 轉日韓。
@@ -168,8 +177,13 @@ export default function LessonPage() {
         if (found) {
           try { track(EVENT.LESSON_START, { lesson_id: found.id, chapter: found.chapter, question_count: found.questions.length }); } catch {}
         }
+      })
+      .catch(() => {
+        // 離線 / 404 / JSON 壞掉都走這裡。小孩看到的不該是永遠轉不完的
+        // 載入畫面，而是一顆能自己按的按鈕。
+        setLoadError(true);
       });
-  }, [chapter, lessonId]);
+  }, [chapter, lessonId, retryTick]);
 
   // v2.0.B.272: persist mid-lesson progress on every advance; clear on finish.
   useEffect(() => {
@@ -184,8 +198,29 @@ export default function LessonPage() {
     } catch {}
   }, [idx, history, lesson, chapter, lessonId]);
 
+  if (loadError) {
+    return (
+      <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>
+        <div style={{ marginBottom: 16, fontWeight: 700 }}>
+          {translate('q.loadFailed', getLang())}
+        </div>
+        <button
+          onClick={() => setRetryTick(t => t + 1)}
+          style={{
+            minHeight: 50, padding: '12px 28px', border: 'none',
+            borderRadius: 'var(--t-radius-card)', background: 'var(--t-success)',
+            borderBottom: '4px solid var(--t-brand-dark)',
+            color: '#fff', fontSize: 'var(--t-text-body)', fontWeight: 900,
+            cursor: 'pointer', fontFamily: 'inherit',
+            WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
+          }}
+        >{translate('q.retry', getLang())}</button>
+      </div>
+    );
+  }
+
   if (!lesson) {
-    return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>載入中…</div>;
+    return <div style={{ padding: 40, textAlign: 'center', color: 'var(--t-text-muted)' }}>{translate('ob.loading', getLang())}</div>;
   }
 
   // v2.0.B.488 錯題統整: 主題目跑完 → 接「錯題複習」一輪 (本節錯題, 章末再含整章)。
@@ -820,7 +855,9 @@ function CompletePanel({ lesson, log, elapsedMs, isLastLessonOfChapter, isPrevie
         <button
           onClick={() => {
             setShowShare(true);
-            try { track(EVENT.LESSON_COMPLETE, { share_modal_opened: true, lesson_id: lesson.id, chapter: lesson.chapter }); } catch {}
+            // 這裡原本又送一次 EVENT.LESSON_COMPLETE（帶 share_modal_opened），
+            // 導致「完成課程」在 PostHog 被重複計數 —— 按分享的人會被算兩次。
+            // taxonomy（posthog.ts）沒有對應的 share 事件，所以移除後不補送。
           }}
           aria-label="Share key sentence"
           style={{
