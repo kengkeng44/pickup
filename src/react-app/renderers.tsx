@@ -237,8 +237,11 @@ const CheckBtn = ({ active, onCheck }: { active: boolean; onCheck: () => void })
   }}>{tq('q.check')}</button>
 );
 
+// role="status" = 隱含 aria-live="polite"：答完題後才出現的解說，對螢幕
+// 閱讀器使用者來說是「畫面自己變了」，沒有 live region 就不會被讀出來，
+// 得手動去找。polite 而非 assertive，不打斷正在唸的內容。
 const Explanation = ({ text }: { text: string }) => text ? (
-  <div style={{ marginTop: 12, fontSize: 'var(--t-text-label)', color: 'var(--t-text)', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
+  <div role="status" style={{ marginTop: 12, fontSize: 'var(--t-text-label)', color: 'var(--t-text)', lineHeight: 1.6, padding: '10px 12px', background: 'var(--t-bg)', borderLeft: '3px solid var(--t-border-card)', borderRadius: '0 8px 8px 0' }}>
     <SpeakZh text={text} />
   </div>
 ) : null;
