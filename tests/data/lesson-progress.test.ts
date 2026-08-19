@@ -8,7 +8,19 @@ import {
 } from '../../src/data/lessonProgress';
 
 // minimal localStorage shim (jsdom usually provides one; guard for node env)
-if (typeof globalThis.localStorage === 'undefined') {
+// 判斷「能不能用」而不是「存不存在」：Node 22+ 內建了實驗性 Web Storage，
+// 有 localStorage 這個全域但 clear() 不是 function，只檢查 undefined 會讓
+// shim 被跳過，測試在新版 Node 的開發機上假失敗（CI 跑 Node 20 沒有這個
+// 全域，所以 CI 一直是綠的 —— 症狀只出現在本機，最難查的那種）。
+const __needsLocalStorageShim = (() => {
+  try {
+    const ls = (globalThis as { localStorage?: { clear?: unknown } }).localStorage;
+    return typeof ls?.clear !== 'function';
+  } catch {
+    return true;
+  }
+})();
+if (__needsLocalStorageShim) {
   const store = new Map<string, string>();
   (globalThis as { localStorage: unknown }).localStorage = {
     getItem: (k: string) => (store.has(k) ? store.get(k)! : null),

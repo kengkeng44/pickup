@@ -1,7 +1,17 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 
 // minimal localStorage + window shim (node env; mirrors lesson-progress.test.ts)
-if (typeof globalThis.localStorage === 'undefined') {
+// 見 lesson-progress.test.ts 的說明：Node 22+ 有 localStorage 全域但 clear()
+// 不可用，只檢查 undefined 會讓 shim 被跳過，本機假失敗、CI（Node 20）卻是綠的。
+const __needsLocalStorageShim = (() => {
+  try {
+    const ls = (globalThis as { localStorage?: { clear?: unknown } }).localStorage;
+    return typeof ls?.clear !== 'function';
+  } catch {
+    return true;
+  }
+})();
+if (__needsLocalStorageShim) {
   const store = new Map<string, string>();
   (globalThis as { localStorage: unknown }).localStorage = {
     getItem: (k: string) => (store.has(k) ? store.get(k)! : null),
