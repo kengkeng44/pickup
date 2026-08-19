@@ -32,6 +32,10 @@ const STRICT = process.env.MIRROR_LINT_STRICT === '1';
 // at 0 after B.273-276, so this only catches regressions). Escape hatch:
 // R2_LINT_OFF=1 downgrades it back to warn-only.
 const R2_OFF = process.env.R2_LINT_OFF === '1';
+// E3 content-guard rules (emoji / CJK pre-reveal / stem length) get their
+// own opt-in flag so flipping MIRROR_LINT_STRICT doesn't suddenly fail the
+// build on pre-existing content violations. Default = warn-only.
+const CONTENT_STRICT = process.env.CONTENT_LINT_STRICT === '1';
 
 const STOPWORDS = new Set([
   'a', 'an', 'the', 'is', 'am', 'are', 'was', 'were', 'be', 'been', 'being',
@@ -519,8 +523,74 @@ if (files.length === 0) {
   process.exit(0);
 }
 
+// E3 content guard — mirrors pickup-item-writer authoring rules at build
+// time. Warn-only by default (existing chapters violate the CJK rule);
+// set CONTENT_LINT_STRICT=1 to fail the build on these.
+//   C1_EMOJI_IN_TEXT   — no emoji in question/options for non-emoji types
+//                        (emoji-pick / listen-emoji are the by-design
+//                        exceptions; pure language learning elsewhere)
+//   C2_CJK_PRE_REVEAL  — no Chinese in pre-reveal fields question /
+//                        options / sentence (Chinese only in explanationZh
+//                        / post-reveal; listen-tf-zh carve-out exempt)
+//   C3_STEM_TOO_LONG   — stem (question text) word count ≤ 11
+const EMOJI_RE = /\p{Extended_Pictographic}/u;
+const CJK_RE = /\p{Script=Han}/u;
+const EMOJI_EXEMPT_TYPES = new Set(['emoji-pick', 'listen-emoji']);
+const CJK_EXEMPT_TYPES = new Set(['listen-tf-zh']); // Chinese by design
+
+function stemWordCount(s) {
+  // strip emoji (e.g. legacy 🔊 prefix) so glyphs don't count as words
+  return String(s || '')
+    .replace(/\p{Extended_Pictographic}/gu, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+}
+
+function lintContent(lessons, file) {
+  const issues = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions || []) {
+      const opts = Array.isArray(q.options) ? q.options : [];
+      // Rule C1: emoji in question/options (non-emoji question types)
+      if (!EMOJI_EXEMPT_TYPES.has(q.type)) {
+        if (typeof q.question === 'string' && EMOJI_RE.test(q.question)) {
+          issues.push(`${file} ${q.id}: C1_EMOJI_IN_TEXT (question: "${q.question.slice(0, 40)}")`);
+        }
+        for (const o of opts) {
+          if (typeof o === 'string' && EMOJI_RE.test(o)) {
+            issues.push(`${file} ${q.id}: C1_EMOJI_IN_TEXT (option: "${String(o).slice(0, 40)}")`);
+          }
+        }
+      }
+      // Rule C2: CJK in pre-reveal fields (question / options / sentence)
+      if (!CJK_EXEMPT_TYPES.has(q.type)) {
+        for (const [field, val] of [['question', q.question], ['sentence', q.sentence]]) {
+          if (typeof val === 'string' && CJK_RE.test(val)) {
+            issues.push(`${file} ${q.id}: C2_CJK_PRE_REVEAL (${field}: "${val.slice(0, 40)}")`);
+          }
+        }
+        for (const o of opts) {
+          if (typeof o === 'string' && CJK_RE.test(o)) {
+            issues.push(`${file} ${q.id}: C2_CJK_PRE_REVEAL (option: "${String(o).slice(0, 40)}")`);
+          }
+        }
+      }
+      // Rule C3: stem (question text) word count ≤ 11
+      if (typeof q.question === 'string') {
+        const wc = stemWordCount(q.question);
+        if (wc > 11) {
+          issues.push(`${file} ${q.id}: C3_STEM_TOO_LONG (${wc} words: "${q.question.slice(0, 50)}")`);
+        }
+      }
+    }
+  }
+  return issues;
+}
+
 let allOk = true;
 let totalIssues = 0;
+let totalContentIssues = 0;
 let r2Total = 0;
 for (const file of files) {
   const path = resolve(publicDir, file);
@@ -545,15 +615,21 @@ for (const file of files) {
     const blankPosIssues = lintBlankPosBalance(raw, file);    // X55 (WARN, grammar-mc blank position balance)
     const explainVoiceIssues = lintExplainZhVoice(raw, file); // X59 (WARN, explanationZh 故事語氣)
     const expRegisterIssues = lintExpZhRegister(raw, file); // X68 (WARN, authoring notation 外洩)
+    const contentIssues = lintContent(raw, file);           // E3 (WARN by default)
     r2Total += r2Issues.length;
-    const allIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues, ...explainVoiceIssues, ...expRegisterIssues];
-    totalIssues += allIssues.length;
+    const lintIssues = [...mirrorIssues, ...extendedIssues, ...r2Issues, ...culturalIssues, ...nonWordIssues, ...tfPolarityIssues, ...cultBridgeIssues, ...ngramIssues, ...stimulusIssues, ...pictureNpIssues, ...antonymMirrorIssues, ...blankPosIssues, ...explainVoiceIssues, ...expRegisterIssues];
+    const allIssues = [...lintIssues, ...contentIssues];
+    // content issues 分開計數：MIRROR_LINT_STRICT 不該因為既有內容違反 E3
+    // 就讓 build 掛掉，兩個開關各管各的。
+    totalIssues += lintIssues.length;
+    totalContentIssues += contentIssues.length;
     if (allIssues.length > 0) {
       console.warn(`WARN ${file}: ${allIssues.length} lint issue(s):`);
       for (const m of allIssues) console.warn(`  ${m}`);
-      if (STRICT) allOk = false;
+      if (STRICT && lintIssues.length > 0) allOk = false;
+      if (CONTENT_STRICT && contentIssues.length > 0) allOk = false;
     } else {
-      console.log(`OK ${file}: ${raw.length} lessons (JSON shape + mirror + extended lint)`);
+      console.log(`OK ${file}: ${raw.length} lessons (JSON shape + mirror + extended + content lint)`);
     }
   } catch (e) {
     console.error(`FAIL ${file}: ${e.message}`);
@@ -565,6 +641,11 @@ if (totalIssues > 0) {
   console.warn(`\nTotal mirror-lint issues: ${totalIssues}`);
   if (STRICT) console.error('STRICT mode: build failed.');
   else console.warn('(warn-only; set MIRROR_LINT_STRICT=1 to fail build)');
+}
+if (totalContentIssues > 0) {
+  console.warn(`\nTotal content-lint (E3) issues: ${totalContentIssues}`);
+  if (CONTENT_STRICT) console.error('CONTENT_LINT_STRICT mode: build failed.');
+  else console.warn('(warn-only; set CONTENT_LINT_STRICT=1 to fail build)');
 }
 // R2 length-parity: fail-on-violation by default (regression guard).
 if (r2Total > 0 && !R2_OFF) {
