@@ -10,7 +10,12 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate": "node tools/validate-lessons.js",
-    "check:circular": "npx --yes madge@8 --circular --extensions ts,tsx src/"
+    "check:circular": "npx --yes madge@8 --circular --extensions ts,tsx src/",
+    "sync-hooks": "node tools/_sync-hooks.cjs",
+    "content-db": "node tools/_content-db.cjs",
+    "qa-static": "node tools/_render-qa-static.cjs",
+    "new-story": "node tools/pickup-new-story.cjs",
+    "ci-local": "npx tsc --noEmit && npx vitest run && node tools/validate-lessons.js && npm run build"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.4.0",
