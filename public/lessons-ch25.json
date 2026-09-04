@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a mountain?",
-        "question": "Which one is a mountain?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "⛰️ mountain",
-          "🌋 volcano",
-          "🏝️ island",
-          "🌳 forest"
+          "island",
+          "forest",
+          "mountain",
+          "volcano"
         ],
         "optionsZh": [
-          "山",
-          "海浪",
           "樹",
-          "沙漠"
+          "沙漠",
+          "山",
+          "海浪"
         ],
-        "correctIndex": 0,
-        "explanationZh": "mountain = 山 ⛰️！故事裡愚公的家就在兩座大山中間，出門很不方便。",
+        "correctIndex": 2,
+        "explanationZh": "mountain = 山 ！故事裡愚公的家就在兩座大山中間，出門很不方便。",
         "tags": [
           "story",
           "ch25",
           "yugong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⛰️"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows someone digging?",
-        "question": "Which one shows someone digging?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏃 run",
-          "🛌 sleep",
-          "⛏️ dig",
-          "🍽️ eat"
+          "dig",
+          "eat",
+          "sleep",
+          "run"
         ],
         "optionsZh": [
-          "跑",
-          "睡",
           "挖",
-          "吃"
+          "吃",
+          "睡",
+          "跑"
         ],
-        "correctIndex": 2,
-        "explanationZh": "dig = 挖 ⛏️！愚公一家用工具挖山，一籃一籃把石頭和泥土搬走。",
+        "correctIndex": 0,
+        "explanationZh": "dig = 挖 ！愚公一家用工具挖山，一籃一籃把石頭和泥土搬走。",
         "tags": [
           "story",
           "ch25",
           "yugong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⛏️"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a river?",
-        "question": "Which one shows a river?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏔️ mountain",
-          "🌊 river",
-          "🌵 cactus",
-          "🏠 house"
+          "mountain",
+          "cactus",
+          "house",
+          "river"
         ],
         "optionsZh": [
           "山",
-          "河",
           "仙人掌",
-          "房子"
+          "房子",
+          "河"
         ],
-        "correctIndex": 1,
-        "explanationZh": "river = 河 🌊！愚公一家每天把石頭和泥土搬到河邊去，走了好遠好遠的路。",
+        "correctIndex": 3,
+        "explanationZh": "river = 河 ！愚公一家每天把石頭和泥土搬到河邊去，走了好遠好遠的路。",
         "tags": [
           "story",
           "ch25",
           "yugong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌊"
       },
       {
         "type": "grammar-mc",
@@ -594,10 +597,10 @@
         "sentence": "How did the family feel working together?",
         "question": "How did they feel?",
         "options": [
-          "😡 angry at each other",
-          "😴 too sleepy",
-          "😊 close as a team",
-          "😱 scared of work"
+          "angry at each other",
+          "too sleepy",
+          "close as a team",
+          "scared of work"
         ],
         "optionsZh": [
           "彼此生氣",
@@ -746,34 +749,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l3-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "They carried stones and dirt in baskets down to the sea.",
-        "sentenceZh": "他們用籃子把石頭和土運到河裡。",
-        "question": "Which emoji shows people working hard together?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 resting and sleeping",
-          "💪 working with strength",
-          "🎉 celebrating and dancing",
-          "😢 crying and giving up"
+          "celebrating and dancing",
+          "resting and sleeping",
+          "working with strength",
+          "crying and giving up"
         ],
         "optionsZh": [
+          "慶祝跳舞",
           "休息睡覺",
           "用力做工",
-          "慶祝跳舞",
           "哭泣放棄"
         ],
-        "correctIndex": 1,
-        "explanationZh": "搬石頭和土——這是要用力氣的工作!💪 就是那個努力的樣子!",
+        "correctIndex": 2,
+        "explanationZh": "搬石頭和土——這是要用力氣的工作! 就是那個努力的樣子!",
         "tags": [
           "story",
           "ch25",
           "yugong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💪"
       },
       {
         "type": "listen-tf",
@@ -1102,10 +1105,10 @@
         "sentence": "How did the family answer the man's laughing words?",
         "question": "What did the family do?",
         "options": [
-          "🎵 sang a happy song",
-          "💤 went home to sleep",
-          "😡 fought with the man",
-          "🚶 kept walking together"
+          "sang a happy song",
+          "went home to sleep",
+          "fought with the man",
+          "kept walking together"
         ],
         "optionsZh": [
           "唱起快樂的歌",
@@ -1254,34 +1257,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l4-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "A man walking by stopped and shook his head.",
-        "sentenceZh": "一個路人走過來停下,搖了搖頭。",
-        "question": "Which emoji shows someone shaking their head in doubt?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👍 giving a big thumbs-up",
-          "🎉 clapping and cheering",
-          "🙅 shaking head saying no",
-          "🤗 giving a warm hug"
+          "giving a big thumbs-up",
+          "shaking head saying no",
+          "giving a warm hug",
+          "clapping and cheering"
         ],
         "optionsZh": [
           "大拇指向上支持",
-          "拍手歡呼",
           "搖頭說不行",
-          "給一個暖暖的擁抱"
+          "給一個暖暖的擁抱",
+          "拍手歡呼"
         ],
-        "correctIndex": 2,
-        "explanationZh": "路人搖頭——就是 🙅 那個不贊成的動作!",
+        "correctIndex": 1,
+        "explanationZh": "路人搖頭——就是 那個不贊成的動作!",
         "tags": [
           "story",
           "ch25",
           "yugong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🙅"
       },
       {
         "type": "listen-tf",
@@ -1709,10 +1712,10 @@
         "sentence": "What was the field like as Yu Gong got ready to speak?",
         "question": "How was the field?",
         "options": [
-          "🔇 still and waiting",
-          "🎉 full of cheers",
-          "🌧️ loud with rain",
-          "🚗 busy with cars"
+          "still and waiting",
+          "full of cheers",
+          "loud with rain",
+          "busy with cars"
         ],
         "optionsZh": [
           "靜靜在等",
@@ -1861,34 +1864,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l5-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Yu Gong put down his basket and stood up tall.",
-        "sentenceZh": "愚公放下籃子,站了起來。",
-        "question": "Which emoji shows standing up with confidence?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😪 sitting down very tired",
-          "😰 feeling very nervous",
-          "😂 rolling on the floor laughing",
-          "🧍 standing up straight"
+          "sitting down very tired",
+          "rolling on the floor laughing",
+          "feeling very nervous",
+          "standing up straight"
         ],
         "optionsZh": [
           "坐著很累",
-          "感覺很緊張",
           "笑到滾地板",
+          "感覺很緊張",
           "站得筆直"
         ],
         "correctIndex": 3,
-        "explanationZh": "「站了起來」——就是那個 🧍 站得筆直、充滿自信的樣子!",
+        "explanationZh": "「站了起來」——就是那個 站得筆直、充滿自信的樣子!",
         "tags": [
           "story",
           "ch25",
           "yugong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🧍"
       },
       {
         "type": "listen-tf",
@@ -2216,10 +2219,10 @@
         "sentence": "How did the family feel after Yu Gong's answer?",
         "question": "How did the family feel?",
         "options": [
-          "😢 sad and lost",
-          "💪 lifted and proud",
-          "😡 angry at him",
-          "😴 wanting to sleep"
+          "sad and lost",
+          "lifted and proud",
+          "angry at him",
+          "wanting to sleep"
         ],
         "optionsZh": [
           "難過又迷惘",
@@ -2375,12 +2378,12 @@
         "speaker": "narrator",
         "sentence": "My family goes on forever.",
         "sentenceZh": "我的家人永遠存在。",
-        "question": "Which emoji shows something that goes on and on?",
+        "question": "Which one shows something that goes on and on?",
         "options": [
-          "♾️ the endless loop",
-          "🛑 a stop sign",
-          "⏰ an alarm clock",
-          "🔒 a locked door"
+          "the endless loop",
+          "a stop sign",
+          "an alarm clock",
+          "a locked door"
         ],
         "optionsZh": [
           "無限循環",
@@ -2389,7 +2392,7 @@
           "一扇鎖著的門"
         ],
         "correctIndex": 0,
-        "explanationZh": "「永遠」——就是 ♾️ 無限的意思,沒有終點!",
+        "explanationZh": "「永遠」——就是 無限的意思,沒有終點!",
         "tags": [
           "story",
           "ch25",
@@ -2723,10 +2726,10 @@
         "sentence": "What is the big lesson from Yu Gong's family?",
         "question": "What did they learn?",
         "options": [
-          "🛌 rest is most important",
-          "🛒 buy bigger baskets",
-          "💪 keep going, day by day",
-          "🏃 run away from hard work"
+          "rest is most important",
+          "buy bigger baskets",
+          "keep going, day by day",
+          "run away from hard work"
         ],
         "optionsZh": [
           "休息最重要",
@@ -2875,34 +2878,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch25-l7-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "They lifted both mountains away, and the road was clear.",
-        "sentenceZh": "他們把兩座山都搬走了,路通了。",
-        "question": "Which emoji shows a clear open road?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🚧 a blocked construction site",
-          "🛣️ an open empty road",
-          "🌊 a flooded path ahead",
-          "🌫️ thick fog everywhere"
+          "thick fog everywhere",
+          "a flooded path ahead",
+          "an open empty road",
+          "a blocked construction site"
         ],
         "optionsZh": [
-          "工地堵塞",
-          "暢通的空曠道路",
+          "到處濃霧",
           "前路被水淹",
-          "到處濃霧"
+          "暢通的空曠道路",
+          "工地堵塞"
         ],
-        "correctIndex": 1,
-        "explanationZh": "「路通了」——就是 🛣️ 那條暢通的大路!",
+        "correctIndex": 2,
+        "explanationZh": "「路通了」——就是 那條暢通的大路!",
         "tags": [
           "story",
           "ch25",
           "yugong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🛣️"
       },
       {
         "type": "listen-tf",

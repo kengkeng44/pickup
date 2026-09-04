@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch26-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a crown?",
-        "question": "Which one is a crown?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👑 crown",
-          "💍 ring",
-          "⚔️ sword",
-          "🏆 cup"
+          "sword",
+          "torch",
+          "crown",
+          "chain"
         ],
         "optionsZh": [
-          "王冠",
-          "戒指",
           "劍",
-          "獎盃"
+          "火把",
+          "王冠",
+          "鍊子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "王冠的英文是 crown 👑！故事裡國王的金王冠就是 crown——故事的核心！",
+        "correctIndex": 2,
+        "explanationZh": "王冠的英文是 crown ！故事裡國王的金王冠就是 crown——故事的核心！",
         "tags": [
           "story",
           "ch26",
           "archimedes-eureka",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "👑"
       },
       {
         "id": "kt-ch26-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a bath?",
-        "question": "Which one shows a bath?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍵 cup",
-          "🪣 bucket",
-          "🛁 bath",
-          "🌊 wave"
+          "cup",
+          "wave",
+          "bath",
+          "bucket"
         ],
         "optionsZh": [
           "杯子",
-          "桶子",
+          "海浪",
           "浴缸",
-          "海浪"
+          "桶子"
         ],
         "correctIndex": 2,
-        "explanationZh": "bath = 洗澡/浴缸 🛁！Archimedes 去洗澡時，在浴缸裡發現了解答——bath 是這個故事最重要的地方！",
+        "explanationZh": "bath = 洗澡/浴缸 ！Archimedes 去洗澡時，在浴缸裡發現了解答——bath 是這個故事最重要的地方！",
         "tags": [
           "story",
           "ch26",
           "archimedes-eureka",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🛁"
       },
       {
         "id": "kt-ch26-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch26-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows someone shouting?",
-        "question": "Which one shows someone shouting?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 sleep",
-          "📖 read",
-          "📢 shout",
-          "🚶 walk"
+          "sleep",
+          "shout",
+          "walk",
+          "read"
         ],
         "optionsZh": [
           "睡覺",
-          "讀書",
           "大喊",
-          "走路"
+          "走路",
+          "讀書"
         ],
-        "correctIndex": 2,
-        "explanationZh": "shout = 大喊 📢！Archimedes 發現答案時，大聲喊出「Eureka！」（找到了！）——那就是 shout。",
+        "correctIndex": 1,
+        "explanationZh": "shout = 大喊 ！Archimedes 發現答案時，大聲喊出「Eureka！」（找到了！）——那就是 shout。",
         "tags": [
           "story",
           "ch26",
           "archimedes-eureka",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "📢"
       },
       {
         "id": "kt-ch26-l2-gm1",
@@ -584,10 +587,10 @@
         "sentence": "What kind of break was Archimedes giving himself?",
         "question": "What kind of break?",
         "options": [
-          "👟 a long run",
-          "🛁 a warm bath",
-          "🍔 a big meal",
-          "🎮 a fun game"
+          "a long run",
+          "a warm bath",
+          "a big meal",
+          "a fun game"
         ],
         "optionsZh": [
           "長跑",
@@ -596,7 +599,7 @@
           "玩遊戲"
         ],
         "correctIndex": 1,
-        "explanationZh": "他說要去洗個熱水澡——那個 🛁 就是他要去的地方呀！",
+        "explanationZh": "他說要去洗個熱水澡——那個 就是他要去的地方呀！",
         "tags": [
           "story",
           "ch26",
@@ -826,10 +829,10 @@
         "sentence": "Friends knocked at his door, but he barely heard them — deep in thought.",
         "question": "Which best shows Archimedes?",
         "options": [
-          "🎉 dancing with his best friends",
-          "😴 taking a long afternoon nap",
-          "🤯 lost in a very hard problem",
-          "🍎 picking fruit from a tall tree"
+          "dancing with his best friends",
+          "taking a long afternoon nap",
+          "lost in a very hard problem",
+          "picking fruit from a tall tree"
         ],
         "optionsZh": [
           "和好朋友跳舞",
@@ -838,7 +841,7 @@
           "從高樹上摘果子"
         ],
         "correctIndex": 2,
-        "explanationZh": "朋友敲門都聽不到——「陷在一個超難的問題裡」那個 🤯 最像他。",
+        "explanationZh": "朋友敲門都聽不到——「陷在一個超難的問題裡」那個 最像他。",
         "sentenceZh": "朋友來敲門，他幾乎沒聽見——全心全意在想事情。",
         "tags": [
           "story",
@@ -1070,10 +1073,10 @@
         "sentence": "How did Archimedes' face look in that moment?",
         "question": "How did his face look?",
         "options": [
-          "😴 getting very sleepy",
-          "😡 starting to feel mad",
-          "💡 lit up with an idea",
-          "😢 feeling a little sad"
+          "getting very sleepy",
+          "starting to feel mad",
+          "lit up with an idea",
+          "feeling a little sad"
         ],
         "optionsZh": [
           "快要睡著了",
@@ -1082,7 +1085,7 @@
           "覺得有點難過"
         ],
         "correctIndex": 2,
-        "explanationZh": "眼睛亮起來 + 謎題有動靜 → 「靈感亮了起來」！那個 💡 就是他的眼神。",
+        "explanationZh": "眼睛亮起來 + 謎題有動靜 「靈感亮了起來」！那個 就是他的眼神。",
         "tags": [
           "story",
           "ch26",
@@ -1312,10 +1315,10 @@
         "sentence": "His tired eyes lit up. The puzzle in his head began to move.",
         "question": "What is about to happen?",
         "options": [
-          "🍔 he is about to eat",
-          "🛌 he is going to sleep",
-          "😢 he is going to feel sad",
-          "💡 a big idea is coming"
+          "he is about to eat",
+          "he is going to sleep",
+          "he is going to feel sad",
+          "a big idea is coming"
         ],
         "optionsZh": [
           "他快要吃東西了",
@@ -1324,7 +1327,7 @@
           "一個大點子快來了"
         ],
         "correctIndex": 3,
-        "explanationZh": "眼睛亮了、謎題開始動——「一個大點子快來了」那個 💡 最對！",
+        "explanationZh": "眼睛亮了、謎題開始動——「一個大點子快來了」那個 最對！",
         "sentenceZh": "疲倦的眼睛突然亮了，腦袋裡的謎題開始移動了。",
         "tags": [
           "story",
@@ -1658,10 +1661,10 @@
         "sentence": "In old Greek, \"Eureka\" means what?",
         "question": "\"Eureka\" 的意思是什麼?",
         "options": [
-          "💤 I am sleepy",
-          "🍎 I want food",
-          "😡 I am angry",
-          "💡 I have found it"
+          "I am sleepy",
+          "I want food",
+          "I am angry",
+          "I have found it"
         ],
         "optionsZh": [
           "我想睡",
@@ -1900,10 +1903,10 @@
         "sentence": "Archimedes jumped from the bath and ran, shouting \"Eureka!\"",
         "question": "How did he feel in that moment?",
         "options": [
-          "🎉 full of joy and excitement",
-          "😰 scared of making a mistake",
-          "😔 sad the problem was still unsolved",
-          "😴 relaxed and ready for sleep"
+          "full of joy and excitement",
+          "scared of making a mistake",
+          "sad the problem was still unsolved",
+          "relaxed and ready for sleep"
         ],
         "optionsZh": [
           "充滿喜悅和興奮",
@@ -1912,7 +1915,7 @@
           "放鬆，準備去睡"
         ],
         "correctIndex": 0,
-        "explanationZh": "跳出浴缸、大喊 Eureka！——「充滿喜悅和興奮」，那個 🎉 最像他！",
+        "explanationZh": "跳出浴缸、大喊 Eureka！——「充滿喜悅和興奮」，那個 最像他！",
         "sentenceZh": "阿基米德從浴缸跳出，一邊跑一邊喊「Eureka！」",
         "tags": [
           "story",
@@ -2144,10 +2147,10 @@
         "sentence": "How did the king feel about knowing the truth?",
         "question": "How did the king feel?",
         "options": [
-          "🤝 thankful for the answer",
-          "😴 getting very sleepy",
-          "🎵 in the mood to sing",
-          "😢 feeling a little sad"
+          "thankful for the answer",
+          "getting very sleepy",
+          "in the mood to sing",
+          "feeling a little sad"
         ],
         "optionsZh": [
           "感謝得到答案",
@@ -2156,7 +2159,7 @@
           "覺得有點難過"
         ],
         "correctIndex": 0,
-        "explanationZh": "國王終於知道真相了。那種「謝謝你把我心裡的石頭拿走」的感謝 → 「感謝得到答案」。",
+        "explanationZh": "國王終於知道真相了。那種「謝謝你把我心裡的石頭拿走」的感謝 「感謝得到答案」。",
         "tags": [
           "story",
           "ch26",
@@ -2386,10 +2389,10 @@
         "sentence": "The water levels were different. The truth was now clear.",
         "question": "Which best shows the outcome?",
         "options": [
-          "❓ still nobody knows",
-          "🔍 the mystery is solved",
-          "🛌 everyone goes to sleep",
-          "🎵 time to sing a song"
+          "still nobody knows",
+          "the mystery is solved",
+          "everyone goes to sleep",
+          "time to sing a song"
         ],
         "optionsZh": [
           "還是沒人知道",
@@ -2398,7 +2401,7 @@
           "是時候唱歌了"
         ],
         "correctIndex": 1,
-        "explanationZh": "水位不同，真相大白——「謎底揭開了」，那個 🔍 最像這個時刻。",
+        "explanationZh": "水位不同，真相大白——「謎底揭開了」，那個 最像這個時刻。",
         "sentenceZh": "水位不同，真相現在清楚了。",
         "tags": [
           "story",
@@ -2630,10 +2633,10 @@
         "sentence": "What is the main lesson from Archimedes?",
         "question": "What does the story teach?",
         "options": [
-          "💰 buy more gold every day",
-          "👀 watch small things closely",
-          "🏃 run as fast as you can",
-          "🍔 eat a big meal every night"
+          "buy more gold every day",
+          "watch small things closely",
+          "run as fast as you can",
+          "eat a big meal every night"
         ],
         "optionsZh": [
           "每天買更多金子",
@@ -2642,7 +2645,7 @@
           "每晚吃一頓大餐"
         ],
         "correctIndex": 1,
-        "explanationZh": "仔細觀察小事 → 發現大道理。這就是故事教我們的事！「仔細觀察小事」是答案。",
+        "explanationZh": "仔細觀察小事 發現大道理。這就是故事教我們的事！「仔細觀察小事」是答案。",
         "tags": [
           "story",
           "ch26",
@@ -2872,10 +2875,10 @@
         "sentence": "What small thing did you notice today? It might be the start of a big idea.",
         "question": "What quality did Archimedes have?",
         "options": [
-          "🏃 speed and great strength",
-          "💰 a love of gold and money",
-          "🔭 a sharp eye for small details",
-          "🎵 a talent for singing songs"
+          "speed and great strength",
+          "a love of gold and money",
+          "a sharp eye for small details",
+          "a talent for singing songs"
         ],
         "optionsZh": [
           "速度和強大力量",
@@ -2884,7 +2887,7 @@
           "唱歌的才能"
         ],
         "correctIndex": 2,
-        "explanationZh": "注意到水溢出這件小事——「對小細節敏銳的眼力」就是他最大的本事！那個 🔭 最像他。",
+        "explanationZh": "注意到水溢出這件小事——「對小細節敏銳的眼力」就是他最大的本事！那個 最像他。",
         "sentenceZh": "你今天注意到什麼小事了嗎？也許那是一個大點子的起點。",
         "tags": [
           "story",

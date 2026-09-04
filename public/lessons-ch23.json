@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch23-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a jar?",
-        "question": "Which one is a jar?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏺 jar",
-          "🪣 bucket",
-          "🍵 cup",
-          "🫙 bottle"
+          "bottle",
+          "jar",
+          "cup",
+          "bucket"
         ],
         "optionsZh": [
+          "瓶子",
           "水缸",
-          "水桶",
           "杯子",
-          "瓶子"
+          "水桶"
         ],
-        "correctIndex": 0,
-        "explanationZh": "jar = 水缸 🏺！故事裡有一個很大的水缸放在花園角落。",
+        "correctIndex": 1,
+        "explanationZh": "jar = 水缸 ！故事裡有一個很大的水缸放在花園角落。",
         "tags": [
           "story",
           "ch23",
           "sima-guang",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏺"
       },
       {
         "id": "kt-ch23-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a stone?",
-        "question": "Which one shows a stone?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 wave",
-          "🌳 tree",
-          "🪨 stone",
-          "🌿 grass"
+          "wave",
+          "grass",
+          "tree",
+          "stone"
         ],
         "optionsZh": [
           "海浪",
+          "草",
           "樹",
-          "石頭",
-          "草"
+          "石頭"
         ],
-        "correctIndex": 2,
-        "explanationZh": "stone = 石頭 🪨！司馬光在草地上看到了一顆大石頭。",
+        "correctIndex": 3,
+        "explanationZh": "stone = 石頭 ！司馬光在草地上看到了一顆大石頭。",
         "tags": [
           "story",
           "ch23",
           "sima-guang",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪨"
       },
       {
         "id": "kt-ch23-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch23-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which emoji shows something breaking apart?",
-        "question": "Which one shows breaking?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌸 blooming",
-          "💧 dripping",
-          "💥 breaking",
-          "🌈 shining"
+          "breaking",
+          "shining",
+          "blooming",
+          "dripping"
         ],
         "optionsZh": [
-          "開花",
-          "滴水",
           "破掉",
-          "發光"
+          "發光",
+          "開花",
+          "滴水"
         ],
-        "correctIndex": 2,
-        "explanationZh": "break = 破 💥！司馬光把石頭丟向水缸，水缸就破掉了。",
+        "correctIndex": 0,
+        "explanationZh": "break = 破 ！司馬光把石頭丟向水缸，水缸就破掉了。",
         "tags": [
           "story",
           "ch23",
           "sima-guang",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💥"
       },
       {
         "id": "kt-ch23-l2-gm1",
@@ -586,10 +589,10 @@
         "sentence": "How did the children feel when no adult came?",
         "question": "How did they feel?",
         "options": [
-          "😰 scared and lost",
-          "😊 calm and happy",
-          "😴 getting very sleepy",
-          "🎵 calm and peaceful"
+          "scared and lost",
+          "calm and happy",
+          "getting very sleepy",
+          "calm and peaceful"
         ],
         "optionsZh": [
           "害怕又不知所措",
@@ -738,34 +741,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch23-l3-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The water closed over his head.",
-        "sentenceZh": "水淹過他的頭。",
-        "question": "Which emoji shows the danger the boy was in?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 fast asleep",
-          "🎉 celebrating something",
-          "😂 laughing loudly",
-          "🌊 sinking under water"
+          "sinking under water",
+          "laughing loudly",
+          "celebrating something",
+          "fast asleep"
         ],
         "optionsZh": [
-          "睡得很熟",
-          "慶祝什麼事",
+          "在水裡沉到水裡",
           "大聲笑著",
-          "在水裡沉到水裡"
+          "慶祝什麼事",
+          "睡得很熟"
         ],
-        "correctIndex": 3,
-        "explanationZh": "水淹過頭頂——這就是溺水的危險!🌊 代表那個可怕的瞬間。",
+        "correctIndex": 0,
+        "explanationZh": "水淹過頭頂——這就是溺水的危險! 代表那個可怕的瞬間。",
         "tags": [
           "story",
           "ch23",
           "sima-guang"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌊"
       },
       {
         "type": "listen-tf",
@@ -1093,10 +1096,10 @@
         "sentence": "What was the mood near the big jar?",
         "question": "How did it feel?",
         "options": [
-          "🎉 ready to celebrate",
-          "⏳ time running out",
-          "😴 getting very sleepy",
-          "🌧️ rainy"
+          "ready to celebrate",
+          "time running out",
+          "getting very sleepy",
+          "rainy"
         ],
         "optionsZh": [
           "很想要慶祝",
@@ -1245,34 +1248,34 @@
         "subSkill": "inference"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch23-l4-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Even running fast, it would take many minutes to come back.",
-        "sentenceZh": "就算跑得再快,也要花很多分鐘才能回來。",
-        "question": "Which emoji shows running in a hurry?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏃 running in a hurry",
-          "🐢 very slow and steady",
-          "😴 resting and sleeping",
-          "🛒 pushing a heavy cart"
+          "resting and sleeping",
+          "very slow and steady",
+          "pushing a heavy cart",
+          "running in a hurry"
         ],
         "optionsZh": [
-          "慌忙跑起來",
-          "很慢很穩",
           "休息睡覺",
-          "推著重車"
+          "很慢很穩",
+          "推著重車",
+          "慌忙跑起來"
         ],
-        "correctIndex": 0,
-        "explanationZh": "「跑得快」就是 🏃 的動作——爭分奪秒往外衝!",
+        "correctIndex": 3,
+        "explanationZh": "「跑得快」就是 的動作——爭分奪秒往外衝!",
         "tags": [
           "story",
           "ch23",
           "sima-guang"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏃"
       },
       {
         "type": "grammar-mc",
@@ -1701,10 +1704,10 @@
         "sentence": "What was Sima Guang doing in his head?",
         "question": "What was he doing?",
         "options": [
-          "😴 lost in a daydream",
-          "😡 getting angry",
-          "💡 thinking of a plan",
-          "🎵 humming a soft tune"
+          "lost in a daydream",
+          "getting angry",
+          "thinking of a plan",
+          "humming a soft tune"
         ],
         "optionsZh": [
           "陷入白日夢",
@@ -1860,12 +1863,12 @@
         "speaker": "narrator",
         "sentence": "He could not wait. He had to do something now.",
         "sentenceZh": "他等不了。他得現在就做點什麼。",
-        "question": "Which emoji shows someone thinking fast to act?",
+        "question": "Which one shows someone thinking fast to act?",
         "options": [
-          "😪 feeling too tired",
-          "💡 having a quick idea",
-          "😡 feeling very angry",
-          "🎶 singing a soft song"
+          "feeling too tired",
+          "having a quick idea",
+          "feeling very angry",
+          "singing a soft song"
         ],
         "optionsZh": [
           "感覺太累了",
@@ -1874,7 +1877,7 @@
           "輕輕哼歌"
         ],
         "correctIndex": 1,
-        "explanationZh": "「等不了、現在就要行動」——腦袋轉得很快想到辦法!💡 就是靈機一動的感覺!",
+        "explanationZh": "「等不了、現在就要行動」——腦袋轉得很快想到辦法! 就是靈機一動的感覺!",
         "tags": [
           "story",
           "ch23",
@@ -2208,10 +2211,10 @@
         "sentence": "How did the moment feel as the jar broke?",
         "question": "How did it feel?",
         "options": [
-          "😴 bored and restless",
-          "😡 starting to feel mad",
-          "💤 sleepy and yawning",
-          "⚡ huge and quick"
+          "bored and restless",
+          "starting to feel mad",
+          "sleepy and yawning",
+          "huge and quick"
         ],
         "optionsZh": [
           "無聊又坐不住",
@@ -2367,21 +2370,21 @@
         "speaker": "narrator",
         "sentence": "The hard stone hit the thin clay wall. The jar cracked and broke.",
         "sentenceZh": "堅硬的石頭遇上薄薄的陶缸壁。水缸裂了、破了。",
-        "question": "Which emoji shows the jar breaking apart?",
+        "question": "Which one shows the jar breaking apart?",
         "options": [
           "stayed shut tight",
           "went to sleep now",
-          "cracked wide open",
+          "split into pieces",
           "made soft music"
         ],
         "optionsZh": [
           "緊緊鎖住",
           "去睡覺了",
-          "東西裂開來",
+          "裂成碎片",
           "發出輕柔音樂"
         ],
         "correctIndex": 2,
-        "explanationZh": "石頭把水缸打破——「碰!」一聲,💥 就是那個破開的感覺!",
+        "explanationZh": "石頭把水缸打破——「碰!」一聲, 就是那個破開的感覺!",
         "tags": [
           "story",
           "ch23",
@@ -2715,10 +2718,10 @@
         "sentence": "What helps the most when time is short?",
         "question": "What helps most?",
         "options": [
-          "🧠 a smart head",
-          "🏃 only fast running",
-          "😡 anger",
-          "😴 sleeping"
+          "a smart head",
+          "only fast running",
+          "anger",
+          "sleeping"
         ],
         "optionsZh": [
           "聰明的腦袋",
@@ -2874,12 +2877,12 @@
         "speaker": "narrator",
         "sentence": "People still tell this story today, many years later.",
         "sentenceZh": "直到今天,很多年後,人們仍然在說這個故事。",
-        "question": "Which emoji shows a story that has lasted a long time?",
+        "question": "Which one shows a story that has lasted a long time?",
         "options": [
-          "🆕 brand new today",
-          "🔇 never spoken about",
-          "🗑️ thrown away and forgotten",
-          "📖 a timeless tale"
+          "brand new today",
+          "never spoken about",
+          "thrown away and forgotten",
+          "a timeless tale"
         ],
         "optionsZh": [
           "今天剛出現的新鮮事",
@@ -2888,7 +2891,7 @@
           "流傳久遠的故事"
         ],
         "correctIndex": 3,
-        "explanationZh": "「很多年後人們仍在說」——這是一個流傳久遠的故事!📖",
+        "explanationZh": "「很多年後人們仍在說」——這是一個流傳久遠的故事!",
         "tags": [
           "story",
           "ch23",

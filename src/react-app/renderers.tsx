@@ -1449,8 +1449,13 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       <h2 style={{ fontSize: 'var(--t-text-stem)', fontWeight: 900, color: 'var(--t-text)', lineHeight: 1.5, margin: '0 0 14px' }}>{prompt}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, maxWidth: 360, margin: '0 auto' }}>
         {opts.map((o, i) => {
-          const [emoji, ...labelParts] = o.split(' ');
-          const label = labelParts.join(' ');
+          // 選項格式原本固定是 emoji + 空格 + 英文, renderer 直接 split(' ').
+          // 2026-09-04 起 emoji 已從選項移除 (feedback_pickup_no_answer_in_prompt —
+          // 圖示等於把答案畫出來), 第一個 token 不再保證是 emoji:
+          // 盲目 split 會把 "a very old woman" 的 "a" 當 emoji 畫成 38px 大字.
+          const m = /^(\p{Extended_Pictographic}[\u{1F3FB}-\u{1F3FF}\uFE0F\u200D\p{Extended_Pictographic}]*)\s+(.+)$/u.exec(o);
+          const emoji = m ? m[1] : '';
+          const label = m ? m[2] : o;
           const isShaking = shakeIdx === i;
           return (
             <button key={i} onClick={() => onTap(i)} className={isShaking ? 'pickup-wobble' : 'pickup-press'} aria-label={`${label} ${optsZh[i] || ''}`} style={{
@@ -1461,7 +1466,7 @@ const EmojiPickRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
               WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
               transition: 'transform 80ms ease',
             }}>
-              <span style={{ fontSize: 38, lineHeight: 1 }}>{emoji}</span>
+              {emoji && <span style={{ fontSize: 38, lineHeight: 1 }}>{emoji}</span>}
               <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 700, color: 'var(--t-text)' }}>{label}</span>
             </button>
           );
@@ -1527,8 +1532,13 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, maxWidth: 360, margin: '0 auto' }}>
         {opts.map((o, i) => {
-          const [emoji, ...labelParts] = o.split(' ');
-          const label = labelParts.join(' ');
+          // 選項格式原本固定是 emoji + 空格 + 英文, renderer 直接 split(' ').
+          // 2026-09-04 起 emoji 已從選項移除 (feedback_pickup_no_answer_in_prompt —
+          // 圖示等於把答案畫出來), 第一個 token 不再保證是 emoji:
+          // 盲目 split 會把 "a very old woman" 的 "a" 當 emoji 畫成 38px 大字.
+          const m = /^(\p{Extended_Pictographic}[\u{1F3FB}-\u{1F3FF}\uFE0F\u200D\p{Extended_Pictographic}]*)\s+(.+)$/u.exec(o);
+          const emoji = m ? m[1] : '';
+          const label = m ? m[2] : o;
           const isShaking = shakeIdx === i;
           const isCorrect = i === correctIdx;
           const isSel = i === selected;
@@ -1559,7 +1569,7 @@ const ListenEmojiRenderer = ({ q, onAdvance, onAnswer }: RendererProps) => {
                 WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation',
               }}
             >
-              <span style={{ fontSize: 'clamp(34px, 9vh, 52px)', lineHeight: 1 }}>{emoji}</span>
+              {emoji && <span style={{ fontSize: 'clamp(34px, 9vh, 52px)', lineHeight: 1 }}>{emoji}</span>}
               {revealed && <span style={{ fontSize: 'var(--t-text-label)', fontWeight: 800, color: 'var(--t-text)' }}>{label}{optsZh[i] ? <> · <SpeakZh text={optsZh[i]} /></> : ''}</span>}
             </button>
           );

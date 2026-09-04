@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch3-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a tortoise?",
-        "question": "Which one is a tortoise?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐢 tortoise",
-          "🐇 rabbit",
-          "🐒 monkey",
-          "🦒 giraffe"
+          "tortoise",
+          "giraffe",
+          "monkey",
+          "rabbit"
         ],
         "optionsZh": [
           "烏龜",
-          "兔子",
+          "鳥",
           "狐狸",
-          "鳥"
+          "兔子"
         ],
         "correctIndex": 0,
-        "explanationZh": "tortoise = 烏龜 🐢！故事裡那隻慢慢走的烏龜，最後贏得了比賽。",
+        "explanationZh": "tortoise = 烏龜 ！故事裡那隻慢慢走的烏龜，最後贏得了比賽。",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐢"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch3-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which emoji shows someone winning?",
-        "question": "Which emoji shows someone winning?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 sleeping",
-          "😢 crying",
-          "🏆 win",
-          "🏃 running"
+          "win",
+          "crying",
+          "running",
+          "sleeping"
         ],
         "optionsZh": [
-          "睡覺",
-          "哭泣",
           "贏",
-          "跑步"
+          "哭泣",
+          "跑步",
+          "睡覺"
         ],
-        "correctIndex": 2,
-        "explanationZh": "win = 贏 🏆！故事的最後，慢慢走的烏龜赢得了比賽——讓大家都嚇一跳！",
+        "correctIndex": 0,
+        "explanationZh": "win = 贏 ！故事的最後，慢慢走的烏龜赢得了比賽——讓大家都嚇一跳！",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏆"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch3-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The hare stopped to take a nap in the middle of the race.",
-        "question": "Which emoji shows taking a nap?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏃 running fast",
-          "😴 taking a nap",
-          "🏆 winning a prize",
-          "🐢 walking slow"
+          "taking a nap",
+          "running fast",
+          "winning a prize",
+          "walking slow"
         ],
         "optionsZh": [
-          "快跑",
           "打個盹",
+          "快跑",
           "贏得獎品",
           "慢慢走"
         ],
-        "correctIndex": 1,
-        "explanationZh": "nap = 打個盹 😴！故事裡兔子覺得自己跑得夠快，就在樹下打了個盹——結果就輸了！",
+        "correctIndex": 0,
+        "explanationZh": "nap = 打個盹 ！故事裡兔子覺得自己跑得夠快，就在樹下打了個盹——結果就輸了！",
         "tags": [
           "story",
           "ch3",
           "tortoise-hare",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "😴"
       },
       {
         "type": "grammar-mc",
@@ -522,16 +525,16 @@
         "sentence": "What was the weather like?",
         "question": "What was the weather like?",
         "options": [
-          "☀️ sunny and warm",
-          "🌧️ rainy and wet",
-          "🌫️ foggy and grey",
-          "🌪️ windy storm"
+          "sunny and warm",
+          "rainy and wet",
+          "foggy and grey",
+          "windy storm"
         ],
         "optionsZh": [
-          "☀️ 晴朗溫暖",
-          "🌧️ 下雨濕濕的",
-          "🌫️ 起霧灰濛濛",
-          "🌪️ 狂風暴雨"
+          "晴朗溫暖",
+          "下雨濕濕的",
+          "起霧灰濛濛",
+          "狂風暴雨"
         ],
         "correctIndex": 0,
         "explanationZh": "太陽曬得暖暖的——這就是「晴朗溫暖」的好天氣，最容易讓人想睡覺的那種！",
@@ -1072,16 +1075,16 @@
         "sentence": "How did the tortoise keep moving?",
         "question": "How did he keep moving?",
         "options": [
-          "⛵ on a little boat",
-          "🚀 flying in the sky",
-          "🦶 one foot at a time",
-          "🐎 riding on a horse"
+          "on a little boat",
+          "flying in the sky",
+          "one foot at a time",
+          "riding on a horse"
         ],
         "optionsZh": [
-          "⛵ 坐一艘小船",
-          "🚀 在天空中飛",
-          "🦶 一次一隻腳",
-          "🐎 騎在馬背上"
+          "坐一艘小船",
+          "在天空中飛",
+          "一次一隻腳",
+          "騎在馬背上"
         ],
         "correctIndex": 2,
         "explanationZh": "一隻腳一隻腳輪流動——就是「一次一隻腳」，穩穩地走，不快、也不停。",
@@ -1724,16 +1727,16 @@
         "sentence": "How was the field?",
         "question": "How was the field?",
         "options": [
-          "🤫 very quiet",
-          "🎉 noisy and fun",
-          "🌧️ rainy",
-          "🔥 on fire"
+          "very quiet",
+          "noisy and fun",
+          "rainy",
+          "on fire"
         ],
         "optionsZh": [
-          "🤫 非常安靜",
-          "🎉 吵鬧又熱鬧",
-          "🌧️ 下雨",
-          "🔥 著火"
+          "非常安靜",
+          "吵鬧又熱鬧",
+          "下雨",
+          "著火"
         ],
         "correctIndex": 0,
         "explanationZh": "沒人喊、沒人動，只有風聲——這就是「非常安靜」，靜得讓人屏住呼吸。",
@@ -2272,16 +2275,16 @@
         "sentence": "How did the hare feel?",
         "question": "How did the hare feel?",
         "options": [
-          "😄 very happy",
-          "😴 still sleepy",
-          "😱 in a panic",
-          "😐 bored"
+          "very happy",
+          "still sleepy",
+          "in a panic",
+          "bored"
         ],
         "optionsZh": [
-          "😄 很開心",
-          "😴 還在想睡",
-          "😱 很慌張",
-          "😐 無聊"
+          "很開心",
+          "還在想睡",
+          "很慌張",
+          "無聊"
         ],
         "correctIndex": 2,
         "explanationZh": "「不！不不不！」叫出來、跳起來——這不是開心也不是無聊，是「很慌張」！快要輸了！",
@@ -2821,16 +2824,16 @@
         "sentence": "Why could the hare not speak?",
         "question": "Why could the hare not speak?",
         "options": [
-          "😮‍💨 out of breath",
-          "🤐 shy and quiet",
-          "😡 starting to feel mad",
-          "🤔 thinking it over"
+          "out of breath",
+          "shy and quiet",
+          "starting to feel mad",
+          "thinking it over"
         ],
         "optionsZh": [
-          "😮‍💨 喘到沒氣",
-          "🤐 害羞又安靜",
-          "😡 開始覺得生氣",
-          "🤔 正在仔細想"
+          "喘到沒氣",
+          "害羞又安靜",
+          "開始覺得生氣",
+          "正在仔細想"
         ],
         "correctIndex": 0,
         "explanationZh": "剛拚命跑完，氣都喘不過來了——所以是「喘到沒氣」，根本說不了話。",

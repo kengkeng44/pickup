@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch24-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a pear?",
-        "question": "Which one is a pear?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍐 pear",
-          "🍎 apple",
-          "🍊 orange",
-          "🍇 grapes"
+          "orange",
+          "grapes",
+          "apple",
+          "pear"
         ],
         "optionsZh": [
-          "梨",
-          "蘋果",
           "橘子",
-          "葡萄"
+          "葡萄",
+          "蘋果",
+          "梨"
         ],
-        "correctIndex": 0,
-        "explanationZh": "梨的英文是 pear 🍐！故事裡父親帶了一盤梨子回家——這就是故事的開始。",
+        "correctIndex": 3,
+        "explanationZh": "梨的英文是 pear ！故事裡父親帶了一盤梨子回家——這就是故事的開始。",
         "tags": [
           "story",
           "ch24",
           "kong-rong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🍐"
       },
       {
         "id": "kt-ch24-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a plate?",
-        "question": "Which one shows a plate?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍵 cup",
-          "🎒 bag",
-          "🍽️ plate",
-          "📦 box"
+          "chair",
+          "brush",
+          "spoon",
+          "plate"
         ],
         "optionsZh": [
-          "杯子",
-          "包包",
-          "盤子",
-          "箱子"
+          "椅子",
+          "刷子",
+          "湯匙",
+          "盤子"
         ],
-        "correctIndex": 2,
-        "explanationZh": "plate = 盤子 🍽️！故事裡父親帶了一盤梨子回家，盤子上有大的也有小的。",
+        "correctIndex": 3,
+        "explanationZh": "plate = 盤子 ！故事裡父親帶了一盤梨子回家，盤子上有大的也有小的。",
         "tags": [
           "story",
           "ch24",
           "kong-rong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🍽️"
       },
       {
         "id": "kt-ch24-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch24-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows something kind?",
-        "question": "Which one shows something kind?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😊 kind",
-          "😠 angry",
-          "😴 sleepy",
-          "😨 afraid"
+          "afraid",
+          "angry",
+          "sleepy",
+          "kind"
         ],
         "optionsZh": [
-          "親切",
+          "害怕",
           "生氣",
           "睏",
-          "害怕"
+          "親切"
         ],
-        "correctIndex": 0,
-        "explanationZh": "kind = 親切 😊！故事裡父親用親切的微笑看著孔融，心裡很溫暖。",
+        "correctIndex": 3,
+        "explanationZh": "kind = 親切 ！故事裡父親用親切的微笑看著孔融，心裡很溫暖。",
         "tags": [
           "story",
           "ch24",
           "kong-rong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "😊"
       },
       {
         "id": "kt-ch24-l2-gm1",
@@ -584,10 +587,10 @@
         "sentence": "What kind of moment was this for Kong Rong?",
         "question": "What kind of moment?",
         "options": [
-          "🎵 ready for some music",
-          "🤣 in a joking mood",
-          "😴 ready for a nap now",
-          "😅 hard but quiet choice"
+          "ready for some music",
+          "in a joking mood",
+          "ready for a nap now",
+          "hard but quiet choice"
         ],
         "optionsZh": [
           "想聽點音樂",
@@ -736,34 +739,34 @@
         "subSkill": "inference"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch24-l3-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "He paused for a moment and began to think.",
-        "sentenceZh": "他停了一下,開始想。",
-        "question": "Which emoji shows someone thinking carefully?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 falling asleep now",
-          "😂 laughing out loud",
-          "🤔 thinking it over",
-          "😡 feeling quite mad"
+          "feeling quite mad",
+          "laughing out loud",
+          "thinking it over",
+          "falling asleep now"
         ],
         "optionsZh": [
-          "快睡著了",
+          "感覺很生氣",
           "大聲笑出來",
           "在認真思考",
-          "感覺很生氣"
+          "快睡著了"
         ],
         "correctIndex": 2,
-        "explanationZh": "「停下來想」——就是 🤔 那種認真思考的表情!",
+        "explanationZh": "「停下來想」——就是 那種認真思考的表情!",
         "tags": [
           "story",
           "ch24",
           "kong-rong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🤔"
       },
       {
         "type": "listen-tf",
@@ -1091,10 +1094,10 @@
         "sentence": "What did everyone want to hear from Kong Rong?",
         "question": "What did they want to hear?",
         "options": [
-          "🤔 his reason",
-          "🎵 a song",
-          "😴 a yawn",
-          "🍞 a food order"
+          "his reason",
+          "a song",
+          "a yawn",
+          "a food order"
         ],
         "optionsZh": [
           "他的理由",
@@ -1250,12 +1253,12 @@
         "speaker": "narrator",
         "sentence": "Kong Rong reached out and took the smallest pear.",
         "sentenceZh": "孔融伸出手,拿了最小的梨。",
-        "question": "Which emoji shows choosing the smallest thing?",
+        "question": "Which one shows choosing the smallest thing?",
         "options": [
-          "🍎 a shiny red apple",
-          "🍐 a medium juicy pear",
-          "🍇 a bunch of grapes",
-          "🫐 a tiny blueberry"
+          "a shiny red apple",
+          "a medium juicy pear",
+          "a bunch of grapes",
+          "a tiny blueberry"
         ],
         "optionsZh": [
           "亮亮的紅蘋果",
@@ -1264,7 +1267,7 @@
           "小小的藍莓"
         ],
         "correctIndex": 3,
-        "explanationZh": "選最小的——就像選了 🫐 這個小小的東西一樣!",
+        "explanationZh": "選最小的——就像選了 這個小小的東西一樣!",
         "tags": [
           "story",
           "ch24",
@@ -1699,10 +1702,10 @@
         "sentence": "How did the father feel about his small son?",
         "question": "How did the father feel?",
         "options": [
-          "😡 starting to feel mad",
-          "🤗 proud and touched",
-          "😴 getting very sleepy",
-          "😱 feeling a bit afraid"
+          "starting to feel mad",
+          "proud and touched",
+          "getting very sleepy",
+          "feeling a bit afraid"
         ],
         "optionsZh": [
           "開始覺得生氣",
@@ -1851,34 +1854,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch24-l5-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Father was surprised and pleased. He smiled.",
-        "sentenceZh": "父親又驚訝又高興。他微笑了。",
-        "question": "Which emoji shows being surprised and happy?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😮 surprised and delighted",
-          "😢 very sad and crying",
-          "😠 angry and upset",
-          "😴 sleepy and calm"
+          "sleepy and very calm",
+          "surprised and delighted",
+          "very sad and crying",
+          "angry and very upset"
         ],
         "optionsZh": [
+          "睏了而且很平靜",
           "驚喜又開心",
           "很難過在哭",
-          "生氣又難受",
-          "睏了很平靜"
+          "生氣而且很難受"
         ],
-        "correctIndex": 0,
-        "explanationZh": "「又驚訝又高興」——就是那個 😮 驚喜的表情!",
+        "correctIndex": 1,
+        "explanationZh": "「又驚訝又高興」——就是那個 驚喜的表情!",
         "tags": [
           "story",
           "ch24",
           "kong-rong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "😮"
       },
       {
         "type": "listen-tf",
@@ -2206,10 +2209,10 @@
         "sentence": "What kind of answer was Kong Rong about to give?",
         "question": "What kind of answer?",
         "options": [
-          "😴 sleepy mumble",
-          "🤣 funny joke",
-          "💡 simple but wise",
-          "😡 angry shout"
+          "sleepy mumble",
+          "funny joke",
+          "simple but wise",
+          "angry shout"
         ],
         "optionsZh": [
           "想睡含糊",
@@ -2365,12 +2368,12 @@
         "speaker": "narrator",
         "sentence": "Kong Rong paused for just a moment, then looked up.",
         "sentenceZh": "孔融只停了一下,然後抬起頭來。",
-        "question": "Which emoji shows someone looking up with confidence?",
+        "question": "Which one shows someone looking up with confidence?",
         "options": [
-          "😪 looking down tired",
-          "😊 looking up with a smile",
-          "😱 scared and looking back",
-          "😤 looking away in anger"
+          "looking down tired",
+          "looking up with a smile",
+          "scared and looking back",
+          "looking away in anger"
         ],
         "optionsZh": [
           "低頭很累",
@@ -2379,7 +2382,7 @@
           "生氣地別過頭"
         ],
         "correctIndex": 1,
-        "explanationZh": "「抬起頭來」——就是那個充滿自信的抬頭動作!😊",
+        "explanationZh": "「抬起頭來」——就是那個充滿自信的抬頭動作!",
         "tags": [
           "story",
           "ch24",
@@ -2713,10 +2716,10 @@
         "sentence": "What did the family learn that night?",
         "question": "What did they learn?",
         "options": [
-          "😴 to go to sleep early",
-          "🏃 to run faster every day",
-          "🎵 to sing songs at night",
-          "🍐 to share with the family"
+          "to go to sleep early",
+          "to run faster every day",
+          "to sing songs at night",
+          "to share with the family"
         ],
         "optionsZh": [
           "早早去睡覺",
@@ -2865,34 +2868,34 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch24-l7-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "People still tell this story today to remember Kong Rong's kindness.",
-        "sentenceZh": "直到今天,人們仍然講這個故事來記住孔融的善心。",
-        "question": "Which emoji shows kindness and sharing?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😠 angry and selfish",
-          "😴 sleeping and forgetting",
-          "🤝 sharing with others",
-          "🌊 rushing far away"
+          "rushing far away",
+          "sharing with others",
+          "sleeping and forgetting",
+          "angry and selfish"
         ],
         "optionsZh": [
-          "生氣又自私",
-          "睡著忘了",
+          "衝到很遠的地方",
           "與別人分享",
-          "衝到很遠的地方"
+          "睡著忘了",
+          "生氣又自私"
         ],
-        "correctIndex": 2,
-        "explanationZh": "孔融的善心就是「與別人分享」——🤝 就是那種精神!",
+        "correctIndex": 1,
+        "explanationZh": "孔融的善心就是「與別人分享」—— 就是那種精神!",
         "tags": [
           "story",
           "ch24",
           "kong-rong"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🤝"
       },
       {
         "type": "listen-tf",

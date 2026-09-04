@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch11-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is the sun?",
-        "question": "Which one is the sun?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌙 moon",
-          "⭐ star",
-          "☁️ cloud",
-          "☀️ sun"
+          "cloud",
+          "sun",
+          "moon",
+          "star"
         ],
         "optionsZh": [
-          "月亮",
-          "星星",
           "雲",
-          "太陽"
+          "太陽",
+          "月亮",
+          "星星"
         ],
-        "correctIndex": 3,
-        "explanationZh": "sun = 太陽 ☀️！故事裡突然有十個太陽同時升起，把大地都烤焦了。",
+        "correctIndex": 1,
+        "explanationZh": "sun = 太陽 ！故事裡突然有十個太陽同時升起，把大地都烤焦了。",
         "tags": [
           "story",
           "ch11",
           "houyi",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "☀️"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch11-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which picture shows something dry?",
-        "question": "Which picture shows something dry?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 wet river",
-          "🌧️ rainy day",
-          "🏜️ dry sand",
-          "🌿 green grass"
+          "wet river",
+          "dry sand",
+          "rainy day",
+          "green grass"
         ],
         "optionsZh": [
           "濕的河",
-          "下雨天",
           "乾的沙",
+          "下雨天",
           "綠草地"
         ],
-        "correctIndex": 2,
-        "explanationZh": "dry = 乾 🏜️！十個太陽一出現，河水都乾掉了、草都枯死了——大地就像沙漠一樣乾。",
+        "correctIndex": 1,
+        "explanationZh": "dry = 乾 ！十個太陽一出現，河水都乾掉了、草都枯死了——大地就像沙漠一樣乾。",
         "tags": [
           "story",
           "ch11",
           "houyi",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏜️"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch11-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which emoji shows a bow and arrow?",
-        "question": "Which emoji shows a bow and arrow?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "⚔️ sword",
-          "🗡️ dagger",
-          "🏹 bow",
-          "🔫 gun"
+          "dagger",
+          "sword",
+          "bow",
+          "gun"
         ],
         "optionsZh": [
-          "劍",
           "匕首",
+          "劍",
           "弓",
           "槍"
         ],
         "correctIndex": 2,
-        "explanationZh": "bow and arrow = 弓和箭 🏹！后羿就是用這個，把多餘的太陽一一射落。",
+        "explanationZh": "bow and arrow = 弓和箭 ！后羿就是用這個，把多餘的太陽一一射落。",
         "tags": [
           "story",
           "ch11",
           "houyi",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏹"
       },
       {
         "type": "grammar-mc",
@@ -522,10 +525,10 @@
         "sentence": "What kind of moment was this for Hou Yi?",
         "question": "What kind of moment?",
         "options": [
-          "😴 getting very sleepy",
-          "💃 dancing",
-          "😆 funny",
-          "🎯 focused"
+          "getting very sleepy",
+          "dancing",
+          "funny",
+          "focused"
         ],
         "optionsZh": [
           "快要睡著了",
@@ -773,10 +776,10 @@
         "sentenceZh": "他放出一支箭，飛向那燒亮的天空——接下來發生了什麼？",
         "question": "What happened right after?",
         "options": [
-          "🌡️ the air got cooler",
-          "☀️☀️ two more suns came",
-          "🌧️ rain started falling",
-          "🌑 total darkness came"
+          "the air got cooler",
+          "two more suns came",
+          "rain started falling",
+          "total darkness came"
         ],
         "optionsZh": [
           "空氣變涼了一點",
@@ -857,10 +860,10 @@
         "sentenceZh": "后羿走過燒焦的田和乾涸的河——他心裡可能有什麼感覺？",
         "question": "How might he feel inside?",
         "options": [
-          "😊 happy and relaxed",
-          "😂 laughing at the sky",
-          "💪 determined to help",
-          "😴 wanting to go sleep"
+          "happy and relaxed",
+          "laughing at the sky",
+          "determined to help",
+          "wanting to go sleep"
         ],
         "optionsZh": [
           "開心又放鬆",
@@ -1100,10 +1103,10 @@
         "sentence": "What was this moment about?",
         "question": "What was this moment about?",
         "options": [
-          "💤 a rest",
-          "🎉 a party",
-          "⏸️ a choice",
-          "🍰 a snack"
+          "a rest",
+          "a party",
+          "a choice",
+          "a snack"
         ],
         "optionsZh": [
           "休息時刻",
@@ -1263,10 +1266,10 @@
         "sentenceZh": "很快，九個太陽都消失了——人們心裡可能有什麼感覺？",
         "question": "How did the people feel?",
         "options": [
-          "😢 still crying",
-          "😊 hopeful at last",
-          "😡 angry at Hou Yi",
-          "😴 too tired to care"
+          "still crying",
+          "hopeful at last",
+          "angry at Hou Yi",
+          "too tired to care"
         ],
         "optionsZh": [
           "還在哭",
@@ -1347,10 +1350,10 @@
         "sentenceZh": "后羿看著最後那個太陽——他也要射它嗎？",
         "question": "What kind of moment was this?",
         "options": [
-          "🎉 a party moment",
-          "🎵 a singing moment",
-          "🌙 bedtime at last",
-          "⚖️ a big decision"
+          "a party moment",
+          "a singing moment",
+          "bedtime at last",
+          "a big decision"
         ],
         "optionsZh": [
           "派對時刻",
@@ -1687,10 +1690,10 @@
         "sentence": "How did the land look now?",
         "question": "How did the land look?",
         "options": [
-          "❄️ frozen and white",
-          "🔥 still burning",
-          "🌳 alive and green",
-          "🌑 dark and empty"
+          "frozen and white",
+          "still burning",
+          "alive and green",
+          "dark and empty"
         ],
         "optionsZh": [
           "結冰又雪白",
@@ -1894,10 +1897,10 @@
         "sentenceZh": "人們從家裡走出來了——他們心裡是什麼感覺？",
         "question": "How did they feel?",
         "options": [
-          "😡 still very angry",
-          "😴 too sleepy to move",
-          "🥰 relieved and glad",
-          "🤔 confused and lost"
+          "still very angry",
+          "too sleepy to move",
+          "relieved and glad",
+          "confused and lost"
         ],
         "optionsZh": [
           "還是很生氣",
@@ -1978,16 +1981,16 @@
         "sentenceZh": "后羿放下弓，大地重新變綠——這個結局，用哪個字最好？",
         "question": "What word fits the ending?",
         "options": [
-          "🌟 hopeful",
-          "🌧️ sad",
-          "🔥 scary",
-          "🌑 dark"
+          "hopeful",
+          "lonely",
+          "scary",
+          "gloomy"
         ],
         "optionsZh": [
           "充滿希望",
-          "悲傷",
+          "孤單",
           "嚇人",
-          "黑暗"
+          "陰鬱"
         ],
         "correctIndex": 0,
         "explanationZh": "大地活過來、孩子笑了——這個結局是「充滿希望」的，不是悲傷也不是恐怖。",
@@ -2192,10 +2195,10 @@
         "sentence": "How might Hou Yi feel about this change?",
         "question": "How might Hou Yi feel?",
         "options": [
-          "😎 just feeling proud",
-          "😱 afraid forever",
-          "🤣 silly and giggly",
-          "😐 quiet and calm"
+          "just feeling proud",
+          "afraid forever",
+          "silly and giggly",
+          "quiet and calm"
         ],
         "optionsZh": [
           "只是覺得驕傲",
@@ -2369,10 +2372,10 @@
         "sentenceZh": "后羿成了地上的普通人。",
         "question": "What kind of life did Hou Yi now have?",
         "options": [
-          "🌟 still a powerful god",
-          "🎪 a life of shows and fame",
-          "🏡 an ordinary human life",
-          "🌊 a life on the sea"
+          "still a powerful god",
+          "a life of shows and fame",
+          "an ordinary human life",
+          "a life on the sea"
         ],
         "optionsZh": [
           "還是強大的神",
@@ -2453,10 +2456,10 @@
         "sentenceZh": "天空不再是他們的家——這樣的結局是什麼感覺？",
         "question": "How did this ending feel?",
         "options": [
-          "😔 bittersweet and quiet",
-          "😂 funny and silly",
-          "😡 furious and loud",
-          "🎉 exciting and great"
+          "bittersweet and quiet",
+          "funny and silly",
+          "furious and loud",
+          "exciting and great"
         ],
         "optionsZh": [
           "甜中帶苦、安靜",
@@ -2688,10 +2691,10 @@
         "sentence": "How did Hou Yi feel about the one sun?",
         "question": "How did he feel about the sun?",
         "options": [
-          "😡 angry it was there",
-          "😢 sad about it",
-          "😴 he ignored it",
-          "😊 glad he left it"
+          "angry it was there",
+          "sad about it",
+          "he ignored it",
+          "glad he left it"
         ],
         "optionsZh": [
           "生氣它還在那裡",
@@ -2949,10 +2952,10 @@
         "sentenceZh": "接下來，是嫦娥自己的故事。月亮在等著她……",
         "question": "Where does the next story go?",
         "options": [
-          "🌕 up to the moon",
-          "🌊 deep under the sea",
-          "🌲 deep in the forest",
-          "🏔️ up a tall mountain"
+          "up to the moon",
+          "deep under the sea",
+          "deep in the forest",
+          "up a tall mountain"
         ],
         "optionsZh": [
           "飛到月亮上",

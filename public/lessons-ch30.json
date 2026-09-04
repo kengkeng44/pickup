@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch30-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a lion?",
-        "question": "Which one is a lion?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🦁 lion",
-          "🐯 tiger",
-          "🐺 wolf",
-          "🐻 bear"
+          "tiger",
+          "bear",
+          "wolf",
+          "lion"
         ],
         "optionsZh": [
-          "獅子",
           "老虎",
+          "熊",
           "狼",
-          "熊"
+          "獅子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "獅子的英文是 lion 🦁！故事裡有一隻超巨大的獅子，是海格力斯的第一個任務。",
+        "correctIndex": 3,
+        "explanationZh": "獅子的英文是 lion ！故事裡有一隻超巨大的獅子，是海格力斯的第一個任務。",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🦁"
       },
       {
         "id": "kt-ch30-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which emoji shows something strong?",
-        "question": "Which one shows strong?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍃 leaf",
-          "💪 strong",
-          "🌸 flower",
-          "🍬 candy"
+          "flower",
+          "candy",
+          "strong",
+          "leaf"
         ],
         "optionsZh": [
-          "葉子",
-          "強壯",
           "花",
-          "糖果"
+          "糖果",
+          "強壯",
+          "葉子"
         ],
-        "correctIndex": 1,
-        "explanationZh": "strong = 強壯 💪！海格力斯非常強壯，一個人就能舉起大公牛。",
+        "correctIndex": 2,
+        "explanationZh": "strong = 強壯 ！海格力斯非常強壯，一個人就能舉起大公牛。",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💪"
       },
       {
         "id": "kt-ch30-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch30-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a deer?",
-        "question": "Which one is a deer?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐄 cow",
-          "🐑 sheep",
-          "🦌 deer",
-          "🐴 horse"
+          "horse",
+          "deer",
+          "sheep",
+          "cow"
         ],
         "optionsZh": [
-          "牛",
-          "羊",
+          "馬",
           "鹿",
-          "馬"
+          "羊",
+          "牛"
         ],
-        "correctIndex": 2,
-        "explanationZh": "deer = 鹿 🦌！故事裡有一隻金色的鹿，是海格力斯的第三個任務。",
+        "correctIndex": 1,
+        "explanationZh": "deer = 鹿 ！故事裡有一隻金色的鹿，是海格力斯的第三個任務。",
         "tags": [
           "story",
           "ch30",
           "heracles-twelve-labors",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🦌"
       },
       {
         "id": "kt-ch30-l2-gm1",
@@ -585,10 +588,10 @@
         "sentence": "What kind of place was the forest?",
         "question": "What was the forest like?",
         "options": [
-          "🎵 full of music",
-          "🌞 bright and sunny",
-          "🌑 dark and quiet",
-          "🏖️ like a sandy beach"
+          "full of music",
+          "bright and sunny",
+          "dark and quiet",
+          "like a sandy beach"
         ],
         "optionsZh": [
           "充滿音樂",
@@ -597,7 +600,7 @@
           "像沙灘"
         ],
         "correctIndex": 2,
-        "explanationZh": "高樹擋光 + 沒聲音 → 「又黑又安靜」。那個 🌑 就是森林的樣子。",
+        "explanationZh": "高樹擋光 + 沒聲音 「又黑又安靜」。那個 就是森林的樣子。",
         "tags": [
           "story",
           "ch30",
@@ -797,10 +800,10 @@
         "sentence": "How did Heracles act inside the dark, quiet forest?",
         "question": "How did he act?",
         "options": [
-          "🎵 happy and singing",
-          "😴 sleepy and slow",
-          "🎯 careful and watchful",
-          "😡 angry and shouting"
+          "happy and singing",
+          "sleepy and slow",
+          "careful and watchful",
+          "angry and shouting"
         ],
         "optionsZh": [
           "開心地唱歌",
@@ -809,7 +812,7 @@
           "生氣地大叫"
         ],
         "correctIndex": 2,
-        "explanationZh": "輕踩落葉 + 豎耳傾聽 → 「小心又警覺」。那個 🎯 就是他的態度。",
+        "explanationZh": "輕踩落葉 + 豎耳傾聽 「小心又警覺」。那個 就是他的態度。",
         "sentenceZh": "Heracles 在黑暗又安靜的森林裡是怎麼行動的？",
         "tags": [
           "story",
@@ -1092,10 +1095,10 @@
         "sentence": "How did the lion react to the arrows?",
         "question": "What was the lion like?",
         "options": [
-          "💤 fell asleep",
-          "😭 crying loudly",
-          "🩹 badly hurt",
-          "🛡️ not hurt at all"
+          "fell asleep",
+          "crying loudly",
+          "badly hurt",
+          "not hurt at all"
         ],
         "optionsZh": [
           "睡著了",
@@ -1104,7 +1107,7 @@
           "完全沒受傷"
         ],
         "correctIndex": 3,
-        "explanationZh": "箭都彈開 + 毛皮太厚 → 「完全沒受傷」。那個 🛡️ 就是獅子的樣子。",
+        "explanationZh": "箭都彈開 + 毛皮太厚 「完全沒受傷」。那個 就是獅子的樣子。",
         "tags": [
           "story",
           "ch30",
@@ -1304,14 +1307,14 @@
         "sentence": "At the top of the hill, the trees opened up into a wide stone space.",
         "question": "What was at the top of the hill?",
         "options": [
-          "🌲 just more dark trees",
-          "🌊 a wide blue river",
-          "🏠 a tiny village house",
-          "🪨 open rocks and a dark cave"
+          "just more dark trees",
+          "a wide blue river below",
+          "a tiny village house",
+          "open rocks and a dark cave"
         ],
         "optionsZh": [
           "只有更多黑暗的樹",
-          "一條寬闊的藍色河流",
+          "下方一條寬闊的藍色河流",
           "一間小小的村屋",
           "開闊的石頭空地和黑暗山洞"
         ],
@@ -1691,10 +1694,10 @@
         "sentence": "How was the fight going so far for Heracles?",
         "question": "How was the fight going?",
         "options": [
-          "⚠️ very badly, weapons broken",
-          "🏆 he was clearly winning",
-          "😴 slow, quiet, and boring",
-          "🎉 the lion was friendly"
+          "very badly, weapons broken",
+          "he was clearly winning",
+          "slow, quiet, and boring",
+          "the lion was friendly"
         ],
         "optionsZh": [
           "非常糟,武器都壞了",
@@ -1703,7 +1706,7 @@
           "獅子很友善"
         ],
         "correctIndex": 0,
-        "explanationZh": "箭彈開 + 劍斷 + 獅子撲咬 → 「非常糟，武器都壞了」。那個 ⚠️ 就是現在的狀況。",
+        "explanationZh": "箭彈開 + 劍斷 + 獅子撲咬 「非常糟，武器都壞了」。那個 就是現在的狀況。",
         "tags": [
           "story",
           "ch30",
@@ -1903,10 +1906,10 @@
         "sentence": "He threw the broken sword on the ground and clenched both his fists...",
         "question": "What did Heracles decide to do next?",
         "options": [
-          "✊ fight with his bare hands",
-          "🏃 run away from the lion",
-          "😴 stop and take a long rest",
-          "📜 ask a friend for new ideas"
+          "fight with his bare hands",
+          "run away from the lion",
+          "stop and take a long rest",
+          "ask a friend for new ideas"
         ],
         "optionsZh": [
           "赤手空拳繼續打",
@@ -1915,7 +1918,7 @@
           "找朋友問新辦法"
         ],
         "correctIndex": 0,
-        "explanationZh": "把斷劍扔掉、握緊拳頭——「赤手空拳繼續打」就是他的選擇。那個 ✊！",
+        "explanationZh": "把斷劍扔掉、握緊拳頭——「赤手空拳繼續打」就是他的選擇。那個 ！",
         "sentenceZh": "他把斷劍扔在地上，雙手握成拳頭……",
         "tags": [
           "story",
@@ -2198,10 +2201,10 @@
         "sentence": "What did Heracles choose to do?",
         "question": "What was his choice?",
         "options": [
-          "🏃 run back home to rest",
-          "✊ fight with bare hands",
-          "🛌 take a nap first",
-          "📜 read the list again"
+          "run back home to rest",
+          "fight with bare hands",
+          "take a nap first",
+          "read the list again"
         ],
         "optionsZh": [
           "跑回家休息",
@@ -2210,7 +2213,7 @@
           "再讀一次清單"
         ],
         "correctIndex": 1,
-        "explanationZh": "握拳 + 站穩 + 「我用我的手」 → 「赤手空拳對打」。那個 ✊ 就是他的選擇。",
+        "explanationZh": "握拳 + 站穩 + 「我用我的手」 「赤手空拳對打」。那個 就是他的選擇。",
         "tags": [
           "story",
           "ch30",
@@ -2410,10 +2413,10 @@
         "sentence": "The lion stepped closer, its tail moving slowly behind it.",
         "question": "What mood was the lion in?",
         "options": [
-          "😊 friendly and happy",
-          "😈 ready to attack soon",
-          "😴 getting very sleepy",
-          "🥰 just wanting a hug"
+          "friendly and happy",
+          "ready to attack soon",
+          "getting very sleepy",
+          "just wanting a hug"
         ],
         "optionsZh": [
           "友善又開心",
@@ -2422,7 +2425,7 @@
           "只是想要一個擁抱"
         ],
         "correctIndex": 1,
-        "explanationZh": "慢慢走近 + 尾巴緩緩擺動——「準備好要攻擊了」。那個 😈 就是獅子的樣子！",
+        "explanationZh": "慢慢走近 + 尾巴緩緩擺動——「準備好要攻擊了」。那個 就是獅子的樣子！",
         "sentenceZh": "獅子慢慢走近，尾巴緩緩擺動。",
         "tags": [
           "story",
@@ -2705,10 +2708,10 @@
         "sentence": "What is the main lesson from tonight's story?",
         "question": "What does the story teach?",
         "options": [
-          "🏃 run away from hard things",
-          "💰 always carry more gold",
-          "💪 think and use what you have",
-          "😴 sleep until trouble ends"
+          "run away from hard things",
+          "always carry more gold",
+          "think and use what you have",
+          "sleep until trouble ends"
         ],
         "optionsZh": [
           "遇到難事就逃",
@@ -2717,7 +2720,7 @@
           "睡到麻煩結束"
         ],
         "correctIndex": 2,
-        "explanationZh": "弓和劍都不行 → 改用雙手 → 「動腦，用你有的東西」。那個 💪 就是他的精神。",
+        "explanationZh": "弓和劍都不行 改用雙手 「動腦，用你有的東西」。那個 就是他的精神。",
         "tags": [
           "story",
           "ch30",
@@ -2917,10 +2920,10 @@
         "sentence": "One task was done. Eleven more were waiting. Heracles walked on...",
         "question": "How did Heracles feel after finishing the first task?",
         "options": [
-          "😢 sad that more tasks were left",
-          "😴 too tired to move at all",
-          "💪 tired but ready to go on",
-          "🎉 done with everything at last"
+          "sad that more tasks were left",
+          "too tired to move at all",
+          "tired but ready to go on",
+          "done with everything at last"
         ],
         "optionsZh": [
           "難過還有更多任務",
@@ -2929,7 +2932,7 @@
           "終於全部完成了"
         ],
         "correctIndex": 2,
-        "explanationZh": "完成一件、繼續往前走——「累了但準備繼續前進」就是他的樣子！那個 💪。",
+        "explanationZh": "完成一件、繼續往前走——「累了但準備繼續前進」就是他的樣子！那個。",
         "sentenceZh": "一個任務完成了，還有十一個在等他——Heracles 繼續往前走……",
         "tags": [
           "story",

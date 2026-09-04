@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch20-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a turnip?",
-        "question": "Which one is a turnip?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🥕 turnip",
-          "🍎 apple",
-          "🌽 corn",
-          "🍑 peach"
+          "peach",
+          "apple",
+          "corn",
+          "turnip"
         ],
         "optionsZh": [
-          "蘿蔔",
+          "桃子",
           "蘋果",
           "玉米",
-          "桃子"
+          "蘿蔔"
         ],
-        "correctIndex": 0,
-        "explanationZh": "turnip = 蘿蔔 🥕！故事裡爺爺種了一顆大蘿蔔，越長越大！",
+        "correctIndex": 3,
+        "explanationZh": "turnip = 蘿蔔 ！故事裡爺爺種了一顆大蘿蔔，越長越大！",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🥕"
       },
       {
         "id": "kt-ch20-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a garden?",
-        "question": "Which one shows a garden?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏠 house",
-          "🌊 river",
-          "🌱 garden",
-          "🏔️ mountain"
+          "garden",
+          "river",
+          "house",
+          "mountain"
         ],
         "optionsZh": [
-          "房子",
-          "河",
           "園子",
+          "河",
+          "房子",
           "山"
         ],
-        "correctIndex": 2,
-        "explanationZh": "garden = 園子 🌱！爺爺在自己的園子裡種下蘿蔔種子。",
+        "correctIndex": 0,
+        "explanationZh": "garden = 園子 ！爺爺在自己的園子裡種下蘿蔔種子。",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌱"
       },
       {
         "id": "kt-ch20-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch20-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a mouse?",
-        "question": "Which one is a mouse?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐱 cat",
-          "🐭 mouse",
-          "🐶 dog",
-          "🐸 frog"
+          "bird",
+          "mouse",
+          "frog",
+          "goat"
         ],
         "optionsZh": [
-          "貓",
+          "鳥",
           "老鼠",
-          "狗",
-          "青蛙"
+          "青蛙",
+          "山羊"
         ],
         "correctIndex": 1,
-        "explanationZh": "mouse = 老鼠 🐭！故事最後，小老鼠是最重要的一個幫手喔！",
+        "explanationZh": "mouse = 老鼠 ！故事最後，小老鼠是最重要的一個幫手喔！",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐭"
       },
       {
         "id": "kt-ch20-l2-gm1",
@@ -510,10 +513,10 @@
         "sentence": "How many people are pulling now?",
         "question": "How many?",
         "options": [
-          "2️⃣ two",
-          "1️⃣ one",
-          "3️⃣ three",
-          "4️⃣ four"
+          "2 ⃣ two",
+          "1 ⃣ one",
+          "3 ⃣ three",
+          "4 ⃣ four"
         ],
         "optionsZh": [
           "兩個",
@@ -745,10 +748,10 @@
         "sentence": "Two people pull together but the turnip still does not come out.",
         "question": "How do they feel after that?",
         "options": [
-          "🎉 happy and done",
-          "😮 surprised and sad",
-          "😄 proud and joyful",
-          "😴 done and sleepy"
+          "happy and done",
+          "surprised and sad",
+          "proud and joyful",
+          "done and sleepy"
         ],
         "optionsZh": [
           "開心,完成了",
@@ -998,10 +1001,10 @@
         "sentence": "How many people are pulling now?",
         "question": "How many?",
         "options": [
-          "1️⃣ one",
-          "3️⃣ three",
-          "2️⃣ two",
-          "4️⃣ four"
+          "1 ⃣ one",
+          "3 ⃣ three",
+          "2 ⃣ two",
+          "4 ⃣ four"
         ],
         "optionsZh": [
           "一個",
@@ -1232,16 +1235,16 @@
         "sentence": "Three people pull together with all their strength.",
         "question": "What do they feel while pulling?",
         "options": [
-          "😴 very sleepy",
-          "😋 a bit hungry",
-          "💪 strong and hopeful",
-          "😱 very scared"
+          "sleepy and slow",
+          "hungry and tired",
+          "strong and hopeful",
+          "scared and cold"
         ],
         "optionsZh": [
-          "很想睡",
-          "有點餓",
+          "想睡又遲鈍",
+          "又餓又累",
           "有力又有希望",
-          "很害怕"
+          "害怕又寒冷"
         ],
         "correctIndex": 2,
         "explanationZh": "三個人齊心拉——當然是「有力又有希望」的感覺!大家都相信這次可以!",
@@ -1571,10 +1574,10 @@
         "sentence": "How many are pulling now?",
         "question": "How many?",
         "options": [
-          "2️⃣ two",
-          "3️⃣ three",
-          "4️⃣ four",
-          "5️⃣ five"
+          "2 ⃣ two",
+          "3 ⃣ three",
+          "4 ⃣ four",
+          "5 ⃣ five"
         ],
         "optionsZh": [
           "兩個",
@@ -1799,35 +1802,35 @@
         "subSkill": "detail"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch20-l5-x5",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Even with the dog's teeth pulling, the turnip stays in the ground.",
-        "question": "Which emoji best shows what the turnip does?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌱 sprouts up",
-          "💧 melts down",
-          "✈️ flies away",
-          "🪨 stays put"
+          "flies away",
+          "sprouts up",
+          "stays put",
+          "melts down"
         ],
         "optionsZh": [
-          "向上冒出",
-          "融化",
           "飛走",
-          "紋絲不動"
+          "向上冒出",
+          "紋絲不動",
+          "融化"
         ],
-        "correctIndex": 3,
-        "explanationZh": "「stays in the ground」= 紋絲不動——選「🪨 stays put」!",
-        "sentenceZh": "即使小狗咬住用力拉,蘿蔔還是留在地裡。",
+        "correctIndex": 2,
+        "explanationZh": "「stays in the ground」= 紋絲不動——選「 stays put」!",
         "tags": [
           "story",
           "ch20",
           "enormous-turnip",
           "conflict"
         ],
-        "subSkill": "detail"
+        "subSkill": "detail",
+        "imageEmoji": "🪨"
       },
       {
         "type": "comprehension",
@@ -2059,10 +2062,10 @@
         "sentence": "How many are pulling now?",
         "question": "How many?",
         "options": [
-          "3️⃣ three",
-          "4️⃣ four",
-          "6️⃣ six",
-          "5️⃣ five"
+          "3 ⃣ three",
+          "4 ⃣ four",
+          "6 ⃣ six",
+          "5 ⃣ five"
         ],
         "optionsZh": [
           "三個",
@@ -2294,10 +2297,10 @@
         "sentence": "Five are all pulling together now, but the turnip only moves a tiny bit.",
         "question": "How close are they to getting it out?",
         "options": [
-          "🎯 very close now",
-          "🚫 nowhere near it",
-          "✅ already done",
-          "😴 they stopped trying"
+          "very close now",
+          "nowhere near it",
+          "already done",
+          "they stopped trying"
         ],
         "optionsZh": [
           "非常接近了",
@@ -2546,10 +2549,10 @@
         "sentence": "How many are pulling at the end?",
         "question": "How many?",
         "options": [
-          "6️⃣ six",
-          "5️⃣ five",
-          "4️⃣ four",
-          "7️⃣ seven"
+          "6 ⃣ six",
+          "5 ⃣ five",
+          "4 ⃣ four",
+          "7 ⃣ seven"
         ],
         "optionsZh": [
           "六個",
@@ -2781,10 +2784,10 @@
         "sentence": "Out comes the turnip! Everyone falls over in a happy pile.",
         "question": "How does everyone feel at the end?",
         "options": [
-          "😢 sad and sorry",
-          "🎊 happy and joyful",
-          "😌 calm and relieved",
-          "😴 too tired to care"
+          "sad and sorry",
+          "happy and joyful",
+          "calm and relieved",
+          "too tired to care"
         ],
         "optionsZh": [
           "難過後悔",

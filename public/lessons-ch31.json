@@ -94,63 +94,65 @@
       },
       {
         "id": "kt-ch31-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a bow?",
-        "question": "Which one is a bow?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏹 bow",
-          "🗡️ sword",
-          "🪃 club",
-          "🔱 spear"
+          "club",
+          "spear",
+          "bow",
+          "sword"
         ],
         "optionsZh": [
-          "弓",
-          "劍",
           "棍棒",
-          "矛"
+          "矛",
+          "弓",
+          "劍"
         ],
-        "correctIndex": 0,
-        "explanationZh": "bow = 弓 🏹！故事裡羅賓漢用弓射箭，弓是他最厲害的武器。",
+        "correctIndex": 2,
+        "explanationZh": "bow = 弓 ！故事裡羅賓漢用弓射箭，弓是他最厲害的武器。",
         "tags": [
           "story",
           "ch31",
           "robin-hood",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏹"
       },
       {
         "id": "kt-ch31-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a forest?",
-        "question": "Which one shows a forest?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 sea",
-          "🏔️ peak",
-          "🌲 forest",
-          "🌾 field"
+          "field",
+          "cliff",
+          "forest",
+          "river"
         ],
         "optionsZh": [
-          "大海",
-          "山頂",
+          "田野",
+          "懸崖",
           "森林",
-          "田野"
+          "河流"
         ],
         "correctIndex": 2,
-        "explanationZh": "forest = 森林 🌲！羅賓漢在 Sherwood 森林裡躲藏，那是他的家。",
+        "explanationZh": "forest = 森林 ！羅賓漢在 Sherwood 森林裡躲藏，那是他的家。",
         "tags": [
           "story",
           "ch31",
           "robin-hood",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌲"
       },
       {
         "id": "kt-ch31-l1-pm1",
@@ -284,13 +286,13 @@
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which emoji shows gold?",
-        "question": "Which emoji shows gold?",
+        "sentence": "Which one shows gold?",
+        "question": "Which one shows gold?",
         "options": [
-          "🪨 stone",
-          "🌿 leaf",
-          "🏅 gold",
-          "🪵 wood"
+          "stone",
+          "leaf",
+          "gold",
+          "wood"
         ],
         "optionsZh": [
           "石頭",
@@ -299,7 +301,7 @@
           "木頭"
         ],
         "correctIndex": 3,
-        "explanationZh": "gold = 金子 🏅！壞國王想要更多金子——故事裡 gold 是問題的根源。",
+        "explanationZh": "gold = 金子 ！壞國王想要更多金子——故事裡 gold 是問題的根源。",
         "tags": [
           "story",
           "ch31",
@@ -579,10 +581,10 @@
         "sentence": "How did the Sheriff feel about Robin's kindness?",
         "question": "How did he feel?",
         "options": [
-          "😠 angry and jealous",
-          "🙂 glad and warm",
-          "😴 just very sleepy now",
-          "🥰 proud of Robin"
+          "angry and jealous",
+          "glad and warm",
+          "just very sleepy now",
+          "proud of Robin"
         ],
         "optionsZh": [
           "生氣又嫉妒",
@@ -591,7 +593,7 @@
           "為 Robin 驕傲"
         ],
         "correctIndex": 0,
-        "explanationZh": "Sheriff 怕 Robin 影響他收錢 → 「生氣又嫉妒」。那個 😠 就是他的臉。",
+        "explanationZh": "Sheriff 怕 Robin 影響他收錢 「生氣又嫉妒」。那個 就是他的臉。",
         "tags": [
           "story",
           "ch31",
@@ -791,10 +793,10 @@
         "sentence": "He rolled the list, stood up, and called for his fastest horse...",
         "question": "What was the Sheriff about to do?",
         "options": [
-          "🏇 ride fast to find Robin",
-          "💤 take a long afternoon nap",
-          "🎵 sing a song to his men",
-          "📖 keep reading more lists"
+          "ride fast to find Robin",
+          "take a long afternoon nap",
+          "sing a song to his men",
+          "keep reading more lists"
         ],
         "optionsZh": [
           "快馬去找 Robin",
@@ -803,7 +805,7 @@
           "繼續讀更多清單"
         ],
         "correctIndex": 0,
-        "explanationZh": "捲起名單、叫最快的馬——「快馬去找 Robin」就是他要做的事！那個 🏇。",
+        "explanationZh": "捲起名單、叫最快的馬——「快馬去找 Robin」就是他要做的事！那個。",
         "sentenceZh": "他把名單捲起來，站起身，叫人牽最快的馬……",
         "tags": [
           "story",
@@ -1086,10 +1088,10 @@
         "sentence": "How did the village people feel when Robin left?",
         "question": "How did the village feel?",
         "options": [
-          "🎉 simply feeling happy",
-          "😢 sad to lose him",
-          "😡 angry at him",
-          "😴 not really caring"
+          "simply feeling happy",
+          "sad to lose him",
+          "angry at him",
+          "not really caring"
         ],
         "optionsZh": [
           "只是覺得開心",
@@ -1098,7 +1100,7 @@
           "不太在乎"
         ],
         "correctIndex": 1,
-        "explanationZh": "Robin 一直幫他們 → 「難過失去他」。那個 😢 就是村人送他走的表情。",
+        "explanationZh": "Robin 一直幫他們 「難過失去他」。那個 就是村人送他走的表情。",
         "tags": [
           "story",
           "ch31",
@@ -1298,10 +1300,10 @@
         "sentence": "An old woman touched his sleeve. \"Where will you go, my child?\"",
         "question": "What did the old woman's question show?",
         "options": [
-          "😡 she was angry at him",
-          "💙 she cared about Robin",
-          "😴 she just woke up sleepy",
-          "🤔 she wanted his bag"
+          "she was angry at him",
+          "she cared about Robin",
+          "she just woke up sleepy",
+          "she wanted his bag"
         ],
         "optionsZh": [
           "她對他生氣",
@@ -1310,7 +1312,7 @@
           "她想要他的袋子"
         ],
         "correctIndex": 1,
-        "explanationZh": "她碰他袖子、問他去哪——「她關心 Robin」就是這個動作的意思！那個 💙。",
+        "explanationZh": "她碰他袖子、問他去哪——「她關心 Robin」就是這個動作的意思！那個。",
         "sentenceZh": "一個老婆婆輕輕碰他的袖子：「孩子，你要去哪裡？」",
         "tags": [
           "story",
@@ -1681,10 +1683,10 @@
         "sentence": "How did Robin feel inside Sherwood Forest?",
         "question": "How did he feel?",
         "options": [
-          "😡 just feeling angry",
-          "😢 still scared",
-          "😌 quiet and safer",
-          "😴 ready to give up"
+          "just feeling angry",
+          "still scared",
+          "quiet and safer",
+          "ready to give up"
         ],
         "optionsZh": [
           "只是覺得生氣",
@@ -1693,7 +1695,7 @@
           "想放棄了"
         ],
         "correctIndex": 2,
-        "explanationZh": "森林藏住他 → 「安靜又比較安全」。那個 😌 就是他走進樹林後的感受。",
+        "explanationZh": "森林藏住他 「安靜又比較安全」。那個 就是他走進樹林後的感受。",
         "tags": [
           "story",
           "ch31",
@@ -1893,10 +1895,10 @@
         "sentence": "Then, from behind a wide oak tree, he heard a quiet cough...",
         "question": "What was about to happen next?",
         "options": [
-          "🦁 a lion appeared nearby",
-          "🌧️ a big storm was coming",
-          "👥 Robin would meet someone",
-          "🏃 soldiers ran into the forest"
+          "a lion appeared nearby",
+          "a big storm was coming",
+          "Robin would meet someone",
+          "soldiers ran into the forest"
         ],
         "optionsZh": [
           "附近出現一頭獅子",
@@ -1905,7 +1907,7 @@
           "士兵跑進森林"
         ],
         "correctIndex": 2,
-        "explanationZh": "橡樹後面傳來咳嗽聲——「Robin 要遇到某個人」，那個 👥！",
+        "explanationZh": "橡樹後面傳來咳嗽聲——「Robin 要遇到某個人」，那個 ！",
         "sentenceZh": "從一棵大橡樹後面，傳來一聲輕輕的咳嗽……",
         "tags": [
           "story",
@@ -2188,19 +2190,19 @@
         "sentence": "How did Robin feel for the forest people?",
         "question": "How did he feel?",
         "options": [
-          "😡 angry and mean to them",
-          "😨 scared of them",
-          "😴 just very sleepy now",
-          "💗 sorry and warm to them"
+          "angry and mean to them",
+          "scared of them all",
+          "just very sleepy now",
+          "sorry and warm to them"
         ],
         "optionsZh": [
           "對他們又生氣又凶",
-          "怕他們",
+          "怕他們全部",
           "現在只是想睡",
           "替他們難過,對他們溫柔"
         ],
         "correctIndex": 3,
-        "explanationZh": "看到他們失去家 → Robin「替他們難過，對他們溫柔」。那個 💗 就是他的心。",
+        "explanationZh": "看到他們失去家 Robin「替他們難過，對他們溫柔」。那個 就是他的心。",
         "tags": [
           "story",
           "ch31",
@@ -2400,10 +2402,10 @@
         "sentence": "Robin stood up slowly. He did not pull his bow.",
         "question": "What did Robin's actions show when he met the stranger?",
         "options": [
-          "🏃 he was ready to run away",
-          "⚔️ he was ready to fight",
-          "😴 he was barely awake",
-          "🤝 he was open and peaceful"
+          "he was ready to run away",
+          "he was ready to fight",
+          "he was barely awake",
+          "he was open and peaceful"
         ],
         "optionsZh": [
           "他準備好要逃跑",
@@ -2412,7 +2414,7 @@
           "他是開放且和平的"
         ],
         "correctIndex": 3,
-        "explanationZh": "慢慢站起來、沒有拉弓——「他是開放且和平的」就是這個動作的意思！那個 🤝。",
+        "explanationZh": "慢慢站起來、沒有拉弓——「他是開放且和平的」就是這個動作的意思！那個。",
         "sentenceZh": "Robin 慢慢站起來，沒有拉弓。",
         "tags": [
           "story",
@@ -2695,10 +2697,10 @@
         "sentence": "How did Robin and his new friends feel by the fire?",
         "question": "How did they feel?",
         "options": [
-          "🤝 strong because they had each other",
-          "😢 still all alone in the cold forest",
-          "😡 just feeling angry about the rich men",
-          "😴 just sleepy and ready for bed soon"
+          "strong because they had each other",
+          "still all alone in the cold forest",
+          "just feeling angry about the rich men",
+          "just sleepy and ready for bed soon"
         ],
         "optionsZh": [
           "因為有彼此而堅強",
@@ -2707,7 +2709,7 @@
           "只是想睡, 準備上床了"
         ],
         "correctIndex": 0,
-        "explanationZh": "他們從孤單變成有夥伴 → 「因為有彼此而堅強」。那個 🤝 就是他們的感受。",
+        "explanationZh": "他們從孤單變成有夥伴 「因為有彼此而堅強」。那個 就是他們的感受。",
         "tags": [
           "story",
           "ch31",

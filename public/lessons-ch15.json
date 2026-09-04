@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch15-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a crown?",
-        "question": "Which one is a crown?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👑 crown",
-          "🎩 hat",
-          "⛑️ helmet",
-          "🎓 cap"
+          "crown",
+          "cap",
+          "hat",
+          "helmet"
         ],
         "optionsZh": [
           "王冠",
+          "學士帽",
           "禮帽",
-          "頭盔",
-          "學士帽"
+          "頭盔"
         ],
         "correctIndex": 0,
-        "explanationZh": "crown = 王冠 👑！故事裡的國王戴著閃亮的王冠，他是全國最有權力的人。",
+        "explanationZh": "crown = 王冠 ！故事裡的國王戴著閃亮的王冠，他是全國最有權力的人。",
         "tags": [
           "story",
           "ch15",
           "emperors-new-clothes",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "👑"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch15-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows gold?",
-        "question": "Which one shows gold?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪨 rock",
-          "🌿 leaf",
-          "🪙 coin",
-          "💰 gold"
+          "rock",
+          "leaf",
+          "gold",
+          "coin"
         ],
         "optionsZh": [
           "石頭",
           "葉子",
-          "硬幣",
-          "金子"
+          "金子",
+          "硬幣"
         ],
-        "correctIndex": 3,
-        "explanationZh": "gold = 金子 💰！故事裡國王給了騙子很多金子，讓他們去織布。",
+        "correctIndex": 2,
+        "explanationZh": "gold = 金子 ！故事裡國王給了騙子很多金子，讓他們去織布。",
         "tags": [
           "story",
           "ch15",
           "emperors-new-clothes",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💰"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch15-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The weavers held up empty hands and pointed at nothing.",
-        "question": "Which emoji shows empty hands?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🧵 thread",
-          "🤲 hands",
-          "🧶 yarn",
-          "✂️ scissors"
+          "yarn",
+          "thread",
+          "hands",
+          "scissors"
         ],
         "optionsZh": [
+          "毛線",
           "絲線",
           "雙手",
-          "毛線",
           "剪刀"
         ],
-        "correctIndex": 1,
-        "explanationZh": "empty hands = 空的雙手 🤲！騙子舉起空手假裝展示布料，其實什麼都沒有。",
+        "correctIndex": 2,
+        "explanationZh": "empty hands = 空的雙手 ！騙子舉起空手假裝展示布料，其實什麼都沒有。",
         "tags": [
           "story",
           "ch15",
           "emperors-new-clothes",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🤲"
       },
       {
         "type": "grammar-mc",
@@ -596,10 +599,10 @@
         "sentence": "How did the old minister really feel inside?",
         "question": "How did he really feel?",
         "options": [
-          "😊 truly proud and happy",
-          "🤣 ready to laugh",
-          "😴 sleepy and very bored",
-          "😨 worried about himself"
+          "truly proud and happy",
+          "ready to laugh",
+          "sleepy and very bored",
+          "worried about himself"
         ],
         "optionsZh": [
           "真心驕傲又開心",
@@ -608,7 +611,7 @@
           "擔心自己"
         ],
         "correctIndex": 3,
-        "explanationZh": "怕被當不聰明 → 擔心自己 (lie 出於 fear)。",
+        "explanationZh": "怕被當不聰明 擔心自己 (lie 出於 fear)。",
         "tags": [
           "story",
           "ch15",
@@ -1052,10 +1055,10 @@
         "sentence": "What did the men around the emperor do?",
         "question": "What did the men do?",
         "options": [
-          "📢 told the truth",
-          "😴 fell asleep right there",
-          "🏃 ran out of the palace",
-          "🙊 also told the same lie"
+          "told the truth",
+          "fell asleep right there",
+          "ran out of the palace",
+          "also told the same lie"
         ],
         "optionsZh": [
           "說真話",
@@ -1064,7 +1067,7 @@
           "也跟著說謊"
         ],
         "correctIndex": 3,
-        "explanationZh": "所有人點頭說美 → 也跟著說謊 (cascade)。",
+        "explanationZh": "所有人點頭說美 也跟著說謊 (cascade)。",
         "tags": [
           "story",
           "ch15",
@@ -1199,10 +1202,10 @@
         "sentenceZh": "為什麼皇帝身邊的人都說布很美？",
         "question": "Why did they agree?",
         "options": [
-          "😂 they were just joking",
-          "😍 they really loved the cloth",
-          "😬 they feared looking foolish too",
-          "😴 they were barely awake"
+          "they were just joking",
+          "they really loved the cloth",
+          "they feared looking foolish too",
+          "they were barely awake"
         ],
         "optionsZh": [
           "他們只是開玩笑",
@@ -1607,10 +1610,10 @@
         "sentence": "Why did the people not speak the truth?",
         "question": "Why did they stay quiet?",
         "options": [
-          "🎶 music was too loud",
-          "🍔 they were eating",
-          "💤 they were sleeping",
-          "🤐 fear of looking foolish"
+          "music was too loud",
+          "they were eating",
+          "they were sleeping",
+          "fear of looking foolish"
         ],
         "optionsZh": [
           "音樂太大聲",
@@ -2072,10 +2075,10 @@
         "sentence": "How did the people feel after the child spoke?",
         "question": "How did they feel?",
         "options": [
-          "😶 silent and shocked",
-          "🎉 excited and cheerful",
-          "🎵 still singing",
-          "🍎 getting quite hungry"
+          "silent and shocked",
+          "excited and cheerful",
+          "still singing",
+          "getting quite hungry"
         ],
         "optionsZh": [
           "安靜又驚訝",
@@ -2084,7 +2087,7 @@
           "開始覺得很餓"
         ],
         "correctIndex": 0,
-        "explanationZh": "街道安靜 → 大家驚訝安靜 (spell broken)。",
+        "explanationZh": "街道安靜 大家驚訝安靜 (spell broken)。",
         "tags": [
           "story",
           "ch15",
@@ -2219,10 +2222,10 @@
         "sentenceZh": "為什麼小孩能那麼輕鬆說出真話？",
         "question": "Why could he speak up?",
         "options": [
-          "🧒 he was stronger than adults",
-          "👑 he was the bravest person in town",
-          "🎓 he was very well educated",
-          "📖 he never knew the secret rule"
+          "he was stronger than adults",
+          "he was the bravest person in town",
+          "he was very well educated",
+          "he never knew the secret rule"
         ],
         "optionsZh": [
           "他比大人還強壯",
@@ -2528,10 +2531,10 @@
         "sentence": "What was harder for the emperor to put down?",
         "question": "What was hardest to put down?",
         "options": [
-          "👑 his pride",
-          "💰 his gold",
-          "🍎 his lunch",
-          "📚 his books"
+          "his pride",
+          "his gold",
+          "his lunch",
+          "his books"
         ],
         "optionsZh": [
           "他的自尊",
@@ -2540,7 +2543,7 @@
           "他的書"
         ],
         "correctIndex": 0,
-        "explanationZh": "知道真相還繼續走 → 自尊比真相更難放下。",
+        "explanationZh": "知道真相還繼續走 自尊比真相更難放下。",
         "tags": [
           "story",
           "ch15",
@@ -2675,10 +2678,10 @@
         "sentenceZh": "這個故事最重要的啟示是什麼？",
         "question": "What is the lesson?",
         "options": [
-          "🧵 always check the cloth before you buy",
-          "👗 clothes make you look important",
-          "👑 emperors should never leave the palace",
-          "🗣️ one honest voice can break a big lie"
+          "always check the cloth before you buy",
+          "clothes make you look important",
+          "emperors should never leave the palace",
+          "one honest voice can break a big lie"
         ],
         "optionsZh": [
           "買布前要檢查",

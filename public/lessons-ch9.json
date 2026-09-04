@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch9-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a shoe?",
-        "question": "Which one is a shoe?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👗 dress",
-          "👑 crown",
-          "👠 shoe",
-          "🎀 ribbon"
+          "crown",
+          "ribbon",
+          "dress",
+          "shoe"
         ],
         "optionsZh": [
-          "禮服",
           "皇冠",
-          "鞋子",
-          "緞帶"
+          "緞帶",
+          "禮服",
+          "鞋子"
         ],
-        "correctIndex": 2,
-        "explanationZh": "鞋子的英文是 shoe 👠！故事裡灰姑娘掉了一隻玻璃鞋，王子就靠這隻鞋找到她。",
+        "correctIndex": 3,
+        "explanationZh": "鞋子的英文是 shoe ！故事裡灰姑娘掉了一隻玻璃鞋，王子就靠這隻鞋找到她。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "👠"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch9-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a mirror?",
-        "question": "Which one shows a mirror?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪟 window",
-          "🖼️ picture",
-          "📺 screen",
-          "🪞 mirror"
+          "mirror",
+          "screen",
+          "window",
+          "picture"
         ],
         "optionsZh": [
-          "窗戶",
-          "圖畫",
+          "鏡子",
           "螢幕",
-          "鏡子"
+          "窗戶",
+          "圖畫"
         ],
-        "correctIndex": 3,
-        "explanationZh": "mirror = 鏡子 🪞！故事裡兩個姊姊對著鏡子試緞帶、換禮服，開心地準備去舞會。",
+        "correctIndex": 0,
+        "explanationZh": "mirror = 鏡子 ！故事裡兩個姊姊對著鏡子試緞帶、換禮服，開心地準備去舞會。",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪞"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch9-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The clock struck midnight and the magic ended.",
-        "question": "Which emoji shows midnight?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌅 sunrise",
-          "🌄 morning",
-          "🌆 evening",
-          "🕛 midnight"
+          "evening",
+          "sunrise",
+          "morning",
+          "midnight"
         ],
         "optionsZh": [
+          "黃昏",
           "日出",
           "早晨",
-          "黃昏",
           "午夜"
         ],
         "correctIndex": 3,
-        "explanationZh": "midnight = 午夜 🕛！12 點鐘聲一響，魔法就結束——灰姑娘要趕快跑回家！",
+        "explanationZh": "midnight = 午夜 ！12 點鐘聲一響，魔法就結束——灰姑娘要趕快跑回家！",
         "tags": [
           "story",
           "ch9",
           "cinderella",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🕛"
       },
       {
         "type": "grammar-mc",
@@ -594,16 +597,16 @@
         "sentence": "How did Cinderella feel after the sisters left?",
         "question": "How did Cinderella feel?",
         "options": [
-          "🎉 happy and free",
-          "😡 angry and loud",
-          "😴 ready to sleep",
-          "😢 sad and alone"
+          "happy and free",
+          "angry and loud",
+          "ready to sleep",
+          "sad and alone"
         ],
         "optionsZh": [
-          "🎉 開心又自由",
-          "😡 生氣又大喊",
-          "😴 好想去睡覺",
-          "😢 難過又孤單"
+          "開心又自由",
+          "生氣又大喊",
+          "好想去睡覺",
+          "難過又孤單"
         ],
         "correctIndex": 3,
         "explanationZh": "大家都去舞會了，只有她一個人留在家——難過又孤單，這心情真讓人疼。",
@@ -710,16 +713,16 @@
         "sentence": "She looked at the new gowns with quiet eyes. But she could not go. She had no gown.",
         "question": "How did Cinderella feel as she watched?",
         "options": [
-          "😡 angry at her sisters",
-          "💔 wishing she could go too",
-          "😲 surprised the ball existed",
-          "🥱 bored and uninterested"
+          "angry at her sisters",
+          "wishing she could go too",
+          "surprised the ball existed",
+          "bored and uninterested"
         ],
         "optionsZh": [
-          "😡 對姊姊們很憤怒",
-          "💔 好希望自己也能去",
-          "😲 驚訝舞會的存在",
-          "🥱 無聊、毫不在意"
+          "對姊姊們很憤怒",
+          "好希望自己也能去",
+          "驚訝舞會的存在",
+          "無聊、毫不在意"
         ],
         "correctIndex": 1,
         "explanationZh": "靜靜地看著漂亮禮服，卻去不了——那雙眼睛裡滿是「好希望自己也能去」的心情。",
@@ -978,16 +981,16 @@
         "sentence": "Who is the kind old woman?",
         "question": "Who is the old woman?",
         "options": [
-          "🧚 a fairy godmother",
-          "👵 the new wife",
-          "🐱 a magic cat",
-          "🦊 a clever old fox"
+          "a fairy godmother",
+          "the new wife",
+          "a magic black cat",
+          "a clever old fox"
         ],
         "optionsZh": [
-          "🧚 仙女教母",
-          "👵 那個新妻子",
-          "🐱 一隻魔法貓",
-          "🦊 一隻聰明老狐狸"
+          "仙女教母",
+          "那個新妻子",
+          "一隻黑色魔法貓",
+          "一隻聰明老狐狸"
         ],
         "correctIndex": 0,
         "explanationZh": "她自己說：「我是你的仙女教母。」——就是仙女教母！",
@@ -1152,16 +1155,16 @@
         "sentence": "Cinderella ran to the yard to find the pumpkin and the mice.",
         "question": "How did Cinderella react to the fairy's request?",
         "options": [
-          "😴 fell asleep by the fire",
-          "😒 refused to listen to her",
-          "🤔 stood there feeling confused",
-          "🏃 ran to help right away"
+          "fell asleep by the fire",
+          "refused to listen to her",
+          "stood there feeling confused",
+          "ran to help right away"
         ],
         "optionsZh": [
-          "😴 在火爐旁睡著了",
-          "😒 不肯聽她說話",
-          "🤔 站著發呆搞不懂",
-          "🏃 馬上跑去幫忙"
+          "在火爐旁睡著了",
+          "不肯聽她說話",
+          "站著發呆搞不懂",
+          "馬上跑去幫忙"
         ],
         "correctIndex": 3,
         "explanationZh": "仙女教母說完，灰姑娘立刻跑進院子——她「馬上跑去幫忙」，一點都沒有猶豫！",
@@ -1534,16 +1537,16 @@
         "sentence": "What color was Cinderella's new gown?",
         "question": "What color was her new gown?",
         "options": [
-          "⚫ still grey",
-          "💚 green",
-          "🌸 pink",
-          "⚪ silver"
+          "still grey",
+          "green",
+          "pink",
+          "silver"
         ],
         "optionsZh": [
-          "⚫ 還是灰色",
-          "💚 清新的綠色",
-          "🌸 粉嫩的粉紅",
-          "⚪ 銀色亮亮的"
+          "還是灰色",
+          "清新的綠色",
+          "粉嫩的粉紅",
+          "銀色亮亮的"
         ],
         "correctIndex": 3,
         "explanationZh": "長長的銀色禮服——silver，就是「銀色」！",
@@ -1708,16 +1711,16 @@
         "sentence": "Cinderella climbed into the gold coach with bright eyes.",
         "question": "How did Cinderella feel climbing into the coach?",
         "options": [
-          "😐 plain and bored",
-          "😰 worried and afraid",
-          "✨ full of wonder and joy",
-          "😭 crying and upset"
+          "plain and bored",
+          "worried and afraid",
+          "full of wonder and joy",
+          "crying and upset"
         ],
         "optionsZh": [
-          "😐 平靜無感",
-          "😰 擔心又害怕",
-          "✨ 充滿驚喜和喜悅",
-          "😭 哭著、很難過"
+          "平靜無感",
+          "擔心又害怕",
+          "充滿驚喜和喜悅",
+          "哭著、很難過"
         ],
         "correctIndex": 2,
         "explanationZh": "眼睛閃閃發亮——那種表情就是「充滿驚喜和喜悅」！她終於可以去了。",
@@ -1976,16 +1979,16 @@
         "sentence": "What time was it when the clock struck?",
         "question": "What time was it?",
         "options": [
-          "🌅 six in the morning",
-          "🕛 twelve at night",
-          "☀️ three in the day",
-          "🌙 nine at night"
+          "six in the morning",
+          "twelve at night",
+          "three in the day",
+          "nine at night"
         ],
         "optionsZh": [
-          "🌅 早上 6 點",
-          "🕛 半夜 12 點",
-          "☀️ 下午 3 點",
-          "🌙 晚上 9 點"
+          "早上 6 點",
+          "半夜 12 點",
+          "下午 3 點",
+          "晚上 9 點"
         ],
         "correctIndex": 1,
         "explanationZh": "strike twelve——就是「半夜 12 點」！",
@@ -2150,16 +2153,16 @@
         "sentence": "One small fur slipper fell off on the stair. The slipper stayed there alone.",
         "question": "What does the lost slipper mean for the story?",
         "options": [
-          "👠 a clue the prince can use to find her",
-          "🧹 something Cinderella needs to clean up",
-          "🎁 a gift she left for the prince on purpose",
-          "🏃 proof she could run very fast"
+          "a clue the prince can use to find her",
+          "something Cinderella needs to clean up",
+          "a gift she left for the prince on purpose",
+          "proof she could run very fast"
         ],
         "optionsZh": [
-          "👠 王子可以用來找到她的線索",
-          "🧹 灰姑娘需要回去打掃的東西",
-          "🎁 她故意留給王子的禮物",
-          "🏃 證明她跑得很快的證據"
+          "王子可以用來找到她的線索",
+          "灰姑娘需要回去打掃的東西",
+          "她故意留給王子的禮物",
+          "證明她跑得很快的證據"
         ],
         "correctIndex": 0,
         "explanationZh": "那隻孤孤單單的鞋留在台階上——它會成為王子找到她的「線索」！",
@@ -2462,16 +2465,16 @@
         "sentence": "How did Cinderella treat her sisters in the end?",
         "question": "How did Cinderella treat her sisters?",
         "options": [
-          "💖 with kindness",
-          "⚔️ with anger",
-          "🏃 by running away",
-          "🚪 by locking them out"
+          "with kindness",
+          "with anger",
+          "by running away",
+          "by locking them out"
         ],
         "optionsZh": [
-          "💖 溫柔善待她們",
-          "⚔️ 用憤怒回應",
-          "🏃 轉身跑走了",
-          "🚪 把她們鎖在外面"
+          "溫柔善待她們",
+          "用憤怒回應",
+          "轉身跑走了",
+          "把她們鎖在外面"
         ],
         "correctIndex": 0,
         "explanationZh": "Perrault 的故事裡，灰姑娘原諒了姊姊們——她是用「溫柔善待」她們！",
@@ -2592,16 +2595,16 @@
         "sentence": "It slid on like water on a smooth stone. The prince knew her at once.",
         "question": "How did the prince react when the shoe fit perfectly?",
         "options": [
-          "😴 felt too tired to keep looking",
-          "😕 was confused and not sure",
-          "💡 knew right away she was the one",
-          "😡 thought someone had cheated him"
+          "felt too tired to keep looking",
+          "was confused and not sure",
+          "knew right away she was the one",
+          "thought someone had cheated him"
         ],
         "optionsZh": [
-          "😴 太累了，不想再找了",
-          "😕 搞不清楚、不確定",
-          "💡 馬上就知道她就是那個人",
-          "😡 覺得有人欺騙了他"
+          "太累了，不想再找了",
+          "搞不清楚、不確定",
+          "馬上就知道她就是那個人",
+          "覺得有人欺騙了他"
         ],
         "correctIndex": 2,
         "explanationZh": "鞋子完美合腳，王子「一眼就認出了她」——knew her at once，就是「馬上知道她就是那個人」！",

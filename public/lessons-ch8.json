@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch8-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a pig?",
-        "question": "Which one is a pig?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐺 wolf",
-          "🐮 cow",
-          "🐷 pig",
-          "🐔 chicken"
+          "cow",
+          "wolf",
+          "pig",
+          "chicken"
         ],
         "optionsZh": [
-          "狼",
           "牛",
+          "狼",
           "豬",
           "雞"
         ],
         "correctIndex": 2,
-        "explanationZh": "豬的英文是 pig 🐷！故事裡有三隻可愛的小豬，他們要各自蓋一間屬於自己的家。",
+        "explanationZh": "豬的英文是 pig ！故事裡有三隻可愛的小豬，他們要各自蓋一間屬於自己的家。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐷"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch8-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows straw?",
-        "question": "Which one shows straw?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🧱 bricks",
-          "🌾 straw",
-          "🪵 logs",
-          "🪨 stones"
+          "logs",
+          "straw",
+          "bricks",
+          "stones"
         ],
         "optionsZh": [
-          "磚塊",
-          "稻草",
           "木頭",
+          "稻草",
+          "磚塊",
           "石頭"
         ],
         "correctIndex": 1,
-        "explanationZh": "straw = 草（稻草）🌾！第一隻小豬用稻草蓋了一間又快又輕的小屋。",
+        "explanationZh": "straw = 草（稻草） ！第一隻小豬用稻草蓋了一間又快又輕的小屋。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌾"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch8-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The wolf came to the door and huffed and puffed.",
-        "question": "Which emoji shows a wolf?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🦊 fox",
-          "🐻 bear",
-          "🐯 tiger",
-          "🐺 wolf"
+          "tiger",
+          "bear",
+          "fox",
+          "wolf"
         ],
         "optionsZh": [
-          "狐狸",
-          "熊",
           "老虎",
+          "熊",
+          "狐狸",
           "狼"
         ],
         "correctIndex": 3,
-        "explanationZh": "wolf = 狼 🐺！故事裡的大野狼又壞又餓，他來敲小豬的門，想把房子吹倒。",
+        "explanationZh": "wolf = 狼 ！故事裡的大野狼又壞又餓，他來敲小豬的門，想把房子吹倒。",
         "tags": [
           "story",
           "ch8",
           "three-pigs",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐺"
       },
       {
         "type": "grammar-mc",
@@ -522,16 +525,16 @@
         "sentence": "What did the second pig feel?",
         "question": "What did he feel?",
         "options": [
-          "😌 proud",
-          "😢 sorry",
-          "😡 mad",
-          "😨 afraid"
+          "proud",
+          "sorry",
+          "mad",
+          "afraid"
         ],
         "optionsZh": [
-          "😌 好驕傲",
-          "😢 很抱歉",
-          "😡 好生氣",
-          "😨 好害怕"
+          "好驕傲",
+          "很抱歉",
+          "好生氣",
+          "好害怕"
         ],
         "correctIndex": 0,
         "explanationZh": "看著自己蓋的家，他滿心都是驕傲——proud！",
@@ -696,16 +699,16 @@
         "sentence": "The second pig stood still and listened carefully.",
         "question": "How did the pig feel when he heard the sound?",
         "options": [
-          "😋 hungry",
-          "😂 amused",
-          "😴 sleepy",
-          "😨 nervous"
+          "hungry",
+          "amused",
+          "sleepy",
+          "nervous"
         ],
         "optionsZh": [
-          "😋 肚子好餓",
-          "😂 覺得好笑",
-          "😴 昏昏欲睡",
-          "😨 緊張害怕"
+          "肚子好餓",
+          "覺得好笑",
+          "昏昏欲睡",
+          "緊張害怕"
         ],
         "correctIndex": 3,
         "explanationZh": "站著不動、豎耳靜聽——面對不明腳步聲，小豬是「緊張害怕」的，nervous 就對了！",
@@ -964,16 +967,16 @@
         "sentence": "Where did the wolf go first?",
         "question": "Where did the wolf go first?",
         "options": [
-          "🧱 the brick house",
-          "🪵 the wood house",
-          "🌾 the straw house",
-          "🌳 a tall tree"
+          "the brick house",
+          "the wood house",
+          "the straw house",
+          "a tall tree"
         ],
         "optionsZh": [
-          "🧱 磚屋",
-          "🪵 木枝屋",
-          "🌾 草屋",
-          "🌳 一棵高樹"
+          "磚屋",
+          "木枝屋",
+          "草屋",
+          "一棵高樹"
         ],
         "correctIndex": 2,
         "explanationZh": "大野狼第一站——草屋！它最軟，最好對付嘛。",
@@ -1138,16 +1141,16 @@
         "sentence": "That same night, the wolf came to the straw house with hungry eyes.",
         "question": "What was the wolf planning to do?",
         "options": [
-          "🎁 bring them gifts",
-          "🐺 catch the pigs",
-          "🏡 build his own house",
-          "🌙 watch the night sky"
+          "bring them gifts",
+          "catch the pigs",
+          "build his own house",
+          "watch the night sky"
         ],
         "optionsZh": [
-          "🎁 送禮物給他們",
-          "🐺 去抓小豬",
-          "🏡 蓋自己的家",
-          "🌙 欣賞夜空"
+          "送禮物給他們",
+          "去抓小豬",
+          "蓋自己的家",
+          "欣賞夜空"
         ],
         "correctIndex": 1,
         "explanationZh": "大野狼肚子餓、眼神兇——他的計畫當然是「去抓小豬」！",
@@ -1490,16 +1493,16 @@
         "sentence": "What did the wolf do?",
         "question": "What did the wolf do?",
         "options": [
-          "🍞 baked bread",
-          "💨 blew very hard",
-          "💤 took a nap",
-          "🎵 sang a song"
+          "baked bread",
+          "blew very hard",
+          "took a nap",
+          "sang a song"
         ],
         "optionsZh": [
-          "🍞 在烤麵包",
-          "💨 用力猛吹",
-          "💤 去小睡一下",
-          "🎵 開心唱歌"
+          "在烤麵包",
+          "用力猛吹",
+          "去小睡一下",
+          "開心唱歌"
         ],
         "correctIndex": 1,
         "explanationZh": "「呼——！」大野狼用力吹氣——blew very hard！",
@@ -1664,16 +1667,16 @@
         "sentence": "He ran to the wood house and banged on the door. The wolf is coming!",
         "question": "How did the first pig feel when he ran?",
         "options": [
-          "😱 totally terrified",
-          "😊 very relaxed now",
-          "😎 cool and calm",
-          "🤔 a bit puzzled"
+          "totally terrified",
+          "very relaxed now",
+          "cool and calm",
+          "a bit puzzled"
         ],
         "optionsZh": [
-          "😱 嚇得半死",
-          "😊 非常放鬆",
-          "😎 超級淡定",
-          "🤔 有點搞不清楚"
+          "嚇得半死",
+          "非常放鬆",
+          "超級淡定",
+          "有點搞不清楚"
         ],
         "correctIndex": 0,
         "explanationZh": "拼命敲門、大喊「狼來了」——第一隻小豬是「嚇壞了」！terrified 就是這個感覺。",
@@ -1946,16 +1949,16 @@
         "sentence": "What happened to the wood house?",
         "question": "What happened?",
         "options": [
-          "🎈 it floated up",
-          "🌈 it changed color",
-          "🔒 it locked itself",
-          "🪵 the walls fell"
+          "it floated up",
+          "it changed color",
+          "it locked itself",
+          "the walls fell"
         ],
         "optionsZh": [
-          "🎈 整間飄上天",
-          "🌈 房子變了顏色",
-          "🔒 自己把門鎖上",
-          "🪵 牆全倒了"
+          "整間飄上天",
+          "房子變了顏色",
+          "自己把門鎖上",
+          "牆全倒了"
         ],
         "correctIndex": 3,
         "explanationZh": "大野狼一吹，木牆就「轟！」地倒下來了！",
@@ -2106,16 +2109,16 @@
         "sentence": "The third pig opened the door just in time. Just in time.",
         "question": "How did the two brothers feel when the door opened?",
         "options": [
-          "🤩 excited and proud",
-          "😡 furious and mad",
-          "😮‍💨 relieved and glad",
-          "😑 bored and tired"
+          "excited and proud",
+          "furious and mad",
+          "relieved and glad",
+          "bored and tired"
         ],
         "optionsZh": [
-          "🤩 超興奮、好驕傲",
-          "😡 非常憤怒、很生氣",
-          "😮‍💨 鬆了一口氣、好高興",
-          "😑 無聊、很累"
+          "超興奮、好驕傲",
+          "非常憤怒、很生氣",
+          "鬆了一口氣、好高興",
+          "無聊、很累"
         ],
         "correctIndex": 2,
         "explanationZh": "剛好趕上！那種感覺就是「鬆了一口氣」——relieved，總算逃過一劫。",
@@ -2404,16 +2407,16 @@
         "sentence": "What did the wolf see from the roof?",
         "question": "What did the wolf see?",
         "options": [
-          "🦋 a butterfly",
-          "🌸 flowers",
-          "💨 smoke",
-          "🌟 a star"
+          "a butterfly",
+          "flowers",
+          "smoke",
+          "a star"
         ],
         "optionsZh": [
-          "🦋 一隻蝴蝶",
-          "🌸 花朵",
-          "💨 煙",
-          "🌟 一顆星星"
+          "一隻蝴蝶",
+          "花朵",
+          "煙",
+          "一顆星星"
         ],
         "correctIndex": 2,
         "explanationZh": "從屋頂往下一看——「咦！煙！好燙！」大野狼嚇到了！",
@@ -2564,16 +2567,16 @@
         "sentence": "The wolf jumped down from the roof and ran fast to the trees.",
         "question": "How did the wolf feel when he ran away?",
         "options": [
-          "😠 angry",
-          "😨 scared",
-          "😂 silly",
-          "😴 tired"
+          "angry",
+          "scared",
+          "silly",
+          "tired"
         ],
         "optionsZh": [
-          "😠 生氣",
-          "😨 嚇到了",
-          "😂 覺得自己好蠢",
-          "😴 累了"
+          "生氣",
+          "嚇到了",
+          "覺得自己好蠢",
+          "累了"
         ],
         "correctIndex": 1,
         "explanationZh": "看到熱騰騰的煙，大野狼跳下屋頂就跑——他「嚇到了」，scared 就是這個感覺！",

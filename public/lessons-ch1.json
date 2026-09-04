@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch1-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a peach?",
-        "question": "Which one is a peach?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍑 peach",
-          "🍎 apple",
-          "🍊 orange",
-          "🍇 grapes"
+          "grapes",
+          "apple",
+          "peach",
+          "orange"
         ],
         "optionsZh": [
-          "桃子",
+          "葡萄",
           "蘋果",
-          "橘子",
-          "葡萄"
+          "桃子",
+          "橘子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "桃子的英文是 peach 🍑！故事裡一顆大桃子從河上漂來——這就是故事的開始。",
+        "correctIndex": 2,
+        "explanationZh": "桃子的英文是 peach ！故事裡一顆大桃子從河上漂來——這就是故事的開始。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🍑"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch1-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a mountain?",
-        "question": "Which one shows a mountain?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏞️ valley",
-          "⛰️ mountain",
-          "🌳 forest",
-          "🏜️ desert"
+          "mountain",
+          "forest",
+          "desert",
+          "valley"
         ],
         "optionsZh": [
-          "山谷",
           "山",
           "森林",
-          "沙漠"
+          "沙漠",
+          "山谷"
         ],
-        "correctIndex": 1,
-        "explanationZh": "mountain = 山 ⛰️！故事裡老公公每天上山撿柴火。",
+        "correctIndex": 0,
+        "explanationZh": "mountain = 山 ！故事裡老公公每天上山撿柴火。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⛰️"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch1-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The old man picked up a knife to cut the peach.",
-        "question": "Which emoji shows a knife?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍑 peach",
-          "🥢 chopsticks",
-          "🍶 bottle",
-          "🔪 knife"
+          "peach",
+          "knife",
+          "chopsticks",
+          "bottle"
         ],
         "optionsZh": [
           "桃子",
+          "刀",
           "筷子",
-          "瓶子",
-          "刀"
+          "瓶子"
         ],
-        "correctIndex": 3,
-        "explanationZh": "knife = 刀 🔪！老公公拿起刀，準備切那顆大桃子。",
+        "correctIndex": 1,
+        "explanationZh": "knife = 刀 ！老公公拿起刀，準備切那顆大桃子。",
         "tags": [
           "story",
           "ch1",
           "momotaro",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🔪"
       },
       {
         "type": "grammar-mc",
@@ -720,15 +723,15 @@
         "sentence": "What was the bad news?",
         "question": "What was the bad news?",
         "options": [
-          "👹 demons attacking",
-          "🌊 a great flood",
-          "🦠 a sickness",
-          "🔥 a terrible fire"
+          "demons attacking",
+          "a great flood",
+          "a bad sickness",
+          "a terrible fire"
         ],
         "optionsZh": [
           "妖怪來攻擊",
           "大洪水來了",
-          "有人生病了",
+          "有人生了重病",
           "發生了大火災"
         ],
         "correctIndex": 0,
@@ -1207,10 +1210,10 @@
         "sentence": "What did Momotaro meet on the road?",
         "question": "What did Momotaro meet?",
         "options": [
-          "🐘 an elephant",
-          "🐅 a tiger",
-          "🦓 a zebra",
-          "🐕 a dog"
+          "an elephant",
+          "a tiger",
+          "a zebra",
+          "a dog"
         ],
         "optionsZh": [
           "一隻大象",
@@ -1756,10 +1759,10 @@
         "sentence": "How many friends did Momotaro have now?",
         "question": "How many friends?",
         "options": [
-          "1️⃣",
-          "2️⃣",
-          "3️⃣",
-          "4️⃣"
+          "1 ⃣",
+          "2 ⃣",
+          "3 ⃣",
+          "4 ⃣"
         ],
         "optionsZh": [
           "一個",
@@ -2025,10 +2028,10 @@
           "with"
         ],
         "optionsZh": [
-          "在⋯上面",
-          "在⋯裡面",
+          "在 上面",
+          "在 裡面",
           "搭（by boat）",
-          "用⋯"
+          "用"
         ],
         "correctIndex": 2,
         "explanationZh": "交通工具前面要用 by，「搭船」就是 by boat 喔。\n原句：The four of them crossed the sea by boat.",
@@ -2341,10 +2344,10 @@
         "sentence": "What did Momotaro hold in his hand?",
         "question": "What did Momotaro hold?",
         "options": [
-          "✋ bare hands",
-          "🏹 a bow",
-          "🥢 chopsticks",
-          "⚔️ a sword"
+          "bare hands",
+          "a bow",
+          "chopsticks",
+          "a sword"
         ],
         "optionsZh": [
           "空手",
@@ -2857,10 +2860,10 @@
         "sentence": "What did the demons give?",
         "question": "What did the demons give?",
         "options": [
-          "🌸 pretty flowers",
-          "🍎 fruits and cakes",
-          "📚 books and maps",
-          "💰 gold and silver"
+          "pretty flowers",
+          "fruits and cakes",
+          "books and maps",
+          "gold and silver"
         ],
         "optionsZh": [
           "漂亮的花",

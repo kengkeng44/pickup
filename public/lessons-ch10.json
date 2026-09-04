@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch10-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a pill?",
-        "question": "Which one is a pill?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "💊 pill",
-          "🍎 apple",
-          "🌰 nut",
-          "🍬 candy"
+          "apple",
+          "pill",
+          "nut",
+          "candy"
         ],
         "optionsZh": [
-          "藥丸",
           "蘋果",
+          "藥丸",
           "堅果",
           "糖果"
         ],
-        "correctIndex": 0,
-        "explanationZh": "藥丸的英文是 pill 💊！故事裡有一顆神奇的白色藥丸——吃了可以永遠活著。",
+        "correctIndex": 1,
+        "explanationZh": "藥丸的英文是 pill ！故事裡有一顆神奇的白色藥丸——吃了可以永遠活著。",
         "tags": [
           "story",
           "ch10",
           "change",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💊"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch10-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a box?",
-        "question": "Which one shows a box?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪣 bucket",
-          "📦 box",
-          "🎒 bag",
-          "🪴 pot"
+          "pot",
+          "bucket",
+          "bag",
+          "box"
         ],
         "optionsZh": [
+          "花盆",
           "水桶",
-          "盒子",
           "袋子",
-          "花盆"
+          "盒子"
         ],
-        "correctIndex": 1,
-        "explanationZh": "box = 盒子 📦！故事裡后羿把珍貴的藥丸放進一個小盒子藏好。",
+        "correctIndex": 3,
+        "explanationZh": "box = 盒子 ！故事裡后羿把珍貴的藥丸放進一個小盒子藏好。",
         "tags": [
           "story",
           "ch10",
           "change",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "📦"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch10-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Chang'e put the pill in her mouth and swallowed it.",
-        "question": "Which emoji shows swallowing?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "😴 sleep",
-          "🍽️ eat a meal",
-          "🤔 think hard",
-          "😮‍💨 swallow"
+          "sleep",
+          "swallow",
+          "think hard",
+          "eat a meal"
         ],
         "optionsZh": [
           "睡覺",
-          "吃一頓飯",
+          "吞下去",
           "用力思考",
-          "吞下去"
+          "吃一頓飯"
         ],
-        "correctIndex": 3,
-        "explanationZh": "swallow = 吞 😮‍💨！嫦娥為了不讓壞人得到仙藥，把藥丸整顆吞進去了——這個決定改變了她的一生。",
+        "correctIndex": 1,
+        "explanationZh": "swallow = 吞 ！嫦娥為了不讓壞人得到仙藥，把藥丸整顆吞進去了——這個決定改變了她的一生。",
         "tags": [
           "story",
           "ch10",
           "change",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "😮‍💨"
       },
       {
         "type": "grammar-mc",
@@ -565,10 +568,10 @@
         "sentence": "Where did Hou Yi go that morning?",
         "question": "Where did Hou Yi go?",
         "options": [
-          "🏠 stayed home",
-          "🌊 went to the sea",
-          "⛰️ climbed the hill",
-          "🏹 went hunting"
+          "stayed home",
+          "went to the sea",
+          "climbed the hill",
+          "went hunting"
         ],
         "optionsZh": [
           "留在家裡",
@@ -729,10 +732,10 @@
         "sentence": "Day after day, he watched the door of the house.",
         "question": "What shows the student was planning something bad?",
         "options": [
-          "🎨 drawing pictures of the house",
-          "😴 sleeping late every morning",
-          "😈 watching and waiting every day",
-          "🙂 smiling at everyone he passed"
+          "drawing pictures of the house",
+          "sleeping late every morning",
+          "watching and waiting every day",
+          "smiling at everyone he passed"
         ],
         "optionsZh": [
           "在畫那棟房子的圖",
@@ -1011,10 +1014,10 @@
         "sentence": "What did Chang'e hold in her hand?",
         "question": "What did she hold?",
         "options": [
-          "🍞 a piece of bread",
-          "📕 a small book",
-          "💊 the white pill",
-          "🗝️ a tiny key"
+          "a piece of bread",
+          "a small book",
+          "the white pill",
+          "a tiny key"
         ],
         "optionsZh": [
           "一塊麵包",
@@ -1237,10 +1240,10 @@
         "sentence": "She opened the box. She picked up the small white pill.",
         "question": "How did Chang'e feel at this moment?",
         "options": [
-          "😤 furious and impatient",
-          "😴 calm and half asleep",
-          "😂 happy and very excited",
-          "😰 scared but determined"
+          "furious and impatient",
+          "calm and half asleep",
+          "happy and very excited",
+          "scared but determined"
         ],
         "optionsZh": [
           "憤怒又不耐煩",
@@ -1569,10 +1572,10 @@
         "sentence": "How did Chang'e's body feel now?",
         "question": "How did her body feel?",
         "options": [
-          "🪨 heavy as rock",
-          "🔥 hot as fire",
-          "🎈 light as air",
-          "🧊 cold as ice"
+          "heavy as rock",
+          "hot as fire",
+          "light as air",
+          "cold as ice"
         ],
         "optionsZh": [
           "像石頭那麼重",
@@ -1787,10 +1790,10 @@
         "sentence": "Chang'e swallowed the pill to stop the bad student from getting it.",
         "question": "Was Chang'e brave?",
         "options": [
-          "😅 maybe — she was just lucky it worked out",
-          "😴 no — she just did not know what the pill would do",
-          "🦁 yes — she gave up everything to protect others",
-          "😠 no — she was being selfish and chose herself"
+          "maybe — she was just lucky it worked out",
+          "no — she just did not know what the pill would do",
+          "yes — she gave up everything to protect others",
+          "no — she was being selfish and chose herself"
         ],
         "optionsZh": [
           "也許——只是剛好運氣好",
@@ -1971,10 +1974,10 @@
         "sentence": "What did the moon's ground feel like?",
         "question": "How did the moon feel?",
         "options": [
-          "🧊 cold and grey",
-          "🔥 hot and dry",
-          "🌱 soft and green",
-          "💧 wet and warm"
+          "cold and grey",
+          "hot and dry",
+          "soft and green",
+          "wet and warm"
         ],
         "optionsZh": [
           "冷又灰",
@@ -2179,10 +2182,10 @@
         "sentence": "Hou Yi was running back home. He looked up at the sky.",
         "question": "How did Hou Yi feel when he saw Chang'e on the moon?",
         "options": [
-          "💔 heartbroken and helpless",
-          "😲 surprised but very happy",
-          "😤 angry and wanting to fight",
-          "😌 calm and not very worried"
+          "heartbroken and helpless",
+          "surprised but very happy",
+          "angry and wanting to fight",
+          "calm and not very worried"
         ],
         "optionsZh": [
           "心碎又無能為力",
@@ -2462,10 +2465,10 @@
         "sentence": "When is the moon full and round each year?",
         "question": "When?",
         "options": [
-          "🍂 in autumn",
-          "🌸 in spring",
-          "☀️ in summer",
-          "❄️ in winter"
+          "in autumn",
+          "in spring",
+          "in summer",
+          "in winter"
         ],
         "optionsZh": [
           "秋天",
@@ -2626,10 +2629,10 @@
         "sentence": "People look up. They see the moon. They miss the ones they love.",
         "question": "What feeling does looking at the moon bring?",
         "options": [
-          "😤 angry at the cold night air",
-          "😴 feeling sleepy and ready for bed",
-          "😱 scared of the dark night sky",
-          "🌙 longing for someone far away"
+          "angry at the cold night air",
+          "feeling sleepy and ready for bed",
+          "scared of the dark night sky",
+          "longing for someone far away"
         ],
         "optionsZh": [
           "對冷冷的夜氣感到煩躁",

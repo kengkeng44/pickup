@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch19-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a river?",
-        "question": "Which one shows a river?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 river",
-          "🌳 tree",
-          "⛵ boat",
-          "🏠 house"
+          "tree",
+          "river",
+          "house",
+          "boat"
         ],
         "optionsZh": [
-          "河",
           "樹",
-          "船",
-          "房子"
+          "河",
+          "房子",
+          "船"
         ],
-        "correctIndex": 0,
-        "explanationZh": "river = 河 🌊！故事裡鼠鹿站在一條寬寬的河邊，想要過去。",
+        "correctIndex": 1,
+        "explanationZh": "river = 河 ！故事裡鼠鹿站在一條寬寬的河邊，想要過去。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌊"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch19-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows fruit?",
-        "question": "Which one shows fruit?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌿 grass",
-          "🪨 rock",
-          "🍎 fruit",
-          "💧 water"
+          "water",
+          "rock",
+          "fruit",
+          "grass"
         ],
         "optionsZh": [
-          "草",
+          "水",
           "石頭",
           "水果",
-          "水"
+          "草"
         ],
         "correctIndex": 2,
-        "explanationZh": "fruit = 水果 🍎！故事裡對岸的樹上掛滿了又甜又熟的水果。",
+        "explanationZh": "fruit = 水果 ！故事裡對岸的樹上掛滿了又甜又熟的水果。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🍎"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch19-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a crocodile?",
-        "question": "Which one shows a crocodile?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐢 turtle",
-          "🦭 walrus",
-          "🦎 lizard",
-          "🐊 crocodile"
+          "turtle",
+          "lizard",
+          "crocodile",
+          "walrus"
         ],
         "optionsZh": [
           "烏龜",
-          "海象",
           "蜥蜴",
-          "鱷魚"
+          "鱷魚",
+          "海象"
         ],
-        "correctIndex": 3,
-        "explanationZh": "crocodile = 鱷魚 🐊！故事裡河水很暗，很多鱷魚藏在水裡。",
+        "correctIndex": 2,
+        "explanationZh": "crocodile = 鱷魚 ！故事裡河水很暗，很多鱷魚藏在水裡。",
         "tags": [
           "story",
           "ch19",
           "sang-kancil",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐊"
       },
       {
         "type": "grammar-mc",
@@ -522,10 +525,10 @@
         "sentence": "How was mouse deer going to cross?",
         "question": "How would he cross the river?",
         "options": [
-          "💪 with strong legs",
-          "🧠 with a smart trick",
-          "🚣 with a small boat",
-          "🦅 with big bird wings"
+          "with strong legs",
+          "with a smart trick",
+          "with a small boat",
+          "with big bird wings"
         ],
         "optionsZh": [
           "用強壯的腿",
@@ -534,7 +537,7 @@
           "用大鳥的翅膀"
         ],
         "correctIndex": 1,
-        "explanationZh": "不游泳卻能過 → 用聰明的計謀。",
+        "explanationZh": "不游泳卻能過 用聰明的計謀。",
         "tags": [
           "story",
           "ch19",
@@ -1007,10 +1010,10 @@
         "sentence": "Was this true?",
         "question": "Was the king's message true?",
         "options": [
-          "🤔 only half true",
-          "✅ yes, all true",
-          "🤥 no, it was a lie",
-          "📜 written on paper"
+          "only half true",
+          "yes, all true",
+          "no, it was a lie",
+          "written on paper"
         ],
         "optionsZh": [
           "只有一半真",
@@ -1019,7 +1022,7 @@
           "寫在紙上"
         ],
         "correctIndex": 2,
-        "explanationZh": "鼠鹿自己想的計謀 → 是說謊。",
+        "explanationZh": "鼠鹿自己想的計謀 是說謊。",
         "tags": [
           "story",
           "ch19",
@@ -1584,10 +1587,10 @@
         "sentence": "How was mouse deer counting?",
         "question": "How did mouse deer count?",
         "options": [
-          "🎵 in a slow happy song",
-          "🤫 quietly in his head",
-          "📝 on a piece of paper",
-          "🔢 out loud at each jump"
+          "in a slow happy song",
+          "quietly in his head",
+          "on a piece of paper",
+          "out loud at each jump"
         ],
         "optionsZh": [
           "用一首慢慢的快樂歌",
@@ -1596,7 +1599,7 @@
           "每跳一下大聲數"
         ],
         "correctIndex": 3,
-        "explanationZh": "一邊跳一邊喊 → 每跳一下大聲數。",
+        "explanationZh": "一邊跳一邊喊 每跳一下大聲數。",
         "tags": [
           "story",
           "ch19",
@@ -2069,10 +2072,10 @@
         "sentence": "How did the crocodiles feel now?",
         "question": "How did the crocodiles feel?",
         "options": [
-          "😡 very angry",
-          "😄 very happy",
-          "😴 very sleepy",
-          "😍 in love"
+          "very angry",
+          "very happy",
+          "very sleepy",
+          "in love"
         ],
         "optionsZh": [
           "很生氣",
@@ -2081,7 +2084,7 @@
           "很喜歡"
         ],
         "correctIndex": 0,
-        "explanationZh": "張嘴 + 發現被騙 → 很生氣。",
+        "explanationZh": "張嘴 + 發現被騙 很生氣。",
         "tags": [
           "story",
           "ch19",
@@ -2554,10 +2557,10 @@
         "sentence": "How did the crocodiles look now?",
         "question": "How did the crocodiles feel?",
         "options": [
-          "🎉 still cheering",
-          "😞 quiet and sorry",
-          "😋 hungry for cake",
-          "😎 cool and proud"
+          "still cheering",
+          "quiet and sorry",
+          "hungry for cake",
+          "cool and proud"
         ],
         "optionsZh": [
           "還在歡呼",
@@ -2566,7 +2569,7 @@
           "酷酷的"
         ],
         "correctIndex": 1,
-        "explanationZh": "慢慢沉回水裡 → 安靜又不好意思。",
+        "explanationZh": "慢慢沉回水裡 安靜又不好意思。",
         "tags": [
           "story",
           "ch19",

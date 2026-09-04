@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch14-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a turtle?",
-        "question": "Which one is a turtle?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐢 turtle",
-          "🐟 fish",
-          "🦀 crab",
-          "🐬 dolphin"
+          "crab",
+          "turtle",
+          "fish",
+          "dolphin"
         ],
         "optionsZh": [
+          "螃蟹",
           "烏龜",
           "魚",
-          "螃蟹",
           "海豚"
         ],
-        "correctIndex": 0,
-        "explanationZh": "烏龜的英文是 turtle 🐢！故事裡浦島在沙灘上救了一隻被欺負的小烏龜。",
+        "correctIndex": 1,
+        "explanationZh": "烏龜的英文是 turtle ！故事裡浦島在沙灘上救了一隻被欺負的小烏龜。",
         "tags": [
           "story",
           "ch14",
           "urashima",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐢"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch14-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a beach?",
-        "question": "Which one shows a beach?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌲 forest",
-          "⛰️ mountain",
-          "🏙️ city",
-          "🏖️ beach"
+          "forest",
+          "city",
+          "beach",
+          "mountain"
         ],
         "optionsZh": [
           "森林",
-          "山",
           "城市",
-          "沙灘"
+          "沙灘",
+          "山"
         ],
-        "correctIndex": 3,
-        "explanationZh": "beach = 沙灘 🏖️！故事裡浦島在沙灘上發現了那隻烏龜。",
+        "correctIndex": 2,
+        "explanationZh": "beach = 沙灘 ！故事裡浦島在沙灘上發現了那隻烏龜。",
         "tags": [
           "story",
           "ch14",
           "urashima",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏖️"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch14-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The princess gave him a small red box.",
-        "question": "Which emoji shows a box?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "📦 box",
-          "🎀 ribbon",
-          "🪣 bucket",
-          "🪙 coin"
+          "ribbon",
+          "box",
+          "coin",
+          "bucket"
         ],
         "optionsZh": [
-          "盒子",
           "緞帶",
-          "水桶",
-          "硬幣"
+          "盒子",
+          "硬幣",
+          "水桶"
         ],
-        "correctIndex": 0,
-        "explanationZh": "box = 盒子 📦！公主給浦島一個小紅盒子，並說：絕對不要打開它！",
+        "correctIndex": 1,
+        "explanationZh": "box = 盒子 ！公主給浦島一個小紅盒子，並說：絕對不要打開它！",
         "tags": [
           "story",
           "ch14",
           "urashima",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "📦"
       },
       {
         "type": "grammar-mc",
@@ -522,10 +525,10 @@
         "sentence": "How did the princess greet him?",
         "question": "How did she greet him?",
         "options": [
-          "😢 with sad tears",
-          "😠 with angry words",
-          "😊 with a soft smile",
-          "😨 with great fear"
+          "with sad tears",
+          "with angry words",
+          "with a soft smile",
+          "with great fear"
         ],
         "optionsZh": [
           "流著傷心的眼淚",
@@ -758,15 +761,15 @@
         "sentenceZh": "公主說她以前是什麼？",
         "question": "What did she say?",
         "options": [
-          "🐚 a shell near the gate",
-          "🐟 a small fish in the sea",
-          "🦀 a crab on the shore",
-          "🐢 the little turtle on the beach"
+          "a shell near the gate",
+          "a small fish in the sea",
+          "a small crab on the shore",
+          "the little turtle on the beach"
         ],
         "optionsZh": [
           "門邊的一個貝殼",
           "海裡一條小魚",
-          "岸上一隻螃蟹",
+          "岸上的一隻小螃蟹",
           "沙灘上那隻小烏龜"
         ],
         "correctIndex": 3,
@@ -963,10 +966,10 @@
         "sentence": "What did he see in the garden?",
         "question": "What did he see?",
         "options": [
-          "🌵 cactus and sand",
-          "🪸 coral and bright fish",
-          "❄️ white snow and ice",
-          "🏙️ tall buildings"
+          "cactus and sand",
+          "coral and bright fish",
+          "white snow and ice",
+          "tall buildings"
         ],
         "optionsZh": [
           "仙人掌和沙",
@@ -1168,10 +1171,10 @@
         "sentenceZh": "安靜的時刻，浦島最想念什麼？",
         "question": "What did he miss?",
         "options": [
-          "🍽️ the food from the palace",
-          "🏠 his home and old mother",
-          "🎵 the dancing fish",
-          "🌊 the deep blue sea"
+          "the food from the palace",
+          "his home and old mother",
+          "the dancing fish",
+          "the deep blue sea"
         ],
         "optionsZh": [
           "宮殿的食物",
@@ -1503,10 +1506,10 @@
         "sentence": "What did the box look like?",
         "question": "What did the box look like?",
         "options": [
-          "📦 small and red",
-          "⬛ big and black",
-          "🪵 made of wood",
-          "🍰 like a cake"
+          "small and red",
+          "big and black",
+          "made of wood",
+          "like a cake"
         ],
         "optionsZh": [
           "小小紅紅",
@@ -1515,7 +1518,7 @@
           "像蛋糕"
         ],
         "correctIndex": 0,
-        "explanationZh": "small + red → small and red。",
+        "explanationZh": "small + red small and red。",
         "tags": [
           "story",
           "ch14",
@@ -1708,10 +1711,10 @@
         "sentenceZh": "公主對這個盒子的警告是什麼？",
         "question": "What did she warn him?",
         "options": [
-          "🚫 never open it",
-          "💧 keep it in water",
-          "🔥 warm it each day",
-          "🌙 only open at night"
+          "never open it",
+          "keep it in water",
+          "warm it each day",
+          "only open at night"
         ],
         "optionsZh": [
           "永遠不要打開它",
@@ -1943,10 +1946,10 @@
         "sentence": "Who did Urashima meet in the village?",
         "question": "Who did he meet?",
         "options": [
-          "👮 a soldier",
-          "👶 a small baby",
-          "🧒 a little boy",
-          "👴 an old man"
+          "a soldier",
+          "a small baby",
+          "a little boy",
+          "an old man"
         ],
         "optionsZh": [
           "士兵",
@@ -2383,10 +2386,10 @@
         "sentence": "What came out of the box?",
         "question": "What came out?",
         "options": [
-          "🐢 a tiny turtle",
-          "🪙 a pile of gold",
-          "☁️ a soft white cloud",
-          "🎵 a sweet soft song"
+          "a tiny turtle",
+          "a pile of gold",
+          "a soft white cloud",
+          "a sweet soft song"
         ],
         "optionsZh": [
           "小烏龜",
@@ -2620,13 +2623,13 @@
         "sentenceZh": "浦島太郎故事的啟示是什麼？",
         "question": "What can we learn?",
         "options": [
-          "🏠 never leave home at all",
-          "🎁 always open gifts right away",
-          "🐢 turtles are always safe to follow",
-          "⏰ time away can cost more than we know"
+          "never leave your home at all",
+          "always open gifts right away",
+          "turtles are always safe to follow",
+          "time away can cost more than we know"
         ],
         "optionsZh": [
-          "永遠不要離開家",
+          "永遠不要離開你的家",
           "禮物要馬上打開",
           "烏龜永遠安全可以跟",
           "離開的時間代價比我們知道的更大"

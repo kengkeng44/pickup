@@ -101,10 +101,10 @@
         "sentence": "Which one is a swallow?",
         "question": "Which one is a swallow?",
         "options": [
-          "🐝 bug",
-          "🐦 bird",
-          "🐸 frog",
-          "🐢 turtle"
+          "bug",
+          "bird",
+          "frog",
+          "turtle"
         ],
         "optionsZh": [
           "蟲子",
@@ -113,7 +113,7 @@
           "烏龜"
         ],
         "correctIndex": 1,
-        "explanationZh": "swallow = 燕子，是一種鳥 🐦！故事裡一隻小燕子在興夫家的屋頂築巢。",
+        "explanationZh": "swallow = 燕子，是一種鳥 ！故事裡一隻小燕子在興夫家的屋頂築巢。",
         "tags": [
           "story",
           "ch18",
@@ -123,34 +123,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch18-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a nest?",
-        "question": "Which one shows a nest?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 wave",
-          "🏠 house",
-          "🪺 nest",
-          "🌳 tree"
+          "house",
+          "wave",
+          "tree",
+          "nest"
         ],
         "optionsZh": [
-          "海浪",
           "房子",
-          "鳥巢",
-          "樹"
+          "海浪",
+          "樹",
+          "鳥巢"
         ],
-        "correctIndex": 2,
-        "explanationZh": "nest = 鳥巢 🪺！燕子在興夫家的屋頂上築了巢。",
+        "correctIndex": 3,
+        "explanationZh": "nest = 鳥巢 ！燕子在興夫家的屋頂上築了巢。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪺"
       },
       {
         "type": "picture-mc",
@@ -279,34 +280,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch18-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows someone who is poor?",
-        "question": "Which one shows someone poor?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👑 royal",
-          "🏰 castle",
-          "🏚️ poor",
-          "💎 jewel"
+          "castle",
+          "poor",
+          "royal",
+          "jewel"
         ],
         "optionsZh": [
-          "皇室",
           "城堡",
           "貧窮",
+          "皇室",
           "珠寶"
         ],
-        "correctIndex": 2,
-        "explanationZh": "poor = 窮 🏚️！興夫住在破舊的草屋裡，家裡很窮。",
+        "correctIndex": 1,
+        "explanationZh": "poor = 窮 ！興夫住在破舊的草屋裡，家裡很窮。",
         "tags": [
           "story",
           "ch18",
           "heungbu-nolbu",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏚️"
       },
       {
         "type": "grammar-mc",
@@ -520,10 +522,10 @@
         "sentence": "What was coming near the little bird?",
         "question": "What was coming?",
         "options": [
-          "🐝 a busy bee",
-          "🐶 a friendly dog",
-          "🦋 a soft butterfly",
-          "🐍 a hungry snake"
+          "a busy bee",
+          "a friendly dog",
+          "a soft butterfly",
+          "a hungry snake"
         ],
         "optionsZh": [
           "蜜蜂",
@@ -989,10 +991,10 @@
         "sentence": "What kind of seed did the bird bring?",
         "question": "What kind of seed?",
         "options": [
-          "🌻 a sunflower seed",
-          "🌰 a chestnut",
-          "🍎 an apple core",
-          "🌱 a gourd seed"
+          "a sunflower seed",
+          "a chestnut",
+          "an apple core",
+          "a gourd seed"
         ],
         "optionsZh": [
           "向日葵種子",
@@ -1562,10 +1564,10 @@
         "sentence": "What came out of the second gourd?",
         "question": "What came out?",
         "options": [
-          "🪨 stones and mud",
-          "🧊 ice and snow",
-          "🌫️ smoke and dust",
-          "💰 silver and gold"
+          "stones and mud",
+          "ice and snow",
+          "smoke and dust",
+          "silver and gold"
         ],
         "optionsZh": [
           "石頭和泥",
@@ -2031,10 +2033,10 @@
         "sentence": "What is Nolbu about to do?",
         "question": "What is he about to do?",
         "options": [
-          "🪺 fix the broken nest",
-          "🤗 save a baby bird",
-          "🍞 feed the hungry bird",
-          "😈 hurt a bird on purpose"
+          "fix the broken nest",
+          "save a baby bird",
+          "feed the hungry bird",
+          "hurt a bird on purpose"
         ],
         "optionsZh": [
           "修理壞掉的鳥巢",
@@ -2043,7 +2045,7 @@
           "故意傷害小鳥"
         ],
         "correctIndex": 3,
-        "explanationZh": "故意 + 爬上鳥巢 → 要傷害小鳥。",
+        "explanationZh": "故意 + 爬上鳥巢 要傷害小鳥。",
         "tags": [
           "story",
           "ch18",
@@ -2500,10 +2502,10 @@
         "sentence": "How is Nolbu now?",
         "question": "How is he now?",
         "options": [
-          "🤣 laughing loudly",
-          "👑 still rich and proud",
-          "😴 sleeping happily",
-          "😭 poor and crying"
+          "laughing loudly",
+          "still rich and proud",
+          "sleeping happily",
+          "poor and crying"
         ],
         "optionsZh": [
           "大聲笑",
@@ -2512,7 +2514,7 @@
           "又窮又哭"
         ],
         "correctIndex": 3,
-        "explanationZh": "寶物變灰 → 又窮又哭。",
+        "explanationZh": "寶物變灰 又窮又哭。",
         "tags": [
           "story",
           "ch18",

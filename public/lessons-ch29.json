@@ -91,62 +91,64 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch29-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a ship?",
-        "question": "Which one is a ship?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 wave",
-          "⛵ ship",
-          "🏝️ island",
-          "💨 wind"
+          "ship",
+          "wind",
+          "wave",
+          "island"
         ],
         "optionsZh": [
-          "海浪",
           "船",
-          "島",
-          "風"
+          "風",
+          "海浪",
+          "島"
         ],
-        "correctIndex": 1,
-        "explanationZh": "船的英文是 ship ⛵！奧德修斯就是坐著船要回家的。",
+        "correctIndex": 0,
+        "explanationZh": "船的英文是 ship ！奧德修斯就是坐著船要回家的。",
         "tags": [
           "story",
           "ch29",
           "odyssey",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⛵"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch29-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a giant?",
-        "question": "Which one shows a giant?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐭 mouse",
-          "🐱 cat",
-          "🐣 chick",
-          "🗿 giant"
+          "snake",
+          "giant",
+          "chick",
+          "mouse"
         ],
         "optionsZh": [
-          "老鼠",
-          "貓",
+          "蛇",
+          "巨人",
           "小雞",
-          "巨人"
+          "老鼠"
         ],
-        "correctIndex": 3,
-        "explanationZh": "giant = 巨人 🗿！故事裡有一個住在洞穴裡的可怕巨人。",
+        "correctIndex": 1,
+        "explanationZh": "giant = 巨人 ！故事裡有一個住在洞穴裡的可怕巨人。",
         "tags": [
           "story",
           "ch29",
           "odyssey",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🗿"
       },
       {
         "type": "picture-mc",
@@ -272,33 +274,34 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch29-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a monster?",
-        "question": "Which one shows a monster?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐰 rabbit",
-          "👻 monster",
-          "🌸 flower",
-          "🍎 apple"
+          "monster",
+          "rabbit",
+          "apple",
+          "flower"
         ],
         "optionsZh": [
-          "兔子",
           "怪獸",
-          "花",
-          "蘋果"
+          "兔子",
+          "蘋果",
+          "花"
         ],
-        "correctIndex": 1,
-        "explanationZh": "monster = 怪獸 👻！故事裡的海怪（sea monster）住在大海裡，很可怕。",
+        "correctIndex": 0,
+        "explanationZh": "monster = 怪獸 ！故事裡的海怪（sea monster）住在大海裡，很可怕。",
         "tags": [
           "story",
           "ch29",
           "odyssey",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "👻"
       },
       {
         "type": "grammar-mc",
@@ -585,10 +588,10 @@
         "sentence": "What kind of place was Ithaca for Odysseus?",
         "question": "What was Ithaca for him?",
         "options": [
-          "🏙️ a giant noisy city",
-          "🏝️ his quiet home island",
-          "🏔️ a cold mountain top",
-          "🏜️ a hot dry desert land"
+          "a giant noisy city",
+          "his quiet home island",
+          "a cold mountain top",
+          "a hot dry desert land"
         ],
         "optionsZh": [
           "巨大吵雜的城市",
@@ -597,7 +600,7 @@
           "又熱又乾的沙漠"
         ],
         "correctIndex": 1,
-        "explanationZh": "安靜的小島，海邊的家——「他安靜的家鄉小島」就是答案。那個 🏝️ 最像 Ithaca。",
+        "explanationZh": "安靜的小島，海邊的家——「他安靜的家鄉小島」就是答案。那個 最像 Ithaca。",
         "tags": [
           "story",
           "ch29",
@@ -797,10 +800,10 @@
         "sentence": "What feeling did Ithaca bring to Odysseus?",
         "question": "What feeling did home give him?",
         "options": [
-          "😡 anger at the place",
-          "💚 deep love and belonging",
-          "😴 feeling bored of it",
-          "🤔 not sure if it was real"
+          "anger at the place",
+          "deep love and belonging",
+          "feeling bored of it",
+          "not sure if it was real"
         ],
         "optionsZh": [
           "對這地方很生氣",
@@ -809,7 +812,7 @@
           "不確定這地方是否真實"
         ],
         "correctIndex": 1,
-        "explanationZh": "在腦中看見、說話給島聽、站起來望向海——這都是「深深的愛和歸屬感」。那個 💚 最合。",
+        "explanationZh": "在腦中看見、說話給島聽、站起來望向海——這都是「深深的愛和歸屬感」。那個 最合。",
         "sentenceZh": "伊薩卡帶給奧德修斯什麼感受？",
         "tags": [
           "story",
@@ -1093,10 +1096,10 @@
         "sentence": "What did the ships look like as they sailed away?",
         "question": "How did the ships look?",
         "options": [
-          "🐌 like tiny snails",
-          "🐢 like slow turtles",
-          "🦅 like big quiet birds",
-          "🐟 like jumping fish"
+          "like tiny snails",
+          "like slow turtles",
+          "like big quiet birds",
+          "like jumping fish"
         ],
         "optionsZh": [
           "像小蝸牛",
@@ -1105,7 +1108,7 @@
           "像跳起的魚"
         ],
         "correctIndex": 2,
-        "explanationZh": "「像安靜的大鳥」——故事就是這樣說的。那個 🦅 就是答案。",
+        "explanationZh": "「像安靜的大鳥」——故事就是這樣說的。那個 就是答案。",
         "tags": [
           "story",
           "ch29",
@@ -1305,10 +1308,10 @@
         "sentence": "What is the mood of the crew as they set sail?",
         "question": "What is the mood?",
         "options": [
-          "😡 angry at the sea",
-          "😴 bored and sleepy",
-          "⚓ hopeful and ready",
-          "😨 too afraid to go"
+          "angry at the sea",
+          "bored and sleepy",
+          "hopeful and ready",
+          "too afraid to go"
         ],
         "optionsZh": [
           "對大海很生氣",
@@ -1317,7 +1320,7 @@
           "太害怕不敢走"
         ],
         "correctIndex": 2,
-        "explanationZh": "各就各位 + 拉起風帆 + 「像安靜的大鳥」飛走 → 「充滿希望、準備好了」。那個 ⚓ 最合適。",
+        "explanationZh": "各就各位 + 拉起風帆 + 「像安靜的大鳥」飛走 「充滿希望、準備好了」。那個 最合適。",
         "sentenceZh": "船員們啟航時的心情是什麼？",
         "tags": [
           "story",
@@ -1699,10 +1702,10 @@
         "sentence": "How did the sea and sky feel in these days?",
         "question": "How did it feel?",
         "options": [
-          "❄️ icy and white",
-          "⛈️ wild and loud",
-          "🌫️ foggy and lost",
-          "☀️ bright and calm"
+          "icy and white",
+          "wild and loud",
+          "foggy and lost",
+          "bright and calm"
         ],
         "optionsZh": [
           "結冰又白",
@@ -1711,7 +1714,7 @@
           "明亮又平靜"
         ],
         "correctIndex": 3,
-        "explanationZh": "陽光 + 藍天 + 心情輕 → 「明亮又平靜」。那個 ☀️ 就是那幾天的天氣。",
+        "explanationZh": "陽光 + 藍天 + 心情輕 「明亮又平靜」。那個 就是那幾天的天氣。",
         "tags": [
           "story",
           "ch29",
@@ -1911,10 +1914,10 @@
         "sentence": "What changed at the end of tonight's lesson?",
         "question": "What changed at the end?",
         "options": [
-          "🐟 a giant fish jumped on board",
-          "🏠 they arrived safely at home",
-          "🎉 everyone celebrated a big win",
-          "⛅ a dark cloud appeared far away"
+          "a giant fish jumped on board",
+          "they arrived safely at home",
+          "everyone celebrated a big win",
+          "a dark cloud appeared far away"
         ],
         "optionsZh": [
           "一條大魚跳上船",
@@ -1923,7 +1926,7 @@
           "遠方出現一片烏雲"
         ],
         "correctIndex": 3,
-        "explanationZh": "美好的幾天之後，「遠方出現一片烏雲」——奶奶說，好事後面往往藏著考驗。那個 ⛅ 就是答案。",
+        "explanationZh": "美好的幾天之後，「遠方出現一片烏雲」——奶奶說，好事後面往往藏著考驗。那個 就是答案。",
         "sentenceZh": "今晚故事的最後，發生了什麼變化？",
         "tags": [
           "story",
@@ -2207,10 +2210,10 @@
         "sentence": "What kind of weather was hitting the ships?",
         "question": "What was the weather like?",
         "options": [
-          "⛈️ a big storm",
-          "☀️ hot and sunny",
-          "❄️ a snowy day",
-          "🌈 a soft rainbow"
+          "a big storm",
+          "hot and sunny",
+          "a snowy day",
+          "a soft rainbow"
         ],
         "optionsZh": [
           "大暴風雨",
@@ -2219,7 +2222,7 @@
           "柔和的彩虹"
         ],
         "correctIndex": 0,
-        "explanationZh": "大風 + 高浪 + 冷雨 → 「大暴風雨」。那個 ⛈️ 就是答案。",
+        "explanationZh": "大風 + 高浪 + 冷雨 「大暴風雨」。那個 就是答案。",
         "tags": [
           "story",
           "ch29",
@@ -2419,10 +2422,10 @@
         "sentence": "What was Odysseus like during the storm?",
         "question": "What was he like?",
         "options": [
-          "🪨 steady like a rock",
-          "🍃 shaking like a leaf",
-          "🐣 hiding like a chick",
-          "💤 sleeping through it"
+          "steady like a rock",
+          "shaking like a leaf",
+          "hiding like a chick",
+          "sleeping through it"
         ],
         "optionsZh": [
           "像石頭一樣穩定",
@@ -2431,7 +2434,7 @@
           "一直睡著"
         ],
         "correctIndex": 0,
-        "explanationZh": "站穩 + 抓舵 + 眼睛不離船頭 → 「像石頭一樣穩定」。那個 🪨 最像他的樣子。",
+        "explanationZh": "站穩 + 抓舵 + 眼睛不離船頭 「像石頭一樣穩定」。那個 最像他的樣子。",
         "sentenceZh": "暴風雨中，奧德修斯是什麼樣的？",
         "tags": [
           "story",
@@ -2715,10 +2718,10 @@
         "sentence": "What is the main lesson from tonight's story?",
         "question": "What does the story teach?",
         "options": [
-          "💰 take more gold",
-          "🤝 be brave together",
-          "🏃 run away fast",
-          "😴 sleep through storms"
+          "take more gold",
+          "be brave together",
+          "run away fast",
+          "sleep through storms"
         ],
         "optionsZh": [
           "拿更多金子",
@@ -2727,7 +2730,7 @@
           "風暴中睡覺"
         ],
         "correctIndex": 1,
-        "explanationZh": "他們互相支持渡過風暴 → 「一起勇敢」。那個 🤝 就是他們學到的事。",
+        "explanationZh": "他們互相支持渡過風暴 「一起勇敢」。那個 就是他們學到的事。",
         "tags": [
           "story",
           "ch29",
@@ -2927,10 +2930,10 @@
         "sentence": "What is the biggest lesson from the whole Odyssey story?",
         "question": "What is the biggest lesson?",
         "options": [
-          "💰 always carry treasure for hard times",
-          "🤝 face hard times with courage together",
-          "🏃 run away when things get difficult",
-          "😴 rest and sleep until trouble is over"
+          "always carry treasure for hard times",
+          "face hard times with courage together",
+          "run away when things get difficult",
+          "rest and sleep until trouble is over"
         ],
         "optionsZh": [
           "遇到困難時帶著寶藏",
@@ -2939,7 +2942,7 @@
           "睡到麻煩過去"
         ],
         "correctIndex": 1,
-        "explanationZh": "整個旅程：互相支持 + 不放棄 + 往家走 → 「一起勇敢面對困難」。那個 🤝 是最重要的答案。",
+        "explanationZh": "整個旅程：互相支持 + 不放棄 + 往家走 「一起勇敢面對困難」。那個 是最重要的答案。",
         "sentenceZh": "整個奧德賽故事，最重要的功課是什麼？",
         "tags": [
           "story",

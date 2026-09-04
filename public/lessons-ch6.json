@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch6-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a swan?",
-        "question": "Which one is a swan?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🦆 duck",
-          "🦅 eagle",
-          "🦢 swan",
-          "🐦 robin"
+          "eagle",
+          "robin",
+          "duck",
+          "swan"
         ],
         "optionsZh": [
-          "鴨子",
           "老鷹",
-          "天鵝",
-          "知更鳥"
+          "知更鳥",
+          "鴨子",
+          "天鵝"
         ],
-        "correctIndex": 2,
-        "explanationZh": "天鵝的英文是 swan 🦢！故事裡六個哥哥被魔法變成了天鵝。",
+        "correctIndex": 3,
+        "explanationZh": "天鵝的英文是 swan ！故事裡六個哥哥被魔法變成了天鵝。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🦢"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch6-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a feather?",
-        "question": "Which one shows a feather?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪶 feather",
-          "🌿 leaf",
-          "🍂 fallen leaf",
-          "🌾 wheat"
+          "fallen leaf",
+          "leaf",
+          "wheat",
+          "feather"
         ],
         "optionsZh": [
-          "羽毛",
-          "葉子",
           "落葉",
-          "麥穗"
+          "葉子",
+          "麥穗",
+          "羽毛"
         ],
-        "correctIndex": 0,
-        "explanationZh": "feather = 羽毛 🪶！故事裡白色羽毛散落在地板上，是天鵝留下的。",
+        "correctIndex": 3,
+        "explanationZh": "feather = 羽毛 ！故事裡白色羽毛散落在地板上，是天鵝留下的。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪶"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch6-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "The girl walked alone into the deep dark wood.",
-        "question": "Which emoji shows a wood or forest?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌲 wood",
-          "🌊 lake",
-          "🏠 house",
-          "🌾 field"
+          "wood",
+          "house",
+          "field",
+          "lake"
         ],
         "optionsZh": [
           "森林",
-          "湖",
           "房子",
-          "田野"
+          "田野",
+          "湖"
         ],
         "correctIndex": 0,
-        "explanationZh": "wood / forest = 森林 🌲！故事裡妹妹走進深黑的大森林去找哥哥們。",
+        "explanationZh": "wood / forest = 森林 ！故事裡妹妹走進深黑的大森林去找哥哥們。",
         "tags": [
           "story",
           "ch6",
           "six-swans",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌲"
       },
       {
         "type": "grammar-mc",
@@ -622,10 +625,10 @@
         "sentence": "What did the boys turn into?",
         "question": "What did the boys turn into?",
         "options": [
-          "🐦 swans",
-          "🐺 wolves",
-          "🦅 eagles",
-          "🐭 mice"
+          "swans",
+          "wolves",
+          "eagles",
+          "mice"
         ],
         "optionsZh": [
           "天鵝",
@@ -1129,16 +1132,16 @@
         "sentence": "What did she sew the shirts from?",
         "question": "What was the shirt material?",
         "options": [
-          "🐑 old wool",
-          "🪨 a stone",
-          "🌸 a flower",
-          "🌿 grass"
+          "old wool",
+          "a stone",
+          "a flower",
+          "dry grass"
         ],
         "optionsZh": [
           "舊羊毛",
           "石頭",
           "花",
-          "草"
+          "乾草"
         ],
         "correctIndex": 2,
         "explanationZh": "用那種尖尖的白色花朵——材料就是「花」。",
@@ -1732,10 +1735,10 @@
         "sentence": "What was always in her hands?",
         "question": "What was in her hands?",
         "options": [
-          "📖 a book",
-          "🗡️ a knife",
-          "🪞 a mirror",
-          "🪡 a needle"
+          "a book",
+          "a knife",
+          "a mirror",
+          "a needle"
         ],
         "optionsZh": [
           "書",
@@ -2239,10 +2242,10 @@
         "sentence": "How did the bride answer the lie?",
         "question": "How did she answer?",
         "options": [
-          "🗣️ with words",
-          "🤐 with silence",
-          "😡 with shouts",
-          "✍️ with writing"
+          "with words",
+          "with silence",
+          "with shouts",
+          "with writing"
         ],
         "optionsZh": [
           "用話",
@@ -2738,10 +2741,10 @@
         "sentence": "When did the six years end?",
         "question": "When did they end?",
         "options": [
-          "🌅 dawn",
-          "🌇 sunset",
-          "🌞 noon",
-          "🌙 midnight"
+          "dawn",
+          "sunset",
+          "noon",
+          "midnight"
         ],
         "optionsZh": [
           "黎明",

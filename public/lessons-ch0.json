@@ -58,28 +58,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l1-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "It is raining outside.",
-        "sentenceZh": "外面正在下雨。",
+        "sentence": "Water is falling from the sky tonight.",
+        "sentenceZh": "今晚有水從天上落下來。",
         "question": "What is the weather?",
         "options": [
-          "🌧️ rain",
-          "☀️ sun",
-          "❄️ snow",
-          "🌈 rainbow"
+          "sun",
+          "rain",
+          "snow",
+          "wind"
         ],
         "optionsZh": [
-          "雨",
           "太陽",
+          "雨",
           "雪",
-          "彩虹"
+          "風"
         ],
-        "correctIndex": 0,
-        "explanationZh": "rain = 雨 🌧️。那個晚上雨下得好大。",
+        "correctIndex": 1,
+        "explanationZh": "rain = 雨。那個晚上雨下得好大。",
         "tags": [
           "story",
           "ch0",
@@ -145,57 +145,58 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch0-l1-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a door?",
-        "question": "Which one is a door?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🚪 door",
-          "🪟 window",
-          "🛏️ bed",
-          "🪑 chair"
+          "window",
+          "bed",
+          "door",
+          "chair"
         ],
         "optionsZh": [
-          "門",
           "窗戶",
           "床",
+          "門",
           "椅子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "door = 門 🚪。那個小小的聲音，就是從門外傳來的。",
+        "correctIndex": 2,
+        "explanationZh": "door = 門。那個小小的聲音，就是從門外傳來的。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🚪"
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l1-le2",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "I walked to the door.",
-        "sentenceZh": "我走到門邊。",
+        "sentence": "Grandma stood up and walked to the front of the house.",
+        "sentenceZh": "奶奶站起來,走到屋子前面。",
         "question": "Where did Grandma walk?",
         "options": [
-          "🚪 to the door",
-          "🌳 to the tree",
-          "🚗 to the car",
-          "🏫 to school"
+          "to the door",
+          "to the car",
+          "to the tree",
+          "to school"
         ],
         "optionsZh": [
           "到門邊",
-          "到樹下",
           "到車子旁",
+          "到樹下",
           "到學校"
         ],
         "correctIndex": 0,
-        "explanationZh": "奶奶輕輕走向門邊。是誰在外面呢？",
+        "explanationZh": "door = 門。奶奶走到門邊,把門打開了。",
         "tags": [
           "story",
           "ch0",
@@ -277,28 +278,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l2-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The cat is wet.",
-        "sentenceZh": "貓咪濕濕的。",
+        "sentence": "Mochi came in from the rain. Her fur was all wet.",
+        "sentenceZh": "Mochi 從雨裡走了進來,身上的毛全都濕透了。",
         "question": "Who is wet?",
         "options": [
-          "🐱 cat",
-          "🐶 dog",
-          "🐦 bird",
-          "🐰 rabbit"
+          "a bird",
+          "a rabbit",
+          "a cat",
+          "a dog"
         ],
         "optionsZh": [
-          "貓",
-          "狗",
           "鳥",
-          "兔子"
+          "兔子",
+          "貓",
+          "狗"
         ],
-        "correctIndex": 0,
-        "explanationZh": "cat = 貓 🐱。淋濕的是一隻小貓咪。",
+        "correctIndex": 2,
+        "explanationZh": "cat = 貓。Mochi 是一隻三花貓,她被雨淋濕了。",
         "tags": [
           "story",
           "ch0",
@@ -335,33 +336,34 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch0-l2-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one means wet?",
-        "question": "Which one means wet?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "💧 wet",
-          "🔥 hot",
-          "🌸 flower",
-          "⭐ star"
+          "flower",
+          "star",
+          "hot",
+          "wet"
         ],
         "optionsZh": [
-          "濕的",
-          "熱的",
           "花",
-          "星星"
+          "星星",
+          "熱的",
+          "濕的"
         ],
-        "correctIndex": 0,
-        "explanationZh": "wet = 濕的 💧。小貓淋了雨，全身濕答答。",
+        "correctIndex": 3,
+        "explanationZh": "wet = 濕的。小貓淋了雨，全身濕答答。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "💧"
       },
       {
         "type": "listen-mc",
@@ -511,28 +513,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l3-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The cat drinks the milk.",
-        "sentenceZh": "小貓喝牛奶。",
+        "sentence": "Grandma put a small bowl of something white on the floor.",
+        "sentenceZh": "奶奶把一小碗白白的東西放在地板上。",
         "question": "What does the cat drink?",
         "options": [
-          "🥛 milk",
-          "💧 water",
-          "🧃 juice",
-          "🍵 tea"
+          "water",
+          "tea",
+          "juice",
+          "milk"
         ],
         "optionsZh": [
-          "牛奶",
           "水",
+          "茶",
           "果汁",
-          "茶"
+          "牛奶"
         ],
-        "correctIndex": 0,
-        "explanationZh": "milk = 牛奶 🥛。溫溫的牛奶，讓小貓的肚子暖暖的。",
+        "correctIndex": 3,
+        "explanationZh": "milk = 牛奶。奶奶倒了一小碗牛奶給小貓。",
         "tags": [
           "story",
           "ch0",
@@ -563,10 +565,10 @@
         "sentence": "Which one can we eat?",
         "question": "Which one can we eat?",
         "options": [
-          "🐟 fish",
-          "🪨 rock",
-          "👟 shoe",
-          "📚 book"
+          "fish",
+          "rock",
+          "shoe",
+          "book"
         ],
         "optionsZh": [
           "魚",
@@ -575,7 +577,7 @@
           "書"
         ],
         "correctIndex": 0,
-        "explanationZh": "fish = 魚 🐟，可以吃；石頭、鞋子、書可不能吃呀！",
+        "explanationZh": "fish = 魚 ，可以吃；石頭、鞋子、書可不能吃呀！",
         "tags": [
           "story",
           "ch0",
@@ -717,28 +719,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l4-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Mochi wants to go out.",
-        "sentenceZh": "Mochi 想要出去。",
+        "sentence": "Mochi sat by the door and looked at the garden.",
+        "sentenceZh": "Mochi 坐在門邊,望著外面的院子。",
         "question": "What does Mochi want?",
         "options": [
-          "🌙 go out",
-          "😴 sleep",
-          "🍽️ eat",
-          "🎾 play"
+          "to sleep",
+          "to go out",
+          "to eat",
+          "to play"
         ],
         "optionsZh": [
-          "出去",
           "睡覺",
+          "出去",
           "吃飯",
           "玩球"
         ],
-        "correctIndex": 0,
-        "explanationZh": "go out = 出去。夜晚的街道，也是 Mochi 的家。",
+        "correctIndex": 1,
+        "explanationZh": "go out = 出去。Mochi 一直盯著門外看,她想出去。",
         "tags": [
           "story",
           "ch0",
@@ -761,33 +763,34 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch0-l4-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is the moon?",
-        "question": "Which one is the moon?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌙 moon",
-          "☀️ sun",
-          "⭐ star",
-          "☁️ cloud"
+          "sun",
+          "star",
+          "moon",
+          "cloud"
         ],
         "optionsZh": [
-          "月亮",
           "太陽",
           "星星",
+          "月亮",
           "雲"
         ],
-        "correctIndex": 0,
-        "explanationZh": "moon = 月亮 🌙。Mochi 最喜歡在月亮下散步了。",
+        "correctIndex": 2,
+        "explanationZh": "moon = 月亮。Mochi 最喜歡在月亮下散步了。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🌙"
       },
       {
         "type": "listen-mc",
@@ -922,28 +925,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l5-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Mochi can jump very high.",
-        "sentenceZh": "Mochi 可以跳得好高。",
+        "sentence": "Mochi went from the floor to the top of the shelf in one move.",
+        "sentenceZh": "Mochi 一下子就從地板上到了架子的最上面。",
         "question": "What can Mochi do?",
         "options": [
-          "🦘 jump",
-          "🏊 swim",
-          "✈️ fly",
-          "🚗 drive"
+          "swim",
+          "fly",
+          "drive",
+          "jump"
         ],
         "optionsZh": [
-          "跳",
           "游泳",
           "飛",
-          "開車"
+          "開車",
+          "跳"
         ],
-        "correctIndex": 0,
-        "explanationZh": "jump = 跳。Mochi 輕輕一跳，就上了矮牆。",
+        "correctIndex": 3,
+        "explanationZh": "jump = 跳。Mochi 跳得很高,一下就上了架子。",
         "tags": [
           "story",
           "ch0",
@@ -995,33 +998,34 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch0-l5-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a wall?",
-        "question": "Which one is a wall?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🧱 wall",
-          "🚪 door",
-          "🪟 window",
-          "🌳 tree"
+          "window",
+          "wall",
+          "door",
+          "tree"
         ],
         "optionsZh": [
+          "窗戶",
           "牆",
           "門",
-          "窗戶",
           "樹"
         ],
-        "correctIndex": 0,
-        "explanationZh": "wall = 牆 🧱。Mochi 最喜歡的位子，就在矮牆上。",
+        "correctIndex": 1,
+        "explanationZh": "wall = 牆。Mochi 最喜歡的位子，就在矮牆上。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🧱"
       },
       {
         "type": "narration",
@@ -1098,28 +1102,28 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l6-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Hana is a dog.",
-        "sentenceZh": "Hana 是一隻狗。",
+        "sentence": "Hana wags her tail and barks at the gate.",
+        "sentenceZh": "Hana 搖著尾巴,對著大門汪汪叫。",
         "question": "What is Hana?",
         "options": [
-          "🐶 a dog",
-          "🐱 a cat",
-          "🐭 a mouse",
-          "🐮 a cow"
+          "a cat",
+          "a mouse",
+          "a dog",
+          "a cow"
         ],
         "optionsZh": [
-          "狗",
           "貓",
           "老鼠",
+          "狗",
           "牛"
         ],
-        "correctIndex": 0,
-        "explanationZh": "Hana 是狗狗 🐶，Mochi 是貓咪，後來他們成了好朋友。",
+        "correctIndex": 2,
+        "explanationZh": "dog = 狗。會搖尾巴、會汪汪叫的 Hana 是一隻狗。",
         "tags": [
           "story",
           "ch0",
@@ -1171,18 +1175,18 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch0-l6-ep1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a book?",
-        "question": "Which one is a book?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "📖 book",
-          "🥛 milk",
-          "🧦 sock",
-          "🪑 chair"
+          "book",
+          "milk",
+          "sock",
+          "chair"
         ],
         "optionsZh": [
           "書",
@@ -1191,13 +1195,14 @@
           "椅子"
         ],
         "correctIndex": 0,
-        "explanationZh": "book = 書 📖。奶奶的書裡，住著好多好多故事。",
+        "explanationZh": "book = 書。奶奶的書裡，住著好多好多故事。",
         "tags": [
           "story",
           "ch0",
           "ground-floor",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "📖"
       },
       {
         "type": "comprehension",
@@ -1367,19 +1372,19 @@
         ]
       },
       {
-        "type": "listen-emoji",
+        "type": "listen-mc",
         "id": "kt-ch0-l7-le1",
         "level": "A1",
         "difficulty": "easy",
         "speaker": "grandma",
-        "sentence": "Goodnight, Mochi. Goodnight, Hana.",
-        "sentenceZh": "晚安，Mochi。晚安，Hana。",
+        "sentence": "Grandma turns off the light and closes the bedroom door.",
+        "sentenceZh": "奶奶關掉燈,把房間的門帶上。",
         "question": "What does Grandma say?",
         "options": [
-          "🌙 goodnight",
-          "👋 goodbye",
-          "🌞 good morning",
-          "🍀 good luck"
+          "goodnight",
+          "goodbye",
+          "good morning",
+          "good luck"
         ],
         "optionsZh": [
           "晚安",
@@ -1388,7 +1393,7 @@
           "祝好運"
         ],
         "correctIndex": 0,
-        "explanationZh": "goodnight = 晚安 🌙。故事說完，該說晚安囉。",
+        "explanationZh": "goodnight = 晚安。奶奶關燈前,會跟 Mochi 和 Hana 說晚安。",
         "tags": [
           "story",
           "ch0",

@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch7-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a fish?",
-        "question": "Which one is a fish?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐸 frog",
-          "🐟 fish",
-          "🦢 swan",
-          "🐢 turtle"
+          "turtle",
+          "frog",
+          "fish",
+          "swan"
         ],
         "optionsZh": [
+          "烏龜",
           "青蛙",
           "魚",
-          "天鵝",
-          "烏龜"
+          "天鵝"
         ],
-        "correctIndex": 1,
-        "explanationZh": "fish = 魚 🐟！葉限每天去池塘餵一條神奇的紅鰭魚——這就是故事的開始。",
+        "correctIndex": 2,
+        "explanationZh": "fish = 魚 ！葉限每天去池塘餵一條神奇的紅鰭魚——這就是故事的開始。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐟"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch7-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a knife?",
-        "question": "Which one shows a knife?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🥄 spoon",
-          "🍴 fork",
-          "🥢 chopsticks",
-          "🔪 knife"
+          "knife",
+          "spoon",
+          "chopsticks",
+          "fork"
         ],
         "optionsZh": [
+          "刀",
           "湯匙",
-          "叉子",
           "筷子",
-          "刀"
+          "叉子"
         ],
-        "correctIndex": 3,
-        "explanationZh": "knife = 刀 🔪！後母把刀藏進袖子裡，悄悄走向池塘。",
+        "correctIndex": 0,
+        "explanationZh": "knife = 刀 ！後母把刀藏進袖子裡，悄悄走向池塘。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🔪"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch7-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Which one shows a shoe?",
-        "question": "Which one shows a shoe?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👡 shoe",
-          "👑 crown",
-          "👒 hat",
-          "🧤 glove"
+          "shoe",
+          "hat",
+          "crown",
+          "glove"
         ],
         "optionsZh": [
           "鞋子",
-          "王冠",
           "帽子",
+          "王冠",
           "手套"
         ],
         "correctIndex": 0,
-        "explanationZh": "shoe = 鞋 👡！骨頭給了葉限兩隻小小的金鞋，輕得像葉子一樣。",
+        "explanationZh": "shoe = 鞋 ！骨頭給了葉限兩隻小小的金鞋，輕得像葉子一樣。",
         "tags": [
           "story",
           "ch7",
           "yexian",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "👡"
       },
       {
         "type": "grammar-mc",
@@ -638,10 +641,10 @@
         "sentence": "The next day, Yexian went to the pond. What did she see?",
         "question": "What did she see at the pond?",
         "options": [
-          "💧 empty water",
-          "🐟 her fish",
-          "🌸 new flowers",
-          "⛵ a small boat"
+          "empty water",
+          "her fish",
+          "new flowers",
+          "a small boat"
         ],
         "optionsZh": [
           "空空的水",
@@ -1130,10 +1133,10 @@
         "sentence": "What did Yexian do that night?",
         "question": "What did Yexian do that night?",
         "options": [
-          "🚪 ran far away",
-          "🪏 dug up the bones",
-          "😴 slept all night",
-          "🍚 cooked rice"
+          "ran far away",
+          "dug up the bones",
+          "slept all night",
+          "cooked rice"
         ],
         "optionsZh": [
           "跑得遠遠的",
@@ -1697,10 +1700,10 @@
         "sentence": "How did Yexian feel walking through the festival?",
         "question": "How did she feel?",
         "options": [
-          "😮 curious and a little nervous",
-          "✨ proud and free",
-          "😡 angry and loud",
-          "😴 sleepy and slow"
+          "curious and a little nervous",
+          "proud and free",
+          "angry and loud",
+          "sleepy and slow"
         ],
         "optionsZh": [
           "好奇又有點緊張",
@@ -2180,10 +2183,10 @@
         "sentence": "Where did the gold shoe finally reach?",
         "question": "Where did the shoe travel to?",
         "options": [
-          "🏔️ a mountain monk",
-          "🏝️ an island king",
-          "🏠 the same cave village",
-          "🌊 the sea"
+          "a mountain monk",
+          "an island king",
+          "the same cave village",
+          "the sea"
         ],
         "optionsZh": [
           "山上的和尚那裡",
@@ -2663,10 +2666,10 @@
         "sentence": "What did the king do for Yexian?",
         "question": "What did the king do?",
         "options": [
-          "🍞 gave her bread",
-          "🚢 took her home with him",
-          "📜 wrote her a letter",
-          "🏃 ran away from the palace"
+          "gave her bread",
+          "took her home with him",
+          "wrote her a letter",
+          "ran away from the palace"
         ],
         "optionsZh": [
           "給她麵包",

@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch2-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is an egg?",
-        "question": "Which one is an egg?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🍎 apple",
-          "🥚 egg",
-          "🐟 fish",
-          "🌸 flower"
+          "egg",
+          "apple",
+          "flower",
+          "fish"
         ],
         "optionsZh": [
-          "蘋果",
           "蛋",
-          "魚",
-          "花"
+          "蘋果",
+          "花",
+          "魚"
         ],
-        "correctIndex": 1,
-        "explanationZh": "egg = 蛋 🥚！故事裡鴨媽媽守著一窩蛋，最大的那顆一直遲遲沒有孵出來。",
+        "correctIndex": 0,
+        "explanationZh": "egg = 蛋 ！故事裡鴨媽媽守著一窩蛋，最大的那顆一直遲遲沒有孵出來。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🥚"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch2-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a swan?",
-        "question": "Which one shows a swan?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐧 penguin",
-          "🦅 eagle",
-          "🦢 swan",
-          "🐦 small bird"
+          "penguin",
+          "eagle",
+          "small bird",
+          "swan"
         ],
         "optionsZh": [
           "企鵝",
           "老鷹",
-          "天鵝",
-          "小鳥"
+          "小鳥",
+          "天鵝"
         ],
-        "correctIndex": 2,
-        "explanationZh": "swan = 天鵝 🦢！故事的結局，醜小鴨慢慢長大，竟然變成了一隻美麗的天鵝！",
+        "correctIndex": 3,
+        "explanationZh": "swan = 天鵝 ！故事的結局，醜小鴨慢慢長大，竟然變成了一隻美麗的天鵝！",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🦢"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch2-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The duckling shivered alone in the cold winter.",
-        "question": "Which emoji shows winter?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "☀️ sunny day",
-          "🌸 spring flowers",
-          "❄️ cold winter",
-          "🍂 autumn leaves"
+          "sunny day",
+          "cold winter",
+          "autumn leaves",
+          "spring flowers"
         ],
         "optionsZh": [
           "晴天",
-          "春天的花",
           "冷冷的冬天",
-          "秋天的落葉"
+          "秋天的落葉",
+          "春天的花"
         ],
-        "correctIndex": 2,
-        "explanationZh": "winter = 冬天 ❄️！醜小鴨獨自一人在冰冷的冬天裡發抖，好可憐喔。",
+        "correctIndex": 1,
+        "explanationZh": "winter = 冬天 ！醜小鴨獨自一人在冰冷的冬天裡發抖，好可憐喔。",
         "tags": [
           "story",
           "ch2",
           "ugly-duckling",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "❄️"
       },
       {
         "type": "grammar-mc",
@@ -707,16 +710,16 @@
         "sentence": "How did the grey duckling feel now?",
         "question": "How did he feel?",
         "options": [
-          "😴 getting very sleepy",
-          "😄 happy",
-          "😭 alone",
-          "🎉 proud"
+          "getting very sleepy",
+          "happy",
+          "alone",
+          "proud"
         ],
         "optionsZh": [
-          "😴 快要睡著了",
-          "😄 開心",
-          "😭 孤單",
-          "🎉 驕傲"
+          "快要睡著了",
+          "開心",
+          "孤單",
+          "驕傲"
         ],
         "correctIndex": 2,
         "explanationZh": "被啄、被追、被嘲笑，還沒有人站在他這邊——這麼多人欺負他，只剩下「孤單」了。",
@@ -1220,16 +1223,16 @@
         "sentence": "What was the loud sound?",
         "question": "What was the sound?",
         "options": [
-          "🐦 birds singing",
-          "🌧️ rain",
-          "🔫 gunshots",
-          "🎵 music"
+          "birds singing",
+          "rain",
+          "gunshots",
+          "music"
         ],
         "optionsZh": [
-          "🐦 鳥叫聲",
-          "🌧️ 雨聲",
-          "🔫 槍聲",
-          "🎵 音樂聲"
+          "鳥叫聲",
+          "雨聲",
+          "槍聲",
+          "音樂聲"
         ],
         "correctIndex": 2,
         "explanationZh": "響亮的爆裂聲從樹叢裡傳出來，又突然又嚇人——這就是「槍聲」！獵人來了。",
@@ -1828,16 +1831,16 @@
         "sentence": "The wind under the door felt sharper than the cat's claws on his back.",
         "question": "What is waiting outside?",
         "options": [
-          "🏖️ beach",
-          "☀️ warm sun",
-          "🌸 spring garden",
-          "❄️ cold night"
+          "beach",
+          "warm sun",
+          "spring garden",
+          "cold night"
         ],
         "optionsZh": [
-          "🏖️ 海灘",
-          "☀️ 暖陽",
-          "🌸 春天花園",
-          "❄️ 冷夜"
+          "海灘",
+          "暖陽",
+          "春天花園",
+          "冷夜"
         ],
         "correctIndex": 3,
         "explanationZh": "門縫的風比貓爪還刺——外面一定又黑又冷，所以等著他的是「冷夜」。",
@@ -2341,16 +2344,16 @@
         "sentence": "He had never been close to people, and small hands reached for him.",
         "question": "How did he feel when the children ran to him?",
         "options": [
-          "😋 hungry",
-          "😄 happy",
-          "😴 getting very sleepy",
-          "😨 scared"
+          "hungry",
+          "happy",
+          "getting very sleepy",
+          "scared"
         ],
         "optionsZh": [
-          "😋 肚子餓",
-          "😄 開心",
-          "😴 快要睡著了",
-          "😨 害怕"
+          "肚子餓",
+          "開心",
+          "快要睡著了",
+          "害怕"
         ],
         "correctIndex": 3,
         "explanationZh": "從來沒跟人靠近過，突然一群小手伸過來——他當然「害怕」！就算人家是好意，也嚇死了。",

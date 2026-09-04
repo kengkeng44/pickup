@@ -91,60 +91,62 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch21-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a spider?",
-        "question": "Which one is a spider?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐝 wasp",
-          "🦋 moth",
-          "🐛 worm",
-          "🕷️ spider"
+          "worm",
+          "moth",
+          "wasp",
+          "spider"
         ],
         "optionsZh": [
-          "黃蜂",
-          "飛蛾",
           "毛毛蟲",
+          "飛蛾",
+          "黃蜂",
           "蜘蛛"
         ],
         "correctIndex": 3,
-        "explanationZh": "蜘蛛的英文是 spider 🕷️！故事的主角阿南西就是一隻小蜘蛛。",
+        "explanationZh": "蜘蛛的英文是 spider ！故事的主角阿南西就是一隻小蜘蛛。",
         "tags": [
           "story",
           "ch21",
           "anansi-spider",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🕷️"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch21-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows the sky?",
-        "question": "Which one shows the sky?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 sea",
-          "🌤️ sky",
-          "🌲 forest",
-          "🏔️ mountain"
+          "sea",
+          "mountain",
+          "forest",
+          "sky"
         ],
         "optionsZh": [
           "海",
-          "天空",
+          "山",
           "森林",
-          "山"
+          "天空"
         ],
-        "correctIndex": 1,
-        "explanationZh": "sky = 天空 🌤️！故事裡所有的故事都放在天上，阿南西要去天空找天神。",
+        "correctIndex": 3,
+        "explanationZh": "sky = 天空 ！故事裡所有的故事都放在天上，阿南西要去天空找天神。",
         "tags": [
           "story",
           "ch21",
           "anansi-spider",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🌤️"
       },
       {
         "type": "picture-mc",
@@ -268,32 +270,33 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch21-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is a hornet?",
-        "question": "Which one is a hornet?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐝 hornet",
-          "🦋 butterfly",
-          "🐛 worm",
-          "🐌 snail"
+          "worm",
+          "hornet",
+          "snail",
+          "butterfly"
         ],
         "optionsZh": [
-          "大黃蜂",
-          "蝴蝶",
           "毛毛蟲",
-          "蝸牛"
+          "大黃蜂",
+          "蝸牛",
+          "蝴蝶"
         ],
-        "correctIndex": 0,
-        "explanationZh": "hornet = 大黃蜂 🐝！故事裡阿南西用一個鍋把大黃蜂騙進去——真聰明！",
+        "correctIndex": 1,
+        "explanationZh": "hornet = 大黃蜂 ！故事裡阿南西用一個鍋把大黃蜂騙進去——真聰明！",
         "tags": [
           "story",
           "ch21",
           "anansi-spider",
           "vocab"
-        ]
+        ],
+        "imageEmoji": "🐝"
       },
       {
         "type": "grammar-mc",
@@ -580,15 +583,15 @@
         "sentence": "What did the hornets do when they heard him?",
         "question": "What did the hornets do?",
         "options": [
-          "😴 fell asleep",
-          "🌊 swam in the rain",
-          "😡 fought him",
-          "🏃 ran into the pot"
+          "fell fast asleep",
+          "swam in the rain",
+          "fought back hard",
+          "ran into the pot"
         ],
         "optionsZh": [
-          "睡著",
+          "沉沉睡著",
           "在雨中游走",
-          "打他",
+          "用力反擊",
           "衝進鍋裡"
         ],
         "correctIndex": 3,
@@ -792,12 +795,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "Anansi put a lid on the pot and smiled.",
-        "question": "Which emoji shows how Anansi feels at this moment?",
+        "question": "Which one shows how Anansi feels at this moment?",
         "options": [
-          "😢 upset",
-          "😴 sleepy",
-          "😰 nervous",
-          "😎 proud"
+          "upset",
+          "sleepy",
+          "nervous",
+          "proud"
         ],
         "optionsZh": [
           "難過",
@@ -1069,10 +1072,10 @@
         "sentence": "What did Anansi do while the python was lying still?",
         "question": "What did Anansi do next?",
         "options": [
-          "🪢 tied him to the stick",
-          "🏃 ran away to his home",
-          "🎵 sang a song for him",
-          "🍞 made some warm bread"
+          "tied him to the stick",
+          "ran away to his home",
+          "sang a song for him",
+          "made some warm bread"
         ],
         "optionsZh": [
           "把他綁在樹枝上",
@@ -1283,10 +1286,10 @@
         "sentence": "The python felt proud, so he lay flat next to the stick.",
         "question": "What feeling did Anansi use against the python?",
         "options": [
-          "🏆 pride",
-          "🥱 boredom",
-          "😱 fear",
-          "😢 sadness"
+          "pride",
+          "boredom",
+          "fear",
+          "sadness"
         ],
         "optionsZh": [
           "驕傲",
@@ -1864,16 +1867,16 @@
         "sentence": "Anansi watched for two days before he set the trap.",
         "question": "What quality does Anansi show here?",
         "options": [
-          "🧩 patience",
-          "🏃 speed",
-          "💪 strength",
-          "😤 anger"
+          "patience",
+          "quickness",
+          "strength",
+          "boldness"
         ],
         "optionsZh": [
           "耐心",
-          "速度",
+          "敏捷",
           "力氣",
-          "憤怒"
+          "膽識"
         ],
         "correctIndex": 0,
         "explanationZh": "兩天都在靜靜觀察——這就是「耐心」的表現!不急不躁,等待最好的時機。",
@@ -2138,10 +2141,10 @@
         "sentence": "How did Anansi feel when he held the box?",
         "question": "How did Anansi feel?",
         "options": [
-          "😴 getting very sleepy",
-          "🌟 proud and happy",
-          "😡 starting to feel mad",
-          "😢 feeling a little sad"
+          "getting very sleepy",
+          "proud and happy",
+          "starting to feel mad",
+          "feeling a little sad"
         ],
         "optionsZh": [
           "快要睡著了",
@@ -2351,10 +2354,10 @@
         "sentence": "The Sky God gave Anansi a wooden box full of all the stories.",
         "question": "What did the deal end with?",
         "options": [
-          "💰 a bag of coins",
-          "📦 a box of stories",
-          "🍎 a basket of fruit",
-          "🗡️ a sharp sword"
+          "a bag of coins",
+          "a box of stories",
+          "a basket of fruit",
+          "a sharp sword"
         ],
         "optionsZh": [
           "一袋錢幣",
@@ -2838,10 +2841,10 @@
         "sentence": "And that is why, even today, there is a tale in every home.",
         "question": "What did Anansi give to the world?",
         "options": [
-          "🌱 seeds for growing",
-          "🏆 a golden trophy",
-          "📖 stories for everyone",
-          "💎 a box of jewels"
+          "seeds for growing",
+          "a golden trophy",
+          "stories for everyone",
+          "a box of jewels"
         ],
         "optionsZh": [
           "種子",

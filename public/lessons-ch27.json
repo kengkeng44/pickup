@@ -94,63 +94,65 @@
       },
       {
         "id": "kt-ch27-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a monkey?",
-        "question": "Which one is a monkey?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐯 tiger",
-          "🐻 bear",
-          "🐒 monkey",
-          "🐼 panda"
+          "panda",
+          "tiger",
+          "monkey",
+          "bear"
         ],
         "optionsZh": [
+          "貓熊",
           "老虎",
-          "熊",
           "猴子",
-          "貓熊"
+          "熊"
         ],
         "correctIndex": 2,
-        "explanationZh": "monkey = 猴子 🐒！故事裡那隻猴子被壓在大石頭下五百年了。",
+        "explanationZh": "monkey = 猴子 ！故事裡那隻猴子被壓在大石頭下五百年了。",
         "tags": [
           "story",
           "ch27",
           "wukong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐒"
       },
       {
         "id": "kt-ch27-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a cloud?",
-        "question": "Which one shows a cloud?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "⭐ star",
-          "🌧️ rain",
-          "🌙 moon",
-          "☁️ cloud"
+          "cloud",
+          "rain",
+          "moon",
+          "star"
         ],
         "optionsZh": [
-          "星星",
+          "雲",
           "雨",
           "月亮",
-          "雲"
+          "星星"
         ],
-        "correctIndex": 3,
-        "explanationZh": "cloud = 雲 ☁️！故事裡的猴子會踩著雲飛行——那叫做筋斗雲。",
+        "correctIndex": 0,
+        "explanationZh": "cloud = 雲 ！故事裡的猴子會踩著雲飛行——那叫做筋斗雲。",
         "tags": [
           "story",
           "ch27",
           "wukong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "☁️"
       },
       {
         "id": "kt-ch27-l1-pm1",
@@ -280,33 +282,34 @@
       },
       {
         "id": "kt-ch27-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The monkey used his magic staff in a fight with a demon.",
-        "question": "Which emoji shows a staff?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🗡️ sword",
-          "🏹 bow",
-          "🪄 staff",
-          "🛡️ shield"
+          "shield",
+          "staff",
+          "bow",
+          "sword"
         ],
         "optionsZh": [
-          "劍",
-          "弓箭",
+          "盾牌",
           "棒子",
-          "盾牌"
+          "弓箭",
+          "劍"
         ],
-        "correctIndex": 2,
-        "explanationZh": "staff = 棒子 🪄！故事裡猴子有一根神奇的金色棒子，可以變大變小。",
+        "correctIndex": 1,
+        "explanationZh": "staff = 棒子 ！故事裡猴子有一根神奇的金色棒子，可以變大變小。",
         "tags": [
           "story",
           "ch27",
           "wukong",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪄"
       },
       {
         "id": "kt-ch27-l2-gm1",
@@ -594,10 +597,10 @@
         "sentence": "How did Sanzang feel leaving his home behind?",
         "question": "How did he feel?",
         "options": [
-          "🥳 only excited",
-          "😡 angry at the king",
-          "🌗 sad but brave",
-          "😴 ready for a nap"
+          "only excited",
+          "angry at the king",
+          "sad but brave",
+          "ready for a nap"
         ],
         "optionsZh": [
           "只是興奮",
@@ -606,7 +609,7 @@
           "想睡覺"
         ],
         "correctIndex": 2,
-        "explanationZh": "離開家很難，但他還是走了——「難過但勇敢」就是他的樣子。那個 🌗 最像他。",
+        "explanationZh": "離開家很難，但他還是走了——「難過但勇敢」就是他的樣子。那個 最像他。",
         "tags": [
           "story",
           "ch27",
@@ -836,10 +839,10 @@
         "sentence": "Sanzang left his home alone at sunrise, heading west with just a horse and a bag.",
         "question": "Which best shows this moment?",
         "options": [
-          "📚 reading books inside a warm room",
-          "🎉 celebrating with a big crowd",
-          "🛌 resting before making a choice",
-          "🌅 setting off alone at dawn"
+          "reading books inside a warm room",
+          "celebrating with a big crowd",
+          "resting before making a choice",
+          "setting off alone at dawn"
         ],
         "optionsZh": [
           "在溫暖房間裡讀書",
@@ -848,7 +851,7 @@
           "獨自在黎明出發"
         ],
         "correctIndex": 3,
-        "explanationZh": "日出時一個人上路——「獨自在黎明出發」，那個 🌅 最像這個時刻。",
+        "explanationZh": "日出時一個人上路——「獨自在黎明出發」，那個 最像這個時刻。",
         "sentenceZh": "三藏在日出時獨自離家，只帶一匹馬和一個包，向西出發。",
         "tags": [
           "story",
@@ -1080,10 +1083,10 @@
         "sentence": "How did Sanzang feel after so many days alone?",
         "question": "How did he feel?",
         "options": [
-          "🎉 super happy and glad",
-          "🎵 wanted to sing all day",
-          "😡 really quite angry now",
-          "😔 lonely but did not stop"
+          "super happy and glad",
+          "wanted to sing all day",
+          "really quite angry now",
+          "lonely but did not stop"
         ],
         "optionsZh": [
           "超開心又高興",
@@ -1092,7 +1095,7 @@
           "孤單但沒停下"
         ],
         "correctIndex": 3,
-        "explanationZh": "孤單，但沒有停下——「孤單但沒停下」就是他走了好多天後的狀態。那個 😔 就是他。",
+        "explanationZh": "孤單，但沒有停下——「孤單但沒停下」就是他走了好多天後的狀態。那個 就是他。",
         "tags": [
           "story",
           "ch27",
@@ -1322,10 +1325,10 @@
         "sentence": "Alone in the cold desert at night, Sanzang kept walking every morning.",
         "question": "Which best shows his inner strength?",
         "options": [
-          "💪 pushing on through hardship",
-          "😴 giving up for a long rest",
-          "🎉 dancing in the cold sand",
-          "🍔 eating a big warm dinner"
+          "pushing on through hardship",
+          "giving up for a long rest",
+          "dancing in the cold sand",
+          "eating a big warm dinner"
         ],
         "optionsZh": [
           "在艱難中堅持前進",
@@ -1334,7 +1337,7 @@
           "吃一頓豐盛的熱晚餐"
         ],
         "correctIndex": 0,
-        "explanationZh": "冷、孤單、腳痛——每天還是繼續走，「在艱難中堅持前進」，那個 💪 最像三藏。",
+        "explanationZh": "冷、孤單、腳痛——每天還是繼續走，「在艱難中堅持前進」，那個 最像三藏。",
         "sentenceZh": "在冷沙漠裡一個人，三藏每天早上還是繼續走。",
         "tags": [
           "story",
@@ -1669,10 +1672,10 @@
         "sentence": "How did Sanzang feel about the strange voice?",
         "question": "How did he feel?",
         "options": [
-          "👂 careful and curious",
-          "🎉 super happy and glad",
-          "😡 starting to feel mad",
-          "😴 getting very sleepy"
+          "careful and curious",
+          "super happy and glad",
+          "starting to feel mad",
+          "getting very sleepy"
         ],
         "optionsZh": [
           "小心又好奇",
@@ -1681,7 +1684,7 @@
           "快要睡著了"
         ],
         "correctIndex": 0,
-        "explanationZh": "「小心又好奇」——那個聲音好奇怪，他想知道是誰，但也要小心。那個 👂 就是他的感受。",
+        "explanationZh": "「小心又好奇」——那個聲音好奇怪，他想知道是誰，但也要小心。那個 就是他的感受。",
         "tags": [
           "story",
           "ch27",
@@ -1911,10 +1914,10 @@
         "sentence": "A voice called from under the rocks. Sanzang's horse would not move.",
         "question": "Which best shows the mood here?",
         "options": [
-          "🎉 a fun surprise for everyone",
-          "😨 something eerie and unexplained",
-          "😴 a quiet and boring afternoon",
-          "🍎 a normal stop for snacks"
+          "a fun surprise for everyone",
+          "something eerie and unexplained",
+          "a quiet and boring afternoon",
+          "a normal stop for snacks"
         ],
         "optionsZh": [
           "一個讓大家開心的驚喜",
@@ -1923,7 +1926,7 @@
           "一次普通的點心休息"
         ],
         "correctIndex": 1,
-        "explanationZh": "石頭下有聲音、馬不肯走——「有些詭異、難以解釋」，那個 😨 最像這個時刻的氣氛。",
+        "explanationZh": "石頭下有聲音、馬不肯走——「有些詭異、難以解釋」，那個 最像這個時刻的氣氛。",
         "sentenceZh": "石頭下傳來聲音，三藏的馬不肯走。",
         "tags": [
           "story",
@@ -2155,10 +2158,10 @@
         "sentence": "How did Sanzang feel toward the trapped monkey?",
         "question": "How did he feel?",
         "options": [
-          "😡 starting to feel mad",
-          "💗 kind and sorry for him",
-          "😴 getting very sleepy",
-          "🎉 simply feeling happy"
+          "starting to feel mad",
+          "kind and sorry for him",
+          "getting very sleepy",
+          "simply feeling happy"
         ],
         "optionsZh": [
           "開始覺得生氣",
@@ -2167,7 +2170,7 @@
           "只是覺得開心"
         ],
         "correctIndex": 1,
-        "explanationZh": "三藏心軟，替他難過——「覺得溫柔，替他難過」就是他的感受。那個 💗 就是他的心。",
+        "explanationZh": "三藏心軟，替他難過——「覺得溫柔，替他難過」就是他的感受。那個 就是他的心。",
         "tags": [
           "story",
           "ch27",
@@ -2397,10 +2400,10 @@
         "sentence": "A monkey had been locked under a mountain for five hundred years. He said sorry.",
         "question": "Which best shows the monkey's feeling?",
         "options": [
-          "🎉 happy and celebrating a win",
-          "😡 angry and ready to attack",
-          "😔 sorry and wanting to change",
-          "😴 tired and ready to sleep more"
+          "happy and celebrating a win",
+          "angry and ready to attack",
+          "sorry and wanting to change",
+          "tired and ready to sleep more"
         ],
         "optionsZh": [
           "開心，慶祝勝利",
@@ -2409,7 +2412,7 @@
           "累了，想繼續睡"
         ],
         "correctIndex": 2,
-        "explanationZh": "說了「now I am sorry」——「後悔，想要改變」，那個 😔 最像猴子此刻的心情。",
+        "explanationZh": "說了「now I am sorry」——「後悔，想要改變」，那個 最像猴子此刻的心情。",
         "sentenceZh": "一隻猴子被困在山下五百年，他說對不起了。",
         "tags": [
           "story",
@@ -2641,10 +2644,10 @@
         "sentence": "How did Sanzang feel about his new student?",
         "question": "How did he feel?",
         "options": [
-          "😢 sad and tired",
-          "😡 starting to feel mad",
-          "🤝 warm and not alone",
-          "😴 just very sleepy now"
+          "sad and tired",
+          "starting to feel mad",
+          "warm and not alone",
+          "just very sleepy now"
         ],
         "optionsZh": [
           "難過又累",
@@ -2653,7 +2656,7 @@
           "現在只是想睡"
         ],
         "correctIndex": 2,
-        "explanationZh": "他有了徒弟，不再一個人——「溫暖，不再孤單」就是三藏的感受。那個 🤝 就是他們的連結。",
+        "explanationZh": "他有了徒弟，不再一個人——「溫暖，不再孤單」就是三藏的感受。那個 就是他們的連結。",
         "tags": [
           "story",
           "ch27",
@@ -2883,10 +2886,10 @@
         "sentence": "Wukong was free. He bowed to Sanzang and said he would protect him.",
         "question": "Which best shows the monkey's heart at this moment?",
         "options": [
-          "🏃 running away to be alone",
-          "😡 still angry and resentful",
-          "😴 too tired to do anything",
-          "🙏 grateful and ready to serve"
+          "running away to be alone",
+          "still angry and resentful",
+          "too tired to do anything",
+          "grateful and ready to serve"
         ],
         "optionsZh": [
           "跑走想一個人待著",
@@ -2895,7 +2898,7 @@
           "感激，準備好服務"
         ],
         "correctIndex": 3,
-        "explanationZh": "鞠躬、說要保護三藏——「感激，準備好服務」，那個 🙏 最像悟空此刻的心情。",
+        "explanationZh": "鞠躬、說要保護三藏——「感激，準備好服務」，那個 最像悟空此刻的心情。",
         "sentenceZh": "悟空自由了，他向三藏鞠躬，說他會保護師父。",
         "tags": [
           "story",

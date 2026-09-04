@@ -94,63 +94,65 @@
       },
       {
         "id": "kt-ch4-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a camel?",
-        "question": "Which one is a camel?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐴 horse",
-          "🐐 goat",
-          "🐪 camel",
-          "🦌 deer"
+          "goat",
+          "deer",
+          "horse",
+          "camel"
         ],
         "optionsZh": [
-          "馬",
           "山羊",
-          "駱駝",
-          "鹿"
+          "鹿",
+          "馬",
+          "駱駝"
         ],
-        "correctIndex": 2,
-        "explanationZh": "camel = 駱駝 🐪！故事裡最懶的動物就是駱駝——他什麼都不做，只說「Humph！」",
+        "correctIndex": 3,
+        "explanationZh": "camel = 駱駝 ！故事裡最懶的動物就是駱駝——他什麼都不做，只說「Humph！」",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐪"
       },
       {
         "id": "kt-ch4-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a desert?",
-        "question": "Which one shows a desert?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 ocean",
-          "🏔️ mountain",
-          "🌲 forest",
-          "🏜️ desert"
+          "forest",
+          "ocean",
+          "desert",
+          "mountain"
         ],
         "optionsZh": [
-          "海洋",
-          "山",
           "森林",
-          "沙漠"
+          "海洋",
+          "沙漠",
+          "山"
         ],
-        "correctIndex": 3,
-        "explanationZh": "desert = 沙漠 🏜️！故事裡的駱駝就住在廣闊沙漠的正中央，一個人都沒有。",
+        "correctIndex": 2,
+        "explanationZh": "desert = 沙漠 ！故事裡的駱駝就住在廣闊沙漠的正中央，一個人都沒有。",
         "tags": [
           "story",
           "ch4",
           "camel-hump",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏜️"
       },
       {
         "id": "kt-ch4-l1-pm1",
@@ -280,25 +282,25 @@
       },
       {
         "id": "kt-ch4-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The Camel was very lazy and did nothing all day.",
-        "question": "Which emoji best shows 'lazy'?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏃 running fast",
-          "😴 sleeping all day",
-          "📚 reading a book",
-          "🏋️ lifting weights"
+          "sleeping all day",
+          "running fast",
+          "reading a book",
+          "lifting weights"
         ],
         "optionsZh": [
-          "快速奔跑",
           "整天睡覺",
+          "快速奔跑",
           "看書",
           "舉重"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "explanationZh": "lazy = 懶。整天睡覺、什麼都不做——這就是「懶」的樣子！故事裡的駱駝就是這樣。",
         "tags": [
           "story",
@@ -306,7 +308,8 @@
           "camel-hump",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "😴"
       },
       {
         "id": "kt-ch4-l2-gm1",
@@ -579,10 +582,10 @@
         "sentence": "What came toward them across the desert?",
         "question": "What came toward them?",
         "options": [
-          "🚂 a long train",
-          "🌧️ a rain cloud",
-          "🦅 a big eagle",
-          "☁️ a cloud of dust"
+          "a long train",
+          "a rain cloud",
+          "a big eagle",
+          "a cloud of dust"
         ],
         "optionsZh": [
           "一列長長的火車",
@@ -694,12 +697,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "And so the three grew very tired and very, very angry.",
-        "question": "Which pair of emojis best shows how the three felt?",
+        "question": "Which pair best shows how the three felt?",
         "options": [
-          "😢😟 sad and worried",
-          "😫😡 tired and furious",
-          "😴😌 sleepy and calm",
-          "🤔😊 thinking and happy"
+          "sad and worried",
+          "tired and furious",
+          "sleepy and calm",
+          "thinking and happy"
         ],
         "optionsZh": [
           "傷心又擔心",
@@ -1256,12 +1259,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn rubbed his chin and thought for a long while.",
-        "question": "Which emoji best shows what the Djinn was doing?",
+        "question": "Which one best shows what the Djinn was doing?",
         "options": [
-          "😂 laughing loudly",
-          "😴 sleeping deeply",
-          "🤔 thinking hard",
-          "😰 feeling very scared"
+          "laughing loudly",
+          "sleeping deeply",
+          "thinking hard",
+          "feeling very scared"
         ],
         "optionsZh": [
           "大聲地笑",
@@ -1741,10 +1744,10 @@
         "sentence": "What was the Djinn about to do?",
         "question": "What was he about to do?",
         "options": [
-          "📚 read a book",
-          "🍞 cook some bread",
-          "🛏️ take a nap",
-          "✨ make a magic"
+          "read a book",
+          "cook some bread",
+          "take a nap",
+          "make a magic"
         ],
         "optionsZh": [
           "看一本書",
@@ -1856,12 +1859,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Djinn watched him for many slow, quiet minutes.",
-        "question": "Which emoji best shows how the Djinn watched the Camel?",
+        "question": "Which one best shows how the Djinn watched the Camel?",
         "options": [
-          "😡 angry and ready to shout",
-          "😌 calm and patient",
-          "😱 shocked and jumping back",
-          "🤣 laughing so hard it hurts"
+          "angry and ready to shout",
+          "calm and patient",
+          "shocked and jumping back",
+          "laughing so hard it hurts"
         ],
         "optionsZh": [
           "生氣、準備大喊",
@@ -2385,12 +2388,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "It puffed up and puffed up and puffed up some more.",
-        "question": "Which emoji best shows what happened to the Camel's back?",
+        "question": "Which one best shows what happened to the Camel's back?",
         "options": [
-          "🔵 turning round and blue",
-          "📈 growing bigger and bigger",
-          "💧 melting slowly away",
-          "💨 disappearing into the wind"
+          "turning round and blue",
+          "growing bigger and bigger",
+          "melting slowly away",
+          "disappearing into the wind"
         ],
         "optionsZh": [
           "變得又圓又藍",
@@ -2914,12 +2917,12 @@
         "difficulty": "easy",
         "speaker": "narrator",
         "sentence": "The Camel hung his head and looked at the sand for a long time.",
-        "question": "Which emoji best shows how the Camel felt?",
+        "question": "Which one best shows how the Camel felt?",
         "options": [
-          "😤 angry and defiant",
-          "😔 ashamed and sad",
-          "😂 laughing at himself",
-          "😴 bored and sleepy"
+          "angry and defiant",
+          "ashamed and sad",
+          "laughing at himself",
+          "bored and sleepy"
         ],
         "optionsZh": [
           "生氣又不服氣",

@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch13-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a wolf?",
-        "question": "Which one is a wolf?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐺 wolf",
-          "🦊 fox",
-          "🐻 bear",
-          "🐶 dog"
+          "bear",
+          "fox",
+          "wolf",
+          "dog"
         ],
         "optionsZh": [
-          "狼",
-          "狐狸",
           "熊",
+          "狐狸",
+          "狼",
           "狗"
         ],
-        "correctIndex": 0,
-        "explanationZh": "wolf = 狼 🐺！故事裡，森林裡藏著一隻大野狼，等著小紅帽出現。",
+        "correctIndex": 2,
+        "explanationZh": "wolf = 狼 ！故事裡，森林裡藏著一隻大野狼，等著小紅帽出現。",
         "tags": [
           "story",
           "ch13",
           "red-riding-hood",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐺"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch13-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a forest?",
-        "question": "Which one shows a forest?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏜️ desert",
-          "🌊 ocean",
-          "🌲 forest",
-          "🏔️ mountain"
+          "forest",
+          "ocean",
+          "desert",
+          "mountain"
         ],
         "optionsZh": [
-          "沙漠",
-          "海洋",
           "森林",
+          "海洋",
+          "沙漠",
           "山"
         ],
-        "correctIndex": 2,
-        "explanationZh": "forest = 森林 🌲！小紅帽走過森林去奶奶家，森林裡就住著那隻大野狼。",
+        "correctIndex": 0,
+        "explanationZh": "forest = 森林 ！小紅帽走過森林去奶奶家，森林裡就住著那隻大野狼。",
         "tags": [
           "story",
           "ch13",
           "red-riding-hood",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌲"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch13-l2-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "The wolf had long sharp teeth under his soft fur.",
-        "question": "Which emoji shows teeth?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "👅 tongue",
-          "👁️ eye",
-          "👂 ear",
-          "🦷 teeth"
+          "eye",
+          "ear",
+          "teeth",
+          "tongue"
         ],
         "optionsZh": [
-          "舌頭",
           "眼睛",
           "耳朵",
-          "牙齒"
+          "牙齒",
+          "舌頭"
         ],
-        "correctIndex": 3,
-        "explanationZh": "teeth = 牙齒 🦷！狼柔軟的毛皮下，藏著又長又尖的牙齒——小紅帽快看清楚！",
+        "correctIndex": 2,
+        "explanationZh": "teeth = 牙齒 ！狼柔軟的毛皮下，藏著又長又尖的牙齒——小紅帽快看清楚！",
         "tags": [
           "story",
           "ch13",
           "red-riding-hood",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🦷"
       },
       {
         "type": "grammar-mc",
@@ -580,10 +583,10 @@
         "sentence": "Should you tell a stranger where you are going?",
         "question": "Should you tell strangers?",
         "options": [
-          "❌ no never",
-          "✅ yes always",
-          "🤔 only sometimes",
-          "🤷 it does not matter"
+          "no never",
+          "yes always",
+          "only sometimes",
+          "it does not matter"
         ],
         "optionsZh": [
           "絕對不能說",
@@ -743,10 +746,10 @@
         "sentenceZh": "「她的家在三棵大橡樹旁邊。她今天生病了。」",
         "question": "What dangerous information did the girl share?",
         "options": [
-          "🎵 her favourite song",
-          "🎨 the colour of her hood",
-          "🌸 the flowers she picked",
-          "📍 grandma's exact location"
+          "her favourite song",
+          "the colour of her hood",
+          "the flowers she picked",
+          "grandma's exact location"
         ],
         "optionsZh": [
           "她最愛的歌",
@@ -857,10 +860,10 @@
         "sentenceZh": "你應該告訴陌生人你要去哪裡嗎？",
         "question": "What is the right thing to do?",
         "options": [
-          "✅ always share freely",
-          "🤔 share only the address",
-          "❌ never tell a stranger",
-          "🤷 it depends on your mood"
+          "always share freely",
+          "share only the address",
+          "never tell a stranger",
+          "it depends on your mood"
         ],
         "optionsZh": [
           "隨時自由說",
@@ -1084,10 +1087,10 @@
         "sentence": "How did grandma feel?",
         "question": "How did grandma feel?",
         "options": [
-          "💪 strong and fine",
-          "🤒 sick and weak",
-          "😄 happy and ready",
-          "😡 starting to feel mad"
+          "strong and fine",
+          "sick and weak",
+          "happy and ready",
+          "starting to feel mad"
         ],
         "optionsZh": [
           "強壯沒事",
@@ -1247,16 +1250,16 @@
         "sentenceZh": "「開門，是我，小紅帽，」狼說。",
         "question": "What was the wolf doing at the door?",
         "options": [
-          "🎭 pretending to be the girl",
-          "🙋 asking for water",
-          "📦 delivering a package",
-          "🎵 singing a lullaby"
+          "pretending to be the girl",
+          "asking for some water",
+          "delivering a package",
+          "singing a soft lullaby"
         ],
         "optionsZh": [
           "假裝成那個女孩",
-          "要水喝",
+          "討一點水喝",
           "送包裹",
-          "唱搖籃曲"
+          "唱著輕柔的搖籃曲"
         ],
         "correctIndex": 0,
         "explanationZh": "「是我，小紅帽」——狼假冒女孩的聲音，是在「假裝成那個女孩」。",
@@ -1361,10 +1364,10 @@
         "sentenceZh": "「進來吧，孩子，」奶奶從床上喊。",
         "question": "How was grandma feeling when she called out?",
         "options": [
-          "💪 strong and alert now",
-          "😊 happy and fully well",
-          "😡 starting to feel mad",
-          "🤒 sick and unaware"
+          "strong and alert now",
+          "happy and fully well",
+          "starting to feel mad",
+          "sick and unaware"
         ],
         "optionsZh": [
           "強壯又清醒",
@@ -1617,10 +1620,10 @@
         "sentence": "How did grandma's room feel?",
         "question": "How did the room feel?",
         "options": [
-          "☀️ bright and warm",
-          "🌑 dark and odd",
-          "🎉 noisy and full",
-          "🌸 sweet and clean"
+          "bright and warm",
+          "dark and odd",
+          "noisy and full",
+          "sweet and clean"
         ],
         "optionsZh": [
           "明亮溫暖",
@@ -1838,10 +1841,10 @@
         "sentenceZh": "房間很暗，有什麼地方不對。",
         "question": "What feeling did the girl get in grandma's room?",
         "options": [
-          "🌞 bright and welcome",
-          "⚠️ dark and unsettling",
-          "🌸 sweet and cosy",
-          "🎉 fun and cheerful"
+          "bright and welcome",
+          "dark and unsettling",
+          "sweet and cosy",
+          "fun and cheerful"
         ],
         "optionsZh": [
           "明亮又歡迎",
@@ -1952,10 +1955,10 @@
         "sentenceZh": "大耳朵。大眼睛。大牙齒……這真的是奶奶嗎？",
         "question": "What might the girl be feeling now?",
         "options": [
-          "😰 starting to feel afraid",
-          "😊 happy to see grandma",
-          "😴 ready to fall asleep",
-          "😂 finding it funny"
+          "starting to feel afraid",
+          "happy to see grandma",
+          "ready to fall asleep",
+          "finding it funny"
         ],
         "optionsZh": [
           "開始覺得害怕",
@@ -2179,10 +2182,10 @@
         "sentence": "Who came to help in time?",
         "question": "Who came to help?",
         "options": [
-          "👮 a police officer",
-          "🧙 a wizard",
-          "👨‍🌾 a farmer",
-          "🏹 a kind huntsman"
+          "a police officer",
+          "a wizard",
+          "a farmer",
+          "a kind huntsman"
         ],
         "optionsZh": [
           "警察叔叔",
@@ -2342,10 +2345,10 @@
         "sentenceZh": "狼跳起來，把女孩也吞進去了。",
         "question": "What happened to the girl?",
         "options": [
-          "🏃 ran out of the house",
-          "🛌 hid under the bed",
-          "😱 got swallowed by the wolf",
-          "🤝 shook hands with the wolf"
+          "ran out of the house",
+          "hid under the bed",
+          "got swallowed by the wolf",
+          "shook hands with the wolf"
         ],
         "optionsZh": [
           "跑出了屋子",
@@ -2488,10 +2491,10 @@
         "sentenceZh": "獵人打開門，握緊獵刀準備好了。",
         "question": "How did the huntsman prepare to enter?",
         "options": [
-          "🎵 singing to warn the wolf",
-          "🔪 armed and ready to act",
-          "💤 quiet to let wolf sleep",
-          "🎁 carrying food as a gift"
+          "singing to warn the wolf",
+          "armed and ready to act",
+          "quiet to let wolf sleep",
+          "carrying food as a gift"
         ],
         "optionsZh": [
           "唱歌警告狼",
@@ -2712,10 +2715,10 @@
         "sentence": "What did the girl learn from the day?",
         "question": "What did she learn?",
         "options": [
-          "👂 to listen to mother",
-          "🍰 to bake cakes",
-          "🏃 to run faster",
-          "🎨 to pick flowers"
+          "to listen to mother",
+          "to bake cakes",
+          "to run faster",
+          "to pick flowers"
         ],
         "optionsZh": [
           "聽媽媽的話",
@@ -2874,10 +2877,10 @@
         "sentenceZh": "大野狼放棄了，他再也沒回到那片森林。",
         "question": "What happened to the wolf at the end?",
         "options": [
-          "🏆 became friends with girl",
-          "🏠 moved into grandma's house",
-          "😴 went back to sleep all day",
-          "🌲 left and never returned"
+          "became friends with girl",
+          "moved into grandma's house",
+          "went back to sleep all day",
+          "left and never returned"
         ],
         "optionsZh": [
           "跟女孩成了朋友",
@@ -2988,10 +2991,10 @@
         "sentenceZh": "「我以後一定走在路上，」她說。",
         "question": "How did the girl feel as she said this?",
         "options": [
-          "😤 still angry at the wolf",
-          "😴 just wanting to sleep",
-          "🌱 wiser and more careful",
-          "😂 laughing about it all"
+          "still angry at the wolf",
+          "just wanting to sleep",
+          "wiser and more careful",
+          "laughing about it all"
         ],
         "optionsZh": [
           "還是對狼很生氣",

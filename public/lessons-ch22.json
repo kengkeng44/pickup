@@ -94,63 +94,65 @@
       },
       {
         "id": "kt-ch22-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a market?",
-        "question": "Which one is a market?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏫 school",
-          "🏠 house",
-          "🌳 park",
-          "🏪 market"
+          "park",
+          "house",
+          "school",
+          "market"
         ],
         "optionsZh": [
-          "學校",
-          "房子",
           "公園",
+          "房子",
+          "學校",
           "市場"
         ],
         "correctIndex": 3,
-        "explanationZh": "market = 市場 🏪！孟子的媽媽帶他搬到市場旁邊——那裡很熱鬧。",
+        "explanationZh": "market = 市場 ！孟子的媽媽帶他搬到市場旁邊——那裡很熱鬧。",
         "tags": [
           "story",
           "ch22",
           "mencius-mother",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏪"
       },
       {
         "id": "kt-ch22-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows cloth?",
-        "question": "Which one shows cloth?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🧱 brick",
-          "🪵 wood",
-          "🧶 cloth",
-          "🪨 stone"
+          "wood",
+          "brick",
+          "cloth",
+          "stone"
         ],
         "optionsZh": [
-          "磚頭",
           "木頭",
+          "磚頭",
           "布",
           "石頭"
         ],
         "correctIndex": 2,
-        "explanationZh": "cloth = 布 🧶！孟子的媽媽用布做東西，把家裡的東西也裝進布袋裡搬走。",
+        "explanationZh": "cloth = 布 ！孟子的媽媽用布做東西，把家裡的東西也裝進布袋裡搬走。",
         "tags": [
           "story",
           "ch22",
           "mencius-mother",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🧶"
       },
       {
         "id": "kt-ch22-l1-pm1",
@@ -280,33 +282,34 @@
       },
       {
         "id": "kt-ch22-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a school?",
-        "question": "Which one shows a school?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏪 market",
-          "🏠 house",
-          "🏫 school",
-          "🌲 forest"
+          "forest",
+          "house",
+          "school",
+          "market"
         ],
         "optionsZh": [
-          "市場",
+          "森林",
           "房子",
           "學校",
-          "森林"
+          "市場"
         ],
         "correctIndex": 2,
-        "explanationZh": "school = 學校 🏫！孟子的媽媽最後搬到學校旁邊，讓孟子可以好好學習。",
+        "explanationZh": "school = 學校 ！孟子的媽媽最後搬到學校旁邊，讓孟子可以好好學習。",
         "tags": [
           "story",
           "ch22",
           "mencius-mother",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏫"
       },
       {
         "id": "kt-ch22-l2-gm1",
@@ -596,10 +599,10 @@
         "sentence": "What is happening to Meng again?",
         "question": "What is happening?",
         "options": [
-          "📖 he is reading books",
-          "🪞 he learns from what is near",
-          "🌙 he sleeps all day at home",
-          "🍎 he is hungry and wants food"
+          "he is reading books",
+          "he learns from what is near",
+          "he sleeps all day at home",
+          "he is hungry and wants food"
         ],
         "optionsZh": [
           "他在讀書",
@@ -809,10 +812,10 @@
         "sentence": "The sellers held up fish, fruit, and bread for the people.",
         "question": "What kind of place is this new neighbourhood?",
         "options": [
-          "📚 a quiet study hall",
-          "🛒 a busy shopping area",
-          "🌳 a calm park nearby",
-          "🏥 a peaceful hospital"
+          "a quiet study hall",
+          "a busy shopping area",
+          "a calm park nearby",
+          "a peaceful hospital"
         ],
         "optionsZh": [
           "安靜的自習室",
@@ -1083,10 +1086,10 @@
         "sentence": "How does the mother feel about moving again?",
         "question": "How does she feel?",
         "options": [
-          "😡 angry at her son",
-          "😢 too tired to try",
-          "💪 firm and sure",
-          "😱 scared of change"
+          "angry at her son",
+          "too tired to try",
+          "firm and sure",
+          "scared of change"
         ],
         "optionsZh": [
           "對兒子生氣",
@@ -1296,10 +1299,10 @@
         "sentence": "Meng waved sticks and called out prices just like the sellers.",
         "question": "What is Meng best at doing?",
         "options": [
-          "🔬 studying how things work",
-          "🎨 painting beautiful art",
-          "🪞 copying what he sees",
-          "🎵 writing his own songs"
+          "studying how things work",
+          "painting beautiful art",
+          "copying what he sees",
+          "writing his own songs"
         ],
         "optionsZh": [
           "研究事情怎麼運作",
@@ -1669,10 +1672,10 @@
         "sentence": "What does this house teach Meng?",
         "question": "What does this house teach?",
         "options": [
-          "💰 how to sell",
-          "⚔️ how to fight",
-          "🎵 how to dance",
-          "📖 how to learn"
+          "how to sell",
+          "how to fight",
+          "how to dance",
+          "how to learn"
         ],
         "optionsZh": [
           "怎麼賣東西",
@@ -1883,10 +1886,10 @@
         "sentence": "He sat down with a book and read out loud, too.",
         "question": "What kind of neighbour is best for Meng?",
         "options": [
-          "🏭 a large factory next door",
-          "🏪 a busy noisy market nearby",
-          "⛪ a quiet resting place close",
-          "🏫 a school with a good teacher"
+          "a large factory next door",
+          "a busy noisy market nearby",
+          "a quiet resting place close",
+          "a school with a good teacher"
         ],
         "optionsZh": [
           "隔壁大工廠",
@@ -2172,10 +2175,10 @@
         "sentence": "How did the mother teach her son this time?",
         "question": "How did she teach?",
         "options": [
-          "✂️ by showing with action",
-          "📢 by shouting loud",
-          "📝 by writing a long note",
-          "👋 by sending him away"
+          "by showing with action",
+          "by shouting loud",
+          "by writing a long note",
+          "by sending him away"
         ],
         "optionsZh": [
           "用行動表演給他看",
@@ -2384,10 +2387,10 @@
         "sentence": "Months of weaving were lost in one quick cut.",
         "question": "How does the cloth show the cost of quitting?",
         "options": [
-          "✂️ months of work gone in a moment",
-          "📦 cloth packed away for later",
-          "🎁 cloth given as a lovely gift",
-          "🛒 cloth sold away in the market"
+          "months of work gone in a moment",
+          "cloth packed away for later",
+          "cloth given as a lovely gift",
+          "cloth sold away in the market"
         ],
         "optionsZh": [
           "幾個月的工作一瞬間消失",
@@ -2658,10 +2661,10 @@
         "sentence": "What was the bravest thing the mother did?",
         "question": "What was her bravest act?",
         "options": [
-          "💪 lifting heavy things",
-          "🏠 changing her own home for him",
-          "🍳 cooking every meal for him",
-          "🎭 telling him many funny jokes"
+          "lifting heavy things",
+          "changing her own home for him",
+          "cooking every meal for him",
+          "telling him many funny jokes"
         ],
         "optionsZh": [
           "搬重物",
@@ -2870,10 +2873,10 @@
         "sentence": "The mother moved three times so Meng could find the right place to grow.",
         "question": "What word best describes this mother?",
         "options": [
-          "😴 careless",
-          "💪 determined",
-          "😡 impatient",
-          "😱 fearful"
+          "careless",
+          "determined",
+          "impatient",
+          "fearful"
         ],
         "optionsZh": [
           "粗心",

@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch16-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a needle?",
-        "question": "Which one is a needle?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪡 needle",
-          "🍴 fork",
-          "🪝 hook",
-          "🔑 key"
+          "spoon",
+          "chain",
+          "needle",
+          "brush"
         ],
         "optionsZh": [
+          "湯匙",
+          "鍊子",
           "縫衣針",
-          "叉子",
-          "鉤子",
-          "鑰匙"
+          "刷子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "needle = 縫衣針 🪡！故事裡，媽媽給一寸一根縫衣針當劍——這就是他的武器。",
+        "correctIndex": 2,
+        "explanationZh": "needle = 縫衣針 ！故事裡，媽媽給一寸一根縫衣針當劍——這就是他的武器。",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪡"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch16-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a bowl?",
-        "question": "Which one shows a bowl?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪣 bucket",
-          "🫙 jar",
-          "🍜 bowl",
-          "🪤 trap"
+          "bucket",
+          "trap",
+          "bowl",
+          "jar"
         ],
         "optionsZh": [
           "水桶",
-          "罐子",
+          "捕獸夾",
           "碗",
-          "捕獸夾"
+          "罐子"
         ],
         "correctIndex": 2,
-        "explanationZh": "bowl = 碗 🍜！爸爸給一寸一個飯碗，他把碗當作小船——多聰明！",
+        "explanationZh": "bowl = 碗 ！爸爸給一寸一個飯碗，他把碗當作小船——多聰明！",
         "tags": [
           "story",
           "ch16",
           "issun-boshi",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🍜"
       },
       {
         "type": "picture-mc",
@@ -287,19 +289,19 @@
         "sentence": "Which one shows a mallet?",
         "question": "Which one shows a mallet?",
         "options": [
-          "🪄 wand",
-          "🪓 axe",
-          "🗡️ blade",
-          "🔨 hammer"
+          "staff",
+          "spear",
+          "blade",
+          "hammer"
         ],
         "optionsZh": [
-          "魔杖",
-          "斧頭",
+          "長杖",
+          "長矛",
           "刀刃",
           "槌子"
         ],
         "correctIndex": 3,
-        "explanationZh": "mallet = 木槌 🔨！故事裡有一把神奇的小木槌，敲一下就能實現願望。",
+        "explanationZh": "mallet = 木槌 ！故事裡有一把神奇的小木槌，敲一下就能實現願望。",
         "tags": [
           "story",
           "ch16",
@@ -522,10 +524,10 @@
         "sentence": "Who did Issun wave goodbye to?",
         "question": "Who did he wave at?",
         "options": [
-          "👨‍🦳👵 his parents on the bank",
-          "🐟 the fish in the river",
-          "☁️ the soft white clouds",
-          "🏯 a tall castle far away"
+          "his parents on the bank",
+          "the fish in the river",
+          "the soft white clouds",
+          "a tall castle far away"
         ],
         "optionsZh": [
           "岸上的爸爸媽媽",
@@ -534,7 +536,7 @@
           "遠方高高的城堡"
         ],
         "correctIndex": 0,
-        "explanationZh": "waved goodbye + on the bank → 岸上的爸爸媽媽。",
+        "explanationZh": "waved goodbye + on the bank 岸上的爸爸媽媽。",
         "tags": [
           "story",
           "ch16",
@@ -727,10 +729,10 @@
         "sentenceZh": "一寸法師漂在河上時，是什麼感覺？",
         "question": "How did he feel?",
         "options": [
-          "🦁 brave and full of hope",
-          "😢 sad and missing home already",
-          "😴 sleepy and bored",
-          "😨 scared of the big water"
+          "brave and full of hope",
+          "sad and missing home already",
+          "sleepy and bored",
+          "scared of the big water"
         ],
         "optionsZh": [
           "勇敢又充滿希望",
@@ -962,10 +964,10 @@
         "sentence": "What job did Issun get?",
         "question": "What job did he get?",
         "options": [
-          "🐎 horse rider for the king",
-          "🍚 cook in the kitchen",
-          "🌱 farmer in the field",
-          "👮 guard for the princess"
+          "horse rider for the king",
+          "cook in the kitchen",
+          "farmer in the field",
+          "guard for the princess"
         ],
         "optionsZh": [
           "幫國王騎馬的人",
@@ -974,7 +976,7 @@
           "公主的侍衛"
         ],
         "correctIndex": 3,
-        "explanationZh": "serve + lord's daughter → 公主的侍衛。",
+        "explanationZh": "serve + lord's daughter 公主的侍衛。",
         "tags": [
           "story",
           "ch16",
@@ -1505,19 +1507,19 @@
         "sentence": "What did Issun pull out?",
         "question": "What did he pull out?",
         "options": [
-          "📜 a long letter",
-          "🍣 some lunch",
-          "🪡 his needle sword",
-          "🪙 some coins"
+          "a long letter",
+          "some warm lunch",
+          "his needle sword",
+          "some gold coins"
         ],
         "optionsZh": [
           "長長的信",
-          "一些午餐",
+          "一些熱午餐",
           "他的縫衣針劍",
-          "一些錢幣"
+          "一些金幣"
         ],
         "correctIndex": 2,
-        "explanationZh": "pulled out his sewing-needle sword → 縫衣針劍。",
+        "explanationZh": "pulled out his sewing-needle sword 縫衣針劍。",
         "tags": [
           "story",
           "ch16",
@@ -1946,10 +1948,10 @@
         "sentence": "How did the demon feel from inside?",
         "question": "How did the demon feel?",
         "options": [
-          "😴 sleepy and slow",
-          "😣 hurting and yelling",
-          "😊 happy and full",
-          "🤔 thinking calmly"
+          "sleepy and slow",
+          "hurting and yelling",
+          "happy and full",
+          "thinking calmly"
         ],
         "optionsZh": [
           "想睡又慢",
@@ -1958,7 +1960,7 @@
           "冷靜思考"
         ],
         "correctIndex": 1,
-        "explanationZh": "roar + hop foot to foot → 痛又大叫。",
+        "explanationZh": "roar + hop foot to foot 痛又大叫。",
         "tags": [
           "story",
           "ch16",
@@ -2151,10 +2153,10 @@
         "sentenceZh": "鬼怪最後是怎麼結束這場戰鬥的？",
         "question": "What did the demon do?",
         "options": [
-          "😴 fell asleep inside",
-          "🤢 spit Issun back out",
-          "🏃 ran away with Issun",
-          "🧊 turned to ice"
+          "fell asleep inside",
+          "spit Issun back out",
+          "ran away with Issun",
+          "turned to ice"
         ],
         "optionsZh": [
           "在裡面睡著",
@@ -2386,10 +2388,10 @@
         "sentence": "What happened to Issun?",
         "question": "What happened to him?",
         "options": [
-          "📏 he grew taller and taller",
-          "💤 he fell into a deep sleep",
-          "🐦 he turned into a bird",
-          "🪨 he turned to stone"
+          "he grew taller and taller",
+          "he fell into a deep sleep",
+          "he turned into a bird",
+          "he turned to stone"
         ],
         "optionsZh": [
           "他越變越高",
@@ -2398,7 +2400,7 @@
           "他變石頭"
         ],
         "correctIndex": 0,
-        "explanationZh": "tap tap tap + grew taller → 越變越高。",
+        "explanationZh": "tap tap tap + grew taller 越變越高。",
         "tags": [
           "story",
           "ch16",

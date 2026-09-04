@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch5-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows fire?",
-        "question": "Which one shows fire?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 water",
-          "🌬️ wind",
-          "🔥 fire",
-          "🪨 stone"
+          "stone",
+          "fire",
+          "water",
+          "wind"
         ],
         "optionsZh": [
-          "水",
-          "風",
+          "石頭",
           "火",
-          "石頭"
+          "水",
+          "風"
         ],
-        "correctIndex": 2,
-        "explanationZh": "fire = 火 🔥！故事裡小屋的火滅了，冷冷的夜裡沒有火，真的很可怕。",
+        "correctIndex": 1,
+        "explanationZh": "fire = 火 ！故事裡小屋的火滅了，冷冷的夜裡沒有火，真的很可怕。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🔥"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch5-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a forest?",
-        "question": "Which one shows a forest?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏔️ mountain",
-          "🌊 ocean",
-          "🏜️ desert",
-          "🌲 forest"
+          "ocean",
+          "mountain",
+          "forest",
+          "desert"
         ],
         "optionsZh": [
-          "山",
           "海洋",
-          "沙漠",
-          "森林"
+          "山",
+          "森林",
+          "沙漠"
         ],
-        "correctIndex": 3,
-        "explanationZh": "forest = 森林 🌲！Vasilisa 要走進一片深深的森林，去找 Baba Yaga 拿火。",
+        "correctIndex": 2,
+        "explanationZh": "forest = 森林 ！Vasilisa 要走進一片深深的森林，去找 Baba Yaga 拿火。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌲"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch5-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Which one shows a skull?",
-        "question": "Which one shows a skull?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "💀 a skull",
-          "🦴 a bone",
-          "🐚 a shell",
-          "🪨 a rock"
+          "a skull",
+          "a shell",
+          "a rock",
+          "a bone"
         ],
         "optionsZh": [
           "頭骨",
-          "骨頭",
           "貝殼",
-          "石頭"
+          "石頭",
+          "骨頭"
         ],
         "correctIndex": 0,
-        "explanationZh": "skull = 頭骨 💀！Baba Yaga 的圍籬柱子上，每根都放著一個頭骨，眼睛在黑暗裡發著光。",
+        "explanationZh": "skull = 頭骨 ！Baba Yaga 的圍籬柱子上，每根都放著一個頭骨，眼睛在黑暗裡發著光。",
         "tags": [
           "story",
           "ch5",
           "baba-yaga",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "💀"
       },
       {
         "type": "grammar-mc",
@@ -608,10 +611,10 @@
         "sentence": "What time did the red rider bring?",
         "question": "What time?",
         "options": [
-          "☀️ midday",
-          "🌅 morning",
-          "🌙 night",
-          "⭐ midnight"
+          "midday",
+          "morning",
+          "night",
+          "midnight"
         ],
         "optionsZh": [
           "中午",
@@ -1100,10 +1103,10 @@
         "sentence": "What was strange about the small house?",
         "question": "What was strange?",
         "options": [
-          "🌳 it grew on a tree",
-          "🐔 it stood on chicken legs",
-          "🪨 it sat on a rock",
-          "🛶 it floated on water"
+          "it grew on a tree",
+          "it stood on chicken legs",
+          "it sat on a rock",
+          "it floated on water"
         ],
         "optionsZh": [
           "長在樹上",
@@ -1687,10 +1690,10 @@
         "sentence": "How did Baba Yaga look?",
         "question": "How did she look?",
         "options": [
-          "👧 a young girl",
-          "👵 a very old woman",
-          "🧚 a kind fairy",
-          "🤴 a young king"
+          "a young girl",
+          "a very old woman",
+          "a kind fairy",
+          "a young king"
         ],
         "optionsZh": [
           "一個小女孩",
@@ -2170,10 +2173,10 @@
         "sentence": "What gave light in the room?",
         "question": "What gave light?",
         "options": [
-          "💡 a bright lamp",
-          "💀 glowing skulls",
-          "🔥 a fireplace",
-          "🕯️ small candles"
+          "a bright lamp",
+          "glowing skulls",
+          "a fireplace",
+          "small candles"
         ],
         "optionsZh": [
           "一盞亮燈",
@@ -2662,10 +2665,10 @@
         "sentence": "What did Vasilisa carry home?",
         "question": "What did she carry?",
         "options": [
-          "🔥 a burning log",
-          "🕯️ a small candle",
-          "💀 a glowing skull",
-          "🪨 a hot stone"
+          "a burning log",
+          "a small candle",
+          "a glowing skull",
+          "a hot stone"
         ],
         "optionsZh": [
           "一根燒著的木柴",

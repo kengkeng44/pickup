@@ -94,63 +94,65 @@
       },
       {
         "id": "kt-ch17-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a crane?",
-        "question": "Which one is a crane?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🕊️ crane",
-          "🦆 duck",
-          "🐦 sparrow",
-          "🦅 eagle"
+          "sparrow",
+          "crane",
+          "eagle",
+          "duck"
         ],
         "optionsZh": [
-          "鶴",
-          "鴨子",
           "麻雀",
-          "老鷹"
+          "鶴",
+          "老鷹",
+          "鴨子"
         ],
-        "correctIndex": 0,
-        "explanationZh": "crane = 鶴 🕊️！故事裡一隻白鶴被陷阱困住了，老人把牠救了出來。",
+        "correctIndex": 1,
+        "explanationZh": "crane = 鶴 ！故事裡一隻白鶴被陷阱困住了，老人把牠救了出來。",
         "tags": [
           "story",
           "ch17",
           "crane-gratitude",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🕊️"
       },
       {
         "id": "kt-ch17-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows snow?",
-        "question": "Which one shows snow?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "☀️ sun",
-          "🌧️ rain",
-          "❄️ snow",
-          "🌪️ wind"
+          "snow",
+          "wind",
+          "sun",
+          "rain"
         ],
         "optionsZh": [
-          "太陽",
-          "雨",
           "雪",
-          "風"
+          "風",
+          "太陽",
+          "雨"
         ],
-        "correctIndex": 2,
-        "explanationZh": "snow = 雪 ❄️！故事發生在寒冷的冬天，到處都是白白的雪。",
+        "correctIndex": 0,
+        "explanationZh": "snow = 雪 ！故事發生在寒冷的冬天，到處都是白白的雪。",
         "tags": [
           "story",
           "ch17",
           "crane-gratitude",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "❄️"
       },
       {
         "id": "kt-ch17-l1-pm1",
@@ -280,33 +282,34 @@
       },
       {
         "id": "kt-ch17-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a feather?",
-        "question": "Which one is a feather?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🪨 stone",
-          "🍃 leaf",
-          "🪶 feather",
-          "🌾 grass"
+          "petal",
+          "grass",
+          "stone",
+          "feather"
         ],
         "optionsZh": [
+          "花瓣",
+          "草",
           "石頭",
-          "葉子",
-          "羽毛",
-          "草"
+          "羽毛"
         ],
-        "correctIndex": 2,
-        "explanationZh": "feather = 羽毛 🪶！故事裡的鶴用自己的白色羽毛織出了美麗的布。",
+        "correctIndex": 3,
+        "explanationZh": "feather = 羽毛 ！故事裡的鶴用自己的白色羽毛織出了美麗的布。",
         "tags": [
           "story",
           "ch17",
           "crane-gratitude",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🪶"
       },
       {
         "id": "kt-ch17-l2-gm1",
@@ -522,10 +525,10 @@
         "sentence": "What rule did she give the old man?",
         "question": "What rule did she give?",
         "options": [
-          "🎵 sing a song every night",
-          "🍚 always eat rice first",
-          "💤 always sleep at noon",
-          "🚪 never look inside the room"
+          "sing a song every night",
+          "always eat rice first",
+          "always sleep at noon",
+          "never look inside the room"
         ],
         "optionsZh": [
           "每晚唱一首歌",
@@ -534,7 +537,7 @@
           "不要看房間裡面"
         ],
         "correctIndex": 3,
-        "explanationZh": "never look → 不要看房間裡面。",
+        "explanationZh": "never look 不要看房間裡面。",
         "tags": [
           "story",
           "ch17",
@@ -991,15 +994,15 @@
         "sentence": "What did the merchant pay?",
         "question": "What did he pay?",
         "options": [
-          "🐔 one small chicken",
-          "🥕 some vegetables",
-          "📖 an old book",
-          "💰 a big bag of gold"
+          "one small chicken",
+          "some vegetables",
+          "an old story book",
+          "a big bag of gold"
         ],
         "optionsZh": [
           "一隻小雞",
           "一些蔬菜",
-          "一本舊書",
+          "一本舊故事書",
           "一大袋金子"
         ],
         "correctIndex": 3,
@@ -1562,10 +1565,10 @@
         "sentence": "What strange sound did he hear?",
         "question": "What sound did he hear?",
         "options": [
-          "🐕 a big dog barking",
-          "🎻 violin music playing",
-          "👶 a small baby crying",
-          "🪶 feathers brushing wood"
+          "a big dog barking",
+          "violin music playing",
+          "a small baby crying",
+          "feathers brushing wood"
         ],
         "optionsZh": [
           "大狗在叫",
@@ -2031,10 +2034,10 @@
         "sentence": "What did the crane do with her feathers?",
         "question": "What did she do with them?",
         "options": [
-          "📦 put them in a box",
-          "🔥 burned them in fire",
-          "🍲 dropped them in soup",
-          "🧵 wove them into the cloth"
+          "put them in a box",
+          "burned them in fire",
+          "dropped them in soup",
+          "wove them into the cloth"
         ],
         "optionsZh": [
           "放進盒子",
@@ -2500,10 +2503,10 @@
         "sentence": "What happened when she stepped outside?",
         "question": "What happened outside?",
         "options": [
-          "🐱 a cat ran past the door",
-          "🌧️ it started to rain",
-          "🌳 a tall tree fell down",
-          "🕊️ she became a white crane"
+          "a cat ran past the door",
+          "it started to rain",
+          "a tall tree fell down",
+          "she became a white crane"
         ],
         "optionsZh": [
           "一隻貓跑過門口",
@@ -2512,7 +2515,7 @@
           "她變成白鶴"
         ],
         "correctIndex": 3,
-        "explanationZh": "走出去 → 變成白鶴 (magic transform A2 OK)。",
+        "explanationZh": "走出去 變成白鶴 (magic transform A2 OK)。",
         "tags": [
           "story",
           "ch17",

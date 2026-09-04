@@ -93,64 +93,66 @@
         ]
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch12-l1-ep1",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one is a cow?",
-        "question": "Which one is a cow?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐮 cow",
-          "🐑 sheep",
-          "🐷 pig",
-          "🐔 hen"
+          "sheep",
+          "pig",
+          "hen",
+          "cow"
         ],
         "optionsZh": [
-          "牛",
           "羊",
           "豬",
-          "母雞"
+          "母雞",
+          "牛"
         ],
-        "correctIndex": 0,
-        "explanationZh": "牛的英文是 cow 🐮！故事裡牛郎每天牽著一頭老牛到河邊——這就是故事的開始。",
+        "correctIndex": 3,
+        "explanationZh": "牛的英文是 cow ！故事裡牛郎每天牽著一頭老牛到河邊——這就是故事的開始。",
         "tags": [
           "story",
           "ch12",
           "cowherd-weaver",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🐮"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch12-l1-ep2",
         "level": "A2",
         "difficulty": "easy",
         "speaker": "narrator",
-        "sentence": "Which one shows a star?",
-        "question": "Which one shows a star?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌙 moon",
-          "☁️ cloud",
-          "⭐ star",
-          "🌊 wave"
+          "wave",
+          "cloud",
+          "moon",
+          "star"
         ],
         "optionsZh": [
-          "月亮",
+          "海浪",
           "雲",
-          "星星",
-          "海浪"
+          "月亮",
+          "星星"
         ],
-        "correctIndex": 2,
-        "explanationZh": "star = 星星 ⭐！故事裡牛郎和織女分隔在銀河兩岸，只能遙望星空。",
+        "correctIndex": 3,
+        "explanationZh": "star = 星星 ！故事裡牛郎和織女分隔在銀河兩岸，只能遙望星空。",
         "tags": [
           "story",
           "ch12",
           "cowherd-weaver",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⭐"
       },
       {
         "type": "picture-mc",
@@ -279,34 +281,35 @@
         "subSkill": "vocab"
       },
       {
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "id": "kt-ch12-l2-ep1",
         "level": "A2",
         "difficulty": "medium",
         "speaker": "narrator",
-        "sentence": "Which one shows a bridge?",
-        "question": "Which one shows a bridge?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🌊 river",
-          "🌉 bridge",
-          "⛰️ mountain",
-          "🌳 forest"
+          "river",
+          "forest",
+          "bridge",
+          "mountain"
         ],
         "optionsZh": [
           "河",
+          "森林",
           "橋",
-          "山",
-          "森林"
+          "山"
         ],
-        "correctIndex": 1,
-        "explanationZh": "bridge = 橋 🌉！故事裡喜鵲們在銀河上搭成一座橋，讓牛郎和織女每年七夕相見。",
+        "correctIndex": 2,
+        "explanationZh": "bridge = 橋 ！故事裡喜鵲們在銀河上搭成一座橋，讓牛郎和織女每年七夕相見。",
         "tags": [
           "story",
           "ch12",
           "cowherd-weaver",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌉"
       },
       {
         "type": "grammar-mc",
@@ -522,10 +525,10 @@
         "sentence": "How did the Heavenly Queen come down?",
         "question": "How did she travel?",
         "options": [
-          "🐎 on a wild horse",
-          "🚶 walked all the way",
-          "🚣 on a small boat",
-          "☁️ on a long cloud"
+          "on a wild horse",
+          "walked all the way",
+          "on a small boat",
+          "on a long cloud"
         ],
         "optionsZh": [
           "騎著野馬",
@@ -743,10 +746,10 @@
         "sentenceZh": "「織女，回去天上，你的工作在那裡。」",
         "question": "What did the Queen demand?",
         "options": [
-          "🎁 bring her a gift",
-          "🌸 pick more flowers",
-          "🌊 swim in the river",
-          "🏠 return to heaven"
+          "bring her a gift",
+          "pick more flowers",
+          "swim in the river",
+          "return to heaven"
         ],
         "optionsZh": [
           "帶禮物給她",
@@ -857,10 +860,10 @@
         "sentenceZh": "王母娘娘伸出那細長的手——接下來會發生什麼？",
         "question": "What was the Queen about to do?",
         "options": [
-          "🤝 offer to be friends",
-          "🎁 give them a present",
-          "🌊 part the silver river",
-          "🌸 pick a garden flower"
+          "offer to be friends",
+          "give them a present",
+          "part the silver river",
+          "pick a garden flower"
         ],
         "optionsZh": [
           "伸手要交朋友",
@@ -1026,10 +1029,10 @@
         "sentence": "What appeared in the sky after the Queen drew the line?",
         "question": "What appeared in the sky?",
         "options": [
-          "🌌 a silver river",
-          "🌳 a big tree",
-          "🏠 a stone house",
-          "🐅 a wild tiger"
+          "a silver river",
+          "a big tree",
+          "a stone house",
+          "a wild tiger"
         ],
         "optionsZh": [
           "銀色的河",
@@ -1247,10 +1250,10 @@
         "sentenceZh": "牛郎站在這一邊，織女站在遠遠的那一邊。",
         "question": "How did the silver river change things?",
         "options": [
-          "🌊 kept them far apart",
-          "🤝 brought them closer",
-          "🌸 gave them more flowers",
-          "🏠 built them a new home"
+          "kept them far apart",
+          "brought them closer",
+          "gave them more flowers",
+          "built them a new home"
         ],
         "optionsZh": [
           "把他們分得很遠",
@@ -1361,10 +1364,10 @@
         "sentenceZh": "銀河一直流，停不下來……",
         "question": "What feeling does the never-stopping river bring?",
         "options": [
-          "😊 happy and free",
-          "🎉 fun and celebrating",
-          "😴 calm and resting",
-          "💔 endless longing"
+          "happy and free",
+          "fun and celebrating",
+          "calm and resting",
+          "endless longing"
         ],
         "optionsZh": [
           "開心又自由",
@@ -1703,10 +1706,10 @@
         "sentence": "What does the old cow do for Niulang?",
         "question": "What does the cow do?",
         "options": [
-          "🛏️ tucks him in bed",
-          "🚪 closes the door",
-          "🍞 makes him bread",
-          "🐄 helps him fly"
+          "tucks him in bed",
+          "closes the door",
+          "makes him bread",
+          "helps him fly"
         ],
         "optionsZh": [
           "幫他蓋被",
@@ -1866,10 +1869,10 @@
         "sentenceZh": "「把我柔軟的皮拿去，像披風一樣穿上，」她說。",
         "question": "What did the cow offer to give Niulang?",
         "options": [
-          "🥛 fresh warm milk",
-          "🌿 a bunch of grass",
-          "🐄 her own soft skin",
-          "💧 cold river water"
+          "fresh warm milk",
+          "a bunch of grass",
+          "her own soft skin",
+          "cold river water"
         ],
         "optionsZh": [
           "新鮮的暖牛奶",
@@ -1980,10 +1983,10 @@
         "sentenceZh": "牛郎含著感激的淚，把柔軟的牛皮披上身。",
         "question": "How did Niulang feel as he put on the skin?",
         "options": [
-          "😡 angry at the cow",
-          "🥹 moved and thankful",
-          "😴 calm and sleepy",
-          "😂 laughing out loud"
+          "angry at the cow",
+          "moved and thankful",
+          "calm and sleepy",
+          "laughing out loud"
         ],
         "optionsZh": [
           "對老牛生氣",
@@ -2149,10 +2152,10 @@
         "sentence": "What did the magpies make in the sky?",
         "question": "What did they make?",
         "options": [
-          "🍰 a sweet cake",
-          "🏠 a small house",
-          "🎁 a big gift",
-          "🌉 a black bridge"
+          "a sweet cake",
+          "a small house",
+          "a big gift",
+          "a black bridge"
         ],
         "optionsZh": [
           "一塊甜蛋糕",
@@ -2370,10 +2373,10 @@
         "sentenceZh": "牛郎在橋上跑，織女從對面跑過來。",
         "question": "How did they move on the magpie bridge?",
         "options": [
-          "🚶 walked very slowly",
-          "🤔 stood still and waved",
-          "😴 sat and waited calmly",
-          "🏃 ran toward each other"
+          "walked very slowly",
+          "stood still and waved",
+          "sat and waited calmly",
+          "ran toward each other"
         ],
         "optionsZh": [
           "非常慢地走",
@@ -2484,10 +2487,10 @@
         "sentenceZh": "鵲橋只為今晚撐住，只為他們。",
         "question": "What does 'just for tonight' make you feel?",
         "options": [
-          "😊 totally relaxed",
-          "😡 angry at the bridge",
-          "💔 precious but soon gone",
-          "😴 ready for long sleep"
+          "totally relaxed",
+          "angry at the bridge",
+          "precious but soon gone",
+          "ready for long sleep"
         ],
         "optionsZh": [
           "完全放鬆",
@@ -2653,10 +2656,10 @@
         "sentence": "How often can Niulang and Zhinu meet?",
         "question": "How often do they meet?",
         "options": [
-          "🌟 once a year",
-          "🌞 every day",
-          "🌙 every month",
-          "🚫 never again"
+          "once a year",
+          "every day",
+          "every month",
+          "never again"
         ],
         "optionsZh": [
           "一年只見一次",
@@ -2873,10 +2876,10 @@
         "sentenceZh": "所以每年七夕，中華家庭都會抬頭看天。",
         "question": "Why do people look up at the sky on Qixi?",
         "options": [
-          "🌟 to see their two stars",
-          "🌧️ to check for rain",
-          "☀️ to watch the sunrise",
-          "🌙 to find the full moon"
+          "to see their two stars",
+          "to check for rain",
+          "to watch the sunrise",
+          "to find the full moon"
         ],
         "optionsZh": [
           "尋找那兩顆星",

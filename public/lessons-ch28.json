@@ -92,61 +92,63 @@
       },
       {
         "id": "kt-ch28-l1-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one is an arrow?",
-        "question": "Which one is an arrow?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🏹 arrow",
-          "⚔️ sword",
-          "🛡️ shield",
-          "🪃 boomerang"
+          "shield",
+          "arrow",
+          "sword",
+          "boomerang"
         ],
         "optionsZh": [
+          "盾",
           "箭",
           "劍",
-          "盾",
           "回旋鏢"
         ],
-        "correctIndex": 0,
-        "explanationZh": "箭的英文是 arrow 🏹！故事裡諸葛亮用稻草人借了十萬支箭——這就是故事最精彩的地方。",
+        "correctIndex": 1,
+        "explanationZh": "箭的英文是 arrow ！故事裡諸葛亮用稻草人借了十萬支箭——這就是故事最精彩的地方。",
         "tags": [
           "story",
           "ch28",
           "zhuge-liang-strategems",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🏹"
       },
       {
         "id": "kt-ch28-l1-ep2",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows fog?",
-        "question": "Which one shows fog?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "☀️ sunshine",
-          "🌧️ rain",
-          "🌫️ fog",
-          "⛄ snow"
+          "snow",
+          "fog",
+          "sunshine",
+          "rain"
         ],
         "optionsZh": [
-          "陽光",
-          "下雨",
+          "雪",
           "霧",
-          "雪"
+          "陽光",
+          "下雨"
         ],
-        "correctIndex": 2,
-        "explanationZh": "霧的英文是 fog 🌫️！故事裡諸葛亮選了一個大霧的夜晚行動——霧是他計畫裡最重要的工具。",
+        "correctIndex": 1,
+        "explanationZh": "霧的英文是 fog ！故事裡諸葛亮選了一個大霧的夜晚行動——霧是他計畫裡最重要的工具。",
         "tags": [
           "story",
           "ch28",
           "zhuge-liang-strategems",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "🌫️"
       },
       {
         "id": "kt-ch28-l1-pm1",
@@ -273,32 +275,33 @@
       },
       {
         "id": "kt-ch28-l2-ep1",
-        "type": "emoji-pick",
+        "type": "picture-mc",
         "level": "A2",
         "difficulty": "easy",
-        "sentence": "Which one shows a boat?",
-        "question": "Which one shows a boat?",
+        "sentence": "Which one matches the picture?",
+        "question": "Which one matches the picture?",
         "options": [
-          "🐎 horse",
-          "⛵ boat",
-          "🪵 log",
-          "🛖 hut"
+          "hut",
+          "boat",
+          "horse",
+          "log"
         ],
         "optionsZh": [
-          "馬",
+          "小屋",
           "船",
-          "木頭",
-          "小屋"
+          "馬",
+          "木頭"
         ],
         "correctIndex": 1,
-        "explanationZh": "船的英文是 boat ⛵！故事裡諸葛亮借來二十艘船，把稻草人排成一排等著「借箭」。",
+        "explanationZh": "船的英文是 boat ！故事裡諸葛亮借來二十艘船，把稻草人排成一排等著「借箭」。",
         "tags": [
           "story",
           "ch28",
           "zhuge-liang-strategems",
           "vocab"
         ],
-        "subSkill": "vocab"
+        "subSkill": "vocab",
+        "imageEmoji": "⛵"
       },
       {
         "id": "kt-ch28-l2-gm1",
@@ -585,10 +588,10 @@
         "sentence": "How did Liu Bei feel as he rode back down?",
         "question": "How did Liu Bei feel?",
         "options": [
-          "🎉 very happy",
-          "😴 ready to sleep",
-          "😡 really quite angry now",
-          "😞 a little sad"
+          "very happy",
+          "ready to sleep",
+          "really quite angry now",
+          "a little sad"
         ],
         "optionsZh": [
           "非常開心",
@@ -597,7 +600,7 @@
           "有一點難過"
         ],
         "correctIndex": 3,
-        "explanationZh": "白跑一趟，當然「有一點難過」——那個 😞 就是他下山的心情。",
+        "explanationZh": "白跑一趟，當然「有一點難過」——那個 就是他下山的心情。",
         "tags": [
           "story",
           "ch28",
@@ -858,10 +861,10 @@
         "sentence": "Liu Bei knocked, but Zhuge Liang was away. He left a message and promised to return.",
         "question": "Which best shows Liu Bei's response to this outcome?",
         "options": [
-          "😡 furious and storming away",
-          "🤝 graceful and ready to try again",
-          "😴 giving up and going to sleep",
-          "🏃 running away and never looking back"
+          "furious and storming away",
+          "graceful and ready to try again",
+          "giving up and going to sleep",
+          "running away and never looking back"
         ],
         "optionsZh": [
           "憤怒地摔門而去",
@@ -870,7 +873,7 @@
           "跑走，再也不回頭"
         ],
         "correctIndex": 1,
-        "explanationZh": "留下話、說會再來——「從容，準備再試一次」，那個 🤝 最像劉備面對挫折的方式。",
+        "explanationZh": "留下話、說會再來——「從容，準備再試一次」，那個 最像劉備面對挫折的方式。",
         "sentenceZh": "劉備敲了門，諸葛亮不在，他留下話，承諾會再來。",
         "tags": [
           "story",
@@ -1102,10 +1105,10 @@
         "sentence": "How did Liu Bei look as he rode home in the snow?",
         "question": "How did he look?",
         "options": [
-          "😄 carefree",
-          "😔 quiet and tired",
-          "😡 red with rage",
-          "🤔 thinking hard about giving up"
+          "carefree",
+          "quiet and tired",
+          "red with rage",
+          "thinking hard about giving up"
         ],
         "optionsZh": [
           "無憂無慮",
@@ -1375,10 +1378,10 @@
         "sentence": "Snow fell on Liu Bei. The wise man was still away. He promised to return once more.",
         "question": "Which best shows Liu Bei's spirit here?",
         "options": [
-          "🎉 celebrating with his brothers instead",
-          "🛌 giving up and resting at home",
-          "😡 angry and done with the whole thing",
-          "🌨️ facing the cold and pressing on"
+          "celebrating with his brothers instead",
+          "giving up and resting at home",
+          "angry and done with the whole thing",
+          "facing the cold and pressing on"
         ],
         "optionsZh": [
           "改和兄弟一起慶祝",
@@ -1387,7 +1390,7 @@
           "面對嚴寒，繼續前進"
         ],
         "correctIndex": 3,
-        "explanationZh": "雪裡來、又沒見到人——但他還是要再試，「面對嚴寒，繼續前進」，那個 🌨️ 最像劉備。",
+        "explanationZh": "雪裡來、又沒見到人——但他還是要再試，「面對嚴寒，繼續前進」，那個 最像劉備。",
         "sentenceZh": "雪落在劉備身上，智者還是不在，他承諾再回來一次。",
         "tags": [
           "story",
@@ -1716,10 +1719,10 @@
         "sentence": "What did Liu Bei show in this scene?",
         "question": "What did he show?",
         "options": [
-          "🛌 a love of sleep",
-          "💰 a love of money",
-          "⚔️ a love of fighting",
-          "🌱 patience and respect"
+          "a love of sleep",
+          "a love of money",
+          "a love of fighting",
+          "patience and respect"
         ],
         "optionsZh": [
           "愛睡覺",
@@ -1728,7 +1731,7 @@
           "耐心和尊重"
         ],
         "correctIndex": 3,
-        "explanationZh": "他堅持再去、不嫌煩——「耐心和尊重」就是劉備在這一幕展示的東西。那個 🌱 最像。",
+        "explanationZh": "他堅持再去、不嫌煩——「耐心和尊重」就是劉備在這一幕展示的東西。那個 最像。",
         "tags": [
           "story",
           "ch28",
@@ -1989,10 +1992,10 @@
         "sentence": "His brothers said to stop, but Liu Bei gently put his hand on the brother's shoulder and said they would go once more.",
         "question": "Which best shows Liu Bei's leadership?",
         "options": [
-          "😡 yelling to force the brothers to go",
-          "🤝 kind yet firm in what he believed",
-          "🏃 running ahead alone without the others",
-          "😴 too tired to explain his reasons"
+          "yelling to force the brothers to go",
+          "kind yet firm in what he believed",
+          "running ahead alone without the others",
+          "too tired to explain his reasons"
         ],
         "optionsZh": [
           "大喊強迫兄弟去",
@@ -2001,7 +2004,7 @@
           "太累了，懶得解釋"
         ],
         "correctIndex": 1,
-        "explanationZh": "輕輕放手、溫柔解釋——「溫柔又堅定，相信自己」，那個 🤝 最像劉備的領導風格。",
+        "explanationZh": "輕輕放手、溫柔解釋——「溫柔又堅定，相信自己」，那個 最像劉備的領導風格。",
         "sentenceZh": "兄弟說停，劉備輕輕把手放在兄弟肩上，說他們還要再去一次。",
         "tags": [
           "story",
@@ -2233,10 +2236,10 @@
         "sentence": "What did Liu Bei show by waiting in the cold?",
         "question": "What did he show?",
         "options": [
-          "🛌 he was very sleepy",
-          "🤝 he was full of respect",
-          "🍔 he was very hungry",
-          "🎯 he was in a rush"
+          "he was very sleepy",
+          "he was full of respect",
+          "he was very hungry",
+          "he was in a rush"
         ],
         "optionsZh": [
           "他很想睡",
@@ -2245,7 +2248,7 @@
           "他很急"
         ],
         "correctIndex": 1,
-        "explanationZh": "為了不打擾他休息，在冷風裡等——「充滿尊重」就是答案。那個 🤝 就是劉備的心意。",
+        "explanationZh": "為了不打擾他休息，在冷風裡等——「充滿尊重」就是答案。那個 就是劉備的心意。",
         "tags": [
           "story",
           "ch28",
@@ -2506,10 +2509,10 @@
         "sentence": "Liu Bei stood quiet in the cold wind, waiting for Zhuge Liang to wake up on his own.",
         "question": "Which best shows Liu Bei at this moment?",
         "options": [
-          "😴 falling asleep while waiting in the cold",
-          "😡 too angry to speak any longer",
-          "🎉 celebrating that the man was finally home",
-          "🧘 calm, patient, and deeply respectful"
+          "falling asleep while waiting in the cold",
+          "too angry to speak any longer",
+          "celebrating that the man was finally home",
+          "calm, patient, and deeply respectful"
         ],
         "optionsZh": [
           "在寒冷中等待時睡著",
@@ -2518,7 +2521,7 @@
           "平靜、有耐心、深深尊重"
         ],
         "correctIndex": 3,
-        "explanationZh": "在冷風中靜靜站著等——「平靜、有耐心、深深尊重」，那個 🧘 最像劉備這一刻。",
+        "explanationZh": "在冷風中靜靜站著等——「平靜、有耐心、深深尊重」，那個 最像劉備這一刻。",
         "sentenceZh": "劉備在冷風中靜靜站著，等諸葛亮自己醒來。",
         "tags": [
           "story",
@@ -2750,10 +2753,10 @@
         "sentence": "What is the main lesson from tonight's story?",
         "question": "What does the story teach?",
         "options": [
-          "💪 win every fight fast and never rest",
-          "🏃 run away from every hard thing you meet",
-          "💰 money can buy everything you need",
-          "🌱 a true heart and patience open every door"
+          "win every fight fast and never rest",
+          "run away from every hard thing you meet",
+          "money can buy everything you need",
+          "a true heart and patience open every door"
         ],
         "optionsZh": [
           "每場仗都要快贏,從不休息",
@@ -2762,7 +2765,7 @@
           "真心和耐心能打開每一扇門"
         ],
         "correctIndex": 3,
-        "explanationZh": "三次拜訪 + 在冷風等待 → 「真心和耐心能打開每一扇門」就是故事的道理。那個 🌱 就是這顆心。",
+        "explanationZh": "三次拜訪 + 在冷風等待 「真心和耐心能打開每一扇門」就是故事的道理。那個 就是這顆心。",
         "tags": [
           "story",
           "ch28",
@@ -3023,10 +3026,10 @@
         "sentence": "After three visits and patient waiting, Zhuge Liang finally opened his door and agreed to help.",
         "question": "Which best shows this moment?",
         "options": [
-          "😴 everyone too tired to celebrate at all",
-          "🌟 two great people joining forces at last",
-          "😡 Liu Bei still angry after the long wait",
-          "❓ Zhuge Liang still unsure what to do"
+          "everyone too tired to celebrate at all",
+          "two great people joining forces at last",
+          "Liu Bei still angry after the long wait",
+          "Zhuge Liang still unsure what to do"
         ],
         "optionsZh": [
           "所有人都累到沒力氣慶祝",
@@ -3035,7 +3038,7 @@
           "諸葛亮還是不確定該怎麼做"
         ],
         "correctIndex": 1,
-        "explanationZh": "三次、終於成功——「兩個偉大的人終於聯手」，那個 🌟 最像這個結局。",
+        "explanationZh": "三次、終於成功——「兩個偉大的人終於聯手」，那個 最像這個結局。",
         "sentenceZh": "三次拜訪、耐心等待，諸葛亮終於打開門，同意幫忙。",
         "tags": [
           "story",
