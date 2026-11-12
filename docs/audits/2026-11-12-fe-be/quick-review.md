@@ -23,8 +23,8 @@
 
 ## 沒修、建議下一步
 
-1. `public/mascots/preview/` 40MB、28 個檔、源碼 0 引用，每次部署都上傳。建議移出 `public/`（例如 `tools/mascot-preview/`）——依「清理只 review」規則等你確認。
-2. `public/todo-永久token設定.md` 仍在 public repo 且被打包上線（內部運維筆記，掃過無真憑證）。建議 `git rm`——等你確認。
+1. ✅（使用者確認後）`public/mascots/preview/` 40MB、28 個檔、源碼 0 引用 → 搬到 `tools/archive/mascot-preview/`，不再隨部署上傳。
+2. ✅（使用者確認後）`public/todo-永久token設定.md`：git 早在 `10d1b40` 移除，但檔案還留在本機 `public/`，本機部署時會被打包上線 → 移到被忽略的 `ops.local/`。
 3. 缺的 75 句 Ch1 語音：要嘛重跑 `tools/generate-grandma-audio.js` 補檔，要嘛接受 WebSpeech。
 4. renderers.tsx 有 10 處點擊後直接 `setTimeout(onAdvance)` 沒清除；目前有 `if (revealed) return` 擋重複，不會跳兩題，但離開課程時計時器仍會跑。可統一改用既有的 `useRevealAdvance`。
 5. Apple `verifyReceipt` 已被 Apple 標為棄用，正式上 IAP 前要改 App Store Server API。
