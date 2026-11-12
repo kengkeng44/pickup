@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// @ts-expect-error - Node global
 const PROD_URL: string = (typeof process !== 'undefined' && process?.env?.PICKUP_URL) || 'https://5849ee3a.pickupwords.pages.dev';
 
 type AudioEvent = {

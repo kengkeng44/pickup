@@ -5,6 +5,8 @@ import type { Ctx, Env } from '../../_lib/types';
 import { json, ensureProvisioned, auth, readBody, now } from '../../_lib/http';
 import { applyDelta } from '../../_lib/db';
 
+const APP_BUNDLE_ID = 'com.kengkeng44.pickup';
+
 // productId → 發多少金幣
 const COIN_PRODUCTS: Record<string, number> = {
   coins_pack_small: 500,
@@ -30,27 +32,43 @@ async function verifyApple(ctx: Ctx, userId: string, receipt: string): Promise<R
   if (!ctx.env.APPLE_SHARED_SECRET) return json({ error: 'apple_not_configured' }, 501);
   const body = JSON.stringify({ 'receipt-data': receipt, password: ctx.env.APPLE_SHARED_SECRET, 'exclude-old-transactions': true });
   let r = await fetch('https://buy.itunes.apple.com/verifyReceipt', { method: 'POST', body });
-  let data = await r.json() as { status: number; receipt?: { in_app?: Array<{ product_id: string; transaction_id: string }> } };
+  let data = await r.json() as { status: number; receipt?: { bundle_id?: string; in_app?: Array<{ product_id: string; transaction_id: string }> } };
   if (data.status === 21007) {
     // sandbox receipt → retry sandbox endpoint
     r = await fetch('https://sandbox.itunes.apple.com/verifyReceipt', { method: 'POST', body });
     data = await r.json() as typeof data;
   }
   if (data.status !== 0) return json({ error: 'apple_invalid', status: data.status }, 400);
+  // 收據必須是本 App 的 (對齊 capacitor.config.json appId), 否則別的 App 同名 productId 也能換幣
+  if (data.receipt?.bundle_id !== APP_BUNDLE_ID) return json({ error: 'apple_wrong_app' }, 400);
   const item = data.receipt?.in_app?.[data.receipt.in_app.length - 1];
   if (!item) return json({ error: 'apple_no_item' }, 400);
   return grant(ctx.env, userId, `apple:${item.transaction_id}`, 'apple', item.product_id, null, null);
 }
 
 // ── Stripe: webhook (checkout.session.completed) ────────────────────
+// 照 Stripe 官方做法: 時間戳超過 5 分鐘拒收 (防重放), header 可能帶多個 v1, 任一相符即可。
+// https://docs.stripe.com/webhooks#verify-manually
+const STRIPE_TOLERANCE_SEC = 300;
+
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
 async function verifyStripeSig(payload: string, sigHeader: string, secret: string): Promise<boolean> {
   try {
-    const parts = Object.fromEntries(sigHeader.split(',').map((kv) => kv.split('=')));
-    const signedPayload = `${parts.t}.${payload}`;
+    const pairs = sigHeader.split(',').map((kv) => kv.trim().split('='));
+    const t = Number(pairs.find(([k]) => k === 't')?.[1]);
+    const v1s = pairs.filter(([k]) => k === 'v1').map(([, v]) => v);
+    if (!Number.isFinite(t) || !v1s.length) return false;
+    if (Math.abs(Math.floor(Date.now() / 1000) - t) > STRIPE_TOLERANCE_SEC) return false;
     const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-    const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(signedPayload));
+    const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${t}.${payload}`));
     const hex = [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, '0')).join('');
-    return hex === parts.v1;
+    return v1s.some((v) => timingSafeEqual(hex, v));
   } catch { return false; }
 }
 

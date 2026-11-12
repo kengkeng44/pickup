@@ -16,10 +16,11 @@ export async function onRequestPost(ctx: Ctx): Promise<Response> {
   if (!token) return json({ error: 'bad_request' }, 400);
 
   const db = ctx.env.DB!;
-  const row = await db.prepare('SELECT * FROM login_tokens WHERE token = ?').bind(token).first<TokenRow>();
-  if (!row || row.used || row.expires_at < now()) return json({ error: 'invalid_or_expired' }, 401);
-
-  await db.prepare('UPDATE login_tokens SET used = 1 WHERE token = ?').bind(token).run();
+  // 先原子地「搶」這個 token (used 0→1), 搶到的那個請求才繼續; 同一連結點兩次只有一次成功
+  const claimed = await db.prepare('UPDATE login_tokens SET used = 1 WHERE token = ? AND used = 0 AND expires_at >= ?')
+    .bind(token, now()).run();
+  if (!claimed.meta?.changes) return json({ error: 'invalid_or_expired' }, 401);
+  const row = (await db.prepare('SELECT * FROM login_tokens WHERE token = ?').bind(token).first<TokenRow>())!;
 
   // resolve target user: existing email account → reuse; else bind anon; else create.
   const ts = now();

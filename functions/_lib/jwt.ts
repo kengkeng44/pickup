@@ -5,7 +5,7 @@ function b64urlEncode(bytes: Uint8Array): string {
   for (const b of bytes) s += String.fromCharCode(b);
   return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
-function b64urlDecode(str: string): Uint8Array {
+function b64urlDecode(str: string): Uint8Array<ArrayBuffer> {
   const pad = str.length % 4 ? 4 - (str.length % 4) : 0;
   const b64 = str.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat(pad);
   const bin = atob(b64);
@@ -30,7 +30,7 @@ export interface JwtPayload {
   [k: string]: unknown;
 }
 
-export async function signJwt(payload: Omit<JwtPayload, 'exp'> & { exp?: number }, secret: string, ttlSec = 60 * 60 * 24 * 365): Promise<string> {
+export async function signJwt(payload: { sub: string; exp?: number; [k: string]: unknown }, secret: string, ttlSec = 60 * 60 * 24 * 365): Promise<string> {
   const header = { alg: 'HS256', typ: 'JWT' };
   const body: JwtPayload = { ...payload, exp: payload.exp ?? Math.floor(Date.now() / 1000) + ttlSec };
   const enc = (o: unknown) => b64urlEncode(new TextEncoder().encode(JSON.stringify(o)));

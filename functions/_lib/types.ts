@@ -8,7 +8,7 @@ export interface D1Result<T = unknown> {
 export interface D1PreparedStatement {
   bind(...vals: unknown[]): D1PreparedStatement;
   first<T = unknown>(col?: string): Promise<T | null>;
-  run(): Promise<{ success: boolean }>;
+  run(): Promise<{ success: boolean; meta?: { changes?: number } }>;
   all<T = unknown>(): Promise<D1Result<T>>;
 }
 export interface D1Database {
@@ -20,6 +20,8 @@ export interface Env {
   DB?: D1Database;
   JWT_SECRET?: string;
   APP_ORIGIN?: string;
+  // Pages 自動注入的靜態檔 binding — 後端用它讀 lessons-ch*.json 驗證課程
+  ASSETS?: { fetch(req: Request | string): Promise<Response> };
   // P3 email (Resend)
   RESEND_API_KEY?: string;
   // P4 payments

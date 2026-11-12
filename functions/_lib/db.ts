@@ -51,6 +51,12 @@ export async function applyDelta(
   return (await getEconomy(env, userId))!;
 }
 
+// INSERT OR IGNORE 後問「這次有沒有真的插進去」— 同時送兩次時只有一個會拿到 true。
+export async function insertedOnce(stmt: { run(): Promise<{ meta?: { changes?: number } }> }): Promise<boolean> {
+  const r = await stmt.run();
+  return (r.meta?.changes ?? 0) > 0;
+}
+
 export async function setStreak(env: Env, userId: string, streak: number, ts: number): Promise<void> {
   await env.DB!.prepare('UPDATE economy SET streak = ?, last_active = ? WHERE user_id = ?').bind(streak, ts, userId).run();
 }

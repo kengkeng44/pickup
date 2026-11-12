@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// @ts-expect-error - Node global, tsc doesn't have @types/node
 const PROD_URL: string = (typeof process !== 'undefined' && process?.env?.PICKUP_URL) || 'https://pickupwords.pages.dev';
 
 test.describe('Q2 debug', () => {
