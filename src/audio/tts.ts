@@ -29,6 +29,12 @@ const audioLookup = new Map<string, string>();
 // narration chunks are 1st-person Mochi POV.
 const mochiTexts = new Set<string>();
 let lookupPromise: Promise<void> | null = null;
+// 實際有出貨的 mp3 檔名 (tools/gen-audio-manifest.cjs 建置時產生)。
+// 題目 ID 改名後音檔沒跟上 → 查表命中但檔案不存在, Pages 會回 index.html (200),
+// 白跑一趟還污染 SW 快取。不在清單裡就直接走 WebSpeech。清單抓不到 (null) = 舊行為。
+let shippedMp3: Set<string> | null = null;
+// 每次 speak / stop 遞增; 非同步載入回來時序號已變 = 使用者已經換題, 丟掉不播。
+let speakSeq = 0;
 
 function applyDefaults(s: string): string {
   return s.replace(/\{catName\}/g, 'Mochi').replace(/\{dogName\}/g, 'Hana');
@@ -64,6 +70,10 @@ export const CHAPTERS_WITH_MP3: ReadonlySet<number> = new Set([1]);
 import { isMuted } from '../data/muteSetting';
 
 async function loadAudioLookup(): Promise<void> {
+  try {
+    const res = await fetch('/audio/lessons/manifest.json');
+    if (res.ok) shippedMp3 = new Set(await res.json() as string[]);
+  } catch {}
   for (const ch of CHAPTERS_WITH_MP3) {
     try {
       const res = await fetch(`/lessons-ch${ch}.json`);
@@ -117,6 +127,14 @@ async function loadAudioLookup(): Promise<void> {
     for (const chunk of splitChunks(text)) mochiTexts.add(chunk);
   }
   return;
+}
+
+// 句子 → 有出貨的 mp3 檔名 (不含 .mp3); 沒對應或檔案沒出貨 → null
+function shippedMp3Base(cleaned: string): string | null {
+  const id = audioLookup.get(cleaned);
+  if (!id) return null;
+  const base = mochiTexts.has(cleaned) ? `mochi-${hash8(cleaned)}` : id;
+  return !shippedMp3 || shippedMp3.has(base) ? base : null;
 }
 
 function indexLookup(rawSentence: string, fullId: string): void {
@@ -211,10 +229,12 @@ async function loadBuffer(url: string): Promise<AudioBuffer | null> {
   if (!ctx) return null;
   try {
     const res = await fetch(url);
-    if (!res.ok) return null;
+    if (!res.ok || !(res.headers.get('content-type') ?? 'audio').startsWith('audio')) return null;
     const ab = await res.arrayBuffer();
     const buf = await new Promise<AudioBuffer>((resolve, reject) => {
-      ctx.decodeAudioData(ab.slice(0), resolve, reject);
+      // callback 版給舊 iOS; 新瀏覽器同時回 Promise, 失敗時它也會 reject → 要接住, 否則變未處理錯誤
+      const p = ctx.decodeAudioData(ab.slice(0), resolve, reject) as Promise<AudioBuffer> | undefined;
+      p?.catch?.(() => {});
     });
     cacheSet(url, buf);
     return buf;
@@ -361,12 +381,12 @@ export function speak(
 
   const mapSize = audioLookup.size;
   const isMochi = mochiTexts.has(cleaned);
-  const audioId = audioLookup.get(cleaned);
+  const fileBase = shippedMp3Base(cleaned);
+  const audioId = fileBase ? audioLookup.get(cleaned) : undefined;
+  const seq = speakSeq;
 
-  if (audioId) {
-    const url = isMochi
-      ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
-      : `/audio/lessons/${audioId}.mp3`;
+  if (fileBase) {
+    const url = `/audio/lessons/${fileBase}.mp3`;
     debugLog(`${isMochi?'🐱':'👵'} speak: ${audioId} map=${mapSize}`);
 
     // PRIMARY: Web Audio cached buffer (instant, gesture-token-immune)
@@ -380,6 +400,7 @@ export function speak(
 
     // SECONDARY: async load + play once loaded
     void loadBuffer(url).then(buf => {
+      if (seq !== speakSeq) return; // 載入期間已換題 / 停止, 不要回頭補念舊句
       if (buf) {
         if (playBuffer(buf, rate)) debugLog(`webaudio play (post-load) OK: ${audioId}`);
         else fallbackWebSpeech(cleaned, lang, rate);
@@ -395,6 +416,7 @@ export function speak(
 }
 
 export function stopSpeaking(): void {
+  speakSeq++;
   // v2.0.B.160: drop pending onEnd callback FIRST so cancelled audio
   // doesn't fire stale advance() against new lesson state.
   speechEndCallback = null;
@@ -435,11 +457,8 @@ export function isTtsSupported(): boolean {
 export function mp3UrlFor(text: string): string | null {
   const cleaned = cleanText(text);
   if (!cleaned) return null;
-  const audioId = audioLookup.get(cleaned);
-  if (!audioId) return null;
-  return mochiTexts.has(cleaned)
-    ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
-    : `/audio/lessons/${audioId}.mp3`;
+  const base = shippedMp3Base(cleaned);
+  return base ? `/audio/lessons/${base}.mp3` : null;
 }
 
 export function ensureLookupReady(): Promise<void> {
@@ -464,12 +483,8 @@ export async function preloadLessonAudio(sentences: string[]): Promise<void> {
   for (const raw of sentences) {
     const cleaned = cleanText(raw);
     if (!cleaned) continue;
-    const audioId = audioLookup.get(cleaned);
-    if (!audioId) continue;
-    const url = mochiTexts.has(cleaned)
-      ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
-      : `/audio/lessons/${audioId}.mp3`;
-    urls.add(url);
+    const base = shippedMp3Base(cleaned);
+    if (base) urls.add(`/audio/lessons/${base}.mp3`);
   }
   await Promise.allSettled(Array.from(urls).map(u => loadBuffer(u)));
 }
@@ -490,12 +505,9 @@ export async function warmUpChapterAudio(chapter: number): Promise<void> {
   }
   // Collect all URLs to preload (mochi-{hash} for Mochi POV, otherwise audioId)
   const urls = new Set<string>();
-  for (const [text, id] of audioLookup.entries()) {
-    if (mochiTexts.has(text)) {
-      urls.add(`/audio/lessons/mochi-${hash8(text)}.mp3`);
-    } else {
-      urls.add(`/audio/lessons/${id}.mp3`);
-    }
+  for (const text of audioLookup.keys()) {
+    const base = shippedMp3Base(text);
+    if (base) urls.add(`/audio/lessons/${base}.mp3`);
   }
   // Parallel fetch + decode — race the lot, ignore individual failures
   await Promise.allSettled(Array.from(urls).map(u => loadBuffer(u)));
@@ -566,11 +578,11 @@ function unlockAudio(): void {
   // gesture may see an empty map).
   void ensureLookup().then(() => {
     try {
-      const preloadUrls = Array.from(audioLookup.entries()).slice(0, 32).map(([text, id]) => {
-        return mochiTexts.has(text)
-          ? `/audio/lessons/mochi-${hash8(text)}.mp3`
-          : `/audio/lessons/${id}.mp3`;
-      });
+      const preloadUrls = Array.from(audioLookup.keys())
+        .map(shippedMp3Base)
+        .filter((b): b is string => !!b)
+        .slice(0, 32)
+        .map((b) => `/audio/lessons/${b}.mp3`);
       for (const url of preloadUrls) void loadBuffer(url);
     } catch {}
   });

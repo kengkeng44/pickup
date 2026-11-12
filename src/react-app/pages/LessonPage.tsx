@@ -350,7 +350,9 @@ export default function LessonPage() {
       )}
       {/* 內容區: 內容短=置中不外溢; 內容長(有原文)才往上滑看, 永不往下滑到空白 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-        <Renderer q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
+        {/* key=idx: 每題全新 mount — 同題型連續出現時不會先閃一格上一題的「已揭曉」狀態
+            (各 renderer 的 [q.id] reset effect 是在 paint 之後才跑, 那一格會看到正解高亮) */}
+        <Renderer key={idx} q={q} onAdvance={onAdvance} onAnswer={onAnswer} />
       </div>
 
       {/* v2.0.B.549 (per user): 分享 / 回報 只在答完後於底部出現 — 答題中不干擾, 對齊繼續按鈕區域。 */}

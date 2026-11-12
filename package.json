@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate && npm run check:circular && npm test && tsc && vite build && node tools/bump-sw-version.cjs",
+    "build": "node tools/gen-audio-manifest.cjs && npm run validate && npm run check:circular && npm test && tsc && vite build && node tools/bump-sw-version.cjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

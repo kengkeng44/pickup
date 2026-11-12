@@ -90,7 +90,10 @@ self.addEventListener('fetch', (event) => {
       caches.match(request).then((cached) => {
         if (cached) return cached;
         return fetch(request).then((res) => {
-          if (res.ok) {
+          // 檔案不存在時 Pages 回 index.html (200) — 不要把 HTML 當 mp3 / 圖片 / JSON 存進 60 格的 LRU,
+          // 會把真的課程和圖片擠出去
+          const isHtml = (res.headers.get('content-type') || '').startsWith('text/html');
+          if (res.ok && !isHtml) {
             const sizeHeader = res.headers.get('content-length');
             const size = sizeHeader ? parseInt(sizeHeader, 10) : 0;
             // Skip >500KB items (prevent iOS quota saturation)
